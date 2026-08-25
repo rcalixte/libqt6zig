@@ -52,9 +52,8 @@ QMetaObject* KToggleToolBarAction_SuperMetaObject(const KToggleToolBarAction* se
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnMetaObject(const KToggleToolBarAction* self, intptr_t slot) {
     auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
         vktoggletoolbaraction->setKToggleToolBarAction_MetaObject_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -71,9 +70,8 @@ void* KToggleToolBarAction_SuperMetacast(KToggleToolBarAction* self, const char*
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnMetacast(KToggleToolBarAction* self, intptr_t slot) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
         vktoggletoolbaraction->setKToggleToolBarAction_Metacast_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -90,9 +88,8 @@ int KToggleToolBarAction_SuperMetacall(KToggleToolBarAction* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnMetacall(KToggleToolBarAction* self, intptr_t slot) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
         vktoggletoolbaraction->setKToggleToolBarAction_Metacall_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -109,9 +106,8 @@ bool KToggleToolBarAction_SuperEventFilter(KToggleToolBarAction* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnEventFilter(KToggleToolBarAction* self, intptr_t slot) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
         vktoggletoolbaraction->setKToggleToolBarAction_EventFilter_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -138,9 +134,8 @@ bool KToggleToolBarAction_SuperEvent(KToggleToolBarAction* self, QEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnEvent(KToggleToolBarAction* self, intptr_t slot) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
         vktoggletoolbaraction->setKToggleToolBarAction_Event_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -167,9 +162,8 @@ void KToggleToolBarAction_SuperTimerEvent(KToggleToolBarAction* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnTimerEvent(KToggleToolBarAction* self, intptr_t slot) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
         vktoggletoolbaraction->setKToggleToolBarAction_TimerEvent_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -196,9 +190,8 @@ void KToggleToolBarAction_SuperChildEvent(KToggleToolBarAction* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnChildEvent(KToggleToolBarAction* self, intptr_t slot) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
         vktoggletoolbaraction->setKToggleToolBarAction_ChildEvent_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -225,9 +218,8 @@ void KToggleToolBarAction_SuperCustomEvent(KToggleToolBarAction* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnCustomEvent(KToggleToolBarAction* self, intptr_t slot) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
         vktoggletoolbaraction->setKToggleToolBarAction_CustomEvent_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -254,9 +246,8 @@ void KToggleToolBarAction_SuperConnectNotify(KToggleToolBarAction* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnConnectNotify(KToggleToolBarAction* self, intptr_t slot) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
         vktoggletoolbaraction->setKToggleToolBarAction_ConnectNotify_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -283,9 +274,8 @@ void KToggleToolBarAction_SuperDisconnectNotify(KToggleToolBarAction* self, cons
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnDisconnectNotify(KToggleToolBarAction* self, intptr_t slot) {
     auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
         vktoggletoolbaraction->setKToggleToolBarAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -312,9 +302,8 @@ QObject* KToggleToolBarAction_SuperSender(const KToggleToolBarAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnSender(const KToggleToolBarAction* self, intptr_t slot) {
     auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
         vktoggletoolbaraction->setKToggleToolBarAction_Sender_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -341,9 +330,8 @@ int KToggleToolBarAction_SuperSenderSignalIndex(const KToggleToolBarAction* self
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnSenderSignalIndex(const KToggleToolBarAction* self, intptr_t slot) {
     auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
         vktoggletoolbaraction->setKToggleToolBarAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -370,9 +358,8 @@ int KToggleToolBarAction_SuperReceivers(const KToggleToolBarAction* self, const 
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnReceivers(const KToggleToolBarAction* self, intptr_t slot) {
     auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
         vktoggletoolbaraction->setKToggleToolBarAction_Receivers_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -399,9 +386,8 @@ bool KToggleToolBarAction_SuperIsSignalConnected(const KToggleToolBarAction* sel
 // Auxiliary method to allow providing re-implementation
 void KToggleToolBarAction_OnIsSignalConnected(const KToggleToolBarAction* self, intptr_t slot) {
     auto* vktoggletoolbaraction = const_cast<VirtualKToggleToolBarAction*>(dynamic_cast<const VirtualKToggleToolBarAction*>(self));
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
+    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction)
         vktoggletoolbaraction->setKToggleToolBarAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKToggleToolBarAction::KToggleToolBarAction_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KToggleToolBarAction_Delete(KToggleToolBarAction* self) {

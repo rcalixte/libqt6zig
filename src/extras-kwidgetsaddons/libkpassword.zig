@@ -46,7 +46,7 @@ pub const KPassword = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kpassword.html#public-types)
 pub const enums = struct {
-    pub const RevealMode = enum(i32) {
+    pub const RevealMode = enum {
         pub const OnlyNew: i32 = 0;
         pub const Never: i32 = 1;
         pub const Always: i32 = 2;

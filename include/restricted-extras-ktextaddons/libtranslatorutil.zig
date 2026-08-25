@@ -525,7 +525,7 @@ pub const TextTranslator__TranslatorUtil__TranslatorSettings = extern struct {
 };
 
 pub const enums = struct {
-    pub const Language = enum(i32) {
+    pub const Language = enum {
         pub const Automatic: i32 = 0;
         pub const En: i32 = 1;
         pub const Bs: i32 = 2;

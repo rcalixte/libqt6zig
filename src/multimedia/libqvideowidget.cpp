@@ -152,9 +152,8 @@ QMetaObject* QVideoWidget_SuperMetaObject(const QVideoWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMetaObject(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_MetaObject_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -171,9 +170,8 @@ void* QVideoWidget_SuperMetacast(QVideoWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMetacast(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_Metacast_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -190,9 +188,8 @@ int QVideoWidget_SuperMetacall(QVideoWidget* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMetacall(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_Metacall_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -209,9 +206,8 @@ QSize* QVideoWidget_SuperSizeHint(const QVideoWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnSizeHint(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_SizeHint_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -228,9 +224,8 @@ bool QVideoWidget_SuperEvent(QVideoWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_Event_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -247,9 +242,8 @@ void QVideoWidget_SuperShowEvent(QVideoWidget* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnShowEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_ShowEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -266,9 +260,8 @@ void QVideoWidget_SuperHideEvent(QVideoWidget* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnHideEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_HideEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -285,9 +278,8 @@ void QVideoWidget_SuperResizeEvent(QVideoWidget* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnResizeEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -304,9 +296,8 @@ void QVideoWidget_SuperMoveEvent(QVideoWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMoveEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_MoveEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +324,8 @@ int QVideoWidget_SuperDevType(const QVideoWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnDevType(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_DevType_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +352,8 @@ void QVideoWidget_SuperSetVisible(QVideoWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnSetVisible(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_SetVisible_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +380,8 @@ QSize* QVideoWidget_SuperMinimumSizeHint(const QVideoWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMinimumSizeHint(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +408,8 @@ int QVideoWidget_SuperHeightForWidth(const QVideoWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnHeightForWidth(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +436,8 @@ bool QVideoWidget_SuperHasHeightForWidth(const QVideoWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnHasHeightForWidth(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +464,8 @@ QPaintEngine* QVideoWidget_SuperPaintEngine(const QVideoWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnPaintEngine(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_PaintEngine_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +492,8 @@ void QVideoWidget_SuperMousePressEvent(QVideoWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMousePressEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +520,8 @@ void QVideoWidget_SuperMouseReleaseEvent(QVideoWidget* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMouseReleaseEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +548,8 @@ void QVideoWidget_SuperMouseDoubleClickEvent(QVideoWidget* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMouseDoubleClickEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +576,8 @@ void QVideoWidget_SuperMouseMoveEvent(QVideoWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMouseMoveEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -623,9 +604,8 @@ void QVideoWidget_SuperWheelEvent(QVideoWidget* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnWheelEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_WheelEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -652,9 +632,8 @@ void QVideoWidget_SuperKeyPressEvent(QVideoWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnKeyPressEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -681,9 +660,8 @@ void QVideoWidget_SuperKeyReleaseEvent(QVideoWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnKeyReleaseEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -710,9 +688,8 @@ void QVideoWidget_SuperFocusInEvent(QVideoWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnFocusInEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -739,9 +716,8 @@ void QVideoWidget_SuperFocusOutEvent(QVideoWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnFocusOutEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -768,9 +744,8 @@ void QVideoWidget_SuperEnterEvent(QVideoWidget* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnEnterEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_EnterEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -797,9 +772,8 @@ void QVideoWidget_SuperLeaveEvent(QVideoWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnLeaveEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -826,9 +800,8 @@ void QVideoWidget_SuperPaintEvent(QVideoWidget* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnPaintEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_PaintEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +828,8 @@ void QVideoWidget_SuperCloseEvent(QVideoWidget* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnCloseEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_CloseEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -884,9 +856,8 @@ void QVideoWidget_SuperContextMenuEvent(QVideoWidget* self, QContextMenuEvent* e
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnContextMenuEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -913,9 +884,8 @@ void QVideoWidget_SuperTabletEvent(QVideoWidget* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnTabletEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_TabletEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +912,8 @@ void QVideoWidget_SuperActionEvent(QVideoWidget* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnActionEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_ActionEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +940,8 @@ void QVideoWidget_SuperDragEnterEvent(QVideoWidget* self, QDragEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnDragEnterEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +968,8 @@ void QVideoWidget_SuperDragMoveEvent(QVideoWidget* self, QDragMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnDragMoveEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +996,8 @@ void QVideoWidget_SuperDragLeaveEvent(QVideoWidget* self, QDragLeaveEvent* event
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnDragLeaveEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1058,9 +1024,8 @@ void QVideoWidget_SuperDropEvent(QVideoWidget* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnDropEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_DropEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1089,9 +1054,8 @@ bool QVideoWidget_SuperNativeEvent(QVideoWidget* self, const libqt_string eventT
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnNativeEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_NativeEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1118,9 +1082,8 @@ void QVideoWidget_SuperChangeEvent(QVideoWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnChangeEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1147,9 +1110,8 @@ int QVideoWidget_SuperMetric(const QVideoWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnMetric(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_Metric_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1176,9 +1138,8 @@ void QVideoWidget_SuperInitPainter(const QVideoWidget* self, QPainter* painter) 
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnInitPainter(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_InitPainter_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1205,9 +1166,8 @@ QPaintDevice* QVideoWidget_SuperRedirected(const QVideoWidget* self, QPoint* off
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnRedirected(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_Redirected_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1234,9 +1194,8 @@ QPainter* QVideoWidget_SuperSharedPainter(const QVideoWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnSharedPainter(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_SharedPainter_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1263,9 +1222,8 @@ void QVideoWidget_SuperInputMethodEvent(QVideoWidget* self, QInputMethodEvent* p
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnInputMethodEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1292,9 +1250,8 @@ QVariant* QVideoWidget_SuperInputMethodQuery(const QVideoWidget* self, int param
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnInputMethodQuery(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1321,9 +1278,8 @@ bool QVideoWidget_SuperFocusNextPrevChild(QVideoWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnFocusNextPrevChild(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1350,9 +1306,8 @@ bool QVideoWidget_SuperEventFilter(QVideoWidget* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnEventFilter(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_EventFilter_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1379,9 +1334,8 @@ void QVideoWidget_SuperTimerEvent(QVideoWidget* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnTimerEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_TimerEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1408,9 +1362,8 @@ void QVideoWidget_SuperChildEvent(QVideoWidget* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnChildEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_ChildEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1437,9 +1390,8 @@ void QVideoWidget_SuperCustomEvent(QVideoWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnCustomEvent(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_CustomEvent_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1466,9 +1418,8 @@ void QVideoWidget_SuperConnectNotify(QVideoWidget* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnConnectNotify(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_ConnectNotify_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1495,9 +1446,8 @@ void QVideoWidget_SuperDisconnectNotify(QVideoWidget* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnDisconnectNotify(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1524,9 +1474,8 @@ void QVideoWidget_SuperUpdateMicroFocus(QVideoWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnUpdateMicroFocus(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1553,9 +1502,8 @@ void QVideoWidget_SuperCreate(QVideoWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnCreate(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_Create_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1582,9 +1530,8 @@ void QVideoWidget_SuperDestroy(QVideoWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnDestroy(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_Destroy_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1611,9 +1558,8 @@ bool QVideoWidget_SuperFocusNextChild(QVideoWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnFocusNextChild(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_FocusNextChild_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1640,9 +1586,8 @@ bool QVideoWidget_SuperFocusPreviousChild(QVideoWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnFocusPreviousChild(QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1669,9 +1614,8 @@ QObject* QVideoWidget_SuperSender(const QVideoWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnSender(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_Sender_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1698,9 +1642,8 @@ int QVideoWidget_SuperSenderSignalIndex(const QVideoWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnSenderSignalIndex(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1727,9 +1670,8 @@ int QVideoWidget_SuperReceivers(const QVideoWidget* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnReceivers(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_Receivers_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1756,9 +1698,8 @@ bool QVideoWidget_SuperIsSignalConnected(const QVideoWidget* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnIsSignalConnected(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1785,9 +1726,8 @@ double QVideoWidget_SuperGetDecodedMetricF(const QVideoWidget* self, int metricA
 // Auxiliary method to allow providing re-implementation
 void QVideoWidget_OnGetDecodedMetricF(const QVideoWidget* self, intptr_t slot) {
     auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget)
         vqvideowidget->setQVideoWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QVideoWidget_Delete(QVideoWidget* self) {

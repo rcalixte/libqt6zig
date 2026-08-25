@@ -32,6 +32,8 @@ typedef struct QWidget QWidget;
 
 QLayout* QLayout_new(QWidget* parent);
 QLayout* QLayout_new2();
+QLayoutItem* QLayout_AsQLayoutItem(QLayout* self);
+QLayout* QLayout_FromQLayoutItem(QLayoutItem* _qlayoutitem);
 QMetaObject* QLayout_MetaObject(const QLayout* self);
 void* QLayout_Metacast(QLayout* self, const char* param1);
 int QLayout_Metacall(QLayout* self, int param1, int param2, void** param3);

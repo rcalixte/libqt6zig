@@ -1320,7 +1320,7 @@ pub const Solid__NetworkShare = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/solid-networkshare.html#public-types)
 pub const enums = struct {
-    pub const ShareType = enum(i32) {
+    pub const ShareType = enum {
         pub const Unknown: i32 = 0;
         pub const Nfs: i32 = 1;
         pub const Cifs: i32 = 2;

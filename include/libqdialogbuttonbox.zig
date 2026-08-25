@@ -922,6 +922,31 @@ pub const QDialogButtonBox = extern struct {
         return _ret;
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDialogButtonBox `
+    ///
+    pub fn asQPaintDevice(self: QDialogButtonBox) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QDialogButtonBox object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QDialogButtonBox {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6906,7 +6931,7 @@ pub const QDialogButtonBox = extern struct {
     /// ` self: QDialogButtonBox `
     ///
     pub fn paintingActive(self: QDialogButtonBox) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6922,7 +6947,7 @@ pub const QDialogButtonBox = extern struct {
     /// ` self: QDialogButtonBox `
     ///
     pub fn widthMM(self: QDialogButtonBox) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6938,7 +6963,7 @@ pub const QDialogButtonBox = extern struct {
     /// ` self: QDialogButtonBox `
     ///
     pub fn heightMM(self: QDialogButtonBox) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6954,7 +6979,7 @@ pub const QDialogButtonBox = extern struct {
     /// ` self: QDialogButtonBox `
     ///
     pub fn logicalDpiX(self: QDialogButtonBox) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6970,7 +6995,7 @@ pub const QDialogButtonBox = extern struct {
     /// ` self: QDialogButtonBox `
     ///
     pub fn logicalDpiY(self: QDialogButtonBox) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6986,7 +7011,7 @@ pub const QDialogButtonBox = extern struct {
     /// ` self: QDialogButtonBox `
     ///
     pub fn physicalDpiX(self: QDialogButtonBox) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7002,7 +7027,7 @@ pub const QDialogButtonBox = extern struct {
     /// ` self: QDialogButtonBox `
     ///
     pub fn physicalDpiY(self: QDialogButtonBox) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7018,7 +7043,7 @@ pub const QDialogButtonBox = extern struct {
     /// ` self: QDialogButtonBox `
     ///
     pub fn devicePixelRatio(self: QDialogButtonBox) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7034,7 +7059,7 @@ pub const QDialogButtonBox = extern struct {
     /// ` self: QDialogButtonBox `
     ///
     pub fn devicePixelRatioF(self: QDialogButtonBox) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7050,7 +7075,7 @@ pub const QDialogButtonBox = extern struct {
     /// ` self: QDialogButtonBox `
     ///
     pub fn colorCount(self: QDialogButtonBox) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7066,7 +7091,7 @@ pub const QDialogButtonBox = extern struct {
     /// ` self: QDialogButtonBox `
     ///
     pub fn depth(self: QDialogButtonBox) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10488,7 +10513,7 @@ pub const QDialogButtonBox = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialogbuttonbox.html#public-types)
 pub const enums = struct {
-    pub const ButtonRole = enum(i32) {
+    pub const ButtonRole = enum {
         pub const InvalidRole: i32 = -1;
         pub const AcceptRole: i32 = 0;
         pub const RejectRole: i32 = 1;
@@ -10502,7 +10527,7 @@ pub const enums = struct {
         pub const NRoles: i32 = 9;
     };
 
-    pub const StandardButton = enum(i32) {
+    pub const StandardButton = enum {
         pub const NoButton: i32 = 0;
         pub const Ok: i32 = 1024;
         pub const Save: i32 = 2048;
@@ -10526,7 +10551,7 @@ pub const enums = struct {
         pub const LastButton: i32 = 134217728;
     };
 
-    pub const ButtonLayout = enum(i32) {
+    pub const ButtonLayout = enum {
         pub const WinLayout: i32 = 0;
         pub const MacLayout: i32 = 1;
         pub const KdeLayout: i32 = 2;

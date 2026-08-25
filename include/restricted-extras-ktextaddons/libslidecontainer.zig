@@ -920,6 +920,31 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
         qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextAddonsWidgets__SlideContainer `
+    ///
+    pub fn asQPaintDevice(self: TextAddonsWidgets__SlideContainer) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a TextAddonsWidgets__SlideContainer object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) TextAddonsWidgets__SlideContainer {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return @bitCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr)));
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6904,7 +6929,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
     pub fn paintingActive(self: TextAddonsWidgets__SlideContainer) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6920,7 +6945,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
     pub fn widthMM(self: TextAddonsWidgets__SlideContainer) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6936,7 +6961,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
     pub fn heightMM(self: TextAddonsWidgets__SlideContainer) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6952,7 +6977,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
     pub fn logicalDpiX(self: TextAddonsWidgets__SlideContainer) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6968,7 +6993,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
     pub fn logicalDpiY(self: TextAddonsWidgets__SlideContainer) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6984,7 +7009,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
     pub fn physicalDpiX(self: TextAddonsWidgets__SlideContainer) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7000,7 +7025,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
     pub fn physicalDpiY(self: TextAddonsWidgets__SlideContainer) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7016,7 +7041,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
     pub fn devicePixelRatio(self: TextAddonsWidgets__SlideContainer) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7032,7 +7057,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
     pub fn devicePixelRatioF(self: TextAddonsWidgets__SlideContainer) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7048,7 +7073,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
     pub fn colorCount(self: TextAddonsWidgets__SlideContainer) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7064,7 +7089,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
     pub fn depth(self: TextAddonsWidgets__SlideContainer) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

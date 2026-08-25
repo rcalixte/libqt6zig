@@ -636,7 +636,7 @@ pub const KTextEditor__CodeCompletionModelControllerInterface = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/codecompletionmodelcontrollerinterface.html#public-types)
 pub const enums = struct {
-    pub const MatchReaction = enum(i32) {
+    pub const MatchReaction = enum {
         pub const None: i32 = 0;
         pub const HideListIfAutomaticInvocation: i32 = 1;
         pub const ForExtension: i32 = 65535;

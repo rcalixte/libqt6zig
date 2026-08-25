@@ -2176,7 +2176,7 @@ pub const KParts__ListingFilterExtension = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kparts-listingfilterextension.html#public-types)
 pub const enums = struct {
-    pub const FilterMode = enum(i32) {
+    pub const FilterMode = enum {
         pub const None: i32 = 0;
         pub const MimeType: i32 = 1;
         pub const SubString: i32 = 2;

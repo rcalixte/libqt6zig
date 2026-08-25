@@ -1264,7 +1264,7 @@ pub const KTextEditor__AnnotationModel = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/annotationinterface.html#public-types)
 pub const enums = struct {
-    pub const KTextEditor__AnnotationModel = enum(i32) {
+    pub const KTextEditor__AnnotationModel = enum {
         pub const GroupIdentifierRole: i32 = 256;
     };
 };

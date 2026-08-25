@@ -3560,7 +3560,7 @@ pub const KToolBarPopupAction = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/ktoolbarpopupaction.html#public-types)
 pub const enums = struct {
-    pub const PopupMode = enum(i32) {
+    pub const PopupMode = enum {
         pub const NoPopup: i32 = -1;
         pub const DelayedPopup: i32 = 0;
         pub const MenuButtonPopup: i32 = 1;

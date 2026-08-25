@@ -5312,6 +5312,31 @@ pub const QListWidget = extern struct {
         qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QListWidget `
+    ///
+    pub fn asQPaintDevice(self: QListWidget) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QListWidget object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QListWidget {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -11280,7 +11305,7 @@ pub const QListWidget = extern struct {
     /// ` self: QListWidget `
     ///
     pub fn paintingActive(self: QListWidget) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -11296,7 +11321,7 @@ pub const QListWidget = extern struct {
     /// ` self: QListWidget `
     ///
     pub fn widthMM(self: QListWidget) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -11312,7 +11337,7 @@ pub const QListWidget = extern struct {
     /// ` self: QListWidget `
     ///
     pub fn heightMM(self: QListWidget) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -11328,7 +11353,7 @@ pub const QListWidget = extern struct {
     /// ` self: QListWidget `
     ///
     pub fn logicalDpiX(self: QListWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -11344,7 +11369,7 @@ pub const QListWidget = extern struct {
     /// ` self: QListWidget `
     ///
     pub fn logicalDpiY(self: QListWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -11360,7 +11385,7 @@ pub const QListWidget = extern struct {
     /// ` self: QListWidget `
     ///
     pub fn physicalDpiX(self: QListWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -11376,7 +11401,7 @@ pub const QListWidget = extern struct {
     /// ` self: QListWidget `
     ///
     pub fn physicalDpiY(self: QListWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -11392,7 +11417,7 @@ pub const QListWidget = extern struct {
     /// ` self: QListWidget `
     ///
     pub fn devicePixelRatio(self: QListWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -11408,7 +11433,7 @@ pub const QListWidget = extern struct {
     /// ` self: QListWidget `
     ///
     pub fn devicePixelRatioF(self: QListWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -11424,7 +11449,7 @@ pub const QListWidget = extern struct {
     /// ` self: QListWidget `
     ///
     pub fn colorCount(self: QListWidget) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -11440,7 +11465,7 @@ pub const QListWidget = extern struct {
     /// ` self: QListWidget `
     ///
     pub fn depth(self: QListWidget) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -18614,7 +18639,7 @@ pub const QListWidget = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistwidget.html#public-types)
 pub const enums = struct {
-    pub const ItemType = enum(i32) {
+    pub const ItemType = enum {
         pub const Type: i32 = 0;
         pub const UserType: i32 = 1000;
     };

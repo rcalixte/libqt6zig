@@ -2794,7 +2794,7 @@ pub const Sonnet__Settings = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/sonnet-settings.html#public-types)
 pub const enums = struct {
-    pub const DictionaryRoles = enum(i32) {
+    pub const DictionaryRoles = enum {
         pub const LanguageCodeRole: i32 = 257;
         pub const PreferredRole: i32 = 258;
         pub const DefaultRole: i32 = 259;

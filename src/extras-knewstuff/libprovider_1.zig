@@ -4606,21 +4606,21 @@ pub const KNSCore__Provider__SearchPreset = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/knscore-provider.html#public-types)
 pub const enums = struct {
-    pub const SortMode = enum(i32) {
+    pub const SortMode = enum {
         pub const Newest: i32 = 0;
         pub const Alphabetical: i32 = 1;
         pub const Rating: i32 = 2;
         pub const Downloads: i32 = 3;
     };
 
-    pub const Filter = enum(i32) {
+    pub const Filter = enum {
         pub const None: i32 = 0;
         pub const Installed: i32 = 1;
         pub const Updates: i32 = 2;
         pub const ExactEntryId: i32 = 3;
     };
 
-    pub const SearchPresetTypes = enum(i32) {
+    pub const SearchPresetTypes = enum {
         pub const NoPresetType: i32 = 0;
         pub const GoBack: i32 = 1;
         pub const Root: i32 = 2;

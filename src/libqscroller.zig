@@ -1707,21 +1707,21 @@ pub const QScroller = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qscroller.html#public-types)
 pub const enums = struct {
-    pub const State = enum(i32) {
+    pub const State = enum {
         pub const Inactive: i32 = 0;
         pub const Pressed: i32 = 1;
         pub const Dragging: i32 = 2;
         pub const Scrolling: i32 = 3;
     };
 
-    pub const ScrollerGestureType = enum(i32) {
+    pub const ScrollerGestureType = enum {
         pub const TouchGesture: i32 = 0;
         pub const LeftMouseButtonGesture: i32 = 1;
         pub const RightMouseButtonGesture: i32 = 2;
         pub const MiddleMouseButtonGesture: i32 = 3;
     };
 
-    pub const Input = enum(i32) {
+    pub const Input = enum {
         pub const InputPress: i32 = 1;
         pub const InputMove: i32 = 2;
         pub const InputRelease: i32 = 3;

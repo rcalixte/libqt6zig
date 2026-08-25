@@ -2259,7 +2259,7 @@ pub const KNSCore__Question = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/knscore-question.html#public-types)
 pub const enums = struct {
-    pub const Response = enum(i32) {
+    pub const Response = enum {
         pub const InvalidResponse: i32 = 0;
         pub const YesResponse: i32 = 1;
         pub const NoResponse: i32 = 2;
@@ -2268,7 +2268,7 @@ pub const enums = struct {
         pub const OKResponse: i32 = 1;
     };
 
-    pub const QuestionType = enum(i32) {
+    pub const QuestionType = enum {
         pub const YesNoQuestion: i32 = 0;
         pub const ContinueCancelQuestion: i32 = 1;
         pub const InputTextQuestion: i32 = 2;

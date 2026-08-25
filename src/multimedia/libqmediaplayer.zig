@@ -3286,13 +3286,13 @@ pub const QMediaPlayer = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediaplayer.html#public-types)
 pub const enums = struct {
-    pub const PlaybackState = enum(i32) {
+    pub const PlaybackState = enum {
         pub const StoppedState: i32 = 0;
         pub const PlayingState: i32 = 1;
         pub const PausedState: i32 = 2;
     };
 
-    pub const MediaStatus = enum(i32) {
+    pub const MediaStatus = enum {
         pub const NoMedia: i32 = 0;
         pub const LoadingMedia: i32 = 1;
         pub const LoadedMedia: i32 = 2;
@@ -3303,7 +3303,7 @@ pub const enums = struct {
         pub const InvalidMedia: i32 = 7;
     };
 
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const ResourceError: i32 = 1;
         pub const FormatError: i32 = 2;
@@ -3311,7 +3311,7 @@ pub const enums = struct {
         pub const AccessDeniedError: i32 = 4;
     };
 
-    pub const Loops = enum(i32) {
+    pub const Loops = enum {
         pub const Infinite: i32 = -1;
         pub const Once: i32 = 1;
     };

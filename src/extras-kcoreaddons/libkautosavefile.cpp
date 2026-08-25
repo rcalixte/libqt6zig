@@ -128,9 +128,8 @@ QMetaObject* KAutoSaveFile_SuperMetaObject(const KAutoSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnMetaObject(const KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_MetaObject_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -147,9 +146,8 @@ void* KAutoSaveFile_SuperMetacast(KAutoSaveFile* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnMetacast(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_Metacast_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -166,9 +164,8 @@ int KAutoSaveFile_SuperMetacall(KAutoSaveFile* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnMetacall(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_Metacall_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -185,9 +182,8 @@ void KAutoSaveFile_SuperReleaseLock(KAutoSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnReleaseLock(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_ReleaseLock_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ReleaseLock_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -204,9 +200,8 @@ bool KAutoSaveFile_SuperOpen(KAutoSaveFile* self, int openmode) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnOpen(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_Open_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -265,9 +260,8 @@ libqt_string KAutoSaveFile_SuperFileName(const KAutoSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnFileName(const KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_FileName_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_FileName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -294,9 +288,8 @@ long long KAutoSaveFile_SuperSize(const KAutoSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnSize(const KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_Size_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Size_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -323,9 +316,8 @@ bool KAutoSaveFile_SuperResize(KAutoSaveFile* self, long long sz) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnResize(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_Resize_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Resize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -352,9 +344,8 @@ int KAutoSaveFile_SuperPermissions(const KAutoSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnPermissions(const KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_Permissions_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Permissions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -381,9 +372,8 @@ bool KAutoSaveFile_SuperSetPermissions(KAutoSaveFile* self, int permissionSpec) 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnSetPermissions(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_SetPermissions_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_SetPermissions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -410,9 +400,8 @@ void KAutoSaveFile_SuperClose(KAutoSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnClose(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_Close_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Close_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -439,9 +428,8 @@ bool KAutoSaveFile_SuperIsSequential(const KAutoSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnIsSequential(const KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_IsSequential_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_IsSequential_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -468,9 +456,8 @@ long long KAutoSaveFile_SuperPos(const KAutoSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnPos(const KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_Pos_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Pos_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -497,9 +484,8 @@ bool KAutoSaveFile_SuperSeek(KAutoSaveFile* self, long long offset) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnSeek(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_Seek_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Seek_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -526,9 +512,8 @@ bool KAutoSaveFile_SuperAtEnd(const KAutoSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnAtEnd(const KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_AtEnd_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_AtEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -555,9 +540,8 @@ long long KAutoSaveFile_SuperReadData(KAutoSaveFile* self, char* data, long long
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnReadData(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_ReadData_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ReadData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -584,9 +568,8 @@ long long KAutoSaveFile_SuperWriteData(KAutoSaveFile* self, const char* data, lo
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnWriteData(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_WriteData_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_WriteData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -613,9 +596,8 @@ long long KAutoSaveFile_SuperReadLineData(KAutoSaveFile* self, char* data, long 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnReadLineData(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_ReadLineData_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ReadLineData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -642,9 +624,8 @@ bool KAutoSaveFile_SuperReset(KAutoSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnReset(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_Reset_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -671,9 +652,8 @@ long long KAutoSaveFile_SuperBytesAvailable(const KAutoSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnBytesAvailable(const KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_BytesAvailable_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_BytesAvailable_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -700,9 +680,8 @@ long long KAutoSaveFile_SuperBytesToWrite(const KAutoSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnBytesToWrite(const KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_BytesToWrite_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_BytesToWrite_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -729,9 +708,8 @@ bool KAutoSaveFile_SuperCanReadLine(const KAutoSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnCanReadLine(const KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_CanReadLine_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_CanReadLine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -758,9 +736,8 @@ bool KAutoSaveFile_SuperWaitForReadyRead(KAutoSaveFile* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnWaitForReadyRead(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_WaitForReadyRead_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_WaitForReadyRead_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -787,9 +764,8 @@ bool KAutoSaveFile_SuperWaitForBytesWritten(KAutoSaveFile* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnWaitForBytesWritten(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_WaitForBytesWritten_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_WaitForBytesWritten_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -816,9 +792,8 @@ long long KAutoSaveFile_SuperSkipData(KAutoSaveFile* self, long long maxSize) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnSkipData(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_SkipData_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_SkipData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -845,9 +820,8 @@ bool KAutoSaveFile_SuperEvent(KAutoSaveFile* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnEvent(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_Event_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -874,9 +848,8 @@ bool KAutoSaveFile_SuperEventFilter(KAutoSaveFile* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnEventFilter(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_EventFilter_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -903,9 +876,8 @@ void KAutoSaveFile_SuperTimerEvent(KAutoSaveFile* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnTimerEvent(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_TimerEvent_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -932,9 +904,8 @@ void KAutoSaveFile_SuperChildEvent(KAutoSaveFile* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnChildEvent(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_ChildEvent_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -961,9 +932,8 @@ void KAutoSaveFile_SuperCustomEvent(KAutoSaveFile* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnCustomEvent(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_CustomEvent_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -990,9 +960,8 @@ void KAutoSaveFile_SuperConnectNotify(KAutoSaveFile* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnConnectNotify(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_ConnectNotify_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1019,9 +988,8 @@ void KAutoSaveFile_SuperDisconnectNotify(KAutoSaveFile* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnDisconnectNotify(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_DisconnectNotify_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1048,9 +1016,8 @@ void KAutoSaveFile_SuperSetOpenMode(KAutoSaveFile* self, int openMode) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnSetOpenMode(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_SetOpenMode_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_SetOpenMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1079,9 +1046,8 @@ void KAutoSaveFile_SuperSetErrorString(KAutoSaveFile* self, const libqt_string e
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnSetErrorString(KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_SetErrorString_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1108,9 +1074,8 @@ QObject* KAutoSaveFile_SuperSender(const KAutoSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnSender(const KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_Sender_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1137,9 +1102,8 @@ int KAutoSaveFile_SuperSenderSignalIndex(const KAutoSaveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnSenderSignalIndex(const KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_SenderSignalIndex_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1166,9 +1130,8 @@ int KAutoSaveFile_SuperReceivers(const KAutoSaveFile* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnReceivers(const KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_Receivers_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1195,9 +1158,8 @@ bool KAutoSaveFile_SuperIsSignalConnected(const KAutoSaveFile* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KAutoSaveFile_OnIsSignalConnected(const KAutoSaveFile* self, intptr_t slot) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
+    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile)
         vkautosavefile->setKAutoSaveFile_IsSignalConnected_Callback(reinterpret_cast<VirtualKAutoSaveFile::KAutoSaveFile_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KAutoSaveFile_Delete(KAutoSaveFile* self) {

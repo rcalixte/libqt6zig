@@ -2597,7 +2597,7 @@ pub const QThread = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#public-types)
 pub const enums = struct {
-    pub const Priority = enum(i32) {
+    pub const Priority = enum {
         pub const IdlePriority: i32 = 0;
         pub const LowestPriority: i32 = 1;
         pub const LowPriority: i32 = 2;

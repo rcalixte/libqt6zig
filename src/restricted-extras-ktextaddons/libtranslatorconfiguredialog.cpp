@@ -69,9 +69,8 @@ QMetaObject* TextTranslator__TranslatorConfigureDialog_SuperMetaObject(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnMetaObject(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_MetaObject_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -98,9 +97,8 @@ void* TextTranslator__TranslatorConfigureDialog_SuperMetacast(TextTranslator__Tr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnMetacast(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_Metacast_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -127,9 +125,8 @@ int TextTranslator__TranslatorConfigureDialog_SuperMetacall(TextTranslator__Tran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnMetacall(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_Metacall_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -156,9 +153,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperSetVisible(TextTranslator__T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnSetVisible(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_SetVisible_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -185,9 +181,8 @@ QSize* TextTranslator__TranslatorConfigureDialog_SuperSizeHint(const TextTransla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnSizeHint(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_SizeHint_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -214,9 +209,8 @@ QSize* TextTranslator__TranslatorConfigureDialog_SuperMinimumSizeHint(const Text
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnMinimumSizeHint(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -243,9 +237,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperOpen(TextTranslator__Transla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnOpen(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_Open_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -272,9 +265,8 @@ int TextTranslator__TranslatorConfigureDialog_SuperExec(TextTranslator__Translat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnExec(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_Exec_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -301,9 +293,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperDone(TextTranslator__Transla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnDone(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_Done_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -330,9 +321,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperAccept(TextTranslator__Trans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnAccept(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_Accept_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -359,9 +349,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperReject(TextTranslator__Trans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnReject(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_Reject_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -388,9 +377,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperKeyPressEvent(TextTranslator
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnKeyPressEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -417,9 +405,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperCloseEvent(TextTranslator__T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnCloseEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_CloseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -446,9 +433,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperShowEvent(TextTranslator__Tr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnShowEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_ShowEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -475,9 +461,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperResizeEvent(TextTranslator__
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnResizeEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_ResizeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -504,9 +489,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperContextMenuEvent(TextTransla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnContextMenuEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -533,9 +517,8 @@ bool TextTranslator__TranslatorConfigureDialog_SuperEventFilter(TextTranslator__
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnEventFilter(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_EventFilter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -562,9 +545,8 @@ int TextTranslator__TranslatorConfigureDialog_SuperDevType(const TextTranslator_
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnDevType(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_DevType_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -591,9 +573,8 @@ int TextTranslator__TranslatorConfigureDialog_SuperHeightForWidth(const TextTran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnHeightForWidth(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_HeightForWidth_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -620,9 +601,8 @@ bool TextTranslator__TranslatorConfigureDialog_SuperHasHeightForWidth(const Text
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnHasHeightForWidth(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -649,9 +629,8 @@ QPaintEngine* TextTranslator__TranslatorConfigureDialog_SuperPaintEngine(const T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnPaintEngine(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_PaintEngine_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -678,9 +657,8 @@ bool TextTranslator__TranslatorConfigureDialog_SuperEvent(TextTranslator__Transl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_Event_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -707,9 +685,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperMousePressEvent(TextTranslat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnMousePressEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_MousePressEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -736,9 +713,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperMouseReleaseEvent(TextTransl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnMouseReleaseEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -765,9 +741,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperMouseDoubleClickEvent(TextTr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnMouseDoubleClickEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -794,9 +769,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperMouseMoveEvent(TextTranslato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnMouseMoveEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -823,9 +797,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperWheelEvent(TextTranslator__T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnWheelEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_WheelEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -852,9 +825,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperKeyReleaseEvent(TextTranslat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnKeyReleaseEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -881,9 +853,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperFocusInEvent(TextTranslator_
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnFocusInEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_FocusInEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -910,9 +881,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperFocusOutEvent(TextTranslator
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnFocusOutEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -939,9 +909,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperEnterEvent(TextTranslator__T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnEnterEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_EnterEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -968,9 +937,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperLeaveEvent(TextTranslator__T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnLeaveEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_LeaveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -997,9 +965,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperPaintEvent(TextTranslator__T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnPaintEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_PaintEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1026,9 +993,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperMoveEvent(TextTranslator__Tr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnMoveEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_MoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1055,9 +1021,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperTabletEvent(TextTranslator__
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnTabletEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_TabletEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1084,9 +1049,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperActionEvent(TextTranslator__
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnActionEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_ActionEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1113,9 +1077,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperDragEnterEvent(TextTranslato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnDragEnterEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1142,9 +1105,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperDragMoveEvent(TextTranslator
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnDragMoveEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1171,9 +1133,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperDragLeaveEvent(TextTranslato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnDragLeaveEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1200,9 +1161,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperDropEvent(TextTranslator__Tr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnDropEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_DropEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1229,9 +1189,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperHideEvent(TextTranslator__Tr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnHideEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_HideEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1260,9 +1219,8 @@ bool TextTranslator__TranslatorConfigureDialog_SuperNativeEvent(TextTranslator__
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnNativeEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_NativeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1289,9 +1247,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperChangeEvent(TextTranslator__
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnChangeEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_ChangeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1318,9 +1275,8 @@ int TextTranslator__TranslatorConfigureDialog_SuperMetric(const TextTranslator__
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnMetric(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_Metric_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1347,9 +1303,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperInitPainter(const TextTransl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnInitPainter(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_InitPainter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1376,9 +1331,8 @@ QPaintDevice* TextTranslator__TranslatorConfigureDialog_SuperRedirected(const Te
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnRedirected(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_Redirected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1405,9 +1359,8 @@ QPainter* TextTranslator__TranslatorConfigureDialog_SuperSharedPainter(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnSharedPainter(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_SharedPainter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1434,9 +1387,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperInputMethodEvent(TextTransla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnInputMethodEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1463,9 +1415,8 @@ QVariant* TextTranslator__TranslatorConfigureDialog_SuperInputMethodQuery(const 
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnInputMethodQuery(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1492,9 +1443,8 @@ bool TextTranslator__TranslatorConfigureDialog_SuperFocusNextPrevChild(TextTrans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnFocusNextPrevChild(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1521,9 +1471,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperTimerEvent(TextTranslator__T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnTimerEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_TimerEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1550,9 +1499,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperChildEvent(TextTranslator__T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnChildEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_ChildEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1579,9 +1527,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperCustomEvent(TextTranslator__
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnCustomEvent(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_CustomEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1608,9 +1555,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperConnectNotify(TextTranslator
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnConnectNotify(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_ConnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1637,9 +1583,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperDisconnectNotify(TextTransla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnDisconnectNotify(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1666,9 +1611,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperAdjustPosition(TextTranslato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnAdjustPosition(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_AdjustPosition_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1695,9 +1639,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperUpdateMicroFocus(TextTransla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnUpdateMicroFocus(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1724,9 +1667,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperCreate(TextTranslator__Trans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnCreate(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_Create_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1753,9 +1695,8 @@ void TextTranslator__TranslatorConfigureDialog_SuperDestroy(TextTranslator__Tran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnDestroy(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_Destroy_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1782,9 +1723,8 @@ bool TextTranslator__TranslatorConfigureDialog_SuperFocusNextChild(TextTranslato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnFocusNextChild(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_FocusNextChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1811,9 +1751,8 @@ bool TextTranslator__TranslatorConfigureDialog_SuperFocusPreviousChild(TextTrans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnFocusPreviousChild(TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = dynamic_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(self);
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1840,9 +1779,8 @@ QObject* TextTranslator__TranslatorConfigureDialog_SuperSender(const TextTransla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnSender(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_Sender_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1869,9 +1807,8 @@ int TextTranslator__TranslatorConfigureDialog_SuperSenderSignalIndex(const TextT
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnSenderSignalIndex(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1898,9 +1835,8 @@ int TextTranslator__TranslatorConfigureDialog_SuperReceivers(const TextTranslato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnReceivers(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_Receivers_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1927,9 +1863,8 @@ bool TextTranslator__TranslatorConfigureDialog_SuperIsSignalConnected(const Text
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnIsSignalConnected(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1956,9 +1891,8 @@ double TextTranslator__TranslatorConfigureDialog_SuperGetDecodedMetricF(const Te
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureDialog_OnGetDecodedMetricF(const TextTranslator__TranslatorConfigureDialog* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfiguredialog = const_cast<VirtualTextTranslatorTranslatorConfigureDialog*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureDialog*>(self));
-    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog) {
+    if (vtexttranslatortranslatorconfiguredialog && vtexttranslatortranslatorconfiguredialog->isVirtualTextTranslatorTranslatorConfigureDialog)
         vtexttranslatortranslatorconfiguredialog->setTextTranslator__TranslatorConfigureDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureDialog::TextTranslator__TranslatorConfigureDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextTranslator__TranslatorConfigureDialog_Delete(TextTranslator__TranslatorConfigureDialog* self) {

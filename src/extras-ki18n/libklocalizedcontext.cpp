@@ -2635,9 +2635,8 @@ QMetaObject* KLocalizedContext_SuperMetaObject(const KLocalizedContext* self) {
 // Auxiliary method to allow providing re-implementation
 void KLocalizedContext_OnMetaObject(const KLocalizedContext* self, intptr_t slot) {
     auto* vklocalizedcontext = const_cast<VirtualKLocalizedContext*>(dynamic_cast<const VirtualKLocalizedContext*>(self));
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
+    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext)
         vklocalizedcontext->setKLocalizedContext_MetaObject_Callback(reinterpret_cast<VirtualKLocalizedContext::KLocalizedContext_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2654,9 +2653,8 @@ void* KLocalizedContext_SuperMetacast(KLocalizedContext* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void KLocalizedContext_OnMetacast(KLocalizedContext* self, intptr_t slot) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
+    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext)
         vklocalizedcontext->setKLocalizedContext_Metacast_Callback(reinterpret_cast<VirtualKLocalizedContext::KLocalizedContext_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2673,9 +2671,8 @@ int KLocalizedContext_SuperMetacall(KLocalizedContext* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void KLocalizedContext_OnMetacall(KLocalizedContext* self, intptr_t slot) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
+    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext)
         vklocalizedcontext->setKLocalizedContext_Metacall_Callback(reinterpret_cast<VirtualKLocalizedContext::KLocalizedContext_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2702,9 +2699,8 @@ bool KLocalizedContext_SuperEvent(KLocalizedContext* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLocalizedContext_OnEvent(KLocalizedContext* self, intptr_t slot) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
+    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext)
         vklocalizedcontext->setKLocalizedContext_Event_Callback(reinterpret_cast<VirtualKLocalizedContext::KLocalizedContext_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2731,9 +2727,8 @@ bool KLocalizedContext_SuperEventFilter(KLocalizedContext* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void KLocalizedContext_OnEventFilter(KLocalizedContext* self, intptr_t slot) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
+    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext)
         vklocalizedcontext->setKLocalizedContext_EventFilter_Callback(reinterpret_cast<VirtualKLocalizedContext::KLocalizedContext_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2760,9 +2755,8 @@ void KLocalizedContext_SuperTimerEvent(KLocalizedContext* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KLocalizedContext_OnTimerEvent(KLocalizedContext* self, intptr_t slot) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
+    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext)
         vklocalizedcontext->setKLocalizedContext_TimerEvent_Callback(reinterpret_cast<VirtualKLocalizedContext::KLocalizedContext_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2789,9 +2783,8 @@ void KLocalizedContext_SuperChildEvent(KLocalizedContext* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KLocalizedContext_OnChildEvent(KLocalizedContext* self, intptr_t slot) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
+    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext)
         vklocalizedcontext->setKLocalizedContext_ChildEvent_Callback(reinterpret_cast<VirtualKLocalizedContext::KLocalizedContext_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2818,9 +2811,8 @@ void KLocalizedContext_SuperCustomEvent(KLocalizedContext* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedContext_OnCustomEvent(KLocalizedContext* self, intptr_t slot) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
+    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext)
         vklocalizedcontext->setKLocalizedContext_CustomEvent_Callback(reinterpret_cast<VirtualKLocalizedContext::KLocalizedContext_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2847,9 +2839,8 @@ void KLocalizedContext_SuperConnectNotify(KLocalizedContext* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KLocalizedContext_OnConnectNotify(KLocalizedContext* self, intptr_t slot) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
+    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext)
         vklocalizedcontext->setKLocalizedContext_ConnectNotify_Callback(reinterpret_cast<VirtualKLocalizedContext::KLocalizedContext_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2876,9 +2867,8 @@ void KLocalizedContext_SuperDisconnectNotify(KLocalizedContext* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void KLocalizedContext_OnDisconnectNotify(KLocalizedContext* self, intptr_t slot) {
     auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
+    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext)
         vklocalizedcontext->setKLocalizedContext_DisconnectNotify_Callback(reinterpret_cast<VirtualKLocalizedContext::KLocalizedContext_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2905,9 +2895,8 @@ QObject* KLocalizedContext_SuperSender(const KLocalizedContext* self) {
 // Auxiliary method to allow providing re-implementation
 void KLocalizedContext_OnSender(const KLocalizedContext* self, intptr_t slot) {
     auto* vklocalizedcontext = const_cast<VirtualKLocalizedContext*>(dynamic_cast<const VirtualKLocalizedContext*>(self));
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
+    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext)
         vklocalizedcontext->setKLocalizedContext_Sender_Callback(reinterpret_cast<VirtualKLocalizedContext::KLocalizedContext_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2934,9 +2923,8 @@ int KLocalizedContext_SuperSenderSignalIndex(const KLocalizedContext* self) {
 // Auxiliary method to allow providing re-implementation
 void KLocalizedContext_OnSenderSignalIndex(const KLocalizedContext* self, intptr_t slot) {
     auto* vklocalizedcontext = const_cast<VirtualKLocalizedContext*>(dynamic_cast<const VirtualKLocalizedContext*>(self));
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
+    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext)
         vklocalizedcontext->setKLocalizedContext_SenderSignalIndex_Callback(reinterpret_cast<VirtualKLocalizedContext::KLocalizedContext_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2963,9 +2951,8 @@ int KLocalizedContext_SuperReceivers(const KLocalizedContext* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedContext_OnReceivers(const KLocalizedContext* self, intptr_t slot) {
     auto* vklocalizedcontext = const_cast<VirtualKLocalizedContext*>(dynamic_cast<const VirtualKLocalizedContext*>(self));
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
+    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext)
         vklocalizedcontext->setKLocalizedContext_Receivers_Callback(reinterpret_cast<VirtualKLocalizedContext::KLocalizedContext_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2992,9 +2979,8 @@ bool KLocalizedContext_SuperIsSignalConnected(const KLocalizedContext* self, con
 // Auxiliary method to allow providing re-implementation
 void KLocalizedContext_OnIsSignalConnected(const KLocalizedContext* self, intptr_t slot) {
     auto* vklocalizedcontext = const_cast<VirtualKLocalizedContext*>(dynamic_cast<const VirtualKLocalizedContext*>(self));
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
+    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext)
         vklocalizedcontext->setKLocalizedContext_IsSignalConnected_Callback(reinterpret_cast<VirtualKLocalizedContext::KLocalizedContext_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KLocalizedContext_Delete(KLocalizedContext* self) {

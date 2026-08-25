@@ -4498,7 +4498,7 @@ pub const QsciLexerDiff = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerDiff = enum(i32) {
+    pub const QsciLexerDiff = enum {
         pub const Default: i32 = 0;
         pub const Comment: i32 = 1;
         pub const Command: i32 = 2;

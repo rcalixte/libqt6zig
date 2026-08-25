@@ -235,9 +235,8 @@ QMetaObject* KFindDialog_SuperMetaObject(const KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnMetaObject(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_MetaObject_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -254,9 +253,8 @@ void* KFindDialog_SuperMetacast(KFindDialog* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnMetacast(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_Metacast_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -273,9 +271,8 @@ int KFindDialog_SuperMetacall(KFindDialog* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnMetacall(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_Metacall_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -292,9 +289,8 @@ void KFindDialog_SuperShowEvent(KFindDialog* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnShowEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_ShowEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -321,9 +317,8 @@ void KFindDialog_SuperSetVisible(KFindDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnSetVisible(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_SetVisible_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -350,9 +345,8 @@ QSize* KFindDialog_SuperSizeHint(const KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnSizeHint(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_SizeHint_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -379,9 +373,8 @@ QSize* KFindDialog_SuperMinimumSizeHint(const KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnMinimumSizeHint(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -408,9 +401,8 @@ void KFindDialog_SuperOpen(KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnOpen(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_Open_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -437,9 +429,8 @@ int KFindDialog_SuperExec(KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnExec(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_Exec_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -466,9 +457,8 @@ void KFindDialog_SuperDone(KFindDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnDone(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_Done_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -495,9 +485,8 @@ void KFindDialog_SuperAccept(KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnAccept(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_Accept_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -524,9 +513,8 @@ void KFindDialog_SuperReject(KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnReject(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_Reject_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -553,9 +541,8 @@ void KFindDialog_SuperKeyPressEvent(KFindDialog* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnKeyPressEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -582,9 +569,8 @@ void KFindDialog_SuperCloseEvent(KFindDialog* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnCloseEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_CloseEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -611,9 +597,8 @@ void KFindDialog_SuperResizeEvent(KFindDialog* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnResizeEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -640,9 +625,8 @@ void KFindDialog_SuperContextMenuEvent(KFindDialog* self, QContextMenuEvent* par
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnContextMenuEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -669,9 +653,8 @@ bool KFindDialog_SuperEventFilter(KFindDialog* self, QObject* param1, QEvent* pa
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnEventFilter(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_EventFilter_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -698,9 +681,8 @@ int KFindDialog_SuperDevType(const KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnDevType(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_DevType_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -727,9 +709,8 @@ int KFindDialog_SuperHeightForWidth(const KFindDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnHeightForWidth(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -756,9 +737,8 @@ bool KFindDialog_SuperHasHeightForWidth(const KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnHasHeightForWidth(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -785,9 +765,8 @@ QPaintEngine* KFindDialog_SuperPaintEngine(const KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnPaintEngine(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_PaintEngine_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -814,9 +793,8 @@ bool KFindDialog_SuperEvent(KFindDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_Event_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -843,9 +821,8 @@ void KFindDialog_SuperMousePressEvent(KFindDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnMousePressEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -872,9 +849,8 @@ void KFindDialog_SuperMouseReleaseEvent(KFindDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnMouseReleaseEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -901,9 +877,8 @@ void KFindDialog_SuperMouseDoubleClickEvent(KFindDialog* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnMouseDoubleClickEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -930,9 +905,8 @@ void KFindDialog_SuperMouseMoveEvent(KFindDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnMouseMoveEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -959,9 +933,8 @@ void KFindDialog_SuperWheelEvent(KFindDialog* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnWheelEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_WheelEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -988,9 +961,8 @@ void KFindDialog_SuperKeyReleaseEvent(KFindDialog* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnKeyReleaseEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1017,9 +989,8 @@ void KFindDialog_SuperFocusInEvent(KFindDialog* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnFocusInEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1046,9 +1017,8 @@ void KFindDialog_SuperFocusOutEvent(KFindDialog* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnFocusOutEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1075,9 +1045,8 @@ void KFindDialog_SuperEnterEvent(KFindDialog* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnEnterEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_EnterEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1104,9 +1073,8 @@ void KFindDialog_SuperLeaveEvent(KFindDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnLeaveEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1133,9 +1101,8 @@ void KFindDialog_SuperPaintEvent(KFindDialog* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnPaintEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_PaintEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1162,9 +1129,8 @@ void KFindDialog_SuperMoveEvent(KFindDialog* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnMoveEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_MoveEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1191,9 +1157,8 @@ void KFindDialog_SuperTabletEvent(KFindDialog* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnTabletEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_TabletEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1220,9 +1185,8 @@ void KFindDialog_SuperActionEvent(KFindDialog* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnActionEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_ActionEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1249,9 +1213,8 @@ void KFindDialog_SuperDragEnterEvent(KFindDialog* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnDragEnterEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1278,9 +1241,8 @@ void KFindDialog_SuperDragMoveEvent(KFindDialog* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnDragMoveEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1307,9 +1269,8 @@ void KFindDialog_SuperDragLeaveEvent(KFindDialog* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnDragLeaveEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1336,9 +1297,8 @@ void KFindDialog_SuperDropEvent(KFindDialog* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnDropEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_DropEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1365,9 +1325,8 @@ void KFindDialog_SuperHideEvent(KFindDialog* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnHideEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_HideEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1396,9 +1355,8 @@ bool KFindDialog_SuperNativeEvent(KFindDialog* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnNativeEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_NativeEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1425,9 +1383,8 @@ void KFindDialog_SuperChangeEvent(KFindDialog* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnChangeEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1454,9 +1411,8 @@ int KFindDialog_SuperMetric(const KFindDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnMetric(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_Metric_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1483,9 +1439,8 @@ void KFindDialog_SuperInitPainter(const KFindDialog* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnInitPainter(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_InitPainter_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1512,9 +1467,8 @@ QPaintDevice* KFindDialog_SuperRedirected(const KFindDialog* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnRedirected(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_Redirected_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1541,9 +1495,8 @@ QPainter* KFindDialog_SuperSharedPainter(const KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnSharedPainter(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_SharedPainter_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1570,9 +1523,8 @@ void KFindDialog_SuperInputMethodEvent(KFindDialog* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnInputMethodEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1599,9 +1551,8 @@ QVariant* KFindDialog_SuperInputMethodQuery(const KFindDialog* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnInputMethodQuery(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1628,9 +1579,8 @@ bool KFindDialog_SuperFocusNextPrevChild(KFindDialog* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnFocusNextPrevChild(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1657,9 +1607,8 @@ void KFindDialog_SuperTimerEvent(KFindDialog* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnTimerEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_TimerEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1686,9 +1635,8 @@ void KFindDialog_SuperChildEvent(KFindDialog* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnChildEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_ChildEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1715,9 +1663,8 @@ void KFindDialog_SuperCustomEvent(KFindDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnCustomEvent(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_CustomEvent_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1744,9 +1691,8 @@ void KFindDialog_SuperConnectNotify(KFindDialog* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnConnectNotify(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1773,9 +1719,8 @@ void KFindDialog_SuperDisconnectNotify(KFindDialog* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnDisconnectNotify(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1802,9 +1747,8 @@ void KFindDialog_SuperAdjustPosition(KFindDialog* self, QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnAdjustPosition(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1831,9 +1775,8 @@ void KFindDialog_SuperUpdateMicroFocus(KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnUpdateMicroFocus(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1860,9 +1803,8 @@ void KFindDialog_SuperCreate(KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnCreate(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_Create_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1889,9 +1831,8 @@ void KFindDialog_SuperDestroy(KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnDestroy(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_Destroy_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1918,9 +1859,8 @@ bool KFindDialog_SuperFocusNextChild(KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnFocusNextChild(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1947,9 +1887,8 @@ bool KFindDialog_SuperFocusPreviousChild(KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnFocusPreviousChild(KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1976,9 +1915,8 @@ QObject* KFindDialog_SuperSender(const KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnSender(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_Sender_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2005,9 +1943,8 @@ int KFindDialog_SuperSenderSignalIndex(const KFindDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnSenderSignalIndex(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2034,9 +1971,8 @@ int KFindDialog_SuperReceivers(const KFindDialog* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnReceivers(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_Receivers_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2063,9 +1999,8 @@ bool KFindDialog_SuperIsSignalConnected(const KFindDialog* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnIsSignalConnected(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2092,9 +2027,8 @@ double KFindDialog_SuperGetDecodedMetricF(const KFindDialog* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void KFindDialog_OnGetDecodedMetricF(const KFindDialog* self, intptr_t slot) {
     auto* vkfinddialog = const_cast<VirtualKFindDialog*>(dynamic_cast<const VirtualKFindDialog*>(self));
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
+    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog)
         vkfinddialog->setKFindDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKFindDialog::KFindDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KFindDialog_Delete(KFindDialog* self) {

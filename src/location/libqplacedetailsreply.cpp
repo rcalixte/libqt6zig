@@ -54,9 +54,8 @@ QMetaObject* QPlaceDetailsReply_SuperMetaObject(const QPlaceDetailsReply* self) 
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnMetaObject(const QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = const_cast<VirtualQPlaceDetailsReply*>(dynamic_cast<const VirtualQPlaceDetailsReply*>(self));
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_MetaObject_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -73,9 +72,8 @@ void* QPlaceDetailsReply_SuperMetacast(QPlaceDetailsReply* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnMetacast(QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_Metacast_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -92,9 +90,8 @@ int QPlaceDetailsReply_SuperMetacall(QPlaceDetailsReply* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnMetacall(QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_Metacall_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -111,9 +108,8 @@ int QPlaceDetailsReply_SuperType(const QPlaceDetailsReply* self) {
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnType(const QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = const_cast<VirtualQPlaceDetailsReply*>(dynamic_cast<const VirtualQPlaceDetailsReply*>(self));
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_Type_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -140,9 +136,8 @@ void QPlaceDetailsReply_SuperAbort(QPlaceDetailsReply* self) {
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnAbort(QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_Abort_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_Abort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -169,9 +164,8 @@ bool QPlaceDetailsReply_SuperEvent(QPlaceDetailsReply* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnEvent(QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_Event_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -198,9 +192,8 @@ bool QPlaceDetailsReply_SuperEventFilter(QPlaceDetailsReply* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnEventFilter(QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_EventFilter_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -227,9 +220,8 @@ void QPlaceDetailsReply_SuperTimerEvent(QPlaceDetailsReply* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnTimerEvent(QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_TimerEvent_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -256,9 +248,8 @@ void QPlaceDetailsReply_SuperChildEvent(QPlaceDetailsReply* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnChildEvent(QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_ChildEvent_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -285,9 +276,8 @@ void QPlaceDetailsReply_SuperCustomEvent(QPlaceDetailsReply* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnCustomEvent(QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_CustomEvent_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -314,9 +304,8 @@ void QPlaceDetailsReply_SuperConnectNotify(QPlaceDetailsReply* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnConnectNotify(QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_ConnectNotify_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -343,9 +332,8 @@ void QPlaceDetailsReply_SuperDisconnectNotify(QPlaceDetailsReply* self, const QM
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnDisconnectNotify(QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_DisconnectNotify_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +360,8 @@ void QPlaceDetailsReply_SuperSetPlace(QPlaceDetailsReply* self, const QPlace* pl
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnSetPlace(QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_SetPlace_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_SetPlace_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -401,9 +388,8 @@ void QPlaceDetailsReply_SuperSetFinished(QPlaceDetailsReply* self, bool finished
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnSetFinished(QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_SetFinished_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_SetFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -432,9 +418,8 @@ void QPlaceDetailsReply_SuperSetError(QPlaceDetailsReply* self, int errorVal, co
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnSetError(QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_SetError_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -461,9 +446,8 @@ QObject* QPlaceDetailsReply_SuperSender(const QPlaceDetailsReply* self) {
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnSender(const QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = const_cast<VirtualQPlaceDetailsReply*>(dynamic_cast<const VirtualQPlaceDetailsReply*>(self));
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_Sender_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -490,9 +474,8 @@ int QPlaceDetailsReply_SuperSenderSignalIndex(const QPlaceDetailsReply* self) {
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnSenderSignalIndex(const QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = const_cast<VirtualQPlaceDetailsReply*>(dynamic_cast<const VirtualQPlaceDetailsReply*>(self));
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -519,9 +502,8 @@ int QPlaceDetailsReply_SuperReceivers(const QPlaceDetailsReply* self, const char
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnReceivers(const QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = const_cast<VirtualQPlaceDetailsReply*>(dynamic_cast<const VirtualQPlaceDetailsReply*>(self));
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_Receivers_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -548,9 +530,8 @@ bool QPlaceDetailsReply_SuperIsSignalConnected(const QPlaceDetailsReply* self, c
 // Auxiliary method to allow providing re-implementation
 void QPlaceDetailsReply_OnIsSignalConnected(const QPlaceDetailsReply* self, intptr_t slot) {
     auto* vqplacedetailsreply = const_cast<VirtualQPlaceDetailsReply*>(dynamic_cast<const VirtualQPlaceDetailsReply*>(self));
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
+    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply)
         vqplacedetailsreply->setQPlaceDetailsReply_IsSignalConnected_Callback(reinterpret_cast<VirtualQPlaceDetailsReply::QPlaceDetailsReply_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QPlaceDetailsReply_Delete(QPlaceDetailsReply* self) {

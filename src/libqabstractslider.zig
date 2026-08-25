@@ -1430,6 +1430,31 @@ pub const QAbstractSlider = extern struct {
         qtc.QAbstractSlider_SuperSetRepeatAction3(@ptrCast(self.ptr), @bitCast(action), @bitCast(thresholdTime), @bitCast(repeatTime));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAbstractSlider `
+    ///
+    pub fn asQPaintDevice(self: QAbstractSlider) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QAbstractSlider object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QAbstractSlider {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -7414,7 +7439,7 @@ pub const QAbstractSlider = extern struct {
     /// ` self: QAbstractSlider `
     ///
     pub fn paintingActive(self: QAbstractSlider) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -7430,7 +7455,7 @@ pub const QAbstractSlider = extern struct {
     /// ` self: QAbstractSlider `
     ///
     pub fn widthMM(self: QAbstractSlider) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -7446,7 +7471,7 @@ pub const QAbstractSlider = extern struct {
     /// ` self: QAbstractSlider `
     ///
     pub fn heightMM(self: QAbstractSlider) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -7462,7 +7487,7 @@ pub const QAbstractSlider = extern struct {
     /// ` self: QAbstractSlider `
     ///
     pub fn logicalDpiX(self: QAbstractSlider) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7478,7 +7503,7 @@ pub const QAbstractSlider = extern struct {
     /// ` self: QAbstractSlider `
     ///
     pub fn logicalDpiY(self: QAbstractSlider) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7494,7 +7519,7 @@ pub const QAbstractSlider = extern struct {
     /// ` self: QAbstractSlider `
     ///
     pub fn physicalDpiX(self: QAbstractSlider) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7510,7 +7535,7 @@ pub const QAbstractSlider = extern struct {
     /// ` self: QAbstractSlider `
     ///
     pub fn physicalDpiY(self: QAbstractSlider) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7526,7 +7551,7 @@ pub const QAbstractSlider = extern struct {
     /// ` self: QAbstractSlider `
     ///
     pub fn devicePixelRatio(self: QAbstractSlider) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7542,7 +7567,7 @@ pub const QAbstractSlider = extern struct {
     /// ` self: QAbstractSlider `
     ///
     pub fn devicePixelRatioF(self: QAbstractSlider) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7558,7 +7583,7 @@ pub const QAbstractSlider = extern struct {
     /// ` self: QAbstractSlider `
     ///
     pub fn colorCount(self: QAbstractSlider) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7574,7 +7599,7 @@ pub const QAbstractSlider = extern struct {
     /// ` self: QAbstractSlider `
     ///
     pub fn depth(self: QAbstractSlider) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10810,7 +10835,7 @@ pub const QAbstractSlider = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#public-types)
 pub const enums = struct {
-    pub const SliderAction = enum(i32) {
+    pub const SliderAction = enum {
         pub const SliderNoAction: i32 = 0;
         pub const SliderSingleStepAdd: i32 = 1;
         pub const SliderSingleStepSub: i32 = 2;
@@ -10821,7 +10846,7 @@ pub const enums = struct {
         pub const SliderMove: i32 = 7;
     };
 
-    pub const SliderChange = enum(i32) {
+    pub const SliderChange = enum {
         pub const SliderRangeChange: i32 = 0;
         pub const SliderOrientationChange: i32 = 1;
         pub const SliderStepsChange: i32 = 2;

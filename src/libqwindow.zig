@@ -27,6 +27,7 @@ const QResizeEvent = @import("libqt6").QResizeEvent;
 const QScreen = @import("libqt6").QScreen;
 const QShowEvent = @import("libqt6").QShowEvent;
 const QSize = @import("libqt6").QSize;
+const QSurface = @import("libqt6").QSurface;
 const QSurfaceFormat = @import("libqt6").QSurfaceFormat;
 const QTabletEvent = @import("libqt6").QTabletEvent;
 const QThread = @import("libqt6").QThread;
@@ -90,6 +91,27 @@ pub const QWindow = extern struct {
     pub fn new3(_screen: anytype) QWindow {
         comptime _ = @TypeOf(_screen)._is_QScreen;
         return .{ .ptr = qtc.QWindow_new3(@ptrCast(_screen.ptr)) };
+    }
+
+    /// Upcasts to a QSurface object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QWindow `
+    ///
+    pub fn asQSurface(self: QWindow) QSurface {
+        return .{ .ptr = qtc.QWindow_AsQSurface(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a QWindow object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qsurface: QSurface `
+    ///
+    pub fn fromQSurface(_qsurface: anytype) QWindow {
+        comptime _ = @TypeOf(_qsurface)._is_QSurface;
+        return .{ .ptr = @ptrCast(qtc.QWindow_FromQSurface(@ptrCast(_qsurface.ptr))) };
     }
 
     /// ### DEPRECATED: Use `metaObject` instead
@@ -4960,7 +4982,7 @@ pub const QWindow = extern struct {
     /// ` qsurface_enums.SurfaceClass `
     ///
     pub fn surfaceClass(self: QWindow) i32 {
-        return qtc.QSurface_SurfaceClass(@ptrCast(self.ptr));
+        return qtc.QSurface_SurfaceClass(@ptrCast(self.asQSurface().ptr));
     }
 
     /// ### DEPRECATED: Use `supportsOpenGL` instead
@@ -4976,7 +4998,7 @@ pub const QWindow = extern struct {
     /// ` self: QWindow `
     ///
     pub fn supportsOpenGL(self: QWindow) bool {
-        return qtc.QSurface_SupportsOpenGL(@ptrCast(self.ptr));
+        return qtc.QSurface_SupportsOpenGL(@ptrCast(self.asQSurface().ptr));
     }
 
     /// ### DEPRECATED: Use `eventFilter` instead
@@ -5632,7 +5654,7 @@ pub const QWindow = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindow.html#public-types)
 pub const enums = struct {
-    pub const Visibility = enum(i32) {
+    pub const Visibility = enum {
         pub const Hidden: i32 = 0;
         pub const AutomaticVisibility: i32 = 1;
         pub const Windowed: i32 = 2;
@@ -5641,7 +5663,7 @@ pub const enums = struct {
         pub const FullScreen: i32 = 5;
     };
 
-    pub const AncestorMode = enum(i32) {
+    pub const AncestorMode = enum {
         pub const ExcludeTransients: i32 = 0;
         pub const IncludeTransients: i32 = 1;
     };

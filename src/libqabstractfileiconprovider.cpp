@@ -52,9 +52,8 @@ QIcon* QAbstractFileIconProvider_SuperIcon(const QAbstractFileIconProvider* self
 // Auxiliary method to allow providing re-implementation
 void QAbstractFileIconProvider_OnIcon(const QAbstractFileIconProvider* self, intptr_t slot) {
     auto* vqabstractfileiconprovider = const_cast<VirtualQAbstractFileIconProvider*>(dynamic_cast<const VirtualQAbstractFileIconProvider*>(self));
-    if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
+    if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider)
         vqabstractfileiconprovider->setQAbstractFileIconProvider_Icon_Callback(reinterpret_cast<VirtualQAbstractFileIconProvider::QAbstractFileIconProvider_Icon_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -71,9 +70,8 @@ QIcon* QAbstractFileIconProvider_SuperIcon2(const QAbstractFileIconProvider* sel
 // Auxiliary method to allow providing re-implementation
 void QAbstractFileIconProvider_OnIcon2(const QAbstractFileIconProvider* self, intptr_t slot) {
     auto* vqabstractfileiconprovider = const_cast<VirtualQAbstractFileIconProvider*>(dynamic_cast<const VirtualQAbstractFileIconProvider*>(self));
-    if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
+    if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider)
         vqabstractfileiconprovider->setQAbstractFileIconProvider_Icon2_Callback(reinterpret_cast<VirtualQAbstractFileIconProvider::QAbstractFileIconProvider_Icon2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -106,9 +104,8 @@ libqt_string QAbstractFileIconProvider_SuperType(const QAbstractFileIconProvider
 // Auxiliary method to allow providing re-implementation
 void QAbstractFileIconProvider_OnType(const QAbstractFileIconProvider* self, intptr_t slot) {
     auto* vqabstractfileiconprovider = const_cast<VirtualQAbstractFileIconProvider*>(dynamic_cast<const VirtualQAbstractFileIconProvider*>(self));
-    if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
+    if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider)
         vqabstractfileiconprovider->setQAbstractFileIconProvider_Type_Callback(reinterpret_cast<VirtualQAbstractFileIconProvider::QAbstractFileIconProvider_Type_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -125,9 +122,8 @@ void QAbstractFileIconProvider_SuperSetOptions(QAbstractFileIconProvider* self, 
 // Auxiliary method to allow providing re-implementation
 void QAbstractFileIconProvider_OnSetOptions(QAbstractFileIconProvider* self, intptr_t slot) {
     auto* vqabstractfileiconprovider = dynamic_cast<VirtualQAbstractFileIconProvider*>(self);
-    if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
+    if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider)
         vqabstractfileiconprovider->setQAbstractFileIconProvider_SetOptions_Callback(reinterpret_cast<VirtualQAbstractFileIconProvider::QAbstractFileIconProvider_SetOptions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -144,9 +140,8 @@ int QAbstractFileIconProvider_SuperOptions(const QAbstractFileIconProvider* self
 // Auxiliary method to allow providing re-implementation
 void QAbstractFileIconProvider_OnOptions(const QAbstractFileIconProvider* self, intptr_t slot) {
     auto* vqabstractfileiconprovider = const_cast<VirtualQAbstractFileIconProvider*>(dynamic_cast<const VirtualQAbstractFileIconProvider*>(self));
-    if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
+    if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider)
         vqabstractfileiconprovider->setQAbstractFileIconProvider_Options_Callback(reinterpret_cast<VirtualQAbstractFileIconProvider::QAbstractFileIconProvider_Options_Callback>(slot));
-    }
 }
 
 void QAbstractFileIconProvider_Delete(QAbstractFileIconProvider* self) {

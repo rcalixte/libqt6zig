@@ -78,9 +78,8 @@ QMetaObject* QAudioBufferInput_SuperMetaObject(const QAudioBufferInput* self) {
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnMetaObject(const QAudioBufferInput* self, intptr_t slot) {
     auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
         vqaudiobufferinput->setQAudioBufferInput_MetaObject_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -97,9 +96,8 @@ void* QAudioBufferInput_SuperMetacast(QAudioBufferInput* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnMetacast(QAudioBufferInput* self, intptr_t slot) {
     auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
         vqaudiobufferinput->setQAudioBufferInput_Metacast_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -116,9 +114,8 @@ int QAudioBufferInput_SuperMetacall(QAudioBufferInput* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnMetacall(QAudioBufferInput* self, intptr_t slot) {
     auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
         vqaudiobufferinput->setQAudioBufferInput_Metacall_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -145,9 +142,8 @@ bool QAudioBufferInput_SuperEvent(QAudioBufferInput* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnEvent(QAudioBufferInput* self, intptr_t slot) {
     auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
         vqaudiobufferinput->setQAudioBufferInput_Event_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -174,9 +170,8 @@ bool QAudioBufferInput_SuperEventFilter(QAudioBufferInput* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnEventFilter(QAudioBufferInput* self, intptr_t slot) {
     auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
         vqaudiobufferinput->setQAudioBufferInput_EventFilter_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -203,9 +198,8 @@ void QAudioBufferInput_SuperTimerEvent(QAudioBufferInput* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnTimerEvent(QAudioBufferInput* self, intptr_t slot) {
     auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
         vqaudiobufferinput->setQAudioBufferInput_TimerEvent_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -232,9 +226,8 @@ void QAudioBufferInput_SuperChildEvent(QAudioBufferInput* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnChildEvent(QAudioBufferInput* self, intptr_t slot) {
     auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
         vqaudiobufferinput->setQAudioBufferInput_ChildEvent_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -261,9 +254,8 @@ void QAudioBufferInput_SuperCustomEvent(QAudioBufferInput* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnCustomEvent(QAudioBufferInput* self, intptr_t slot) {
     auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
         vqaudiobufferinput->setQAudioBufferInput_CustomEvent_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -290,9 +282,8 @@ void QAudioBufferInput_SuperConnectNotify(QAudioBufferInput* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnConnectNotify(QAudioBufferInput* self, intptr_t slot) {
     auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
         vqaudiobufferinput->setQAudioBufferInput_ConnectNotify_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -319,9 +310,8 @@ void QAudioBufferInput_SuperDisconnectNotify(QAudioBufferInput* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnDisconnectNotify(QAudioBufferInput* self, intptr_t slot) {
     auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
         vqaudiobufferinput->setQAudioBufferInput_DisconnectNotify_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -348,9 +338,8 @@ QObject* QAudioBufferInput_SuperSender(const QAudioBufferInput* self) {
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnSender(const QAudioBufferInput* self, intptr_t slot) {
     auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
         vqaudiobufferinput->setQAudioBufferInput_Sender_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -377,9 +366,8 @@ int QAudioBufferInput_SuperSenderSignalIndex(const QAudioBufferInput* self) {
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnSenderSignalIndex(const QAudioBufferInput* self, intptr_t slot) {
     auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
         vqaudiobufferinput->setQAudioBufferInput_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -406,9 +394,8 @@ int QAudioBufferInput_SuperReceivers(const QAudioBufferInput* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnReceivers(const QAudioBufferInput* self, intptr_t slot) {
     auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
         vqaudiobufferinput->setQAudioBufferInput_Receivers_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -435,9 +422,8 @@ bool QAudioBufferInput_SuperIsSignalConnected(const QAudioBufferInput* self, con
 // Auxiliary method to allow providing re-implementation
 void QAudioBufferInput_OnIsSignalConnected(const QAudioBufferInput* self, intptr_t slot) {
     auto* vqaudiobufferinput = const_cast<VirtualQAudioBufferInput*>(dynamic_cast<const VirtualQAudioBufferInput*>(self));
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
+    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput)
         vqaudiobufferinput->setQAudioBufferInput_IsSignalConnected_Callback(reinterpret_cast<VirtualQAudioBufferInput::QAudioBufferInput_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QAudioBufferInput_Delete(QAudioBufferInput* self) {

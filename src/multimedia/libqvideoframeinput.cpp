@@ -78,9 +78,8 @@ QMetaObject* QVideoFrameInput_SuperMetaObject(const QVideoFrameInput* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoFrameInput_OnMetaObject(const QVideoFrameInput* self, intptr_t slot) {
     auto* vqvideoframeinput = const_cast<VirtualQVideoFrameInput*>(dynamic_cast<const VirtualQVideoFrameInput*>(self));
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput)
         vqvideoframeinput->setQVideoFrameInput_MetaObject_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -97,9 +96,8 @@ void* QVideoFrameInput_SuperMetacast(QVideoFrameInput* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void QVideoFrameInput_OnMetacast(QVideoFrameInput* self, intptr_t slot) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput)
         vqvideoframeinput->setQVideoFrameInput_Metacast_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -116,9 +114,8 @@ int QVideoFrameInput_SuperMetacall(QVideoFrameInput* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void QVideoFrameInput_OnMetacall(QVideoFrameInput* self, intptr_t slot) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput)
         vqvideoframeinput->setQVideoFrameInput_Metacall_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -145,9 +142,8 @@ bool QVideoFrameInput_SuperEvent(QVideoFrameInput* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoFrameInput_OnEvent(QVideoFrameInput* self, intptr_t slot) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput)
         vqvideoframeinput->setQVideoFrameInput_Event_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -174,9 +170,8 @@ bool QVideoFrameInput_SuperEventFilter(QVideoFrameInput* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void QVideoFrameInput_OnEventFilter(QVideoFrameInput* self, intptr_t slot) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput)
         vqvideoframeinput->setQVideoFrameInput_EventFilter_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -203,9 +198,8 @@ void QVideoFrameInput_SuperTimerEvent(QVideoFrameInput* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void QVideoFrameInput_OnTimerEvent(QVideoFrameInput* self, intptr_t slot) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput)
         vqvideoframeinput->setQVideoFrameInput_TimerEvent_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -232,9 +226,8 @@ void QVideoFrameInput_SuperChildEvent(QVideoFrameInput* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void QVideoFrameInput_OnChildEvent(QVideoFrameInput* self, intptr_t slot) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput)
         vqvideoframeinput->setQVideoFrameInput_ChildEvent_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -261,9 +254,8 @@ void QVideoFrameInput_SuperCustomEvent(QVideoFrameInput* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVideoFrameInput_OnCustomEvent(QVideoFrameInput* self, intptr_t slot) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput)
         vqvideoframeinput->setQVideoFrameInput_CustomEvent_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -290,9 +282,8 @@ void QVideoFrameInput_SuperConnectNotify(QVideoFrameInput* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QVideoFrameInput_OnConnectNotify(QVideoFrameInput* self, intptr_t slot) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput)
         vqvideoframeinput->setQVideoFrameInput_ConnectNotify_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -319,9 +310,8 @@ void QVideoFrameInput_SuperDisconnectNotify(QVideoFrameInput* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void QVideoFrameInput_OnDisconnectNotify(QVideoFrameInput* self, intptr_t slot) {
     auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput)
         vqvideoframeinput->setQVideoFrameInput_DisconnectNotify_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -348,9 +338,8 @@ QObject* QVideoFrameInput_SuperSender(const QVideoFrameInput* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoFrameInput_OnSender(const QVideoFrameInput* self, intptr_t slot) {
     auto* vqvideoframeinput = const_cast<VirtualQVideoFrameInput*>(dynamic_cast<const VirtualQVideoFrameInput*>(self));
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput)
         vqvideoframeinput->setQVideoFrameInput_Sender_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -377,9 +366,8 @@ int QVideoFrameInput_SuperSenderSignalIndex(const QVideoFrameInput* self) {
 // Auxiliary method to allow providing re-implementation
 void QVideoFrameInput_OnSenderSignalIndex(const QVideoFrameInput* self, intptr_t slot) {
     auto* vqvideoframeinput = const_cast<VirtualQVideoFrameInput*>(dynamic_cast<const VirtualQVideoFrameInput*>(self));
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput)
         vqvideoframeinput->setQVideoFrameInput_SenderSignalIndex_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -406,9 +394,8 @@ int QVideoFrameInput_SuperReceivers(const QVideoFrameInput* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void QVideoFrameInput_OnReceivers(const QVideoFrameInput* self, intptr_t slot) {
     auto* vqvideoframeinput = const_cast<VirtualQVideoFrameInput*>(dynamic_cast<const VirtualQVideoFrameInput*>(self));
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput)
         vqvideoframeinput->setQVideoFrameInput_Receivers_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -435,9 +422,8 @@ bool QVideoFrameInput_SuperIsSignalConnected(const QVideoFrameInput* self, const
 // Auxiliary method to allow providing re-implementation
 void QVideoFrameInput_OnIsSignalConnected(const QVideoFrameInput* self, intptr_t slot) {
     auto* vqvideoframeinput = const_cast<VirtualQVideoFrameInput*>(dynamic_cast<const VirtualQVideoFrameInput*>(self));
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
+    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput)
         vqvideoframeinput->setQVideoFrameInput_IsSignalConnected_Callback(reinterpret_cast<VirtualQVideoFrameInput::QVideoFrameInput_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QVideoFrameInput_Delete(QVideoFrameInput* self) {

@@ -144,9 +144,8 @@ QMetaObject* KColumnHeadersModel_SuperMetaObject(const KColumnHeadersModel* self
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnMetaObject(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_MetaObject_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -163,9 +162,8 @@ void* KColumnHeadersModel_SuperMetacast(KColumnHeadersModel* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnMetacast(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_Metacast_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -182,9 +180,8 @@ int KColumnHeadersModel_SuperMetacall(KColumnHeadersModel* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnMetacall(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_Metacall_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -201,9 +198,8 @@ int KColumnHeadersModel_SuperRowCount(const KColumnHeadersModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnRowCount(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_RowCount_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_RowCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -220,9 +216,8 @@ QVariant* KColumnHeadersModel_SuperData(const KColumnHeadersModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnData(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_Data_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -277,9 +272,8 @@ libqt_map /* of int to libqt_string */ KColumnHeadersModel_SuperRoleNames(const 
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnRoleNames(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_RoleNames_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -306,9 +300,8 @@ QModelIndex* KColumnHeadersModel_SuperIndex(const KColumnHeadersModel* self, int
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnIndex(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_Index_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_Index_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -335,9 +328,8 @@ QModelIndex* KColumnHeadersModel_SuperSibling(const KColumnHeadersModel* self, i
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnSibling(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_Sibling_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -364,9 +356,8 @@ bool KColumnHeadersModel_SuperDropMimeData(KColumnHeadersModel* self, const QMim
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnDropMimeData(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_DropMimeData_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -393,9 +384,8 @@ int KColumnHeadersModel_SuperFlags(const KColumnHeadersModel* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnFlags(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_Flags_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_Flags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -422,9 +412,8 @@ bool KColumnHeadersModel_SuperSetData(KColumnHeadersModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnSetData(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_SetData_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -451,9 +440,8 @@ QVariant* KColumnHeadersModel_SuperHeaderData(const KColumnHeadersModel* self, i
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnHeaderData(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_HeaderData_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -480,9 +468,8 @@ bool KColumnHeadersModel_SuperSetHeaderData(KColumnHeadersModel* self, int secti
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnSetHeaderData(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_SetHeaderData_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +552,8 @@ libqt_map /* of int to QVariant* */ KColumnHeadersModel_SuperItemData(const KCol
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnItemData(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_ItemData_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -606,9 +592,8 @@ bool KColumnHeadersModel_SuperSetItemData(KColumnHeadersModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnSetItemData(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_SetItemData_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -635,9 +620,8 @@ bool KColumnHeadersModel_SuperClearItemData(KColumnHeadersModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnClearItemData(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_ClearItemData_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -732,9 +716,8 @@ libqt_list /* of libqt_string */ KColumnHeadersModel_SuperMimeTypes(const KColum
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnMimeTypes(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_MimeTypes_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -773,9 +756,8 @@ QMimeData* KColumnHeadersModel_SuperMimeData(const KColumnHeadersModel* self, co
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnMimeData(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_MimeData_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -802,9 +784,8 @@ bool KColumnHeadersModel_SuperCanDropMimeData(const KColumnHeadersModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnCanDropMimeData(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_CanDropMimeData_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -831,9 +812,8 @@ int KColumnHeadersModel_SuperSupportedDropActions(const KColumnHeadersModel* sel
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnSupportedDropActions(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_SupportedDropActions_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -860,9 +840,8 @@ int KColumnHeadersModel_SuperSupportedDragActions(const KColumnHeadersModel* sel
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnSupportedDragActions(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_SupportedDragActions_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -889,9 +868,8 @@ bool KColumnHeadersModel_SuperInsertRows(KColumnHeadersModel* self, int row, int
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnInsertRows(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_InsertRows_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -918,9 +896,8 @@ bool KColumnHeadersModel_SuperInsertColumns(KColumnHeadersModel* self, int colum
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnInsertColumns(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_InsertColumns_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -947,9 +924,8 @@ bool KColumnHeadersModel_SuperRemoveRows(KColumnHeadersModel* self, int row, int
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnRemoveRows(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_RemoveRows_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -976,9 +952,8 @@ bool KColumnHeadersModel_SuperRemoveColumns(KColumnHeadersModel* self, int colum
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnRemoveColumns(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_RemoveColumns_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1005,9 +980,8 @@ bool KColumnHeadersModel_SuperMoveRows(KColumnHeadersModel* self, const QModelIn
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnMoveRows(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_MoveRows_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1034,9 +1008,8 @@ bool KColumnHeadersModel_SuperMoveColumns(KColumnHeadersModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnMoveColumns(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_MoveColumns_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1063,9 +1036,8 @@ void KColumnHeadersModel_SuperFetchMore(KColumnHeadersModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnFetchMore(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_FetchMore_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1092,9 +1064,8 @@ bool KColumnHeadersModel_SuperCanFetchMore(const KColumnHeadersModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnCanFetchMore(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_CanFetchMore_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1121,9 +1092,8 @@ void KColumnHeadersModel_SuperSort(KColumnHeadersModel* self, int column, int or
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnSort(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_Sort_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1150,9 +1120,8 @@ QModelIndex* KColumnHeadersModel_SuperBuddy(const KColumnHeadersModel* self, con
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnBuddy(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_Buddy_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1215,9 +1184,8 @@ libqt_list /* of QModelIndex* */ KColumnHeadersModel_SuperMatch(const KColumnHea
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnMatch(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_Match_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1244,9 +1212,8 @@ QSize* KColumnHeadersModel_SuperSpan(const KColumnHeadersModel* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnSpan(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_Span_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1273,9 +1240,8 @@ void KColumnHeadersModel_SuperMultiData(const KColumnHeadersModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnMultiData(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_MultiData_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1302,9 +1268,8 @@ bool KColumnHeadersModel_SuperSubmit(KColumnHeadersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnSubmit(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_Submit_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1331,9 +1296,8 @@ void KColumnHeadersModel_SuperRevert(KColumnHeadersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnRevert(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_Revert_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1360,9 +1324,8 @@ void KColumnHeadersModel_SuperResetInternalData(KColumnHeadersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnResetInternalData(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_ResetInternalData_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1389,9 +1352,8 @@ bool KColumnHeadersModel_SuperEvent(KColumnHeadersModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnEvent(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_Event_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1418,9 +1380,8 @@ bool KColumnHeadersModel_SuperEventFilter(KColumnHeadersModel* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnEventFilter(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_EventFilter_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1447,9 +1408,8 @@ void KColumnHeadersModel_SuperTimerEvent(KColumnHeadersModel* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnTimerEvent(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_TimerEvent_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1476,9 +1436,8 @@ void KColumnHeadersModel_SuperChildEvent(KColumnHeadersModel* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnChildEvent(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_ChildEvent_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1505,9 +1464,8 @@ void KColumnHeadersModel_SuperCustomEvent(KColumnHeadersModel* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnCustomEvent(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_CustomEvent_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1534,9 +1492,8 @@ void KColumnHeadersModel_SuperConnectNotify(KColumnHeadersModel* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnConnectNotify(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_ConnectNotify_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1563,9 +1520,8 @@ void KColumnHeadersModel_SuperDisconnectNotify(KColumnHeadersModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnDisconnectNotify(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_DisconnectNotify_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1590,9 +1546,8 @@ QModelIndex* KColumnHeadersModel_SuperCreateIndex(const KColumnHeadersModel* sel
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnCreateIndex(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_CreateIndex_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1631,9 +1586,8 @@ void KColumnHeadersModel_SuperEncodeData(const KColumnHeadersModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnEncodeData(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_EncodeData_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1660,9 +1614,8 @@ bool KColumnHeadersModel_SuperDecodeData(KColumnHeadersModel* self, int row, int
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnDecodeData(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_DecodeData_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1689,9 +1642,8 @@ void KColumnHeadersModel_SuperBeginInsertRows(KColumnHeadersModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnBeginInsertRows(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_BeginInsertRows_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1718,9 +1670,8 @@ void KColumnHeadersModel_SuperEndInsertRows(KColumnHeadersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnEndInsertRows(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_EndInsertRows_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1747,9 +1698,8 @@ void KColumnHeadersModel_SuperBeginRemoveRows(KColumnHeadersModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnBeginRemoveRows(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1776,9 +1726,8 @@ void KColumnHeadersModel_SuperEndRemoveRows(KColumnHeadersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnEndRemoveRows(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_EndRemoveRows_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1805,9 +1754,8 @@ bool KColumnHeadersModel_SuperBeginMoveRows(KColumnHeadersModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnBeginMoveRows(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_BeginMoveRows_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1834,9 +1782,8 @@ void KColumnHeadersModel_SuperEndMoveRows(KColumnHeadersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnEndMoveRows(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_EndMoveRows_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1863,9 +1810,8 @@ void KColumnHeadersModel_SuperBeginInsertColumns(KColumnHeadersModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnBeginInsertColumns(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1892,9 +1838,8 @@ void KColumnHeadersModel_SuperEndInsertColumns(KColumnHeadersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnEndInsertColumns(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_EndInsertColumns_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1921,9 +1866,8 @@ void KColumnHeadersModel_SuperBeginRemoveColumns(KColumnHeadersModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnBeginRemoveColumns(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1950,9 +1894,8 @@ void KColumnHeadersModel_SuperEndRemoveColumns(KColumnHeadersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnEndRemoveColumns(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1979,9 +1922,8 @@ bool KColumnHeadersModel_SuperBeginMoveColumns(KColumnHeadersModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnBeginMoveColumns(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2008,9 +1950,8 @@ void KColumnHeadersModel_SuperEndMoveColumns(KColumnHeadersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnEndMoveColumns(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_EndMoveColumns_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2037,9 +1978,8 @@ void KColumnHeadersModel_SuperBeginResetModel(KColumnHeadersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnBeginResetModel(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_BeginResetModel_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2066,9 +2006,8 @@ void KColumnHeadersModel_SuperEndResetModel(KColumnHeadersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnEndResetModel(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_EndResetModel_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2095,9 +2034,8 @@ void KColumnHeadersModel_SuperChangePersistentIndex(KColumnHeadersModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnChangePersistentIndex(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2148,9 +2086,8 @@ void KColumnHeadersModel_SuperChangePersistentIndexList(KColumnHeadersModel* sel
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnChangePersistentIndexList(KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2213,9 +2150,8 @@ libqt_list /* of QModelIndex* */ KColumnHeadersModel_SuperPersistentIndexList(co
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnPersistentIndexList(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_PersistentIndexList_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2242,9 +2178,8 @@ QObject* KColumnHeadersModel_SuperSender(const KColumnHeadersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnSender(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_Sender_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2271,9 +2206,8 @@ int KColumnHeadersModel_SuperSenderSignalIndex(const KColumnHeadersModel* self) 
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnSenderSignalIndex(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2300,9 +2234,8 @@ int KColumnHeadersModel_SuperReceivers(const KColumnHeadersModel* self, const ch
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnReceivers(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_Receivers_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2329,9 +2262,8 @@ bool KColumnHeadersModel_SuperIsSignalConnected(const KColumnHeadersModel* self,
 // Auxiliary method to allow providing re-implementation
 void KColumnHeadersModel_OnIsSignalConnected(const KColumnHeadersModel* self, intptr_t slot) {
     auto* vkcolumnheadersmodel = const_cast<VirtualKColumnHeadersModel*>(dynamic_cast<const VirtualKColumnHeadersModel*>(self));
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
+    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel)
         vkcolumnheadersmodel->setKColumnHeadersModel_IsSignalConnected_Callback(reinterpret_cast<VirtualKColumnHeadersModel::KColumnHeadersModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KColumnHeadersModel_Delete(KColumnHeadersModel* self) {

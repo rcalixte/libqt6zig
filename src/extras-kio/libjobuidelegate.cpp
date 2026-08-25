@@ -14,6 +14,14 @@
 #include "libjobuidelegate.h"
 #include "libjobuidelegate.hxx"
 
+KIO__JobUiDelegateExtension* KIO__JobUiDelegate_AsKIO__JobUiDelegateExtension(KIO__JobUiDelegate* self) {
+    return static_cast<KIO::JobUiDelegateExtension*>(self);
+}
+
+KIO__JobUiDelegate* KIO__JobUiDelegate_FromKIO__JobUiDelegateExtension(KIO::JobUiDelegateExtension* _kio__jobuidelegateextension) {
+    return dynamic_cast<KIO::JobUiDelegate*>(static_cast<KIO::JobUiDelegateExtension*>(_kio__jobuidelegateextension));
+}
+
 QMetaObject* KIO__JobUiDelegate_MetaObject(const KIO__JobUiDelegate* self) {
     return (QMetaObject*)self->metaObject();
 }

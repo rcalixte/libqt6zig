@@ -30,6 +30,7 @@ const QResizeEvent = @import("libqt6").QResizeEvent;
 const QScreen = @import("libqt6").QScreen;
 const QShowEvent = @import("libqt6").QShowEvent;
 const QSize = @import("libqt6").QSize;
+const QSurface = @import("libqt6").QSurface;
 const QSurfaceFormat = @import("libqt6").QSurfaceFormat;
 const QTabletEvent = @import("libqt6").QTabletEvent;
 const QThread = @import("libqt6").QThread;
@@ -466,6 +467,31 @@ pub const QRasterWindow = extern struct {
         return _ret;
     }
 
+    /// Inherited from QPaintDeviceWindow
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QRasterWindow `
+    ///
+    pub fn asQPaintDevice(self: QRasterWindow) QPaintDevice {
+        return .{ .ptr = qtc.QPaintDeviceWindow_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QPaintDeviceWindow
+    ///
+    /// Downcasts to a QRasterWindow object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QRasterWindow {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QPaintDeviceWindow_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `update` instead
     ///
     pub const Update = update;
@@ -518,6 +544,31 @@ pub const QRasterWindow = extern struct {
     ///
     pub fn update3(self: QRasterWindow) void {
         qtc.QPaintDeviceWindow_Update3(@ptrCast(self.ptr));
+    }
+
+    /// Inherited from QWindow
+    ///
+    /// Upcasts to a QSurface object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QRasterWindow `
+    ///
+    pub fn asQSurface(self: QRasterWindow) QSurface {
+        return .{ .ptr = qtc.QWindow_AsQSurface(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWindow
+    ///
+    /// Downcasts to a QRasterWindow object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qsurface: QSurface `
+    ///
+    pub fn fromQSurface(_qsurface: anytype) QRasterWindow {
+        comptime _ = @TypeOf(_qsurface)._is_QSurface;
+        return .{ .ptr = @ptrCast(qtc.QWindow_FromQSurface(@ptrCast(_qsurface.ptr))) };
     }
 
     /// ### DEPRECATED: Use `setSurfaceType` instead
@@ -4053,7 +4104,7 @@ pub const QRasterWindow = extern struct {
     /// ` qsurface_enums.SurfaceClass `
     ///
     pub fn surfaceClass(self: QRasterWindow) i32 {
-        return qtc.QSurface_SurfaceClass(@ptrCast(self.ptr));
+        return qtc.QSurface_SurfaceClass(@ptrCast(self.asQSurface().ptr));
     }
 
     /// ### DEPRECATED: Use `supportsOpenGL` instead
@@ -4069,7 +4120,7 @@ pub const QRasterWindow = extern struct {
     /// ` self: QRasterWindow `
     ///
     pub fn supportsOpenGL(self: QRasterWindow) bool {
-        return qtc.QSurface_SupportsOpenGL(@ptrCast(self.ptr));
+        return qtc.QSurface_SupportsOpenGL(@ptrCast(self.asQSurface().ptr));
     }
 
     /// ### DEPRECATED: Use `paintingActive` instead
@@ -4085,7 +4136,7 @@ pub const QRasterWindow = extern struct {
     /// ` self: QRasterWindow `
     ///
     pub fn paintingActive(self: QRasterWindow) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `paintEngine` instead
@@ -4101,7 +4152,7 @@ pub const QRasterWindow = extern struct {
     /// ` self: QRasterWindow `
     ///
     pub fn paintEngine(self: QRasterWindow) QPaintEngine {
-        return .{ .ptr = qtc.QPaintDevice_PaintEngine(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QPaintDevice_PaintEngine(@ptrCast(self.asQPaintDevice().ptr)) };
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -4117,7 +4168,7 @@ pub const QRasterWindow = extern struct {
     /// ` self: QRasterWindow `
     ///
     pub fn widthMM(self: QRasterWindow) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -4133,7 +4184,7 @@ pub const QRasterWindow = extern struct {
     /// ` self: QRasterWindow `
     ///
     pub fn heightMM(self: QRasterWindow) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -4149,7 +4200,7 @@ pub const QRasterWindow = extern struct {
     /// ` self: QRasterWindow `
     ///
     pub fn logicalDpiX(self: QRasterWindow) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -4165,7 +4216,7 @@ pub const QRasterWindow = extern struct {
     /// ` self: QRasterWindow `
     ///
     pub fn logicalDpiY(self: QRasterWindow) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -4181,7 +4232,7 @@ pub const QRasterWindow = extern struct {
     /// ` self: QRasterWindow `
     ///
     pub fn physicalDpiX(self: QRasterWindow) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -4197,7 +4248,7 @@ pub const QRasterWindow = extern struct {
     /// ` self: QRasterWindow `
     ///
     pub fn physicalDpiY(self: QRasterWindow) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -4213,7 +4264,7 @@ pub const QRasterWindow = extern struct {
     /// ` self: QRasterWindow `
     ///
     pub fn devicePixelRatioF(self: QRasterWindow) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -4229,7 +4280,7 @@ pub const QRasterWindow = extern struct {
     /// ` self: QRasterWindow `
     ///
     pub fn colorCount(self: QRasterWindow) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -4245,7 +4296,7 @@ pub const QRasterWindow = extern struct {
     /// ` self: QRasterWindow `
     ///
     pub fn depth(self: QRasterWindow) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

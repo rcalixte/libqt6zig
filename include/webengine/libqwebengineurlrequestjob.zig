@@ -1402,7 +1402,7 @@ pub const QWebEngineUrlRequestJob = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestjob.html#public-types)
 pub const enums = struct {
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const UrlNotFound: i32 = 1;
         pub const UrlInvalid: i32 = 2;

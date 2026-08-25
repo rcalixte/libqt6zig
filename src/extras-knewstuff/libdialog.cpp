@@ -98,9 +98,8 @@ QMetaObject* KNSWidgets__Dialog_SuperMetaObject(const KNSWidgets__Dialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnMetaObject(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_MetaObject_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -117,9 +116,8 @@ void* KNSWidgets__Dialog_SuperMetacast(KNSWidgets__Dialog* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnMetacast(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_Metacast_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -136,9 +134,8 @@ int KNSWidgets__Dialog_SuperMetacall(KNSWidgets__Dialog* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnMetacall(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_Metacall_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -155,9 +152,8 @@ void KNSWidgets__Dialog_SuperOpen(KNSWidgets__Dialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnOpen(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_Open_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -184,9 +180,8 @@ void KNSWidgets__Dialog_SuperSetVisible(KNSWidgets__Dialog* self, bool visible) 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnSetVisible(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_SetVisible_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -213,9 +208,8 @@ QSize* KNSWidgets__Dialog_SuperSizeHint(const KNSWidgets__Dialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnSizeHint(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_SizeHint_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -242,9 +236,8 @@ QSize* KNSWidgets__Dialog_SuperMinimumSizeHint(const KNSWidgets__Dialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnMinimumSizeHint(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +264,8 @@ int KNSWidgets__Dialog_SuperExec(KNSWidgets__Dialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnExec(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_Exec_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +292,8 @@ void KNSWidgets__Dialog_SuperDone(KNSWidgets__Dialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnDone(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_Done_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +320,8 @@ void KNSWidgets__Dialog_SuperAccept(KNSWidgets__Dialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnAccept(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_Accept_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +348,8 @@ void KNSWidgets__Dialog_SuperReject(KNSWidgets__Dialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnReject(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_Reject_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +376,8 @@ void KNSWidgets__Dialog_SuperKeyPressEvent(KNSWidgets__Dialog* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnKeyPressEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +404,8 @@ void KNSWidgets__Dialog_SuperCloseEvent(KNSWidgets__Dialog* self, QCloseEvent* p
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnCloseEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_CloseEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +432,8 @@ void KNSWidgets__Dialog_SuperShowEvent(KNSWidgets__Dialog* self, QShowEvent* par
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnShowEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_ShowEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +460,8 @@ void KNSWidgets__Dialog_SuperResizeEvent(KNSWidgets__Dialog* self, QResizeEvent*
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnResizeEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_ResizeEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +488,8 @@ void KNSWidgets__Dialog_SuperContextMenuEvent(KNSWidgets__Dialog* self, QContext
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnContextMenuEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +516,8 @@ bool KNSWidgets__Dialog_SuperEventFilter(KNSWidgets__Dialog* self, QObject* para
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnEventFilter(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_EventFilter_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +544,8 @@ int KNSWidgets__Dialog_SuperDevType(const KNSWidgets__Dialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnDevType(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_DevType_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +572,8 @@ int KNSWidgets__Dialog_SuperHeightForWidth(const KNSWidgets__Dialog* self, int p
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnHeightForWidth(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_HeightForWidth_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -619,9 +600,8 @@ bool KNSWidgets__Dialog_SuperHasHeightForWidth(const KNSWidgets__Dialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnHasHeightForWidth(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -648,9 +628,8 @@ QPaintEngine* KNSWidgets__Dialog_SuperPaintEngine(const KNSWidgets__Dialog* self
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnPaintEngine(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_PaintEngine_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -677,9 +656,8 @@ bool KNSWidgets__Dialog_SuperEvent(KNSWidgets__Dialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_Event_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +684,8 @@ void KNSWidgets__Dialog_SuperMousePressEvent(KNSWidgets__Dialog* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnMousePressEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_MousePressEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -735,9 +712,8 @@ void KNSWidgets__Dialog_SuperMouseReleaseEvent(KNSWidgets__Dialog* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnMouseReleaseEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -764,9 +740,8 @@ void KNSWidgets__Dialog_SuperMouseDoubleClickEvent(KNSWidgets__Dialog* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnMouseDoubleClickEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -793,9 +768,8 @@ void KNSWidgets__Dialog_SuperMouseMoveEvent(KNSWidgets__Dialog* self, QMouseEven
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnMouseMoveEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -822,9 +796,8 @@ void KNSWidgets__Dialog_SuperWheelEvent(KNSWidgets__Dialog* self, QWheelEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnWheelEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_WheelEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -851,9 +824,8 @@ void KNSWidgets__Dialog_SuperKeyReleaseEvent(KNSWidgets__Dialog* self, QKeyEvent
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnKeyReleaseEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -880,9 +852,8 @@ void KNSWidgets__Dialog_SuperFocusInEvent(KNSWidgets__Dialog* self, QFocusEvent*
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnFocusInEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_FocusInEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -909,9 +880,8 @@ void KNSWidgets__Dialog_SuperFocusOutEvent(KNSWidgets__Dialog* self, QFocusEvent
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnFocusOutEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -938,9 +908,8 @@ void KNSWidgets__Dialog_SuperEnterEvent(KNSWidgets__Dialog* self, QEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnEnterEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_EnterEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -967,9 +936,8 @@ void KNSWidgets__Dialog_SuperLeaveEvent(KNSWidgets__Dialog* self, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnLeaveEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_LeaveEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -996,9 +964,8 @@ void KNSWidgets__Dialog_SuperPaintEvent(KNSWidgets__Dialog* self, QPaintEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnPaintEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_PaintEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1025,9 +992,8 @@ void KNSWidgets__Dialog_SuperMoveEvent(KNSWidgets__Dialog* self, QMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnMoveEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_MoveEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1054,9 +1020,8 @@ void KNSWidgets__Dialog_SuperTabletEvent(KNSWidgets__Dialog* self, QTabletEvent*
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnTabletEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_TabletEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1083,9 +1048,8 @@ void KNSWidgets__Dialog_SuperActionEvent(KNSWidgets__Dialog* self, QActionEvent*
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnActionEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_ActionEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1112,9 +1076,8 @@ void KNSWidgets__Dialog_SuperDragEnterEvent(KNSWidgets__Dialog* self, QDragEnter
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnDragEnterEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1141,9 +1104,8 @@ void KNSWidgets__Dialog_SuperDragMoveEvent(KNSWidgets__Dialog* self, QDragMoveEv
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnDragMoveEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1170,9 +1132,8 @@ void KNSWidgets__Dialog_SuperDragLeaveEvent(KNSWidgets__Dialog* self, QDragLeave
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnDragLeaveEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1199,9 +1160,8 @@ void KNSWidgets__Dialog_SuperDropEvent(KNSWidgets__Dialog* self, QDropEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnDropEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_DropEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1228,9 +1188,8 @@ void KNSWidgets__Dialog_SuperHideEvent(KNSWidgets__Dialog* self, QHideEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnHideEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_HideEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1259,9 +1218,8 @@ bool KNSWidgets__Dialog_SuperNativeEvent(KNSWidgets__Dialog* self, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnNativeEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_NativeEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1288,9 +1246,8 @@ void KNSWidgets__Dialog_SuperChangeEvent(KNSWidgets__Dialog* self, QEvent* param
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnChangeEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_ChangeEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1317,9 +1274,8 @@ int KNSWidgets__Dialog_SuperMetric(const KNSWidgets__Dialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnMetric(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_Metric_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1346,9 +1302,8 @@ void KNSWidgets__Dialog_SuperInitPainter(const KNSWidgets__Dialog* self, QPainte
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnInitPainter(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_InitPainter_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1375,9 +1330,8 @@ QPaintDevice* KNSWidgets__Dialog_SuperRedirected(const KNSWidgets__Dialog* self,
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnRedirected(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_Redirected_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1404,9 +1358,8 @@ QPainter* KNSWidgets__Dialog_SuperSharedPainter(const KNSWidgets__Dialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnSharedPainter(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_SharedPainter_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1433,9 +1386,8 @@ void KNSWidgets__Dialog_SuperInputMethodEvent(KNSWidgets__Dialog* self, QInputMe
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnInputMethodEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1462,9 +1414,8 @@ QVariant* KNSWidgets__Dialog_SuperInputMethodQuery(const KNSWidgets__Dialog* sel
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnInputMethodQuery(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1491,9 +1442,8 @@ bool KNSWidgets__Dialog_SuperFocusNextPrevChild(KNSWidgets__Dialog* self, bool n
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnFocusNextPrevChild(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1520,9 +1470,8 @@ void KNSWidgets__Dialog_SuperTimerEvent(KNSWidgets__Dialog* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnTimerEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_TimerEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1549,9 +1498,8 @@ void KNSWidgets__Dialog_SuperChildEvent(KNSWidgets__Dialog* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnChildEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_ChildEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1578,9 +1526,8 @@ void KNSWidgets__Dialog_SuperCustomEvent(KNSWidgets__Dialog* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnCustomEvent(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_CustomEvent_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1607,9 +1554,8 @@ void KNSWidgets__Dialog_SuperConnectNotify(KNSWidgets__Dialog* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnConnectNotify(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_ConnectNotify_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1636,9 +1582,8 @@ void KNSWidgets__Dialog_SuperDisconnectNotify(KNSWidgets__Dialog* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnDisconnectNotify(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1665,9 +1610,8 @@ void KNSWidgets__Dialog_SuperAdjustPosition(KNSWidgets__Dialog* self, QWidget* p
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnAdjustPosition(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_AdjustPosition_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1694,9 +1638,8 @@ void KNSWidgets__Dialog_SuperUpdateMicroFocus(KNSWidgets__Dialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnUpdateMicroFocus(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1723,9 +1666,8 @@ void KNSWidgets__Dialog_SuperCreate(KNSWidgets__Dialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnCreate(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_Create_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1752,9 +1694,8 @@ void KNSWidgets__Dialog_SuperDestroy(KNSWidgets__Dialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnDestroy(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_Destroy_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1781,9 +1722,8 @@ bool KNSWidgets__Dialog_SuperFocusNextChild(KNSWidgets__Dialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnFocusNextChild(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_FocusNextChild_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1810,9 +1750,8 @@ bool KNSWidgets__Dialog_SuperFocusPreviousChild(KNSWidgets__Dialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnFocusPreviousChild(KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1839,9 +1778,8 @@ QObject* KNSWidgets__Dialog_SuperSender(const KNSWidgets__Dialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnSender(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_Sender_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1868,9 +1806,8 @@ int KNSWidgets__Dialog_SuperSenderSignalIndex(const KNSWidgets__Dialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnSenderSignalIndex(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1897,9 +1834,8 @@ int KNSWidgets__Dialog_SuperReceivers(const KNSWidgets__Dialog* self, const char
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnReceivers(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_Receivers_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1926,9 +1862,8 @@ bool KNSWidgets__Dialog_SuperIsSignalConnected(const KNSWidgets__Dialog* self, c
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnIsSignalConnected(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1955,9 +1890,8 @@ double KNSWidgets__Dialog_SuperGetDecodedMetricF(const KNSWidgets__Dialog* self,
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Dialog_OnGetDecodedMetricF(const KNSWidgets__Dialog* self, intptr_t slot) {
     auto* vknswidgetsdialog = const_cast<VirtualKNSWidgetsDialog*>(dynamic_cast<const VirtualKNSWidgetsDialog*>(self));
-    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog) {
+    if (vknswidgetsdialog && vknswidgetsdialog->isVirtualKNSWidgetsDialog)
         vknswidgetsdialog->setKNSWidgets__Dialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKNSWidgetsDialog::KNSWidgets__Dialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KNSWidgets__Dialog_Delete(KNSWidgets__Dialog* self) {

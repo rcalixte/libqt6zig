@@ -368,9 +368,8 @@ QMetaObject* KUrlRequester_SuperMetaObject(const KUrlRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnMetaObject(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_MetaObject_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -387,9 +386,8 @@ void* KUrlRequester_SuperMetacast(KUrlRequester* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnMetacast(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_Metacast_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -406,9 +404,8 @@ int KUrlRequester_SuperMetacall(KUrlRequester* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnMetacall(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_Metacall_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -425,9 +422,8 @@ QFileDialog* KUrlRequester_SuperFileDialog(const KUrlRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnFileDialog(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_FileDialog_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_FileDialog_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -444,9 +440,8 @@ void KUrlRequester_SuperChangeEvent(KUrlRequester* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnChangeEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_ChangeEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -463,9 +458,8 @@ bool KUrlRequester_SuperEventFilter(KUrlRequester* self, QObject* obj, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnEventFilter(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_EventFilter_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -492,9 +486,8 @@ int KUrlRequester_SuperDevType(const KUrlRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnDevType(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_DevType_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -521,9 +514,8 @@ void KUrlRequester_SuperSetVisible(KUrlRequester* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnSetVisible(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_SetVisible_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -550,9 +542,8 @@ QSize* KUrlRequester_SuperSizeHint(const KUrlRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnSizeHint(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_SizeHint_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -579,9 +570,8 @@ QSize* KUrlRequester_SuperMinimumSizeHint(const KUrlRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnMinimumSizeHint(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_MinimumSizeHint_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -608,9 +598,8 @@ int KUrlRequester_SuperHeightForWidth(const KUrlRequester* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnHeightForWidth(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_HeightForWidth_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -637,9 +626,8 @@ bool KUrlRequester_SuperHasHeightForWidth(const KUrlRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnHasHeightForWidth(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_HasHeightForWidth_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -666,9 +654,8 @@ QPaintEngine* KUrlRequester_SuperPaintEngine(const KUrlRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnPaintEngine(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_PaintEngine_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -695,9 +682,8 @@ bool KUrlRequester_SuperEvent(KUrlRequester* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_Event_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -724,9 +710,8 @@ void KUrlRequester_SuperMousePressEvent(KUrlRequester* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnMousePressEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_MousePressEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -753,9 +738,8 @@ void KUrlRequester_SuperMouseReleaseEvent(KUrlRequester* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnMouseReleaseEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -782,9 +766,8 @@ void KUrlRequester_SuperMouseDoubleClickEvent(KUrlRequester* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnMouseDoubleClickEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -811,9 +794,8 @@ void KUrlRequester_SuperMouseMoveEvent(KUrlRequester* self, QMouseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnMouseMoveEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_MouseMoveEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -840,9 +822,8 @@ void KUrlRequester_SuperWheelEvent(KUrlRequester* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnWheelEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_WheelEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -869,9 +850,8 @@ void KUrlRequester_SuperKeyPressEvent(KUrlRequester* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnKeyPressEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_KeyPressEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -898,9 +878,8 @@ void KUrlRequester_SuperKeyReleaseEvent(KUrlRequester* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnKeyReleaseEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -927,9 +906,8 @@ void KUrlRequester_SuperFocusInEvent(KUrlRequester* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnFocusInEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_FocusInEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -956,9 +934,8 @@ void KUrlRequester_SuperFocusOutEvent(KUrlRequester* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnFocusOutEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_FocusOutEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -985,9 +962,8 @@ void KUrlRequester_SuperEnterEvent(KUrlRequester* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnEnterEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_EnterEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1014,9 +990,8 @@ void KUrlRequester_SuperLeaveEvent(KUrlRequester* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnLeaveEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_LeaveEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1043,9 +1018,8 @@ void KUrlRequester_SuperPaintEvent(KUrlRequester* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnPaintEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_PaintEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1072,9 +1046,8 @@ void KUrlRequester_SuperMoveEvent(KUrlRequester* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnMoveEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_MoveEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1101,9 +1074,8 @@ void KUrlRequester_SuperResizeEvent(KUrlRequester* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnResizeEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_ResizeEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1130,9 +1102,8 @@ void KUrlRequester_SuperCloseEvent(KUrlRequester* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnCloseEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_CloseEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1159,9 +1130,8 @@ void KUrlRequester_SuperContextMenuEvent(KUrlRequester* self, QContextMenuEvent*
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnContextMenuEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_ContextMenuEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1188,9 +1158,8 @@ void KUrlRequester_SuperTabletEvent(KUrlRequester* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnTabletEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_TabletEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1217,9 +1186,8 @@ void KUrlRequester_SuperActionEvent(KUrlRequester* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnActionEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_ActionEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1246,9 +1214,8 @@ void KUrlRequester_SuperDragEnterEvent(KUrlRequester* self, QDragEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnDragEnterEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_DragEnterEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1275,9 +1242,8 @@ void KUrlRequester_SuperDragMoveEvent(KUrlRequester* self, QDragMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnDragMoveEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_DragMoveEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1304,9 +1270,8 @@ void KUrlRequester_SuperDragLeaveEvent(KUrlRequester* self, QDragLeaveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnDragLeaveEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_DragLeaveEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1333,9 +1298,8 @@ void KUrlRequester_SuperDropEvent(KUrlRequester* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnDropEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_DropEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1362,9 +1326,8 @@ void KUrlRequester_SuperShowEvent(KUrlRequester* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnShowEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_ShowEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1391,9 +1354,8 @@ void KUrlRequester_SuperHideEvent(KUrlRequester* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnHideEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_HideEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1422,9 +1384,8 @@ bool KUrlRequester_SuperNativeEvent(KUrlRequester* self, const libqt_string even
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnNativeEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_NativeEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1451,9 +1412,8 @@ int KUrlRequester_SuperMetric(const KUrlRequester* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnMetric(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_Metric_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1480,9 +1440,8 @@ void KUrlRequester_SuperInitPainter(const KUrlRequester* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnInitPainter(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_InitPainter_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1509,9 +1468,8 @@ QPaintDevice* KUrlRequester_SuperRedirected(const KUrlRequester* self, QPoint* o
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnRedirected(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_Redirected_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1538,9 +1496,8 @@ QPainter* KUrlRequester_SuperSharedPainter(const KUrlRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnSharedPainter(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_SharedPainter_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1567,9 +1524,8 @@ void KUrlRequester_SuperInputMethodEvent(KUrlRequester* self, QInputMethodEvent*
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnInputMethodEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_InputMethodEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1596,9 +1552,8 @@ QVariant* KUrlRequester_SuperInputMethodQuery(const KUrlRequester* self, int par
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnInputMethodQuery(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_InputMethodQuery_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1625,9 +1580,8 @@ bool KUrlRequester_SuperFocusNextPrevChild(KUrlRequester* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnFocusNextPrevChild(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1654,9 +1608,8 @@ void KUrlRequester_SuperTimerEvent(KUrlRequester* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnTimerEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_TimerEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1683,9 +1636,8 @@ void KUrlRequester_SuperChildEvent(KUrlRequester* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnChildEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_ChildEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1712,9 +1664,8 @@ void KUrlRequester_SuperCustomEvent(KUrlRequester* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnCustomEvent(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_CustomEvent_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1741,9 +1692,8 @@ void KUrlRequester_SuperConnectNotify(KUrlRequester* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnConnectNotify(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_ConnectNotify_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1770,9 +1720,8 @@ void KUrlRequester_SuperDisconnectNotify(KUrlRequester* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnDisconnectNotify(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_DisconnectNotify_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1799,9 +1748,8 @@ void KUrlRequester_SuperUpdateMicroFocus(KUrlRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnUpdateMicroFocus(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1828,9 +1776,8 @@ void KUrlRequester_SuperCreate(KUrlRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnCreate(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_Create_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1857,9 +1804,8 @@ void KUrlRequester_SuperDestroy(KUrlRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnDestroy(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_Destroy_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1886,9 +1832,8 @@ bool KUrlRequester_SuperFocusNextChild(KUrlRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnFocusNextChild(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_FocusNextChild_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1915,9 +1860,8 @@ bool KUrlRequester_SuperFocusPreviousChild(KUrlRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnFocusPreviousChild(KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_FocusPreviousChild_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1944,9 +1888,8 @@ QObject* KUrlRequester_SuperSender(const KUrlRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnSender(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_Sender_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1973,9 +1916,8 @@ int KUrlRequester_SuperSenderSignalIndex(const KUrlRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnSenderSignalIndex(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_SenderSignalIndex_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2002,9 +1944,8 @@ int KUrlRequester_SuperReceivers(const KUrlRequester* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnReceivers(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_Receivers_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2031,9 +1972,8 @@ bool KUrlRequester_SuperIsSignalConnected(const KUrlRequester* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnIsSignalConnected(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_IsSignalConnected_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2060,9 +2000,8 @@ double KUrlRequester_SuperGetDecodedMetricF(const KUrlRequester* self, int metri
 // Auxiliary method to allow providing re-implementation
 void KUrlRequester_OnGetDecodedMetricF(const KUrlRequester* self, intptr_t slot) {
     auto* vkurlrequester = const_cast<VirtualKUrlRequester*>(dynamic_cast<const VirtualKUrlRequester*>(self));
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
+    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester)
         vkurlrequester->setKUrlRequester_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKUrlRequester::KUrlRequester_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KUrlRequester_Delete(KUrlRequester* self) {
@@ -2103,9 +2042,8 @@ QMetaObject* KUrlComboRequester_SuperMetaObject(const KUrlComboRequester* self) 
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnMetaObject(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_MetaObject_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2122,9 +2060,8 @@ void* KUrlComboRequester_SuperMetacast(KUrlComboRequester* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnMetacast(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_Metacast_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2141,9 +2078,8 @@ int KUrlComboRequester_SuperMetacall(KUrlComboRequester* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnMetacall(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_Metacall_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2170,9 +2106,8 @@ QFileDialog* KUrlComboRequester_SuperFileDialog(const KUrlComboRequester* self) 
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnFileDialog(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_FileDialog_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_FileDialog_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2199,9 +2134,8 @@ void KUrlComboRequester_SuperChangeEvent(KUrlComboRequester* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnChangeEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_ChangeEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2228,9 +2162,8 @@ bool KUrlComboRequester_SuperEventFilter(KUrlComboRequester* self, QObject* obj,
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnEventFilter(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_EventFilter_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2257,9 +2190,8 @@ int KUrlComboRequester_SuperDevType(const KUrlComboRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnDevType(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_DevType_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2286,9 +2218,8 @@ void KUrlComboRequester_SuperSetVisible(KUrlComboRequester* self, bool visible) 
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnSetVisible(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_SetVisible_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2315,9 +2246,8 @@ QSize* KUrlComboRequester_SuperSizeHint(const KUrlComboRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnSizeHint(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_SizeHint_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2344,9 +2274,8 @@ QSize* KUrlComboRequester_SuperMinimumSizeHint(const KUrlComboRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnMinimumSizeHint(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_MinimumSizeHint_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2373,9 +2302,8 @@ int KUrlComboRequester_SuperHeightForWidth(const KUrlComboRequester* self, int p
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnHeightForWidth(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_HeightForWidth_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2402,9 +2330,8 @@ bool KUrlComboRequester_SuperHasHeightForWidth(const KUrlComboRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnHasHeightForWidth(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_HasHeightForWidth_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2431,9 +2358,8 @@ QPaintEngine* KUrlComboRequester_SuperPaintEngine(const KUrlComboRequester* self
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnPaintEngine(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_PaintEngine_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2460,9 +2386,8 @@ bool KUrlComboRequester_SuperEvent(KUrlComboRequester* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_Event_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2489,9 +2414,8 @@ void KUrlComboRequester_SuperMousePressEvent(KUrlComboRequester* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnMousePressEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_MousePressEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2518,9 +2442,8 @@ void KUrlComboRequester_SuperMouseReleaseEvent(KUrlComboRequester* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnMouseReleaseEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2547,9 +2470,8 @@ void KUrlComboRequester_SuperMouseDoubleClickEvent(KUrlComboRequester* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnMouseDoubleClickEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2576,9 +2498,8 @@ void KUrlComboRequester_SuperMouseMoveEvent(KUrlComboRequester* self, QMouseEven
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnMouseMoveEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_MouseMoveEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2605,9 +2526,8 @@ void KUrlComboRequester_SuperWheelEvent(KUrlComboRequester* self, QWheelEvent* e
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnWheelEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_WheelEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2634,9 +2554,8 @@ void KUrlComboRequester_SuperKeyPressEvent(KUrlComboRequester* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnKeyPressEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_KeyPressEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2663,9 +2582,8 @@ void KUrlComboRequester_SuperKeyReleaseEvent(KUrlComboRequester* self, QKeyEvent
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnKeyReleaseEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2692,9 +2610,8 @@ void KUrlComboRequester_SuperFocusInEvent(KUrlComboRequester* self, QFocusEvent*
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnFocusInEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_FocusInEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2721,9 +2638,8 @@ void KUrlComboRequester_SuperFocusOutEvent(KUrlComboRequester* self, QFocusEvent
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnFocusOutEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_FocusOutEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2750,9 +2666,8 @@ void KUrlComboRequester_SuperEnterEvent(KUrlComboRequester* self, QEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnEnterEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_EnterEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2779,9 +2694,8 @@ void KUrlComboRequester_SuperLeaveEvent(KUrlComboRequester* self, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnLeaveEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_LeaveEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2808,9 +2722,8 @@ void KUrlComboRequester_SuperPaintEvent(KUrlComboRequester* self, QPaintEvent* e
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnPaintEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_PaintEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2837,9 +2750,8 @@ void KUrlComboRequester_SuperMoveEvent(KUrlComboRequester* self, QMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnMoveEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_MoveEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2866,9 +2778,8 @@ void KUrlComboRequester_SuperResizeEvent(KUrlComboRequester* self, QResizeEvent*
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnResizeEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_ResizeEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2895,9 +2806,8 @@ void KUrlComboRequester_SuperCloseEvent(KUrlComboRequester* self, QCloseEvent* e
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnCloseEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_CloseEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2924,9 +2834,8 @@ void KUrlComboRequester_SuperContextMenuEvent(KUrlComboRequester* self, QContext
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnContextMenuEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_ContextMenuEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2953,9 +2862,8 @@ void KUrlComboRequester_SuperTabletEvent(KUrlComboRequester* self, QTabletEvent*
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnTabletEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_TabletEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2982,9 +2890,8 @@ void KUrlComboRequester_SuperActionEvent(KUrlComboRequester* self, QActionEvent*
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnActionEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_ActionEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3011,9 +2918,8 @@ void KUrlComboRequester_SuperDragEnterEvent(KUrlComboRequester* self, QDragEnter
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnDragEnterEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_DragEnterEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3040,9 +2946,8 @@ void KUrlComboRequester_SuperDragMoveEvent(KUrlComboRequester* self, QDragMoveEv
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnDragMoveEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_DragMoveEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3069,9 +2974,8 @@ void KUrlComboRequester_SuperDragLeaveEvent(KUrlComboRequester* self, QDragLeave
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnDragLeaveEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_DragLeaveEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3098,9 +3002,8 @@ void KUrlComboRequester_SuperDropEvent(KUrlComboRequester* self, QDropEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnDropEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_DropEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3127,9 +3030,8 @@ void KUrlComboRequester_SuperShowEvent(KUrlComboRequester* self, QShowEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnShowEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_ShowEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3156,9 +3058,8 @@ void KUrlComboRequester_SuperHideEvent(KUrlComboRequester* self, QHideEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnHideEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_HideEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3187,9 +3088,8 @@ bool KUrlComboRequester_SuperNativeEvent(KUrlComboRequester* self, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnNativeEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_NativeEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3216,9 +3116,8 @@ int KUrlComboRequester_SuperMetric(const KUrlComboRequester* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnMetric(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_Metric_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3245,9 +3144,8 @@ void KUrlComboRequester_SuperInitPainter(const KUrlComboRequester* self, QPainte
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnInitPainter(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_InitPainter_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3274,9 +3172,8 @@ QPaintDevice* KUrlComboRequester_SuperRedirected(const KUrlComboRequester* self,
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnRedirected(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_Redirected_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3303,9 +3200,8 @@ QPainter* KUrlComboRequester_SuperSharedPainter(const KUrlComboRequester* self) 
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnSharedPainter(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_SharedPainter_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3332,9 +3228,8 @@ void KUrlComboRequester_SuperInputMethodEvent(KUrlComboRequester* self, QInputMe
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnInputMethodEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_InputMethodEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3361,9 +3256,8 @@ QVariant* KUrlComboRequester_SuperInputMethodQuery(const KUrlComboRequester* sel
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnInputMethodQuery(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_InputMethodQuery_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3390,9 +3284,8 @@ bool KUrlComboRequester_SuperFocusNextPrevChild(KUrlComboRequester* self, bool n
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnFocusNextPrevChild(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3419,9 +3312,8 @@ void KUrlComboRequester_SuperTimerEvent(KUrlComboRequester* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnTimerEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_TimerEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3448,9 +3340,8 @@ void KUrlComboRequester_SuperChildEvent(KUrlComboRequester* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnChildEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_ChildEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3477,9 +3368,8 @@ void KUrlComboRequester_SuperCustomEvent(KUrlComboRequester* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnCustomEvent(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_CustomEvent_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3506,9 +3396,8 @@ void KUrlComboRequester_SuperConnectNotify(KUrlComboRequester* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnConnectNotify(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_ConnectNotify_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3535,9 +3424,8 @@ void KUrlComboRequester_SuperDisconnectNotify(KUrlComboRequester* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnDisconnectNotify(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_DisconnectNotify_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3564,9 +3452,8 @@ void KUrlComboRequester_SuperUpdateMicroFocus(KUrlComboRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnUpdateMicroFocus(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3593,9 +3480,8 @@ void KUrlComboRequester_SuperCreate(KUrlComboRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnCreate(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_Create_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3622,9 +3508,8 @@ void KUrlComboRequester_SuperDestroy(KUrlComboRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnDestroy(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_Destroy_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3651,9 +3536,8 @@ bool KUrlComboRequester_SuperFocusNextChild(KUrlComboRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnFocusNextChild(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_FocusNextChild_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3680,9 +3564,8 @@ bool KUrlComboRequester_SuperFocusPreviousChild(KUrlComboRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnFocusPreviousChild(KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_FocusPreviousChild_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3709,9 +3592,8 @@ QObject* KUrlComboRequester_SuperSender(const KUrlComboRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnSender(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_Sender_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3738,9 +3620,8 @@ int KUrlComboRequester_SuperSenderSignalIndex(const KUrlComboRequester* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnSenderSignalIndex(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_SenderSignalIndex_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3767,9 +3648,8 @@ int KUrlComboRequester_SuperReceivers(const KUrlComboRequester* self, const char
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnReceivers(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_Receivers_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3796,9 +3676,8 @@ bool KUrlComboRequester_SuperIsSignalConnected(const KUrlComboRequester* self, c
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnIsSignalConnected(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_IsSignalConnected_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3825,9 +3704,8 @@ double KUrlComboRequester_SuperGetDecodedMetricF(const KUrlComboRequester* self,
 // Auxiliary method to allow providing re-implementation
 void KUrlComboRequester_OnGetDecodedMetricF(const KUrlComboRequester* self, intptr_t slot) {
     auto* vkurlcomborequester = const_cast<VirtualKUrlComboRequester*>(dynamic_cast<const VirtualKUrlComboRequester*>(self));
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
+    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester)
         vkurlcomborequester->setKUrlComboRequester_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKUrlComboRequester::KUrlComboRequester_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KUrlComboRequester_Delete(KUrlComboRequester* self) {

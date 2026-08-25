@@ -3952,7 +3952,7 @@ pub const PackageKit__Daemon = extern struct {
 
 /// ### [Upstream resources](https://github.com/PackageKit/PackageKit-Qt)
 pub const enums = struct {
-    pub const Network = enum(i32) {
+    pub const Network = enum {
         pub const NetworkUnknown: i32 = 0;
         pub const NetworkOffline: i32 = 1;
         pub const NetworkOnline: i32 = 2;
@@ -3961,7 +3961,7 @@ pub const enums = struct {
         pub const NetworkMobile: i32 = 5;
     };
 
-    pub const Authorize = enum(i32) {
+    pub const Authorize = enum {
         pub const AuthorizeUnknown: i32 = 0;
         pub const AuthorizeYes: i32 = 1;
         pub const AuthorizeNo: i32 = 2;

@@ -102,9 +102,8 @@ QMetaObject* TextTranslator__TranslatorMenu_SuperMetaObject(const TextTranslator
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnMetaObject(const TextTranslator__TranslatorMenu* self, intptr_t slot) {
     auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
         vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_MetaObject_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -121,9 +120,8 @@ void* TextTranslator__TranslatorMenu_SuperMetacast(TextTranslator__TranslatorMen
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnMetacast(TextTranslator__TranslatorMenu* self, intptr_t slot) {
     auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
         vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_Metacast_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -140,9 +138,8 @@ int TextTranslator__TranslatorMenu_SuperMetacall(TextTranslator__TranslatorMenu*
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnMetacall(TextTranslator__TranslatorMenu* self, intptr_t slot) {
     auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
         vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_Metacall_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -169,9 +166,8 @@ bool TextTranslator__TranslatorMenu_SuperEvent(TextTranslator__TranslatorMenu* s
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnEvent(TextTranslator__TranslatorMenu* self, intptr_t slot) {
     auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
         vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_Event_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -198,9 +194,8 @@ bool TextTranslator__TranslatorMenu_SuperEventFilter(TextTranslator__TranslatorM
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnEventFilter(TextTranslator__TranslatorMenu* self, intptr_t slot) {
     auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
         vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_EventFilter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -227,9 +222,8 @@ void TextTranslator__TranslatorMenu_SuperTimerEvent(TextTranslator__TranslatorMe
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnTimerEvent(TextTranslator__TranslatorMenu* self, intptr_t slot) {
     auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
         vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_TimerEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -256,9 +250,8 @@ void TextTranslator__TranslatorMenu_SuperChildEvent(TextTranslator__TranslatorMe
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnChildEvent(TextTranslator__TranslatorMenu* self, intptr_t slot) {
     auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
         vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_ChildEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -285,9 +278,8 @@ void TextTranslator__TranslatorMenu_SuperCustomEvent(TextTranslator__TranslatorM
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnCustomEvent(TextTranslator__TranslatorMenu* self, intptr_t slot) {
     auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
         vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_CustomEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -314,9 +306,8 @@ void TextTranslator__TranslatorMenu_SuperConnectNotify(TextTranslator__Translato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnConnectNotify(TextTranslator__TranslatorMenu* self, intptr_t slot) {
     auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
         vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_ConnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -343,9 +334,8 @@ void TextTranslator__TranslatorMenu_SuperDisconnectNotify(TextTranslator__Transl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnDisconnectNotify(TextTranslator__TranslatorMenu* self, intptr_t slot) {
     auto* vtexttranslatortranslatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
         vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_DisconnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +362,8 @@ QObject* TextTranslator__TranslatorMenu_SuperSender(const TextTranslator__Transl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnSender(const TextTranslator__TranslatorMenu* self, intptr_t slot) {
     auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
         vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_Sender_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -401,9 +390,8 @@ int TextTranslator__TranslatorMenu_SuperSenderSignalIndex(const TextTranslator__
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnSenderSignalIndex(const TextTranslator__TranslatorMenu* self, intptr_t slot) {
     auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
         vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -430,9 +418,8 @@ int TextTranslator__TranslatorMenu_SuperReceivers(const TextTranslator__Translat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnReceivers(const TextTranslator__TranslatorMenu* self, intptr_t slot) {
     auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
         vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_Receivers_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -459,9 +446,8 @@ bool TextTranslator__TranslatorMenu_SuperIsSignalConnected(const TextTranslator_
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorMenu_OnIsSignalConnected(const TextTranslator__TranslatorMenu* self, intptr_t slot) {
     auto* vtexttranslatortranslatormenu = const_cast<VirtualTextTranslatorTranslatorMenu*>(dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self));
-    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu) {
+    if (vtexttranslatortranslatormenu && vtexttranslatortranslatormenu->isVirtualTextTranslatorTranslatorMenu)
         vtexttranslatortranslatormenu->setTextTranslator__TranslatorMenu_IsSignalConnected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorMenu::TextTranslator__TranslatorMenu_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void TextTranslator__TranslatorMenu_Delete(TextTranslator__TranslatorMenu* self) {

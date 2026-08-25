@@ -242,9 +242,8 @@ QMetaObject* KActionSelector_SuperMetaObject(const KActionSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMetaObject(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_MetaObject_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -261,9 +260,8 @@ void* KActionSelector_SuperMetacast(KActionSelector* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMetacast(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_Metacast_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -280,9 +278,8 @@ int KActionSelector_SuperMetacall(KActionSelector* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMetacall(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_Metacall_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -299,9 +296,8 @@ void KActionSelector_SuperKeyPressEvent(KActionSelector* self, QKeyEvent* param1
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnKeyPressEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_KeyPressEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -318,9 +314,8 @@ bool KActionSelector_SuperEventFilter(KActionSelector* self, QObject* param1, QE
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnEventFilter(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_EventFilter_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -347,9 +342,8 @@ int KActionSelector_SuperDevType(const KActionSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnDevType(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_DevType_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -376,9 +370,8 @@ void KActionSelector_SuperSetVisible(KActionSelector* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnSetVisible(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_SetVisible_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -405,9 +398,8 @@ QSize* KActionSelector_SuperSizeHint(const KActionSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnSizeHint(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_SizeHint_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -434,9 +426,8 @@ QSize* KActionSelector_SuperMinimumSizeHint(const KActionSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMinimumSizeHint(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_MinimumSizeHint_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -463,9 +454,8 @@ int KActionSelector_SuperHeightForWidth(const KActionSelector* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnHeightForWidth(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_HeightForWidth_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -492,9 +482,8 @@ bool KActionSelector_SuperHasHeightForWidth(const KActionSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnHasHeightForWidth(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_HasHeightForWidth_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -521,9 +510,8 @@ QPaintEngine* KActionSelector_SuperPaintEngine(const KActionSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnPaintEngine(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_PaintEngine_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -550,9 +538,8 @@ bool KActionSelector_SuperEvent(KActionSelector* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_Event_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -579,9 +566,8 @@ void KActionSelector_SuperMousePressEvent(KActionSelector* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMousePressEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_MousePressEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -608,9 +594,8 @@ void KActionSelector_SuperMouseReleaseEvent(KActionSelector* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMouseReleaseEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -637,9 +622,8 @@ void KActionSelector_SuperMouseDoubleClickEvent(KActionSelector* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMouseDoubleClickEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -666,9 +650,8 @@ void KActionSelector_SuperMouseMoveEvent(KActionSelector* self, QMouseEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMouseMoveEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_MouseMoveEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -695,9 +678,8 @@ void KActionSelector_SuperWheelEvent(KActionSelector* self, QWheelEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnWheelEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_WheelEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -724,9 +706,8 @@ void KActionSelector_SuperKeyReleaseEvent(KActionSelector* self, QKeyEvent* even
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnKeyReleaseEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -753,9 +734,8 @@ void KActionSelector_SuperFocusInEvent(KActionSelector* self, QFocusEvent* event
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnFocusInEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_FocusInEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -782,9 +762,8 @@ void KActionSelector_SuperFocusOutEvent(KActionSelector* self, QFocusEvent* even
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnFocusOutEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_FocusOutEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -811,9 +790,8 @@ void KActionSelector_SuperEnterEvent(KActionSelector* self, QEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnEnterEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_EnterEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -840,9 +818,8 @@ void KActionSelector_SuperLeaveEvent(KActionSelector* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnLeaveEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_LeaveEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -869,9 +846,8 @@ void KActionSelector_SuperPaintEvent(KActionSelector* self, QPaintEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnPaintEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_PaintEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -898,9 +874,8 @@ void KActionSelector_SuperMoveEvent(KActionSelector* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMoveEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_MoveEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -927,9 +902,8 @@ void KActionSelector_SuperResizeEvent(KActionSelector* self, QResizeEvent* event
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnResizeEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_ResizeEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -956,9 +930,8 @@ void KActionSelector_SuperCloseEvent(KActionSelector* self, QCloseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnCloseEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_CloseEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -985,9 +958,8 @@ void KActionSelector_SuperContextMenuEvent(KActionSelector* self, QContextMenuEv
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnContextMenuEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_ContextMenuEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1014,9 +986,8 @@ void KActionSelector_SuperTabletEvent(KActionSelector* self, QTabletEvent* event
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnTabletEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_TabletEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1043,9 +1014,8 @@ void KActionSelector_SuperActionEvent(KActionSelector* self, QActionEvent* event
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnActionEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_ActionEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1072,9 +1042,8 @@ void KActionSelector_SuperDragEnterEvent(KActionSelector* self, QDragEnterEvent*
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnDragEnterEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_DragEnterEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1101,9 +1070,8 @@ void KActionSelector_SuperDragMoveEvent(KActionSelector* self, QDragMoveEvent* e
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnDragMoveEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_DragMoveEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1130,9 +1098,8 @@ void KActionSelector_SuperDragLeaveEvent(KActionSelector* self, QDragLeaveEvent*
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnDragLeaveEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_DragLeaveEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1159,9 +1126,8 @@ void KActionSelector_SuperDropEvent(KActionSelector* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnDropEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_DropEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1188,9 +1154,8 @@ void KActionSelector_SuperShowEvent(KActionSelector* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnShowEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_ShowEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1217,9 +1182,8 @@ void KActionSelector_SuperHideEvent(KActionSelector* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnHideEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_HideEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1248,9 +1212,8 @@ bool KActionSelector_SuperNativeEvent(KActionSelector* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnNativeEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_NativeEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1277,9 +1240,8 @@ void KActionSelector_SuperChangeEvent(KActionSelector* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnChangeEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_ChangeEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1306,9 +1268,8 @@ int KActionSelector_SuperMetric(const KActionSelector* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnMetric(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_Metric_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1335,9 +1296,8 @@ void KActionSelector_SuperInitPainter(const KActionSelector* self, QPainter* pai
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnInitPainter(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_InitPainter_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1364,9 +1324,8 @@ QPaintDevice* KActionSelector_SuperRedirected(const KActionSelector* self, QPoin
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnRedirected(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_Redirected_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1393,9 +1352,8 @@ QPainter* KActionSelector_SuperSharedPainter(const KActionSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnSharedPainter(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_SharedPainter_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1422,9 +1380,8 @@ void KActionSelector_SuperInputMethodEvent(KActionSelector* self, QInputMethodEv
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnInputMethodEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_InputMethodEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1451,9 +1408,8 @@ QVariant* KActionSelector_SuperInputMethodQuery(const KActionSelector* self, int
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnInputMethodQuery(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_InputMethodQuery_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1480,9 +1436,8 @@ bool KActionSelector_SuperFocusNextPrevChild(KActionSelector* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnFocusNextPrevChild(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1509,9 +1464,8 @@ void KActionSelector_SuperTimerEvent(KActionSelector* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnTimerEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_TimerEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1538,9 +1492,8 @@ void KActionSelector_SuperChildEvent(KActionSelector* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnChildEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_ChildEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1567,9 +1520,8 @@ void KActionSelector_SuperCustomEvent(KActionSelector* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnCustomEvent(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_CustomEvent_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1596,9 +1548,8 @@ void KActionSelector_SuperConnectNotify(KActionSelector* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnConnectNotify(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_ConnectNotify_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1625,9 +1576,8 @@ void KActionSelector_SuperDisconnectNotify(KActionSelector* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnDisconnectNotify(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_DisconnectNotify_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1654,9 +1604,8 @@ void KActionSelector_SuperUpdateMicroFocus(KActionSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnUpdateMicroFocus(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1683,9 +1632,8 @@ void KActionSelector_SuperCreate(KActionSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnCreate(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_Create_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1712,9 +1660,8 @@ void KActionSelector_SuperDestroy(KActionSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnDestroy(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_Destroy_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1741,9 +1688,8 @@ bool KActionSelector_SuperFocusNextChild(KActionSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnFocusNextChild(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_FocusNextChild_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1770,9 +1716,8 @@ bool KActionSelector_SuperFocusPreviousChild(KActionSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnFocusPreviousChild(KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_FocusPreviousChild_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1799,9 +1744,8 @@ QObject* KActionSelector_SuperSender(const KActionSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnSender(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_Sender_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1828,9 +1772,8 @@ int KActionSelector_SuperSenderSignalIndex(const KActionSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnSenderSignalIndex(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_SenderSignalIndex_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1857,9 +1800,8 @@ int KActionSelector_SuperReceivers(const KActionSelector* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnReceivers(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_Receivers_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1886,9 +1828,8 @@ bool KActionSelector_SuperIsSignalConnected(const KActionSelector* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnIsSignalConnected(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_IsSignalConnected_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1915,9 +1856,8 @@ double KActionSelector_SuperGetDecodedMetricF(const KActionSelector* self, int m
 // Auxiliary method to allow providing re-implementation
 void KActionSelector_OnGetDecodedMetricF(const KActionSelector* self, intptr_t slot) {
     auto* vkactionselector = const_cast<VirtualKActionSelector*>(dynamic_cast<const VirtualKActionSelector*>(self));
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
+    if (vkactionselector && vkactionselector->isVirtualKActionSelector)
         vkactionselector->setKActionSelector_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKActionSelector::KActionSelector_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KActionSelector_Delete(KActionSelector* self) {

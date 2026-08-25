@@ -307,17 +307,17 @@ pub const QSsl = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qssl.html#public-types)
 pub const enums = struct {
-    pub const KeyType = enum(i32) {
+    pub const KeyType = enum {
         pub const PrivateKey: i32 = 0;
         pub const PublicKey: i32 = 1;
     };
 
-    pub const EncodingFormat = enum(i32) {
+    pub const EncodingFormat = enum {
         pub const Pem: i32 = 0;
         pub const Der: i32 = 1;
     };
 
-    pub const KeyAlgorithm = enum(i32) {
+    pub const KeyAlgorithm = enum {
         pub const Opaque: i32 = 0;
         pub const Rsa: i32 = 1;
         pub const Dsa: i32 = 2;
@@ -325,13 +325,13 @@ pub const enums = struct {
         pub const Dh: i32 = 4;
     };
 
-    pub const AlternativeNameEntryType = enum(i32) {
+    pub const AlternativeNameEntryType = enum {
         pub const EmailEntry: i32 = 0;
         pub const DnsEntry: i32 = 1;
         pub const IpAddressEntry: i32 = 2;
     };
 
-    pub const SslProtocol = enum(i32) {
+    pub const SslProtocol = enum {
         pub const TlsV1_2: i32 = 0;
         pub const AnyProtocol: i32 = 1;
         pub const SecureProtocols: i32 = 2;
@@ -343,7 +343,7 @@ pub const enums = struct {
         pub const UnknownProtocol: i32 = -1;
     };
 
-    pub const SslOption = enum(i32) {
+    pub const SslOption = enum {
         pub const SslOptionDisableEmptyFragments: i32 = 1;
         pub const SslOptionDisableSessionTickets: i32 = 2;
         pub const SslOptionDisableCompression: i32 = 4;
@@ -354,13 +354,13 @@ pub const enums = struct {
         pub const SslOptionDisableServerCipherPreference: i32 = 128;
     };
 
-    pub const AlertLevel = enum(i32) {
+    pub const AlertLevel = enum {
         pub const Warning: i32 = 0;
         pub const Fatal: i32 = 1;
         pub const Unknown: i32 = 2;
     };
 
-    pub const AlertType = enum(i32) {
+    pub const AlertType = enum {
         pub const CloseNotify: i32 = 0;
         pub const UnexpectedMessage: i32 = 10;
         pub const BadRecordMac: i32 = 20;
@@ -397,7 +397,7 @@ pub const enums = struct {
         pub const UnknownAlertMessage: i32 = 255;
     };
 
-    pub const ImplementedClass = enum(i32) {
+    pub const ImplementedClass = enum {
         pub const Key: i32 = 0;
         pub const Certificate: i32 = 1;
         pub const Socket: i32 = 2;
@@ -407,7 +407,7 @@ pub const enums = struct {
         pub const DtlsCookie: i32 = 6;
     };
 
-    pub const SupportedFeature = enum(i32) {
+    pub const SupportedFeature = enum {
         pub const CertificateVerification: i32 = 0;
         pub const ClientSideAlpn: i32 = 1;
         pub const ServerSideAlpn: i32 = 2;

@@ -6698,7 +6698,7 @@ pub const QOpenGLShaderProgram = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#public-types)
 pub const enums = struct {
-    pub const ShaderTypeBit = enum(i32) {
+    pub const ShaderTypeBit = enum {
         pub const Vertex: i32 = 1;
         pub const Fragment: i32 = 2;
         pub const Geometry: i32 = 4;

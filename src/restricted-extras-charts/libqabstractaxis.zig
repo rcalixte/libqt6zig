@@ -3233,7 +3233,7 @@ pub const QAbstractAxis = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#public-types)
 pub const enums = struct {
-    pub const AxisType = enum(i32) {
+    pub const AxisType = enum {
         pub const AxisTypeNoAxis: i32 = 0;
         pub const AxisTypeValue: i32 = 1;
         pub const AxisTypeBarCategory: i32 = 2;

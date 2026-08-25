@@ -3127,7 +3127,7 @@ pub const QPieSlice = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpieslice-qtcharts.html#public-types)
 pub const enums = struct {
-    pub const LabelPosition = enum(i32) {
+    pub const LabelPosition = enum {
         pub const LabelOutside: i32 = 0;
         pub const LabelInsideHorizontal: i32 = 1;
         pub const LabelInsideTangential: i32 = 2;

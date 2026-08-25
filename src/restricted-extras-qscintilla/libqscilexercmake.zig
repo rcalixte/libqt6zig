@@ -4504,7 +4504,7 @@ pub const QsciLexerCMake = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerCMake = enum(i32) {
+    pub const QsciLexerCMake = enum {
         pub const Default: i32 = 0;
         pub const Comment: i32 = 1;
         pub const String: i32 = 2;

@@ -2388,7 +2388,7 @@ pub const QPlaceReply = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacereply.html#public-types)
 pub const enums = struct {
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const PlaceDoesNotExistError: i32 = 1;
         pub const CategoryDoesNotExistError: i32 = 2;
@@ -2401,7 +2401,7 @@ pub const enums = struct {
         pub const UnknownError: i32 = 9;
     };
 
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const Reply: i32 = 0;
         pub const DetailsReply: i32 = 1;
         pub const SearchReply: i32 = 2;

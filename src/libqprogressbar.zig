@@ -1019,6 +1019,31 @@ pub const QProgressBar = extern struct {
         return _ret;
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QProgressBar `
+    ///
+    pub fn asQPaintDevice(self: QProgressBar) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QProgressBar object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QProgressBar {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -7003,7 +7028,7 @@ pub const QProgressBar = extern struct {
     /// ` self: QProgressBar `
     ///
     pub fn paintingActive(self: QProgressBar) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -7019,7 +7044,7 @@ pub const QProgressBar = extern struct {
     /// ` self: QProgressBar `
     ///
     pub fn widthMM(self: QProgressBar) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -7035,7 +7060,7 @@ pub const QProgressBar = extern struct {
     /// ` self: QProgressBar `
     ///
     pub fn heightMM(self: QProgressBar) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -7051,7 +7076,7 @@ pub const QProgressBar = extern struct {
     /// ` self: QProgressBar `
     ///
     pub fn logicalDpiX(self: QProgressBar) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7067,7 +7092,7 @@ pub const QProgressBar = extern struct {
     /// ` self: QProgressBar `
     ///
     pub fn logicalDpiY(self: QProgressBar) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7083,7 +7108,7 @@ pub const QProgressBar = extern struct {
     /// ` self: QProgressBar `
     ///
     pub fn physicalDpiX(self: QProgressBar) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7099,7 +7124,7 @@ pub const QProgressBar = extern struct {
     /// ` self: QProgressBar `
     ///
     pub fn physicalDpiY(self: QProgressBar) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7115,7 +7140,7 @@ pub const QProgressBar = extern struct {
     /// ` self: QProgressBar `
     ///
     pub fn devicePixelRatio(self: QProgressBar) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7131,7 +7156,7 @@ pub const QProgressBar = extern struct {
     /// ` self: QProgressBar `
     ///
     pub fn devicePixelRatioF(self: QProgressBar) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7147,7 +7172,7 @@ pub const QProgressBar = extern struct {
     /// ` self: QProgressBar `
     ///
     pub fn colorCount(self: QProgressBar) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7163,7 +7188,7 @@ pub const QProgressBar = extern struct {
     /// ` self: QProgressBar `
     ///
     pub fn depth(self: QProgressBar) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10469,7 +10494,7 @@ pub const QProgressBar = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressbar.html#public-types)
 pub const enums = struct {
-    pub const Direction = enum(i32) {
+    pub const Direction = enum {
         pub const TopToBottom: i32 = 0;
         pub const BottomToTop: i32 = 1;
     };

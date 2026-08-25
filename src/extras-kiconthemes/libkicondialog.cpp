@@ -267,9 +267,8 @@ QMetaObject* KIconDialog_SuperMetaObject(const KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnMetaObject(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_MetaObject_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -286,9 +285,8 @@ void* KIconDialog_SuperMetacast(KIconDialog* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnMetacast(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_Metacast_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -305,9 +303,8 @@ int KIconDialog_SuperMetacall(KIconDialog* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnMetacall(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_Metacall_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -324,9 +321,8 @@ void KIconDialog_SuperShowEvent(KIconDialog* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnShowEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_ShowEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -353,9 +349,8 @@ void KIconDialog_SuperSetVisible(KIconDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnSetVisible(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_SetVisible_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -382,9 +377,8 @@ QSize* KIconDialog_SuperSizeHint(const KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnSizeHint(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_SizeHint_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -411,9 +405,8 @@ QSize* KIconDialog_SuperMinimumSizeHint(const KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnMinimumSizeHint(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -440,9 +433,8 @@ void KIconDialog_SuperOpen(KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnOpen(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_Open_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -469,9 +461,8 @@ int KIconDialog_SuperExec(KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnExec(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_Exec_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -498,9 +489,8 @@ void KIconDialog_SuperDone(KIconDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnDone(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_Done_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -527,9 +517,8 @@ void KIconDialog_SuperAccept(KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnAccept(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_Accept_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -556,9 +545,8 @@ void KIconDialog_SuperReject(KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnReject(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_Reject_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -585,9 +573,8 @@ void KIconDialog_SuperKeyPressEvent(KIconDialog* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnKeyPressEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -614,9 +601,8 @@ void KIconDialog_SuperCloseEvent(KIconDialog* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnCloseEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_CloseEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -643,9 +629,8 @@ void KIconDialog_SuperResizeEvent(KIconDialog* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnResizeEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -672,9 +657,8 @@ void KIconDialog_SuperContextMenuEvent(KIconDialog* self, QContextMenuEvent* par
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnContextMenuEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -701,9 +685,8 @@ bool KIconDialog_SuperEventFilter(KIconDialog* self, QObject* param1, QEvent* pa
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnEventFilter(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_EventFilter_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -730,9 +713,8 @@ int KIconDialog_SuperDevType(const KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnDevType(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_DevType_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -759,9 +741,8 @@ int KIconDialog_SuperHeightForWidth(const KIconDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnHeightForWidth(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -788,9 +769,8 @@ bool KIconDialog_SuperHasHeightForWidth(const KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnHasHeightForWidth(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -817,9 +797,8 @@ QPaintEngine* KIconDialog_SuperPaintEngine(const KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnPaintEngine(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_PaintEngine_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -846,9 +825,8 @@ bool KIconDialog_SuperEvent(KIconDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_Event_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -875,9 +853,8 @@ void KIconDialog_SuperMousePressEvent(KIconDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnMousePressEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -904,9 +881,8 @@ void KIconDialog_SuperMouseReleaseEvent(KIconDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnMouseReleaseEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -933,9 +909,8 @@ void KIconDialog_SuperMouseDoubleClickEvent(KIconDialog* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnMouseDoubleClickEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -962,9 +937,8 @@ void KIconDialog_SuperMouseMoveEvent(KIconDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnMouseMoveEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -991,9 +965,8 @@ void KIconDialog_SuperWheelEvent(KIconDialog* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnWheelEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_WheelEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1020,9 +993,8 @@ void KIconDialog_SuperKeyReleaseEvent(KIconDialog* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnKeyReleaseEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1049,9 +1021,8 @@ void KIconDialog_SuperFocusInEvent(KIconDialog* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnFocusInEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1078,9 +1049,8 @@ void KIconDialog_SuperFocusOutEvent(KIconDialog* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnFocusOutEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1107,9 +1077,8 @@ void KIconDialog_SuperEnterEvent(KIconDialog* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnEnterEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_EnterEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1136,9 +1105,8 @@ void KIconDialog_SuperLeaveEvent(KIconDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnLeaveEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1165,9 +1133,8 @@ void KIconDialog_SuperPaintEvent(KIconDialog* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnPaintEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_PaintEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1194,9 +1161,8 @@ void KIconDialog_SuperMoveEvent(KIconDialog* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnMoveEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_MoveEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1223,9 +1189,8 @@ void KIconDialog_SuperTabletEvent(KIconDialog* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnTabletEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_TabletEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1252,9 +1217,8 @@ void KIconDialog_SuperActionEvent(KIconDialog* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnActionEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_ActionEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1281,9 +1245,8 @@ void KIconDialog_SuperDragEnterEvent(KIconDialog* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnDragEnterEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1310,9 +1273,8 @@ void KIconDialog_SuperDragMoveEvent(KIconDialog* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnDragMoveEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1339,9 +1301,8 @@ void KIconDialog_SuperDragLeaveEvent(KIconDialog* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnDragLeaveEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1368,9 +1329,8 @@ void KIconDialog_SuperDropEvent(KIconDialog* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnDropEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_DropEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1397,9 +1357,8 @@ void KIconDialog_SuperHideEvent(KIconDialog* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnHideEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_HideEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1428,9 +1387,8 @@ bool KIconDialog_SuperNativeEvent(KIconDialog* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnNativeEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_NativeEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1457,9 +1415,8 @@ void KIconDialog_SuperChangeEvent(KIconDialog* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnChangeEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1486,9 +1443,8 @@ int KIconDialog_SuperMetric(const KIconDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnMetric(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_Metric_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1515,9 +1471,8 @@ void KIconDialog_SuperInitPainter(const KIconDialog* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnInitPainter(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_InitPainter_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1544,9 +1499,8 @@ QPaintDevice* KIconDialog_SuperRedirected(const KIconDialog* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnRedirected(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_Redirected_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1573,9 +1527,8 @@ QPainter* KIconDialog_SuperSharedPainter(const KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnSharedPainter(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_SharedPainter_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1602,9 +1555,8 @@ void KIconDialog_SuperInputMethodEvent(KIconDialog* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnInputMethodEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1631,9 +1583,8 @@ QVariant* KIconDialog_SuperInputMethodQuery(const KIconDialog* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnInputMethodQuery(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1660,9 +1611,8 @@ bool KIconDialog_SuperFocusNextPrevChild(KIconDialog* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnFocusNextPrevChild(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1689,9 +1639,8 @@ void KIconDialog_SuperTimerEvent(KIconDialog* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnTimerEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_TimerEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1718,9 +1667,8 @@ void KIconDialog_SuperChildEvent(KIconDialog* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnChildEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_ChildEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1747,9 +1695,8 @@ void KIconDialog_SuperCustomEvent(KIconDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnCustomEvent(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_CustomEvent_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1776,9 +1723,8 @@ void KIconDialog_SuperConnectNotify(KIconDialog* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnConnectNotify(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1805,9 +1751,8 @@ void KIconDialog_SuperDisconnectNotify(KIconDialog* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnDisconnectNotify(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1834,9 +1779,8 @@ void KIconDialog_SuperSlotOk(KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnSlotOk(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_SlotOk_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_SlotOk_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1863,9 +1807,8 @@ void KIconDialog_SuperAdjustPosition(KIconDialog* self, QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnAdjustPosition(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1892,9 +1835,8 @@ void KIconDialog_SuperUpdateMicroFocus(KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnUpdateMicroFocus(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1921,9 +1863,8 @@ void KIconDialog_SuperCreate(KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnCreate(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_Create_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1950,9 +1891,8 @@ void KIconDialog_SuperDestroy(KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnDestroy(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_Destroy_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1979,9 +1919,8 @@ bool KIconDialog_SuperFocusNextChild(KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnFocusNextChild(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2008,9 +1947,8 @@ bool KIconDialog_SuperFocusPreviousChild(KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnFocusPreviousChild(KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2037,9 +1975,8 @@ QObject* KIconDialog_SuperSender(const KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnSender(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_Sender_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2066,9 +2003,8 @@ int KIconDialog_SuperSenderSignalIndex(const KIconDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnSenderSignalIndex(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2095,9 +2031,8 @@ int KIconDialog_SuperReceivers(const KIconDialog* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnReceivers(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_Receivers_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2124,9 +2059,8 @@ bool KIconDialog_SuperIsSignalConnected(const KIconDialog* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnIsSignalConnected(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2153,9 +2087,8 @@ double KIconDialog_SuperGetDecodedMetricF(const KIconDialog* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void KIconDialog_OnGetDecodedMetricF(const KIconDialog* self, intptr_t slot) {
     auto* vkicondialog = const_cast<VirtualKIconDialog*>(dynamic_cast<const VirtualKIconDialog*>(self));
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
+    if (vkicondialog && vkicondialog->isVirtualKIconDialog)
         vkicondialog->setKIconDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKIconDialog::KIconDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KIconDialog_Delete(KIconDialog* self) {

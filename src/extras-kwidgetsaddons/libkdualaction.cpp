@@ -193,9 +193,8 @@ QMetaObject* KDualAction_SuperMetaObject(const KDualAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnMetaObject(const KDualAction* self, intptr_t slot) {
     auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction && vkdualaction->isVirtualKDualAction)
         vkdualaction->setKDualAction_MetaObject_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -212,9 +211,8 @@ void* KDualAction_SuperMetacast(KDualAction* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnMetacast(KDualAction* self, intptr_t slot) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction && vkdualaction->isVirtualKDualAction)
         vkdualaction->setKDualAction_Metacast_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -231,9 +229,8 @@ int KDualAction_SuperMetacall(KDualAction* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnMetacall(KDualAction* self, intptr_t slot) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction && vkdualaction->isVirtualKDualAction)
         vkdualaction->setKDualAction_Metacall_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -260,9 +257,8 @@ bool KDualAction_SuperEvent(KDualAction* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnEvent(KDualAction* self, intptr_t slot) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction && vkdualaction->isVirtualKDualAction)
         vkdualaction->setKDualAction_Event_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -289,9 +285,8 @@ bool KDualAction_SuperEventFilter(KDualAction* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnEventFilter(KDualAction* self, intptr_t slot) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction && vkdualaction->isVirtualKDualAction)
         vkdualaction->setKDualAction_EventFilter_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -318,9 +313,8 @@ void KDualAction_SuperTimerEvent(KDualAction* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnTimerEvent(KDualAction* self, intptr_t slot) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction && vkdualaction->isVirtualKDualAction)
         vkdualaction->setKDualAction_TimerEvent_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -347,9 +341,8 @@ void KDualAction_SuperChildEvent(KDualAction* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnChildEvent(KDualAction* self, intptr_t slot) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction && vkdualaction->isVirtualKDualAction)
         vkdualaction->setKDualAction_ChildEvent_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -376,9 +369,8 @@ void KDualAction_SuperCustomEvent(KDualAction* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnCustomEvent(KDualAction* self, intptr_t slot) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction && vkdualaction->isVirtualKDualAction)
         vkdualaction->setKDualAction_CustomEvent_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -405,9 +397,8 @@ void KDualAction_SuperConnectNotify(KDualAction* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnConnectNotify(KDualAction* self, intptr_t slot) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction && vkdualaction->isVirtualKDualAction)
         vkdualaction->setKDualAction_ConnectNotify_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -434,9 +425,8 @@ void KDualAction_SuperDisconnectNotify(KDualAction* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnDisconnectNotify(KDualAction* self, intptr_t slot) {
     auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction && vkdualaction->isVirtualKDualAction)
         vkdualaction->setKDualAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -463,9 +453,8 @@ QObject* KDualAction_SuperSender(const KDualAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnSender(const KDualAction* self, intptr_t slot) {
     auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction && vkdualaction->isVirtualKDualAction)
         vkdualaction->setKDualAction_Sender_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -492,9 +481,8 @@ int KDualAction_SuperSenderSignalIndex(const KDualAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnSenderSignalIndex(const KDualAction* self, intptr_t slot) {
     auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction && vkdualaction->isVirtualKDualAction)
         vkdualaction->setKDualAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -521,9 +509,8 @@ int KDualAction_SuperReceivers(const KDualAction* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnReceivers(const KDualAction* self, intptr_t slot) {
     auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction && vkdualaction->isVirtualKDualAction)
         vkdualaction->setKDualAction_Receivers_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -550,9 +537,8 @@ bool KDualAction_SuperIsSignalConnected(const KDualAction* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KDualAction_OnIsSignalConnected(const KDualAction* self, intptr_t slot) {
     auto* vkdualaction = const_cast<VirtualKDualAction*>(dynamic_cast<const VirtualKDualAction*>(self));
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
+    if (vkdualaction && vkdualaction->isVirtualKDualAction)
         vkdualaction->setKDualAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKDualAction::KDualAction_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KDualAction_Delete(KDualAction* self) {

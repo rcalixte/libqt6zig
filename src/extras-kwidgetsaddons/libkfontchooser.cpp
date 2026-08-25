@@ -193,9 +193,8 @@ QMetaObject* KFontChooser_SuperMetaObject(const KFontChooser* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnMetaObject(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_MetaObject_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -212,9 +211,8 @@ void* KFontChooser_SuperMetacast(KFontChooser* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnMetacast(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_Metacast_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -231,9 +229,8 @@ int KFontChooser_SuperMetacall(KFontChooser* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnMetacall(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_Metacall_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -250,9 +247,8 @@ QSize* KFontChooser_SuperSizeHint(const KFontChooser* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnSizeHint(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_SizeHint_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -279,9 +275,8 @@ int KFontChooser_SuperDevType(const KFontChooser* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnDevType(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_DevType_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -308,9 +303,8 @@ void KFontChooser_SuperSetVisible(KFontChooser* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnSetVisible(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_SetVisible_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -337,9 +331,8 @@ QSize* KFontChooser_SuperMinimumSizeHint(const KFontChooser* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnMinimumSizeHint(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_MinimumSizeHint_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -366,9 +359,8 @@ int KFontChooser_SuperHeightForWidth(const KFontChooser* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnHeightForWidth(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_HeightForWidth_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -395,9 +387,8 @@ bool KFontChooser_SuperHasHeightForWidth(const KFontChooser* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnHasHeightForWidth(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_HasHeightForWidth_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -424,9 +415,8 @@ QPaintEngine* KFontChooser_SuperPaintEngine(const KFontChooser* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnPaintEngine(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_PaintEngine_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -453,9 +443,8 @@ bool KFontChooser_SuperEvent(KFontChooser* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_Event_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -482,9 +471,8 @@ void KFontChooser_SuperMousePressEvent(KFontChooser* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnMousePressEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_MousePressEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -511,9 +499,8 @@ void KFontChooser_SuperMouseReleaseEvent(KFontChooser* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnMouseReleaseEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -540,9 +527,8 @@ void KFontChooser_SuperMouseDoubleClickEvent(KFontChooser* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnMouseDoubleClickEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -569,9 +555,8 @@ void KFontChooser_SuperMouseMoveEvent(KFontChooser* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnMouseMoveEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_MouseMoveEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -598,9 +583,8 @@ void KFontChooser_SuperWheelEvent(KFontChooser* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnWheelEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_WheelEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -627,9 +611,8 @@ void KFontChooser_SuperKeyPressEvent(KFontChooser* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnKeyPressEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_KeyPressEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -656,9 +639,8 @@ void KFontChooser_SuperKeyReleaseEvent(KFontChooser* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnKeyReleaseEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -685,9 +667,8 @@ void KFontChooser_SuperFocusInEvent(KFontChooser* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnFocusInEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_FocusInEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -714,9 +695,8 @@ void KFontChooser_SuperFocusOutEvent(KFontChooser* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnFocusOutEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_FocusOutEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -743,9 +723,8 @@ void KFontChooser_SuperEnterEvent(KFontChooser* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnEnterEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_EnterEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -772,9 +751,8 @@ void KFontChooser_SuperLeaveEvent(KFontChooser* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnLeaveEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_LeaveEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -801,9 +779,8 @@ void KFontChooser_SuperPaintEvent(KFontChooser* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnPaintEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_PaintEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -830,9 +807,8 @@ void KFontChooser_SuperMoveEvent(KFontChooser* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnMoveEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_MoveEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -859,9 +835,8 @@ void KFontChooser_SuperResizeEvent(KFontChooser* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnResizeEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_ResizeEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -888,9 +863,8 @@ void KFontChooser_SuperCloseEvent(KFontChooser* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnCloseEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_CloseEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -917,9 +891,8 @@ void KFontChooser_SuperContextMenuEvent(KFontChooser* self, QContextMenuEvent* e
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnContextMenuEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_ContextMenuEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -946,9 +919,8 @@ void KFontChooser_SuperTabletEvent(KFontChooser* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnTabletEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_TabletEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -975,9 +947,8 @@ void KFontChooser_SuperActionEvent(KFontChooser* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnActionEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_ActionEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1004,9 +975,8 @@ void KFontChooser_SuperDragEnterEvent(KFontChooser* self, QDragEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnDragEnterEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_DragEnterEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1033,9 +1003,8 @@ void KFontChooser_SuperDragMoveEvent(KFontChooser* self, QDragMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnDragMoveEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_DragMoveEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1062,9 +1031,8 @@ void KFontChooser_SuperDragLeaveEvent(KFontChooser* self, QDragLeaveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnDragLeaveEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_DragLeaveEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1091,9 +1059,8 @@ void KFontChooser_SuperDropEvent(KFontChooser* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnDropEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_DropEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1120,9 +1087,8 @@ void KFontChooser_SuperShowEvent(KFontChooser* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnShowEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_ShowEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1149,9 +1115,8 @@ void KFontChooser_SuperHideEvent(KFontChooser* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnHideEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_HideEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1180,9 +1145,8 @@ bool KFontChooser_SuperNativeEvent(KFontChooser* self, const libqt_string eventT
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnNativeEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_NativeEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1209,9 +1173,8 @@ void KFontChooser_SuperChangeEvent(KFontChooser* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnChangeEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_ChangeEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1238,9 +1201,8 @@ int KFontChooser_SuperMetric(const KFontChooser* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnMetric(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_Metric_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1267,9 +1229,8 @@ void KFontChooser_SuperInitPainter(const KFontChooser* self, QPainter* painter) 
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnInitPainter(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_InitPainter_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1296,9 +1257,8 @@ QPaintDevice* KFontChooser_SuperRedirected(const KFontChooser* self, QPoint* off
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnRedirected(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_Redirected_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1325,9 +1285,8 @@ QPainter* KFontChooser_SuperSharedPainter(const KFontChooser* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnSharedPainter(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_SharedPainter_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1354,9 +1313,8 @@ void KFontChooser_SuperInputMethodEvent(KFontChooser* self, QInputMethodEvent* p
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnInputMethodEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_InputMethodEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1383,9 +1341,8 @@ QVariant* KFontChooser_SuperInputMethodQuery(const KFontChooser* self, int param
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnInputMethodQuery(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_InputMethodQuery_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1412,9 +1369,8 @@ bool KFontChooser_SuperFocusNextPrevChild(KFontChooser* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnFocusNextPrevChild(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1441,9 +1397,8 @@ bool KFontChooser_SuperEventFilter(KFontChooser* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnEventFilter(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_EventFilter_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1470,9 +1425,8 @@ void KFontChooser_SuperTimerEvent(KFontChooser* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnTimerEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_TimerEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1499,9 +1453,8 @@ void KFontChooser_SuperChildEvent(KFontChooser* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnChildEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_ChildEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1528,9 +1481,8 @@ void KFontChooser_SuperCustomEvent(KFontChooser* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnCustomEvent(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_CustomEvent_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1557,9 +1509,8 @@ void KFontChooser_SuperConnectNotify(KFontChooser* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnConnectNotify(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_ConnectNotify_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1586,9 +1537,8 @@ void KFontChooser_SuperDisconnectNotify(KFontChooser* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnDisconnectNotify(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_DisconnectNotify_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1615,9 +1565,8 @@ void KFontChooser_SuperUpdateMicroFocus(KFontChooser* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnUpdateMicroFocus(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1644,9 +1593,8 @@ void KFontChooser_SuperCreate(KFontChooser* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnCreate(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_Create_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1673,9 +1621,8 @@ void KFontChooser_SuperDestroy(KFontChooser* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnDestroy(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_Destroy_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1702,9 +1649,8 @@ bool KFontChooser_SuperFocusNextChild(KFontChooser* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnFocusNextChild(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_FocusNextChild_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1731,9 +1677,8 @@ bool KFontChooser_SuperFocusPreviousChild(KFontChooser* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnFocusPreviousChild(KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_FocusPreviousChild_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1760,9 +1705,8 @@ QObject* KFontChooser_SuperSender(const KFontChooser* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnSender(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_Sender_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1789,9 +1733,8 @@ int KFontChooser_SuperSenderSignalIndex(const KFontChooser* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnSenderSignalIndex(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1818,9 +1761,8 @@ int KFontChooser_SuperReceivers(const KFontChooser* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnReceivers(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_Receivers_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1847,9 +1789,8 @@ bool KFontChooser_SuperIsSignalConnected(const KFontChooser* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnIsSignalConnected(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_IsSignalConnected_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1876,9 +1817,8 @@ double KFontChooser_SuperGetDecodedMetricF(const KFontChooser* self, int metricA
 // Auxiliary method to allow providing re-implementation
 void KFontChooser_OnGetDecodedMetricF(const KFontChooser* self, intptr_t slot) {
     auto* vkfontchooser = const_cast<VirtualKFontChooser*>(dynamic_cast<const VirtualKFontChooser*>(self));
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
+    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser)
         vkfontchooser->setKFontChooser_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKFontChooser::KFontChooser_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KFontChooser_Delete(KFontChooser* self) {

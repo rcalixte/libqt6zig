@@ -344,7 +344,7 @@ pub const QLowEnergyAdvertisingData = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyadvertisingdata.html#public-types)
 pub const enums = struct {
-    pub const Discoverability = enum(i32) {
+    pub const Discoverability = enum {
         pub const DiscoverabilityNone: i32 = 0;
         pub const DiscoverabilityLimited: i32 = 1;
         pub const DiscoverabilityGeneral: i32 = 2;

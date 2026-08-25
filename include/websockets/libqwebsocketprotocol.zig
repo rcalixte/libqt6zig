@@ -1,6 +1,6 @@
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsocketprotocol.html#public-types)
 pub const enums = struct {
-    pub const Version = enum(i32) {
+    pub const Version = enum {
         pub const VersionUnknown: i32 = -1;
         pub const Version0: i32 = 0;
         pub const Version4: i32 = 4;
@@ -12,7 +12,7 @@ pub const enums = struct {
         pub const VersionLatest: i32 = 13;
     };
 
-    pub const CloseCode = enum(i32) {
+    pub const CloseCode = enum {
         pub const CloseCodeNormal: i32 = 1000;
         pub const CloseCodeGoingAway: i32 = 1001;
         pub const CloseCodeProtocolError: i32 = 1002;

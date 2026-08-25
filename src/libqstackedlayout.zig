@@ -969,6 +969,31 @@ pub const QStackedLayout = extern struct {
         return _ret;
     }
 
+    /// Inherited from QLayout
+    ///
+    /// Upcasts to a QLayoutItem object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStackedLayout `
+    ///
+    pub fn asQLayoutItem(self: QStackedLayout) QLayoutItem {
+        return .{ .ptr = qtc.QLayout_AsQLayoutItem(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QLayout
+    ///
+    /// Downcasts to a QStackedLayout object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qlayoutitem: QLayoutItem `
+    ///
+    pub fn fromQLayoutItem(_qlayoutitem: anytype) QStackedLayout {
+        comptime _ = @TypeOf(_qlayoutitem)._is_QLayoutItem;
+        return .{ .ptr = @ptrCast(qtc.QLayout_FromQLayoutItem(@ptrCast(_qlayoutitem.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `setContentsMargins` instead
     ///
     pub const SetContentsMargins = setContentsMargins;
@@ -2465,7 +2490,7 @@ pub const QStackedLayout = extern struct {
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn alignment(self: QStackedLayout) i32 {
-        return qtc.QLayoutItem_Alignment(@ptrCast(self.ptr));
+        return qtc.QLayoutItem_Alignment(@ptrCast(self.asQLayoutItem().ptr));
     }
 
     /// ### DEPRECATED: Use `spacing` instead
@@ -4273,7 +4298,7 @@ pub const QStackedLayout = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qstackedlayout.html#public-types)
 pub const enums = struct {
-    pub const StackingMode = enum(i32) {
+    pub const StackingMode = enum {
         pub const StackOne: i32 = 0;
         pub const StackAll: i32 = 1;
     };

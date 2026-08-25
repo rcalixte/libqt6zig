@@ -127,9 +127,8 @@ QMetaObject* KEditToolBar_SuperMetaObject(const KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMetaObject(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_MetaObject_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -146,9 +145,8 @@ void* KEditToolBar_SuperMetacast(KEditToolBar* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMetacast(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_Metacast_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -165,9 +163,8 @@ int KEditToolBar_SuperMetacall(KEditToolBar* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMetacall(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_Metacall_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -184,9 +181,8 @@ void KEditToolBar_SuperShowEvent(KEditToolBar* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnShowEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_ShowEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -203,9 +199,8 @@ void KEditToolBar_SuperHideEvent(KEditToolBar* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnHideEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_HideEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -232,9 +227,8 @@ void KEditToolBar_SuperSetVisible(KEditToolBar* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnSetVisible(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_SetVisible_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -261,9 +255,8 @@ QSize* KEditToolBar_SuperSizeHint(const KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnSizeHint(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_SizeHint_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -290,9 +283,8 @@ QSize* KEditToolBar_SuperMinimumSizeHint(const KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMinimumSizeHint(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -319,9 +311,8 @@ void KEditToolBar_SuperOpen(KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnOpen(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_Open_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -348,9 +339,8 @@ int KEditToolBar_SuperExec(KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnExec(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_Exec_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -377,9 +367,8 @@ void KEditToolBar_SuperDone(KEditToolBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnDone(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_Done_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -406,9 +395,8 @@ void KEditToolBar_SuperAccept(KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnAccept(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_Accept_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -435,9 +423,8 @@ void KEditToolBar_SuperReject(KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnReject(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_Reject_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -464,9 +451,8 @@ void KEditToolBar_SuperKeyPressEvent(KEditToolBar* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnKeyPressEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_KeyPressEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -493,9 +479,8 @@ void KEditToolBar_SuperCloseEvent(KEditToolBar* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnCloseEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_CloseEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -522,9 +507,8 @@ void KEditToolBar_SuperResizeEvent(KEditToolBar* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnResizeEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_ResizeEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -551,9 +535,8 @@ void KEditToolBar_SuperContextMenuEvent(KEditToolBar* self, QContextMenuEvent* p
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnContextMenuEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -580,9 +563,8 @@ bool KEditToolBar_SuperEventFilter(KEditToolBar* self, QObject* param1, QEvent* 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnEventFilter(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_EventFilter_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -609,9 +591,8 @@ int KEditToolBar_SuperDevType(const KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnDevType(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_DevType_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -638,9 +619,8 @@ int KEditToolBar_SuperHeightForWidth(const KEditToolBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnHeightForWidth(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_HeightForWidth_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -667,9 +647,8 @@ bool KEditToolBar_SuperHasHeightForWidth(const KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnHasHeightForWidth(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -696,9 +675,8 @@ QPaintEngine* KEditToolBar_SuperPaintEngine(const KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnPaintEngine(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_PaintEngine_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -725,9 +703,8 @@ bool KEditToolBar_SuperEvent(KEditToolBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_Event_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -754,9 +731,8 @@ void KEditToolBar_SuperMousePressEvent(KEditToolBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMousePressEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_MousePressEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -783,9 +759,8 @@ void KEditToolBar_SuperMouseReleaseEvent(KEditToolBar* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMouseReleaseEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -812,9 +787,8 @@ void KEditToolBar_SuperMouseDoubleClickEvent(KEditToolBar* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMouseDoubleClickEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -841,9 +815,8 @@ void KEditToolBar_SuperMouseMoveEvent(KEditToolBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMouseMoveEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -870,9 +843,8 @@ void KEditToolBar_SuperWheelEvent(KEditToolBar* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnWheelEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_WheelEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -899,9 +871,8 @@ void KEditToolBar_SuperKeyReleaseEvent(KEditToolBar* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnKeyReleaseEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -928,9 +899,8 @@ void KEditToolBar_SuperFocusInEvent(KEditToolBar* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnFocusInEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_FocusInEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -957,9 +927,8 @@ void KEditToolBar_SuperFocusOutEvent(KEditToolBar* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnFocusOutEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_FocusOutEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -986,9 +955,8 @@ void KEditToolBar_SuperEnterEvent(KEditToolBar* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnEnterEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_EnterEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1015,9 +983,8 @@ void KEditToolBar_SuperLeaveEvent(KEditToolBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnLeaveEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_LeaveEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1044,9 +1011,8 @@ void KEditToolBar_SuperPaintEvent(KEditToolBar* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnPaintEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_PaintEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1073,9 +1039,8 @@ void KEditToolBar_SuperMoveEvent(KEditToolBar* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMoveEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_MoveEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1102,9 +1067,8 @@ void KEditToolBar_SuperTabletEvent(KEditToolBar* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnTabletEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_TabletEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1131,9 +1095,8 @@ void KEditToolBar_SuperActionEvent(KEditToolBar* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnActionEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_ActionEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1160,9 +1123,8 @@ void KEditToolBar_SuperDragEnterEvent(KEditToolBar* self, QDragEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnDragEnterEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_DragEnterEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1189,9 +1151,8 @@ void KEditToolBar_SuperDragMoveEvent(KEditToolBar* self, QDragMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnDragMoveEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_DragMoveEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1218,9 +1179,8 @@ void KEditToolBar_SuperDragLeaveEvent(KEditToolBar* self, QDragLeaveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnDragLeaveEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1247,9 +1207,8 @@ void KEditToolBar_SuperDropEvent(KEditToolBar* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnDropEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_DropEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1278,9 +1237,8 @@ bool KEditToolBar_SuperNativeEvent(KEditToolBar* self, const libqt_string eventT
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnNativeEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_NativeEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1307,9 +1265,8 @@ void KEditToolBar_SuperChangeEvent(KEditToolBar* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnChangeEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_ChangeEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1336,9 +1293,8 @@ int KEditToolBar_SuperMetric(const KEditToolBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnMetric(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_Metric_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1365,9 +1321,8 @@ void KEditToolBar_SuperInitPainter(const KEditToolBar* self, QPainter* painter) 
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnInitPainter(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_InitPainter_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1394,9 +1349,8 @@ QPaintDevice* KEditToolBar_SuperRedirected(const KEditToolBar* self, QPoint* off
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnRedirected(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_Redirected_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1423,9 +1377,8 @@ QPainter* KEditToolBar_SuperSharedPainter(const KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnSharedPainter(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_SharedPainter_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1452,9 +1405,8 @@ void KEditToolBar_SuperInputMethodEvent(KEditToolBar* self, QInputMethodEvent* p
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnInputMethodEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_InputMethodEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1481,9 +1433,8 @@ QVariant* KEditToolBar_SuperInputMethodQuery(const KEditToolBar* self, int param
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnInputMethodQuery(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_InputMethodQuery_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1510,9 +1461,8 @@ bool KEditToolBar_SuperFocusNextPrevChild(KEditToolBar* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnFocusNextPrevChild(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1539,9 +1489,8 @@ void KEditToolBar_SuperTimerEvent(KEditToolBar* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnTimerEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_TimerEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1568,9 +1517,8 @@ void KEditToolBar_SuperChildEvent(KEditToolBar* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnChildEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_ChildEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1597,9 +1545,8 @@ void KEditToolBar_SuperCustomEvent(KEditToolBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnCustomEvent(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_CustomEvent_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1626,9 +1573,8 @@ void KEditToolBar_SuperConnectNotify(KEditToolBar* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnConnectNotify(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_ConnectNotify_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1655,9 +1601,8 @@ void KEditToolBar_SuperDisconnectNotify(KEditToolBar* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnDisconnectNotify(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_DisconnectNotify_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1684,9 +1629,8 @@ void KEditToolBar_SuperAdjustPosition(KEditToolBar* self, QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnAdjustPosition(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_AdjustPosition_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1713,9 +1657,8 @@ void KEditToolBar_SuperUpdateMicroFocus(KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnUpdateMicroFocus(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1742,9 +1685,8 @@ void KEditToolBar_SuperCreate(KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnCreate(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_Create_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1771,9 +1713,8 @@ void KEditToolBar_SuperDestroy(KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnDestroy(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_Destroy_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1800,9 +1741,8 @@ bool KEditToolBar_SuperFocusNextChild(KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnFocusNextChild(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_FocusNextChild_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1829,9 +1769,8 @@ bool KEditToolBar_SuperFocusPreviousChild(KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnFocusPreviousChild(KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1858,9 +1797,8 @@ QObject* KEditToolBar_SuperSender(const KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnSender(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_Sender_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1887,9 +1825,8 @@ int KEditToolBar_SuperSenderSignalIndex(const KEditToolBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnSenderSignalIndex(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1916,9 +1853,8 @@ int KEditToolBar_SuperReceivers(const KEditToolBar* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnReceivers(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_Receivers_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1945,9 +1881,8 @@ bool KEditToolBar_SuperIsSignalConnected(const KEditToolBar* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnIsSignalConnected(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_IsSignalConnected_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1974,9 +1909,8 @@ double KEditToolBar_SuperGetDecodedMetricF(const KEditToolBar* self, int metricA
 // Auxiliary method to allow providing re-implementation
 void KEditToolBar_OnGetDecodedMetricF(const KEditToolBar* self, intptr_t slot) {
     auto* vkedittoolbar = const_cast<VirtualKEditToolBar*>(dynamic_cast<const VirtualKEditToolBar*>(self));
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
+    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar)
         vkedittoolbar->setKEditToolBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKEditToolBar::KEditToolBar_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KEditToolBar_Delete(KEditToolBar* self) {

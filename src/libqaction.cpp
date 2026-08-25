@@ -455,9 +455,8 @@ QMetaObject* QAction_SuperMetaObject(const QAction* self) {
 // Auxiliary method to allow providing re-implementation
 void QAction_OnMetaObject(const QAction* self, intptr_t slot) {
     auto* vqaction = const_cast<VirtualQAction*>(dynamic_cast<const VirtualQAction*>(self));
-    if (vqaction && vqaction->isVirtualQAction) {
+    if (vqaction && vqaction->isVirtualQAction)
         vqaction->setQAction_MetaObject_Callback(reinterpret_cast<VirtualQAction::QAction_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -474,9 +473,8 @@ void* QAction_SuperMetacast(QAction* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QAction_OnMetacast(QAction* self, intptr_t slot) {
     auto* vqaction = dynamic_cast<VirtualQAction*>(self);
-    if (vqaction && vqaction->isVirtualQAction) {
+    if (vqaction && vqaction->isVirtualQAction)
         vqaction->setQAction_Metacast_Callback(reinterpret_cast<VirtualQAction::QAction_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -493,9 +491,8 @@ int QAction_SuperMetacall(QAction* self, int param1, int param2, void** param3) 
 // Auxiliary method to allow providing re-implementation
 void QAction_OnMetacall(QAction* self, intptr_t slot) {
     auto* vqaction = dynamic_cast<VirtualQAction*>(self);
-    if (vqaction && vqaction->isVirtualQAction) {
+    if (vqaction && vqaction->isVirtualQAction)
         vqaction->setQAction_Metacall_Callback(reinterpret_cast<VirtualQAction::QAction_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -512,9 +509,8 @@ bool QAction_SuperEvent(QAction* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QAction_OnEvent(QAction* self, intptr_t slot) {
     auto* vqaction = dynamic_cast<VirtualQAction*>(self);
-    if (vqaction && vqaction->isVirtualQAction) {
+    if (vqaction && vqaction->isVirtualQAction)
         vqaction->setQAction_Event_Callback(reinterpret_cast<VirtualQAction::QAction_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -541,9 +537,8 @@ bool QAction_SuperEventFilter(QAction* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAction_OnEventFilter(QAction* self, intptr_t slot) {
     auto* vqaction = dynamic_cast<VirtualQAction*>(self);
-    if (vqaction && vqaction->isVirtualQAction) {
+    if (vqaction && vqaction->isVirtualQAction)
         vqaction->setQAction_EventFilter_Callback(reinterpret_cast<VirtualQAction::QAction_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -570,9 +565,8 @@ void QAction_SuperTimerEvent(QAction* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAction_OnTimerEvent(QAction* self, intptr_t slot) {
     auto* vqaction = dynamic_cast<VirtualQAction*>(self);
-    if (vqaction && vqaction->isVirtualQAction) {
+    if (vqaction && vqaction->isVirtualQAction)
         vqaction->setQAction_TimerEvent_Callback(reinterpret_cast<VirtualQAction::QAction_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -599,9 +593,8 @@ void QAction_SuperChildEvent(QAction* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAction_OnChildEvent(QAction* self, intptr_t slot) {
     auto* vqaction = dynamic_cast<VirtualQAction*>(self);
-    if (vqaction && vqaction->isVirtualQAction) {
+    if (vqaction && vqaction->isVirtualQAction)
         vqaction->setQAction_ChildEvent_Callback(reinterpret_cast<VirtualQAction::QAction_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -628,9 +621,8 @@ void QAction_SuperCustomEvent(QAction* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAction_OnCustomEvent(QAction* self, intptr_t slot) {
     auto* vqaction = dynamic_cast<VirtualQAction*>(self);
-    if (vqaction && vqaction->isVirtualQAction) {
+    if (vqaction && vqaction->isVirtualQAction)
         vqaction->setQAction_CustomEvent_Callback(reinterpret_cast<VirtualQAction::QAction_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -657,9 +649,8 @@ void QAction_SuperConnectNotify(QAction* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QAction_OnConnectNotify(QAction* self, intptr_t slot) {
     auto* vqaction = dynamic_cast<VirtualQAction*>(self);
-    if (vqaction && vqaction->isVirtualQAction) {
+    if (vqaction && vqaction->isVirtualQAction)
         vqaction->setQAction_ConnectNotify_Callback(reinterpret_cast<VirtualQAction::QAction_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -686,9 +677,8 @@ void QAction_SuperDisconnectNotify(QAction* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QAction_OnDisconnectNotify(QAction* self, intptr_t slot) {
     auto* vqaction = dynamic_cast<VirtualQAction*>(self);
-    if (vqaction && vqaction->isVirtualQAction) {
+    if (vqaction && vqaction->isVirtualQAction)
         vqaction->setQAction_DisconnectNotify_Callback(reinterpret_cast<VirtualQAction::QAction_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -715,9 +705,8 @@ QObject* QAction_SuperSender(const QAction* self) {
 // Auxiliary method to allow providing re-implementation
 void QAction_OnSender(const QAction* self, intptr_t slot) {
     auto* vqaction = const_cast<VirtualQAction*>(dynamic_cast<const VirtualQAction*>(self));
-    if (vqaction && vqaction->isVirtualQAction) {
+    if (vqaction && vqaction->isVirtualQAction)
         vqaction->setQAction_Sender_Callback(reinterpret_cast<VirtualQAction::QAction_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -744,9 +733,8 @@ int QAction_SuperSenderSignalIndex(const QAction* self) {
 // Auxiliary method to allow providing re-implementation
 void QAction_OnSenderSignalIndex(const QAction* self, intptr_t slot) {
     auto* vqaction = const_cast<VirtualQAction*>(dynamic_cast<const VirtualQAction*>(self));
-    if (vqaction && vqaction->isVirtualQAction) {
+    if (vqaction && vqaction->isVirtualQAction)
         vqaction->setQAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAction::QAction_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -773,9 +761,8 @@ int QAction_SuperReceivers(const QAction* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QAction_OnReceivers(const QAction* self, intptr_t slot) {
     auto* vqaction = const_cast<VirtualQAction*>(dynamic_cast<const VirtualQAction*>(self));
-    if (vqaction && vqaction->isVirtualQAction) {
+    if (vqaction && vqaction->isVirtualQAction)
         vqaction->setQAction_Receivers_Callback(reinterpret_cast<VirtualQAction::QAction_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -802,9 +789,8 @@ bool QAction_SuperIsSignalConnected(const QAction* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QAction_OnIsSignalConnected(const QAction* self, intptr_t slot) {
     auto* vqaction = const_cast<VirtualQAction*>(dynamic_cast<const VirtualQAction*>(self));
-    if (vqaction && vqaction->isVirtualQAction) {
+    if (vqaction && vqaction->isVirtualQAction)
         vqaction->setQAction_IsSignalConnected_Callback(reinterpret_cast<VirtualQAction::QAction_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QAction_Delete(QAction* self) {

@@ -171,9 +171,8 @@ QMetaObject* TextTranslator__TranslatorEngineClient_SuperMetaObject(const TextTr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnMetaObject(const TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = const_cast<VirtualTextTranslatorTranslatorEngineClient*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self));
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_MetaObject_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -190,9 +189,8 @@ void* TextTranslator__TranslatorEngineClient_SuperMetacast(TextTranslator__Trans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnMetacast(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_Metacast_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -209,9 +207,8 @@ int TextTranslator__TranslatorEngineClient_SuperMetacall(TextTranslator__Transla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnMetacall(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_Metacall_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -244,9 +241,8 @@ libqt_string TextTranslator__TranslatorEngineClient_SuperName(const TextTranslat
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnName(const TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = const_cast<VirtualTextTranslatorTranslatorEngineClient*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self));
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_Name_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_Name_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -279,9 +275,8 @@ libqt_string TextTranslator__TranslatorEngineClient_SuperTranslatedName(const Te
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnTranslatedName(const TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = const_cast<VirtualTextTranslatorTranslatorEngineClient*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self));
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_TranslatedName_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_TranslatedName_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -298,9 +293,8 @@ TextTranslator__TranslatorEnginePlugin* TextTranslator__TranslatorEngineClient_S
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnCreateTranslator(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_CreateTranslator_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_CreateTranslator_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -361,9 +355,8 @@ libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_Su
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnSupportedFromLanguages(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_SupportedFromLanguages_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_SupportedFromLanguages_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -424,9 +417,8 @@ libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_Su
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnSupportedToLanguages(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_SupportedToLanguages_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_SupportedToLanguages_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -443,9 +435,8 @@ void TextTranslator__TranslatorEngineClient_SuperUpdateListLanguages(TextTransla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnUpdateListLanguages(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_UpdateListLanguages_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_UpdateListLanguages_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -462,9 +453,8 @@ bool TextTranslator__TranslatorEngineClient_SuperHasConfigurationDialog(const Te
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnHasConfigurationDialog(const TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = const_cast<VirtualTextTranslatorTranslatorEngineClient*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self));
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_HasConfigurationDialog_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_HasConfigurationDialog_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -481,9 +471,8 @@ bool TextTranslator__TranslatorEngineClient_SuperShowConfigureDialog(TextTransla
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnShowConfigureDialog(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_ShowConfigureDialog_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_ShowConfigureDialog_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -501,9 +490,8 @@ void TextTranslator__TranslatorEngineClient_SuperGenerateToListFromCurrentToLang
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnGenerateToListFromCurrentToLanguage(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_GenerateToListFromCurrentToLanguage_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_GenerateToListFromCurrentToLanguage_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -520,9 +508,8 @@ bool TextTranslator__TranslatorEngineClient_SuperHasInvertSupport(const TextTran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnHasInvertSupport(const TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = const_cast<VirtualTextTranslatorTranslatorEngineClient*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self));
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_HasInvertSupport_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_HasInvertSupport_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -539,9 +526,8 @@ int TextTranslator__TranslatorEngineClient_SuperEngineType(const TextTranslator_
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnEngineType(const TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = const_cast<VirtualTextTranslatorTranslatorEngineClient*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self));
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_EngineType_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_EngineType_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -558,9 +544,8 @@ bool TextTranslator__TranslatorEngineClient_SuperIsSupported(const TextTranslato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnIsSupported(const TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = const_cast<VirtualTextTranslatorTranslatorEngineClient*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self));
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_IsSupported_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_IsSupported_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -587,9 +572,8 @@ bool TextTranslator__TranslatorEngineClient_SuperEvent(TextTranslator__Translato
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnEvent(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_Event_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -616,9 +600,8 @@ bool TextTranslator__TranslatorEngineClient_SuperEventFilter(TextTranslator__Tra
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnEventFilter(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_EventFilter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -645,9 +628,8 @@ void TextTranslator__TranslatorEngineClient_SuperTimerEvent(TextTranslator__Tran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnTimerEvent(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_TimerEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -674,9 +656,8 @@ void TextTranslator__TranslatorEngineClient_SuperChildEvent(TextTranslator__Tran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnChildEvent(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_ChildEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -703,9 +684,8 @@ void TextTranslator__TranslatorEngineClient_SuperCustomEvent(TextTranslator__Tra
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnCustomEvent(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_CustomEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -732,9 +712,8 @@ void TextTranslator__TranslatorEngineClient_SuperConnectNotify(TextTranslator__T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnConnectNotify(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_ConnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -761,9 +740,8 @@ void TextTranslator__TranslatorEngineClient_SuperDisconnectNotify(TextTranslator
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnDisconnectNotify(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_DisconnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -878,9 +856,8 @@ libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_Su
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnFillLanguages(TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_FillLanguages_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_FillLanguages_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -907,9 +884,8 @@ QObject* TextTranslator__TranslatorEngineClient_SuperSender(const TextTranslator
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnSender(const TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = const_cast<VirtualTextTranslatorTranslatorEngineClient*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self));
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_Sender_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -936,9 +912,8 @@ int TextTranslator__TranslatorEngineClient_SuperSenderSignalIndex(const TextTran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnSenderSignalIndex(const TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = const_cast<VirtualTextTranslatorTranslatorEngineClient*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self));
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -965,9 +940,8 @@ int TextTranslator__TranslatorEngineClient_SuperReceivers(const TextTranslator__
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnReceivers(const TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = const_cast<VirtualTextTranslatorTranslatorEngineClient*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self));
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_Receivers_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -994,9 +968,8 @@ bool TextTranslator__TranslatorEngineClient_SuperIsSignalConnected(const TextTra
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorEngineClient_OnIsSignalConnected(const TextTranslator__TranslatorEngineClient* self, intptr_t slot) {
     auto* vtexttranslatortranslatorengineclient = const_cast<VirtualTextTranslatorTranslatorEngineClient*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self));
-    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
+    if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient)
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_IsSignalConnected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorEngineClient::TextTranslator__TranslatorEngineClient_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void TextTranslator__TranslatorEngineClient_Delete(TextTranslator__TranslatorEngineClient* self) {

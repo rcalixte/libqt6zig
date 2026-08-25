@@ -330,7 +330,7 @@ pub const QAbstractFileIconProvider = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#public-types)
 pub const enums = struct {
-    pub const IconType = enum(i32) {
+    pub const IconType = enum {
         pub const Computer: i32 = 0;
         pub const Desktop: i32 = 1;
         pub const Trashcan: i32 = 2;
@@ -340,7 +340,7 @@ pub const enums = struct {
         pub const File: i32 = 6;
     };
 
-    pub const Option = enum(i32) {
+    pub const Option = enum {
         pub const DontUseCustomDirectoryIcons: i32 = 1;
     };
 };

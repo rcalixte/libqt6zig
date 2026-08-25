@@ -2263,7 +2263,7 @@ pub const QActionGroup = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qactiongroup.html#public-types)
 pub const enums = struct {
-    pub const ExclusionPolicy = enum(i32) {
+    pub const ExclusionPolicy = enum {
         pub const None: i32 = 0;
         pub const Exclusive: i32 = 1;
         pub const ExclusiveOptional: i32 = 2;

@@ -205,9 +205,8 @@ QMetaObject* QsciLexerPython_SuperMetaObject(const QsciLexerPython* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnMetaObject(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -224,9 +223,8 @@ void* QsciLexerPython_SuperMetacast(QsciLexerPython* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnMetacast(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_Metacast_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -243,9 +241,8 @@ int QsciLexerPython_SuperMetacall(QsciLexerPython* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnMetacall(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_Metacall_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -262,9 +259,8 @@ int QsciLexerPython_SuperIndentationGuideView(const QsciLexerPython* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnIndentationGuideView(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_IndentationGuideView_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -281,9 +277,8 @@ void QsciLexerPython_SuperSetFoldComments(QsciLexerPython* self, bool fold) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnSetFoldComments(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_SetFoldComments_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -300,9 +295,8 @@ void QsciLexerPython_SuperSetFoldQuotes(QsciLexerPython* self, bool fold) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnSetFoldQuotes(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_SetFoldQuotes_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_SetFoldQuotes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -319,9 +313,8 @@ void QsciLexerPython_SuperSetIndentationWarning(QsciLexerPython* self, int warn)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnSetIndentationWarning(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_SetIndentationWarning_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_SetIndentationWarning_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -348,9 +341,8 @@ int QsciLexerPython_SuperLexerId(const QsciLexerPython* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnLexerId(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_LexerId_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_LexerId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -377,9 +369,8 @@ const char* QsciLexerPython_SuperAutoCompletionFillups(const QsciLexerPython* se
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnAutoCompletionFillups(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_AutoCompletionFillups_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -406,9 +397,8 @@ const char* QsciLexerPython_SuperBlockEnd(const QsciLexerPython* self, int* styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnBlockEnd(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_BlockEnd_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_BlockEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -435,9 +425,8 @@ const char* QsciLexerPython_SuperBlockStartKeyword(const QsciLexerPython* self, 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnBlockStartKeyword(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_BlockStartKeyword_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -464,9 +453,8 @@ bool QsciLexerPython_SuperCaseSensitive(const QsciLexerPython* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnCaseSensitive(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_CaseSensitive_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -493,9 +481,8 @@ QColor* QsciLexerPython_SuperColor(const QsciLexerPython* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnColor(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_Color_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -522,9 +509,8 @@ bool QsciLexerPython_SuperEolFill(const QsciLexerPython* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnEolFill(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_EolFill_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_EolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -551,9 +537,8 @@ QFont* QsciLexerPython_SuperFont(const QsciLexerPython* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnFont(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_Font_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_Font_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -580,9 +565,8 @@ int QsciLexerPython_SuperDefaultStyle(const QsciLexerPython* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnDefaultStyle(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_DefaultStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -609,9 +593,8 @@ QColor* QsciLexerPython_SuperPaper(const QsciLexerPython* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnPaper(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_Paper_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_Paper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -638,9 +621,8 @@ QColor* QsciLexerPython_SuperDefaultColor2(const QsciLexerPython* self, int styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnDefaultColor2(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_DefaultColor2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -667,9 +649,8 @@ QFont* QsciLexerPython_SuperDefaultFont2(const QsciLexerPython* self, int style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnDefaultFont2(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_DefaultFont2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -696,9 +677,8 @@ QColor* QsciLexerPython_SuperDefaultPaper2(const QsciLexerPython* self, int styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnDefaultPaper2(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_DefaultPaper2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -725,9 +705,8 @@ void QsciLexerPython_SuperSetEditor(QsciLexerPython* self, QsciScintilla* editor
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnSetEditor(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_SetEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -754,9 +733,8 @@ int QsciLexerPython_SuperStyleBitsNeeded(const QsciLexerPython* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnStyleBitsNeeded(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_StyleBitsNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -783,9 +761,8 @@ const char* QsciLexerPython_SuperWordCharacters(const QsciLexerPython* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnWordCharacters(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_WordCharacters_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -812,9 +789,8 @@ void QsciLexerPython_SuperSetAutoIndentStyle(QsciLexerPython* self, int autoinde
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnSetAutoIndentStyle(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_SetAutoIndentStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -841,9 +817,8 @@ void QsciLexerPython_SuperSetColor(QsciLexerPython* self, const QColor* c, int s
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnSetColor(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_SetColor_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_SetColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -870,9 +845,8 @@ void QsciLexerPython_SuperSetEolFill(QsciLexerPython* self, bool eoffill, int st
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnSetEolFill(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_SetEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -899,9 +873,8 @@ void QsciLexerPython_SuperSetFont(QsciLexerPython* self, const QFont* f, int sty
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnSetFont(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_SetFont_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_SetFont_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -928,9 +901,8 @@ void QsciLexerPython_SuperSetPaper(QsciLexerPython* self, const QColor* c, int s
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnSetPaper(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_SetPaper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -959,9 +931,8 @@ bool QsciLexerPython_SuperReadProperties(QsciLexerPython* self, QSettings* qs, c
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnReadProperties(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_ReadProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -990,9 +961,8 @@ bool QsciLexerPython_SuperWriteProperties(const QsciLexerPython* self, QSettings
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnWriteProperties(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_WriteProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1019,9 +989,8 @@ bool QsciLexerPython_SuperEvent(QsciLexerPython* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnEvent(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_Event_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1048,9 +1017,8 @@ bool QsciLexerPython_SuperEventFilter(QsciLexerPython* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnEventFilter(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1077,9 +1045,8 @@ void QsciLexerPython_SuperTimerEvent(QsciLexerPython* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnTimerEvent(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1106,9 +1073,8 @@ void QsciLexerPython_SuperChildEvent(QsciLexerPython* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnChildEvent(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1135,9 +1101,8 @@ void QsciLexerPython_SuperCustomEvent(QsciLexerPython* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnCustomEvent(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1164,9 +1129,8 @@ void QsciLexerPython_SuperConnectNotify(QsciLexerPython* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnConnectNotify(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1193,9 +1157,8 @@ void QsciLexerPython_SuperDisconnectNotify(QsciLexerPython* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnDisconnectNotify(QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1244,9 +1207,8 @@ libqt_string QsciLexerPython_SuperTextAsBytes(const QsciLexerPython* self, const
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnTextAsBytes(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_TextAsBytes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1305,9 +1267,8 @@ libqt_string QsciLexerPython_SuperBytesAsText(const QsciLexerPython* self, const
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnBytesAsText(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_BytesAsText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1334,9 +1295,8 @@ QObject* QsciLexerPython_SuperSender(const QsciLexerPython* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnSender(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_Sender_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1363,9 +1323,8 @@ int QsciLexerPython_SuperSenderSignalIndex(const QsciLexerPython* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnSenderSignalIndex(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1392,9 +1351,8 @@ int QsciLexerPython_SuperReceivers(const QsciLexerPython* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnReceivers(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_Receivers_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1421,9 +1379,8 @@ bool QsciLexerPython_SuperIsSignalConnected(const QsciLexerPython* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPython_OnIsSignalConnected(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
+    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython)
         vqscilexerpython->setQsciLexerPython_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QsciLexerPython_Delete(QsciLexerPython* self) {

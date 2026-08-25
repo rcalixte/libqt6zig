@@ -513,9 +513,8 @@ QMetaObject* QGuiApplication_SuperMetaObject(const QGuiApplication* self) {
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnMetaObject(const QGuiApplication* self, intptr_t slot) {
     auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
         vqguiapplication->setQGuiApplication_MetaObject_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -532,9 +531,8 @@ void* QGuiApplication_SuperMetacast(QGuiApplication* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnMetacast(QGuiApplication* self, intptr_t slot) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
         vqguiapplication->setQGuiApplication_Metacast_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -551,9 +549,8 @@ int QGuiApplication_SuperMetacall(QGuiApplication* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnMetacall(QGuiApplication* self, intptr_t slot) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
         vqguiapplication->setQGuiApplication_Metacall_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -570,9 +567,8 @@ bool QGuiApplication_SuperNotify(QGuiApplication* self, QObject* param1, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnNotify(QGuiApplication* self, intptr_t slot) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
         vqguiapplication->setQGuiApplication_Notify_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Notify_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -589,9 +585,8 @@ bool QGuiApplication_SuperEvent(QGuiApplication* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnEvent(QGuiApplication* self, intptr_t slot) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
         vqguiapplication->setQGuiApplication_Event_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -618,9 +613,8 @@ bool QGuiApplication_SuperEventFilter(QGuiApplication* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnEventFilter(QGuiApplication* self, intptr_t slot) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
         vqguiapplication->setQGuiApplication_EventFilter_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -647,9 +641,8 @@ void QGuiApplication_SuperTimerEvent(QGuiApplication* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnTimerEvent(QGuiApplication* self, intptr_t slot) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
         vqguiapplication->setQGuiApplication_TimerEvent_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -676,9 +669,8 @@ void QGuiApplication_SuperChildEvent(QGuiApplication* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnChildEvent(QGuiApplication* self, intptr_t slot) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
         vqguiapplication->setQGuiApplication_ChildEvent_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -705,9 +697,8 @@ void QGuiApplication_SuperCustomEvent(QGuiApplication* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnCustomEvent(QGuiApplication* self, intptr_t slot) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
         vqguiapplication->setQGuiApplication_CustomEvent_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -734,9 +725,8 @@ void QGuiApplication_SuperConnectNotify(QGuiApplication* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnConnectNotify(QGuiApplication* self, intptr_t slot) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
         vqguiapplication->setQGuiApplication_ConnectNotify_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -763,9 +753,8 @@ void QGuiApplication_SuperDisconnectNotify(QGuiApplication* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnDisconnectNotify(QGuiApplication* self, intptr_t slot) {
     auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
         vqguiapplication->setQGuiApplication_DisconnectNotify_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -792,9 +781,8 @@ void* QGuiApplication_SuperResolveInterface(const QGuiApplication* self, const c
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnResolveInterface(const QGuiApplication* self, intptr_t slot) {
     auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
         vqguiapplication->setQGuiApplication_ResolveInterface_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_ResolveInterface_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -821,9 +809,8 @@ QObject* QGuiApplication_SuperSender(const QGuiApplication* self) {
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnSender(const QGuiApplication* self, intptr_t slot) {
     auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
         vqguiapplication->setQGuiApplication_Sender_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -850,9 +837,8 @@ int QGuiApplication_SuperSenderSignalIndex(const QGuiApplication* self) {
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnSenderSignalIndex(const QGuiApplication* self, intptr_t slot) {
     auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
         vqguiapplication->setQGuiApplication_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -879,9 +865,8 @@ int QGuiApplication_SuperReceivers(const QGuiApplication* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnReceivers(const QGuiApplication* self, intptr_t slot) {
     auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
         vqguiapplication->setQGuiApplication_Receivers_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -908,9 +893,8 @@ bool QGuiApplication_SuperIsSignalConnected(const QGuiApplication* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QGuiApplication_OnIsSignalConnected(const QGuiApplication* self, intptr_t slot) {
     auto* vqguiapplication = const_cast<VirtualQGuiApplication*>(dynamic_cast<const VirtualQGuiApplication*>(self));
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
+    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication)
         vqguiapplication->setQGuiApplication_IsSignalConnected_Callback(reinterpret_cast<VirtualQGuiApplication::QGuiApplication_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGuiApplication_Delete(QGuiApplication* self) {

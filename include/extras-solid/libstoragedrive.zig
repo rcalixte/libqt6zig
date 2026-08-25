@@ -1406,7 +1406,7 @@ pub const Solid__StorageDrive = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/solid-storagedrive.html#public-types)
 pub const enums = struct {
-    pub const Bus = enum(i32) {
+    pub const Bus = enum {
         pub const Ide: i32 = 0;
         pub const Usb: i32 = 1;
         pub const Ieee1394: i32 = 2;
@@ -1415,7 +1415,7 @@ pub const enums = struct {
         pub const Platform: i32 = 5;
     };
 
-    pub const DriveType = enum(i32) {
+    pub const DriveType = enum {
         pub const HardDisk: i32 = 0;
         pub const CdromDrive: i32 = 1;
         pub const Floppy: i32 = 2;

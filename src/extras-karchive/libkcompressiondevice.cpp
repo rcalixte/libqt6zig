@@ -112,9 +112,8 @@ QMetaObject* KCompressionDevice_SuperMetaObject(const KCompressionDevice* self) 
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnMetaObject(const KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_MetaObject_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -131,9 +130,8 @@ void* KCompressionDevice_SuperMetacast(KCompressionDevice* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnMetacast(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_Metacast_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -150,9 +148,8 @@ int KCompressionDevice_SuperMetacall(KCompressionDevice* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnMetacall(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_Metacall_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -169,9 +166,8 @@ bool KCompressionDevice_SuperOpen(KCompressionDevice* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnOpen(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_Open_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_Open_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -188,9 +184,8 @@ void KCompressionDevice_SuperClose(KCompressionDevice* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnClose(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_Close_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_Close_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -207,9 +202,8 @@ bool KCompressionDevice_SuperSeek(KCompressionDevice* self, long long param1) {
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnSeek(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_Seek_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_Seek_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -226,9 +220,8 @@ bool KCompressionDevice_SuperAtEnd(const KCompressionDevice* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnAtEnd(const KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_AtEnd_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_AtEnd_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -245,9 +238,8 @@ long long KCompressionDevice_SuperReadData(KCompressionDevice* self, char* data,
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnReadData(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_ReadData_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_ReadData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -264,9 +256,8 @@ long long KCompressionDevice_SuperWriteData(KCompressionDevice* self, const char
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnWriteData(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_WriteData_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_WriteData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -293,9 +284,8 @@ bool KCompressionDevice_SuperIsSequential(const KCompressionDevice* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnIsSequential(const KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_IsSequential_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_IsSequential_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -322,9 +312,8 @@ long long KCompressionDevice_SuperPos(const KCompressionDevice* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnPos(const KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_Pos_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_Pos_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -351,9 +340,8 @@ long long KCompressionDevice_SuperSize(const KCompressionDevice* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnSize(const KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_Size_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_Size_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -380,9 +368,8 @@ bool KCompressionDevice_SuperReset(KCompressionDevice* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnReset(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_Reset_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -409,9 +396,8 @@ long long KCompressionDevice_SuperBytesAvailable(const KCompressionDevice* self)
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnBytesAvailable(const KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_BytesAvailable_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_BytesAvailable_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -438,9 +424,8 @@ long long KCompressionDevice_SuperBytesToWrite(const KCompressionDevice* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnBytesToWrite(const KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_BytesToWrite_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_BytesToWrite_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +452,8 @@ bool KCompressionDevice_SuperCanReadLine(const KCompressionDevice* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnCanReadLine(const KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_CanReadLine_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_CanReadLine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +480,8 @@ bool KCompressionDevice_SuperWaitForReadyRead(KCompressionDevice* self, int msec
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnWaitForReadyRead(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_WaitForReadyRead_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_WaitForReadyRead_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -525,9 +508,8 @@ bool KCompressionDevice_SuperWaitForBytesWritten(KCompressionDevice* self, int m
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnWaitForBytesWritten(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_WaitForBytesWritten_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_WaitForBytesWritten_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -554,9 +536,8 @@ long long KCompressionDevice_SuperReadLineData(KCompressionDevice* self, char* d
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnReadLineData(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_ReadLineData_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_ReadLineData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -583,9 +564,8 @@ long long KCompressionDevice_SuperSkipData(KCompressionDevice* self, long long m
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnSkipData(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_SkipData_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_SkipData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -612,9 +592,8 @@ bool KCompressionDevice_SuperEvent(KCompressionDevice* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnEvent(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_Event_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -641,9 +620,8 @@ bool KCompressionDevice_SuperEventFilter(KCompressionDevice* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnEventFilter(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_EventFilter_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -670,9 +648,8 @@ void KCompressionDevice_SuperTimerEvent(KCompressionDevice* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnTimerEvent(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_TimerEvent_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -699,9 +676,8 @@ void KCompressionDevice_SuperChildEvent(KCompressionDevice* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnChildEvent(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_ChildEvent_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -728,9 +704,8 @@ void KCompressionDevice_SuperCustomEvent(KCompressionDevice* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnCustomEvent(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_CustomEvent_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -757,9 +732,8 @@ void KCompressionDevice_SuperConnectNotify(KCompressionDevice* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnConnectNotify(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_ConnectNotify_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -786,9 +760,8 @@ void KCompressionDevice_SuperDisconnectNotify(KCompressionDevice* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnDisconnectNotify(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_DisconnectNotify_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -815,9 +788,8 @@ KFilterBase* KCompressionDevice_SuperFilterBase(KCompressionDevice* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnFilterBase(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_FilterBase_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_FilterBase_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -844,9 +816,8 @@ void KCompressionDevice_SuperSetOpenMode(KCompressionDevice* self, int openMode)
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnSetOpenMode(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_SetOpenMode_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_SetOpenMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -875,9 +846,8 @@ void KCompressionDevice_SuperSetErrorString(KCompressionDevice* self, const libq
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnSetErrorString(KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_SetErrorString_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -904,9 +874,8 @@ QObject* KCompressionDevice_SuperSender(const KCompressionDevice* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnSender(const KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_Sender_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -933,9 +902,8 @@ int KCompressionDevice_SuperSenderSignalIndex(const KCompressionDevice* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnSenderSignalIndex(const KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -962,9 +930,8 @@ int KCompressionDevice_SuperReceivers(const KCompressionDevice* self, const char
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnReceivers(const KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_Receivers_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -991,9 +958,8 @@ bool KCompressionDevice_SuperIsSignalConnected(const KCompressionDevice* self, c
 // Auxiliary method to allow providing re-implementation
 void KCompressionDevice_OnIsSignalConnected(const KCompressionDevice* self, intptr_t slot) {
     auto* vkcompressiondevice = const_cast<VirtualKCompressionDevice*>(dynamic_cast<const VirtualKCompressionDevice*>(self));
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
+    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice)
         vkcompressiondevice->setKCompressionDevice_IsSignalConnected_Callback(reinterpret_cast<VirtualKCompressionDevice::KCompressionDevice_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KCompressionDevice_Delete(KCompressionDevice* self) {

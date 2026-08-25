@@ -2025,7 +2025,7 @@ pub const QTextLayout__FormatRange = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#public-types)
 pub const enums = struct {
-    pub const GlyphRunRetrievalFlag = enum(u16) {
+    pub const GlyphRunRetrievalFlag = enum {
         pub const RetrieveGlyphIndexes: u16 = 1;
         pub const RetrieveGlyphPositions: u16 = 2;
         pub const RetrieveStringIndexes: u16 = 4;
@@ -2034,17 +2034,17 @@ pub const enums = struct {
         pub const RetrieveAll: u16 = 65535;
     };
 
-    pub const CursorMode = enum(i32) {
+    pub const CursorMode = enum {
         pub const SkipCharacters: i32 = 0;
         pub const SkipWords: i32 = 1;
     };
 
-    pub const Edge = enum(i32) {
+    pub const Edge = enum {
         pub const Leading: i32 = 0;
         pub const Trailing: i32 = 1;
     };
 
-    pub const CursorPosition = enum(i32) {
+    pub const CursorPosition = enum {
         pub const CursorBetweenCharacters: i32 = 0;
         pub const CursorOnCharacter: i32 = 1;
     };

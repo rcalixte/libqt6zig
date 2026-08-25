@@ -175,9 +175,8 @@ QMetaObject* QFileSystemWatcher_SuperMetaObject(const QFileSystemWatcher* self) 
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnMetaObject(const QFileSystemWatcher* self, intptr_t slot) {
     auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
         vqfilesystemwatcher->setQFileSystemWatcher_MetaObject_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -194,9 +193,8 @@ void* QFileSystemWatcher_SuperMetacast(QFileSystemWatcher* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnMetacast(QFileSystemWatcher* self, intptr_t slot) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
         vqfilesystemwatcher->setQFileSystemWatcher_Metacast_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -213,9 +211,8 @@ int QFileSystemWatcher_SuperMetacall(QFileSystemWatcher* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnMetacall(QFileSystemWatcher* self, intptr_t slot) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
         vqfilesystemwatcher->setQFileSystemWatcher_Metacall_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -242,9 +239,8 @@ bool QFileSystemWatcher_SuperEvent(QFileSystemWatcher* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnEvent(QFileSystemWatcher* self, intptr_t slot) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
         vqfilesystemwatcher->setQFileSystemWatcher_Event_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +267,8 @@ bool QFileSystemWatcher_SuperEventFilter(QFileSystemWatcher* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnEventFilter(QFileSystemWatcher* self, intptr_t slot) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
         vqfilesystemwatcher->setQFileSystemWatcher_EventFilter_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +295,8 @@ void QFileSystemWatcher_SuperTimerEvent(QFileSystemWatcher* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnTimerEvent(QFileSystemWatcher* self, intptr_t slot) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
         vqfilesystemwatcher->setQFileSystemWatcher_TimerEvent_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +323,8 @@ void QFileSystemWatcher_SuperChildEvent(QFileSystemWatcher* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnChildEvent(QFileSystemWatcher* self, intptr_t slot) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
         vqfilesystemwatcher->setQFileSystemWatcher_ChildEvent_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +351,8 @@ void QFileSystemWatcher_SuperCustomEvent(QFileSystemWatcher* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnCustomEvent(QFileSystemWatcher* self, intptr_t slot) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
         vqfilesystemwatcher->setQFileSystemWatcher_CustomEvent_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +379,8 @@ void QFileSystemWatcher_SuperConnectNotify(QFileSystemWatcher* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnConnectNotify(QFileSystemWatcher* self, intptr_t slot) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
         vqfilesystemwatcher->setQFileSystemWatcher_ConnectNotify_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +407,8 @@ void QFileSystemWatcher_SuperDisconnectNotify(QFileSystemWatcher* self, const QM
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnDisconnectNotify(QFileSystemWatcher* self, intptr_t slot) {
     auto* vqfilesystemwatcher = dynamic_cast<VirtualQFileSystemWatcher*>(self);
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
         vqfilesystemwatcher->setQFileSystemWatcher_DisconnectNotify_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +435,8 @@ QObject* QFileSystemWatcher_SuperSender(const QFileSystemWatcher* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnSender(const QFileSystemWatcher* self, intptr_t slot) {
     auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
         vqfilesystemwatcher->setQFileSystemWatcher_Sender_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +463,8 @@ int QFileSystemWatcher_SuperSenderSignalIndex(const QFileSystemWatcher* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnSenderSignalIndex(const QFileSystemWatcher* self, intptr_t slot) {
     auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
         vqfilesystemwatcher->setQFileSystemWatcher_SenderSignalIndex_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +491,8 @@ int QFileSystemWatcher_SuperReceivers(const QFileSystemWatcher* self, const char
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnReceivers(const QFileSystemWatcher* self, intptr_t slot) {
     auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
         vqfilesystemwatcher->setQFileSystemWatcher_Receivers_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +519,8 @@ bool QFileSystemWatcher_SuperIsSignalConnected(const QFileSystemWatcher* self, c
 // Auxiliary method to allow providing re-implementation
 void QFileSystemWatcher_OnIsSignalConnected(const QFileSystemWatcher* self, intptr_t slot) {
     auto* vqfilesystemwatcher = const_cast<VirtualQFileSystemWatcher*>(dynamic_cast<const VirtualQFileSystemWatcher*>(self));
-    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher) {
+    if (vqfilesystemwatcher && vqfilesystemwatcher->isVirtualQFileSystemWatcher)
         vqfilesystemwatcher->setQFileSystemWatcher_IsSignalConnected_Callback(reinterpret_cast<VirtualQFileSystemWatcher::QFileSystemWatcher_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QFileSystemWatcher_Connect_FileChanged(QFileSystemWatcher* self, intptr_t slot) {

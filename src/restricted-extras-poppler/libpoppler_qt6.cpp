@@ -411,9 +411,8 @@ libqt_list /* of Poppler__Annotation* */ Poppler__Page_Annotations2(const Popple
     QSet<Poppler::Annotation::SubType> subtypes_set;
     subtypes_set.reserve(subtypes.len);
     int* subtypes_setarr = static_cast<int*>(subtypes.data);
-    for (size_t i = 0; i < subtypes.len; ++i) {
+    for (size_t i = 0; i < subtypes.len; ++i)
         subtypes_set.insert(static_cast<Poppler::Annotation::SubType>(subtypes_setarr[i]));
-    }
     std::vector<std::unique_ptr<Poppler::Annotation>> _ret = self->annotations(subtypes_set);
     // Convert std::vector<> from C++ memory to manually-managed C memory
     Poppler__Annotation** _arr = static_cast<Poppler__Annotation**>(malloc(sizeof(Poppler__Annotation*) * (_ret.size())));

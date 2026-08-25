@@ -4545,7 +4545,7 @@ pub const QsciLexerCSS = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerCSS = enum(i32) {
+    pub const QsciLexerCSS = enum {
         pub const Default: i32 = 0;
         pub const Tag: i32 = 1;
         pub const ClassSelector: i32 = 2;

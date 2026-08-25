@@ -89,9 +89,8 @@ QMetaObject* KConfigSkeleton_SuperMetaObject(const KConfigSkeleton* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnMetaObject(const KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = const_cast<VirtualKConfigSkeleton*>(dynamic_cast<const VirtualKConfigSkeleton*>(self));
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_MetaObject_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -108,9 +107,8 @@ void* KConfigSkeleton_SuperMetacast(KConfigSkeleton* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnMetacast(KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_Metacast_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -127,9 +125,8 @@ int KConfigSkeleton_SuperMetacall(KConfigSkeleton* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnMetacall(KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_Metacall_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -156,9 +153,8 @@ void KConfigSkeleton_SuperSetDefaults(KConfigSkeleton* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnSetDefaults(KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_SetDefaults_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_SetDefaults_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -185,9 +181,8 @@ bool KConfigSkeleton_SuperUseDefaults(KConfigSkeleton* self, bool b) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnUseDefaults(KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_UseDefaults_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_UseDefaults_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -214,9 +209,8 @@ bool KConfigSkeleton_SuperUsrUseDefaults(KConfigSkeleton* self, bool b) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnUsrUseDefaults(KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_UsrUseDefaults_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_UsrUseDefaults_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -243,9 +237,8 @@ void KConfigSkeleton_SuperUsrSetDefaults(KConfigSkeleton* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnUsrSetDefaults(KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_UsrSetDefaults_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_UsrSetDefaults_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -272,9 +265,8 @@ void KConfigSkeleton_SuperUsrRead(KConfigSkeleton* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnUsrRead(KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_UsrRead_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_UsrRead_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -301,9 +293,8 @@ bool KConfigSkeleton_SuperUsrSave(KConfigSkeleton* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnUsrSave(KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_UsrSave_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_UsrSave_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -330,9 +321,8 @@ bool KConfigSkeleton_SuperEvent(KConfigSkeleton* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnEvent(KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_Event_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -359,9 +349,8 @@ bool KConfigSkeleton_SuperEventFilter(KConfigSkeleton* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnEventFilter(KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_EventFilter_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -388,9 +377,8 @@ void KConfigSkeleton_SuperTimerEvent(KConfigSkeleton* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnTimerEvent(KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_TimerEvent_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -417,9 +405,8 @@ void KConfigSkeleton_SuperChildEvent(KConfigSkeleton* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnChildEvent(KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_ChildEvent_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -446,9 +433,8 @@ void KConfigSkeleton_SuperCustomEvent(KConfigSkeleton* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnCustomEvent(KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_CustomEvent_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -475,9 +461,8 @@ void KConfigSkeleton_SuperConnectNotify(KConfigSkeleton* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnConnectNotify(KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_ConnectNotify_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -504,9 +489,8 @@ void KConfigSkeleton_SuperDisconnectNotify(KConfigSkeleton* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnDisconnectNotify(KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_DisconnectNotify_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -533,9 +517,8 @@ QObject* KConfigSkeleton_SuperSender(const KConfigSkeleton* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnSender(const KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = const_cast<VirtualKConfigSkeleton*>(dynamic_cast<const VirtualKConfigSkeleton*>(self));
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_Sender_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -562,9 +545,8 @@ int KConfigSkeleton_SuperSenderSignalIndex(const KConfigSkeleton* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnSenderSignalIndex(const KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = const_cast<VirtualKConfigSkeleton*>(dynamic_cast<const VirtualKConfigSkeleton*>(self));
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_SenderSignalIndex_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -591,9 +573,8 @@ int KConfigSkeleton_SuperReceivers(const KConfigSkeleton* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnReceivers(const KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = const_cast<VirtualKConfigSkeleton*>(dynamic_cast<const VirtualKConfigSkeleton*>(self));
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_Receivers_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -620,9 +601,8 @@ bool KConfigSkeleton_SuperIsSignalConnected(const KConfigSkeleton* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton_OnIsSignalConnected(const KConfigSkeleton* self, intptr_t slot) {
     auto* vkconfigskeleton = const_cast<VirtualKConfigSkeleton*>(dynamic_cast<const VirtualKConfigSkeleton*>(self));
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
+    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton)
         vkconfigskeleton->setKConfigSkeleton_IsSignalConnected_Callback(reinterpret_cast<VirtualKConfigSkeleton::KConfigSkeleton_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KConfigSkeleton_Delete(KConfigSkeleton* self) {
@@ -671,9 +651,8 @@ void KConfigSkeleton__ItemColor_SuperReadConfig(KConfigSkeleton__ItemColor* self
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton__ItemColor_OnReadConfig(KConfigSkeleton__ItemColor* self, intptr_t slot) {
     auto* vkconfigskeletonitemcolor = dynamic_cast<VirtualKConfigSkeletonItemColor*>(self);
-    if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor) {
+    if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor)
         vkconfigskeletonitemcolor->setKConfigSkeleton__ItemColor_ReadConfig_Callback(reinterpret_cast<VirtualKConfigSkeletonItemColor::KConfigSkeleton__ItemColor_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -690,9 +669,8 @@ void KConfigSkeleton__ItemColor_SuperSetProperty(KConfigSkeleton__ItemColor* sel
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton__ItemColor_OnSetProperty(KConfigSkeleton__ItemColor* self, intptr_t slot) {
     auto* vkconfigskeletonitemcolor = dynamic_cast<VirtualKConfigSkeletonItemColor*>(self);
-    if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor) {
+    if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor)
         vkconfigskeletonitemcolor->setKConfigSkeleton__ItemColor_SetProperty_Callback(reinterpret_cast<VirtualKConfigSkeletonItemColor::KConfigSkeleton__ItemColor_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -709,9 +687,8 @@ bool KConfigSkeleton__ItemColor_SuperIsEqual(const KConfigSkeleton__ItemColor* s
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton__ItemColor_OnIsEqual(const KConfigSkeleton__ItemColor* self, intptr_t slot) {
     auto* vkconfigskeletonitemcolor = const_cast<VirtualKConfigSkeletonItemColor*>(dynamic_cast<const VirtualKConfigSkeletonItemColor*>(self));
-    if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor) {
+    if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor)
         vkconfigskeletonitemcolor->setKConfigSkeleton__ItemColor_IsEqual_Callback(reinterpret_cast<VirtualKConfigSkeletonItemColor::KConfigSkeleton__ItemColor_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -728,9 +705,8 @@ QVariant* KConfigSkeleton__ItemColor_SuperProperty(const KConfigSkeleton__ItemCo
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton__ItemColor_OnProperty(const KConfigSkeleton__ItemColor* self, intptr_t slot) {
     auto* vkconfigskeletonitemcolor = const_cast<VirtualKConfigSkeletonItemColor*>(dynamic_cast<const VirtualKConfigSkeletonItemColor*>(self));
-    if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor) {
+    if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor)
         vkconfigskeletonitemcolor->setKConfigSkeleton__ItemColor_Property_Callback(reinterpret_cast<VirtualKConfigSkeletonItemColor::KConfigSkeleton__ItemColor_Property_Callback>(slot));
-    }
 }
 
 void KConfigSkeleton__ItemColor_Delete(KConfigSkeleton__ItemColor* self) {
@@ -779,9 +755,8 @@ void KConfigSkeleton__ItemFont_SuperReadConfig(KConfigSkeleton__ItemFont* self, 
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton__ItemFont_OnReadConfig(KConfigSkeleton__ItemFont* self, intptr_t slot) {
     auto* vkconfigskeletonitemfont = dynamic_cast<VirtualKConfigSkeletonItemFont*>(self);
-    if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont) {
+    if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont)
         vkconfigskeletonitemfont->setKConfigSkeleton__ItemFont_ReadConfig_Callback(reinterpret_cast<VirtualKConfigSkeletonItemFont::KConfigSkeleton__ItemFont_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -798,9 +773,8 @@ void KConfigSkeleton__ItemFont_SuperSetProperty(KConfigSkeleton__ItemFont* self,
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton__ItemFont_OnSetProperty(KConfigSkeleton__ItemFont* self, intptr_t slot) {
     auto* vkconfigskeletonitemfont = dynamic_cast<VirtualKConfigSkeletonItemFont*>(self);
-    if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont) {
+    if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont)
         vkconfigskeletonitemfont->setKConfigSkeleton__ItemFont_SetProperty_Callback(reinterpret_cast<VirtualKConfigSkeletonItemFont::KConfigSkeleton__ItemFont_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -817,9 +791,8 @@ bool KConfigSkeleton__ItemFont_SuperIsEqual(const KConfigSkeleton__ItemFont* sel
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton__ItemFont_OnIsEqual(const KConfigSkeleton__ItemFont* self, intptr_t slot) {
     auto* vkconfigskeletonitemfont = const_cast<VirtualKConfigSkeletonItemFont*>(dynamic_cast<const VirtualKConfigSkeletonItemFont*>(self));
-    if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont) {
+    if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont)
         vkconfigskeletonitemfont->setKConfigSkeleton__ItemFont_IsEqual_Callback(reinterpret_cast<VirtualKConfigSkeletonItemFont::KConfigSkeleton__ItemFont_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -836,9 +809,8 @@ QVariant* KConfigSkeleton__ItemFont_SuperProperty(const KConfigSkeleton__ItemFon
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeleton__ItemFont_OnProperty(const KConfigSkeleton__ItemFont* self, intptr_t slot) {
     auto* vkconfigskeletonitemfont = const_cast<VirtualKConfigSkeletonItemFont*>(dynamic_cast<const VirtualKConfigSkeletonItemFont*>(self));
-    if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont) {
+    if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont)
         vkconfigskeletonitemfont->setKConfigSkeleton__ItemFont_Property_Callback(reinterpret_cast<VirtualKConfigSkeletonItemFont::KConfigSkeleton__ItemFont_Property_Callback>(slot));
-    }
 }
 
 void KConfigSkeleton__ItemFont_Delete(KConfigSkeleton__ItemFont* self) {

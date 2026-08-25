@@ -65,9 +65,8 @@ QMetaObject* KIO__DeleteOrTrashJob_SuperMetaObject(const KIO__DeleteOrTrashJob* 
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnMetaObject(const KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_MetaObject_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -84,9 +83,8 @@ void* KIO__DeleteOrTrashJob_SuperMetacast(KIO__DeleteOrTrashJob* self, const cha
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnMetacast(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_Metacast_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -103,9 +101,8 @@ int KIO__DeleteOrTrashJob_SuperMetacall(KIO__DeleteOrTrashJob* self, int param1,
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnMetacall(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_Metacall_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -122,9 +119,8 @@ void KIO__DeleteOrTrashJob_SuperStart(KIO__DeleteOrTrashJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnStart(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_Start_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_Start_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -151,9 +147,8 @@ bool KIO__DeleteOrTrashJob_SuperAddSubjob(KIO__DeleteOrTrashJob* self, KJob* job
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnAddSubjob(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_AddSubjob_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_AddSubjob_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -180,9 +175,8 @@ bool KIO__DeleteOrTrashJob_SuperRemoveSubjob(KIO__DeleteOrTrashJob* self, KJob* 
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnRemoveSubjob(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_RemoveSubjob_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_RemoveSubjob_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -211,9 +205,8 @@ void KIO__DeleteOrTrashJob_SuperSlotInfoMessage(KIO__DeleteOrTrashJob* self, KJo
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnSlotInfoMessage(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_SlotInfoMessage_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_SlotInfoMessage_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -240,9 +233,8 @@ bool KIO__DeleteOrTrashJob_SuperDoKill(KIO__DeleteOrTrashJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnDoKill(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_DoKill_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_DoKill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -269,9 +261,8 @@ bool KIO__DeleteOrTrashJob_SuperDoSuspend(KIO__DeleteOrTrashJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnDoSuspend(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_DoSuspend_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_DoSuspend_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -298,9 +289,8 @@ bool KIO__DeleteOrTrashJob_SuperDoResume(KIO__DeleteOrTrashJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnDoResume(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_DoResume_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_DoResume_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -359,9 +349,8 @@ libqt_string KIO__DeleteOrTrashJob_SuperErrorString(const KIO__DeleteOrTrashJob*
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnErrorString(const KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_ErrorString_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_ErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -388,9 +377,8 @@ bool KIO__DeleteOrTrashJob_SuperEvent(KIO__DeleteOrTrashJob* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnEvent(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_Event_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -417,9 +405,8 @@ bool KIO__DeleteOrTrashJob_SuperEventFilter(KIO__DeleteOrTrashJob* self, QObject
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnEventFilter(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_EventFilter_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -446,9 +433,8 @@ void KIO__DeleteOrTrashJob_SuperTimerEvent(KIO__DeleteOrTrashJob* self, QTimerEv
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnTimerEvent(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_TimerEvent_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -475,9 +461,8 @@ void KIO__DeleteOrTrashJob_SuperChildEvent(KIO__DeleteOrTrashJob* self, QChildEv
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnChildEvent(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_ChildEvent_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -504,9 +489,8 @@ void KIO__DeleteOrTrashJob_SuperCustomEvent(KIO__DeleteOrTrashJob* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnCustomEvent(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_CustomEvent_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -533,9 +517,8 @@ void KIO__DeleteOrTrashJob_SuperConnectNotify(KIO__DeleteOrTrashJob* self, const
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnConnectNotify(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_ConnectNotify_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -562,9 +545,8 @@ void KIO__DeleteOrTrashJob_SuperDisconnectNotify(KIO__DeleteOrTrashJob* self, co
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnDisconnectNotify(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -591,9 +573,8 @@ bool KIO__DeleteOrTrashJob_SuperHasSubjobs(const KIO__DeleteOrTrashJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnHasSubjobs(const KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_HasSubjobs_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_HasSubjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -656,9 +637,8 @@ libqt_list /* of KJob* */ KIO__DeleteOrTrashJob_SuperSubjobs(const KIO__DeleteOr
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnSubjobs(const KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_Subjobs_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_Subjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -685,9 +665,8 @@ void KIO__DeleteOrTrashJob_SuperClearSubjobs(KIO__DeleteOrTrashJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnClearSubjobs(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_ClearSubjobs_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_ClearSubjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -714,9 +693,8 @@ void KIO__DeleteOrTrashJob_SuperSetCapabilities(KIO__DeleteOrTrashJob* self, int
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnSetCapabilities(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_SetCapabilities_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_SetCapabilities_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -743,9 +721,8 @@ bool KIO__DeleteOrTrashJob_SuperIsFinished(const KIO__DeleteOrTrashJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnIsFinished(const KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_IsFinished_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_IsFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -772,9 +749,8 @@ void KIO__DeleteOrTrashJob_SuperSetError(KIO__DeleteOrTrashJob* self, int errorC
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnSetError(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_SetError_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -803,9 +779,8 @@ void KIO__DeleteOrTrashJob_SuperSetErrorText(KIO__DeleteOrTrashJob* self, const 
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnSetErrorText(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_SetErrorText_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_SetErrorText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -832,9 +807,8 @@ void KIO__DeleteOrTrashJob_SuperSetProcessedAmount(KIO__DeleteOrTrashJob* self, 
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnSetProcessedAmount(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_SetProcessedAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -861,9 +835,8 @@ void KIO__DeleteOrTrashJob_SuperSetTotalAmount(KIO__DeleteOrTrashJob* self, int 
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnSetTotalAmount(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_SetTotalAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -890,9 +863,8 @@ void KIO__DeleteOrTrashJob_SuperSetProgressUnit(KIO__DeleteOrTrashJob* self, int
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnSetProgressUnit(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_SetProgressUnit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -919,9 +891,8 @@ void KIO__DeleteOrTrashJob_SuperSetPercent(KIO__DeleteOrTrashJob* self, unsigned
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnSetPercent(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_SetPercent_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_SetPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -948,9 +919,8 @@ void KIO__DeleteOrTrashJob_SuperEmitResult(KIO__DeleteOrTrashJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnEmitResult(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_EmitResult_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_EmitResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -977,9 +947,8 @@ void KIO__DeleteOrTrashJob_SuperEmitPercent(KIO__DeleteOrTrashJob* self, unsigne
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnEmitPercent(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_EmitPercent_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_EmitPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1006,9 +975,8 @@ void KIO__DeleteOrTrashJob_SuperEmitSpeed(KIO__DeleteOrTrashJob* self, unsigned 
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnEmitSpeed(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_EmitSpeed_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_EmitSpeed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1035,9 +1003,8 @@ void KIO__DeleteOrTrashJob_SuperStartElapsedTimer(KIO__DeleteOrTrashJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnStartElapsedTimer(KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_StartElapsedTimer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1064,9 +1031,8 @@ QObject* KIO__DeleteOrTrashJob_SuperSender(const KIO__DeleteOrTrashJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnSender(const KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_Sender_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1093,9 +1059,8 @@ int KIO__DeleteOrTrashJob_SuperSenderSignalIndex(const KIO__DeleteOrTrashJob* se
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnSenderSignalIndex(const KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1122,9 +1087,8 @@ int KIO__DeleteOrTrashJob_SuperReceivers(const KIO__DeleteOrTrashJob* self, cons
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnReceivers(const KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_Receivers_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1151,9 +1115,8 @@ bool KIO__DeleteOrTrashJob_SuperIsSignalConnected(const KIO__DeleteOrTrashJob* s
 // Auxiliary method to allow providing re-implementation
 void KIO__DeleteOrTrashJob_OnIsSignalConnected(const KIO__DeleteOrTrashJob* self, intptr_t slot) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
-    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
+    if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob)
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKIODeleteOrTrashJob::KIO__DeleteOrTrashJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KIO__DeleteOrTrashJob_Delete(KIO__DeleteOrTrashJob* self) {

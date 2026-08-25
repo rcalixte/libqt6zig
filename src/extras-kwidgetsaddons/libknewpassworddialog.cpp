@@ -209,9 +209,8 @@ QMetaObject* KNewPasswordDialog_SuperMetaObject(const KNewPasswordDialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnMetaObject(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_MetaObject_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -228,9 +227,8 @@ void* KNewPasswordDialog_SuperMetacast(KNewPasswordDialog* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnMetacast(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_Metacast_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -247,9 +245,8 @@ int KNewPasswordDialog_SuperMetacall(KNewPasswordDialog* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnMetacall(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_Metacall_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -266,9 +263,8 @@ void KNewPasswordDialog_SuperAccept(KNewPasswordDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnAccept(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_Accept_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Accept_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -286,9 +282,8 @@ bool KNewPasswordDialog_SuperCheckPassword(KNewPasswordDialog* self, const libqt
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnCheckPassword(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_CheckPassword_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_CheckPassword_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -315,9 +310,8 @@ void KNewPasswordDialog_SuperSetVisible(KNewPasswordDialog* self, bool visible) 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnSetVisible(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_SetVisible_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -344,9 +338,8 @@ QSize* KNewPasswordDialog_SuperSizeHint(const KNewPasswordDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnSizeHint(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_SizeHint_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -373,9 +366,8 @@ QSize* KNewPasswordDialog_SuperMinimumSizeHint(const KNewPasswordDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnMinimumSizeHint(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -402,9 +394,8 @@ void KNewPasswordDialog_SuperOpen(KNewPasswordDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnOpen(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_Open_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -431,9 +422,8 @@ int KNewPasswordDialog_SuperExec(KNewPasswordDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnExec(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_Exec_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -460,9 +450,8 @@ void KNewPasswordDialog_SuperDone(KNewPasswordDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnDone(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_Done_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -489,9 +478,8 @@ void KNewPasswordDialog_SuperReject(KNewPasswordDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnReject(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_Reject_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -518,9 +506,8 @@ void KNewPasswordDialog_SuperKeyPressEvent(KNewPasswordDialog* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnKeyPressEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -547,9 +534,8 @@ void KNewPasswordDialog_SuperCloseEvent(KNewPasswordDialog* self, QCloseEvent* p
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnCloseEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_CloseEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -576,9 +562,8 @@ void KNewPasswordDialog_SuperShowEvent(KNewPasswordDialog* self, QShowEvent* par
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnShowEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_ShowEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -605,9 +590,8 @@ void KNewPasswordDialog_SuperResizeEvent(KNewPasswordDialog* self, QResizeEvent*
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnResizeEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -634,9 +618,8 @@ void KNewPasswordDialog_SuperContextMenuEvent(KNewPasswordDialog* self, QContext
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnContextMenuEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -663,9 +646,8 @@ bool KNewPasswordDialog_SuperEventFilter(KNewPasswordDialog* self, QObject* para
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnEventFilter(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_EventFilter_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -692,9 +674,8 @@ int KNewPasswordDialog_SuperDevType(const KNewPasswordDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnDevType(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_DevType_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -721,9 +702,8 @@ int KNewPasswordDialog_SuperHeightForWidth(const KNewPasswordDialog* self, int p
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnHeightForWidth(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -750,9 +730,8 @@ bool KNewPasswordDialog_SuperHasHeightForWidth(const KNewPasswordDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnHasHeightForWidth(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -779,9 +758,8 @@ QPaintEngine* KNewPasswordDialog_SuperPaintEngine(const KNewPasswordDialog* self
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnPaintEngine(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_PaintEngine_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -808,9 +786,8 @@ bool KNewPasswordDialog_SuperEvent(KNewPasswordDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_Event_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -837,9 +814,8 @@ void KNewPasswordDialog_SuperMousePressEvent(KNewPasswordDialog* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnMousePressEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -866,9 +842,8 @@ void KNewPasswordDialog_SuperMouseReleaseEvent(KNewPasswordDialog* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnMouseReleaseEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -895,9 +870,8 @@ void KNewPasswordDialog_SuperMouseDoubleClickEvent(KNewPasswordDialog* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnMouseDoubleClickEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -924,9 +898,8 @@ void KNewPasswordDialog_SuperMouseMoveEvent(KNewPasswordDialog* self, QMouseEven
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnMouseMoveEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -953,9 +926,8 @@ void KNewPasswordDialog_SuperWheelEvent(KNewPasswordDialog* self, QWheelEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnWheelEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_WheelEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -982,9 +954,8 @@ void KNewPasswordDialog_SuperKeyReleaseEvent(KNewPasswordDialog* self, QKeyEvent
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnKeyReleaseEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1011,9 +982,8 @@ void KNewPasswordDialog_SuperFocusInEvent(KNewPasswordDialog* self, QFocusEvent*
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnFocusInEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1040,9 +1010,8 @@ void KNewPasswordDialog_SuperFocusOutEvent(KNewPasswordDialog* self, QFocusEvent
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnFocusOutEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1069,9 +1038,8 @@ void KNewPasswordDialog_SuperEnterEvent(KNewPasswordDialog* self, QEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnEnterEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_EnterEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1098,9 +1066,8 @@ void KNewPasswordDialog_SuperLeaveEvent(KNewPasswordDialog* self, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnLeaveEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1127,9 +1094,8 @@ void KNewPasswordDialog_SuperPaintEvent(KNewPasswordDialog* self, QPaintEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnPaintEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_PaintEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1156,9 +1122,8 @@ void KNewPasswordDialog_SuperMoveEvent(KNewPasswordDialog* self, QMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnMoveEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_MoveEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1185,9 +1150,8 @@ void KNewPasswordDialog_SuperTabletEvent(KNewPasswordDialog* self, QTabletEvent*
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnTabletEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_TabletEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1214,9 +1178,8 @@ void KNewPasswordDialog_SuperActionEvent(KNewPasswordDialog* self, QActionEvent*
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnActionEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_ActionEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1243,9 +1206,8 @@ void KNewPasswordDialog_SuperDragEnterEvent(KNewPasswordDialog* self, QDragEnter
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnDragEnterEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1272,9 +1234,8 @@ void KNewPasswordDialog_SuperDragMoveEvent(KNewPasswordDialog* self, QDragMoveEv
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnDragMoveEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1301,9 +1262,8 @@ void KNewPasswordDialog_SuperDragLeaveEvent(KNewPasswordDialog* self, QDragLeave
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnDragLeaveEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1330,9 +1290,8 @@ void KNewPasswordDialog_SuperDropEvent(KNewPasswordDialog* self, QDropEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnDropEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_DropEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1359,9 +1318,8 @@ void KNewPasswordDialog_SuperHideEvent(KNewPasswordDialog* self, QHideEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnHideEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_HideEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1390,9 +1348,8 @@ bool KNewPasswordDialog_SuperNativeEvent(KNewPasswordDialog* self, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnNativeEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_NativeEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1419,9 +1376,8 @@ void KNewPasswordDialog_SuperChangeEvent(KNewPasswordDialog* self, QEvent* param
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnChangeEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1448,9 +1404,8 @@ int KNewPasswordDialog_SuperMetric(const KNewPasswordDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnMetric(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_Metric_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1477,9 +1432,8 @@ void KNewPasswordDialog_SuperInitPainter(const KNewPasswordDialog* self, QPainte
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnInitPainter(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_InitPainter_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1506,9 +1460,8 @@ QPaintDevice* KNewPasswordDialog_SuperRedirected(const KNewPasswordDialog* self,
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnRedirected(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_Redirected_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1535,9 +1488,8 @@ QPainter* KNewPasswordDialog_SuperSharedPainter(const KNewPasswordDialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnSharedPainter(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_SharedPainter_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1564,9 +1516,8 @@ void KNewPasswordDialog_SuperInputMethodEvent(KNewPasswordDialog* self, QInputMe
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnInputMethodEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1593,9 +1544,8 @@ QVariant* KNewPasswordDialog_SuperInputMethodQuery(const KNewPasswordDialog* sel
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnInputMethodQuery(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1622,9 +1572,8 @@ bool KNewPasswordDialog_SuperFocusNextPrevChild(KNewPasswordDialog* self, bool n
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnFocusNextPrevChild(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1651,9 +1600,8 @@ void KNewPasswordDialog_SuperTimerEvent(KNewPasswordDialog* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnTimerEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_TimerEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1680,9 +1628,8 @@ void KNewPasswordDialog_SuperChildEvent(KNewPasswordDialog* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnChildEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_ChildEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1709,9 +1656,8 @@ void KNewPasswordDialog_SuperCustomEvent(KNewPasswordDialog* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnCustomEvent(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_CustomEvent_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1738,9 +1684,8 @@ void KNewPasswordDialog_SuperConnectNotify(KNewPasswordDialog* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnConnectNotify(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1767,9 +1712,8 @@ void KNewPasswordDialog_SuperDisconnectNotify(KNewPasswordDialog* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnDisconnectNotify(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1796,9 +1740,8 @@ void KNewPasswordDialog_SuperAdjustPosition(KNewPasswordDialog* self, QWidget* p
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnAdjustPosition(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1825,9 +1768,8 @@ void KNewPasswordDialog_SuperUpdateMicroFocus(KNewPasswordDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnUpdateMicroFocus(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1854,9 +1796,8 @@ void KNewPasswordDialog_SuperCreate(KNewPasswordDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnCreate(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_Create_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1883,9 +1824,8 @@ void KNewPasswordDialog_SuperDestroy(KNewPasswordDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnDestroy(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_Destroy_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1912,9 +1852,8 @@ bool KNewPasswordDialog_SuperFocusNextChild(KNewPasswordDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnFocusNextChild(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1941,9 +1880,8 @@ bool KNewPasswordDialog_SuperFocusPreviousChild(KNewPasswordDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnFocusPreviousChild(KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1970,9 +1908,8 @@ QObject* KNewPasswordDialog_SuperSender(const KNewPasswordDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnSender(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_Sender_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1999,9 +1936,8 @@ int KNewPasswordDialog_SuperSenderSignalIndex(const KNewPasswordDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnSenderSignalIndex(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2028,9 +1964,8 @@ int KNewPasswordDialog_SuperReceivers(const KNewPasswordDialog* self, const char
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnReceivers(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_Receivers_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2057,9 +1992,8 @@ bool KNewPasswordDialog_SuperIsSignalConnected(const KNewPasswordDialog* self, c
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnIsSignalConnected(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2086,9 +2020,8 @@ double KNewPasswordDialog_SuperGetDecodedMetricF(const KNewPasswordDialog* self,
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordDialog_OnGetDecodedMetricF(const KNewPasswordDialog* self, intptr_t slot) {
     auto* vknewpassworddialog = const_cast<VirtualKNewPasswordDialog*>(dynamic_cast<const VirtualKNewPasswordDialog*>(self));
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
+    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog)
         vknewpassworddialog->setKNewPasswordDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKNewPasswordDialog::KNewPasswordDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KNewPasswordDialog_Delete(KNewPasswordDialog* self) {

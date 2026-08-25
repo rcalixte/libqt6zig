@@ -200,9 +200,8 @@ QMetaObject* QGeoPositionInfoSource_SuperMetaObject(const QGeoPositionInfoSource
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnMetaObject(const QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_MetaObject_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -219,9 +218,8 @@ void* QGeoPositionInfoSource_SuperMetacast(QGeoPositionInfoSource* self, const c
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnMetacast(QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_Metacast_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -238,9 +236,8 @@ int QGeoPositionInfoSource_SuperMetacall(QGeoPositionInfoSource* self, int param
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnMetacall(QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_Metacall_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -257,9 +254,8 @@ void QGeoPositionInfoSource_SuperSetUpdateInterval(QGeoPositionInfoSource* self,
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnSetUpdateInterval(QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_SetUpdateInterval_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_SetUpdateInterval_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -276,9 +272,8 @@ void QGeoPositionInfoSource_SuperSetPreferredPositioningMethods(QGeoPositionInfo
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnSetPreferredPositioningMethods(QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_SetPreferredPositioningMethods_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_SetPreferredPositioningMethods_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -295,9 +290,8 @@ QGeoPositionInfo* QGeoPositionInfoSource_SuperLastKnownPosition(const QGeoPositi
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnLastKnownPosition(const QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_LastKnownPosition_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_LastKnownPosition_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -314,9 +308,8 @@ int QGeoPositionInfoSource_SuperSupportedPositioningMethods(const QGeoPositionIn
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnSupportedPositioningMethods(const QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_SupportedPositioningMethods_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_SupportedPositioningMethods_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -333,9 +326,8 @@ int QGeoPositionInfoSource_SuperMinimumUpdateInterval(const QGeoPositionInfoSour
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnMinimumUpdateInterval(const QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_MinimumUpdateInterval_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_MinimumUpdateInterval_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -353,9 +345,8 @@ bool QGeoPositionInfoSource_SuperSetBackendProperty(QGeoPositionInfoSource* self
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnSetBackendProperty(QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_SetBackendProperty_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_SetBackendProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -373,9 +364,8 @@ QVariant* QGeoPositionInfoSource_SuperBackendProperty(const QGeoPositionInfoSour
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnBackendProperty(const QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_BackendProperty_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_BackendProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -392,9 +382,8 @@ int QGeoPositionInfoSource_SuperError(const QGeoPositionInfoSource* self) {
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnError(const QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_Error_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_Error_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -411,9 +400,8 @@ void QGeoPositionInfoSource_SuperStartUpdates(QGeoPositionInfoSource* self) {
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnStartUpdates(QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_StartUpdates_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_StartUpdates_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -430,9 +418,8 @@ void QGeoPositionInfoSource_SuperStopUpdates(QGeoPositionInfoSource* self) {
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnStopUpdates(QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_StopUpdates_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_StopUpdates_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -449,9 +436,8 @@ void QGeoPositionInfoSource_SuperRequestUpdate(QGeoPositionInfoSource* self, int
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnRequestUpdate(QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_RequestUpdate_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_RequestUpdate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +464,8 @@ bool QGeoPositionInfoSource_SuperEvent(QGeoPositionInfoSource* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnEvent(QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_Event_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +492,8 @@ bool QGeoPositionInfoSource_SuperEventFilter(QGeoPositionInfoSource* self, QObje
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnEventFilter(QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_EventFilter_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +520,8 @@ void QGeoPositionInfoSource_SuperTimerEvent(QGeoPositionInfoSource* self, QTimer
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnTimerEvent(QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_TimerEvent_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +548,8 @@ void QGeoPositionInfoSource_SuperChildEvent(QGeoPositionInfoSource* self, QChild
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnChildEvent(QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_ChildEvent_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +576,8 @@ void QGeoPositionInfoSource_SuperCustomEvent(QGeoPositionInfoSource* self, QEven
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnCustomEvent(QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_CustomEvent_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -623,9 +604,8 @@ void QGeoPositionInfoSource_SuperConnectNotify(QGeoPositionInfoSource* self, con
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnConnectNotify(QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_ConnectNotify_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -652,9 +632,8 @@ void QGeoPositionInfoSource_SuperDisconnectNotify(QGeoPositionInfoSource* self, 
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnDisconnectNotify(QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_DisconnectNotify_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -681,9 +660,8 @@ QObject* QGeoPositionInfoSource_SuperSender(const QGeoPositionInfoSource* self) 
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnSender(const QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_Sender_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -710,9 +688,8 @@ int QGeoPositionInfoSource_SuperSenderSignalIndex(const QGeoPositionInfoSource* 
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnSenderSignalIndex(const QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -739,9 +716,8 @@ int QGeoPositionInfoSource_SuperReceivers(const QGeoPositionInfoSource* self, co
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnReceivers(const QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_Receivers_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -768,9 +744,8 @@ bool QGeoPositionInfoSource_SuperIsSignalConnected(const QGeoPositionInfoSource*
 // Auxiliary method to allow providing re-implementation
 void QGeoPositionInfoSource_OnIsSignalConnected(const QGeoPositionInfoSource* self, intptr_t slot) {
     auto* vqgeopositioninfosource = const_cast<VirtualQGeoPositionInfoSource*>(dynamic_cast<const VirtualQGeoPositionInfoSource*>(self));
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
+    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource)
         vqgeopositioninfosource->setQGeoPositionInfoSource_IsSignalConnected_Callback(reinterpret_cast<VirtualQGeoPositionInfoSource::QGeoPositionInfoSource_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGeoPositionInfoSource_Delete(QGeoPositionInfoSource* self) {

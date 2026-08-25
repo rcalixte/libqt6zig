@@ -166,9 +166,8 @@ QMetaObject* KRecentFilesMenu_SuperMetaObject(const KRecentFilesMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMetaObject(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_MetaObject_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -185,9 +184,8 @@ void* KRecentFilesMenu_SuperMetacast(KRecentFilesMenu* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMetacast(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_Metacast_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -204,9 +202,8 @@ int KRecentFilesMenu_SuperMetacall(KRecentFilesMenu* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMetacall(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_Metacall_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -233,9 +230,8 @@ QSize* KRecentFilesMenu_SuperSizeHint(const KRecentFilesMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnSizeHint(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_SizeHint_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -262,9 +258,8 @@ void KRecentFilesMenu_SuperChangeEvent(KRecentFilesMenu* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnChangeEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_ChangeEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -291,9 +286,8 @@ void KRecentFilesMenu_SuperKeyPressEvent(KRecentFilesMenu* self, QKeyEvent* para
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnKeyPressEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_KeyPressEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -320,9 +314,8 @@ void KRecentFilesMenu_SuperMouseReleaseEvent(KRecentFilesMenu* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMouseReleaseEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -349,9 +342,8 @@ void KRecentFilesMenu_SuperMousePressEvent(KRecentFilesMenu* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMousePressEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_MousePressEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -378,9 +370,8 @@ void KRecentFilesMenu_SuperMouseMoveEvent(KRecentFilesMenu* self, QMouseEvent* p
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMouseMoveEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_MouseMoveEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -407,9 +398,8 @@ void KRecentFilesMenu_SuperWheelEvent(KRecentFilesMenu* self, QWheelEvent* param
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnWheelEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_WheelEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -436,9 +426,8 @@ void KRecentFilesMenu_SuperEnterEvent(KRecentFilesMenu* self, QEnterEvent* param
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnEnterEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_EnterEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -465,9 +454,8 @@ void KRecentFilesMenu_SuperLeaveEvent(KRecentFilesMenu* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnLeaveEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_LeaveEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -494,9 +482,8 @@ void KRecentFilesMenu_SuperHideEvent(KRecentFilesMenu* self, QHideEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnHideEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_HideEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -523,9 +510,8 @@ void KRecentFilesMenu_SuperPaintEvent(KRecentFilesMenu* self, QPaintEvent* param
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnPaintEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_PaintEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -552,9 +538,8 @@ void KRecentFilesMenu_SuperActionEvent(KRecentFilesMenu* self, QActionEvent* par
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnActionEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_ActionEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -581,9 +566,8 @@ void KRecentFilesMenu_SuperTimerEvent(KRecentFilesMenu* self, QTimerEvent* param
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnTimerEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_TimerEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -610,9 +594,8 @@ bool KRecentFilesMenu_SuperEvent(KRecentFilesMenu* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_Event_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -639,9 +622,8 @@ bool KRecentFilesMenu_SuperFocusNextPrevChild(KRecentFilesMenu* self, bool next)
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnFocusNextPrevChild(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -668,9 +650,8 @@ void KRecentFilesMenu_SuperInitStyleOption(const KRecentFilesMenu* self, QStyleO
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnInitStyleOption(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_InitStyleOption_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -697,9 +678,8 @@ int KRecentFilesMenu_SuperDevType(const KRecentFilesMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnDevType(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_DevType_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -726,9 +706,8 @@ void KRecentFilesMenu_SuperSetVisible(KRecentFilesMenu* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnSetVisible(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_SetVisible_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -755,9 +734,8 @@ QSize* KRecentFilesMenu_SuperMinimumSizeHint(const KRecentFilesMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMinimumSizeHint(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_MinimumSizeHint_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -784,9 +762,8 @@ int KRecentFilesMenu_SuperHeightForWidth(const KRecentFilesMenu* self, int param
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnHeightForWidth(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_HeightForWidth_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -813,9 +790,8 @@ bool KRecentFilesMenu_SuperHasHeightForWidth(const KRecentFilesMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnHasHeightForWidth(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_HasHeightForWidth_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -842,9 +818,8 @@ QPaintEngine* KRecentFilesMenu_SuperPaintEngine(const KRecentFilesMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnPaintEngine(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_PaintEngine_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -871,9 +846,8 @@ void KRecentFilesMenu_SuperMouseDoubleClickEvent(KRecentFilesMenu* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMouseDoubleClickEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -900,9 +874,8 @@ void KRecentFilesMenu_SuperKeyReleaseEvent(KRecentFilesMenu* self, QKeyEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnKeyReleaseEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -929,9 +902,8 @@ void KRecentFilesMenu_SuperFocusInEvent(KRecentFilesMenu* self, QFocusEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnFocusInEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_FocusInEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -958,9 +930,8 @@ void KRecentFilesMenu_SuperFocusOutEvent(KRecentFilesMenu* self, QFocusEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnFocusOutEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_FocusOutEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -987,9 +958,8 @@ void KRecentFilesMenu_SuperMoveEvent(KRecentFilesMenu* self, QMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMoveEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_MoveEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1016,9 +986,8 @@ void KRecentFilesMenu_SuperResizeEvent(KRecentFilesMenu* self, QResizeEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnResizeEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_ResizeEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1045,9 +1014,8 @@ void KRecentFilesMenu_SuperCloseEvent(KRecentFilesMenu* self, QCloseEvent* event
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnCloseEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_CloseEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1074,9 +1042,8 @@ void KRecentFilesMenu_SuperContextMenuEvent(KRecentFilesMenu* self, QContextMenu
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnContextMenuEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_ContextMenuEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1103,9 +1070,8 @@ void KRecentFilesMenu_SuperTabletEvent(KRecentFilesMenu* self, QTabletEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnTabletEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_TabletEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1132,9 +1098,8 @@ void KRecentFilesMenu_SuperDragEnterEvent(KRecentFilesMenu* self, QDragEnterEven
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnDragEnterEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_DragEnterEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1161,9 +1126,8 @@ void KRecentFilesMenu_SuperDragMoveEvent(KRecentFilesMenu* self, QDragMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnDragMoveEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_DragMoveEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1190,9 +1154,8 @@ void KRecentFilesMenu_SuperDragLeaveEvent(KRecentFilesMenu* self, QDragLeaveEven
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnDragLeaveEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_DragLeaveEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1219,9 +1182,8 @@ void KRecentFilesMenu_SuperDropEvent(KRecentFilesMenu* self, QDropEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnDropEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_DropEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1248,9 +1210,8 @@ void KRecentFilesMenu_SuperShowEvent(KRecentFilesMenu* self, QShowEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnShowEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_ShowEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1279,9 +1240,8 @@ bool KRecentFilesMenu_SuperNativeEvent(KRecentFilesMenu* self, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnNativeEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_NativeEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1308,9 +1268,8 @@ int KRecentFilesMenu_SuperMetric(const KRecentFilesMenu* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnMetric(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_Metric_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1337,9 +1296,8 @@ void KRecentFilesMenu_SuperInitPainter(const KRecentFilesMenu* self, QPainter* p
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnInitPainter(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_InitPainter_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1366,9 +1324,8 @@ QPaintDevice* KRecentFilesMenu_SuperRedirected(const KRecentFilesMenu* self, QPo
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnRedirected(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_Redirected_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1395,9 +1352,8 @@ QPainter* KRecentFilesMenu_SuperSharedPainter(const KRecentFilesMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnSharedPainter(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_SharedPainter_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1424,9 +1380,8 @@ void KRecentFilesMenu_SuperInputMethodEvent(KRecentFilesMenu* self, QInputMethod
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnInputMethodEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_InputMethodEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1453,9 +1408,8 @@ QVariant* KRecentFilesMenu_SuperInputMethodQuery(const KRecentFilesMenu* self, i
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnInputMethodQuery(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_InputMethodQuery_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1482,9 +1436,8 @@ bool KRecentFilesMenu_SuperEventFilter(KRecentFilesMenu* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnEventFilter(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_EventFilter_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1511,9 +1464,8 @@ void KRecentFilesMenu_SuperChildEvent(KRecentFilesMenu* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnChildEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_ChildEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1540,9 +1492,8 @@ void KRecentFilesMenu_SuperCustomEvent(KRecentFilesMenu* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnCustomEvent(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_CustomEvent_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1569,9 +1520,8 @@ void KRecentFilesMenu_SuperConnectNotify(KRecentFilesMenu* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnConnectNotify(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_ConnectNotify_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1598,9 +1548,8 @@ void KRecentFilesMenu_SuperDisconnectNotify(KRecentFilesMenu* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnDisconnectNotify(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_DisconnectNotify_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1627,9 +1576,8 @@ int KRecentFilesMenu_SuperColumnCount(const KRecentFilesMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnColumnCount(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_ColumnCount_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_ColumnCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1656,9 +1604,8 @@ void KRecentFilesMenu_SuperUpdateMicroFocus(KRecentFilesMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnUpdateMicroFocus(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1685,9 +1632,8 @@ void KRecentFilesMenu_SuperCreate(KRecentFilesMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnCreate(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_Create_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1714,9 +1660,8 @@ void KRecentFilesMenu_SuperDestroy(KRecentFilesMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnDestroy(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_Destroy_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1743,9 +1688,8 @@ bool KRecentFilesMenu_SuperFocusNextChild(KRecentFilesMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnFocusNextChild(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_FocusNextChild_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1772,9 +1716,8 @@ bool KRecentFilesMenu_SuperFocusPreviousChild(KRecentFilesMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnFocusPreviousChild(KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_FocusPreviousChild_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1801,9 +1744,8 @@ QObject* KRecentFilesMenu_SuperSender(const KRecentFilesMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnSender(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_Sender_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1830,9 +1772,8 @@ int KRecentFilesMenu_SuperSenderSignalIndex(const KRecentFilesMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnSenderSignalIndex(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_SenderSignalIndex_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1859,9 +1800,8 @@ int KRecentFilesMenu_SuperReceivers(const KRecentFilesMenu* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnReceivers(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_Receivers_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1888,9 +1828,8 @@ bool KRecentFilesMenu_SuperIsSignalConnected(const KRecentFilesMenu* self, const
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnIsSignalConnected(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_IsSignalConnected_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1917,9 +1856,8 @@ double KRecentFilesMenu_SuperGetDecodedMetricF(const KRecentFilesMenu* self, int
 // Auxiliary method to allow providing re-implementation
 void KRecentFilesMenu_OnGetDecodedMetricF(const KRecentFilesMenu* self, intptr_t slot) {
     auto* vkrecentfilesmenu = const_cast<VirtualKRecentFilesMenu*>(dynamic_cast<const VirtualKRecentFilesMenu*>(self));
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
+    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu)
         vkrecentfilesmenu->setKRecentFilesMenu_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKRecentFilesMenu::KRecentFilesMenu_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KRecentFilesMenu_Delete(KRecentFilesMenu* self) {

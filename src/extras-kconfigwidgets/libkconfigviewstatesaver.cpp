@@ -56,9 +56,8 @@ QMetaObject* KConfigViewStateSaver_SuperMetaObject(const KConfigViewStateSaver* 
 // Auxiliary method to allow providing re-implementation
 void KConfigViewStateSaver_OnMetaObject(const KConfigViewStateSaver* self, intptr_t slot) {
     auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver)
         vkconfigviewstatesaver->setKConfigViewStateSaver_MetaObject_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -75,9 +74,8 @@ void* KConfigViewStateSaver_SuperMetacast(KConfigViewStateSaver* self, const cha
 // Auxiliary method to allow providing re-implementation
 void KConfigViewStateSaver_OnMetacast(KConfigViewStateSaver* self, intptr_t slot) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver)
         vkconfigviewstatesaver->setKConfigViewStateSaver_Metacast_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -94,9 +92,8 @@ int KConfigViewStateSaver_SuperMetacall(KConfigViewStateSaver* self, int param1,
 // Auxiliary method to allow providing re-implementation
 void KConfigViewStateSaver_OnMetacall(KConfigViewStateSaver* self, intptr_t slot) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver)
         vkconfigviewstatesaver->setKConfigViewStateSaver_Metacall_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -123,9 +120,8 @@ QModelIndex* KConfigViewStateSaver_SuperIndexFromConfigString(const KConfigViewS
 // Auxiliary method to allow providing re-implementation
 void KConfigViewStateSaver_OnIndexFromConfigString(const KConfigViewStateSaver* self, intptr_t slot) {
     auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver)
         vkconfigviewstatesaver->setKConfigViewStateSaver_IndexFromConfigString_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_IndexFromConfigString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -184,9 +180,8 @@ libqt_string KConfigViewStateSaver_SuperIndexToConfigString(const KConfigViewSta
 // Auxiliary method to allow providing re-implementation
 void KConfigViewStateSaver_OnIndexToConfigString(const KConfigViewStateSaver* self, intptr_t slot) {
     auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver)
         vkconfigviewstatesaver->setKConfigViewStateSaver_IndexToConfigString_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_IndexToConfigString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -213,9 +208,8 @@ bool KConfigViewStateSaver_SuperEvent(KConfigViewStateSaver* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KConfigViewStateSaver_OnEvent(KConfigViewStateSaver* self, intptr_t slot) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver)
         vkconfigviewstatesaver->setKConfigViewStateSaver_Event_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -242,9 +236,8 @@ bool KConfigViewStateSaver_SuperEventFilter(KConfigViewStateSaver* self, QObject
 // Auxiliary method to allow providing re-implementation
 void KConfigViewStateSaver_OnEventFilter(KConfigViewStateSaver* self, intptr_t slot) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver)
         vkconfigviewstatesaver->setKConfigViewStateSaver_EventFilter_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +264,8 @@ void KConfigViewStateSaver_SuperTimerEvent(KConfigViewStateSaver* self, QTimerEv
 // Auxiliary method to allow providing re-implementation
 void KConfigViewStateSaver_OnTimerEvent(KConfigViewStateSaver* self, intptr_t slot) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver)
         vkconfigviewstatesaver->setKConfigViewStateSaver_TimerEvent_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +292,8 @@ void KConfigViewStateSaver_SuperChildEvent(KConfigViewStateSaver* self, QChildEv
 // Auxiliary method to allow providing re-implementation
 void KConfigViewStateSaver_OnChildEvent(KConfigViewStateSaver* self, intptr_t slot) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver)
         vkconfigviewstatesaver->setKConfigViewStateSaver_ChildEvent_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +320,8 @@ void KConfigViewStateSaver_SuperCustomEvent(KConfigViewStateSaver* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KConfigViewStateSaver_OnCustomEvent(KConfigViewStateSaver* self, intptr_t slot) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver)
         vkconfigviewstatesaver->setKConfigViewStateSaver_CustomEvent_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +348,8 @@ void KConfigViewStateSaver_SuperConnectNotify(KConfigViewStateSaver* self, const
 // Auxiliary method to allow providing re-implementation
 void KConfigViewStateSaver_OnConnectNotify(KConfigViewStateSaver* self, intptr_t slot) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver)
         vkconfigviewstatesaver->setKConfigViewStateSaver_ConnectNotify_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +376,8 @@ void KConfigViewStateSaver_SuperDisconnectNotify(KConfigViewStateSaver* self, co
 // Auxiliary method to allow providing re-implementation
 void KConfigViewStateSaver_OnDisconnectNotify(KConfigViewStateSaver* self, intptr_t slot) {
     auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver)
         vkconfigviewstatesaver->setKConfigViewStateSaver_DisconnectNotify_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +404,8 @@ QObject* KConfigViewStateSaver_SuperSender(const KConfigViewStateSaver* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigViewStateSaver_OnSender(const KConfigViewStateSaver* self, intptr_t slot) {
     auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver)
         vkconfigviewstatesaver->setKConfigViewStateSaver_Sender_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +432,8 @@ int KConfigViewStateSaver_SuperSenderSignalIndex(const KConfigViewStateSaver* se
 // Auxiliary method to allow providing re-implementation
 void KConfigViewStateSaver_OnSenderSignalIndex(const KConfigViewStateSaver* self, intptr_t slot) {
     auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver)
         vkconfigviewstatesaver->setKConfigViewStateSaver_SenderSignalIndex_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +460,8 @@ int KConfigViewStateSaver_SuperReceivers(const KConfigViewStateSaver* self, cons
 // Auxiliary method to allow providing re-implementation
 void KConfigViewStateSaver_OnReceivers(const KConfigViewStateSaver* self, intptr_t slot) {
     auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver)
         vkconfigviewstatesaver->setKConfigViewStateSaver_Receivers_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +488,8 @@ bool KConfigViewStateSaver_SuperIsSignalConnected(const KConfigViewStateSaver* s
 // Auxiliary method to allow providing re-implementation
 void KConfigViewStateSaver_OnIsSignalConnected(const KConfigViewStateSaver* self, intptr_t slot) {
     auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
+    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver)
         vkconfigviewstatesaver->setKConfigViewStateSaver_IsSignalConnected_Callback(reinterpret_cast<VirtualKConfigViewStateSaver::KConfigViewStateSaver_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KConfigViewStateSaver_Delete(KConfigViewStateSaver* self) {

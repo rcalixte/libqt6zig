@@ -1913,15 +1913,15 @@ pub const KTextEditor__AbstractAnnotationItemDelegate = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/abstractannotationitemdelegate.html#public-types)
 pub const enums = struct {
-    pub const StyleOptionType = enum(i32) {
+    pub const StyleOptionType = enum {
         pub const Type: i32 = 0;
     };
 
-    pub const StyleOptionVersion = enum(i32) {
+    pub const StyleOptionVersion = enum {
         pub const Version: i32 = 1;
     };
 
-    pub const AnnotationItemGroupPosition = enum(i32) {
+    pub const AnnotationItemGroupPosition = enum {
         pub const InvalidGroupPosition: i32 = 0;
         pub const InGroup: i32 = 1;
         pub const GroupBegin: i32 = 2;

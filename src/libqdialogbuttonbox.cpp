@@ -228,9 +228,8 @@ QMetaObject* QDialogButtonBox_SuperMetaObject(const QDialogButtonBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMetaObject(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_MetaObject_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -247,9 +246,8 @@ void* QDialogButtonBox_SuperMetacast(QDialogButtonBox* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMetacast(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_Metacast_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -266,9 +264,8 @@ int QDialogButtonBox_SuperMetacall(QDialogButtonBox* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMetacall(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_Metacall_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -285,9 +282,8 @@ void QDialogButtonBox_SuperChangeEvent(QDialogButtonBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnChangeEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_ChangeEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -304,9 +300,8 @@ bool QDialogButtonBox_SuperEvent(QDialogButtonBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_Event_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +328,8 @@ int QDialogButtonBox_SuperDevType(const QDialogButtonBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnDevType(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_DevType_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +356,8 @@ void QDialogButtonBox_SuperSetVisible(QDialogButtonBox* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnSetVisible(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_SetVisible_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +384,8 @@ QSize* QDialogButtonBox_SuperSizeHint(const QDialogButtonBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnSizeHint(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_SizeHint_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +412,8 @@ QSize* QDialogButtonBox_SuperMinimumSizeHint(const QDialogButtonBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMinimumSizeHint(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +440,8 @@ int QDialogButtonBox_SuperHeightForWidth(const QDialogButtonBox* self, int param
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnHeightForWidth(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_HeightForWidth_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +468,8 @@ bool QDialogButtonBox_SuperHasHeightForWidth(const QDialogButtonBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnHasHeightForWidth(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +496,8 @@ QPaintEngine* QDialogButtonBox_SuperPaintEngine(const QDialogButtonBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnPaintEngine(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_PaintEngine_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +524,8 @@ void QDialogButtonBox_SuperMousePressEvent(QDialogButtonBox* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMousePressEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_MousePressEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +552,8 @@ void QDialogButtonBox_SuperMouseReleaseEvent(QDialogButtonBox* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMouseReleaseEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +580,8 @@ void QDialogButtonBox_SuperMouseDoubleClickEvent(QDialogButtonBox* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMouseDoubleClickEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -623,9 +608,8 @@ void QDialogButtonBox_SuperMouseMoveEvent(QDialogButtonBox* self, QMouseEvent* e
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMouseMoveEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -652,9 +636,8 @@ void QDialogButtonBox_SuperWheelEvent(QDialogButtonBox* self, QWheelEvent* event
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnWheelEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_WheelEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -681,9 +664,8 @@ void QDialogButtonBox_SuperKeyPressEvent(QDialogButtonBox* self, QKeyEvent* even
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnKeyPressEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -710,9 +692,8 @@ void QDialogButtonBox_SuperKeyReleaseEvent(QDialogButtonBox* self, QKeyEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnKeyReleaseEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -739,9 +720,8 @@ void QDialogButtonBox_SuperFocusInEvent(QDialogButtonBox* self, QFocusEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnFocusInEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_FocusInEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -768,9 +748,8 @@ void QDialogButtonBox_SuperFocusOutEvent(QDialogButtonBox* self, QFocusEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnFocusOutEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_FocusOutEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -797,9 +776,8 @@ void QDialogButtonBox_SuperEnterEvent(QDialogButtonBox* self, QEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnEnterEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_EnterEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -826,9 +804,8 @@ void QDialogButtonBox_SuperLeaveEvent(QDialogButtonBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnLeaveEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_LeaveEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +832,8 @@ void QDialogButtonBox_SuperPaintEvent(QDialogButtonBox* self, QPaintEvent* event
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnPaintEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_PaintEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -884,9 +860,8 @@ void QDialogButtonBox_SuperMoveEvent(QDialogButtonBox* self, QMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMoveEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_MoveEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -913,9 +888,8 @@ void QDialogButtonBox_SuperResizeEvent(QDialogButtonBox* self, QResizeEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnResizeEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_ResizeEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +916,8 @@ void QDialogButtonBox_SuperCloseEvent(QDialogButtonBox* self, QCloseEvent* event
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnCloseEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_CloseEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +944,8 @@ void QDialogButtonBox_SuperContextMenuEvent(QDialogButtonBox* self, QContextMenu
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnContextMenuEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +972,8 @@ void QDialogButtonBox_SuperTabletEvent(QDialogButtonBox* self, QTabletEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnTabletEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_TabletEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +1000,8 @@ void QDialogButtonBox_SuperActionEvent(QDialogButtonBox* self, QActionEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnActionEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_ActionEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1058,9 +1028,8 @@ void QDialogButtonBox_SuperDragEnterEvent(QDialogButtonBox* self, QDragEnterEven
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnDragEnterEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_DragEnterEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1087,9 +1056,8 @@ void QDialogButtonBox_SuperDragMoveEvent(QDialogButtonBox* self, QDragMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnDragMoveEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_DragMoveEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1116,9 +1084,8 @@ void QDialogButtonBox_SuperDragLeaveEvent(QDialogButtonBox* self, QDragLeaveEven
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnDragLeaveEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1145,9 +1112,8 @@ void QDialogButtonBox_SuperDropEvent(QDialogButtonBox* self, QDropEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnDropEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_DropEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1174,9 +1140,8 @@ void QDialogButtonBox_SuperShowEvent(QDialogButtonBox* self, QShowEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnShowEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_ShowEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1203,9 +1168,8 @@ void QDialogButtonBox_SuperHideEvent(QDialogButtonBox* self, QHideEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnHideEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_HideEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1234,9 +1198,8 @@ bool QDialogButtonBox_SuperNativeEvent(QDialogButtonBox* self, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnNativeEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_NativeEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1263,9 +1226,8 @@ int QDialogButtonBox_SuperMetric(const QDialogButtonBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnMetric(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_Metric_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1292,9 +1254,8 @@ void QDialogButtonBox_SuperInitPainter(const QDialogButtonBox* self, QPainter* p
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnInitPainter(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_InitPainter_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1321,9 +1282,8 @@ QPaintDevice* QDialogButtonBox_SuperRedirected(const QDialogButtonBox* self, QPo
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnRedirected(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_Redirected_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1350,9 +1310,8 @@ QPainter* QDialogButtonBox_SuperSharedPainter(const QDialogButtonBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnSharedPainter(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_SharedPainter_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1379,9 +1338,8 @@ void QDialogButtonBox_SuperInputMethodEvent(QDialogButtonBox* self, QInputMethod
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnInputMethodEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_InputMethodEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1408,9 +1366,8 @@ QVariant* QDialogButtonBox_SuperInputMethodQuery(const QDialogButtonBox* self, i
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnInputMethodQuery(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_InputMethodQuery_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1437,9 +1394,8 @@ bool QDialogButtonBox_SuperFocusNextPrevChild(QDialogButtonBox* self, bool next)
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnFocusNextPrevChild(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1466,9 +1422,8 @@ bool QDialogButtonBox_SuperEventFilter(QDialogButtonBox* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnEventFilter(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_EventFilter_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1495,9 +1450,8 @@ void QDialogButtonBox_SuperTimerEvent(QDialogButtonBox* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnTimerEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_TimerEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1524,9 +1478,8 @@ void QDialogButtonBox_SuperChildEvent(QDialogButtonBox* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnChildEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_ChildEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1553,9 +1506,8 @@ void QDialogButtonBox_SuperCustomEvent(QDialogButtonBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnCustomEvent(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_CustomEvent_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1582,9 +1534,8 @@ void QDialogButtonBox_SuperConnectNotify(QDialogButtonBox* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnConnectNotify(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_ConnectNotify_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1611,9 +1562,8 @@ void QDialogButtonBox_SuperDisconnectNotify(QDialogButtonBox* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnDisconnectNotify(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_DisconnectNotify_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1640,9 +1590,8 @@ void QDialogButtonBox_SuperUpdateMicroFocus(QDialogButtonBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnUpdateMicroFocus(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1669,9 +1618,8 @@ void QDialogButtonBox_SuperCreate(QDialogButtonBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnCreate(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_Create_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1698,9 +1646,8 @@ void QDialogButtonBox_SuperDestroy(QDialogButtonBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnDestroy(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_Destroy_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1727,9 +1674,8 @@ bool QDialogButtonBox_SuperFocusNextChild(QDialogButtonBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnFocusNextChild(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_FocusNextChild_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1756,9 +1702,8 @@ bool QDialogButtonBox_SuperFocusPreviousChild(QDialogButtonBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnFocusPreviousChild(QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1785,9 +1730,8 @@ QObject* QDialogButtonBox_SuperSender(const QDialogButtonBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnSender(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_Sender_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1814,9 +1758,8 @@ int QDialogButtonBox_SuperSenderSignalIndex(const QDialogButtonBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnSenderSignalIndex(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1843,9 +1786,8 @@ int QDialogButtonBox_SuperReceivers(const QDialogButtonBox* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnReceivers(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_Receivers_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1872,9 +1814,8 @@ bool QDialogButtonBox_SuperIsSignalConnected(const QDialogButtonBox* self, const
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnIsSignalConnected(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_IsSignalConnected_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1901,9 +1842,8 @@ double QDialogButtonBox_SuperGetDecodedMetricF(const QDialogButtonBox* self, int
 // Auxiliary method to allow providing re-implementation
 void QDialogButtonBox_OnGetDecodedMetricF(const QDialogButtonBox* self, intptr_t slot) {
     auto* vqdialogbuttonbox = const_cast<VirtualQDialogButtonBox*>(dynamic_cast<const VirtualQDialogButtonBox*>(self));
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
+    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox)
         vqdialogbuttonbox->setQDialogButtonBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDialogButtonBox::QDialogButtonBox_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QDialogButtonBox_Delete(QDialogButtonBox* self) {

@@ -580,9 +580,8 @@ QMetaObject* KDateTimeEdit_SuperMetaObject(const KDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnMetaObject(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_MetaObject_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -599,9 +598,8 @@ void* KDateTimeEdit_SuperMetacast(KDateTimeEdit* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnMetacast(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_Metacast_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -618,9 +616,8 @@ int KDateTimeEdit_SuperMetacall(KDateTimeEdit* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnMetacall(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_Metacall_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -637,9 +634,8 @@ bool KDateTimeEdit_SuperEventFilter(KDateTimeEdit* self, QObject* object, QEvent
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnEventFilter(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_EventFilter_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -656,9 +652,8 @@ void KDateTimeEdit_SuperFocusInEvent(KDateTimeEdit* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnFocusInEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_FocusInEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -675,9 +670,8 @@ void KDateTimeEdit_SuperFocusOutEvent(KDateTimeEdit* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnFocusOutEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -694,9 +688,8 @@ void KDateTimeEdit_SuperResizeEvent(KDateTimeEdit* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnResizeEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_ResizeEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -713,9 +706,8 @@ void KDateTimeEdit_SuperAssignDateTime(KDateTimeEdit* self, const QDateTime* dat
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnAssignDateTime(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_AssignDateTime_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_AssignDateTime_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -732,9 +724,8 @@ void KDateTimeEdit_SuperAssignDate(KDateTimeEdit* self, const QDate* date) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnAssignDate(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_AssignDate_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_AssignDate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -751,9 +742,8 @@ void KDateTimeEdit_SuperAssignTime(KDateTimeEdit* self, const QTime* time) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnAssignTime(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_AssignTime_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_AssignTime_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -780,9 +770,8 @@ int KDateTimeEdit_SuperDevType(const KDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnDevType(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_DevType_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -809,9 +798,8 @@ void KDateTimeEdit_SuperSetVisible(KDateTimeEdit* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnSetVisible(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_SetVisible_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -838,9 +826,8 @@ QSize* KDateTimeEdit_SuperSizeHint(const KDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnSizeHint(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_SizeHint_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -867,9 +854,8 @@ QSize* KDateTimeEdit_SuperMinimumSizeHint(const KDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnMinimumSizeHint(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -896,9 +882,8 @@ int KDateTimeEdit_SuperHeightForWidth(const KDateTimeEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnHeightForWidth(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_HeightForWidth_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -925,9 +910,8 @@ bool KDateTimeEdit_SuperHasHeightForWidth(const KDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnHasHeightForWidth(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -954,9 +938,8 @@ QPaintEngine* KDateTimeEdit_SuperPaintEngine(const KDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnPaintEngine(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_PaintEngine_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -983,9 +966,8 @@ bool KDateTimeEdit_SuperEvent(KDateTimeEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_Event_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1012,9 +994,8 @@ void KDateTimeEdit_SuperMousePressEvent(KDateTimeEdit* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnMousePressEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_MousePressEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1041,9 +1022,8 @@ void KDateTimeEdit_SuperMouseReleaseEvent(KDateTimeEdit* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnMouseReleaseEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1070,9 +1050,8 @@ void KDateTimeEdit_SuperMouseDoubleClickEvent(KDateTimeEdit* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnMouseDoubleClickEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1099,9 +1078,8 @@ void KDateTimeEdit_SuperMouseMoveEvent(KDateTimeEdit* self, QMouseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnMouseMoveEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1128,9 +1106,8 @@ void KDateTimeEdit_SuperWheelEvent(KDateTimeEdit* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnWheelEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_WheelEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1157,9 +1134,8 @@ void KDateTimeEdit_SuperKeyPressEvent(KDateTimeEdit* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnKeyPressEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1186,9 +1162,8 @@ void KDateTimeEdit_SuperKeyReleaseEvent(KDateTimeEdit* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnKeyReleaseEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1215,9 +1190,8 @@ void KDateTimeEdit_SuperEnterEvent(KDateTimeEdit* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnEnterEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_EnterEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1244,9 +1218,8 @@ void KDateTimeEdit_SuperLeaveEvent(KDateTimeEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnLeaveEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_LeaveEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1273,9 +1246,8 @@ void KDateTimeEdit_SuperPaintEvent(KDateTimeEdit* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnPaintEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_PaintEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1302,9 +1274,8 @@ void KDateTimeEdit_SuperMoveEvent(KDateTimeEdit* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnMoveEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_MoveEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1331,9 +1302,8 @@ void KDateTimeEdit_SuperCloseEvent(KDateTimeEdit* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnCloseEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_CloseEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1360,9 +1330,8 @@ void KDateTimeEdit_SuperContextMenuEvent(KDateTimeEdit* self, QContextMenuEvent*
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnContextMenuEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1389,9 +1358,8 @@ void KDateTimeEdit_SuperTabletEvent(KDateTimeEdit* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnTabletEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_TabletEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1418,9 +1386,8 @@ void KDateTimeEdit_SuperActionEvent(KDateTimeEdit* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnActionEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_ActionEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1447,9 +1414,8 @@ void KDateTimeEdit_SuperDragEnterEvent(KDateTimeEdit* self, QDragEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnDragEnterEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1476,9 +1442,8 @@ void KDateTimeEdit_SuperDragMoveEvent(KDateTimeEdit* self, QDragMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnDragMoveEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1505,9 +1470,8 @@ void KDateTimeEdit_SuperDragLeaveEvent(KDateTimeEdit* self, QDragLeaveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnDragLeaveEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1534,9 +1498,8 @@ void KDateTimeEdit_SuperDropEvent(KDateTimeEdit* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnDropEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_DropEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1563,9 +1526,8 @@ void KDateTimeEdit_SuperShowEvent(KDateTimeEdit* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnShowEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_ShowEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1592,9 +1554,8 @@ void KDateTimeEdit_SuperHideEvent(KDateTimeEdit* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnHideEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_HideEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1623,9 +1584,8 @@ bool KDateTimeEdit_SuperNativeEvent(KDateTimeEdit* self, const libqt_string even
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnNativeEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_NativeEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1652,9 +1612,8 @@ void KDateTimeEdit_SuperChangeEvent(KDateTimeEdit* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnChangeEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_ChangeEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1681,9 +1640,8 @@ int KDateTimeEdit_SuperMetric(const KDateTimeEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnMetric(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_Metric_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1710,9 +1668,8 @@ void KDateTimeEdit_SuperInitPainter(const KDateTimeEdit* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnInitPainter(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_InitPainter_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1739,9 +1696,8 @@ QPaintDevice* KDateTimeEdit_SuperRedirected(const KDateTimeEdit* self, QPoint* o
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnRedirected(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_Redirected_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1768,9 +1724,8 @@ QPainter* KDateTimeEdit_SuperSharedPainter(const KDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnSharedPainter(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_SharedPainter_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1797,9 +1752,8 @@ void KDateTimeEdit_SuperInputMethodEvent(KDateTimeEdit* self, QInputMethodEvent*
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnInputMethodEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1826,9 +1780,8 @@ QVariant* KDateTimeEdit_SuperInputMethodQuery(const KDateTimeEdit* self, int par
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnInputMethodQuery(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1855,9 +1808,8 @@ bool KDateTimeEdit_SuperFocusNextPrevChild(KDateTimeEdit* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnFocusNextPrevChild(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1884,9 +1836,8 @@ void KDateTimeEdit_SuperTimerEvent(KDateTimeEdit* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnTimerEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_TimerEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1913,9 +1864,8 @@ void KDateTimeEdit_SuperChildEvent(KDateTimeEdit* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnChildEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_ChildEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1942,9 +1892,8 @@ void KDateTimeEdit_SuperCustomEvent(KDateTimeEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnCustomEvent(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_CustomEvent_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1971,9 +1920,8 @@ void KDateTimeEdit_SuperConnectNotify(KDateTimeEdit* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnConnectNotify(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_ConnectNotify_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2000,9 +1948,8 @@ void KDateTimeEdit_SuperDisconnectNotify(KDateTimeEdit* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnDisconnectNotify(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2029,9 +1976,8 @@ void KDateTimeEdit_SuperAssignTimeZone(KDateTimeEdit* self, const QTimeZone* zon
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnAssignTimeZone(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_AssignTimeZone_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_AssignTimeZone_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2058,9 +2004,8 @@ void KDateTimeEdit_SuperUpdateMicroFocus(KDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnUpdateMicroFocus(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2087,9 +2032,8 @@ void KDateTimeEdit_SuperCreate(KDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnCreate(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_Create_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2116,9 +2060,8 @@ void KDateTimeEdit_SuperDestroy(KDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnDestroy(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_Destroy_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2145,9 +2088,8 @@ bool KDateTimeEdit_SuperFocusNextChild(KDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnFocusNextChild(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_FocusNextChild_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2174,9 +2116,8 @@ bool KDateTimeEdit_SuperFocusPreviousChild(KDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnFocusPreviousChild(KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2203,9 +2144,8 @@ QObject* KDateTimeEdit_SuperSender(const KDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnSender(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_Sender_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2232,9 +2172,8 @@ int KDateTimeEdit_SuperSenderSignalIndex(const KDateTimeEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnSenderSignalIndex(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2261,9 +2200,8 @@ int KDateTimeEdit_SuperReceivers(const KDateTimeEdit* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnReceivers(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_Receivers_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2290,9 +2228,8 @@ bool KDateTimeEdit_SuperIsSignalConnected(const KDateTimeEdit* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnIsSignalConnected(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2319,9 +2256,8 @@ double KDateTimeEdit_SuperGetDecodedMetricF(const KDateTimeEdit* self, int metri
 // Auxiliary method to allow providing re-implementation
 void KDateTimeEdit_OnGetDecodedMetricF(const KDateTimeEdit* self, intptr_t slot) {
     auto* vkdatetimeedit = const_cast<VirtualKDateTimeEdit*>(dynamic_cast<const VirtualKDateTimeEdit*>(self));
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
+    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit)
         vkdatetimeedit->setKDateTimeEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKDateTimeEdit::KDateTimeEdit_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KDateTimeEdit_Delete(KDateTimeEdit* self) {

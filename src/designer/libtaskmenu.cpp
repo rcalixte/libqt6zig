@@ -40,9 +40,8 @@ QAction* QDesignerTaskMenuExtension_SuperPreferredEditAction(const QDesignerTask
 // Auxiliary method to allow providing re-implementation
 void QDesignerTaskMenuExtension_OnPreferredEditAction(const QDesignerTaskMenuExtension* self, intptr_t slot) {
     auto* vqdesignertaskmenuextension = const_cast<VirtualQDesignerTaskMenuExtension*>(dynamic_cast<const VirtualQDesignerTaskMenuExtension*>(self));
-    if (vqdesignertaskmenuextension && vqdesignertaskmenuextension->isVirtualQDesignerTaskMenuExtension) {
+    if (vqdesignertaskmenuextension && vqdesignertaskmenuextension->isVirtualQDesignerTaskMenuExtension)
         vqdesignertaskmenuextension->setQDesignerTaskMenuExtension_PreferredEditAction_Callback(reinterpret_cast<VirtualQDesignerTaskMenuExtension::QDesignerTaskMenuExtension_PreferredEditAction_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -77,9 +76,8 @@ libqt_list /* of QAction* */ QDesignerTaskMenuExtension_SuperTaskActions(const Q
 // Auxiliary method to allow providing re-implementation
 void QDesignerTaskMenuExtension_OnTaskActions(const QDesignerTaskMenuExtension* self, intptr_t slot) {
     auto* vqdesignertaskmenuextension = const_cast<VirtualQDesignerTaskMenuExtension*>(dynamic_cast<const VirtualQDesignerTaskMenuExtension*>(self));
-    if (vqdesignertaskmenuextension && vqdesignertaskmenuextension->isVirtualQDesignerTaskMenuExtension) {
+    if (vqdesignertaskmenuextension && vqdesignertaskmenuextension->isVirtualQDesignerTaskMenuExtension)
         vqdesignertaskmenuextension->setQDesignerTaskMenuExtension_TaskActions_Callback(reinterpret_cast<VirtualQDesignerTaskMenuExtension::QDesignerTaskMenuExtension_TaskActions_Callback>(slot));
-    }
 }
 
 void QDesignerTaskMenuExtension_Delete(QDesignerTaskMenuExtension* self) {

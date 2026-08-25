@@ -1419,7 +1419,7 @@ pub const QWebEngineContextMenuRequest = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#public-types)
 pub const enums = struct {
-    pub const ReferrerPolicy = enum(i32) {
+    pub const ReferrerPolicy = enum {
         pub const Always: i32 = 0;
         pub const Default: i32 = 1;
         pub const NoReferrerWhenDowngrade: i32 = 2;
@@ -1432,7 +1432,7 @@ pub const enums = struct {
         pub const Last: i32 = 8;
     };
 
-    pub const MediaType = enum(i32) {
+    pub const MediaType = enum {
         pub const MediaTypeNone: i32 = 0;
         pub const MediaTypeImage: i32 = 1;
         pub const MediaTypeVideo: i32 = 2;
@@ -1442,7 +1442,7 @@ pub const enums = struct {
         pub const MediaTypePlugin: i32 = 6;
     };
 
-    pub const MediaFlag = enum(i32) {
+    pub const MediaFlag = enum {
         pub const MediaInError: i32 = 1;
         pub const MediaPaused: i32 = 2;
         pub const MediaMuted: i32 = 4;
@@ -1455,7 +1455,7 @@ pub const enums = struct {
         pub const MediaCanRotate: i32 = 512;
     };
 
-    pub const EditFlag = enum(i32) {
+    pub const EditFlag = enum {
         pub const CanUndo: i32 = 1;
         pub const CanRedo: i32 = 2;
         pub const CanCut: i32 = 4;

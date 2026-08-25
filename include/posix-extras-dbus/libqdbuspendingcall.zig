@@ -253,6 +253,16 @@ pub const QDBusPendingCallWatcher = extern struct {
         return .{ .ptr = qtc.QDBusPendingCallWatcher_new2(@ptrCast(call.ptr), @ptrCast(_parent.ptr)) };
     }
 
+    /// Upcasts to a QDBusPendingCall object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDBusPendingCallWatcher `
+    ///
+    pub fn asQDBusPendingCall(self: QDBusPendingCallWatcher) QDBusPendingCall {
+        return .{ .ptr = qtc.QDBusPendingCallWatcher_AsQDBusPendingCall(@ptrCast(self.ptr)) };
+    }
+
     /// ### DEPRECATED: Use `metaObject` instead
     ///
     pub const MetaObject = metaObject;
@@ -1532,7 +1542,7 @@ pub const QDBusPendingCallWatcher = extern struct {
     ///
     pub fn operatorAssign(self: QDBusPendingCallWatcher, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDBusPendingCall;
-        qtc.QDBusPendingCall_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
+        qtc.QDBusPendingCall_OperatorAssign(@ptrCast(self.asQDBusPendingCall().ptr), @ptrCast(other.ptr));
     }
 
     /// ### DEPRECATED: Use `swap` instead
@@ -1551,7 +1561,7 @@ pub const QDBusPendingCallWatcher = extern struct {
     ///
     pub fn swap(self: QDBusPendingCallWatcher, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDBusPendingCall;
-        qtc.QDBusPendingCall_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
+        qtc.QDBusPendingCall_Swap(@ptrCast(self.asQDBusPendingCall().ptr), @ptrCast(other.ptr));
     }
 
     /// ### DEPRECATED: Use `isFinished` instead
@@ -1567,7 +1577,7 @@ pub const QDBusPendingCallWatcher = extern struct {
     /// ` self: QDBusPendingCallWatcher `
     ///
     pub fn isFinished(self: QDBusPendingCallWatcher) bool {
-        return qtc.QDBusPendingCall_IsFinished(@ptrCast(self.ptr));
+        return qtc.QDBusPendingCall_IsFinished(@ptrCast(self.asQDBusPendingCall().ptr));
     }
 
     /// ### DEPRECATED: Use `isError` instead
@@ -1583,7 +1593,7 @@ pub const QDBusPendingCallWatcher = extern struct {
     /// ` self: QDBusPendingCallWatcher `
     ///
     pub fn isError(self: QDBusPendingCallWatcher) bool {
-        return qtc.QDBusPendingCall_IsError(@ptrCast(self.ptr));
+        return qtc.QDBusPendingCall_IsError(@ptrCast(self.asQDBusPendingCall().ptr));
     }
 
     /// ### DEPRECATED: Use `isValid` instead
@@ -1599,7 +1609,7 @@ pub const QDBusPendingCallWatcher = extern struct {
     /// ` self: QDBusPendingCallWatcher `
     ///
     pub fn isValid(self: QDBusPendingCallWatcher) bool {
-        return qtc.QDBusPendingCall_IsValid(@ptrCast(self.ptr));
+        return qtc.QDBusPendingCall_IsValid(@ptrCast(self.asQDBusPendingCall().ptr));
     }
 
     /// ### DEPRECATED: Use `error0` instead
@@ -1617,7 +1627,7 @@ pub const QDBusPendingCallWatcher = extern struct {
     /// ` self: QDBusPendingCallWatcher `
     ///
     pub fn error0(self: QDBusPendingCallWatcher) QDBusError {
-        return .{ .ptr = qtc.QDBusPendingCall_Error(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QDBusPendingCall_Error(@ptrCast(self.asQDBusPendingCall().ptr)) };
     }
 
     /// ### DEPRECATED: Use `reply` instead
@@ -1633,7 +1643,7 @@ pub const QDBusPendingCallWatcher = extern struct {
     /// ` self: QDBusPendingCallWatcher `
     ///
     pub fn reply(self: QDBusPendingCallWatcher) QDBusMessage {
-        return .{ .ptr = qtc.QDBusPendingCall_Reply(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QDBusPendingCall_Reply(@ptrCast(self.asQDBusPendingCall().ptr)) };
     }
 
     /// ### DEPRECATED: Use `fromError` instead

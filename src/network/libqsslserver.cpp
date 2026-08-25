@@ -219,9 +219,8 @@ QMetaObject* QSslServer_SuperMetaObject(const QSslServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnMetaObject(const QSslServer* self, intptr_t slot) {
     auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_MetaObject_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -238,9 +237,8 @@ void* QSslServer_SuperMetacast(QSslServer* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnMetacast(QSslServer* self, intptr_t slot) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_Metacast_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -257,9 +255,8 @@ int QSslServer_SuperMetacall(QSslServer* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnMetacall(QSslServer* self, intptr_t slot) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_Metacall_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -276,9 +273,8 @@ void QSslServer_SuperIncomingConnection(QSslServer* self, intptr_t socket) {
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnIncomingConnection(QSslServer* self, intptr_t slot) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_IncomingConnection_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_IncomingConnection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -305,9 +301,8 @@ bool QSslServer_SuperHasPendingConnections(const QSslServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnHasPendingConnections(const QSslServer* self, intptr_t slot) {
     auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_HasPendingConnections_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_HasPendingConnections_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -334,9 +329,8 @@ QTcpSocket* QSslServer_SuperNextPendingConnection(QSslServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnNextPendingConnection(QSslServer* self, intptr_t slot) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_NextPendingConnection_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_NextPendingConnection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -363,9 +357,8 @@ bool QSslServer_SuperEvent(QSslServer* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnEvent(QSslServer* self, intptr_t slot) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_Event_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -392,9 +385,8 @@ bool QSslServer_SuperEventFilter(QSslServer* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnEventFilter(QSslServer* self, intptr_t slot) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_EventFilter_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -421,9 +413,8 @@ void QSslServer_SuperTimerEvent(QSslServer* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnTimerEvent(QSslServer* self, intptr_t slot) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_TimerEvent_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -450,9 +441,8 @@ void QSslServer_SuperChildEvent(QSslServer* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnChildEvent(QSslServer* self, intptr_t slot) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_ChildEvent_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -479,9 +469,8 @@ void QSslServer_SuperCustomEvent(QSslServer* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnCustomEvent(QSslServer* self, intptr_t slot) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_CustomEvent_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -508,9 +497,8 @@ void QSslServer_SuperConnectNotify(QSslServer* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnConnectNotify(QSslServer* self, intptr_t slot) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_ConnectNotify_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -537,9 +525,8 @@ void QSslServer_SuperDisconnectNotify(QSslServer* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnDisconnectNotify(QSslServer* self, intptr_t slot) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_DisconnectNotify_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -566,9 +553,8 @@ void QSslServer_SuperAddPendingConnection(QSslServer* self, QTcpSocket* socket) 
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnAddPendingConnection(QSslServer* self, intptr_t slot) {
     auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_AddPendingConnection_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_AddPendingConnection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -595,9 +581,8 @@ QObject* QSslServer_SuperSender(const QSslServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnSender(const QSslServer* self, intptr_t slot) {
     auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_Sender_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -624,9 +609,8 @@ int QSslServer_SuperSenderSignalIndex(const QSslServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnSenderSignalIndex(const QSslServer* self, intptr_t slot) {
     auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -653,9 +637,8 @@ int QSslServer_SuperReceivers(const QSslServer* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnReceivers(const QSslServer* self, intptr_t slot) {
     auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_Receivers_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -682,9 +665,8 @@ bool QSslServer_SuperIsSignalConnected(const QSslServer* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QSslServer_OnIsSignalConnected(const QSslServer* self, intptr_t slot) {
     auto* vqsslserver = const_cast<VirtualQSslServer*>(dynamic_cast<const VirtualQSslServer*>(self));
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
+    if (vqsslserver && vqsslserver->isVirtualQSslServer)
         vqsslserver->setQSslServer_IsSignalConnected_Callback(reinterpret_cast<VirtualQSslServer::QSslServer_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QSslServer_Delete(QSslServer* self) {

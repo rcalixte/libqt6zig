@@ -191,9 +191,8 @@ QMetaObject* KHistoryComboBox_SuperMetaObject(const KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMetaObject(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_MetaObject_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -210,9 +209,8 @@ void* KHistoryComboBox_SuperMetacast(KHistoryComboBox* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMetacast(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_Metacast_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -229,9 +227,8 @@ int KHistoryComboBox_SuperMetacall(KHistoryComboBox* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMetacall(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_Metacall_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -248,9 +245,8 @@ void KHistoryComboBox_SuperKeyPressEvent(KHistoryComboBox* self, QKeyEvent* para
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnKeyPressEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_KeyPressEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -267,9 +263,8 @@ void KHistoryComboBox_SuperWheelEvent(KHistoryComboBox* self, QWheelEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnWheelEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_WheelEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -296,9 +291,8 @@ void KHistoryComboBox_SuperSetAutoCompletion(KHistoryComboBox* self, bool autoco
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetAutoCompletion(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_SetAutoCompletion_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetAutoCompletion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -325,9 +319,8 @@ void KHistoryComboBox_SuperSetLineEdit(KHistoryComboBox* self, QLineEdit* lineEd
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetLineEdit(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_SetLineEdit_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetLineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -354,9 +347,8 @@ QSize* KHistoryComboBox_SuperMinimumSizeHint(const KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMinimumSizeHint(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -385,9 +377,8 @@ void KHistoryComboBox_SuperSetCompletedText(KHistoryComboBox* self, const libqt_
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetCompletedText(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_SetCompletedText_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetCompletedText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -428,9 +419,8 @@ void KHistoryComboBox_SuperSetCompletedItems(KHistoryComboBox* self, const libqt
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetCompletedItems(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_SetCompletedItems_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetCompletedItems_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -459,9 +449,8 @@ void KHistoryComboBox_SuperMakeCompletion(KHistoryComboBox* self, const libqt_st
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMakeCompletion(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_MakeCompletion_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MakeCompletion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -488,9 +477,8 @@ void KHistoryComboBox_SuperSetModel(KHistoryComboBox* self, QAbstractItemModel* 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetModel(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_SetModel_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -517,9 +505,8 @@ QSize* KHistoryComboBox_SuperSizeHint(const KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSizeHint(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_SizeHint_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -546,9 +533,8 @@ void KHistoryComboBox_SuperShowPopup(KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnShowPopup(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_ShowPopup_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ShowPopup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -575,9 +561,8 @@ void KHistoryComboBox_SuperHidePopup(KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnHidePopup(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_HidePopup_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_HidePopup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -604,9 +589,8 @@ bool KHistoryComboBox_SuperEvent(KHistoryComboBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_Event_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -633,9 +617,8 @@ QVariant* KHistoryComboBox_SuperInputMethodQuery(const KHistoryComboBox* self, i
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnInputMethodQuery(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_InputMethodQuery_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -662,9 +645,8 @@ void KHistoryComboBox_SuperFocusInEvent(KHistoryComboBox* self, QFocusEvent* e) 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnFocusInEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_FocusInEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -691,9 +673,8 @@ void KHistoryComboBox_SuperFocusOutEvent(KHistoryComboBox* self, QFocusEvent* e)
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnFocusOutEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_FocusOutEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -720,9 +701,8 @@ void KHistoryComboBox_SuperChangeEvent(KHistoryComboBox* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnChangeEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_ChangeEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -749,9 +729,8 @@ void KHistoryComboBox_SuperResizeEvent(KHistoryComboBox* self, QResizeEvent* e) 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnResizeEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_ResizeEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -778,9 +757,8 @@ void KHistoryComboBox_SuperPaintEvent(KHistoryComboBox* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnPaintEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_PaintEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -807,9 +785,8 @@ void KHistoryComboBox_SuperShowEvent(KHistoryComboBox* self, QShowEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnShowEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_ShowEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -836,9 +813,8 @@ void KHistoryComboBox_SuperHideEvent(KHistoryComboBox* self, QHideEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnHideEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_HideEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -865,9 +841,8 @@ void KHistoryComboBox_SuperMousePressEvent(KHistoryComboBox* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMousePressEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_MousePressEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -894,9 +869,8 @@ void KHistoryComboBox_SuperMouseReleaseEvent(KHistoryComboBox* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMouseReleaseEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -923,9 +897,8 @@ void KHistoryComboBox_SuperKeyReleaseEvent(KHistoryComboBox* self, QKeyEvent* e)
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnKeyReleaseEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -952,9 +925,8 @@ void KHistoryComboBox_SuperContextMenuEvent(KHistoryComboBox* self, QContextMenu
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnContextMenuEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -981,9 +953,8 @@ void KHistoryComboBox_SuperInputMethodEvent(KHistoryComboBox* self, QInputMethod
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnInputMethodEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_InputMethodEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1010,9 +981,8 @@ void KHistoryComboBox_SuperInitStyleOption(const KHistoryComboBox* self, QStyleO
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnInitStyleOption(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_InitStyleOption_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1039,9 +1009,8 @@ int KHistoryComboBox_SuperDevType(const KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnDevType(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_DevType_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1068,9 +1037,8 @@ void KHistoryComboBox_SuperSetVisible(KHistoryComboBox* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetVisible(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_SetVisible_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1097,9 +1065,8 @@ int KHistoryComboBox_SuperHeightForWidth(const KHistoryComboBox* self, int param
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnHeightForWidth(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_HeightForWidth_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1126,9 +1093,8 @@ bool KHistoryComboBox_SuperHasHeightForWidth(const KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnHasHeightForWidth(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1155,9 +1121,8 @@ QPaintEngine* KHistoryComboBox_SuperPaintEngine(const KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnPaintEngine(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_PaintEngine_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1184,9 +1149,8 @@ void KHistoryComboBox_SuperMouseDoubleClickEvent(KHistoryComboBox* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMouseDoubleClickEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1213,9 +1177,8 @@ void KHistoryComboBox_SuperMouseMoveEvent(KHistoryComboBox* self, QMouseEvent* e
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMouseMoveEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1242,9 +1205,8 @@ void KHistoryComboBox_SuperEnterEvent(KHistoryComboBox* self, QEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnEnterEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_EnterEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1271,9 +1233,8 @@ void KHistoryComboBox_SuperLeaveEvent(KHistoryComboBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnLeaveEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_LeaveEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1300,9 +1261,8 @@ void KHistoryComboBox_SuperMoveEvent(KHistoryComboBox* self, QMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMoveEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_MoveEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1329,9 +1289,8 @@ void KHistoryComboBox_SuperCloseEvent(KHistoryComboBox* self, QCloseEvent* event
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnCloseEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_CloseEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1358,9 +1317,8 @@ void KHistoryComboBox_SuperTabletEvent(KHistoryComboBox* self, QTabletEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnTabletEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_TabletEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1387,9 +1345,8 @@ void KHistoryComboBox_SuperActionEvent(KHistoryComboBox* self, QActionEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnActionEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_ActionEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1416,9 +1373,8 @@ void KHistoryComboBox_SuperDragEnterEvent(KHistoryComboBox* self, QDragEnterEven
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnDragEnterEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_DragEnterEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1445,9 +1401,8 @@ void KHistoryComboBox_SuperDragMoveEvent(KHistoryComboBox* self, QDragMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnDragMoveEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_DragMoveEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1474,9 +1429,8 @@ void KHistoryComboBox_SuperDragLeaveEvent(KHistoryComboBox* self, QDragLeaveEven
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnDragLeaveEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1503,9 +1457,8 @@ void KHistoryComboBox_SuperDropEvent(KHistoryComboBox* self, QDropEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnDropEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_DropEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1534,9 +1487,8 @@ bool KHistoryComboBox_SuperNativeEvent(KHistoryComboBox* self, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnNativeEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_NativeEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1563,9 +1515,8 @@ int KHistoryComboBox_SuperMetric(const KHistoryComboBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnMetric(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_Metric_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1592,9 +1543,8 @@ void KHistoryComboBox_SuperInitPainter(const KHistoryComboBox* self, QPainter* p
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnInitPainter(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_InitPainter_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1621,9 +1571,8 @@ QPaintDevice* KHistoryComboBox_SuperRedirected(const KHistoryComboBox* self, QPo
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnRedirected(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_Redirected_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1650,9 +1599,8 @@ QPainter* KHistoryComboBox_SuperSharedPainter(const KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSharedPainter(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_SharedPainter_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1679,9 +1627,8 @@ bool KHistoryComboBox_SuperFocusNextPrevChild(KHistoryComboBox* self, bool next)
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnFocusNextPrevChild(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1708,9 +1655,8 @@ bool KHistoryComboBox_SuperEventFilter(KHistoryComboBox* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnEventFilter(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_EventFilter_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1737,9 +1683,8 @@ void KHistoryComboBox_SuperTimerEvent(KHistoryComboBox* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnTimerEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_TimerEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1766,9 +1711,8 @@ void KHistoryComboBox_SuperChildEvent(KHistoryComboBox* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnChildEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_ChildEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1795,9 +1739,8 @@ void KHistoryComboBox_SuperCustomEvent(KHistoryComboBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnCustomEvent(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_CustomEvent_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1824,9 +1767,8 @@ void KHistoryComboBox_SuperConnectNotify(KHistoryComboBox* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnConnectNotify(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_ConnectNotify_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1853,9 +1795,8 @@ void KHistoryComboBox_SuperDisconnectNotify(KHistoryComboBox* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnDisconnectNotify(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_DisconnectNotify_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1882,9 +1823,8 @@ void KHistoryComboBox_SuperSetCompletionObject(KHistoryComboBox* self, KCompleti
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetCompletionObject(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_SetCompletionObject_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetCompletionObject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1911,9 +1851,8 @@ void KHistoryComboBox_SuperSetHandleSignals(KHistoryComboBox* self, bool handle)
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetHandleSignals(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_SetHandleSignals_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetHandleSignals_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1940,9 +1879,8 @@ void KHistoryComboBox_SuperSetCompletionMode(KHistoryComboBox* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetCompletionMode(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_SetCompletionMode_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetCompletionMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1969,9 +1907,8 @@ void KHistoryComboBox_SuperVirtualHook(KHistoryComboBox* self, int id, void* dat
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnVirtualHook(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_VirtualHook_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_VirtualHook_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2012,9 +1949,8 @@ void KHistoryComboBox_SuperInsertItems(KHistoryComboBox* self, const libqt_list 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnInsertItems(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_InsertItems_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_InsertItems_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2041,9 +1977,8 @@ bool KHistoryComboBox_SuperUseCompletion(const KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnUseCompletion(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_UseCompletion_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_UseCompletion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2070,9 +2005,8 @@ void KHistoryComboBox_SuperUpdateMicroFocus(KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnUpdateMicroFocus(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2099,9 +2033,8 @@ void KHistoryComboBox_SuperCreate(KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnCreate(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_Create_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2128,9 +2061,8 @@ void KHistoryComboBox_SuperDestroy(KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnDestroy(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_Destroy_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2157,9 +2089,8 @@ bool KHistoryComboBox_SuperFocusNextChild(KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnFocusNextChild(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_FocusNextChild_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2186,9 +2117,8 @@ bool KHistoryComboBox_SuperFocusPreviousChild(KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnFocusPreviousChild(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2215,9 +2145,8 @@ QObject* KHistoryComboBox_SuperSender(const KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSender(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_Sender_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2244,9 +2173,8 @@ int KHistoryComboBox_SuperSenderSignalIndex(const KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSenderSignalIndex(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2273,9 +2201,8 @@ int KHistoryComboBox_SuperReceivers(const KHistoryComboBox* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnReceivers(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_Receivers_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2302,9 +2229,8 @@ bool KHistoryComboBox_SuperIsSignalConnected(const KHistoryComboBox* self, const
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnIsSignalConnected(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_IsSignalConnected_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2331,9 +2257,8 @@ double KHistoryComboBox_SuperGetDecodedMetricF(const KHistoryComboBox* self, int
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnGetDecodedMetricF(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2452,9 +2377,8 @@ libqt_map /* of int to libqt_list of QKeySequence* */ KHistoryComboBox_SuperKeyB
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnKeyBindingMap(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_KeyBindingMap_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_KeyBindingMap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2505,9 +2429,8 @@ void KHistoryComboBox_SuperSetKeyBindingMap(KHistoryComboBox* self, libqt_map /*
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetKeyBindingMap(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_SetKeyBindingMap_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetKeyBindingMap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2534,9 +2457,8 @@ void KHistoryComboBox_SuperSetDelegate(KHistoryComboBox* self, KCompletionBase* 
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnSetDelegate(KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_SetDelegate_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_SetDelegate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2563,9 +2485,8 @@ KCompletionBase* KHistoryComboBox_SuperDelegate(const KHistoryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KHistoryComboBox_OnDelegate(const KHistoryComboBox* self, intptr_t slot) {
     auto* vkhistorycombobox = const_cast<VirtualKHistoryComboBox*>(dynamic_cast<const VirtualKHistoryComboBox*>(self));
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
+    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox)
         vkhistorycombobox->setKHistoryComboBox_Delegate_Callback(reinterpret_cast<VirtualKHistoryComboBox::KHistoryComboBox_Delegate_Callback>(slot));
-    }
 }
 
 void KHistoryComboBox_Delete(KHistoryComboBox* self) {

@@ -99,9 +99,8 @@ bool KRcc_SuperDoPrepareWriting(KRcc* self, const libqt_string name, const libqt
 // Auxiliary method to allow providing re-implementation
 void KRcc_OnDoPrepareWriting(KRcc* self, intptr_t slot) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
-    if (vkrcc && vkrcc->isVirtualKRcc) {
+    if (vkrcc && vkrcc->isVirtualKRcc)
         vkrcc->setKRcc_DoPrepareWriting_Callback(reinterpret_cast<VirtualKRcc::KRcc_DoPrepareWriting_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -118,9 +117,8 @@ bool KRcc_SuperDoFinishWriting(KRcc* self, long long size) {
 // Auxiliary method to allow providing re-implementation
 void KRcc_OnDoFinishWriting(KRcc* self, intptr_t slot) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
-    if (vkrcc && vkrcc->isVirtualKRcc) {
+    if (vkrcc && vkrcc->isVirtualKRcc)
         vkrcc->setKRcc_DoFinishWriting_Callback(reinterpret_cast<VirtualKRcc::KRcc_DoFinishWriting_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -140,9 +138,8 @@ bool KRcc_SuperDoWriteDir(KRcc* self, const libqt_string name, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void KRcc_OnDoWriteDir(KRcc* self, intptr_t slot) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
-    if (vkrcc && vkrcc->isVirtualKRcc) {
+    if (vkrcc && vkrcc->isVirtualKRcc)
         vkrcc->setKRcc_DoWriteDir_Callback(reinterpret_cast<VirtualKRcc::KRcc_DoWriteDir_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -163,9 +160,8 @@ bool KRcc_SuperDoWriteSymLink(KRcc* self, const libqt_string name, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void KRcc_OnDoWriteSymLink(KRcc* self, intptr_t slot) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
-    if (vkrcc && vkrcc->isVirtualKRcc) {
+    if (vkrcc && vkrcc->isVirtualKRcc)
         vkrcc->setKRcc_DoWriteSymLink_Callback(reinterpret_cast<VirtualKRcc::KRcc_DoWriteSymLink_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -182,9 +178,8 @@ bool KRcc_SuperOpenArchive(KRcc* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KRcc_OnOpenArchive(KRcc* self, intptr_t slot) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
-    if (vkrcc && vkrcc->isVirtualKRcc) {
+    if (vkrcc && vkrcc->isVirtualKRcc)
         vkrcc->setKRcc_OpenArchive_Callback(reinterpret_cast<VirtualKRcc::KRcc_OpenArchive_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -201,9 +196,8 @@ bool KRcc_SuperCloseArchive(KRcc* self) {
 // Auxiliary method to allow providing re-implementation
 void KRcc_OnCloseArchive(KRcc* self, intptr_t slot) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
-    if (vkrcc && vkrcc->isVirtualKRcc) {
+    if (vkrcc && vkrcc->isVirtualKRcc)
         vkrcc->setKRcc_CloseArchive_Callback(reinterpret_cast<VirtualKRcc::KRcc_CloseArchive_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -220,9 +214,8 @@ void KRcc_SuperVirtualHook(KRcc* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void KRcc_OnVirtualHook(KRcc* self, intptr_t slot) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
-    if (vkrcc && vkrcc->isVirtualKRcc) {
+    if (vkrcc && vkrcc->isVirtualKRcc)
         vkrcc->setKRcc_VirtualHook_Callback(reinterpret_cast<VirtualKRcc::KRcc_VirtualHook_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -249,9 +242,8 @@ bool KRcc_SuperOpen(KRcc* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KRcc_OnOpen(KRcc* self, intptr_t slot) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
-    if (vkrcc && vkrcc->isVirtualKRcc) {
+    if (vkrcc && vkrcc->isVirtualKRcc)
         vkrcc->setKRcc_Open_Callback(reinterpret_cast<VirtualKRcc::KRcc_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -278,9 +270,8 @@ bool KRcc_SuperClose(KRcc* self) {
 // Auxiliary method to allow providing re-implementation
 void KRcc_OnClose(KRcc* self, intptr_t slot) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
-    if (vkrcc && vkrcc->isVirtualKRcc) {
+    if (vkrcc && vkrcc->isVirtualKRcc)
         vkrcc->setKRcc_Close_Callback(reinterpret_cast<VirtualKRcc::KRcc_Close_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -307,9 +298,8 @@ KArchiveDirectory* KRcc_SuperRootDir(KRcc* self) {
 // Auxiliary method to allow providing re-implementation
 void KRcc_OnRootDir(KRcc* self, intptr_t slot) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
-    if (vkrcc && vkrcc->isVirtualKRcc) {
+    if (vkrcc && vkrcc->isVirtualKRcc)
         vkrcc->setKRcc_RootDir_Callback(reinterpret_cast<VirtualKRcc::KRcc_RootDir_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -336,9 +326,8 @@ bool KRcc_SuperDoWriteData(KRcc* self, const char* data, long long size) {
 // Auxiliary method to allow providing re-implementation
 void KRcc_OnDoWriteData(KRcc* self, intptr_t slot) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
-    if (vkrcc && vkrcc->isVirtualKRcc) {
+    if (vkrcc && vkrcc->isVirtualKRcc)
         vkrcc->setKRcc_DoWriteData_Callback(reinterpret_cast<VirtualKRcc::KRcc_DoWriteData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -365,9 +354,8 @@ bool KRcc_SuperCreateDevice(KRcc* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KRcc_OnCreateDevice(KRcc* self, intptr_t slot) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
-    if (vkrcc && vkrcc->isVirtualKRcc) {
+    if (vkrcc && vkrcc->isVirtualKRcc)
         vkrcc->setKRcc_CreateDevice_Callback(reinterpret_cast<VirtualKRcc::KRcc_CreateDevice_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -396,9 +384,8 @@ void KRcc_SuperSetErrorString(KRcc* self, const libqt_string errorStr) {
 // Auxiliary method to allow providing re-implementation
 void KRcc_OnSetErrorString(KRcc* self, intptr_t slot) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
-    if (vkrcc && vkrcc->isVirtualKRcc) {
+    if (vkrcc && vkrcc->isVirtualKRcc)
         vkrcc->setKRcc_SetErrorString_Callback(reinterpret_cast<VirtualKRcc::KRcc_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -427,9 +414,8 @@ KArchiveDirectory* KRcc_SuperFindOrCreate(KRcc* self, const libqt_string path) {
 // Auxiliary method to allow providing re-implementation
 void KRcc_OnFindOrCreate(KRcc* self, intptr_t slot) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
-    if (vkrcc && vkrcc->isVirtualKRcc) {
+    if (vkrcc && vkrcc->isVirtualKRcc)
         vkrcc->setKRcc_FindOrCreate_Callback(reinterpret_cast<VirtualKRcc::KRcc_FindOrCreate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -456,9 +442,8 @@ void KRcc_SuperSetDevice(KRcc* self, QIODevice* dev) {
 // Auxiliary method to allow providing re-implementation
 void KRcc_OnSetDevice(KRcc* self, intptr_t slot) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
-    if (vkrcc && vkrcc->isVirtualKRcc) {
+    if (vkrcc && vkrcc->isVirtualKRcc)
         vkrcc->setKRcc_SetDevice_Callback(reinterpret_cast<VirtualKRcc::KRcc_SetDevice_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -485,9 +470,8 @@ void KRcc_SuperSetRootDir(KRcc* self, KArchiveDirectory* rootDir) {
 // Auxiliary method to allow providing re-implementation
 void KRcc_OnSetRootDir(KRcc* self, intptr_t slot) {
     auto* vkrcc = dynamic_cast<VirtualKRcc*>(self);
-    if (vkrcc && vkrcc->isVirtualKRcc) {
+    if (vkrcc && vkrcc->isVirtualKRcc)
         vkrcc->setKRcc_SetRootDir_Callback(reinterpret_cast<VirtualKRcc::KRcc_SetRootDir_Callback>(slot));
-    }
 }
 
 void KRcc_Delete(KRcc* self) {

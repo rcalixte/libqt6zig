@@ -110,9 +110,8 @@ QMetaObject* QFocusFrame_SuperMetaObject(const QFocusFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnMetaObject(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_MetaObject_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -129,9 +128,8 @@ void* QFocusFrame_SuperMetacast(QFocusFrame* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnMetacast(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_Metacast_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -148,9 +146,8 @@ int QFocusFrame_SuperMetacall(QFocusFrame* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnMetacall(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_Metacall_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -167,9 +164,8 @@ bool QFocusFrame_SuperEvent(QFocusFrame* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_Event_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -186,9 +182,8 @@ bool QFocusFrame_SuperEventFilter(QFocusFrame* self, QObject* param1, QEvent* pa
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnEventFilter(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_EventFilter_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -205,9 +200,8 @@ void QFocusFrame_SuperPaintEvent(QFocusFrame* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnPaintEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_PaintEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -224,9 +218,8 @@ void QFocusFrame_SuperInitStyleOption(const QFocusFrame* self, QStyleOption* opt
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnInitStyleOption(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_InitStyleOption_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -253,9 +246,8 @@ int QFocusFrame_SuperDevType(const QFocusFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnDevType(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_DevType_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -282,9 +274,8 @@ void QFocusFrame_SuperSetVisible(QFocusFrame* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnSetVisible(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_SetVisible_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -311,9 +302,8 @@ QSize* QFocusFrame_SuperSizeHint(const QFocusFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnSizeHint(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_SizeHint_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -340,9 +330,8 @@ QSize* QFocusFrame_SuperMinimumSizeHint(const QFocusFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnMinimumSizeHint(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_MinimumSizeHint_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -369,9 +358,8 @@ int QFocusFrame_SuperHeightForWidth(const QFocusFrame* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnHeightForWidth(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_HeightForWidth_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -398,9 +386,8 @@ bool QFocusFrame_SuperHasHeightForWidth(const QFocusFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnHasHeightForWidth(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_HasHeightForWidth_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -427,9 +414,8 @@ QPaintEngine* QFocusFrame_SuperPaintEngine(const QFocusFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnPaintEngine(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_PaintEngine_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -456,9 +442,8 @@ void QFocusFrame_SuperMousePressEvent(QFocusFrame* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnMousePressEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_MousePressEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -485,9 +470,8 @@ void QFocusFrame_SuperMouseReleaseEvent(QFocusFrame* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnMouseReleaseEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -514,9 +498,8 @@ void QFocusFrame_SuperMouseDoubleClickEvent(QFocusFrame* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnMouseDoubleClickEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -543,9 +526,8 @@ void QFocusFrame_SuperMouseMoveEvent(QFocusFrame* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnMouseMoveEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_MouseMoveEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -572,9 +554,8 @@ void QFocusFrame_SuperWheelEvent(QFocusFrame* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnWheelEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_WheelEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -601,9 +582,8 @@ void QFocusFrame_SuperKeyPressEvent(QFocusFrame* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnKeyPressEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_KeyPressEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -630,9 +610,8 @@ void QFocusFrame_SuperKeyReleaseEvent(QFocusFrame* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnKeyReleaseEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -659,9 +638,8 @@ void QFocusFrame_SuperFocusInEvent(QFocusFrame* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnFocusInEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_FocusInEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -688,9 +666,8 @@ void QFocusFrame_SuperFocusOutEvent(QFocusFrame* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnFocusOutEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_FocusOutEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -717,9 +694,8 @@ void QFocusFrame_SuperEnterEvent(QFocusFrame* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnEnterEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_EnterEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -746,9 +722,8 @@ void QFocusFrame_SuperLeaveEvent(QFocusFrame* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnLeaveEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_LeaveEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -775,9 +750,8 @@ void QFocusFrame_SuperMoveEvent(QFocusFrame* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnMoveEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_MoveEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -804,9 +778,8 @@ void QFocusFrame_SuperResizeEvent(QFocusFrame* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnResizeEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_ResizeEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -833,9 +806,8 @@ void QFocusFrame_SuperCloseEvent(QFocusFrame* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnCloseEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_CloseEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -862,9 +834,8 @@ void QFocusFrame_SuperContextMenuEvent(QFocusFrame* self, QContextMenuEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnContextMenuEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_ContextMenuEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -891,9 +862,8 @@ void QFocusFrame_SuperTabletEvent(QFocusFrame* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnTabletEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_TabletEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -920,9 +890,8 @@ void QFocusFrame_SuperActionEvent(QFocusFrame* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnActionEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_ActionEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -949,9 +918,8 @@ void QFocusFrame_SuperDragEnterEvent(QFocusFrame* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnDragEnterEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_DragEnterEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -978,9 +946,8 @@ void QFocusFrame_SuperDragMoveEvent(QFocusFrame* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnDragMoveEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_DragMoveEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1007,9 +974,8 @@ void QFocusFrame_SuperDragLeaveEvent(QFocusFrame* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnDragLeaveEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_DragLeaveEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1036,9 +1002,8 @@ void QFocusFrame_SuperDropEvent(QFocusFrame* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnDropEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_DropEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1065,9 +1030,8 @@ void QFocusFrame_SuperShowEvent(QFocusFrame* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnShowEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_ShowEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1094,9 +1058,8 @@ void QFocusFrame_SuperHideEvent(QFocusFrame* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnHideEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_HideEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1125,9 +1088,8 @@ bool QFocusFrame_SuperNativeEvent(QFocusFrame* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnNativeEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_NativeEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1154,9 +1116,8 @@ void QFocusFrame_SuperChangeEvent(QFocusFrame* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnChangeEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_ChangeEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1183,9 +1144,8 @@ int QFocusFrame_SuperMetric(const QFocusFrame* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnMetric(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_Metric_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1212,9 +1172,8 @@ void QFocusFrame_SuperInitPainter(const QFocusFrame* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnInitPainter(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_InitPainter_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1241,9 +1200,8 @@ QPaintDevice* QFocusFrame_SuperRedirected(const QFocusFrame* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnRedirected(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_Redirected_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1270,9 +1228,8 @@ QPainter* QFocusFrame_SuperSharedPainter(const QFocusFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnSharedPainter(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_SharedPainter_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1299,9 +1256,8 @@ void QFocusFrame_SuperInputMethodEvent(QFocusFrame* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnInputMethodEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_InputMethodEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1328,9 +1284,8 @@ QVariant* QFocusFrame_SuperInputMethodQuery(const QFocusFrame* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnInputMethodQuery(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_InputMethodQuery_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1357,9 +1312,8 @@ bool QFocusFrame_SuperFocusNextPrevChild(QFocusFrame* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnFocusNextPrevChild(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1386,9 +1340,8 @@ void QFocusFrame_SuperTimerEvent(QFocusFrame* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnTimerEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_TimerEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1415,9 +1368,8 @@ void QFocusFrame_SuperChildEvent(QFocusFrame* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnChildEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_ChildEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1444,9 +1396,8 @@ void QFocusFrame_SuperCustomEvent(QFocusFrame* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnCustomEvent(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_CustomEvent_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1473,9 +1424,8 @@ void QFocusFrame_SuperConnectNotify(QFocusFrame* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnConnectNotify(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_ConnectNotify_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1502,9 +1452,8 @@ void QFocusFrame_SuperDisconnectNotify(QFocusFrame* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnDisconnectNotify(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_DisconnectNotify_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1531,9 +1480,8 @@ void QFocusFrame_SuperUpdateMicroFocus(QFocusFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnUpdateMicroFocus(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1560,9 +1508,8 @@ void QFocusFrame_SuperCreate(QFocusFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnCreate(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_Create_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1589,9 +1536,8 @@ void QFocusFrame_SuperDestroy(QFocusFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnDestroy(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_Destroy_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1618,9 +1564,8 @@ bool QFocusFrame_SuperFocusNextChild(QFocusFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnFocusNextChild(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_FocusNextChild_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1647,9 +1592,8 @@ bool QFocusFrame_SuperFocusPreviousChild(QFocusFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnFocusPreviousChild(QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_FocusPreviousChild_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1676,9 +1620,8 @@ QObject* QFocusFrame_SuperSender(const QFocusFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnSender(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_Sender_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1705,9 +1648,8 @@ int QFocusFrame_SuperSenderSignalIndex(const QFocusFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnSenderSignalIndex(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_SenderSignalIndex_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1734,9 +1676,8 @@ int QFocusFrame_SuperReceivers(const QFocusFrame* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnReceivers(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_Receivers_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1763,9 +1704,8 @@ bool QFocusFrame_SuperIsSignalConnected(const QFocusFrame* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnIsSignalConnected(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_IsSignalConnected_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1792,9 +1732,8 @@ double QFocusFrame_SuperGetDecodedMetricF(const QFocusFrame* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void QFocusFrame_OnGetDecodedMetricF(const QFocusFrame* self, intptr_t slot) {
     auto* vqfocusframe = const_cast<VirtualQFocusFrame*>(dynamic_cast<const VirtualQFocusFrame*>(self));
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
+    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame)
         vqfocusframe->setQFocusFrame_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQFocusFrame::QFocusFrame_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QFocusFrame_Delete(QFocusFrame* self) {

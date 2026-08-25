@@ -206,9 +206,8 @@ QMetaObject* KKeySequenceWidget_SuperMetaObject(const KKeySequenceWidget* self) 
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnMetaObject(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_MetaObject_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -225,9 +224,8 @@ void* KKeySequenceWidget_SuperMetacast(KKeySequenceWidget* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnMetacast(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_Metacast_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -244,9 +242,8 @@ int KKeySequenceWidget_SuperMetacall(KKeySequenceWidget* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnMetacall(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_Metacall_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -273,9 +270,8 @@ int KKeySequenceWidget_SuperDevType(const KKeySequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnDevType(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_DevType_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -302,9 +298,8 @@ void KKeySequenceWidget_SuperSetVisible(KKeySequenceWidget* self, bool visible) 
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnSetVisible(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_SetVisible_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -331,9 +326,8 @@ QSize* KKeySequenceWidget_SuperSizeHint(const KKeySequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnSizeHint(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_SizeHint_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -360,9 +354,8 @@ QSize* KKeySequenceWidget_SuperMinimumSizeHint(const KKeySequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnMinimumSizeHint(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -389,9 +382,8 @@ int KKeySequenceWidget_SuperHeightForWidth(const KKeySequenceWidget* self, int p
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnHeightForWidth(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -418,9 +410,8 @@ bool KKeySequenceWidget_SuperHasHeightForWidth(const KKeySequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnHasHeightForWidth(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -447,9 +438,8 @@ QPaintEngine* KKeySequenceWidget_SuperPaintEngine(const KKeySequenceWidget* self
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnPaintEngine(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_PaintEngine_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -476,9 +466,8 @@ void KKeySequenceWidget_SuperMousePressEvent(KKeySequenceWidget* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnMousePressEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -505,9 +494,8 @@ void KKeySequenceWidget_SuperMouseReleaseEvent(KKeySequenceWidget* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnMouseReleaseEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -534,9 +522,8 @@ void KKeySequenceWidget_SuperMouseDoubleClickEvent(KKeySequenceWidget* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnMouseDoubleClickEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -563,9 +550,8 @@ void KKeySequenceWidget_SuperMouseMoveEvent(KKeySequenceWidget* self, QMouseEven
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnMouseMoveEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -592,9 +578,8 @@ void KKeySequenceWidget_SuperWheelEvent(KKeySequenceWidget* self, QWheelEvent* e
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnWheelEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_WheelEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -621,9 +606,8 @@ void KKeySequenceWidget_SuperKeyPressEvent(KKeySequenceWidget* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnKeyPressEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -650,9 +634,8 @@ void KKeySequenceWidget_SuperKeyReleaseEvent(KKeySequenceWidget* self, QKeyEvent
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnKeyReleaseEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -679,9 +662,8 @@ void KKeySequenceWidget_SuperFocusInEvent(KKeySequenceWidget* self, QFocusEvent*
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnFocusInEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -708,9 +690,8 @@ void KKeySequenceWidget_SuperFocusOutEvent(KKeySequenceWidget* self, QFocusEvent
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnFocusOutEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -737,9 +718,8 @@ void KKeySequenceWidget_SuperEnterEvent(KKeySequenceWidget* self, QEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnEnterEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_EnterEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -766,9 +746,8 @@ void KKeySequenceWidget_SuperLeaveEvent(KKeySequenceWidget* self, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnLeaveEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -795,9 +774,8 @@ void KKeySequenceWidget_SuperPaintEvent(KKeySequenceWidget* self, QPaintEvent* e
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnPaintEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_PaintEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -824,9 +802,8 @@ void KKeySequenceWidget_SuperMoveEvent(KKeySequenceWidget* self, QMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnMoveEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_MoveEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -853,9 +830,8 @@ void KKeySequenceWidget_SuperResizeEvent(KKeySequenceWidget* self, QResizeEvent*
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnResizeEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -882,9 +858,8 @@ void KKeySequenceWidget_SuperCloseEvent(KKeySequenceWidget* self, QCloseEvent* e
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnCloseEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_CloseEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -911,9 +886,8 @@ void KKeySequenceWidget_SuperContextMenuEvent(KKeySequenceWidget* self, QContext
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnContextMenuEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -940,9 +914,8 @@ void KKeySequenceWidget_SuperTabletEvent(KKeySequenceWidget* self, QTabletEvent*
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnTabletEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_TabletEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -969,9 +942,8 @@ void KKeySequenceWidget_SuperActionEvent(KKeySequenceWidget* self, QActionEvent*
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnActionEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_ActionEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -998,9 +970,8 @@ void KKeySequenceWidget_SuperDragEnterEvent(KKeySequenceWidget* self, QDragEnter
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnDragEnterEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1027,9 +998,8 @@ void KKeySequenceWidget_SuperDragMoveEvent(KKeySequenceWidget* self, QDragMoveEv
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnDragMoveEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1056,9 +1026,8 @@ void KKeySequenceWidget_SuperDragLeaveEvent(KKeySequenceWidget* self, QDragLeave
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnDragLeaveEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1085,9 +1054,8 @@ void KKeySequenceWidget_SuperDropEvent(KKeySequenceWidget* self, QDropEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnDropEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_DropEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1114,9 +1082,8 @@ void KKeySequenceWidget_SuperShowEvent(KKeySequenceWidget* self, QShowEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnShowEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_ShowEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1143,9 +1110,8 @@ void KKeySequenceWidget_SuperHideEvent(KKeySequenceWidget* self, QHideEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnHideEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_HideEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1174,9 +1140,8 @@ bool KKeySequenceWidget_SuperNativeEvent(KKeySequenceWidget* self, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnNativeEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_NativeEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1203,9 +1168,8 @@ void KKeySequenceWidget_SuperChangeEvent(KKeySequenceWidget* self, QEvent* param
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnChangeEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1232,9 +1196,8 @@ int KKeySequenceWidget_SuperMetric(const KKeySequenceWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnMetric(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_Metric_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1261,9 +1224,8 @@ void KKeySequenceWidget_SuperInitPainter(const KKeySequenceWidget* self, QPainte
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnInitPainter(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_InitPainter_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1290,9 +1252,8 @@ QPaintDevice* KKeySequenceWidget_SuperRedirected(const KKeySequenceWidget* self,
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnRedirected(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_Redirected_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1319,9 +1280,8 @@ QPainter* KKeySequenceWidget_SuperSharedPainter(const KKeySequenceWidget* self) 
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnSharedPainter(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_SharedPainter_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1348,9 +1308,8 @@ void KKeySequenceWidget_SuperInputMethodEvent(KKeySequenceWidget* self, QInputMe
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnInputMethodEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1377,9 +1336,8 @@ QVariant* KKeySequenceWidget_SuperInputMethodQuery(const KKeySequenceWidget* sel
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnInputMethodQuery(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1406,9 +1364,8 @@ bool KKeySequenceWidget_SuperFocusNextPrevChild(KKeySequenceWidget* self, bool n
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnFocusNextPrevChild(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1435,9 +1392,8 @@ bool KKeySequenceWidget_SuperEventFilter(KKeySequenceWidget* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnEventFilter(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_EventFilter_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1464,9 +1420,8 @@ void KKeySequenceWidget_SuperTimerEvent(KKeySequenceWidget* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnTimerEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_TimerEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1493,9 +1448,8 @@ void KKeySequenceWidget_SuperChildEvent(KKeySequenceWidget* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnChildEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_ChildEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1522,9 +1476,8 @@ void KKeySequenceWidget_SuperCustomEvent(KKeySequenceWidget* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnCustomEvent(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_CustomEvent_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1551,9 +1504,8 @@ void KKeySequenceWidget_SuperConnectNotify(KKeySequenceWidget* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnConnectNotify(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1580,9 +1532,8 @@ void KKeySequenceWidget_SuperDisconnectNotify(KKeySequenceWidget* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnDisconnectNotify(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1609,9 +1560,8 @@ void KKeySequenceWidget_SuperUpdateMicroFocus(KKeySequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnUpdateMicroFocus(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1638,9 +1588,8 @@ void KKeySequenceWidget_SuperCreate(KKeySequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnCreate(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_Create_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1667,9 +1616,8 @@ void KKeySequenceWidget_SuperDestroy(KKeySequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnDestroy(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_Destroy_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1696,9 +1644,8 @@ bool KKeySequenceWidget_SuperFocusNextChild(KKeySequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnFocusNextChild(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1725,9 +1672,8 @@ bool KKeySequenceWidget_SuperFocusPreviousChild(KKeySequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnFocusPreviousChild(KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1754,9 +1700,8 @@ QObject* KKeySequenceWidget_SuperSender(const KKeySequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnSender(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_Sender_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1783,9 +1728,8 @@ int KKeySequenceWidget_SuperSenderSignalIndex(const KKeySequenceWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnSenderSignalIndex(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1812,9 +1756,8 @@ int KKeySequenceWidget_SuperReceivers(const KKeySequenceWidget* self, const char
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnReceivers(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_Receivers_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1841,9 +1784,8 @@ bool KKeySequenceWidget_SuperIsSignalConnected(const KKeySequenceWidget* self, c
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnIsSignalConnected(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1870,9 +1812,8 @@ double KKeySequenceWidget_SuperGetDecodedMetricF(const KKeySequenceWidget* self,
 // Auxiliary method to allow providing re-implementation
 void KKeySequenceWidget_OnGetDecodedMetricF(const KKeySequenceWidget* self, intptr_t slot) {
     auto* vkkeysequencewidget = const_cast<VirtualKKeySequenceWidget*>(dynamic_cast<const VirtualKKeySequenceWidget*>(self));
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
+    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget)
         vkkeysequencewidget->setKKeySequenceWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKKeySequenceWidget::KKeySequenceWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KKeySequenceWidget_Delete(KKeySequenceWidget* self) {

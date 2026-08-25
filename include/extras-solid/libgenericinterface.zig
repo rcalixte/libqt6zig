@@ -1440,7 +1440,7 @@ pub const Solid__GenericInterface = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/solid-genericinterface.html#public-types)
 pub const enums = struct {
-    pub const PropertyChange = enum(i32) {
+    pub const PropertyChange = enum {
         pub const PropertyModified: i32 = 0;
         pub const PropertyAdded: i32 = 1;
         pub const PropertyRemoved: i32 = 2;

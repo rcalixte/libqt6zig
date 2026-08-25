@@ -7511,7 +7511,7 @@ pub const QFileSystemModel = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qfilesystemmodel.html#public-types)
 pub const enums = struct {
-    pub const Roles = enum(i32) {
+    pub const Roles = enum {
         pub const FileIconRole: i32 = 1;
         pub const FileInfoRole: i32 = 252;
         pub const FilePathRole: i32 = 257;
@@ -7519,7 +7519,7 @@ pub const enums = struct {
         pub const FilePermissions: i32 = 259;
     };
 
-    pub const Option = enum(i32) {
+    pub const Option = enum {
         pub const DontWatchForChanges: i32 = 1;
         pub const DontResolveSymlinks: i32 = 2;
         pub const DontUseCustomDirectoryIcons: i32 = 4;

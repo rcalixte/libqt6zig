@@ -1206,9 +1206,8 @@ QMetaObject* QFileDialog_SuperMetaObject(const QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMetaObject(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_MetaObject_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1225,9 +1224,8 @@ void* QFileDialog_SuperMetacast(QFileDialog* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMetacast(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_Metacast_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1244,9 +1242,8 @@ int QFileDialog_SuperMetacall(QFileDialog* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMetacall(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_Metacall_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1263,9 +1260,8 @@ void QFileDialog_SuperSetVisible(QFileDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnSetVisible(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_SetVisible_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1282,9 +1278,8 @@ void QFileDialog_SuperDone(QFileDialog* self, int result) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnDone(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_Done_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Done_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1301,9 +1296,8 @@ void QFileDialog_SuperAccept(QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnAccept(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_Accept_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Accept_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1320,9 +1314,8 @@ void QFileDialog_SuperChangeEvent(QFileDialog* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnChangeEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1349,9 +1342,8 @@ QSize* QFileDialog_SuperSizeHint(const QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnSizeHint(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_SizeHint_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1378,9 +1370,8 @@ QSize* QFileDialog_SuperMinimumSizeHint(const QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMinimumSizeHint(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1407,9 +1398,8 @@ void QFileDialog_SuperOpen(QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnOpen(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_Open_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1436,9 +1426,8 @@ int QFileDialog_SuperExec(QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnExec(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_Exec_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1465,9 +1454,8 @@ void QFileDialog_SuperReject(QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnReject(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_Reject_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1494,9 +1482,8 @@ void QFileDialog_SuperKeyPressEvent(QFileDialog* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnKeyPressEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1523,9 +1510,8 @@ void QFileDialog_SuperCloseEvent(QFileDialog* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnCloseEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_CloseEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1552,9 +1538,8 @@ void QFileDialog_SuperShowEvent(QFileDialog* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnShowEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_ShowEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1581,9 +1566,8 @@ void QFileDialog_SuperResizeEvent(QFileDialog* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnResizeEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_ResizeEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1610,9 +1594,8 @@ void QFileDialog_SuperContextMenuEvent(QFileDialog* self, QContextMenuEvent* par
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnContextMenuEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1639,9 +1622,8 @@ bool QFileDialog_SuperEventFilter(QFileDialog* self, QObject* param1, QEvent* pa
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnEventFilter(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_EventFilter_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1668,9 +1650,8 @@ int QFileDialog_SuperDevType(const QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnDevType(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_DevType_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1697,9 +1678,8 @@ int QFileDialog_SuperHeightForWidth(const QFileDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnHeightForWidth(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_HeightForWidth_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1726,9 +1706,8 @@ bool QFileDialog_SuperHasHeightForWidth(const QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnHasHeightForWidth(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1755,9 +1734,8 @@ QPaintEngine* QFileDialog_SuperPaintEngine(const QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnPaintEngine(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_PaintEngine_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1784,9 +1762,8 @@ bool QFileDialog_SuperEvent(QFileDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_Event_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1813,9 +1790,8 @@ void QFileDialog_SuperMousePressEvent(QFileDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMousePressEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_MousePressEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1842,9 +1818,8 @@ void QFileDialog_SuperMouseReleaseEvent(QFileDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMouseReleaseEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1871,9 +1846,8 @@ void QFileDialog_SuperMouseDoubleClickEvent(QFileDialog* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMouseDoubleClickEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1900,9 +1874,8 @@ void QFileDialog_SuperMouseMoveEvent(QFileDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMouseMoveEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1929,9 +1902,8 @@ void QFileDialog_SuperWheelEvent(QFileDialog* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnWheelEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_WheelEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1958,9 +1930,8 @@ void QFileDialog_SuperKeyReleaseEvent(QFileDialog* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnKeyReleaseEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1987,9 +1958,8 @@ void QFileDialog_SuperFocusInEvent(QFileDialog* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnFocusInEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_FocusInEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2016,9 +1986,8 @@ void QFileDialog_SuperFocusOutEvent(QFileDialog* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnFocusOutEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2045,9 +2014,8 @@ void QFileDialog_SuperEnterEvent(QFileDialog* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnEnterEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_EnterEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2074,9 +2042,8 @@ void QFileDialog_SuperLeaveEvent(QFileDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnLeaveEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_LeaveEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2103,9 +2070,8 @@ void QFileDialog_SuperPaintEvent(QFileDialog* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnPaintEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_PaintEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2132,9 +2098,8 @@ void QFileDialog_SuperMoveEvent(QFileDialog* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMoveEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_MoveEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2161,9 +2126,8 @@ void QFileDialog_SuperTabletEvent(QFileDialog* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnTabletEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_TabletEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2190,9 +2154,8 @@ void QFileDialog_SuperActionEvent(QFileDialog* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnActionEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_ActionEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2219,9 +2182,8 @@ void QFileDialog_SuperDragEnterEvent(QFileDialog* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnDragEnterEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2248,9 +2210,8 @@ void QFileDialog_SuperDragMoveEvent(QFileDialog* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnDragMoveEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2277,9 +2238,8 @@ void QFileDialog_SuperDragLeaveEvent(QFileDialog* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnDragLeaveEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2306,9 +2266,8 @@ void QFileDialog_SuperDropEvent(QFileDialog* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnDropEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_DropEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2335,9 +2294,8 @@ void QFileDialog_SuperHideEvent(QFileDialog* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnHideEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_HideEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2366,9 +2324,8 @@ bool QFileDialog_SuperNativeEvent(QFileDialog* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnNativeEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_NativeEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2395,9 +2352,8 @@ int QFileDialog_SuperMetric(const QFileDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnMetric(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_Metric_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2424,9 +2380,8 @@ void QFileDialog_SuperInitPainter(const QFileDialog* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnInitPainter(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_InitPainter_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2453,9 +2408,8 @@ QPaintDevice* QFileDialog_SuperRedirected(const QFileDialog* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnRedirected(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_Redirected_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2482,9 +2436,8 @@ QPainter* QFileDialog_SuperSharedPainter(const QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnSharedPainter(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_SharedPainter_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2511,9 +2464,8 @@ void QFileDialog_SuperInputMethodEvent(QFileDialog* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnInputMethodEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2540,9 +2492,8 @@ QVariant* QFileDialog_SuperInputMethodQuery(const QFileDialog* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnInputMethodQuery(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2569,9 +2520,8 @@ bool QFileDialog_SuperFocusNextPrevChild(QFileDialog* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnFocusNextPrevChild(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2598,9 +2548,8 @@ void QFileDialog_SuperTimerEvent(QFileDialog* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnTimerEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_TimerEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2627,9 +2576,8 @@ void QFileDialog_SuperChildEvent(QFileDialog* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnChildEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_ChildEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2656,9 +2604,8 @@ void QFileDialog_SuperCustomEvent(QFileDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnCustomEvent(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_CustomEvent_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2685,9 +2632,8 @@ void QFileDialog_SuperConnectNotify(QFileDialog* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnConnectNotify(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_ConnectNotify_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2714,9 +2660,8 @@ void QFileDialog_SuperDisconnectNotify(QFileDialog* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnDisconnectNotify(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2743,9 +2688,8 @@ void QFileDialog_SuperAdjustPosition(QFileDialog* self, QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnAdjustPosition(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_AdjustPosition_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2772,9 +2716,8 @@ void QFileDialog_SuperUpdateMicroFocus(QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnUpdateMicroFocus(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2801,9 +2744,8 @@ void QFileDialog_SuperCreate(QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnCreate(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_Create_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2830,9 +2772,8 @@ void QFileDialog_SuperDestroy(QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnDestroy(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_Destroy_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2859,9 +2800,8 @@ bool QFileDialog_SuperFocusNextChild(QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnFocusNextChild(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_FocusNextChild_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2888,9 +2828,8 @@ bool QFileDialog_SuperFocusPreviousChild(QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnFocusPreviousChild(QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2917,9 +2856,8 @@ QObject* QFileDialog_SuperSender(const QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnSender(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_Sender_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2946,9 +2884,8 @@ int QFileDialog_SuperSenderSignalIndex(const QFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnSenderSignalIndex(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2975,9 +2912,8 @@ int QFileDialog_SuperReceivers(const QFileDialog* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnReceivers(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_Receivers_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3004,9 +2940,8 @@ bool QFileDialog_SuperIsSignalConnected(const QFileDialog* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnIsSignalConnected(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3033,9 +2968,8 @@ double QFileDialog_SuperGetDecodedMetricF(const QFileDialog* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void QFileDialog_OnGetDecodedMetricF(const QFileDialog* self, intptr_t slot) {
     auto* vqfiledialog = const_cast<VirtualQFileDialog*>(dynamic_cast<const VirtualQFileDialog*>(self));
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
+    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog)
         vqfiledialog->setQFileDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQFileDialog::QFileDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QFileDialog_Delete(QFileDialog* self) {

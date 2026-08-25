@@ -218,9 +218,8 @@ QMetaObject* KSvg__ImageSet_SuperMetaObject(const KSvg__ImageSet* self) {
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnMetaObject(const KSvg__ImageSet* self, intptr_t slot) {
     auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
         vksvgimageset->setKSvg__ImageSet_MetaObject_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -237,9 +236,8 @@ void* KSvg__ImageSet_SuperMetacast(KSvg__ImageSet* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnMetacast(KSvg__ImageSet* self, intptr_t slot) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
         vksvgimageset->setKSvg__ImageSet_Metacast_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -256,9 +254,8 @@ int KSvg__ImageSet_SuperMetacall(KSvg__ImageSet* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnMetacall(KSvg__ImageSet* self, intptr_t slot) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
         vksvgimageset->setKSvg__ImageSet_Metacall_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -285,9 +282,8 @@ bool KSvg__ImageSet_SuperEvent(KSvg__ImageSet* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnEvent(KSvg__ImageSet* self, intptr_t slot) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
         vksvgimageset->setKSvg__ImageSet_Event_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -314,9 +310,8 @@ bool KSvg__ImageSet_SuperEventFilter(KSvg__ImageSet* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnEventFilter(KSvg__ImageSet* self, intptr_t slot) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
         vksvgimageset->setKSvg__ImageSet_EventFilter_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -343,9 +338,8 @@ void KSvg__ImageSet_SuperTimerEvent(KSvg__ImageSet* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnTimerEvent(KSvg__ImageSet* self, intptr_t slot) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
         vksvgimageset->setKSvg__ImageSet_TimerEvent_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +366,8 @@ void KSvg__ImageSet_SuperChildEvent(KSvg__ImageSet* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnChildEvent(KSvg__ImageSet* self, intptr_t slot) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
         vksvgimageset->setKSvg__ImageSet_ChildEvent_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -401,9 +394,8 @@ void KSvg__ImageSet_SuperCustomEvent(KSvg__ImageSet* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnCustomEvent(KSvg__ImageSet* self, intptr_t slot) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
         vksvgimageset->setKSvg__ImageSet_CustomEvent_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -430,9 +422,8 @@ void KSvg__ImageSet_SuperConnectNotify(KSvg__ImageSet* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnConnectNotify(KSvg__ImageSet* self, intptr_t slot) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
         vksvgimageset->setKSvg__ImageSet_ConnectNotify_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -459,9 +450,8 @@ void KSvg__ImageSet_SuperDisconnectNotify(KSvg__ImageSet* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnDisconnectNotify(KSvg__ImageSet* self, intptr_t slot) {
     auto* vksvgimageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
         vksvgimageset->setKSvg__ImageSet_DisconnectNotify_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -488,9 +478,8 @@ QObject* KSvg__ImageSet_SuperSender(const KSvg__ImageSet* self) {
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnSender(const KSvg__ImageSet* self, intptr_t slot) {
     auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
         vksvgimageset->setKSvg__ImageSet_Sender_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -517,9 +506,8 @@ int KSvg__ImageSet_SuperSenderSignalIndex(const KSvg__ImageSet* self) {
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnSenderSignalIndex(const KSvg__ImageSet* self, intptr_t slot) {
     auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
         vksvgimageset->setKSvg__ImageSet_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -546,9 +534,8 @@ int KSvg__ImageSet_SuperReceivers(const KSvg__ImageSet* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnReceivers(const KSvg__ImageSet* self, intptr_t slot) {
     auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
         vksvgimageset->setKSvg__ImageSet_Receivers_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -575,9 +562,8 @@ bool KSvg__ImageSet_SuperIsSignalConnected(const KSvg__ImageSet* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KSvg__ImageSet_OnIsSignalConnected(const KSvg__ImageSet* self, intptr_t slot) {
     auto* vksvgimageset = const_cast<VirtualKSvgImageSet*>(dynamic_cast<const VirtualKSvgImageSet*>(self));
-    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet) {
+    if (vksvgimageset && vksvgimageset->isVirtualKSvgImageSet)
         vksvgimageset->setKSvg__ImageSet_IsSignalConnected_Callback(reinterpret_cast<VirtualKSvgImageSet::KSvg__ImageSet_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KSvg__ImageSet_Delete(KSvg__ImageSet* self) {

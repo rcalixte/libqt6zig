@@ -2261,7 +2261,7 @@ pub const QSocketDescriptor = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsocketnotifier.html#public-types)
 pub const enums = struct {
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const Read: i32 = 0;
         pub const Write: i32 = 1;
         pub const Exception: i32 = 2;

@@ -400,7 +400,7 @@ pub const Attica__Comment = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/attica-comment.html#public-types)
 pub const enums = struct {
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const ContentComment: i32 = 0;
         pub const ForumComment: i32 = 1;
         pub const KnowledgeBaseComment: i32 = 2;

@@ -63,6 +63,8 @@ KLineEdit* KLineEdit_new(QWidget* parent);
 KLineEdit* KLineEdit_new2(const libqt_string string);
 KLineEdit* KLineEdit_new3();
 KLineEdit* KLineEdit_new4(const libqt_string string, QWidget* parent);
+KCompletionBase* KLineEdit_AsKCompletionBase(KLineEdit* self);
+KLineEdit* KLineEdit_FromKCompletionBase(KCompletionBase* _kcompletionbase);
 QMetaObject* KLineEdit_MetaObject(const KLineEdit* self);
 void* KLineEdit_Metacast(KLineEdit* self, const char* param1);
 int KLineEdit_Metacall(KLineEdit* self, int param1, int param2, void** param3);

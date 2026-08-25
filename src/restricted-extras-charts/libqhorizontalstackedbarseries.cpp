@@ -50,9 +50,8 @@ QMetaObject* QHorizontalStackedBarSeries_SuperMetaObject(const QHorizontalStacke
 // Auxiliary method to allow providing re-implementation
 void QHorizontalStackedBarSeries_OnMetaObject(const QHorizontalStackedBarSeries* self, intptr_t slot) {
     auto* vqhorizontalstackedbarseries = const_cast<VirtualQHorizontalStackedBarSeries*>(dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self));
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries)
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_MetaObject_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -69,9 +68,8 @@ void* QHorizontalStackedBarSeries_SuperMetacast(QHorizontalStackedBarSeries* sel
 // Auxiliary method to allow providing re-implementation
 void QHorizontalStackedBarSeries_OnMetacast(QHorizontalStackedBarSeries* self, intptr_t slot) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries)
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_Metacast_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -88,9 +86,8 @@ int QHorizontalStackedBarSeries_SuperMetacall(QHorizontalStackedBarSeries* self,
 // Auxiliary method to allow providing re-implementation
 void QHorizontalStackedBarSeries_OnMetacall(QHorizontalStackedBarSeries* self, intptr_t slot) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries)
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_Metacall_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -107,9 +104,8 @@ int QHorizontalStackedBarSeries_SuperType(const QHorizontalStackedBarSeries* sel
 // Auxiliary method to allow providing re-implementation
 void QHorizontalStackedBarSeries_OnType(const QHorizontalStackedBarSeries* self, intptr_t slot) {
     auto* vqhorizontalstackedbarseries = const_cast<VirtualQHorizontalStackedBarSeries*>(dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self));
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries)
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_Type_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -136,9 +132,8 @@ bool QHorizontalStackedBarSeries_SuperEvent(QHorizontalStackedBarSeries* self, Q
 // Auxiliary method to allow providing re-implementation
 void QHorizontalStackedBarSeries_OnEvent(QHorizontalStackedBarSeries* self, intptr_t slot) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries)
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_Event_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -165,9 +160,8 @@ bool QHorizontalStackedBarSeries_SuperEventFilter(QHorizontalStackedBarSeries* s
 // Auxiliary method to allow providing re-implementation
 void QHorizontalStackedBarSeries_OnEventFilter(QHorizontalStackedBarSeries* self, intptr_t slot) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries)
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_EventFilter_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -194,9 +188,8 @@ void QHorizontalStackedBarSeries_SuperTimerEvent(QHorizontalStackedBarSeries* se
 // Auxiliary method to allow providing re-implementation
 void QHorizontalStackedBarSeries_OnTimerEvent(QHorizontalStackedBarSeries* self, intptr_t slot) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries)
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_TimerEvent_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -223,9 +216,8 @@ void QHorizontalStackedBarSeries_SuperChildEvent(QHorizontalStackedBarSeries* se
 // Auxiliary method to allow providing re-implementation
 void QHorizontalStackedBarSeries_OnChildEvent(QHorizontalStackedBarSeries* self, intptr_t slot) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries)
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_ChildEvent_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -252,9 +244,8 @@ void QHorizontalStackedBarSeries_SuperCustomEvent(QHorizontalStackedBarSeries* s
 // Auxiliary method to allow providing re-implementation
 void QHorizontalStackedBarSeries_OnCustomEvent(QHorizontalStackedBarSeries* self, intptr_t slot) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries)
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_CustomEvent_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -281,9 +272,8 @@ void QHorizontalStackedBarSeries_SuperConnectNotify(QHorizontalStackedBarSeries*
 // Auxiliary method to allow providing re-implementation
 void QHorizontalStackedBarSeries_OnConnectNotify(QHorizontalStackedBarSeries* self, intptr_t slot) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries)
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_ConnectNotify_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -310,9 +300,8 @@ void QHorizontalStackedBarSeries_SuperDisconnectNotify(QHorizontalStackedBarSeri
 // Auxiliary method to allow providing re-implementation
 void QHorizontalStackedBarSeries_OnDisconnectNotify(QHorizontalStackedBarSeries* self, intptr_t slot) {
     auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries)
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_DisconnectNotify_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +328,8 @@ QObject* QHorizontalStackedBarSeries_SuperSender(const QHorizontalStackedBarSeri
 // Auxiliary method to allow providing re-implementation
 void QHorizontalStackedBarSeries_OnSender(const QHorizontalStackedBarSeries* self, intptr_t slot) {
     auto* vqhorizontalstackedbarseries = const_cast<VirtualQHorizontalStackedBarSeries*>(dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self));
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries)
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_Sender_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +356,8 @@ int QHorizontalStackedBarSeries_SuperSenderSignalIndex(const QHorizontalStackedB
 // Auxiliary method to allow providing re-implementation
 void QHorizontalStackedBarSeries_OnSenderSignalIndex(const QHorizontalStackedBarSeries* self, intptr_t slot) {
     auto* vqhorizontalstackedbarseries = const_cast<VirtualQHorizontalStackedBarSeries*>(dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self));
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries)
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_SenderSignalIndex_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +384,8 @@ int QHorizontalStackedBarSeries_SuperReceivers(const QHorizontalStackedBarSeries
 // Auxiliary method to allow providing re-implementation
 void QHorizontalStackedBarSeries_OnReceivers(const QHorizontalStackedBarSeries* self, intptr_t slot) {
     auto* vqhorizontalstackedbarseries = const_cast<VirtualQHorizontalStackedBarSeries*>(dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self));
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries)
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_Receivers_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +412,8 @@ bool QHorizontalStackedBarSeries_SuperIsSignalConnected(const QHorizontalStacked
 // Auxiliary method to allow providing re-implementation
 void QHorizontalStackedBarSeries_OnIsSignalConnected(const QHorizontalStackedBarSeries* self, intptr_t slot) {
     auto* vqhorizontalstackedbarseries = const_cast<VirtualQHorizontalStackedBarSeries*>(dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self));
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
+    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries)
         vqhorizontalstackedbarseries->setQHorizontalStackedBarSeries_IsSignalConnected_Callback(reinterpret_cast<VirtualQHorizontalStackedBarSeries::QHorizontalStackedBarSeries_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QHorizontalStackedBarSeries_Delete(QHorizontalStackedBarSeries* self) {

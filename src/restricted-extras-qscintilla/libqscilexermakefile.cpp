@@ -88,9 +88,8 @@ QMetaObject* QsciLexerMakefile_SuperMetaObject(const QsciLexerMakefile* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnMetaObject(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -107,9 +106,8 @@ void* QsciLexerMakefile_SuperMetacast(QsciLexerMakefile* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnMetacast(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_Metacast_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -126,9 +124,8 @@ int QsciLexerMakefile_SuperMetacall(QsciLexerMakefile* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnMetacall(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_Metacall_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -155,9 +152,8 @@ int QsciLexerMakefile_SuperLexerId(const QsciLexerMakefile* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnLexerId(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_LexerId_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_LexerId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -184,9 +180,8 @@ const char* QsciLexerMakefile_SuperAutoCompletionFillups(const QsciLexerMakefile
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnAutoCompletionFillups(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_AutoCompletionFillups_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -281,9 +276,8 @@ libqt_list /* of libqt_string */ QsciLexerMakefile_SuperAutoCompletionWordSepara
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnAutoCompletionWordSeparators(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_AutoCompletionWordSeparators_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_AutoCompletionWordSeparators_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -310,9 +304,8 @@ const char* QsciLexerMakefile_SuperBlockEnd(const QsciLexerMakefile* self, int* 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnBlockEnd(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_BlockEnd_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_BlockEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +332,8 @@ int QsciLexerMakefile_SuperBlockLookback(const QsciLexerMakefile* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnBlockLookback(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_BlockLookback_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +360,8 @@ const char* QsciLexerMakefile_SuperBlockStart(const QsciLexerMakefile* self, int
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnBlockStart(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_BlockStart_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_BlockStart_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +388,8 @@ const char* QsciLexerMakefile_SuperBlockStartKeyword(const QsciLexerMakefile* se
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnBlockStartKeyword(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_BlockStartKeyword_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +416,8 @@ int QsciLexerMakefile_SuperBraceStyle(const QsciLexerMakefile* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnBraceStyle(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_BraceStyle_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_BraceStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +444,8 @@ bool QsciLexerMakefile_SuperCaseSensitive(const QsciLexerMakefile* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnCaseSensitive(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_CaseSensitive_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -484,9 +472,8 @@ QColor* QsciLexerMakefile_SuperColor(const QsciLexerMakefile* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnColor(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_Color_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -513,9 +500,8 @@ bool QsciLexerMakefile_SuperEolFill(const QsciLexerMakefile* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnEolFill(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_EolFill_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_EolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -542,9 +528,8 @@ QFont* QsciLexerMakefile_SuperFont(const QsciLexerMakefile* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnFont(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_Font_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_Font_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -571,9 +556,8 @@ int QsciLexerMakefile_SuperIndentationGuideView(const QsciLexerMakefile* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnIndentationGuideView(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_IndentationGuideView_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -600,9 +584,8 @@ const char* QsciLexerMakefile_SuperKeywords(const QsciLexerMakefile* self, int s
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnKeywords(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_Keywords_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_Keywords_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -629,9 +612,8 @@ int QsciLexerMakefile_SuperDefaultStyle(const QsciLexerMakefile* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnDefaultStyle(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_DefaultStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -658,9 +640,8 @@ QColor* QsciLexerMakefile_SuperPaper(const QsciLexerMakefile* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnPaper(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_Paper_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_Paper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -687,9 +668,8 @@ QColor* QsciLexerMakefile_SuperDefaultColor2(const QsciLexerMakefile* self, int 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnDefaultColor2(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_DefaultColor2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -716,9 +696,8 @@ QFont* QsciLexerMakefile_SuperDefaultFont2(const QsciLexerMakefile* self, int st
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnDefaultFont2(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_DefaultFont2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -745,9 +724,8 @@ QColor* QsciLexerMakefile_SuperDefaultPaper2(const QsciLexerMakefile* self, int 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnDefaultPaper2(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_DefaultPaper2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -774,9 +752,8 @@ void QsciLexerMakefile_SuperSetEditor(QsciLexerMakefile* self, QsciScintilla* ed
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnSetEditor(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_SetEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -803,9 +780,8 @@ void QsciLexerMakefile_SuperRefreshProperties(QsciLexerMakefile* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnRefreshProperties(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_RefreshProperties_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_RefreshProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -832,9 +808,8 @@ int QsciLexerMakefile_SuperStyleBitsNeeded(const QsciLexerMakefile* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnStyleBitsNeeded(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_StyleBitsNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -861,9 +836,8 @@ void QsciLexerMakefile_SuperSetAutoIndentStyle(QsciLexerMakefile* self, int auto
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnSetAutoIndentStyle(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_SetAutoIndentStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -890,9 +864,8 @@ void QsciLexerMakefile_SuperSetColor(QsciLexerMakefile* self, const QColor* c, i
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnSetColor(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_SetColor_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_SetColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -919,9 +892,8 @@ void QsciLexerMakefile_SuperSetEolFill(QsciLexerMakefile* self, bool eoffill, in
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnSetEolFill(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_SetEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -948,9 +920,8 @@ void QsciLexerMakefile_SuperSetFont(QsciLexerMakefile* self, const QFont* f, int
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnSetFont(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_SetFont_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_SetFont_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -977,9 +948,8 @@ void QsciLexerMakefile_SuperSetPaper(QsciLexerMakefile* self, const QColor* c, i
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnSetPaper(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_SetPaper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1008,9 +978,8 @@ bool QsciLexerMakefile_SuperReadProperties(QsciLexerMakefile* self, QSettings* q
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnReadProperties(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_ReadProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1039,9 +1008,8 @@ bool QsciLexerMakefile_SuperWriteProperties(const QsciLexerMakefile* self, QSett
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnWriteProperties(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_WriteProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1068,9 +1036,8 @@ bool QsciLexerMakefile_SuperEvent(QsciLexerMakefile* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnEvent(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_Event_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1097,9 +1064,8 @@ bool QsciLexerMakefile_SuperEventFilter(QsciLexerMakefile* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnEventFilter(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1126,9 +1092,8 @@ void QsciLexerMakefile_SuperTimerEvent(QsciLexerMakefile* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnTimerEvent(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1155,9 +1120,8 @@ void QsciLexerMakefile_SuperChildEvent(QsciLexerMakefile* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnChildEvent(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1184,9 +1148,8 @@ void QsciLexerMakefile_SuperCustomEvent(QsciLexerMakefile* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnCustomEvent(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1213,9 +1176,8 @@ void QsciLexerMakefile_SuperConnectNotify(QsciLexerMakefile* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnConnectNotify(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1242,9 +1204,8 @@ void QsciLexerMakefile_SuperDisconnectNotify(QsciLexerMakefile* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnDisconnectNotify(QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = dynamic_cast<VirtualQsciLexerMakefile*>(self);
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1293,9 +1254,8 @@ libqt_string QsciLexerMakefile_SuperTextAsBytes(const QsciLexerMakefile* self, c
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnTextAsBytes(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_TextAsBytes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1354,9 +1314,8 @@ libqt_string QsciLexerMakefile_SuperBytesAsText(const QsciLexerMakefile* self, c
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnBytesAsText(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_BytesAsText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1383,9 +1342,8 @@ QObject* QsciLexerMakefile_SuperSender(const QsciLexerMakefile* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnSender(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_Sender_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1412,9 +1370,8 @@ int QsciLexerMakefile_SuperSenderSignalIndex(const QsciLexerMakefile* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnSenderSignalIndex(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1441,9 +1398,8 @@ int QsciLexerMakefile_SuperReceivers(const QsciLexerMakefile* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnReceivers(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_Receivers_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1470,9 +1426,8 @@ bool QsciLexerMakefile_SuperIsSignalConnected(const QsciLexerMakefile* self, con
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMakefile_OnIsSignalConnected(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
-    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
+    if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile)
         vqscilexermakefile->setQsciLexerMakefile_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QsciLexerMakefile_Delete(QsciLexerMakefile* self) {

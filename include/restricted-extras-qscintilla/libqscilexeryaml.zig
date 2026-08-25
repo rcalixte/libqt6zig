@@ -4460,7 +4460,7 @@ pub const QsciLexerYAML = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerYAML = enum(i32) {
+    pub const QsciLexerYAML = enum {
         pub const Default: i32 = 0;
         pub const Comment: i32 = 1;
         pub const Identifier: i32 = 2;

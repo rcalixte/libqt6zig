@@ -9440,7 +9440,7 @@ pub const QStandardItemModel = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qstandarditemmodel.html#public-types)
 pub const enums = struct {
-    pub const ItemType = enum(i32) {
+    pub const ItemType = enum {
         pub const Type: i32 = 0;
         pub const UserType: i32 = 1000;
     };

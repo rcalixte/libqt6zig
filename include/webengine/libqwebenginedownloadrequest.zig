@@ -1841,7 +1841,7 @@ pub const QWebEngineDownloadRequest = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#public-types)
 pub const enums = struct {
-    pub const DownloadState = enum(i32) {
+    pub const DownloadState = enum {
         pub const DownloadRequested: i32 = 0;
         pub const DownloadInProgress: i32 = 1;
         pub const DownloadCompleted: i32 = 2;
@@ -1849,14 +1849,14 @@ pub const enums = struct {
         pub const DownloadInterrupted: i32 = 4;
     };
 
-    pub const SavePageFormat = enum(i32) {
+    pub const SavePageFormat = enum {
         pub const UnknownSaveFormat: i32 = -1;
         pub const SingleHtmlSaveFormat: i32 = 0;
         pub const CompleteHtmlSaveFormat: i32 = 1;
         pub const MimeHtmlSaveFormat: i32 = 2;
     };
 
-    pub const DownloadInterruptReason = enum(i32) {
+    pub const DownloadInterruptReason = enum {
         pub const NoReason: i32 = 0;
         pub const FileFailed: i32 = 1;
         pub const FileAccessDenied: i32 = 2;

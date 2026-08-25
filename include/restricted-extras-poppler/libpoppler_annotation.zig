@@ -11110,7 +11110,7 @@ pub const Poppler__RichMediaAnnotation__Settings = extern struct {
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1RichMediaAnnotation_1_1Settings.html)
 pub const enums = struct {
-    pub const SubType = enum(i32) {
+    pub const SubType = enum {
         pub const AText: i32 = 1;
         pub const ALine: i32 = 2;
         pub const AGeom: i32 = 3;
@@ -11127,7 +11127,7 @@ pub const enums = struct {
         pub const ARichMedia: i32 = 14;
     };
 
-    pub const Flag = enum(i32) {
+    pub const Flag = enum {
         pub const Hidden: i32 = 1;
         pub const FixedSize: i32 = 2;
         pub const FixedRotation: i32 = 4;
@@ -11138,7 +11138,7 @@ pub const enums = struct {
         pub const External: i32 = 128;
     };
 
-    pub const LineStyle = enum(i32) {
+    pub const LineStyle = enum {
         pub const Solid: i32 = 1;
         pub const Dashed: i32 = 2;
         pub const Beveled: i32 = 4;
@@ -11146,19 +11146,19 @@ pub const enums = struct {
         pub const Underline: i32 = 16;
     };
 
-    pub const LineEffect = enum(i32) {
+    pub const LineEffect = enum {
         pub const NoEffect: i32 = 1;
         pub const Cloudy: i32 = 2;
     };
 
-    pub const RevScope = enum(i32) {
+    pub const RevScope = enum {
         pub const Root: i32 = 0;
         pub const Reply: i32 = 1;
         pub const Group: i32 = 2;
         pub const Delete: i32 = 4;
     };
 
-    pub const RevType = enum(i32) {
+    pub const RevType = enum {
         pub const None: i32 = 1;
         pub const Marked: i32 = 2;
         pub const Unmarked: i32 = 4;
@@ -11168,7 +11168,7 @@ pub const enums = struct {
         pub const Completed: i32 = 64;
     };
 
-    pub const AdditionalActionType = enum(i32) {
+    pub const AdditionalActionType = enum {
         pub const CursorEnteringAction: i32 = 0;
         pub const CursorLeavingAction: i32 = 1;
         pub const MousePressedAction: i32 = 2;
@@ -11181,29 +11181,29 @@ pub const enums = struct {
         pub const PageInvisibleAction: i32 = 9;
     };
 
-    pub const TextType = enum(i32) {
+    pub const TextType = enum {
         pub const Linked: i32 = 0;
         pub const InPlace: i32 = 1;
     };
 
-    pub const InplaceIntent = enum(i32) {
+    pub const InplaceIntent = enum {
         pub const Unknown: i32 = 0;
         pub const Callout: i32 = 1;
         pub const TypeWriter: i32 = 2;
     };
 
-    pub const InplaceAlignPosition = enum(i32) {
+    pub const InplaceAlignPosition = enum {
         pub const InplaceAlignLeft: i32 = 0;
         pub const InplaceAlignCenter: i32 = 1;
         pub const InplaceAlignRight: i32 = 2;
     };
 
-    pub const LineType = enum(i32) {
+    pub const LineType = enum {
         pub const StraightLine: i32 = 0;
         pub const Polyline: i32 = 1;
     };
 
-    pub const TermStyle = enum(i32) {
+    pub const TermStyle = enum {
         pub const Square: i32 = 0;
         pub const Circle: i32 = 1;
         pub const Diamond: i32 = 2;
@@ -11216,26 +11216,26 @@ pub const enums = struct {
         pub const Slash: i32 = 9;
     };
 
-    pub const LineIntent = enum(i32) {
+    pub const LineIntent = enum {
         pub const Unknown: i32 = 0;
         pub const Arrow: i32 = 1;
         pub const Dimension: i32 = 2;
         pub const PolygonCloud: i32 = 3;
     };
 
-    pub const GeomType = enum(i32) {
+    pub const GeomType = enum {
         pub const InscribedSquare: i32 = 0;
         pub const InscribedCircle: i32 = 1;
     };
 
-    pub const HighlightType = enum(i32) {
+    pub const HighlightType = enum {
         pub const Highlight: i32 = 0;
         pub const Squiggly: i32 = 1;
         pub const Underline: i32 = 2;
         pub const StrikeOut: i32 = 3;
     };
 
-    pub const SigningResult = enum(i32) {
+    pub const SigningResult = enum {
         pub const SigningSuccess: i32 = 0;
         pub const FieldAlreadySigned: i32 = 1;
         pub const GenericSigningError: i32 = 2;
@@ -11246,26 +11246,26 @@ pub const enums = struct {
         pub const BadPassphrase: i32 = 7;
     };
 
-    pub const HighlightMode = enum(i32) {
+    pub const HighlightMode = enum {
         pub const None: i32 = 0;
         pub const Invert: i32 = 1;
         pub const Outline: i32 = 2;
         pub const Push: i32 = 3;
     };
 
-    pub const CaretSymbol = enum(i32) {
+    pub const CaretSymbol = enum {
         pub const None: i32 = 0;
         pub const P: i32 = 1;
     };
 
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const Type3D: i32 = 0;
         pub const TypeFlash: i32 = 1;
         pub const TypeSound: i32 = 2;
         pub const TypeVideo: i32 = 3;
     };
 
-    pub const Condition = enum(i32) {
+    pub const Condition = enum {
         pub const PageOpened: i32 = 0;
         pub const PageVisible: i32 = 1;
         pub const UserAction: i32 = 2;

@@ -109,7 +109,7 @@ pub const QDesignerDnDItemInterface = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/abstractdnditem.html#public-types)
 pub const enums = struct {
-    pub const DropType = enum(i32) {
+    pub const DropType = enum {
         pub const MoveDrop: i32 = 0;
         pub const CopyDrop: i32 = 1;
     };

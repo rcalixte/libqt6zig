@@ -10,6 +10,7 @@ const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
 const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
 const QPaintEngine = @import("libqt6").QPaintEngine;
 const QPoint = @import("libqt6").QPoint;
 const QPointF = @import("libqt6").QPointF;
@@ -17,6 +18,7 @@ const QRect = @import("libqt6").QRect;
 const QRegion = @import("libqt6").QRegion;
 const QScreen = @import("libqt6").QScreen;
 const QSize = @import("libqt6").QSize;
+const QSurface = @import("libqt6").QSurface;
 const QSurfaceFormat = @import("libqt6").QSurfaceFormat;
 const QThread = @import("libqt6").QThread;
 const QVariant = @import("libqt6").QVariant;
@@ -41,6 +43,27 @@ pub const QPaintDeviceWindow = extern struct {
     pub const _is_QObject = {};
     pub const _is_QSurface = {};
     pub const _is_QPaintDevice = {};
+
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPaintDeviceWindow `
+    ///
+    pub fn asQPaintDevice(self: QPaintDeviceWindow) QPaintDevice {
+        return .{ .ptr = qtc.QPaintDeviceWindow_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a QPaintDeviceWindow object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QPaintDeviceWindow {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QPaintDeviceWindow_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
 
     /// ### DEPRECATED: Use `metaObject` instead
     ///
@@ -206,6 +229,31 @@ pub const QPaintDeviceWindow = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QPaintDeviceWindow.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// Inherited from QWindow
+    ///
+    /// Upcasts to a QSurface object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPaintDeviceWindow `
+    ///
+    pub fn asQSurface(self: QPaintDeviceWindow) QSurface {
+        return .{ .ptr = qtc.QWindow_AsQSurface(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWindow
+    ///
+    /// Downcasts to a QPaintDeviceWindow object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qsurface: QSurface `
+    ///
+    pub fn fromQSurface(_qsurface: anytype) QPaintDeviceWindow {
+        comptime _ = @TypeOf(_qsurface)._is_QSurface;
+        return .{ .ptr = @ptrCast(qtc.QWindow_FromQSurface(@ptrCast(_qsurface.ptr))) };
     }
 
     /// ### DEPRECATED: Use `setSurfaceType` instead
@@ -3847,7 +3895,7 @@ pub const QPaintDeviceWindow = extern struct {
     /// ` qsurface_enums.SurfaceClass `
     ///
     pub fn surfaceClass(self: QPaintDeviceWindow) i32 {
-        return qtc.QSurface_SurfaceClass(@ptrCast(self.ptr));
+        return qtc.QSurface_SurfaceClass(@ptrCast(self.asQSurface().ptr));
     }
 
     /// ### DEPRECATED: Use `supportsOpenGL` instead
@@ -3863,7 +3911,7 @@ pub const QPaintDeviceWindow = extern struct {
     /// ` self: QPaintDeviceWindow `
     ///
     pub fn supportsOpenGL(self: QPaintDeviceWindow) bool {
-        return qtc.QSurface_SupportsOpenGL(@ptrCast(self.ptr));
+        return qtc.QSurface_SupportsOpenGL(@ptrCast(self.asQSurface().ptr));
     }
 
     /// ### DEPRECATED: Use `devType` instead
@@ -3879,7 +3927,7 @@ pub const QPaintDeviceWindow = extern struct {
     /// ` self: QPaintDeviceWindow `
     ///
     pub fn devType(self: QPaintDeviceWindow) i32 {
-        return qtc.QPaintDevice_DevType(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevType(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `paintingActive` instead
@@ -3895,7 +3943,7 @@ pub const QPaintDeviceWindow = extern struct {
     /// ` self: QPaintDeviceWindow `
     ///
     pub fn paintingActive(self: QPaintDeviceWindow) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `paintEngine` instead
@@ -3911,7 +3959,7 @@ pub const QPaintDeviceWindow = extern struct {
     /// ` self: QPaintDeviceWindow `
     ///
     pub fn paintEngine(self: QPaintDeviceWindow) QPaintEngine {
-        return .{ .ptr = qtc.QPaintDevice_PaintEngine(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QPaintDevice_PaintEngine(@ptrCast(self.asQPaintDevice().ptr)) };
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -3927,7 +3975,7 @@ pub const QPaintDeviceWindow = extern struct {
     /// ` self: QPaintDeviceWindow `
     ///
     pub fn widthMM(self: QPaintDeviceWindow) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -3943,7 +3991,7 @@ pub const QPaintDeviceWindow = extern struct {
     /// ` self: QPaintDeviceWindow `
     ///
     pub fn heightMM(self: QPaintDeviceWindow) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -3959,7 +4007,7 @@ pub const QPaintDeviceWindow = extern struct {
     /// ` self: QPaintDeviceWindow `
     ///
     pub fn logicalDpiX(self: QPaintDeviceWindow) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -3975,7 +4023,7 @@ pub const QPaintDeviceWindow = extern struct {
     /// ` self: QPaintDeviceWindow `
     ///
     pub fn logicalDpiY(self: QPaintDeviceWindow) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -3991,7 +4039,7 @@ pub const QPaintDeviceWindow = extern struct {
     /// ` self: QPaintDeviceWindow `
     ///
     pub fn physicalDpiX(self: QPaintDeviceWindow) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -4007,7 +4055,7 @@ pub const QPaintDeviceWindow = extern struct {
     /// ` self: QPaintDeviceWindow `
     ///
     pub fn physicalDpiY(self: QPaintDeviceWindow) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -4023,7 +4071,7 @@ pub const QPaintDeviceWindow = extern struct {
     /// ` self: QPaintDeviceWindow `
     ///
     pub fn devicePixelRatioF(self: QPaintDeviceWindow) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -4039,7 +4087,7 @@ pub const QPaintDeviceWindow = extern struct {
     /// ` self: QPaintDeviceWindow `
     ///
     pub fn colorCount(self: QPaintDeviceWindow) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -4055,7 +4103,7 @@ pub const QPaintDeviceWindow = extern struct {
     /// ` self: QPaintDeviceWindow `
     ///
     pub fn depth(self: QPaintDeviceWindow) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

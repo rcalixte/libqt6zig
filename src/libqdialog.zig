@@ -1290,6 +1290,31 @@ pub const QDialog = extern struct {
         return _ret;
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDialog `
+    ///
+    pub fn asQPaintDevice(self: QDialog) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QDialog object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QDialog {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -7274,7 +7299,7 @@ pub const QDialog = extern struct {
     /// ` self: QDialog `
     ///
     pub fn paintingActive(self: QDialog) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -7290,7 +7315,7 @@ pub const QDialog = extern struct {
     /// ` self: QDialog `
     ///
     pub fn widthMM(self: QDialog) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -7306,7 +7331,7 @@ pub const QDialog = extern struct {
     /// ` self: QDialog `
     ///
     pub fn heightMM(self: QDialog) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -7322,7 +7347,7 @@ pub const QDialog = extern struct {
     /// ` self: QDialog `
     ///
     pub fn logicalDpiX(self: QDialog) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7338,7 +7363,7 @@ pub const QDialog = extern struct {
     /// ` self: QDialog `
     ///
     pub fn logicalDpiY(self: QDialog) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7354,7 +7379,7 @@ pub const QDialog = extern struct {
     /// ` self: QDialog `
     ///
     pub fn physicalDpiX(self: QDialog) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7370,7 +7395,7 @@ pub const QDialog = extern struct {
     /// ` self: QDialog `
     ///
     pub fn physicalDpiY(self: QDialog) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7386,7 +7411,7 @@ pub const QDialog = extern struct {
     /// ` self: QDialog `
     ///
     pub fn devicePixelRatio(self: QDialog) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7402,7 +7427,7 @@ pub const QDialog = extern struct {
     /// ` self: QDialog `
     ///
     pub fn devicePixelRatioF(self: QDialog) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7418,7 +7443,7 @@ pub const QDialog = extern struct {
     /// ` self: QDialog `
     ///
     pub fn colorCount(self: QDialog) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7434,7 +7459,7 @@ pub const QDialog = extern struct {
     /// ` self: QDialog `
     ///
     pub fn depth(self: QDialog) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10426,7 +10451,7 @@ pub const QDialog = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#public-types)
 pub const enums = struct {
-    pub const DialogCode = enum(i32) {
+    pub const DialogCode = enum {
         pub const Rejected: i32 = 0;
         pub const Accepted: i32 = 1;
     };

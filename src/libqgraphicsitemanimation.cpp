@@ -234,9 +234,8 @@ QMetaObject* QGraphicsItemAnimation_SuperMetaObject(const QGraphicsItemAnimation
 // Auxiliary method to allow providing re-implementation
 void QGraphicsItemAnimation_OnMetaObject(const QGraphicsItemAnimation* self, intptr_t slot) {
     auto* vqgraphicsitemanimation = const_cast<VirtualQGraphicsItemAnimation*>(dynamic_cast<const VirtualQGraphicsItemAnimation*>(self));
-    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation)
         vqgraphicsitemanimation->setQGraphicsItemAnimation_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -253,9 +252,8 @@ void* QGraphicsItemAnimation_SuperMetacast(QGraphicsItemAnimation* self, const c
 // Auxiliary method to allow providing re-implementation
 void QGraphicsItemAnimation_OnMetacast(QGraphicsItemAnimation* self, intptr_t slot) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
-    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation)
         vqgraphicsitemanimation->setQGraphicsItemAnimation_Metacast_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -272,9 +270,8 @@ int QGraphicsItemAnimation_SuperMetacall(QGraphicsItemAnimation* self, int param
 // Auxiliary method to allow providing re-implementation
 void QGraphicsItemAnimation_OnMetacall(QGraphicsItemAnimation* self, intptr_t slot) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
-    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation)
         vqgraphicsitemanimation->setQGraphicsItemAnimation_Metacall_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -291,9 +288,8 @@ void QGraphicsItemAnimation_SuperBeforeAnimationStep(QGraphicsItemAnimation* sel
 // Auxiliary method to allow providing re-implementation
 void QGraphicsItemAnimation_OnBeforeAnimationStep(QGraphicsItemAnimation* self, intptr_t slot) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
-    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation)
         vqgraphicsitemanimation->setQGraphicsItemAnimation_BeforeAnimationStep_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_BeforeAnimationStep_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -310,9 +306,8 @@ void QGraphicsItemAnimation_SuperAfterAnimationStep(QGraphicsItemAnimation* self
 // Auxiliary method to allow providing re-implementation
 void QGraphicsItemAnimation_OnAfterAnimationStep(QGraphicsItemAnimation* self, intptr_t slot) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
-    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation)
         vqgraphicsitemanimation->setQGraphicsItemAnimation_AfterAnimationStep_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_AfterAnimationStep_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +334,8 @@ bool QGraphicsItemAnimation_SuperEvent(QGraphicsItemAnimation* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QGraphicsItemAnimation_OnEvent(QGraphicsItemAnimation* self, intptr_t slot) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
-    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation)
         vqgraphicsitemanimation->setQGraphicsItemAnimation_Event_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +362,8 @@ bool QGraphicsItemAnimation_SuperEventFilter(QGraphicsItemAnimation* self, QObje
 // Auxiliary method to allow providing re-implementation
 void QGraphicsItemAnimation_OnEventFilter(QGraphicsItemAnimation* self, intptr_t slot) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
-    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation)
         vqgraphicsitemanimation->setQGraphicsItemAnimation_EventFilter_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +390,8 @@ void QGraphicsItemAnimation_SuperTimerEvent(QGraphicsItemAnimation* self, QTimer
 // Auxiliary method to allow providing re-implementation
 void QGraphicsItemAnimation_OnTimerEvent(QGraphicsItemAnimation* self, intptr_t slot) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
-    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation)
         vqgraphicsitemanimation->setQGraphicsItemAnimation_TimerEvent_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +418,8 @@ void QGraphicsItemAnimation_SuperChildEvent(QGraphicsItemAnimation* self, QChild
 // Auxiliary method to allow providing re-implementation
 void QGraphicsItemAnimation_OnChildEvent(QGraphicsItemAnimation* self, intptr_t slot) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
-    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation)
         vqgraphicsitemanimation->setQGraphicsItemAnimation_ChildEvent_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +446,8 @@ void QGraphicsItemAnimation_SuperCustomEvent(QGraphicsItemAnimation* self, QEven
 // Auxiliary method to allow providing re-implementation
 void QGraphicsItemAnimation_OnCustomEvent(QGraphicsItemAnimation* self, intptr_t slot) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
-    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation)
         vqgraphicsitemanimation->setQGraphicsItemAnimation_CustomEvent_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -484,9 +474,8 @@ void QGraphicsItemAnimation_SuperConnectNotify(QGraphicsItemAnimation* self, con
 // Auxiliary method to allow providing re-implementation
 void QGraphicsItemAnimation_OnConnectNotify(QGraphicsItemAnimation* self, intptr_t slot) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
-    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation)
         vqgraphicsitemanimation->setQGraphicsItemAnimation_ConnectNotify_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -513,9 +502,8 @@ void QGraphicsItemAnimation_SuperDisconnectNotify(QGraphicsItemAnimation* self, 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsItemAnimation_OnDisconnectNotify(QGraphicsItemAnimation* self, intptr_t slot) {
     auto* vqgraphicsitemanimation = dynamic_cast<VirtualQGraphicsItemAnimation*>(self);
-    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation)
         vqgraphicsitemanimation->setQGraphicsItemAnimation_DisconnectNotify_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -542,9 +530,8 @@ QObject* QGraphicsItemAnimation_SuperSender(const QGraphicsItemAnimation* self) 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsItemAnimation_OnSender(const QGraphicsItemAnimation* self, intptr_t slot) {
     auto* vqgraphicsitemanimation = const_cast<VirtualQGraphicsItemAnimation*>(dynamic_cast<const VirtualQGraphicsItemAnimation*>(self));
-    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation)
         vqgraphicsitemanimation->setQGraphicsItemAnimation_Sender_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -571,9 +558,8 @@ int QGraphicsItemAnimation_SuperSenderSignalIndex(const QGraphicsItemAnimation* 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsItemAnimation_OnSenderSignalIndex(const QGraphicsItemAnimation* self, intptr_t slot) {
     auto* vqgraphicsitemanimation = const_cast<VirtualQGraphicsItemAnimation*>(dynamic_cast<const VirtualQGraphicsItemAnimation*>(self));
-    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation)
         vqgraphicsitemanimation->setQGraphicsItemAnimation_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -600,9 +586,8 @@ int QGraphicsItemAnimation_SuperReceivers(const QGraphicsItemAnimation* self, co
 // Auxiliary method to allow providing re-implementation
 void QGraphicsItemAnimation_OnReceivers(const QGraphicsItemAnimation* self, intptr_t slot) {
     auto* vqgraphicsitemanimation = const_cast<VirtualQGraphicsItemAnimation*>(dynamic_cast<const VirtualQGraphicsItemAnimation*>(self));
-    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation)
         vqgraphicsitemanimation->setQGraphicsItemAnimation_Receivers_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -629,9 +614,8 @@ bool QGraphicsItemAnimation_SuperIsSignalConnected(const QGraphicsItemAnimation*
 // Auxiliary method to allow providing re-implementation
 void QGraphicsItemAnimation_OnIsSignalConnected(const QGraphicsItemAnimation* self, intptr_t slot) {
     auto* vqgraphicsitemanimation = const_cast<VirtualQGraphicsItemAnimation*>(dynamic_cast<const VirtualQGraphicsItemAnimation*>(self));
-    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation) {
+    if (vqgraphicsitemanimation && vqgraphicsitemanimation->isVirtualQGraphicsItemAnimation)
         vqgraphicsitemanimation->setQGraphicsItemAnimation_IsSignalConnected_Callback(reinterpret_cast<VirtualQGraphicsItemAnimation::QGraphicsItemAnimation_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGraphicsItemAnimation_Delete(QGraphicsItemAnimation* self) {

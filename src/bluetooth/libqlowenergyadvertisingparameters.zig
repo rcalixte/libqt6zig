@@ -369,13 +369,13 @@ pub const QLowEnergyAdvertisingParameters__AddressInfo = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyadvertisingparameters.html#public-types)
 pub const enums = struct {
-    pub const Mode = enum(i32) {
+    pub const Mode = enum {
         pub const AdvInd: i32 = 0;
         pub const AdvScanInd: i32 = 2;
         pub const AdvNonConnInd: i32 = 3;
     };
 
-    pub const FilterPolicy = enum(i32) {
+    pub const FilterPolicy = enum {
         pub const IgnoreWhiteList: i32 = 0;
         pub const UseWhiteListForScanning: i32 = 1;
         pub const UseWhiteListForConnecting: i32 = 2;

@@ -420,9 +420,8 @@ QMetaObject* KStatusNotifierItem_SuperMetaObject(const KStatusNotifierItem* self
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnMetaObject(const KStatusNotifierItem* self, intptr_t slot) {
     auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
         vkstatusnotifieritem->setKStatusNotifierItem_MetaObject_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -439,9 +438,8 @@ void* KStatusNotifierItem_SuperMetacast(KStatusNotifierItem* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnMetacast(KStatusNotifierItem* self, intptr_t slot) {
     auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
         vkstatusnotifieritem->setKStatusNotifierItem_Metacast_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -458,9 +456,8 @@ int KStatusNotifierItem_SuperMetacall(KStatusNotifierItem* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnMetacall(KStatusNotifierItem* self, intptr_t slot) {
     auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
         vkstatusnotifieritem->setKStatusNotifierItem_Metacall_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -477,9 +474,8 @@ void KStatusNotifierItem_SuperActivate(KStatusNotifierItem* self, const QPoint* 
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnActivate(KStatusNotifierItem* self, intptr_t slot) {
     auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
         vkstatusnotifieritem->setKStatusNotifierItem_Activate_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_Activate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -496,9 +492,8 @@ bool KStatusNotifierItem_SuperEventFilter(KStatusNotifierItem* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnEventFilter(KStatusNotifierItem* self, intptr_t slot) {
     auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
         vkstatusnotifieritem->setKStatusNotifierItem_EventFilter_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -525,9 +520,8 @@ bool KStatusNotifierItem_SuperEvent(KStatusNotifierItem* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnEvent(KStatusNotifierItem* self, intptr_t slot) {
     auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
         vkstatusnotifieritem->setKStatusNotifierItem_Event_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -554,9 +548,8 @@ void KStatusNotifierItem_SuperTimerEvent(KStatusNotifierItem* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnTimerEvent(KStatusNotifierItem* self, intptr_t slot) {
     auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
         vkstatusnotifieritem->setKStatusNotifierItem_TimerEvent_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -583,9 +576,8 @@ void KStatusNotifierItem_SuperChildEvent(KStatusNotifierItem* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnChildEvent(KStatusNotifierItem* self, intptr_t slot) {
     auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
         vkstatusnotifieritem->setKStatusNotifierItem_ChildEvent_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -612,9 +604,8 @@ void KStatusNotifierItem_SuperCustomEvent(KStatusNotifierItem* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnCustomEvent(KStatusNotifierItem* self, intptr_t slot) {
     auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
         vkstatusnotifieritem->setKStatusNotifierItem_CustomEvent_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -641,9 +632,8 @@ void KStatusNotifierItem_SuperConnectNotify(KStatusNotifierItem* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnConnectNotify(KStatusNotifierItem* self, intptr_t slot) {
     auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
         vkstatusnotifieritem->setKStatusNotifierItem_ConnectNotify_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -670,9 +660,8 @@ void KStatusNotifierItem_SuperDisconnectNotify(KStatusNotifierItem* self, const 
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnDisconnectNotify(KStatusNotifierItem* self, intptr_t slot) {
     auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
         vkstatusnotifieritem->setKStatusNotifierItem_DisconnectNotify_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -699,9 +688,8 @@ QObject* KStatusNotifierItem_SuperSender(const KStatusNotifierItem* self) {
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnSender(const KStatusNotifierItem* self, intptr_t slot) {
     auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
         vkstatusnotifieritem->setKStatusNotifierItem_Sender_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -728,9 +716,8 @@ int KStatusNotifierItem_SuperSenderSignalIndex(const KStatusNotifierItem* self) 
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnSenderSignalIndex(const KStatusNotifierItem* self, intptr_t slot) {
     auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
         vkstatusnotifieritem->setKStatusNotifierItem_SenderSignalIndex_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -757,9 +744,8 @@ int KStatusNotifierItem_SuperReceivers(const KStatusNotifierItem* self, const ch
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnReceivers(const KStatusNotifierItem* self, intptr_t slot) {
     auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
         vkstatusnotifieritem->setKStatusNotifierItem_Receivers_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -786,9 +772,8 @@ bool KStatusNotifierItem_SuperIsSignalConnected(const KStatusNotifierItem* self,
 // Auxiliary method to allow providing re-implementation
 void KStatusNotifierItem_OnIsSignalConnected(const KStatusNotifierItem* self, intptr_t slot) {
     auto* vkstatusnotifieritem = const_cast<VirtualKStatusNotifierItem*>(dynamic_cast<const VirtualKStatusNotifierItem*>(self));
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
+    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem)
         vkstatusnotifieritem->setKStatusNotifierItem_IsSignalConnected_Callback(reinterpret_cast<VirtualKStatusNotifierItem::KStatusNotifierItem_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KStatusNotifierItem_Delete(KStatusNotifierItem* self) {

@@ -146,9 +146,8 @@ QMetaObject* QUndoView_SuperMetaObject(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMetaObject(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_MetaObject_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -165,9 +164,8 @@ void* QUndoView_SuperMetacast(QUndoView* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMetacast(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_Metacast_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -184,9 +182,8 @@ int QUndoView_SuperMetacall(QUndoView* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMetacall(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_Metacall_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -213,9 +210,8 @@ QRect* QUndoView_SuperVisualRect(const QUndoView* self, const QModelIndex* index
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnVisualRect(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_VisualRect_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_VisualRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -242,9 +238,8 @@ void QUndoView_SuperScrollTo(QUndoView* self, const QModelIndex* index, int hint
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnScrollTo(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ScrollTo_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ScrollTo_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +266,8 @@ QModelIndex* QUndoView_SuperIndexAt(const QUndoView* self, const QPoint* p) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnIndexAt(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_IndexAt_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_IndexAt_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +294,8 @@ void QUndoView_SuperDoItemsLayout(QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDoItemsLayout(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_DoItemsLayout_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DoItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +322,8 @@ void QUndoView_SuperReset(QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnReset(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_Reset_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +350,8 @@ void QUndoView_SuperSetRootIndex(QUndoView* self, const QModelIndex* index) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSetRootIndex(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SetRootIndex_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetRootIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +378,8 @@ bool QUndoView_SuperEvent(QUndoView* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_Event_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +406,8 @@ void QUndoView_SuperScrollContentsBy(QUndoView* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnScrollContentsBy(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ScrollContentsBy_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -457,9 +446,8 @@ void QUndoView_SuperDataChanged(QUndoView* self, const QModelIndex* topLeft, con
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDataChanged(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_DataChanged_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DataChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -486,9 +474,8 @@ void QUndoView_SuperRowsInserted(QUndoView* self, const QModelIndex* parent, int
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnRowsInserted(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_RowsInserted_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_RowsInserted_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -515,9 +502,8 @@ void QUndoView_SuperRowsAboutToBeRemoved(QUndoView* self, const QModelIndex* par
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnRowsAboutToBeRemoved(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_RowsAboutToBeRemoved_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -544,9 +530,8 @@ void QUndoView_SuperMouseMoveEvent(QUndoView* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMouseMoveEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -573,9 +558,8 @@ void QUndoView_SuperMouseReleaseEvent(QUndoView* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMouseReleaseEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -602,9 +586,8 @@ void QUndoView_SuperWheelEvent(QUndoView* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnWheelEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_WheelEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -631,9 +614,8 @@ void QUndoView_SuperTimerEvent(QUndoView* self, QTimerEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnTimerEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_TimerEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -660,9 +642,8 @@ void QUndoView_SuperResizeEvent(QUndoView* self, QResizeEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnResizeEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ResizeEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -689,9 +670,8 @@ void QUndoView_SuperDragMoveEvent(QUndoView* self, QDragMoveEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDragMoveEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_DragMoveEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -718,9 +698,8 @@ void QUndoView_SuperDragLeaveEvent(QUndoView* self, QDragLeaveEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDragLeaveEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_DragLeaveEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -747,9 +726,8 @@ void QUndoView_SuperDropEvent(QUndoView* self, QDropEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDropEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_DropEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -776,9 +754,8 @@ void QUndoView_SuperStartDrag(QUndoView* self, int supportedActions) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnStartDrag(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_StartDrag_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_StartDrag_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -805,9 +782,8 @@ void QUndoView_SuperInitViewItemOption(const QUndoView* self, QStyleOptionViewIt
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnInitViewItemOption(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_InitViewItemOption_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_InitViewItemOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -834,9 +810,8 @@ void QUndoView_SuperPaintEvent(QUndoView* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnPaintEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_PaintEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -863,9 +838,8 @@ int QUndoView_SuperHorizontalOffset(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnHorizontalOffset(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_HorizontalOffset_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_HorizontalOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -892,9 +866,8 @@ int QUndoView_SuperVerticalOffset(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnVerticalOffset(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_VerticalOffset_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_VerticalOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -919,9 +892,8 @@ QModelIndex* QUndoView_SuperMoveCursor(QUndoView* self, int cursorAction, int mo
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMoveCursor(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_MoveCursor_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MoveCursor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -948,9 +920,8 @@ void QUndoView_SuperSetSelection(QUndoView* self, const QRect* rect, int command
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSetSelection(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SetSelection_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -975,9 +946,8 @@ QRegion* QUndoView_SuperVisualRegionForSelection(const QUndoView* self, const QI
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnVisualRegionForSelection(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_VisualRegionForSelection_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_VisualRegionForSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1040,9 +1010,8 @@ libqt_list /* of QModelIndex* */ QUndoView_SuperSelectedIndexes(const QUndoView*
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSelectedIndexes(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SelectedIndexes_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SelectedIndexes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1069,9 +1038,8 @@ void QUndoView_SuperUpdateGeometries(QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnUpdateGeometries(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_UpdateGeometries_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_UpdateGeometries_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1098,9 +1066,8 @@ bool QUndoView_SuperIsIndexHidden(const QUndoView* self, const QModelIndex* inde
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnIsIndexHidden(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_IsIndexHidden_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_IsIndexHidden_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1127,9 +1094,8 @@ void QUndoView_SuperSelectionChanged(QUndoView* self, const QItemSelection* sele
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSelectionChanged(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SelectionChanged_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SelectionChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1156,9 +1122,8 @@ void QUndoView_SuperCurrentChanged(QUndoView* self, const QModelIndex* current, 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnCurrentChanged(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_CurrentChanged_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_CurrentChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1183,9 +1148,8 @@ QSize* QUndoView_SuperViewportSizeHint(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnViewportSizeHint(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ViewportSizeHint_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1212,9 +1176,8 @@ void QUndoView_SuperSetModel(QUndoView* self, QAbstractItemModel* model) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSetModel(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SetModel_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1241,9 +1204,8 @@ void QUndoView_SuperSetSelectionModel(QUndoView* self, QItemSelectionModel* sele
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSetSelectionModel(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SetSelectionModel_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetSelectionModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1272,9 +1234,8 @@ void QUndoView_SuperKeyboardSearch(QUndoView* self, const libqt_string search) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnKeyboardSearch(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_KeyboardSearch_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_KeyboardSearch_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1301,9 +1262,8 @@ int QUndoView_SuperSizeHintForRow(const QUndoView* self, int row) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSizeHintForRow(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SizeHintForRow_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SizeHintForRow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1330,9 +1290,8 @@ int QUndoView_SuperSizeHintForColumn(const QUndoView* self, int column) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSizeHintForColumn(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SizeHintForColumn_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SizeHintForColumn_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1359,9 +1318,8 @@ QAbstractItemDelegate* QUndoView_SuperItemDelegateForIndex(const QUndoView* self
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnItemDelegateForIndex(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ItemDelegateForIndex_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ItemDelegateForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1388,9 +1346,8 @@ QVariant* QUndoView_SuperInputMethodQuery(const QUndoView* self, int query) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnInputMethodQuery(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_InputMethodQuery_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1417,9 +1374,8 @@ void QUndoView_SuperSelectAll(QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSelectAll(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SelectAll_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SelectAll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1446,9 +1402,8 @@ void QUndoView_SuperUpdateEditorData(QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnUpdateEditorData(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_UpdateEditorData_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_UpdateEditorData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1475,9 +1430,8 @@ void QUndoView_SuperUpdateEditorGeometries(QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnUpdateEditorGeometries(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_UpdateEditorGeometries_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_UpdateEditorGeometries_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1504,9 +1458,8 @@ void QUndoView_SuperVerticalScrollbarAction(QUndoView* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnVerticalScrollbarAction(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_VerticalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1533,9 +1486,8 @@ void QUndoView_SuperHorizontalScrollbarAction(QUndoView* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnHorizontalScrollbarAction(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_HorizontalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1562,9 +1514,8 @@ void QUndoView_SuperVerticalScrollbarValueChanged(QUndoView* self, int value) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnVerticalScrollbarValueChanged(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_VerticalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_VerticalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1591,9 +1542,8 @@ void QUndoView_SuperHorizontalScrollbarValueChanged(QUndoView* self, int value) 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnHorizontalScrollbarValueChanged(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_HorizontalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_HorizontalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1620,9 +1570,8 @@ void QUndoView_SuperCloseEditor(QUndoView* self, QWidget* editor, int hint) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnCloseEditor(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_CloseEditor_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_CloseEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1649,9 +1598,8 @@ void QUndoView_SuperCommitData(QUndoView* self, QWidget* editor) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnCommitData(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_CommitData_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_CommitData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1678,9 +1626,8 @@ void QUndoView_SuperEditorDestroyed(QUndoView* self, QObject* editor) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnEditorDestroyed(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_EditorDestroyed_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_EditorDestroyed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1707,9 +1654,8 @@ bool QUndoView_SuperEdit2(QUndoView* self, const QModelIndex* index, int trigger
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnEdit2(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_Edit2_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Edit2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1736,9 +1682,8 @@ int QUndoView_SuperSelectionCommand(const QUndoView* self, const QModelIndex* in
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSelectionCommand(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SelectionCommand_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SelectionCommand_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1765,9 +1710,8 @@ bool QUndoView_SuperFocusNextPrevChild(QUndoView* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnFocusNextPrevChild(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1794,9 +1738,8 @@ bool QUndoView_SuperViewportEvent(QUndoView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnViewportEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ViewportEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1823,9 +1766,8 @@ void QUndoView_SuperMousePressEvent(QUndoView* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMousePressEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_MousePressEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1852,9 +1794,8 @@ void QUndoView_SuperMouseDoubleClickEvent(QUndoView* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMouseDoubleClickEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1881,9 +1822,8 @@ void QUndoView_SuperDragEnterEvent(QUndoView* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDragEnterEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_DragEnterEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1910,9 +1850,8 @@ void QUndoView_SuperFocusInEvent(QUndoView* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnFocusInEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_FocusInEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1939,9 +1878,8 @@ void QUndoView_SuperFocusOutEvent(QUndoView* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnFocusOutEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_FocusOutEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1968,9 +1906,8 @@ void QUndoView_SuperKeyPressEvent(QUndoView* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnKeyPressEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_KeyPressEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1997,9 +1934,8 @@ void QUndoView_SuperInputMethodEvent(QUndoView* self, QInputMethodEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnInputMethodEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_InputMethodEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2026,9 +1962,8 @@ bool QUndoView_SuperEventFilter(QUndoView* self, QObject* object, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnEventFilter(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_EventFilter_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2055,9 +1990,8 @@ QSize* QUndoView_SuperMinimumSizeHint(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMinimumSizeHint(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_MinimumSizeHint_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2084,9 +2018,8 @@ QSize* QUndoView_SuperSizeHint(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSizeHint(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SizeHint_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2113,9 +2046,8 @@ void QUndoView_SuperSetupViewport(QUndoView* self, QWidget* viewport) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSetupViewport(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SetupViewport_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2142,9 +2074,8 @@ void QUndoView_SuperContextMenuEvent(QUndoView* self, QContextMenuEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnContextMenuEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ContextMenuEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2171,9 +2102,8 @@ void QUndoView_SuperChangeEvent(QUndoView* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnChangeEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ChangeEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2200,9 +2130,8 @@ void QUndoView_SuperInitStyleOption(const QUndoView* self, QStyleOptionFrame* op
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnInitStyleOption(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_InitStyleOption_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2229,9 +2158,8 @@ int QUndoView_SuperDevType(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDevType(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_DevType_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2258,9 +2186,8 @@ void QUndoView_SuperSetVisible(QUndoView* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSetVisible(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SetVisible_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2287,9 +2214,8 @@ int QUndoView_SuperHeightForWidth(const QUndoView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnHeightForWidth(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_HeightForWidth_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2316,9 +2242,8 @@ bool QUndoView_SuperHasHeightForWidth(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnHasHeightForWidth(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_HasHeightForWidth_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2345,9 +2270,8 @@ QPaintEngine* QUndoView_SuperPaintEngine(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnPaintEngine(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_PaintEngine_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2374,9 +2298,8 @@ void QUndoView_SuperKeyReleaseEvent(QUndoView* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnKeyReleaseEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2403,9 +2326,8 @@ void QUndoView_SuperEnterEvent(QUndoView* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnEnterEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_EnterEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2432,9 +2354,8 @@ void QUndoView_SuperLeaveEvent(QUndoView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnLeaveEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_LeaveEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2461,9 +2382,8 @@ void QUndoView_SuperMoveEvent(QUndoView* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMoveEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_MoveEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2490,9 +2410,8 @@ void QUndoView_SuperCloseEvent(QUndoView* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnCloseEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_CloseEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2519,9 +2438,8 @@ void QUndoView_SuperTabletEvent(QUndoView* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnTabletEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_TabletEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2548,9 +2466,8 @@ void QUndoView_SuperActionEvent(QUndoView* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnActionEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ActionEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2577,9 +2494,8 @@ void QUndoView_SuperShowEvent(QUndoView* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnShowEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ShowEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2606,9 +2522,8 @@ void QUndoView_SuperHideEvent(QUndoView* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnHideEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_HideEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2637,9 +2552,8 @@ bool QUndoView_SuperNativeEvent(QUndoView* self, const libqt_string eventType, v
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnNativeEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_NativeEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2666,9 +2580,8 @@ int QUndoView_SuperMetric(const QUndoView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnMetric(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_Metric_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2695,9 +2608,8 @@ void QUndoView_SuperInitPainter(const QUndoView* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnInitPainter(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_InitPainter_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2724,9 +2636,8 @@ QPaintDevice* QUndoView_SuperRedirected(const QUndoView* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnRedirected(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_Redirected_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2753,9 +2664,8 @@ QPainter* QUndoView_SuperSharedPainter(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSharedPainter(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SharedPainter_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2782,9 +2692,8 @@ void QUndoView_SuperChildEvent(QUndoView* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnChildEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ChildEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2811,9 +2720,8 @@ void QUndoView_SuperCustomEvent(QUndoView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnCustomEvent(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_CustomEvent_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2840,9 +2748,8 @@ void QUndoView_SuperConnectNotify(QUndoView* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnConnectNotify(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ConnectNotify_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2869,9 +2776,8 @@ void QUndoView_SuperDisconnectNotify(QUndoView* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDisconnectNotify(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_DisconnectNotify_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2898,9 +2804,8 @@ void QUndoView_SuperResizeContents(QUndoView* self, int width, int height) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnResizeContents(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ResizeContents_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ResizeContents_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2925,9 +2830,8 @@ QSize* QUndoView_SuperContentsSize(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnContentsSize(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ContentsSize_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ContentsSize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2952,9 +2856,8 @@ QRect* QUndoView_SuperRectForIndex(const QUndoView* self, const QModelIndex* ind
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnRectForIndex(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_RectForIndex_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_RectForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2981,9 +2884,8 @@ void QUndoView_SuperSetPositionForIndex(QUndoView* self, const QPoint* position,
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSetPositionForIndex(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SetPositionForIndex_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetPositionForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3010,9 +2912,8 @@ int QUndoView_SuperState(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnState(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_State_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_State_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3039,9 +2940,8 @@ void QUndoView_SuperSetState(QUndoView* self, int state) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSetState(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SetState_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3068,9 +2968,8 @@ void QUndoView_SuperScheduleDelayedItemsLayout(QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnScheduleDelayedItemsLayout(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ScheduleDelayedItemsLayout_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ScheduleDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3097,9 +2996,8 @@ void QUndoView_SuperExecuteDelayedItemsLayout(QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnExecuteDelayedItemsLayout(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ExecuteDelayedItemsLayout_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ExecuteDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3126,9 +3024,8 @@ void QUndoView_SuperSetDirtyRegion(QUndoView* self, const QRegion* region) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSetDirtyRegion(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SetDirtyRegion_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3155,9 +3052,8 @@ void QUndoView_SuperScrollDirtyRegion(QUndoView* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnScrollDirtyRegion(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ScrollDirtyRegion_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ScrollDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3182,9 +3078,8 @@ QPoint* QUndoView_SuperDirtyRegionOffset(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDirtyRegionOffset(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_DirtyRegionOffset_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DirtyRegionOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3211,9 +3106,8 @@ void QUndoView_SuperStartAutoScroll(QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnStartAutoScroll(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_StartAutoScroll_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_StartAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3240,9 +3134,8 @@ void QUndoView_SuperStopAutoScroll(QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnStopAutoScroll(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_StopAutoScroll_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_StopAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3269,9 +3162,8 @@ void QUndoView_SuperDoAutoScroll(QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDoAutoScroll(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_DoAutoScroll_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DoAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3298,9 +3190,8 @@ int QUndoView_SuperDropIndicatorPosition(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDropIndicatorPosition(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_DropIndicatorPosition_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DropIndicatorPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3327,9 +3218,8 @@ void QUndoView_SuperSetViewportMargins(QUndoView* self, int left, int top, int r
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSetViewportMargins(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SetViewportMargins_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3354,9 +3244,8 @@ QMargins* QUndoView_SuperViewportMargins(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnViewportMargins(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_ViewportMargins_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3383,9 +3272,8 @@ void QUndoView_SuperDrawFrame(QUndoView* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDrawFrame(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_DrawFrame_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3412,9 +3300,8 @@ void QUndoView_SuperUpdateMicroFocus(QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnUpdateMicroFocus(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3441,9 +3328,8 @@ void QUndoView_SuperCreate(QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnCreate(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_Create_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3470,9 +3356,8 @@ void QUndoView_SuperDestroy(QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnDestroy(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_Destroy_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3499,9 +3384,8 @@ bool QUndoView_SuperFocusNextChild(QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnFocusNextChild(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_FocusNextChild_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3528,9 +3412,8 @@ bool QUndoView_SuperFocusPreviousChild(QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnFocusPreviousChild(QUndoView* self, intptr_t slot) {
     auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_FocusPreviousChild_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3557,9 +3440,8 @@ QObject* QUndoView_SuperSender(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSender(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_Sender_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3586,9 +3468,8 @@ int QUndoView_SuperSenderSignalIndex(const QUndoView* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnSenderSignalIndex(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_SenderSignalIndex_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3615,9 +3496,8 @@ int QUndoView_SuperReceivers(const QUndoView* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnReceivers(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_Receivers_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3644,9 +3524,8 @@ bool QUndoView_SuperIsSignalConnected(const QUndoView* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnIsSignalConnected(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_IsSignalConnected_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3673,9 +3552,8 @@ double QUndoView_SuperGetDecodedMetricF(const QUndoView* self, int metricA, int 
 // Auxiliary method to allow providing re-implementation
 void QUndoView_OnGetDecodedMetricF(const QUndoView* self, intptr_t slot) {
     auto* vqundoview = const_cast<VirtualQUndoView*>(dynamic_cast<const VirtualQUndoView*>(self));
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
+    if (vqundoview && vqundoview->isVirtualQUndoView)
         vqundoview->setQUndoView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQUndoView::QUndoView_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QUndoView_Delete(QUndoView* self) {

@@ -634,7 +634,7 @@ pub const QBluetoothDeviceInfo = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#public-types)
 pub const enums = struct {
-    pub const MajorDeviceClass = enum(i32) {
+    pub const MajorDeviceClass = enum {
         pub const MiscellaneousDevice: i32 = 0;
         pub const ComputerDevice: i32 = 1;
         pub const PhoneDevice: i32 = 2;
@@ -648,11 +648,11 @@ pub const enums = struct {
         pub const UncategorizedDevice: i32 = 31;
     };
 
-    pub const MinorMiscellaneousClass = enum(i32) {
+    pub const MinorMiscellaneousClass = enum {
         pub const UncategorizedMiscellaneous: i32 = 0;
     };
 
-    pub const MinorComputerClass = enum(i32) {
+    pub const MinorComputerClass = enum {
         pub const UncategorizedComputer: i32 = 0;
         pub const DesktopComputer: i32 = 1;
         pub const ServerComputer: i32 = 2;
@@ -662,7 +662,7 @@ pub const enums = struct {
         pub const WearableComputer: i32 = 6;
     };
 
-    pub const MinorPhoneClass = enum(i32) {
+    pub const MinorPhoneClass = enum {
         pub const UncategorizedPhone: i32 = 0;
         pub const CellularPhone: i32 = 1;
         pub const CordlessPhone: i32 = 2;
@@ -671,7 +671,7 @@ pub const enums = struct {
         pub const CommonIsdnAccessPhone: i32 = 5;
     };
 
-    pub const MinorNetworkClass = enum(i32) {
+    pub const MinorNetworkClass = enum {
         pub const NetworkFullService: i32 = 0;
         pub const NetworkLoadFactorOne: i32 = 8;
         pub const NetworkLoadFactorTwo: i32 = 16;
@@ -682,7 +682,7 @@ pub const enums = struct {
         pub const NetworkNoService: i32 = 56;
     };
 
-    pub const MinorAudioVideoClass = enum(i32) {
+    pub const MinorAudioVideoClass = enum {
         pub const UncategorizedAudioVideoDevice: i32 = 0;
         pub const WearableHeadsetDevice: i32 = 1;
         pub const HandsFreeDevice: i32 = 2;
@@ -702,7 +702,7 @@ pub const enums = struct {
         pub const GamingDevice: i32 = 18;
     };
 
-    pub const MinorPeripheralClass = enum(i32) {
+    pub const MinorPeripheralClass = enum {
         pub const UncategorizedPeripheral: i32 = 0;
         pub const KeyboardPeripheral: i32 = 16;
         pub const PointingDevicePeripheral: i32 = 32;
@@ -715,7 +715,7 @@ pub const enums = struct {
         pub const CardReaderPeripheral: i32 = 6;
     };
 
-    pub const MinorImagingClass = enum(i32) {
+    pub const MinorImagingClass = enum {
         pub const UncategorizedImagingDevice: i32 = 0;
         pub const ImageDisplay: i32 = 4;
         pub const ImageCamera: i32 = 8;
@@ -723,7 +723,7 @@ pub const enums = struct {
         pub const ImagePrinter: i32 = 32;
     };
 
-    pub const MinorWearableClass = enum(i32) {
+    pub const MinorWearableClass = enum {
         pub const UncategorizedWearableDevice: i32 = 0;
         pub const WearableWristWatch: i32 = 1;
         pub const WearablePager: i32 = 2;
@@ -732,7 +732,7 @@ pub const enums = struct {
         pub const WearableGlasses: i32 = 5;
     };
 
-    pub const MinorToyClass = enum(i32) {
+    pub const MinorToyClass = enum {
         pub const UncategorizedToy: i32 = 0;
         pub const ToyRobot: i32 = 1;
         pub const ToyVehicle: i32 = 2;
@@ -741,7 +741,7 @@ pub const enums = struct {
         pub const ToyGame: i32 = 5;
     };
 
-    pub const MinorHealthClass = enum(i32) {
+    pub const MinorHealthClass = enum {
         pub const UncategorizedHealthDevice: i32 = 0;
         pub const HealthBloodPressureMonitor: i32 = 1;
         pub const HealthThermometer: i32 = 2;
@@ -752,7 +752,7 @@ pub const enums = struct {
         pub const HealthStepCounter: i32 = 8;
     };
 
-    pub const ServiceClass = enum(i32) {
+    pub const ServiceClass = enum {
         pub const NoService: i32 = 0;
         pub const PositioningService: i32 = 1;
         pub const NetworkingService: i32 = 2;
@@ -765,7 +765,7 @@ pub const enums = struct {
         pub const AllServices: i32 = 2047;
     };
 
-    pub const Field = enum(i32) {
+    pub const Field = enum {
         pub const None: i32 = 0;
         pub const RSSI: i32 = 1;
         pub const ManufacturerData: i32 = 2;
@@ -773,7 +773,7 @@ pub const enums = struct {
         pub const All: i32 = 32767;
     };
 
-    pub const CoreConfiguration = enum(i32) {
+    pub const CoreConfiguration = enum {
         pub const UnknownCoreConfiguration: i32 = 0;
         pub const LowEnergyCoreConfiguration: i32 = 1;
         pub const BaseRateCoreConfiguration: i32 = 2;

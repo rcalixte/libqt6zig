@@ -3167,6 +3167,31 @@ pub const QsciScintillaBase = extern struct {
         qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciScintillaBase `
+    ///
+    pub fn asQPaintDevice(self: QsciScintillaBase) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QsciScintillaBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QsciScintillaBase {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -9151,7 +9176,7 @@ pub const QsciScintillaBase = extern struct {
     /// ` self: QsciScintillaBase `
     ///
     pub fn paintingActive(self: QsciScintillaBase) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -9167,7 +9192,7 @@ pub const QsciScintillaBase = extern struct {
     /// ` self: QsciScintillaBase `
     ///
     pub fn widthMM(self: QsciScintillaBase) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -9183,7 +9208,7 @@ pub const QsciScintillaBase = extern struct {
     /// ` self: QsciScintillaBase `
     ///
     pub fn heightMM(self: QsciScintillaBase) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -9199,7 +9224,7 @@ pub const QsciScintillaBase = extern struct {
     /// ` self: QsciScintillaBase `
     ///
     pub fn logicalDpiX(self: QsciScintillaBase) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -9215,7 +9240,7 @@ pub const QsciScintillaBase = extern struct {
     /// ` self: QsciScintillaBase `
     ///
     pub fn logicalDpiY(self: QsciScintillaBase) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -9231,7 +9256,7 @@ pub const QsciScintillaBase = extern struct {
     /// ` self: QsciScintillaBase `
     ///
     pub fn physicalDpiX(self: QsciScintillaBase) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -9247,7 +9272,7 @@ pub const QsciScintillaBase = extern struct {
     /// ` self: QsciScintillaBase `
     ///
     pub fn physicalDpiY(self: QsciScintillaBase) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -9263,7 +9288,7 @@ pub const QsciScintillaBase = extern struct {
     /// ` self: QsciScintillaBase `
     ///
     pub fn devicePixelRatio(self: QsciScintillaBase) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -9279,7 +9304,7 @@ pub const QsciScintillaBase = extern struct {
     /// ` self: QsciScintillaBase `
     ///
     pub fn devicePixelRatioF(self: QsciScintillaBase) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -9295,7 +9320,7 @@ pub const QsciScintillaBase = extern struct {
     /// ` self: QsciScintillaBase `
     ///
     pub fn colorCount(self: QsciScintillaBase) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -9311,7 +9336,7 @@ pub const QsciScintillaBase = extern struct {
     /// ` self: QsciScintillaBase `
     ///
     pub fn depth(self: QsciScintillaBase) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -12178,7 +12203,7 @@ pub const QsciScintillaBase = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciScintillaBase = enum(i32) {
+    pub const QsciScintillaBase = enum {
         pub const SCI_START: i32 = 2000;
         pub const SCI_OPTIONAL_START: i32 = 3000;
         pub const SCI_LEXER_START: i32 = 4000;

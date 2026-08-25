@@ -1624,7 +1624,7 @@ pub const KStatusBarJobTracker = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kstatusbarjobtracker.html#public-types)
 pub const enums = struct {
-    pub const StatusBarMode = enum(i32) {
+    pub const StatusBarMode = enum {
         pub const NoInformation: i32 = 0;
         pub const LabelOnly: i32 = 1;
         pub const ProgressOnly: i32 = 2;

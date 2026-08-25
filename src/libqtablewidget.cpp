@@ -348,9 +348,8 @@ QTableWidgetItem* QTableWidgetItem_SuperClone(const QTableWidgetItem* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidgetItem_OnClone(const QTableWidgetItem* self, intptr_t slot) {
     auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
+    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem)
         vqtablewidgetitem->setQTableWidgetItem_Clone_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Clone_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -367,9 +366,8 @@ QVariant* QTableWidgetItem_SuperData(const QTableWidgetItem* self, int role) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidgetItem_OnData(const QTableWidgetItem* self, intptr_t slot) {
     auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
+    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem)
         vqtablewidgetitem->setQTableWidgetItem_Data_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -386,9 +384,8 @@ void QTableWidgetItem_SuperSetData(QTableWidgetItem* self, int role, const QVari
 // Auxiliary method to allow providing re-implementation
 void QTableWidgetItem_OnSetData(QTableWidgetItem* self, intptr_t slot) {
     auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
+    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem)
         vqtablewidgetitem->setQTableWidgetItem_SetData_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_SetData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -405,9 +402,8 @@ bool QTableWidgetItem_SuperOperatorLesser(const QTableWidgetItem* self, const QT
 // Auxiliary method to allow providing re-implementation
 void QTableWidgetItem_OnOperatorLesser(const QTableWidgetItem* self, intptr_t slot) {
     auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
+    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem)
         vqtablewidgetitem->setQTableWidgetItem_OperatorLesser_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_OperatorLesser_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -424,9 +420,8 @@ void QTableWidgetItem_SuperRead(QTableWidgetItem* self, QDataStream* in) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidgetItem_OnRead(QTableWidgetItem* self, intptr_t slot) {
     auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
+    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem)
         vqtablewidgetitem->setQTableWidgetItem_Read_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Read_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -443,9 +438,8 @@ void QTableWidgetItem_SuperWrite(const QTableWidgetItem* self, QDataStream* out)
 // Auxiliary method to allow providing re-implementation
 void QTableWidgetItem_OnWrite(const QTableWidgetItem* self, intptr_t slot) {
     auto* vqtablewidgetitem = const_cast<VirtualQTableWidgetItem*>(dynamic_cast<const VirtualQTableWidgetItem*>(self));
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
+    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem)
         vqtablewidgetitem->setQTableWidgetItem_Write_Callback(reinterpret_cast<VirtualQTableWidgetItem::QTableWidgetItem_Write_Callback>(slot));
-    }
 }
 
 void QTableWidgetItem_Delete(QTableWidgetItem* self) {
@@ -1032,9 +1026,8 @@ QMetaObject* QTableWidget_SuperMetaObject(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMetaObject(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_MetaObject_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1051,9 +1044,8 @@ void* QTableWidget_SuperMetacast(QTableWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMetacast(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_Metacast_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1070,9 +1062,8 @@ int QTableWidget_SuperMetacall(QTableWidget* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMetacall(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_Metacall_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1089,9 +1080,8 @@ bool QTableWidget_SuperEvent(QTableWidget* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_Event_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1142,9 +1132,8 @@ libqt_list /* of libqt_string */ QTableWidget_SuperMimeTypes(const QTableWidget*
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMimeTypes(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_MimeTypes_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MimeTypes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1167,9 +1156,8 @@ QMimeData* QTableWidget_SuperMimeData(const QTableWidget* self, const libqt_list
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMimeData(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_MimeData_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MimeData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1186,9 +1174,8 @@ bool QTableWidget_SuperDropMimeData(QTableWidget* self, int row, int column, con
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDropMimeData(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_DropMimeData_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DropMimeData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1205,9 +1192,8 @@ int QTableWidget_SuperSupportedDropActions(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSupportedDropActions(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SupportedDropActions_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1224,9 +1210,8 @@ void QTableWidget_SuperDropEvent(QTableWidget* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDropEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_DropEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1253,9 +1238,8 @@ void QTableWidget_SuperSetRootIndex(QTableWidget* self, const QModelIndex* index
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSetRootIndex(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SetRootIndex_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SetRootIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1282,9 +1266,8 @@ void QTableWidget_SuperSetSelectionModel(QTableWidget* self, QItemSelectionModel
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSetSelectionModel(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SetSelectionModel_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SetSelectionModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1311,9 +1294,8 @@ void QTableWidget_SuperDoItemsLayout(QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDoItemsLayout(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_DoItemsLayout_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DoItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1340,9 +1322,8 @@ QRect* QTableWidget_SuperVisualRect(const QTableWidget* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnVisualRect(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_VisualRect_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_VisualRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1369,9 +1350,8 @@ void QTableWidget_SuperScrollTo(QTableWidget* self, const QModelIndex* index, in
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnScrollTo(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ScrollTo_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ScrollTo_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1398,9 +1378,8 @@ QModelIndex* QTableWidget_SuperIndexAt(const QTableWidget* self, const QPoint* p
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnIndexAt(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_IndexAt_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_IndexAt_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1427,9 +1406,8 @@ void QTableWidget_SuperScrollContentsBy(QTableWidget* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnScrollContentsBy(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ScrollContentsBy_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1456,9 +1434,8 @@ void QTableWidget_SuperInitViewItemOption(const QTableWidget* self, QStyleOption
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnInitViewItemOption(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_InitViewItemOption_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_InitViewItemOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1485,9 +1462,8 @@ void QTableWidget_SuperPaintEvent(QTableWidget* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnPaintEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_PaintEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1514,9 +1490,8 @@ void QTableWidget_SuperTimerEvent(QTableWidget* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnTimerEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_TimerEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1543,9 +1518,8 @@ int QTableWidget_SuperHorizontalOffset(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnHorizontalOffset(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_HorizontalOffset_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_HorizontalOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1572,9 +1546,8 @@ int QTableWidget_SuperVerticalOffset(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnVerticalOffset(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_VerticalOffset_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_VerticalOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1599,9 +1572,8 @@ QModelIndex* QTableWidget_SuperMoveCursor(QTableWidget* self, int cursorAction, 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMoveCursor(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_MoveCursor_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MoveCursor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1628,9 +1600,8 @@ void QTableWidget_SuperSetSelection(QTableWidget* self, const QRect* rect, int c
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSetSelection(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SetSelection_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SetSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1655,9 +1626,8 @@ QRegion* QTableWidget_SuperVisualRegionForSelection(const QTableWidget* self, co
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnVisualRegionForSelection(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_VisualRegionForSelection_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_VisualRegionForSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1720,9 +1690,8 @@ libqt_list /* of QModelIndex* */ QTableWidget_SuperSelectedIndexes(const QTableW
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSelectedIndexes(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SelectedIndexes_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SelectedIndexes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1749,9 +1718,8 @@ void QTableWidget_SuperUpdateGeometries(QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnUpdateGeometries(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_UpdateGeometries_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_UpdateGeometries_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1776,9 +1744,8 @@ QSize* QTableWidget_SuperViewportSizeHint(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnViewportSizeHint(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ViewportSizeHint_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1805,9 +1772,8 @@ int QTableWidget_SuperSizeHintForRow(const QTableWidget* self, int row) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSizeHintForRow(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SizeHintForRow_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SizeHintForRow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1834,9 +1800,8 @@ int QTableWidget_SuperSizeHintForColumn(const QTableWidget* self, int column) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSizeHintForColumn(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SizeHintForColumn_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SizeHintForColumn_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1863,9 +1828,8 @@ void QTableWidget_SuperVerticalScrollbarAction(QTableWidget* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnVerticalScrollbarAction(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_VerticalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1892,9 +1856,8 @@ void QTableWidget_SuperHorizontalScrollbarAction(QTableWidget* self, int action)
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnHorizontalScrollbarAction(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_HorizontalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1921,9 +1884,8 @@ bool QTableWidget_SuperIsIndexHidden(const QTableWidget* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnIsIndexHidden(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_IsIndexHidden_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_IsIndexHidden_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1950,9 +1912,8 @@ void QTableWidget_SuperSelectionChanged(QTableWidget* self, const QItemSelection
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSelectionChanged(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SelectionChanged_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SelectionChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1979,9 +1940,8 @@ void QTableWidget_SuperCurrentChanged(QTableWidget* self, const QModelIndex* cur
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnCurrentChanged(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_CurrentChanged_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_CurrentChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2010,9 +1970,8 @@ void QTableWidget_SuperKeyboardSearch(QTableWidget* self, const libqt_string sea
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnKeyboardSearch(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_KeyboardSearch_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_KeyboardSearch_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2039,9 +1998,8 @@ QAbstractItemDelegate* QTableWidget_SuperItemDelegateForIndex(const QTableWidget
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnItemDelegateForIndex(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ItemDelegateForIndex_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ItemDelegateForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2068,9 +2026,8 @@ QVariant* QTableWidget_SuperInputMethodQuery(const QTableWidget* self, int query
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnInputMethodQuery(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2097,9 +2054,8 @@ void QTableWidget_SuperReset(QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnReset(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_Reset_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2126,9 +2082,8 @@ void QTableWidget_SuperSelectAll(QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSelectAll(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SelectAll_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SelectAll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2167,9 +2122,8 @@ void QTableWidget_SuperDataChanged(QTableWidget* self, const QModelIndex* topLef
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDataChanged(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_DataChanged_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DataChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2196,9 +2150,8 @@ void QTableWidget_SuperRowsInserted(QTableWidget* self, const QModelIndex* paren
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnRowsInserted(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_RowsInserted_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_RowsInserted_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2225,9 +2178,8 @@ void QTableWidget_SuperRowsAboutToBeRemoved(QTableWidget* self, const QModelInde
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnRowsAboutToBeRemoved(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_RowsAboutToBeRemoved_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2254,9 +2206,8 @@ void QTableWidget_SuperUpdateEditorData(QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnUpdateEditorData(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_UpdateEditorData_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_UpdateEditorData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2283,9 +2234,8 @@ void QTableWidget_SuperUpdateEditorGeometries(QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnUpdateEditorGeometries(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_UpdateEditorGeometries_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_UpdateEditorGeometries_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2312,9 +2262,8 @@ void QTableWidget_SuperVerticalScrollbarValueChanged(QTableWidget* self, int val
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnVerticalScrollbarValueChanged(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_VerticalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_VerticalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2341,9 +2290,8 @@ void QTableWidget_SuperHorizontalScrollbarValueChanged(QTableWidget* self, int v
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnHorizontalScrollbarValueChanged(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_HorizontalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_HorizontalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2370,9 +2318,8 @@ void QTableWidget_SuperCloseEditor(QTableWidget* self, QWidget* editor, int hint
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnCloseEditor(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_CloseEditor_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_CloseEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2399,9 +2346,8 @@ void QTableWidget_SuperCommitData(QTableWidget* self, QWidget* editor) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnCommitData(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_CommitData_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_CommitData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2428,9 +2374,8 @@ void QTableWidget_SuperEditorDestroyed(QTableWidget* self, QObject* editor) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnEditorDestroyed(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_EditorDestroyed_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_EditorDestroyed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2457,9 +2402,8 @@ bool QTableWidget_SuperEdit2(QTableWidget* self, const QModelIndex* index, int t
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnEdit2(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_Edit2_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Edit2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2486,9 +2430,8 @@ int QTableWidget_SuperSelectionCommand(const QTableWidget* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSelectionCommand(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SelectionCommand_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SelectionCommand_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2515,9 +2458,8 @@ void QTableWidget_SuperStartDrag(QTableWidget* self, int supportedActions) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnStartDrag(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_StartDrag_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_StartDrag_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2544,9 +2486,8 @@ bool QTableWidget_SuperFocusNextPrevChild(QTableWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnFocusNextPrevChild(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2573,9 +2514,8 @@ bool QTableWidget_SuperViewportEvent(QTableWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnViewportEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ViewportEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2602,9 +2542,8 @@ void QTableWidget_SuperMousePressEvent(QTableWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMousePressEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2631,9 +2570,8 @@ void QTableWidget_SuperMouseMoveEvent(QTableWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMouseMoveEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2660,9 +2598,8 @@ void QTableWidget_SuperMouseReleaseEvent(QTableWidget* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMouseReleaseEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2689,9 +2626,8 @@ void QTableWidget_SuperMouseDoubleClickEvent(QTableWidget* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMouseDoubleClickEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2718,9 +2654,8 @@ void QTableWidget_SuperDragEnterEvent(QTableWidget* self, QDragEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDragEnterEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2747,9 +2682,8 @@ void QTableWidget_SuperDragMoveEvent(QTableWidget* self, QDragMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDragMoveEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2776,9 +2710,8 @@ void QTableWidget_SuperDragLeaveEvent(QTableWidget* self, QDragLeaveEvent* event
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDragLeaveEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2805,9 +2738,8 @@ void QTableWidget_SuperFocusInEvent(QTableWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnFocusInEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2834,9 +2766,8 @@ void QTableWidget_SuperFocusOutEvent(QTableWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnFocusOutEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2863,9 +2794,8 @@ void QTableWidget_SuperKeyPressEvent(QTableWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnKeyPressEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2892,9 +2822,8 @@ void QTableWidget_SuperResizeEvent(QTableWidget* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnResizeEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2921,9 +2850,8 @@ void QTableWidget_SuperInputMethodEvent(QTableWidget* self, QInputMethodEvent* e
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnInputMethodEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2950,9 +2878,8 @@ bool QTableWidget_SuperEventFilter(QTableWidget* self, QObject* object, QEvent* 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnEventFilter(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_EventFilter_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2979,9 +2906,8 @@ QSize* QTableWidget_SuperMinimumSizeHint(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMinimumSizeHint(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3008,9 +2934,8 @@ QSize* QTableWidget_SuperSizeHint(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSizeHint(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SizeHint_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3037,9 +2962,8 @@ void QTableWidget_SuperSetupViewport(QTableWidget* self, QWidget* viewport) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSetupViewport(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SetupViewport_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3066,9 +2990,8 @@ void QTableWidget_SuperWheelEvent(QTableWidget* self, QWheelEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnWheelEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_WheelEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3095,9 +3018,8 @@ void QTableWidget_SuperContextMenuEvent(QTableWidget* self, QContextMenuEvent* p
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnContextMenuEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3124,9 +3046,8 @@ void QTableWidget_SuperChangeEvent(QTableWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnChangeEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3153,9 +3074,8 @@ void QTableWidget_SuperInitStyleOption(const QTableWidget* self, QStyleOptionFra
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnInitStyleOption(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_InitStyleOption_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3182,9 +3102,8 @@ int QTableWidget_SuperDevType(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDevType(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_DevType_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3211,9 +3130,8 @@ void QTableWidget_SuperSetVisible(QTableWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSetVisible(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SetVisible_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3240,9 +3158,8 @@ int QTableWidget_SuperHeightForWidth(const QTableWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnHeightForWidth(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3269,9 +3186,8 @@ bool QTableWidget_SuperHasHeightForWidth(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnHasHeightForWidth(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3298,9 +3214,8 @@ QPaintEngine* QTableWidget_SuperPaintEngine(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnPaintEngine(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_PaintEngine_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3327,9 +3242,8 @@ void QTableWidget_SuperKeyReleaseEvent(QTableWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnKeyReleaseEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3356,9 +3270,8 @@ void QTableWidget_SuperEnterEvent(QTableWidget* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnEnterEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_EnterEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3385,9 +3298,8 @@ void QTableWidget_SuperLeaveEvent(QTableWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnLeaveEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3414,9 +3326,8 @@ void QTableWidget_SuperMoveEvent(QTableWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMoveEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_MoveEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3443,9 +3354,8 @@ void QTableWidget_SuperCloseEvent(QTableWidget* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnCloseEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_CloseEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3472,9 +3382,8 @@ void QTableWidget_SuperTabletEvent(QTableWidget* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnTabletEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_TabletEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3501,9 +3410,8 @@ void QTableWidget_SuperActionEvent(QTableWidget* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnActionEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ActionEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3530,9 +3438,8 @@ void QTableWidget_SuperShowEvent(QTableWidget* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnShowEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ShowEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3559,9 +3466,8 @@ void QTableWidget_SuperHideEvent(QTableWidget* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnHideEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_HideEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3590,9 +3496,8 @@ bool QTableWidget_SuperNativeEvent(QTableWidget* self, const libqt_string eventT
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnNativeEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_NativeEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3619,9 +3524,8 @@ int QTableWidget_SuperMetric(const QTableWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnMetric(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_Metric_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3648,9 +3552,8 @@ void QTableWidget_SuperInitPainter(const QTableWidget* self, QPainter* painter) 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnInitPainter(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_InitPainter_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3677,9 +3580,8 @@ QPaintDevice* QTableWidget_SuperRedirected(const QTableWidget* self, QPoint* off
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnRedirected(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_Redirected_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3706,9 +3608,8 @@ QPainter* QTableWidget_SuperSharedPainter(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSharedPainter(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SharedPainter_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3735,9 +3636,8 @@ void QTableWidget_SuperChildEvent(QTableWidget* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnChildEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ChildEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3764,9 +3664,8 @@ void QTableWidget_SuperCustomEvent(QTableWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnCustomEvent(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_CustomEvent_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3793,9 +3692,8 @@ void QTableWidget_SuperConnectNotify(QTableWidget* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnConnectNotify(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ConnectNotify_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3822,9 +3720,8 @@ void QTableWidget_SuperDisconnectNotify(QTableWidget* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDisconnectNotify(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3851,9 +3748,8 @@ void QTableWidget_SuperRowMoved(QTableWidget* self, int row, int oldIndex, int n
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnRowMoved(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_RowMoved_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_RowMoved_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3880,9 +3776,8 @@ void QTableWidget_SuperColumnMoved(QTableWidget* self, int column, int oldIndex,
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnColumnMoved(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ColumnMoved_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ColumnMoved_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3909,9 +3804,8 @@ void QTableWidget_SuperRowResized(QTableWidget* self, int row, int oldHeight, in
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnRowResized(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_RowResized_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_RowResized_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3938,9 +3832,8 @@ void QTableWidget_SuperColumnResized(QTableWidget* self, int column, int oldWidt
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnColumnResized(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ColumnResized_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ColumnResized_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3967,9 +3860,8 @@ void QTableWidget_SuperRowCountChanged(QTableWidget* self, int oldCount, int new
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnRowCountChanged(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_RowCountChanged_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_RowCountChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3996,9 +3888,8 @@ void QTableWidget_SuperColumnCountChanged(QTableWidget* self, int oldCount, int 
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnColumnCountChanged(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ColumnCountChanged_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ColumnCountChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4025,9 +3916,8 @@ int QTableWidget_SuperState(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnState(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_State_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_State_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4054,9 +3944,8 @@ void QTableWidget_SuperSetState(QTableWidget* self, int state) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSetState(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SetState_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SetState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4083,9 +3972,8 @@ void QTableWidget_SuperScheduleDelayedItemsLayout(QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnScheduleDelayedItemsLayout(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ScheduleDelayedItemsLayout_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ScheduleDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4112,9 +4000,8 @@ void QTableWidget_SuperExecuteDelayedItemsLayout(QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnExecuteDelayedItemsLayout(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ExecuteDelayedItemsLayout_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ExecuteDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4141,9 +4028,8 @@ void QTableWidget_SuperSetDirtyRegion(QTableWidget* self, const QRegion* region)
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSetDirtyRegion(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SetDirtyRegion_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SetDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4170,9 +4056,8 @@ void QTableWidget_SuperScrollDirtyRegion(QTableWidget* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnScrollDirtyRegion(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ScrollDirtyRegion_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ScrollDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4197,9 +4082,8 @@ QPoint* QTableWidget_SuperDirtyRegionOffset(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDirtyRegionOffset(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_DirtyRegionOffset_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DirtyRegionOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4226,9 +4110,8 @@ void QTableWidget_SuperStartAutoScroll(QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnStartAutoScroll(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_StartAutoScroll_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_StartAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4255,9 +4138,8 @@ void QTableWidget_SuperStopAutoScroll(QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnStopAutoScroll(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_StopAutoScroll_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_StopAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4284,9 +4166,8 @@ void QTableWidget_SuperDoAutoScroll(QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDoAutoScroll(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_DoAutoScroll_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DoAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4313,9 +4194,8 @@ int QTableWidget_SuperDropIndicatorPosition(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDropIndicatorPosition(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_DropIndicatorPosition_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DropIndicatorPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4342,9 +4222,8 @@ void QTableWidget_SuperSetViewportMargins(QTableWidget* self, int left, int top,
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSetViewportMargins(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SetViewportMargins_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4369,9 +4248,8 @@ QMargins* QTableWidget_SuperViewportMargins(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnViewportMargins(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_ViewportMargins_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4398,9 +4276,8 @@ void QTableWidget_SuperDrawFrame(QTableWidget* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDrawFrame(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_DrawFrame_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4427,9 +4304,8 @@ void QTableWidget_SuperUpdateMicroFocus(QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnUpdateMicroFocus(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4456,9 +4332,8 @@ void QTableWidget_SuperCreate(QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnCreate(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_Create_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4485,9 +4360,8 @@ void QTableWidget_SuperDestroy(QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnDestroy(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_Destroy_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4514,9 +4388,8 @@ bool QTableWidget_SuperFocusNextChild(QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnFocusNextChild(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_FocusNextChild_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4543,9 +4416,8 @@ bool QTableWidget_SuperFocusPreviousChild(QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnFocusPreviousChild(QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4572,9 +4444,8 @@ QObject* QTableWidget_SuperSender(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSender(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_Sender_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4601,9 +4472,8 @@ int QTableWidget_SuperSenderSignalIndex(const QTableWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnSenderSignalIndex(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4630,9 +4500,8 @@ int QTableWidget_SuperReceivers(const QTableWidget* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnReceivers(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_Receivers_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4659,9 +4528,8 @@ bool QTableWidget_SuperIsSignalConnected(const QTableWidget* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnIsSignalConnected(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4688,9 +4556,8 @@ double QTableWidget_SuperGetDecodedMetricF(const QTableWidget* self, int metricA
 // Auxiliary method to allow providing re-implementation
 void QTableWidget_OnGetDecodedMetricF(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget)
         vqtablewidget->setQTableWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QTableWidget_Delete(QTableWidget* self) {

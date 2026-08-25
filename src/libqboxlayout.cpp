@@ -216,9 +216,8 @@ QMetaObject* QBoxLayout_SuperMetaObject(const QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnMetaObject(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_MetaObject_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -235,9 +234,8 @@ void* QBoxLayout_SuperMetacast(QBoxLayout* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnMetacast(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_Metacast_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -254,9 +252,8 @@ int QBoxLayout_SuperMetacall(QBoxLayout* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnMetacall(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_Metacall_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -273,9 +270,8 @@ void QBoxLayout_SuperAddItem(QBoxLayout* self, QLayoutItem* param1) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnAddItem(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_AddItem_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_AddItem_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -292,9 +288,8 @@ int QBoxLayout_SuperSpacing(const QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnSpacing(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_Spacing_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_Spacing_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -311,9 +306,8 @@ void QBoxLayout_SuperSetSpacing(QBoxLayout* self, int spacing) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnSetSpacing(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_SetSpacing_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_SetSpacing_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -330,9 +324,8 @@ QSize* QBoxLayout_SuperSizeHint(const QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnSizeHint(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_SizeHint_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -349,9 +342,8 @@ QSize* QBoxLayout_SuperMinimumSize(const QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnMinimumSize(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_MinimumSize_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_MinimumSize_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -368,9 +360,8 @@ QSize* QBoxLayout_SuperMaximumSize(const QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnMaximumSize(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_MaximumSize_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_MaximumSize_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -387,9 +378,8 @@ bool QBoxLayout_SuperHasHeightForWidth(const QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnHasHeightForWidth(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_HasHeightForWidth_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -406,9 +396,8 @@ int QBoxLayout_SuperHeightForWidth(const QBoxLayout* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnHeightForWidth(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_HeightForWidth_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -425,9 +414,8 @@ int QBoxLayout_SuperMinimumHeightForWidth(const QBoxLayout* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnMinimumHeightForWidth(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_MinimumHeightForWidth_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_MinimumHeightForWidth_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -444,9 +432,8 @@ int QBoxLayout_SuperExpandingDirections(const QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnExpandingDirections(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_ExpandingDirections_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_ExpandingDirections_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -463,9 +450,8 @@ void QBoxLayout_SuperInvalidate(QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnInvalidate(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_Invalidate_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_Invalidate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -482,9 +468,8 @@ QLayoutItem* QBoxLayout_SuperItemAt(const QBoxLayout* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnItemAt(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_ItemAt_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_ItemAt_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -501,9 +486,8 @@ QLayoutItem* QBoxLayout_SuperTakeAt(QBoxLayout* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnTakeAt(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_TakeAt_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_TakeAt_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -520,9 +504,8 @@ int QBoxLayout_SuperCount(const QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnCount(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_Count_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_Count_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -539,9 +522,8 @@ void QBoxLayout_SuperSetGeometry(QBoxLayout* self, const QRect* geometry) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnSetGeometry(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_SetGeometry_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_SetGeometry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -568,9 +550,8 @@ QRect* QBoxLayout_SuperGeometry(const QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnGeometry(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_Geometry_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_Geometry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -597,9 +578,8 @@ int QBoxLayout_SuperIndexOf(const QBoxLayout* self, const QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnIndexOf(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_IndexOf_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_IndexOf_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -626,9 +606,8 @@ bool QBoxLayout_SuperIsEmpty(const QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnIsEmpty(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_IsEmpty_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_IsEmpty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -655,9 +634,8 @@ int QBoxLayout_SuperControlTypes(const QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnControlTypes(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_ControlTypes_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_ControlTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -684,9 +662,8 @@ QLayoutItem* QBoxLayout_SuperReplaceWidget(QBoxLayout* self, QWidget* from, QWid
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnReplaceWidget(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_ReplaceWidget_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_ReplaceWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -713,9 +690,8 @@ QLayout* QBoxLayout_SuperLayout(QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnLayout(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_Layout_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_Layout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -742,9 +718,8 @@ void QBoxLayout_SuperChildEvent(QBoxLayout* self, QChildEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnChildEvent(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_ChildEvent_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -771,9 +746,8 @@ bool QBoxLayout_SuperEvent(QBoxLayout* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnEvent(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_Event_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -800,9 +774,8 @@ bool QBoxLayout_SuperEventFilter(QBoxLayout* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnEventFilter(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_EventFilter_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -829,9 +802,8 @@ void QBoxLayout_SuperTimerEvent(QBoxLayout* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnTimerEvent(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_TimerEvent_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -858,9 +830,8 @@ void QBoxLayout_SuperCustomEvent(QBoxLayout* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnCustomEvent(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_CustomEvent_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -887,9 +858,8 @@ void QBoxLayout_SuperConnectNotify(QBoxLayout* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnConnectNotify(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_ConnectNotify_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -916,9 +886,8 @@ void QBoxLayout_SuperDisconnectNotify(QBoxLayout* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnDisconnectNotify(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_DisconnectNotify_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -945,9 +914,8 @@ QWidget* QBoxLayout_SuperWidget(const QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnWidget(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_Widget_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_Widget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -974,9 +942,8 @@ QSpacerItem* QBoxLayout_SuperSpacerItem(QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnSpacerItem(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_SpacerItem_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_SpacerItem_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1003,9 +970,8 @@ void QBoxLayout_SuperWidgetEvent(QBoxLayout* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnWidgetEvent(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_WidgetEvent_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_WidgetEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1032,9 +998,8 @@ void QBoxLayout_SuperAddChildLayout(QBoxLayout* self, QLayout* l) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnAddChildLayout(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_AddChildLayout_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_AddChildLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1061,9 +1026,8 @@ void QBoxLayout_SuperAddChildWidget(QBoxLayout* self, QWidget* w) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnAddChildWidget(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_AddChildWidget_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_AddChildWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1090,9 +1054,8 @@ bool QBoxLayout_SuperAdoptLayout(QBoxLayout* self, QLayout* layout) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnAdoptLayout(QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_AdoptLayout_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_AdoptLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1117,9 +1080,8 @@ QRect* QBoxLayout_SuperAlignmentRect(const QBoxLayout* self, const QRect* param1
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnAlignmentRect(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_AlignmentRect_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_AlignmentRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1146,9 +1108,8 @@ QObject* QBoxLayout_SuperSender(const QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnSender(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_Sender_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1175,9 +1136,8 @@ int QBoxLayout_SuperSenderSignalIndex(const QBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnSenderSignalIndex(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_SenderSignalIndex_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1204,9 +1164,8 @@ int QBoxLayout_SuperReceivers(const QBoxLayout* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnReceivers(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_Receivers_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1233,9 +1192,8 @@ bool QBoxLayout_SuperIsSignalConnected(const QBoxLayout* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QBoxLayout_OnIsSignalConnected(const QBoxLayout* self, intptr_t slot) {
     auto* vqboxlayout = const_cast<VirtualQBoxLayout*>(dynamic_cast<const VirtualQBoxLayout*>(self));
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
+    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout)
         vqboxlayout->setQBoxLayout_IsSignalConnected_Callback(reinterpret_cast<VirtualQBoxLayout::QBoxLayout_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QBoxLayout_Delete(QBoxLayout* self) {
@@ -1276,9 +1234,8 @@ QMetaObject* QHBoxLayout_SuperMetaObject(const QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnMetaObject(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_MetaObject_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1295,9 +1252,8 @@ void* QHBoxLayout_SuperMetacast(QHBoxLayout* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnMetacast(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_Metacast_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1314,9 +1270,8 @@ int QHBoxLayout_SuperMetacall(QHBoxLayout* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnMetacall(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_Metacall_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1343,9 +1298,8 @@ void QHBoxLayout_SuperAddItem(QHBoxLayout* self, QLayoutItem* param1) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnAddItem(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_AddItem_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_AddItem_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1372,9 +1326,8 @@ int QHBoxLayout_SuperSpacing(const QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnSpacing(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_Spacing_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_Spacing_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1401,9 +1354,8 @@ void QHBoxLayout_SuperSetSpacing(QHBoxLayout* self, int spacing) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnSetSpacing(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_SetSpacing_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_SetSpacing_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1430,9 +1382,8 @@ QSize* QHBoxLayout_SuperSizeHint(const QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnSizeHint(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_SizeHint_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1459,9 +1410,8 @@ QSize* QHBoxLayout_SuperMinimumSize(const QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnMinimumSize(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_MinimumSize_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_MinimumSize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1488,9 +1438,8 @@ QSize* QHBoxLayout_SuperMaximumSize(const QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnMaximumSize(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_MaximumSize_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_MaximumSize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1517,9 +1466,8 @@ bool QHBoxLayout_SuperHasHeightForWidth(const QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnHasHeightForWidth(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_HasHeightForWidth_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1546,9 +1494,8 @@ int QHBoxLayout_SuperHeightForWidth(const QHBoxLayout* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnHeightForWidth(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_HeightForWidth_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1575,9 +1522,8 @@ int QHBoxLayout_SuperMinimumHeightForWidth(const QHBoxLayout* self, int param1) 
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnMinimumHeightForWidth(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_MinimumHeightForWidth_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_MinimumHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1604,9 +1550,8 @@ int QHBoxLayout_SuperExpandingDirections(const QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnExpandingDirections(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_ExpandingDirections_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_ExpandingDirections_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1633,9 +1578,8 @@ void QHBoxLayout_SuperInvalidate(QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnInvalidate(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_Invalidate_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_Invalidate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1662,9 +1606,8 @@ QLayoutItem* QHBoxLayout_SuperItemAt(const QHBoxLayout* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnItemAt(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_ItemAt_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_ItemAt_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1691,9 +1634,8 @@ QLayoutItem* QHBoxLayout_SuperTakeAt(QHBoxLayout* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnTakeAt(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_TakeAt_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_TakeAt_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1720,9 +1662,8 @@ int QHBoxLayout_SuperCount(const QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnCount(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_Count_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_Count_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1749,9 +1690,8 @@ void QHBoxLayout_SuperSetGeometry(QHBoxLayout* self, const QRect* geometry) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnSetGeometry(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_SetGeometry_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_SetGeometry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1778,9 +1718,8 @@ QRect* QHBoxLayout_SuperGeometry(const QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnGeometry(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_Geometry_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_Geometry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1807,9 +1746,8 @@ int QHBoxLayout_SuperIndexOf(const QHBoxLayout* self, const QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnIndexOf(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_IndexOf_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_IndexOf_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1836,9 +1774,8 @@ bool QHBoxLayout_SuperIsEmpty(const QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnIsEmpty(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_IsEmpty_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_IsEmpty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1865,9 +1802,8 @@ int QHBoxLayout_SuperControlTypes(const QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnControlTypes(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_ControlTypes_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_ControlTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1894,9 +1830,8 @@ QLayoutItem* QHBoxLayout_SuperReplaceWidget(QHBoxLayout* self, QWidget* from, QW
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnReplaceWidget(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_ReplaceWidget_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_ReplaceWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1923,9 +1858,8 @@ QLayout* QHBoxLayout_SuperLayout(QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnLayout(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_Layout_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_Layout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1952,9 +1886,8 @@ void QHBoxLayout_SuperChildEvent(QHBoxLayout* self, QChildEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnChildEvent(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_ChildEvent_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1981,9 +1914,8 @@ bool QHBoxLayout_SuperEvent(QHBoxLayout* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnEvent(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_Event_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2010,9 +1942,8 @@ bool QHBoxLayout_SuperEventFilter(QHBoxLayout* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnEventFilter(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_EventFilter_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2039,9 +1970,8 @@ void QHBoxLayout_SuperTimerEvent(QHBoxLayout* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnTimerEvent(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_TimerEvent_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2068,9 +1998,8 @@ void QHBoxLayout_SuperCustomEvent(QHBoxLayout* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnCustomEvent(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_CustomEvent_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2097,9 +2026,8 @@ void QHBoxLayout_SuperConnectNotify(QHBoxLayout* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnConnectNotify(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_ConnectNotify_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2126,9 +2054,8 @@ void QHBoxLayout_SuperDisconnectNotify(QHBoxLayout* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnDisconnectNotify(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_DisconnectNotify_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2155,9 +2082,8 @@ QWidget* QHBoxLayout_SuperWidget(const QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnWidget(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_Widget_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_Widget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2184,9 +2110,8 @@ QSpacerItem* QHBoxLayout_SuperSpacerItem(QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnSpacerItem(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_SpacerItem_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_SpacerItem_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2213,9 +2138,8 @@ void QHBoxLayout_SuperWidgetEvent(QHBoxLayout* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnWidgetEvent(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_WidgetEvent_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_WidgetEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2242,9 +2166,8 @@ void QHBoxLayout_SuperAddChildLayout(QHBoxLayout* self, QLayout* l) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnAddChildLayout(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_AddChildLayout_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_AddChildLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2271,9 +2194,8 @@ void QHBoxLayout_SuperAddChildWidget(QHBoxLayout* self, QWidget* w) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnAddChildWidget(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_AddChildWidget_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_AddChildWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2300,9 +2222,8 @@ bool QHBoxLayout_SuperAdoptLayout(QHBoxLayout* self, QLayout* layout) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnAdoptLayout(QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_AdoptLayout_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_AdoptLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2327,9 +2248,8 @@ QRect* QHBoxLayout_SuperAlignmentRect(const QHBoxLayout* self, const QRect* para
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnAlignmentRect(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_AlignmentRect_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_AlignmentRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2356,9 +2276,8 @@ QObject* QHBoxLayout_SuperSender(const QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnSender(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_Sender_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2385,9 +2304,8 @@ int QHBoxLayout_SuperSenderSignalIndex(const QHBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnSenderSignalIndex(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_SenderSignalIndex_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2414,9 +2332,8 @@ int QHBoxLayout_SuperReceivers(const QHBoxLayout* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnReceivers(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_Receivers_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2443,9 +2360,8 @@ bool QHBoxLayout_SuperIsSignalConnected(const QHBoxLayout* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QHBoxLayout_OnIsSignalConnected(const QHBoxLayout* self, intptr_t slot) {
     auto* vqhboxlayout = const_cast<VirtualQHBoxLayout*>(dynamic_cast<const VirtualQHBoxLayout*>(self));
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
+    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout)
         vqhboxlayout->setQHBoxLayout_IsSignalConnected_Callback(reinterpret_cast<VirtualQHBoxLayout::QHBoxLayout_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QHBoxLayout_Delete(QHBoxLayout* self) {
@@ -2486,9 +2402,8 @@ QMetaObject* QVBoxLayout_SuperMetaObject(const QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnMetaObject(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_MetaObject_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2505,9 +2420,8 @@ void* QVBoxLayout_SuperMetacast(QVBoxLayout* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnMetacast(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_Metacast_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2524,9 +2438,8 @@ int QVBoxLayout_SuperMetacall(QVBoxLayout* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnMetacall(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_Metacall_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2553,9 +2466,8 @@ void QVBoxLayout_SuperAddItem(QVBoxLayout* self, QLayoutItem* param1) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnAddItem(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_AddItem_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_AddItem_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2582,9 +2494,8 @@ int QVBoxLayout_SuperSpacing(const QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnSpacing(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_Spacing_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_Spacing_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2611,9 +2522,8 @@ void QVBoxLayout_SuperSetSpacing(QVBoxLayout* self, int spacing) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnSetSpacing(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_SetSpacing_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_SetSpacing_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2640,9 +2550,8 @@ QSize* QVBoxLayout_SuperSizeHint(const QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnSizeHint(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_SizeHint_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2669,9 +2578,8 @@ QSize* QVBoxLayout_SuperMinimumSize(const QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnMinimumSize(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_MinimumSize_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_MinimumSize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2698,9 +2606,8 @@ QSize* QVBoxLayout_SuperMaximumSize(const QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnMaximumSize(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_MaximumSize_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_MaximumSize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2727,9 +2634,8 @@ bool QVBoxLayout_SuperHasHeightForWidth(const QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnHasHeightForWidth(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_HasHeightForWidth_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2756,9 +2662,8 @@ int QVBoxLayout_SuperHeightForWidth(const QVBoxLayout* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnHeightForWidth(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_HeightForWidth_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2785,9 +2690,8 @@ int QVBoxLayout_SuperMinimumHeightForWidth(const QVBoxLayout* self, int param1) 
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnMinimumHeightForWidth(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_MinimumHeightForWidth_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_MinimumHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2814,9 +2718,8 @@ int QVBoxLayout_SuperExpandingDirections(const QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnExpandingDirections(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_ExpandingDirections_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_ExpandingDirections_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2843,9 +2746,8 @@ void QVBoxLayout_SuperInvalidate(QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnInvalidate(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_Invalidate_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_Invalidate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2872,9 +2774,8 @@ QLayoutItem* QVBoxLayout_SuperItemAt(const QVBoxLayout* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnItemAt(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_ItemAt_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_ItemAt_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2901,9 +2802,8 @@ QLayoutItem* QVBoxLayout_SuperTakeAt(QVBoxLayout* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnTakeAt(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_TakeAt_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_TakeAt_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2930,9 +2830,8 @@ int QVBoxLayout_SuperCount(const QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnCount(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_Count_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_Count_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2959,9 +2858,8 @@ void QVBoxLayout_SuperSetGeometry(QVBoxLayout* self, const QRect* geometry) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnSetGeometry(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_SetGeometry_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_SetGeometry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2988,9 +2886,8 @@ QRect* QVBoxLayout_SuperGeometry(const QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnGeometry(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_Geometry_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_Geometry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3017,9 +2914,8 @@ int QVBoxLayout_SuperIndexOf(const QVBoxLayout* self, const QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnIndexOf(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_IndexOf_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_IndexOf_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3046,9 +2942,8 @@ bool QVBoxLayout_SuperIsEmpty(const QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnIsEmpty(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_IsEmpty_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_IsEmpty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3075,9 +2970,8 @@ int QVBoxLayout_SuperControlTypes(const QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnControlTypes(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_ControlTypes_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_ControlTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3104,9 +2998,8 @@ QLayoutItem* QVBoxLayout_SuperReplaceWidget(QVBoxLayout* self, QWidget* from, QW
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnReplaceWidget(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_ReplaceWidget_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_ReplaceWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3133,9 +3026,8 @@ QLayout* QVBoxLayout_SuperLayout(QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnLayout(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_Layout_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_Layout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3162,9 +3054,8 @@ void QVBoxLayout_SuperChildEvent(QVBoxLayout* self, QChildEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnChildEvent(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_ChildEvent_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3191,9 +3082,8 @@ bool QVBoxLayout_SuperEvent(QVBoxLayout* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnEvent(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_Event_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3220,9 +3110,8 @@ bool QVBoxLayout_SuperEventFilter(QVBoxLayout* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnEventFilter(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_EventFilter_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3249,9 +3138,8 @@ void QVBoxLayout_SuperTimerEvent(QVBoxLayout* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnTimerEvent(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_TimerEvent_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3278,9 +3166,8 @@ void QVBoxLayout_SuperCustomEvent(QVBoxLayout* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnCustomEvent(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_CustomEvent_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3307,9 +3194,8 @@ void QVBoxLayout_SuperConnectNotify(QVBoxLayout* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnConnectNotify(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_ConnectNotify_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3336,9 +3222,8 @@ void QVBoxLayout_SuperDisconnectNotify(QVBoxLayout* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnDisconnectNotify(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_DisconnectNotify_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3365,9 +3250,8 @@ QWidget* QVBoxLayout_SuperWidget(const QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnWidget(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_Widget_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_Widget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3394,9 +3278,8 @@ QSpacerItem* QVBoxLayout_SuperSpacerItem(QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnSpacerItem(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_SpacerItem_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_SpacerItem_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3423,9 +3306,8 @@ void QVBoxLayout_SuperWidgetEvent(QVBoxLayout* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnWidgetEvent(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_WidgetEvent_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_WidgetEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3452,9 +3334,8 @@ void QVBoxLayout_SuperAddChildLayout(QVBoxLayout* self, QLayout* l) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnAddChildLayout(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_AddChildLayout_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_AddChildLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3481,9 +3362,8 @@ void QVBoxLayout_SuperAddChildWidget(QVBoxLayout* self, QWidget* w) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnAddChildWidget(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_AddChildWidget_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_AddChildWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3510,9 +3390,8 @@ bool QVBoxLayout_SuperAdoptLayout(QVBoxLayout* self, QLayout* layout) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnAdoptLayout(QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_AdoptLayout_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_AdoptLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3537,9 +3416,8 @@ QRect* QVBoxLayout_SuperAlignmentRect(const QVBoxLayout* self, const QRect* para
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnAlignmentRect(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_AlignmentRect_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_AlignmentRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3566,9 +3444,8 @@ QObject* QVBoxLayout_SuperSender(const QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnSender(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_Sender_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3595,9 +3472,8 @@ int QVBoxLayout_SuperSenderSignalIndex(const QVBoxLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnSenderSignalIndex(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_SenderSignalIndex_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3624,9 +3500,8 @@ int QVBoxLayout_SuperReceivers(const QVBoxLayout* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnReceivers(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_Receivers_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3653,9 +3528,8 @@ bool QVBoxLayout_SuperIsSignalConnected(const QVBoxLayout* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QVBoxLayout_OnIsSignalConnected(const QVBoxLayout* self, intptr_t slot) {
     auto* vqvboxlayout = const_cast<VirtualQVBoxLayout*>(dynamic_cast<const VirtualQVBoxLayout*>(self));
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
+    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout)
         vqvboxlayout->setQVBoxLayout_IsSignalConnected_Callback(reinterpret_cast<VirtualQVBoxLayout::QVBoxLayout_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QVBoxLayout_Delete(QVBoxLayout* self) {

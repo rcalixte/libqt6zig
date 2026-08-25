@@ -292,9 +292,8 @@ QMetaObject* KRichTextEdit_SuperMetaObject(const KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMetaObject(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_MetaObject_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -311,9 +310,8 @@ void* KRichTextEdit_SuperMetacast(KRichTextEdit* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMetacast(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_Metacast_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -330,9 +328,8 @@ int KRichTextEdit_SuperMetacall(KRichTextEdit* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMetacall(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_Metacall_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -349,9 +346,8 @@ void KRichTextEdit_SuperKeyPressEvent(KRichTextEdit* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnKeyPressEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -378,9 +374,8 @@ void KRichTextEdit_SuperSetReadOnly(KRichTextEdit* self, bool readOnly) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSetReadOnly(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_SetReadOnly_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SetReadOnly_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -407,9 +402,8 @@ void KRichTextEdit_SuperSetCheckSpellingEnabled(KRichTextEdit* self, bool check)
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSetCheckSpellingEnabled(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_SetCheckSpellingEnabled_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SetCheckSpellingEnabled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -436,9 +430,8 @@ bool KRichTextEdit_SuperCheckSpellingEnabled(const KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnCheckSpellingEnabled(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_CheckSpellingEnabled_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CheckSpellingEnabled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +460,8 @@ bool KRichTextEdit_SuperShouldBlockBeSpellChecked(const KRichTextEdit* self, con
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnShouldBlockBeSpellChecked(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_ShouldBlockBeSpellChecked_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ShouldBlockBeSpellChecked_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +488,8 @@ void KRichTextEdit_SuperCreateHighlighter(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnCreateHighlighter(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_CreateHighlighter_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CreateHighlighter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -525,9 +516,8 @@ QMenu* KRichTextEdit_SuperMousePopupMenu(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMousePopupMenu(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_MousePopupMenu_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MousePopupMenu_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -554,9 +544,8 @@ bool KRichTextEdit_SuperEvent(KRichTextEdit* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_Event_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -583,9 +572,8 @@ void KRichTextEdit_SuperFocusInEvent(KRichTextEdit* self, QFocusEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnFocusInEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_FocusInEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -612,9 +600,8 @@ void KRichTextEdit_SuperDeleteWordBack(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDeleteWordBack(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_DeleteWordBack_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DeleteWordBack_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -641,9 +628,8 @@ void KRichTextEdit_SuperDeleteWordForward(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDeleteWordForward(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_DeleteWordForward_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DeleteWordForward_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -670,9 +656,8 @@ void KRichTextEdit_SuperContextMenuEvent(KRichTextEdit* self, QContextMenuEvent*
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnContextMenuEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -699,9 +684,8 @@ QVariant* KRichTextEdit_SuperLoadResource(KRichTextEdit* self, int typeVal, cons
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnLoadResource(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_LoadResource_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_LoadResource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -728,9 +712,8 @@ QVariant* KRichTextEdit_SuperInputMethodQuery(const KRichTextEdit* self, int pro
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnInputMethodQuery(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -757,9 +740,8 @@ void KRichTextEdit_SuperTimerEvent(KRichTextEdit* self, QTimerEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnTimerEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_TimerEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -786,9 +768,8 @@ void KRichTextEdit_SuperKeyReleaseEvent(KRichTextEdit* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnKeyReleaseEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -815,9 +796,8 @@ void KRichTextEdit_SuperResizeEvent(KRichTextEdit* self, QResizeEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnResizeEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_ResizeEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -844,9 +824,8 @@ void KRichTextEdit_SuperPaintEvent(KRichTextEdit* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnPaintEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_PaintEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -873,9 +852,8 @@ void KRichTextEdit_SuperMousePressEvent(KRichTextEdit* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMousePressEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_MousePressEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -902,9 +880,8 @@ void KRichTextEdit_SuperMouseMoveEvent(KRichTextEdit* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMouseMoveEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -931,9 +908,8 @@ void KRichTextEdit_SuperMouseReleaseEvent(KRichTextEdit* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMouseReleaseEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -960,9 +936,8 @@ void KRichTextEdit_SuperMouseDoubleClickEvent(KRichTextEdit* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMouseDoubleClickEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -989,9 +964,8 @@ bool KRichTextEdit_SuperFocusNextPrevChild(KRichTextEdit* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnFocusNextPrevChild(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1018,9 +992,8 @@ void KRichTextEdit_SuperDragEnterEvent(KRichTextEdit* self, QDragEnterEvent* e) 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDragEnterEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1047,9 +1020,8 @@ void KRichTextEdit_SuperDragLeaveEvent(KRichTextEdit* self, QDragLeaveEvent* e) 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDragLeaveEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1076,9 +1048,8 @@ void KRichTextEdit_SuperDragMoveEvent(KRichTextEdit* self, QDragMoveEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDragMoveEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1105,9 +1076,8 @@ void KRichTextEdit_SuperDropEvent(KRichTextEdit* self, QDropEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDropEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_DropEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1134,9 +1104,8 @@ void KRichTextEdit_SuperFocusOutEvent(KRichTextEdit* self, QFocusEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnFocusOutEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1163,9 +1132,8 @@ void KRichTextEdit_SuperShowEvent(KRichTextEdit* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnShowEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_ShowEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1192,9 +1160,8 @@ void KRichTextEdit_SuperChangeEvent(KRichTextEdit* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnChangeEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_ChangeEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1221,9 +1188,8 @@ void KRichTextEdit_SuperWheelEvent(KRichTextEdit* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnWheelEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_WheelEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1250,9 +1216,8 @@ QMimeData* KRichTextEdit_SuperCreateMimeDataFromSelection(const KRichTextEdit* s
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnCreateMimeDataFromSelection(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_CreateMimeDataFromSelection_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CreateMimeDataFromSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1279,9 +1244,8 @@ bool KRichTextEdit_SuperCanInsertFromMimeData(const KRichTextEdit* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnCanInsertFromMimeData(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_CanInsertFromMimeData_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CanInsertFromMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1308,9 +1272,8 @@ void KRichTextEdit_SuperInsertFromMimeData(KRichTextEdit* self, const QMimeData*
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnInsertFromMimeData(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_InsertFromMimeData_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_InsertFromMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1337,9 +1300,8 @@ void KRichTextEdit_SuperInputMethodEvent(KRichTextEdit* self, QInputMethodEvent*
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnInputMethodEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1366,9 +1328,8 @@ void KRichTextEdit_SuperScrollContentsBy(KRichTextEdit* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnScrollContentsBy(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_ScrollContentsBy_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1395,9 +1356,8 @@ void KRichTextEdit_SuperDoSetTextCursor(KRichTextEdit* self, const QTextCursor* 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDoSetTextCursor(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_DoSetTextCursor_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DoSetTextCursor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1424,9 +1384,8 @@ QSize* KRichTextEdit_SuperMinimumSizeHint(const KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMinimumSizeHint(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1453,9 +1412,8 @@ QSize* KRichTextEdit_SuperSizeHint(const KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSizeHint(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_SizeHint_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1482,9 +1440,8 @@ void KRichTextEdit_SuperSetupViewport(KRichTextEdit* self, QWidget* viewport) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSetupViewport(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_SetupViewport_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1511,9 +1468,8 @@ bool KRichTextEdit_SuperEventFilter(KRichTextEdit* self, QObject* param1, QEvent
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnEventFilter(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_EventFilter_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1540,9 +1496,8 @@ bool KRichTextEdit_SuperViewportEvent(KRichTextEdit* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnViewportEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_ViewportEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1567,9 +1522,8 @@ QSize* KRichTextEdit_SuperViewportSizeHint(const KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnViewportSizeHint(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_ViewportSizeHint_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1596,9 +1550,8 @@ void KRichTextEdit_SuperInitStyleOption(const KRichTextEdit* self, QStyleOptionF
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnInitStyleOption(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_InitStyleOption_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1625,9 +1578,8 @@ int KRichTextEdit_SuperDevType(const KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDevType(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_DevType_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1654,9 +1606,8 @@ void KRichTextEdit_SuperSetVisible(KRichTextEdit* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSetVisible(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_SetVisible_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1683,9 +1634,8 @@ int KRichTextEdit_SuperHeightForWidth(const KRichTextEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnHeightForWidth(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_HeightForWidth_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1712,9 +1662,8 @@ bool KRichTextEdit_SuperHasHeightForWidth(const KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnHasHeightForWidth(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1741,9 +1690,8 @@ QPaintEngine* KRichTextEdit_SuperPaintEngine(const KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnPaintEngine(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_PaintEngine_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1770,9 +1718,8 @@ void KRichTextEdit_SuperEnterEvent(KRichTextEdit* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnEnterEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_EnterEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1799,9 +1746,8 @@ void KRichTextEdit_SuperLeaveEvent(KRichTextEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnLeaveEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_LeaveEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1828,9 +1774,8 @@ void KRichTextEdit_SuperMoveEvent(KRichTextEdit* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMoveEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_MoveEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1857,9 +1802,8 @@ void KRichTextEdit_SuperCloseEvent(KRichTextEdit* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnCloseEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_CloseEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1886,9 +1830,8 @@ void KRichTextEdit_SuperTabletEvent(KRichTextEdit* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnTabletEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_TabletEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1915,9 +1858,8 @@ void KRichTextEdit_SuperActionEvent(KRichTextEdit* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnActionEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_ActionEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1944,9 +1886,8 @@ void KRichTextEdit_SuperHideEvent(KRichTextEdit* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnHideEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_HideEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1975,9 +1916,8 @@ bool KRichTextEdit_SuperNativeEvent(KRichTextEdit* self, const libqt_string even
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnNativeEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_NativeEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2004,9 +1944,8 @@ int KRichTextEdit_SuperMetric(const KRichTextEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnMetric(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_Metric_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2033,9 +1972,8 @@ void KRichTextEdit_SuperInitPainter(const KRichTextEdit* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnInitPainter(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_InitPainter_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2062,9 +2000,8 @@ QPaintDevice* KRichTextEdit_SuperRedirected(const KRichTextEdit* self, QPoint* o
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnRedirected(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_Redirected_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2091,9 +2028,8 @@ QPainter* KRichTextEdit_SuperSharedPainter(const KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSharedPainter(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_SharedPainter_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2120,9 +2056,8 @@ void KRichTextEdit_SuperChildEvent(KRichTextEdit* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnChildEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_ChildEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2149,9 +2084,8 @@ void KRichTextEdit_SuperCustomEvent(KRichTextEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnCustomEvent(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_CustomEvent_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2178,9 +2112,8 @@ void KRichTextEdit_SuperConnectNotify(KRichTextEdit* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnConnectNotify(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_ConnectNotify_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2207,9 +2140,8 @@ void KRichTextEdit_SuperDisconnectNotify(KRichTextEdit* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDisconnectNotify(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2236,9 +2168,8 @@ void KRichTextEdit_SuperSlotDoReplace(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSlotDoReplace(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_SlotDoReplace_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SlotDoReplace_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2265,9 +2196,8 @@ void KRichTextEdit_SuperSlotReplaceNext(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSlotReplaceNext(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_SlotReplaceNext_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SlotReplaceNext_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2294,9 +2224,8 @@ void KRichTextEdit_SuperSlotDoFind(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSlotDoFind(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_SlotDoFind_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SlotDoFind_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2323,9 +2252,8 @@ void KRichTextEdit_SuperSlotFind(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSlotFind(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_SlotFind_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SlotFind_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2352,9 +2280,8 @@ void KRichTextEdit_SuperSlotFindNext(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSlotFindNext(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_SlotFindNext_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SlotFindNext_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2381,9 +2308,8 @@ void KRichTextEdit_SuperSlotFindPrevious(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSlotFindPrevious(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_SlotFindPrevious_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SlotFindPrevious_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2410,9 +2336,8 @@ void KRichTextEdit_SuperSlotReplace(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSlotReplace(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_SlotReplace_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SlotReplace_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2439,9 +2364,8 @@ void KRichTextEdit_SuperSlotSpeakText(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSlotSpeakText(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_SlotSpeakText_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SlotSpeakText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2468,9 +2392,8 @@ void KRichTextEdit_SuperZoomInF(KRichTextEdit* self, float range) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnZoomInF(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_ZoomInF_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ZoomInF_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2497,9 +2420,8 @@ void KRichTextEdit_SuperSetViewportMargins(KRichTextEdit* self, int left, int to
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSetViewportMargins(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_SetViewportMargins_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2524,9 +2446,8 @@ QMargins* KRichTextEdit_SuperViewportMargins(const KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnViewportMargins(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_ViewportMargins_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2553,9 +2474,8 @@ void KRichTextEdit_SuperDrawFrame(KRichTextEdit* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDrawFrame(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_DrawFrame_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2582,9 +2502,8 @@ void KRichTextEdit_SuperUpdateMicroFocus(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnUpdateMicroFocus(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2611,9 +2530,8 @@ void KRichTextEdit_SuperCreate(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnCreate(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_Create_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2640,9 +2558,8 @@ void KRichTextEdit_SuperDestroy(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnDestroy(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_Destroy_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2669,9 +2586,8 @@ bool KRichTextEdit_SuperFocusNextChild(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnFocusNextChild(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_FocusNextChild_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2698,9 +2614,8 @@ bool KRichTextEdit_SuperFocusPreviousChild(KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnFocusPreviousChild(KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2727,9 +2642,8 @@ QObject* KRichTextEdit_SuperSender(const KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSender(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_Sender_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2756,9 +2670,8 @@ int KRichTextEdit_SuperSenderSignalIndex(const KRichTextEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnSenderSignalIndex(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2785,9 +2698,8 @@ int KRichTextEdit_SuperReceivers(const KRichTextEdit* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnReceivers(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_Receivers_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2814,9 +2726,8 @@ bool KRichTextEdit_SuperIsSignalConnected(const KRichTextEdit* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnIsSignalConnected(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2843,9 +2754,8 @@ double KRichTextEdit_SuperGetDecodedMetricF(const KRichTextEdit* self, int metri
 // Auxiliary method to allow providing re-implementation
 void KRichTextEdit_OnGetDecodedMetricF(const KRichTextEdit* self, intptr_t slot) {
     auto* vkrichtextedit = const_cast<VirtualKRichTextEdit*>(dynamic_cast<const VirtualKRichTextEdit*>(self));
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
+    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit)
         vkrichtextedit->setKRichTextEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKRichTextEdit::KRichTextEdit_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KRichTextEdit_Delete(KRichTextEdit* self) {

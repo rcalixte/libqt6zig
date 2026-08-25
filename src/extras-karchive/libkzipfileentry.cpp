@@ -101,9 +101,8 @@ libqt_string KZipFileEntry_SuperData(const KZipFileEntry* self) {
 // Auxiliary method to allow providing re-implementation
 void KZipFileEntry_OnData(const KZipFileEntry* self, intptr_t slot) {
     auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
+    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry)
         vkzipfileentry->setKZipFileEntry_Data_Callback(reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -120,9 +119,8 @@ QIODevice* KZipFileEntry_SuperCreateDevice(const KZipFileEntry* self) {
 // Auxiliary method to allow providing re-implementation
 void KZipFileEntry_OnCreateDevice(const KZipFileEntry* self, intptr_t slot) {
     auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
+    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry)
         vkzipfileentry->setKZipFileEntry_CreateDevice_Callback(reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_CreateDevice_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -149,9 +147,8 @@ bool KZipFileEntry_SuperIsFile(const KZipFileEntry* self) {
 // Auxiliary method to allow providing re-implementation
 void KZipFileEntry_OnIsFile(const KZipFileEntry* self, intptr_t slot) {
     auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
+    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry)
         vkzipfileentry->setKZipFileEntry_IsFile_Callback(reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_IsFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -178,9 +175,8 @@ void KZipFileEntry_SuperVirtualHook(KZipFileEntry* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void KZipFileEntry_OnVirtualHook(KZipFileEntry* self, intptr_t slot) {
     auto* vkzipfileentry = dynamic_cast<VirtualKZipFileEntry*>(self);
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
+    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry)
         vkzipfileentry->setKZipFileEntry_VirtualHook_Callback(reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_VirtualHook_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -207,9 +203,8 @@ bool KZipFileEntry_SuperIsDirectory(const KZipFileEntry* self) {
 // Auxiliary method to allow providing re-implementation
 void KZipFileEntry_OnIsDirectory(const KZipFileEntry* self, intptr_t slot) {
     auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
+    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry)
         vkzipfileentry->setKZipFileEntry_IsDirectory_Callback(reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_IsDirectory_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -236,9 +231,8 @@ KArchive* KZipFileEntry_SuperArchive(const KZipFileEntry* self) {
 // Auxiliary method to allow providing re-implementation
 void KZipFileEntry_OnArchive(const KZipFileEntry* self, intptr_t slot) {
     auto* vkzipfileentry = const_cast<VirtualKZipFileEntry*>(dynamic_cast<const VirtualKZipFileEntry*>(self));
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
+    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry)
         vkzipfileentry->setKZipFileEntry_Archive_Callback(reinterpret_cast<VirtualKZipFileEntry::KZipFileEntry_Archive_Callback>(slot));
-    }
 }
 
 void KZipFileEntry_Delete(KZipFileEntry* self) {

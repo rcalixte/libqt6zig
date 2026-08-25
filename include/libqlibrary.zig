@@ -2391,7 +2391,7 @@ pub const QLibrary = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibrary.html#public-types)
 pub const enums = struct {
-    pub const LoadHint = enum(i32) {
+    pub const LoadHint = enum {
         pub const ResolveAllSymbolsHint: i32 = 1;
         pub const ExportExternalSymbolsHint: i32 = 2;
         pub const LoadArchiveMemberHint: i32 = 4;

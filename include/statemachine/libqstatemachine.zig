@@ -3967,12 +3967,12 @@ pub const QStateMachine__WrappedEvent = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatemachine.html#public-types)
 pub const enums = struct {
-    pub const EventPriority = enum(i32) {
+    pub const EventPriority = enum {
         pub const NormalPriority: i32 = 0;
         pub const HighPriority: i32 = 1;
     };
 
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const NoInitialStateError: i32 = 1;
         pub const NoDefaultStateInHistoryStateError: i32 = 2;

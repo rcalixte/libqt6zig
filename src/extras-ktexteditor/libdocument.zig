@@ -6,6 +6,7 @@ const KIO__Job = @import("libqt6").KIO__Job;
 const KParts__NavigationExtension = @import("libqt6").KParts__NavigationExtension;
 const KParts__OpenUrlArguments = @import("libqt6").KParts__OpenUrlArguments;
 const KParts__Part = @import("libqt6").KParts__Part;
+const KParts__PartBase = @import("libqt6").KParts__PartBase;
 const KParts__PartManager = @import("libqt6").KParts__PartManager;
 const KPluginMetaData = @import("libqt6").KPluginMetaData;
 const KTextEditor__AnnotationModel = @import("libqt6").KTextEditor__AnnotationModel;
@@ -3716,6 +3717,31 @@ pub const KTextEditor__Document = extern struct {
         qtc.KParts__ReadOnlyPart_Connect_UrlChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// Inherited from KParts::Part
+    ///
+    /// Upcasts to a KParts::PartBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTextEditor__Document `
+    ///
+    pub fn asKParts__PartBase(self: KTextEditor__Document) KParts__PartBase {
+        return .{ .ptr = qtc.KParts__Part_AsKParts__PartBase(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from KParts::Part
+    ///
+    /// Downcasts to a KTextEditor__Document object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _kparts__partbase: KParts__PartBase `
+    ///
+    pub fn fromKParts__PartBase(_kparts__partbase: anytype) KTextEditor__Document {
+        comptime _ = @TypeOf(_kparts__partbase)._is_KParts__PartBase;
+        return @bitCast(qtc.KParts__Part_FromKParts__PartBase(@ptrCast(_kparts__partbase.ptr)));
+    }
+
     /// ### DEPRECATED: Use `widget` instead
     ///
     pub const Widget = widget;
@@ -5710,7 +5736,7 @@ pub const KTextEditor__Document__EditingTransaction = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/document.html#public-types)
 pub const enums = struct {
-    pub const SearchOption = enum(i32) {
+    pub const SearchOption = enum {
         pub const Default: i32 = 0;
         pub const Regex: i32 = 2;
         pub const CaseInsensitive: i32 = 16;
@@ -5720,14 +5746,14 @@ pub const enums = struct {
         pub const MaxSearchOption: i32 = -2147483648;
     };
 
-    pub const ModifiedOnDiskReason = enum(i32) {
+    pub const ModifiedOnDiskReason = enum {
         pub const OnDiskUnmodified: i32 = 0;
         pub const OnDiskModified: i32 = 1;
         pub const OnDiskCreated: i32 = 2;
         pub const OnDiskDeleted: i32 = 3;
     };
 
-    pub const MarkTypes = enum(i32) {
+    pub const MarkTypes = enum {
         pub const MarkType01: i32 = 1;
         pub const MarkType02: i32 = 2;
         pub const MarkType03: i32 = 4;
@@ -5770,7 +5796,7 @@ pub const enums = struct {
         pub const SearchMatch: i32 = -2147483648;
     };
 
-    pub const MarkChangeAction = enum(i32) {
+    pub const MarkChangeAction = enum {
         pub const MarkAdded: i32 = 0;
         pub const MarkRemoved: i32 = 1;
     };

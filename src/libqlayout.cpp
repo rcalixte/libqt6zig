@@ -24,6 +24,14 @@ QLayout* QLayout_new2() {
     return new VirtualQLayout();
 }
 
+QLayoutItem* QLayout_AsQLayoutItem(QLayout* self) {
+    return static_cast<QLayoutItem*>(self);
+}
+
+QLayout* QLayout_FromQLayoutItem(QLayoutItem* _qlayoutitem) {
+    return dynamic_cast<QLayout*>(static_cast<QLayoutItem*>(_qlayoutitem));
+}
+
 QMetaObject* QLayout_MetaObject(const QLayout* self) {
     return (QMetaObject*)self->metaObject();
 }
@@ -233,9 +241,8 @@ QMetaObject* QLayout_SuperMetaObject(const QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnMetaObject(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_MetaObject_Callback(reinterpret_cast<VirtualQLayout::QLayout_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -252,9 +259,8 @@ void* QLayout_SuperMetacast(QLayout* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnMetacast(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_Metacast_Callback(reinterpret_cast<VirtualQLayout::QLayout_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -271,9 +277,8 @@ int QLayout_SuperMetacall(QLayout* self, int param1, int param2, void** param3) 
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnMetacall(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_Metacall_Callback(reinterpret_cast<VirtualQLayout::QLayout_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -290,9 +295,8 @@ int QLayout_SuperSpacing(const QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnSpacing(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_Spacing_Callback(reinterpret_cast<VirtualQLayout::QLayout_Spacing_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -309,9 +313,8 @@ void QLayout_SuperSetSpacing(QLayout* self, int spacing) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnSetSpacing(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_SetSpacing_Callback(reinterpret_cast<VirtualQLayout::QLayout_SetSpacing_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -328,9 +331,8 @@ void QLayout_SuperInvalidate(QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnInvalidate(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_Invalidate_Callback(reinterpret_cast<VirtualQLayout::QLayout_Invalidate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -347,9 +349,8 @@ QRect* QLayout_SuperGeometry(const QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnGeometry(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_Geometry_Callback(reinterpret_cast<VirtualQLayout::QLayout_Geometry_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -366,9 +367,8 @@ void QLayout_SuperAddItem(QLayout* self, QLayoutItem* param1) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnAddItem(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_AddItem_Callback(reinterpret_cast<VirtualQLayout::QLayout_AddItem_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -385,9 +385,8 @@ int QLayout_SuperExpandingDirections(const QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnExpandingDirections(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_ExpandingDirections_Callback(reinterpret_cast<VirtualQLayout::QLayout_ExpandingDirections_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -404,9 +403,8 @@ QSize* QLayout_SuperMinimumSize(const QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnMinimumSize(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_MinimumSize_Callback(reinterpret_cast<VirtualQLayout::QLayout_MinimumSize_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -423,9 +421,8 @@ QSize* QLayout_SuperMaximumSize(const QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnMaximumSize(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_MaximumSize_Callback(reinterpret_cast<VirtualQLayout::QLayout_MaximumSize_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -442,9 +439,8 @@ void QLayout_SuperSetGeometry(QLayout* self, const QRect* geometry) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnSetGeometry(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_SetGeometry_Callback(reinterpret_cast<VirtualQLayout::QLayout_SetGeometry_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -461,9 +457,8 @@ QLayoutItem* QLayout_SuperItemAt(const QLayout* self, int index) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnItemAt(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_ItemAt_Callback(reinterpret_cast<VirtualQLayout::QLayout_ItemAt_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -480,9 +475,8 @@ QLayoutItem* QLayout_SuperTakeAt(QLayout* self, int index) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnTakeAt(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_TakeAt_Callback(reinterpret_cast<VirtualQLayout::QLayout_TakeAt_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -499,9 +493,8 @@ int QLayout_SuperIndexOf(const QLayout* self, const QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnIndexOf(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_IndexOf_Callback(reinterpret_cast<VirtualQLayout::QLayout_IndexOf_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -518,9 +511,8 @@ int QLayout_SuperIndexOf2(const QLayout* self, const QLayoutItem* param1) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnIndexOf2(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_IndexOf2_Callback(reinterpret_cast<VirtualQLayout::QLayout_IndexOf2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -537,9 +529,8 @@ int QLayout_SuperCount(const QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnCount(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_Count_Callback(reinterpret_cast<VirtualQLayout::QLayout_Count_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -556,9 +547,8 @@ bool QLayout_SuperIsEmpty(const QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnIsEmpty(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_IsEmpty_Callback(reinterpret_cast<VirtualQLayout::QLayout_IsEmpty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -575,9 +565,8 @@ int QLayout_SuperControlTypes(const QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnControlTypes(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_ControlTypes_Callback(reinterpret_cast<VirtualQLayout::QLayout_ControlTypes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -594,9 +583,8 @@ QLayoutItem* QLayout_SuperReplaceWidget(QLayout* self, QWidget* from, QWidget* t
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnReplaceWidget(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_ReplaceWidget_Callback(reinterpret_cast<VirtualQLayout::QLayout_ReplaceWidget_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -613,9 +601,8 @@ QLayout* QLayout_SuperLayout(QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnLayout(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_Layout_Callback(reinterpret_cast<VirtualQLayout::QLayout_Layout_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -632,9 +619,8 @@ void QLayout_SuperChildEvent(QLayout* self, QChildEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnChildEvent(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_ChildEvent_Callback(reinterpret_cast<VirtualQLayout::QLayout_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -661,9 +647,8 @@ bool QLayout_SuperEvent(QLayout* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnEvent(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_Event_Callback(reinterpret_cast<VirtualQLayout::QLayout_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -690,9 +675,8 @@ bool QLayout_SuperEventFilter(QLayout* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnEventFilter(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_EventFilter_Callback(reinterpret_cast<VirtualQLayout::QLayout_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -719,9 +703,8 @@ void QLayout_SuperTimerEvent(QLayout* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnTimerEvent(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_TimerEvent_Callback(reinterpret_cast<VirtualQLayout::QLayout_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -748,9 +731,8 @@ void QLayout_SuperCustomEvent(QLayout* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnCustomEvent(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_CustomEvent_Callback(reinterpret_cast<VirtualQLayout::QLayout_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -777,9 +759,8 @@ void QLayout_SuperConnectNotify(QLayout* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnConnectNotify(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_ConnectNotify_Callback(reinterpret_cast<VirtualQLayout::QLayout_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -806,9 +787,8 @@ void QLayout_SuperDisconnectNotify(QLayout* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnDisconnectNotify(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_DisconnectNotify_Callback(reinterpret_cast<VirtualQLayout::QLayout_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -835,9 +815,8 @@ QSize* QLayout_SuperSizeHint(const QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnSizeHint(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_SizeHint_Callback(reinterpret_cast<VirtualQLayout::QLayout_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -864,9 +843,8 @@ bool QLayout_SuperHasHeightForWidth(const QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnHasHeightForWidth(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_HasHeightForWidth_Callback(reinterpret_cast<VirtualQLayout::QLayout_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -893,9 +871,8 @@ int QLayout_SuperHeightForWidth(const QLayout* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnHeightForWidth(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_HeightForWidth_Callback(reinterpret_cast<VirtualQLayout::QLayout_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -922,9 +899,8 @@ int QLayout_SuperMinimumHeightForWidth(const QLayout* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnMinimumHeightForWidth(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_MinimumHeightForWidth_Callback(reinterpret_cast<VirtualQLayout::QLayout_MinimumHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -951,9 +927,8 @@ QWidget* QLayout_SuperWidget(const QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnWidget(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_Widget_Callback(reinterpret_cast<VirtualQLayout::QLayout_Widget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -980,9 +955,8 @@ QSpacerItem* QLayout_SuperSpacerItem(QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnSpacerItem(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_SpacerItem_Callback(reinterpret_cast<VirtualQLayout::QLayout_SpacerItem_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1009,9 +983,8 @@ void QLayout_SuperWidgetEvent(QLayout* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnWidgetEvent(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_WidgetEvent_Callback(reinterpret_cast<VirtualQLayout::QLayout_WidgetEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1038,9 +1011,8 @@ void QLayout_SuperAddChildLayout(QLayout* self, QLayout* l) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnAddChildLayout(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_AddChildLayout_Callback(reinterpret_cast<VirtualQLayout::QLayout_AddChildLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1067,9 +1039,8 @@ void QLayout_SuperAddChildWidget(QLayout* self, QWidget* w) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnAddChildWidget(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_AddChildWidget_Callback(reinterpret_cast<VirtualQLayout::QLayout_AddChildWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1096,9 +1067,8 @@ bool QLayout_SuperAdoptLayout(QLayout* self, QLayout* layout) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnAdoptLayout(QLayout* self, intptr_t slot) {
     auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_AdoptLayout_Callback(reinterpret_cast<VirtualQLayout::QLayout_AdoptLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1123,9 +1093,8 @@ QRect* QLayout_SuperAlignmentRect(const QLayout* self, const QRect* param1) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnAlignmentRect(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_AlignmentRect_Callback(reinterpret_cast<VirtualQLayout::QLayout_AlignmentRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1152,9 +1121,8 @@ QObject* QLayout_SuperSender(const QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnSender(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_Sender_Callback(reinterpret_cast<VirtualQLayout::QLayout_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1181,9 +1149,8 @@ int QLayout_SuperSenderSignalIndex(const QLayout* self) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnSenderSignalIndex(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_SenderSignalIndex_Callback(reinterpret_cast<VirtualQLayout::QLayout_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1210,9 +1177,8 @@ int QLayout_SuperReceivers(const QLayout* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnReceivers(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_Receivers_Callback(reinterpret_cast<VirtualQLayout::QLayout_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1239,9 +1205,8 @@ bool QLayout_SuperIsSignalConnected(const QLayout* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QLayout_OnIsSignalConnected(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
-    if (vqlayout && vqlayout->isVirtualQLayout) {
+    if (vqlayout && vqlayout->isVirtualQLayout)
         vqlayout->setQLayout_IsSignalConnected_Callback(reinterpret_cast<VirtualQLayout::QLayout_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QLayout_Delete(QLayout* self) {

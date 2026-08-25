@@ -1112,7 +1112,7 @@ pub const KPluginMetaData = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#public-types)
 pub const enums = struct {
-    pub const KPluginMetaDataOption = enum(i32) {
+    pub const KPluginMetaDataOption = enum {
         pub const AllowEmptyMetaData: i32 = 1;
         pub const CacheMetaData: i32 = 2;
     };

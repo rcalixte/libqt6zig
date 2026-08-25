@@ -5249,7 +5249,7 @@ pub const QScatterSeries = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qscatterseries-qtcharts.html#public-types)
 pub const enums = struct {
-    pub const MarkerShape = enum(i32) {
+    pub const MarkerShape = enum {
         pub const MarkerShapeCircle: i32 = 0;
         pub const MarkerShapeRectangle: i32 = 1;
         pub const MarkerShapeRotatedRectangle: i32 = 2;

@@ -129,9 +129,8 @@ QMetaObject* TextCustomEditor__TextGoToLineWidget_SuperMetaObject(const TextCust
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMetaObject(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MetaObject_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -148,9 +147,8 @@ void* TextCustomEditor__TextGoToLineWidget_SuperMetacast(TextCustomEditor__TextG
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMetacast(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Metacast_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -167,9 +165,8 @@ int TextCustomEditor__TextGoToLineWidget_SuperMetacall(TextCustomEditor__TextGoT
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMetacall(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Metacall_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -186,9 +183,8 @@ bool TextCustomEditor__TextGoToLineWidget_SuperEvent(TextCustomEditor__TextGoToL
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Event_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -205,9 +201,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperShowEvent(TextCustomEditor__TextG
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnShowEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ShowEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -224,9 +219,8 @@ bool TextCustomEditor__TextGoToLineWidget_SuperEventFilter(TextCustomEditor__Tex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnEventFilter(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_EventFilter_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -253,9 +247,8 @@ int TextCustomEditor__TextGoToLineWidget_SuperDevType(const TextCustomEditor__Te
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnDevType(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DevType_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -282,9 +275,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperSetVisible(TextCustomEditor__Text
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnSetVisible(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_SetVisible_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -311,9 +303,8 @@ QSize* TextCustomEditor__TextGoToLineWidget_SuperSizeHint(const TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnSizeHint(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_SizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -340,9 +331,8 @@ QSize* TextCustomEditor__TextGoToLineWidget_SuperMinimumSizeHint(const TextCusto
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMinimumSizeHint(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -369,9 +359,8 @@ int TextCustomEditor__TextGoToLineWidget_SuperHeightForWidth(const TextCustomEdi
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnHeightForWidth(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_HeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -398,9 +387,8 @@ bool TextCustomEditor__TextGoToLineWidget_SuperHasHeightForWidth(const TextCusto
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnHasHeightForWidth(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -427,9 +415,8 @@ QPaintEngine* TextCustomEditor__TextGoToLineWidget_SuperPaintEngine(const TextCu
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnPaintEngine(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_PaintEngine_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -456,9 +443,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperMousePressEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMousePressEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MousePressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -485,9 +471,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperMouseReleaseEvent(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMouseReleaseEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -514,9 +499,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperMouseDoubleClickEvent(TextCustomE
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMouseDoubleClickEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -543,9 +527,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperMouseMoveEvent(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMouseMoveEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -572,9 +555,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperWheelEvent(TextCustomEditor__Text
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnWheelEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_WheelEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -601,9 +583,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperKeyPressEvent(TextCustomEditor__T
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnKeyPressEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -630,9 +611,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperKeyReleaseEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnKeyReleaseEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -659,9 +639,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperFocusInEvent(TextCustomEditor__Te
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnFocusInEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_FocusInEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -688,9 +667,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperFocusOutEvent(TextCustomEditor__T
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnFocusOutEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -717,9 +695,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperEnterEvent(TextCustomEditor__Text
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnEnterEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_EnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -746,9 +723,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperLeaveEvent(TextCustomEditor__Text
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnLeaveEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_LeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -775,9 +751,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperPaintEvent(TextCustomEditor__Text
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnPaintEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_PaintEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -804,9 +779,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperMoveEvent(TextCustomEditor__TextG
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMoveEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_MoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -833,9 +807,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperResizeEvent(TextCustomEditor__Tex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnResizeEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ResizeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -862,9 +835,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperCloseEvent(TextCustomEditor__Text
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnCloseEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_CloseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -891,9 +863,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperContextMenuEvent(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnContextMenuEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -920,9 +891,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperTabletEvent(TextCustomEditor__Tex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnTabletEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_TabletEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -949,9 +919,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperActionEvent(TextCustomEditor__Tex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnActionEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ActionEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -978,9 +947,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperDragEnterEvent(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnDragEnterEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1007,9 +975,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperDragMoveEvent(TextCustomEditor__T
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnDragMoveEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1036,9 +1003,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperDragLeaveEvent(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnDragLeaveEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1065,9 +1031,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperDropEvent(TextCustomEditor__TextG
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnDropEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DropEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1094,9 +1059,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperHideEvent(TextCustomEditor__TextG
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnHideEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_HideEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1125,9 +1089,8 @@ bool TextCustomEditor__TextGoToLineWidget_SuperNativeEvent(TextCustomEditor__Tex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnNativeEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_NativeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1154,9 +1117,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperChangeEvent(TextCustomEditor__Tex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnChangeEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ChangeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1183,9 +1145,8 @@ int TextCustomEditor__TextGoToLineWidget_SuperMetric(const TextCustomEditor__Tex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnMetric(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Metric_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1212,9 +1173,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperInitPainter(const TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnInitPainter(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_InitPainter_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1241,9 +1201,8 @@ QPaintDevice* TextCustomEditor__TextGoToLineWidget_SuperRedirected(const TextCus
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnRedirected(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Redirected_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1270,9 +1229,8 @@ QPainter* TextCustomEditor__TextGoToLineWidget_SuperSharedPainter(const TextCust
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnSharedPainter(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_SharedPainter_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1299,9 +1257,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperInputMethodEvent(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnInputMethodEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1328,9 +1285,8 @@ QVariant* TextCustomEditor__TextGoToLineWidget_SuperInputMethodQuery(const TextC
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnInputMethodQuery(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1357,9 +1313,8 @@ bool TextCustomEditor__TextGoToLineWidget_SuperFocusNextPrevChild(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnFocusNextPrevChild(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1386,9 +1341,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperTimerEvent(TextCustomEditor__Text
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnTimerEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_TimerEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1415,9 +1369,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperChildEvent(TextCustomEditor__Text
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnChildEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ChildEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1444,9 +1397,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperCustomEvent(TextCustomEditor__Tex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnCustomEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_CustomEvent_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1473,9 +1425,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperConnectNotify(TextCustomEditor__T
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnConnectNotify(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_ConnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1502,9 +1453,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperDisconnectNotify(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnDisconnectNotify(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1531,9 +1481,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperUpdateMicroFocus(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnUpdateMicroFocus(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1560,9 +1509,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperCreate(TextCustomEditor__TextGoTo
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnCreate(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Create_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1589,9 +1537,8 @@ void TextCustomEditor__TextGoToLineWidget_SuperDestroy(TextCustomEditor__TextGoT
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnDestroy(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Destroy_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1618,9 +1565,8 @@ bool TextCustomEditor__TextGoToLineWidget_SuperFocusNextChild(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnFocusNextChild(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_FocusNextChild_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1647,9 +1593,8 @@ bool TextCustomEditor__TextGoToLineWidget_SuperFocusPreviousChild(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnFocusPreviousChild(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1676,9 +1621,8 @@ QObject* TextCustomEditor__TextGoToLineWidget_SuperSender(const TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnSender(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Sender_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1705,9 +1649,8 @@ int TextCustomEditor__TextGoToLineWidget_SuperSenderSignalIndex(const TextCustom
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnSenderSignalIndex(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1734,9 +1677,8 @@ int TextCustomEditor__TextGoToLineWidget_SuperReceivers(const TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnReceivers(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_Receivers_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1763,9 +1705,8 @@ bool TextCustomEditor__TextGoToLineWidget_SuperIsSignalConnected(const TextCusto
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnIsSignalConnected(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1792,9 +1733,8 @@ double TextCustomEditor__TextGoToLineWidget_SuperGetDecodedMetricF(const TextCus
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__TextGoToLineWidget_OnGetDecodedMetricF(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot) {
     auto* vtextcustomeditortextgotolinewidget = const_cast<VirtualTextCustomEditorTextGoToLineWidget*>(dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self));
-    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
+    if (vtextcustomeditortextgotolinewidget && vtextcustomeditortextgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget)
         vtextcustomeditortextgotolinewidget->setTextCustomEditor__TextGoToLineWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextCustomEditorTextGoToLineWidget::TextCustomEditor__TextGoToLineWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextCustomEditor__TextGoToLineWidget_Delete(TextCustomEditor__TextGoToLineWidget* self) {

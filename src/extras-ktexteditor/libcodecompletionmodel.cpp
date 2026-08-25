@@ -127,9 +127,8 @@ QMetaObject* KTextEditor__CodeCompletionModel_SuperMetaObject(const KTextEditor_
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnMetaObject(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_MetaObject_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -146,9 +145,8 @@ void* KTextEditor__CodeCompletionModel_SuperMetacast(KTextEditor__CodeCompletion
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnMetacast(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Metacast_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -165,9 +163,8 @@ int KTextEditor__CodeCompletionModel_SuperMetacall(KTextEditor__CodeCompletionMo
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnMetacall(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Metacall_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -184,9 +181,8 @@ void KTextEditor__CodeCompletionModel_SuperCompletionInvoked(KTextEditor__CodeCo
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnCompletionInvoked(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_CompletionInvoked_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_CompletionInvoked_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -203,9 +199,8 @@ void KTextEditor__CodeCompletionModel_SuperExecuteCompletionItem(const KTextEdit
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnExecuteCompletionItem(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ExecuteCompletionItem_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_ExecuteCompletionItem_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -222,9 +217,8 @@ int KTextEditor__CodeCompletionModel_SuperColumnCount(const KTextEditor__CodeCom
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnColumnCount(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ColumnCount_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_ColumnCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -241,9 +235,8 @@ QModelIndex* KTextEditor__CodeCompletionModel_SuperIndex(const KTextEditor__Code
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnIndex(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Index_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Index_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -288,9 +281,8 @@ libqt_map /* of int to QVariant* */ KTextEditor__CodeCompletionModel_SuperItemDa
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnItemData(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ItemData_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_ItemData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -307,9 +299,8 @@ QModelIndex* KTextEditor__CodeCompletionModel_SuperParent(const KTextEditor__Cod
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnParent(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Parent_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Parent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -326,9 +317,8 @@ int KTextEditor__CodeCompletionModel_SuperRowCount(const KTextEditor__CodeComple
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnRowCount(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_RowCount_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_RowCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -355,9 +345,8 @@ QModelIndex* KTextEditor__CodeCompletionModel_SuperSibling(const KTextEditor__Co
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnSibling(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Sibling_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -384,9 +373,8 @@ bool KTextEditor__CodeCompletionModel_SuperHasChildren(const KTextEditor__CodeCo
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnHasChildren(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_HasChildren_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_HasChildren_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -413,9 +401,8 @@ QVariant* KTextEditor__CodeCompletionModel_SuperData(const KTextEditor__CodeComp
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnData(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Data_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Data_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -442,9 +429,8 @@ bool KTextEditor__CodeCompletionModel_SuperSetData(KTextEditor__CodeCompletionMo
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnSetData(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_SetData_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -471,9 +457,8 @@ QVariant* KTextEditor__CodeCompletionModel_SuperHeaderData(const KTextEditor__Co
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnHeaderData(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_HeaderData_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -500,9 +485,8 @@ bool KTextEditor__CodeCompletionModel_SuperSetHeaderData(KTextEditor__CodeComple
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnSetHeaderData(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_SetHeaderData_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -541,9 +525,8 @@ bool KTextEditor__CodeCompletionModel_SuperSetItemData(KTextEditor__CodeCompleti
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnSetItemData(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_SetItemData_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -570,9 +553,8 @@ bool KTextEditor__CodeCompletionModel_SuperClearItemData(KTextEditor__CodeComple
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnClearItemData(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ClearItemData_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -667,9 +649,8 @@ libqt_list /* of libqt_string */ KTextEditor__CodeCompletionModel_SuperMimeTypes
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnMimeTypes(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_MimeTypes_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -708,9 +689,8 @@ QMimeData* KTextEditor__CodeCompletionModel_SuperMimeData(const KTextEditor__Cod
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnMimeData(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_MimeData_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -737,9 +717,8 @@ bool KTextEditor__CodeCompletionModel_SuperCanDropMimeData(const KTextEditor__Co
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnCanDropMimeData(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_CanDropMimeData_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -766,9 +745,8 @@ bool KTextEditor__CodeCompletionModel_SuperDropMimeData(KTextEditor__CodeComplet
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnDropMimeData(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_DropMimeData_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -795,9 +773,8 @@ int KTextEditor__CodeCompletionModel_SuperSupportedDropActions(const KTextEditor
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnSupportedDropActions(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_SupportedDropActions_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -824,9 +801,8 @@ int KTextEditor__CodeCompletionModel_SuperSupportedDragActions(const KTextEditor
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnSupportedDragActions(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_SupportedDragActions_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -853,9 +829,8 @@ bool KTextEditor__CodeCompletionModel_SuperInsertRows(KTextEditor__CodeCompletio
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnInsertRows(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_InsertRows_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -882,9 +857,8 @@ bool KTextEditor__CodeCompletionModel_SuperInsertColumns(KTextEditor__CodeComple
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnInsertColumns(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_InsertColumns_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -911,9 +885,8 @@ bool KTextEditor__CodeCompletionModel_SuperRemoveRows(KTextEditor__CodeCompletio
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnRemoveRows(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_RemoveRows_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -940,9 +913,8 @@ bool KTextEditor__CodeCompletionModel_SuperRemoveColumns(KTextEditor__CodeComple
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnRemoveColumns(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_RemoveColumns_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -969,9 +941,8 @@ bool KTextEditor__CodeCompletionModel_SuperMoveRows(KTextEditor__CodeCompletionM
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnMoveRows(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_MoveRows_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -998,9 +969,8 @@ bool KTextEditor__CodeCompletionModel_SuperMoveColumns(KTextEditor__CodeCompleti
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnMoveColumns(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_MoveColumns_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1027,9 +997,8 @@ void KTextEditor__CodeCompletionModel_SuperFetchMore(KTextEditor__CodeCompletion
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnFetchMore(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_FetchMore_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1056,9 +1025,8 @@ bool KTextEditor__CodeCompletionModel_SuperCanFetchMore(const KTextEditor__CodeC
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnCanFetchMore(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_CanFetchMore_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1085,9 +1053,8 @@ int KTextEditor__CodeCompletionModel_SuperFlags(const KTextEditor__CodeCompletio
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnFlags(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Flags_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Flags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1114,9 +1081,8 @@ void KTextEditor__CodeCompletionModel_SuperSort(KTextEditor__CodeCompletionModel
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnSort(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Sort_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1143,9 +1109,8 @@ QModelIndex* KTextEditor__CodeCompletionModel_SuperBuddy(const KTextEditor__Code
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnBuddy(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Buddy_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1208,9 +1173,8 @@ libqt_list /* of QModelIndex* */ KTextEditor__CodeCompletionModel_SuperMatch(con
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnMatch(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Match_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1237,9 +1201,8 @@ QSize* KTextEditor__CodeCompletionModel_SuperSpan(const KTextEditor__CodeComplet
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnSpan(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Span_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1342,9 +1305,8 @@ libqt_map /* of int to libqt_string */ KTextEditor__CodeCompletionModel_SuperRol
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnRoleNames(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_RoleNames_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1371,9 +1333,8 @@ void KTextEditor__CodeCompletionModel_SuperMultiData(const KTextEditor__CodeComp
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnMultiData(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_MultiData_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1400,9 +1361,8 @@ bool KTextEditor__CodeCompletionModel_SuperSubmit(KTextEditor__CodeCompletionMod
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnSubmit(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Submit_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1429,9 +1389,8 @@ void KTextEditor__CodeCompletionModel_SuperRevert(KTextEditor__CodeCompletionMod
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnRevert(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Revert_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1458,9 +1417,8 @@ void KTextEditor__CodeCompletionModel_SuperResetInternalData(KTextEditor__CodeCo
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnResetInternalData(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ResetInternalData_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1487,9 +1445,8 @@ bool KTextEditor__CodeCompletionModel_SuperEvent(KTextEditor__CodeCompletionMode
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnEvent(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Event_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1516,9 +1473,8 @@ bool KTextEditor__CodeCompletionModel_SuperEventFilter(KTextEditor__CodeCompleti
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnEventFilter(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EventFilter_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1545,9 +1501,8 @@ void KTextEditor__CodeCompletionModel_SuperTimerEvent(KTextEditor__CodeCompletio
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnTimerEvent(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_TimerEvent_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1574,9 +1529,8 @@ void KTextEditor__CodeCompletionModel_SuperChildEvent(KTextEditor__CodeCompletio
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnChildEvent(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ChildEvent_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1603,9 +1557,8 @@ void KTextEditor__CodeCompletionModel_SuperCustomEvent(KTextEditor__CodeCompleti
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnCustomEvent(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_CustomEvent_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1632,9 +1585,8 @@ void KTextEditor__CodeCompletionModel_SuperConnectNotify(KTextEditor__CodeComple
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnConnectNotify(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ConnectNotify_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1661,9 +1613,8 @@ void KTextEditor__CodeCompletionModel_SuperDisconnectNotify(KTextEditor__CodeCom
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnDisconnectNotify(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_DisconnectNotify_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1690,9 +1641,8 @@ void KTextEditor__CodeCompletionModel_SuperSetHasGroups(KTextEditor__CodeComplet
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnSetHasGroups(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_SetHasGroups_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_SetHasGroups_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1717,9 +1667,8 @@ QModelIndex* KTextEditor__CodeCompletionModel_SuperCreateIndex(const KTextEditor
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnCreateIndex(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_CreateIndex_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1758,9 +1707,8 @@ void KTextEditor__CodeCompletionModel_SuperEncodeData(const KTextEditor__CodeCom
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnEncodeData(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EncodeData_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1787,9 +1735,8 @@ bool KTextEditor__CodeCompletionModel_SuperDecodeData(KTextEditor__CodeCompletio
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnDecodeData(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_DecodeData_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1816,9 +1763,8 @@ void KTextEditor__CodeCompletionModel_SuperBeginInsertRows(KTextEditor__CodeComp
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnBeginInsertRows(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_BeginInsertRows_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1845,9 +1791,8 @@ void KTextEditor__CodeCompletionModel_SuperEndInsertRows(KTextEditor__CodeComple
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnEndInsertRows(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EndInsertRows_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1874,9 +1819,8 @@ void KTextEditor__CodeCompletionModel_SuperBeginRemoveRows(KTextEditor__CodeComp
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnBeginRemoveRows(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1903,9 +1847,8 @@ void KTextEditor__CodeCompletionModel_SuperEndRemoveRows(KTextEditor__CodeComple
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnEndRemoveRows(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EndRemoveRows_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1932,9 +1875,8 @@ bool KTextEditor__CodeCompletionModel_SuperBeginMoveRows(KTextEditor__CodeComple
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnBeginMoveRows(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_BeginMoveRows_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1961,9 +1903,8 @@ void KTextEditor__CodeCompletionModel_SuperEndMoveRows(KTextEditor__CodeCompleti
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnEndMoveRows(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EndMoveRows_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1990,9 +1931,8 @@ void KTextEditor__CodeCompletionModel_SuperBeginInsertColumns(KTextEditor__CodeC
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnBeginInsertColumns(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2019,9 +1959,8 @@ void KTextEditor__CodeCompletionModel_SuperEndInsertColumns(KTextEditor__CodeCom
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnEndInsertColumns(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EndInsertColumns_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2048,9 +1987,8 @@ void KTextEditor__CodeCompletionModel_SuperBeginRemoveColumns(KTextEditor__CodeC
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnBeginRemoveColumns(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2077,9 +2015,8 @@ void KTextEditor__CodeCompletionModel_SuperEndRemoveColumns(KTextEditor__CodeCom
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnEndRemoveColumns(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2106,9 +2043,8 @@ bool KTextEditor__CodeCompletionModel_SuperBeginMoveColumns(KTextEditor__CodeCom
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnBeginMoveColumns(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2135,9 +2071,8 @@ void KTextEditor__CodeCompletionModel_SuperEndMoveColumns(KTextEditor__CodeCompl
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnEndMoveColumns(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EndMoveColumns_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2164,9 +2099,8 @@ void KTextEditor__CodeCompletionModel_SuperBeginResetModel(KTextEditor__CodeComp
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnBeginResetModel(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_BeginResetModel_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2193,9 +2127,8 @@ void KTextEditor__CodeCompletionModel_SuperEndResetModel(KTextEditor__CodeComple
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnEndResetModel(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_EndResetModel_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2222,9 +2155,8 @@ void KTextEditor__CodeCompletionModel_SuperChangePersistentIndex(KTextEditor__Co
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnChangePersistentIndex(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2275,9 +2207,8 @@ void KTextEditor__CodeCompletionModel_SuperChangePersistentIndexList(KTextEditor
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnChangePersistentIndexList(KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2340,9 +2271,8 @@ libqt_list /* of QModelIndex* */ KTextEditor__CodeCompletionModel_SuperPersisten
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnPersistentIndexList(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_PersistentIndexList_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2369,9 +2299,8 @@ QObject* KTextEditor__CodeCompletionModel_SuperSender(const KTextEditor__CodeCom
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnSender(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Sender_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2398,9 +2327,8 @@ int KTextEditor__CodeCompletionModel_SuperSenderSignalIndex(const KTextEditor__C
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnSenderSignalIndex(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2427,9 +2355,8 @@ int KTextEditor__CodeCompletionModel_SuperReceivers(const KTextEditor__CodeCompl
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnReceivers(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_Receivers_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2456,9 +2383,8 @@ bool KTextEditor__CodeCompletionModel_SuperIsSignalConnected(const KTextEditor__
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__CodeCompletionModel_OnIsSignalConnected(const KTextEditor__CodeCompletionModel* self, intptr_t slot) {
     auto* vktexteditorcodecompletionmodel = const_cast<VirtualKTextEditorCodeCompletionModel*>(dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self));
-    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
+    if (vktexteditorcodecompletionmodel && vktexteditorcodecompletionmodel->isVirtualKTextEditorCodeCompletionModel)
         vktexteditorcodecompletionmodel->setKTextEditor__CodeCompletionModel_IsSignalConnected_Callback(reinterpret_cast<VirtualKTextEditorCodeCompletionModel::KTextEditor__CodeCompletionModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KTextEditor__CodeCompletionModel_Delete(KTextEditor__CodeCompletionModel* self) {

@@ -153,9 +153,8 @@ void TextAutoCorrectionCore__AutoCorrectionSettings_SetUpperCaseExceptions(TextA
     QSet<QString> exceptions_set;
     exceptions_set.reserve(exceptions.len);
     const libqt_string* exceptions_strarr = static_cast<const libqt_string*>(exceptions.data);
-    for (size_t i = 0; i < exceptions.len; ++i) {
+    for (size_t i = 0; i < exceptions.len; ++i)
         exceptions_set.insert(QString::fromUtf8(exceptions_strarr[i].data));
-    }
     self->setUpperCaseExceptions(exceptions_set);
 }
 
@@ -164,9 +163,8 @@ void TextAutoCorrectionCore__AutoCorrectionSettings_SetTwoUpperLetterExceptions(
     QSet<QString> exceptions_set;
     exceptions_set.reserve(exceptions.len);
     const libqt_string* exceptions_strarr = static_cast<const libqt_string*>(exceptions.data);
-    for (size_t i = 0; i < exceptions.len; ++i) {
+    for (size_t i = 0; i < exceptions.len; ++i)
         exceptions_set.insert(QString::fromUtf8(exceptions_strarr[i].data));
-    }
     self->setTwoUpperLetterExceptions(exceptions_set);
 }
 

@@ -6989,7 +6989,7 @@ pub const TextEmoticonsCore__EmojiModel = extern struct {
 };
 
 pub const enums = struct {
-    pub const EmoticonsRoles = enum(i32) {
+    pub const EmoticonsRoles = enum {
         pub const UnicodeEmoji: i32 = 257;
         pub const Identifier: i32 = 258;
         pub const Category: i32 = 259;

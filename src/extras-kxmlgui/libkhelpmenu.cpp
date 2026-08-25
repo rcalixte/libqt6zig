@@ -117,9 +117,8 @@ QMetaObject* KHelpMenu_SuperMetaObject(const KHelpMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnMetaObject(const KHelpMenu* self, intptr_t slot) {
     auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
         vkhelpmenu->setKHelpMenu_MetaObject_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -136,9 +135,8 @@ void* KHelpMenu_SuperMetacast(KHelpMenu* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnMetacast(KHelpMenu* self, intptr_t slot) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
         vkhelpmenu->setKHelpMenu_Metacast_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -155,9 +153,8 @@ int KHelpMenu_SuperMetacall(KHelpMenu* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnMetacall(KHelpMenu* self, intptr_t slot) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
         vkhelpmenu->setKHelpMenu_Metacall_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -184,9 +181,8 @@ bool KHelpMenu_SuperEvent(KHelpMenu* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnEvent(KHelpMenu* self, intptr_t slot) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
         vkhelpmenu->setKHelpMenu_Event_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -213,9 +209,8 @@ bool KHelpMenu_SuperEventFilter(KHelpMenu* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnEventFilter(KHelpMenu* self, intptr_t slot) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
         vkhelpmenu->setKHelpMenu_EventFilter_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -242,9 +237,8 @@ void KHelpMenu_SuperTimerEvent(KHelpMenu* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnTimerEvent(KHelpMenu* self, intptr_t slot) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
         vkhelpmenu->setKHelpMenu_TimerEvent_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +265,8 @@ void KHelpMenu_SuperChildEvent(KHelpMenu* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnChildEvent(KHelpMenu* self, intptr_t slot) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
         vkhelpmenu->setKHelpMenu_ChildEvent_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +293,8 @@ void KHelpMenu_SuperCustomEvent(KHelpMenu* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnCustomEvent(KHelpMenu* self, intptr_t slot) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
         vkhelpmenu->setKHelpMenu_CustomEvent_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +321,8 @@ void KHelpMenu_SuperConnectNotify(KHelpMenu* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnConnectNotify(KHelpMenu* self, intptr_t slot) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
         vkhelpmenu->setKHelpMenu_ConnectNotify_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +349,8 @@ void KHelpMenu_SuperDisconnectNotify(KHelpMenu* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnDisconnectNotify(KHelpMenu* self, intptr_t slot) {
     auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
         vkhelpmenu->setKHelpMenu_DisconnectNotify_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +377,8 @@ QObject* KHelpMenu_SuperSender(const KHelpMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnSender(const KHelpMenu* self, intptr_t slot) {
     auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
         vkhelpmenu->setKHelpMenu_Sender_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +405,8 @@ int KHelpMenu_SuperSenderSignalIndex(const KHelpMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnSenderSignalIndex(const KHelpMenu* self, intptr_t slot) {
     auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
         vkhelpmenu->setKHelpMenu_SenderSignalIndex_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +433,8 @@ int KHelpMenu_SuperReceivers(const KHelpMenu* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnReceivers(const KHelpMenu* self, intptr_t slot) {
     auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
         vkhelpmenu->setKHelpMenu_Receivers_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +461,8 @@ bool KHelpMenu_SuperIsSignalConnected(const KHelpMenu* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KHelpMenu_OnIsSignalConnected(const KHelpMenu* self, intptr_t slot) {
     auto* vkhelpmenu = const_cast<VirtualKHelpMenu*>(dynamic_cast<const VirtualKHelpMenu*>(self));
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
+    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu)
         vkhelpmenu->setKHelpMenu_IsSignalConnected_Callback(reinterpret_cast<VirtualKHelpMenu::KHelpMenu_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KHelpMenu_Delete(KHelpMenu* self) {

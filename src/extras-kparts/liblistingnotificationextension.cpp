@@ -64,9 +64,8 @@ QMetaObject* KParts__ListingNotificationExtension_SuperMetaObject(const KParts__
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingNotificationExtension_OnMetaObject(const KParts__ListingNotificationExtension* self, intptr_t slot) {
     auto* vkpartslistingnotificationextension = const_cast<VirtualKPartsListingNotificationExtension*>(dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self));
-    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension)
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_MetaObject_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -83,9 +82,8 @@ void* KParts__ListingNotificationExtension_SuperMetacast(KParts__ListingNotifica
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingNotificationExtension_OnMetacast(KParts__ListingNotificationExtension* self, intptr_t slot) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
-    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension)
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_Metacast_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -102,9 +100,8 @@ int KParts__ListingNotificationExtension_SuperMetacall(KParts__ListingNotificati
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingNotificationExtension_OnMetacall(KParts__ListingNotificationExtension* self, intptr_t slot) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
-    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension)
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_Metacall_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -121,9 +118,8 @@ int KParts__ListingNotificationExtension_SuperSupportedNotificationEventTypes(co
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingNotificationExtension_OnSupportedNotificationEventTypes(const KParts__ListingNotificationExtension* self, intptr_t slot) {
     auto* vkpartslistingnotificationextension = const_cast<VirtualKPartsListingNotificationExtension*>(dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self));
-    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension)
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_SupportedNotificationEventTypes_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_SupportedNotificationEventTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -150,9 +146,8 @@ bool KParts__ListingNotificationExtension_SuperEvent(KParts__ListingNotification
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingNotificationExtension_OnEvent(KParts__ListingNotificationExtension* self, intptr_t slot) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
-    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension)
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_Event_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -179,9 +174,8 @@ bool KParts__ListingNotificationExtension_SuperEventFilter(KParts__ListingNotifi
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingNotificationExtension_OnEventFilter(KParts__ListingNotificationExtension* self, intptr_t slot) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
-    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension)
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_EventFilter_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -208,9 +202,8 @@ void KParts__ListingNotificationExtension_SuperTimerEvent(KParts__ListingNotific
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingNotificationExtension_OnTimerEvent(KParts__ListingNotificationExtension* self, intptr_t slot) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
-    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension)
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_TimerEvent_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -237,9 +230,8 @@ void KParts__ListingNotificationExtension_SuperChildEvent(KParts__ListingNotific
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingNotificationExtension_OnChildEvent(KParts__ListingNotificationExtension* self, intptr_t slot) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
-    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension)
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_ChildEvent_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -266,9 +258,8 @@ void KParts__ListingNotificationExtension_SuperCustomEvent(KParts__ListingNotifi
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingNotificationExtension_OnCustomEvent(KParts__ListingNotificationExtension* self, intptr_t slot) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
-    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension)
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_CustomEvent_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -295,9 +286,8 @@ void KParts__ListingNotificationExtension_SuperConnectNotify(KParts__ListingNoti
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingNotificationExtension_OnConnectNotify(KParts__ListingNotificationExtension* self, intptr_t slot) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
-    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension)
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_ConnectNotify_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -324,9 +314,8 @@ void KParts__ListingNotificationExtension_SuperDisconnectNotify(KParts__ListingN
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingNotificationExtension_OnDisconnectNotify(KParts__ListingNotificationExtension* self, intptr_t slot) {
     auto* vkpartslistingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
-    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension)
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_DisconnectNotify_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -353,9 +342,8 @@ QObject* KParts__ListingNotificationExtension_SuperSender(const KParts__ListingN
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingNotificationExtension_OnSender(const KParts__ListingNotificationExtension* self, intptr_t slot) {
     auto* vkpartslistingnotificationextension = const_cast<VirtualKPartsListingNotificationExtension*>(dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self));
-    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension)
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_Sender_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -382,9 +370,8 @@ int KParts__ListingNotificationExtension_SuperSenderSignalIndex(const KParts__Li
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingNotificationExtension_OnSenderSignalIndex(const KParts__ListingNotificationExtension* self, intptr_t slot) {
     auto* vkpartslistingnotificationextension = const_cast<VirtualKPartsListingNotificationExtension*>(dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self));
-    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension)
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -411,9 +398,8 @@ int KParts__ListingNotificationExtension_SuperReceivers(const KParts__ListingNot
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingNotificationExtension_OnReceivers(const KParts__ListingNotificationExtension* self, intptr_t slot) {
     auto* vkpartslistingnotificationextension = const_cast<VirtualKPartsListingNotificationExtension*>(dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self));
-    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension)
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_Receivers_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -440,9 +426,8 @@ bool KParts__ListingNotificationExtension_SuperIsSignalConnected(const KParts__L
 // Auxiliary method to allow providing re-implementation
 void KParts__ListingNotificationExtension_OnIsSignalConnected(const KParts__ListingNotificationExtension* self, intptr_t slot) {
     auto* vkpartslistingnotificationextension = const_cast<VirtualKPartsListingNotificationExtension*>(dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self));
-    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension) {
+    if (vkpartslistingnotificationextension && vkpartslistingnotificationextension->isVirtualKPartsListingNotificationExtension)
         vkpartslistingnotificationextension->setKParts__ListingNotificationExtension_IsSignalConnected_Callback(reinterpret_cast<VirtualKPartsListingNotificationExtension::KParts__ListingNotificationExtension_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KParts__ListingNotificationExtension_Delete(KParts__ListingNotificationExtension* self) {

@@ -39,9 +39,8 @@ bool TextAutoCorrectionCore__ImportKMailAutocorrection_SuperImport(TextAutoCorre
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionCore__ImportKMailAutocorrection_OnImport(TextAutoCorrectionCore__ImportKMailAutocorrection* self, intptr_t slot) {
     auto* vtextautocorrectioncoreimportkmailautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportKMailAutocorrection*>(self);
-    if (vtextautocorrectioncoreimportkmailautocorrection && vtextautocorrectioncoreimportkmailautocorrection->isVirtualTextAutoCorrectionCoreImportKMailAutocorrection) {
+    if (vtextautocorrectioncoreimportkmailautocorrection && vtextautocorrectioncoreimportkmailautocorrection->isVirtualTextAutoCorrectionCoreImportKMailAutocorrection)
         vtextautocorrectioncoreimportkmailautocorrection->setTextAutoCorrectionCore__ImportKMailAutocorrection_Import_Callback(reinterpret_cast<VirtualTextAutoCorrectionCoreImportKMailAutocorrection::TextAutoCorrectionCore__ImportKMailAutocorrection_Import_Callback>(slot));
-    }
 }
 
 void TextAutoCorrectionCore__ImportKMailAutocorrection_Delete(TextAutoCorrectionCore__ImportKMailAutocorrection* self) {

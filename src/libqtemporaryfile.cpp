@@ -121,9 +121,8 @@ QMetaObject* QTemporaryFile_SuperMetaObject(const QTemporaryFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnMetaObject(const QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_MetaObject_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -140,9 +139,8 @@ void* QTemporaryFile_SuperMetacast(QTemporaryFile* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnMetacast(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_Metacast_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -159,9 +157,8 @@ int QTemporaryFile_SuperMetacall(QTemporaryFile* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnMetacall(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_Metacall_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -194,9 +191,8 @@ libqt_string QTemporaryFile_SuperFileName(const QTemporaryFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnFileName(const QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_FileName_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_FileName_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -213,9 +209,8 @@ bool QTemporaryFile_SuperOpen2(QTemporaryFile* self, int flags) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnOpen2(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_Open2_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Open2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -242,9 +237,8 @@ long long QTemporaryFile_SuperSize(const QTemporaryFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnSize(const QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_Size_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Size_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +265,8 @@ bool QTemporaryFile_SuperResize(QTemporaryFile* self, long long sz) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnResize(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_Resize_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Resize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +293,8 @@ int QTemporaryFile_SuperPermissions(const QTemporaryFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnPermissions(const QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_Permissions_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Permissions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +321,8 @@ bool QTemporaryFile_SuperSetPermissions(QTemporaryFile* self, int permissionSpec
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnSetPermissions(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_SetPermissions_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_SetPermissions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +349,8 @@ void QTemporaryFile_SuperClose(QTemporaryFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnClose(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_Close_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Close_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +377,8 @@ bool QTemporaryFile_SuperIsSequential(const QTemporaryFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnIsSequential(const QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_IsSequential_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_IsSequential_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +405,8 @@ long long QTemporaryFile_SuperPos(const QTemporaryFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnPos(const QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_Pos_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Pos_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +433,8 @@ bool QTemporaryFile_SuperSeek(QTemporaryFile* self, long long offset) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnSeek(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_Seek_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Seek_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +461,8 @@ bool QTemporaryFile_SuperAtEnd(const QTemporaryFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnAtEnd(const QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_AtEnd_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_AtEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +489,8 @@ long long QTemporaryFile_SuperReadData(QTemporaryFile* self, char* data, long lo
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnReadData(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_ReadData_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_ReadData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +517,8 @@ long long QTemporaryFile_SuperWriteData(QTemporaryFile* self, const char* data, 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnWriteData(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_WriteData_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_WriteData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +545,8 @@ long long QTemporaryFile_SuperReadLineData(QTemporaryFile* self, char* data, lon
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnReadLineData(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_ReadLineData_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_ReadLineData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +573,8 @@ bool QTemporaryFile_SuperReset(QTemporaryFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnReset(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_Reset_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -619,9 +601,8 @@ long long QTemporaryFile_SuperBytesAvailable(const QTemporaryFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnBytesAvailable(const QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_BytesAvailable_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_BytesAvailable_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -648,9 +629,8 @@ long long QTemporaryFile_SuperBytesToWrite(const QTemporaryFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnBytesToWrite(const QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_BytesToWrite_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_BytesToWrite_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -677,9 +657,8 @@ bool QTemporaryFile_SuperCanReadLine(const QTemporaryFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnCanReadLine(const QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_CanReadLine_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_CanReadLine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +685,8 @@ bool QTemporaryFile_SuperWaitForReadyRead(QTemporaryFile* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnWaitForReadyRead(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_WaitForReadyRead_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_WaitForReadyRead_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -735,9 +713,8 @@ bool QTemporaryFile_SuperWaitForBytesWritten(QTemporaryFile* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnWaitForBytesWritten(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_WaitForBytesWritten_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_WaitForBytesWritten_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -764,9 +741,8 @@ long long QTemporaryFile_SuperSkipData(QTemporaryFile* self, long long maxSize) 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnSkipData(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_SkipData_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_SkipData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -793,9 +769,8 @@ bool QTemporaryFile_SuperEvent(QTemporaryFile* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnEvent(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_Event_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -822,9 +797,8 @@ bool QTemporaryFile_SuperEventFilter(QTemporaryFile* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnEventFilter(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_EventFilter_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -851,9 +825,8 @@ void QTemporaryFile_SuperTimerEvent(QTemporaryFile* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnTimerEvent(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_TimerEvent_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -880,9 +853,8 @@ void QTemporaryFile_SuperChildEvent(QTemporaryFile* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnChildEvent(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_ChildEvent_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -909,9 +881,8 @@ void QTemporaryFile_SuperCustomEvent(QTemporaryFile* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnCustomEvent(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_CustomEvent_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -938,9 +909,8 @@ void QTemporaryFile_SuperConnectNotify(QTemporaryFile* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnConnectNotify(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_ConnectNotify_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -967,9 +937,8 @@ void QTemporaryFile_SuperDisconnectNotify(QTemporaryFile* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnDisconnectNotify(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_DisconnectNotify_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -996,9 +965,8 @@ void QTemporaryFile_SuperSetOpenMode(QTemporaryFile* self, int openMode) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnSetOpenMode(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_SetOpenMode_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_SetOpenMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1027,9 +995,8 @@ void QTemporaryFile_SuperSetErrorString(QTemporaryFile* self, const libqt_string
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnSetErrorString(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_SetErrorString_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1056,9 +1023,8 @@ QObject* QTemporaryFile_SuperSender(const QTemporaryFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnSender(const QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_Sender_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1085,9 +1051,8 @@ int QTemporaryFile_SuperSenderSignalIndex(const QTemporaryFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnSenderSignalIndex(const QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1114,9 +1079,8 @@ int QTemporaryFile_SuperReceivers(const QTemporaryFile* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnReceivers(const QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_Receivers_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1143,9 +1107,8 @@ bool QTemporaryFile_SuperIsSignalConnected(const QTemporaryFile* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QTemporaryFile_OnIsSignalConnected(const QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
-    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
+    if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile)
         vqtemporaryfile->setQTemporaryFile_IsSignalConnected_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QTemporaryFile_Delete(QTemporaryFile* self) {

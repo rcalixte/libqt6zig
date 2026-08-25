@@ -144,9 +144,8 @@ QMetaObject* QSlider_SuperMetaObject(const QSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnMetaObject(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_MetaObject_Callback(reinterpret_cast<VirtualQSlider::QSlider_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -163,9 +162,8 @@ void* QSlider_SuperMetacast(QSlider* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnMetacast(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_Metacast_Callback(reinterpret_cast<VirtualQSlider::QSlider_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -182,9 +180,8 @@ int QSlider_SuperMetacall(QSlider* self, int param1, int param2, void** param3) 
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnMetacall(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_Metacall_Callback(reinterpret_cast<VirtualQSlider::QSlider_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -201,9 +198,8 @@ QSize* QSlider_SuperSizeHint(const QSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnSizeHint(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_SizeHint_Callback(reinterpret_cast<VirtualQSlider::QSlider_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -220,9 +216,8 @@ QSize* QSlider_SuperMinimumSizeHint(const QSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnMinimumSizeHint(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_MinimumSizeHint_Callback(reinterpret_cast<VirtualQSlider::QSlider_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -239,9 +234,8 @@ bool QSlider_SuperEvent(QSlider* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_Event_Callback(reinterpret_cast<VirtualQSlider::QSlider_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -258,9 +252,8 @@ void QSlider_SuperPaintEvent(QSlider* self, QPaintEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnPaintEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_PaintEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -277,9 +270,8 @@ void QSlider_SuperMousePressEvent(QSlider* self, QMouseEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnMousePressEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_MousePressEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -296,9 +288,8 @@ void QSlider_SuperMouseReleaseEvent(QSlider* self, QMouseEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnMouseReleaseEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -315,9 +306,8 @@ void QSlider_SuperMouseMoveEvent(QSlider* self, QMouseEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnMouseMoveEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_MouseMoveEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -334,9 +324,8 @@ void QSlider_SuperInitStyleOption(const QSlider* self, QStyleOptionSlider* optio
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnInitStyleOption(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_InitStyleOption_Callback(reinterpret_cast<VirtualQSlider::QSlider_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -363,9 +352,8 @@ void QSlider_SuperSliderChange(QSlider* self, int change) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnSliderChange(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_SliderChange_Callback(reinterpret_cast<VirtualQSlider::QSlider_SliderChange_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -392,9 +380,8 @@ void QSlider_SuperKeyPressEvent(QSlider* self, QKeyEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnKeyPressEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_KeyPressEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -421,9 +408,8 @@ void QSlider_SuperTimerEvent(QSlider* self, QTimerEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnTimerEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_TimerEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -450,9 +436,8 @@ void QSlider_SuperWheelEvent(QSlider* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnWheelEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_WheelEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -479,9 +464,8 @@ void QSlider_SuperChangeEvent(QSlider* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnChangeEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_ChangeEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -508,9 +492,8 @@ int QSlider_SuperDevType(const QSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnDevType(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_DevType_Callback(reinterpret_cast<VirtualQSlider::QSlider_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -537,9 +520,8 @@ void QSlider_SuperSetVisible(QSlider* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnSetVisible(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_SetVisible_Callback(reinterpret_cast<VirtualQSlider::QSlider_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -566,9 +548,8 @@ int QSlider_SuperHeightForWidth(const QSlider* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnHeightForWidth(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_HeightForWidth_Callback(reinterpret_cast<VirtualQSlider::QSlider_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -595,9 +576,8 @@ bool QSlider_SuperHasHeightForWidth(const QSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnHasHeightForWidth(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_HasHeightForWidth_Callback(reinterpret_cast<VirtualQSlider::QSlider_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -624,9 +604,8 @@ QPaintEngine* QSlider_SuperPaintEngine(const QSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnPaintEngine(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_PaintEngine_Callback(reinterpret_cast<VirtualQSlider::QSlider_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -653,9 +632,8 @@ void QSlider_SuperMouseDoubleClickEvent(QSlider* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnMouseDoubleClickEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -682,9 +660,8 @@ void QSlider_SuperKeyReleaseEvent(QSlider* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnKeyReleaseEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -711,9 +688,8 @@ void QSlider_SuperFocusInEvent(QSlider* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnFocusInEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_FocusInEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -740,9 +716,8 @@ void QSlider_SuperFocusOutEvent(QSlider* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnFocusOutEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_FocusOutEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -769,9 +744,8 @@ void QSlider_SuperEnterEvent(QSlider* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnEnterEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_EnterEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -798,9 +772,8 @@ void QSlider_SuperLeaveEvent(QSlider* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnLeaveEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_LeaveEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -827,9 +800,8 @@ void QSlider_SuperMoveEvent(QSlider* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnMoveEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_MoveEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -856,9 +828,8 @@ void QSlider_SuperResizeEvent(QSlider* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnResizeEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_ResizeEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -885,9 +856,8 @@ void QSlider_SuperCloseEvent(QSlider* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnCloseEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_CloseEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -914,9 +884,8 @@ void QSlider_SuperContextMenuEvent(QSlider* self, QContextMenuEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnContextMenuEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_ContextMenuEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -943,9 +912,8 @@ void QSlider_SuperTabletEvent(QSlider* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnTabletEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_TabletEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -972,9 +940,8 @@ void QSlider_SuperActionEvent(QSlider* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnActionEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_ActionEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1001,9 +968,8 @@ void QSlider_SuperDragEnterEvent(QSlider* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnDragEnterEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_DragEnterEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1030,9 +996,8 @@ void QSlider_SuperDragMoveEvent(QSlider* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnDragMoveEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_DragMoveEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1059,9 +1024,8 @@ void QSlider_SuperDragLeaveEvent(QSlider* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnDragLeaveEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_DragLeaveEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1088,9 +1052,8 @@ void QSlider_SuperDropEvent(QSlider* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnDropEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_DropEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1117,9 +1080,8 @@ void QSlider_SuperShowEvent(QSlider* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnShowEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_ShowEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1146,9 +1108,8 @@ void QSlider_SuperHideEvent(QSlider* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnHideEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_HideEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1177,9 +1138,8 @@ bool QSlider_SuperNativeEvent(QSlider* self, const libqt_string eventType, void*
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnNativeEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_NativeEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1206,9 +1166,8 @@ int QSlider_SuperMetric(const QSlider* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnMetric(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_Metric_Callback(reinterpret_cast<VirtualQSlider::QSlider_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1235,9 +1194,8 @@ void QSlider_SuperInitPainter(const QSlider* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnInitPainter(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_InitPainter_Callback(reinterpret_cast<VirtualQSlider::QSlider_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1264,9 +1222,8 @@ QPaintDevice* QSlider_SuperRedirected(const QSlider* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnRedirected(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_Redirected_Callback(reinterpret_cast<VirtualQSlider::QSlider_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1293,9 +1250,8 @@ QPainter* QSlider_SuperSharedPainter(const QSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnSharedPainter(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_SharedPainter_Callback(reinterpret_cast<VirtualQSlider::QSlider_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1322,9 +1278,8 @@ void QSlider_SuperInputMethodEvent(QSlider* self, QInputMethodEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnInputMethodEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_InputMethodEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1351,9 +1306,8 @@ QVariant* QSlider_SuperInputMethodQuery(const QSlider* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnInputMethodQuery(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_InputMethodQuery_Callback(reinterpret_cast<VirtualQSlider::QSlider_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1380,9 +1334,8 @@ bool QSlider_SuperFocusNextPrevChild(QSlider* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnFocusNextPrevChild(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQSlider::QSlider_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1409,9 +1362,8 @@ bool QSlider_SuperEventFilter(QSlider* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnEventFilter(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_EventFilter_Callback(reinterpret_cast<VirtualQSlider::QSlider_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1438,9 +1390,8 @@ void QSlider_SuperChildEvent(QSlider* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnChildEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_ChildEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1467,9 +1418,8 @@ void QSlider_SuperCustomEvent(QSlider* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnCustomEvent(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_CustomEvent_Callback(reinterpret_cast<VirtualQSlider::QSlider_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1496,9 +1446,8 @@ void QSlider_SuperConnectNotify(QSlider* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnConnectNotify(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_ConnectNotify_Callback(reinterpret_cast<VirtualQSlider::QSlider_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1525,9 +1474,8 @@ void QSlider_SuperDisconnectNotify(QSlider* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnDisconnectNotify(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_DisconnectNotify_Callback(reinterpret_cast<VirtualQSlider::QSlider_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1554,9 +1502,8 @@ void QSlider_SuperSetRepeatAction(QSlider* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnSetRepeatAction(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_SetRepeatAction_Callback(reinterpret_cast<VirtualQSlider::QSlider_SetRepeatAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1583,9 +1530,8 @@ int QSlider_SuperRepeatAction(const QSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnRepeatAction(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_RepeatAction_Callback(reinterpret_cast<VirtualQSlider::QSlider_RepeatAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1612,9 +1558,8 @@ void QSlider_SuperUpdateMicroFocus(QSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnUpdateMicroFocus(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQSlider::QSlider_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1641,9 +1586,8 @@ void QSlider_SuperCreate(QSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnCreate(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_Create_Callback(reinterpret_cast<VirtualQSlider::QSlider_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1670,9 +1614,8 @@ void QSlider_SuperDestroy(QSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnDestroy(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_Destroy_Callback(reinterpret_cast<VirtualQSlider::QSlider_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1699,9 +1642,8 @@ bool QSlider_SuperFocusNextChild(QSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnFocusNextChild(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_FocusNextChild_Callback(reinterpret_cast<VirtualQSlider::QSlider_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1728,9 +1670,8 @@ bool QSlider_SuperFocusPreviousChild(QSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnFocusPreviousChild(QSlider* self, intptr_t slot) {
     auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_FocusPreviousChild_Callback(reinterpret_cast<VirtualQSlider::QSlider_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1757,9 +1698,8 @@ QObject* QSlider_SuperSender(const QSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnSender(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_Sender_Callback(reinterpret_cast<VirtualQSlider::QSlider_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1786,9 +1726,8 @@ int QSlider_SuperSenderSignalIndex(const QSlider* self) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnSenderSignalIndex(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSlider::QSlider_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1815,9 +1754,8 @@ int QSlider_SuperReceivers(const QSlider* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnReceivers(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_Receivers_Callback(reinterpret_cast<VirtualQSlider::QSlider_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1844,9 +1782,8 @@ bool QSlider_SuperIsSignalConnected(const QSlider* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnIsSignalConnected(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_IsSignalConnected_Callback(reinterpret_cast<VirtualQSlider::QSlider_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1873,9 +1810,8 @@ double QSlider_SuperGetDecodedMetricF(const QSlider* self, int metricA, int metr
 // Auxiliary method to allow providing re-implementation
 void QSlider_OnGetDecodedMetricF(const QSlider* self, intptr_t slot) {
     auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
-    if (vqslider && vqslider->isVirtualQSlider) {
+    if (vqslider && vqslider->isVirtualQSlider)
         vqslider->setQSlider_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSlider::QSlider_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QSlider_Delete(QSlider* self) {

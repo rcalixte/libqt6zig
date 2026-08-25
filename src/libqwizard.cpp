@@ -385,9 +385,8 @@ QMetaObject* QWizard_SuperMetaObject(const QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMetaObject(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_MetaObject_Callback(reinterpret_cast<VirtualQWizard::QWizard_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -404,9 +403,8 @@ void* QWizard_SuperMetacast(QWizard* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMetacast(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_Metacast_Callback(reinterpret_cast<VirtualQWizard::QWizard_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -423,9 +421,8 @@ int QWizard_SuperMetacall(QWizard* self, int param1, int param2, void** param3) 
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMetacall(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_Metacall_Callback(reinterpret_cast<VirtualQWizard::QWizard_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -442,9 +439,8 @@ bool QWizard_SuperValidateCurrentPage(QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnValidateCurrentPage(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_ValidateCurrentPage_Callback(reinterpret_cast<VirtualQWizard::QWizard_ValidateCurrentPage_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -461,9 +457,8 @@ int QWizard_SuperNextId(const QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnNextId(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_NextId_Callback(reinterpret_cast<VirtualQWizard::QWizard_NextId_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -480,9 +475,8 @@ void QWizard_SuperSetVisible(QWizard* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnSetVisible(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_SetVisible_Callback(reinterpret_cast<VirtualQWizard::QWizard_SetVisible_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -499,9 +493,8 @@ QSize* QWizard_SuperSizeHint(const QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnSizeHint(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_SizeHint_Callback(reinterpret_cast<VirtualQWizard::QWizard_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -518,9 +511,8 @@ bool QWizard_SuperEvent(QWizard* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_Event_Callback(reinterpret_cast<VirtualQWizard::QWizard_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -537,9 +529,8 @@ void QWizard_SuperResizeEvent(QWizard* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnResizeEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_ResizeEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -556,9 +547,8 @@ void QWizard_SuperPaintEvent(QWizard* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnPaintEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_PaintEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -575,9 +565,8 @@ void QWizard_SuperDone(QWizard* self, int result) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnDone(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_Done_Callback(reinterpret_cast<VirtualQWizard::QWizard_Done_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -594,9 +583,8 @@ void QWizard_SuperInitializePage(QWizard* self, int id) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnInitializePage(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_InitializePage_Callback(reinterpret_cast<VirtualQWizard::QWizard_InitializePage_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -613,9 +601,8 @@ void QWizard_SuperCleanupPage(QWizard* self, int id) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnCleanupPage(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_CleanupPage_Callback(reinterpret_cast<VirtualQWizard::QWizard_CleanupPage_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -642,9 +629,8 @@ QSize* QWizard_SuperMinimumSizeHint(const QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMinimumSizeHint(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_MinimumSizeHint_Callback(reinterpret_cast<VirtualQWizard::QWizard_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -671,9 +657,8 @@ void QWizard_SuperOpen(QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnOpen(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_Open_Callback(reinterpret_cast<VirtualQWizard::QWizard_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -700,9 +685,8 @@ int QWizard_SuperExec(QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnExec(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_Exec_Callback(reinterpret_cast<VirtualQWizard::QWizard_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -729,9 +713,8 @@ void QWizard_SuperAccept(QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnAccept(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_Accept_Callback(reinterpret_cast<VirtualQWizard::QWizard_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -758,9 +741,8 @@ void QWizard_SuperReject(QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnReject(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_Reject_Callback(reinterpret_cast<VirtualQWizard::QWizard_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -787,9 +769,8 @@ void QWizard_SuperKeyPressEvent(QWizard* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnKeyPressEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_KeyPressEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -816,9 +797,8 @@ void QWizard_SuperCloseEvent(QWizard* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnCloseEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_CloseEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -845,9 +825,8 @@ void QWizard_SuperShowEvent(QWizard* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnShowEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_ShowEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -874,9 +853,8 @@ void QWizard_SuperContextMenuEvent(QWizard* self, QContextMenuEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnContextMenuEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_ContextMenuEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -903,9 +881,8 @@ bool QWizard_SuperEventFilter(QWizard* self, QObject* param1, QEvent* param2) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnEventFilter(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_EventFilter_Callback(reinterpret_cast<VirtualQWizard::QWizard_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -932,9 +909,8 @@ int QWizard_SuperDevType(const QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnDevType(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_DevType_Callback(reinterpret_cast<VirtualQWizard::QWizard_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -961,9 +937,8 @@ int QWizard_SuperHeightForWidth(const QWizard* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnHeightForWidth(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_HeightForWidth_Callback(reinterpret_cast<VirtualQWizard::QWizard_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -990,9 +965,8 @@ bool QWizard_SuperHasHeightForWidth(const QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnHasHeightForWidth(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_HasHeightForWidth_Callback(reinterpret_cast<VirtualQWizard::QWizard_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1019,9 +993,8 @@ QPaintEngine* QWizard_SuperPaintEngine(const QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnPaintEngine(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_PaintEngine_Callback(reinterpret_cast<VirtualQWizard::QWizard_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1048,9 +1021,8 @@ void QWizard_SuperMousePressEvent(QWizard* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMousePressEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_MousePressEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1077,9 +1049,8 @@ void QWizard_SuperMouseReleaseEvent(QWizard* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMouseReleaseEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1106,9 +1077,8 @@ void QWizard_SuperMouseDoubleClickEvent(QWizard* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMouseDoubleClickEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1135,9 +1105,8 @@ void QWizard_SuperMouseMoveEvent(QWizard* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMouseMoveEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_MouseMoveEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1164,9 +1133,8 @@ void QWizard_SuperWheelEvent(QWizard* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnWheelEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_WheelEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1193,9 +1161,8 @@ void QWizard_SuperKeyReleaseEvent(QWizard* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnKeyReleaseEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1222,9 +1189,8 @@ void QWizard_SuperFocusInEvent(QWizard* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnFocusInEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_FocusInEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1251,9 +1217,8 @@ void QWizard_SuperFocusOutEvent(QWizard* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnFocusOutEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_FocusOutEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1280,9 +1245,8 @@ void QWizard_SuperEnterEvent(QWizard* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnEnterEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_EnterEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1309,9 +1273,8 @@ void QWizard_SuperLeaveEvent(QWizard* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnLeaveEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_LeaveEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1338,9 +1301,8 @@ void QWizard_SuperMoveEvent(QWizard* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMoveEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_MoveEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1367,9 +1329,8 @@ void QWizard_SuperTabletEvent(QWizard* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnTabletEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_TabletEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1396,9 +1357,8 @@ void QWizard_SuperActionEvent(QWizard* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnActionEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_ActionEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1425,9 +1385,8 @@ void QWizard_SuperDragEnterEvent(QWizard* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnDragEnterEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_DragEnterEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1454,9 +1413,8 @@ void QWizard_SuperDragMoveEvent(QWizard* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnDragMoveEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_DragMoveEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1483,9 +1441,8 @@ void QWizard_SuperDragLeaveEvent(QWizard* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnDragLeaveEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_DragLeaveEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1512,9 +1469,8 @@ void QWizard_SuperDropEvent(QWizard* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnDropEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_DropEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1541,9 +1497,8 @@ void QWizard_SuperHideEvent(QWizard* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnHideEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_HideEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1572,9 +1527,8 @@ bool QWizard_SuperNativeEvent(QWizard* self, const libqt_string eventType, void*
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnNativeEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_NativeEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1601,9 +1555,8 @@ void QWizard_SuperChangeEvent(QWizard* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnChangeEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_ChangeEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1630,9 +1583,8 @@ int QWizard_SuperMetric(const QWizard* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnMetric(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_Metric_Callback(reinterpret_cast<VirtualQWizard::QWizard_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1659,9 +1611,8 @@ void QWizard_SuperInitPainter(const QWizard* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnInitPainter(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_InitPainter_Callback(reinterpret_cast<VirtualQWizard::QWizard_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1688,9 +1639,8 @@ QPaintDevice* QWizard_SuperRedirected(const QWizard* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnRedirected(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_Redirected_Callback(reinterpret_cast<VirtualQWizard::QWizard_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1717,9 +1667,8 @@ QPainter* QWizard_SuperSharedPainter(const QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnSharedPainter(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_SharedPainter_Callback(reinterpret_cast<VirtualQWizard::QWizard_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1746,9 +1695,8 @@ void QWizard_SuperInputMethodEvent(QWizard* self, QInputMethodEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnInputMethodEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_InputMethodEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1775,9 +1723,8 @@ QVariant* QWizard_SuperInputMethodQuery(const QWizard* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnInputMethodQuery(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_InputMethodQuery_Callback(reinterpret_cast<VirtualQWizard::QWizard_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1804,9 +1751,8 @@ bool QWizard_SuperFocusNextPrevChild(QWizard* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnFocusNextPrevChild(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQWizard::QWizard_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1833,9 +1779,8 @@ void QWizard_SuperTimerEvent(QWizard* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnTimerEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_TimerEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1862,9 +1807,8 @@ void QWizard_SuperChildEvent(QWizard* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnChildEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_ChildEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1891,9 +1835,8 @@ void QWizard_SuperCustomEvent(QWizard* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnCustomEvent(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_CustomEvent_Callback(reinterpret_cast<VirtualQWizard::QWizard_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1920,9 +1863,8 @@ void QWizard_SuperConnectNotify(QWizard* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnConnectNotify(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_ConnectNotify_Callback(reinterpret_cast<VirtualQWizard::QWizard_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1949,9 +1891,8 @@ void QWizard_SuperDisconnectNotify(QWizard* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnDisconnectNotify(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_DisconnectNotify_Callback(reinterpret_cast<VirtualQWizard::QWizard_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1978,9 +1919,8 @@ void QWizard_SuperAdjustPosition(QWizard* self, QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnAdjustPosition(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_AdjustPosition_Callback(reinterpret_cast<VirtualQWizard::QWizard_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2007,9 +1947,8 @@ void QWizard_SuperUpdateMicroFocus(QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnUpdateMicroFocus(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQWizard::QWizard_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2036,9 +1975,8 @@ void QWizard_SuperCreate(QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnCreate(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_Create_Callback(reinterpret_cast<VirtualQWizard::QWizard_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2065,9 +2003,8 @@ void QWizard_SuperDestroy(QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnDestroy(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_Destroy_Callback(reinterpret_cast<VirtualQWizard::QWizard_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2094,9 +2031,8 @@ bool QWizard_SuperFocusNextChild(QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnFocusNextChild(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_FocusNextChild_Callback(reinterpret_cast<VirtualQWizard::QWizard_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2123,9 +2059,8 @@ bool QWizard_SuperFocusPreviousChild(QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnFocusPreviousChild(QWizard* self, intptr_t slot) {
     auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_FocusPreviousChild_Callback(reinterpret_cast<VirtualQWizard::QWizard_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2152,9 +2087,8 @@ QObject* QWizard_SuperSender(const QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnSender(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_Sender_Callback(reinterpret_cast<VirtualQWizard::QWizard_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2181,9 +2115,8 @@ int QWizard_SuperSenderSignalIndex(const QWizard* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnSenderSignalIndex(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWizard::QWizard_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2210,9 +2143,8 @@ int QWizard_SuperReceivers(const QWizard* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnReceivers(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_Receivers_Callback(reinterpret_cast<VirtualQWizard::QWizard_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2239,9 +2171,8 @@ bool QWizard_SuperIsSignalConnected(const QWizard* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnIsSignalConnected(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_IsSignalConnected_Callback(reinterpret_cast<VirtualQWizard::QWizard_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2268,9 +2199,8 @@ double QWizard_SuperGetDecodedMetricF(const QWizard* self, int metricA, int metr
 // Auxiliary method to allow providing re-implementation
 void QWizard_OnGetDecodedMetricF(const QWizard* self, intptr_t slot) {
     auto* vqwizard = const_cast<VirtualQWizard*>(dynamic_cast<const VirtualQWizard*>(self));
-    if (vqwizard && vqwizard->isVirtualQWizard) {
+    if (vqwizard && vqwizard->isVirtualQWizard)
         vqwizard->setQWizard_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQWizard::QWizard_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QWizard_Delete(QWizard* self) {
@@ -2417,9 +2347,8 @@ QMetaObject* QWizardPage_SuperMetaObject(const QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMetaObject(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_MetaObject_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2436,9 +2365,8 @@ void* QWizardPage_SuperMetacast(QWizardPage* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMetacast(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_Metacast_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2455,9 +2383,8 @@ int QWizardPage_SuperMetacall(QWizardPage* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMetacall(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_Metacall_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2474,9 +2401,8 @@ void QWizardPage_SuperInitializePage(QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnInitializePage(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_InitializePage_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_InitializePage_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2493,9 +2419,8 @@ void QWizardPage_SuperCleanupPage(QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnCleanupPage(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_CleanupPage_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_CleanupPage_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2512,9 +2437,8 @@ bool QWizardPage_SuperValidatePage(QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnValidatePage(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_ValidatePage_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ValidatePage_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2531,9 +2455,8 @@ bool QWizardPage_SuperIsComplete(const QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnIsComplete(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_IsComplete_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_IsComplete_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2550,9 +2473,8 @@ int QWizardPage_SuperNextId(const QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnNextId(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_NextId_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_NextId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2579,9 +2501,8 @@ int QWizardPage_SuperDevType(const QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnDevType(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_DevType_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2608,9 +2529,8 @@ void QWizardPage_SuperSetVisible(QWizardPage* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnSetVisible(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_SetVisible_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2637,9 +2557,8 @@ QSize* QWizardPage_SuperSizeHint(const QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnSizeHint(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_SizeHint_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2666,9 +2585,8 @@ QSize* QWizardPage_SuperMinimumSizeHint(const QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMinimumSizeHint(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_MinimumSizeHint_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2695,9 +2613,8 @@ int QWizardPage_SuperHeightForWidth(const QWizardPage* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnHeightForWidth(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_HeightForWidth_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2724,9 +2641,8 @@ bool QWizardPage_SuperHasHeightForWidth(const QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnHasHeightForWidth(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_HasHeightForWidth_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2753,9 +2669,8 @@ QPaintEngine* QWizardPage_SuperPaintEngine(const QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnPaintEngine(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_PaintEngine_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2782,9 +2697,8 @@ bool QWizardPage_SuperEvent(QWizardPage* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_Event_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2811,9 +2725,8 @@ void QWizardPage_SuperMousePressEvent(QWizardPage* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMousePressEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_MousePressEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2840,9 +2753,8 @@ void QWizardPage_SuperMouseReleaseEvent(QWizardPage* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMouseReleaseEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2869,9 +2781,8 @@ void QWizardPage_SuperMouseDoubleClickEvent(QWizardPage* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMouseDoubleClickEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2898,9 +2809,8 @@ void QWizardPage_SuperMouseMoveEvent(QWizardPage* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMouseMoveEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_MouseMoveEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2927,9 +2837,8 @@ void QWizardPage_SuperWheelEvent(QWizardPage* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnWheelEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_WheelEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2956,9 +2865,8 @@ void QWizardPage_SuperKeyPressEvent(QWizardPage* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnKeyPressEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_KeyPressEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2985,9 +2893,8 @@ void QWizardPage_SuperKeyReleaseEvent(QWizardPage* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnKeyReleaseEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3014,9 +2921,8 @@ void QWizardPage_SuperFocusInEvent(QWizardPage* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnFocusInEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_FocusInEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3043,9 +2949,8 @@ void QWizardPage_SuperFocusOutEvent(QWizardPage* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnFocusOutEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_FocusOutEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3072,9 +2977,8 @@ void QWizardPage_SuperEnterEvent(QWizardPage* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnEnterEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_EnterEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3101,9 +3005,8 @@ void QWizardPage_SuperLeaveEvent(QWizardPage* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnLeaveEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_LeaveEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3130,9 +3033,8 @@ void QWizardPage_SuperPaintEvent(QWizardPage* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnPaintEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_PaintEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3159,9 +3061,8 @@ void QWizardPage_SuperMoveEvent(QWizardPage* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMoveEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_MoveEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3188,9 +3089,8 @@ void QWizardPage_SuperResizeEvent(QWizardPage* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnResizeEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_ResizeEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3217,9 +3117,8 @@ void QWizardPage_SuperCloseEvent(QWizardPage* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnCloseEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_CloseEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3246,9 +3145,8 @@ void QWizardPage_SuperContextMenuEvent(QWizardPage* self, QContextMenuEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnContextMenuEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_ContextMenuEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3275,9 +3173,8 @@ void QWizardPage_SuperTabletEvent(QWizardPage* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnTabletEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_TabletEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3304,9 +3201,8 @@ void QWizardPage_SuperActionEvent(QWizardPage* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnActionEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_ActionEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3333,9 +3229,8 @@ void QWizardPage_SuperDragEnterEvent(QWizardPage* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnDragEnterEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_DragEnterEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3362,9 +3257,8 @@ void QWizardPage_SuperDragMoveEvent(QWizardPage* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnDragMoveEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_DragMoveEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3391,9 +3285,8 @@ void QWizardPage_SuperDragLeaveEvent(QWizardPage* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnDragLeaveEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_DragLeaveEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3420,9 +3313,8 @@ void QWizardPage_SuperDropEvent(QWizardPage* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnDropEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_DropEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3449,9 +3341,8 @@ void QWizardPage_SuperShowEvent(QWizardPage* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnShowEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_ShowEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3478,9 +3369,8 @@ void QWizardPage_SuperHideEvent(QWizardPage* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnHideEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_HideEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3509,9 +3399,8 @@ bool QWizardPage_SuperNativeEvent(QWizardPage* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnNativeEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_NativeEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3538,9 +3427,8 @@ void QWizardPage_SuperChangeEvent(QWizardPage* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnChangeEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_ChangeEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3567,9 +3455,8 @@ int QWizardPage_SuperMetric(const QWizardPage* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnMetric(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_Metric_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3596,9 +3483,8 @@ void QWizardPage_SuperInitPainter(const QWizardPage* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnInitPainter(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_InitPainter_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3625,9 +3511,8 @@ QPaintDevice* QWizardPage_SuperRedirected(const QWizardPage* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnRedirected(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_Redirected_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3654,9 +3539,8 @@ QPainter* QWizardPage_SuperSharedPainter(const QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnSharedPainter(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_SharedPainter_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3683,9 +3567,8 @@ void QWizardPage_SuperInputMethodEvent(QWizardPage* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnInputMethodEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_InputMethodEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3712,9 +3595,8 @@ QVariant* QWizardPage_SuperInputMethodQuery(const QWizardPage* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnInputMethodQuery(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_InputMethodQuery_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3741,9 +3623,8 @@ bool QWizardPage_SuperFocusNextPrevChild(QWizardPage* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnFocusNextPrevChild(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3770,9 +3651,8 @@ bool QWizardPage_SuperEventFilter(QWizardPage* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnEventFilter(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_EventFilter_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3799,9 +3679,8 @@ void QWizardPage_SuperTimerEvent(QWizardPage* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnTimerEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_TimerEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3828,9 +3707,8 @@ void QWizardPage_SuperChildEvent(QWizardPage* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnChildEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_ChildEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3857,9 +3735,8 @@ void QWizardPage_SuperCustomEvent(QWizardPage* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnCustomEvent(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_CustomEvent_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3886,9 +3763,8 @@ void QWizardPage_SuperConnectNotify(QWizardPage* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnConnectNotify(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_ConnectNotify_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3915,9 +3791,8 @@ void QWizardPage_SuperDisconnectNotify(QWizardPage* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnDisconnectNotify(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_DisconnectNotify_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3946,9 +3821,8 @@ void QWizardPage_SuperSetField(QWizardPage* self, const libqt_string name, const
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnSetField(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_SetField_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_SetField_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3975,9 +3849,8 @@ QVariant* QWizardPage_SuperField(const QWizardPage* self, const libqt_string nam
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnField(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_Field_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Field_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4006,9 +3879,8 @@ void QWizardPage_SuperRegisterField(QWizardPage* self, const libqt_string name, 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnRegisterField(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_RegisterField_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_RegisterField_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4035,9 +3907,8 @@ QWizard* QWizardPage_SuperWizard(const QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnWizard(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_Wizard_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Wizard_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4066,9 +3937,8 @@ void QWizardPage_SuperRegisterField3(QWizardPage* self, const libqt_string name,
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnRegisterField3(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_RegisterField3_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_RegisterField3_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4097,9 +3967,8 @@ void QWizardPage_SuperRegisterField4(QWizardPage* self, const libqt_string name,
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnRegisterField4(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_RegisterField4_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_RegisterField4_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4126,9 +3995,8 @@ void QWizardPage_SuperUpdateMicroFocus(QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnUpdateMicroFocus(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4155,9 +4023,8 @@ void QWizardPage_SuperCreate(QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnCreate(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_Create_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4184,9 +4051,8 @@ void QWizardPage_SuperDestroy(QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnDestroy(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_Destroy_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4213,9 +4079,8 @@ bool QWizardPage_SuperFocusNextChild(QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnFocusNextChild(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_FocusNextChild_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4242,9 +4107,8 @@ bool QWizardPage_SuperFocusPreviousChild(QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnFocusPreviousChild(QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_FocusPreviousChild_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4271,9 +4135,8 @@ QObject* QWizardPage_SuperSender(const QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnSender(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_Sender_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4300,9 +4163,8 @@ int QWizardPage_SuperSenderSignalIndex(const QWizardPage* self) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnSenderSignalIndex(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4329,9 +4191,8 @@ int QWizardPage_SuperReceivers(const QWizardPage* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnReceivers(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_Receivers_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4358,9 +4219,8 @@ bool QWizardPage_SuperIsSignalConnected(const QWizardPage* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnIsSignalConnected(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_IsSignalConnected_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4387,9 +4247,8 @@ double QWizardPage_SuperGetDecodedMetricF(const QWizardPage* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void QWizardPage_OnGetDecodedMetricF(const QWizardPage* self, intptr_t slot) {
     auto* vqwizardpage = const_cast<VirtualQWizardPage*>(dynamic_cast<const VirtualQWizardPage*>(self));
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
+    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage)
         vqwizardpage->setQWizardPage_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQWizardPage::QWizardPage_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QWizardPage_Delete(QWizardPage* self) {

@@ -4367,7 +4367,7 @@ pub const QsciLexerBatch = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerBatch = enum(i32) {
+    pub const QsciLexerBatch = enum {
         pub const Default: i32 = 0;
         pub const Comment: i32 = 1;
         pub const Keyword: i32 = 2;

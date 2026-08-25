@@ -86,9 +86,8 @@ QMetaObject* QOpenGLTimerQuery_SuperMetaObject(const QOpenGLTimerQuery* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnMetaObject(const QOpenGLTimerQuery* self, intptr_t slot) {
     auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
         vqopengltimerquery->setQOpenGLTimerQuery_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -105,9 +104,8 @@ void* QOpenGLTimerQuery_SuperMetacast(QOpenGLTimerQuery* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnMetacast(QOpenGLTimerQuery* self, intptr_t slot) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
         vqopengltimerquery->setQOpenGLTimerQuery_Metacast_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -124,9 +122,8 @@ int QOpenGLTimerQuery_SuperMetacall(QOpenGLTimerQuery* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnMetacall(QOpenGLTimerQuery* self, intptr_t slot) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
         vqopengltimerquery->setQOpenGLTimerQuery_Metacall_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -153,9 +150,8 @@ bool QOpenGLTimerQuery_SuperEvent(QOpenGLTimerQuery* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnEvent(QOpenGLTimerQuery* self, intptr_t slot) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
         vqopengltimerquery->setQOpenGLTimerQuery_Event_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -182,9 +178,8 @@ bool QOpenGLTimerQuery_SuperEventFilter(QOpenGLTimerQuery* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnEventFilter(QOpenGLTimerQuery* self, intptr_t slot) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
         vqopengltimerquery->setQOpenGLTimerQuery_EventFilter_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -211,9 +206,8 @@ void QOpenGLTimerQuery_SuperTimerEvent(QOpenGLTimerQuery* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnTimerEvent(QOpenGLTimerQuery* self, intptr_t slot) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
         vqopengltimerquery->setQOpenGLTimerQuery_TimerEvent_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -240,9 +234,8 @@ void QOpenGLTimerQuery_SuperChildEvent(QOpenGLTimerQuery* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnChildEvent(QOpenGLTimerQuery* self, intptr_t slot) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
         vqopengltimerquery->setQOpenGLTimerQuery_ChildEvent_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -269,9 +262,8 @@ void QOpenGLTimerQuery_SuperCustomEvent(QOpenGLTimerQuery* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnCustomEvent(QOpenGLTimerQuery* self, intptr_t slot) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
         vqopengltimerquery->setQOpenGLTimerQuery_CustomEvent_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -298,9 +290,8 @@ void QOpenGLTimerQuery_SuperConnectNotify(QOpenGLTimerQuery* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnConnectNotify(QOpenGLTimerQuery* self, intptr_t slot) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
         vqopengltimerquery->setQOpenGLTimerQuery_ConnectNotify_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -327,9 +318,8 @@ void QOpenGLTimerQuery_SuperDisconnectNotify(QOpenGLTimerQuery* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnDisconnectNotify(QOpenGLTimerQuery* self, intptr_t slot) {
     auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
         vqopengltimerquery->setQOpenGLTimerQuery_DisconnectNotify_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -356,9 +346,8 @@ QObject* QOpenGLTimerQuery_SuperSender(const QOpenGLTimerQuery* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnSender(const QOpenGLTimerQuery* self, intptr_t slot) {
     auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
         vqopengltimerquery->setQOpenGLTimerQuery_Sender_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -385,9 +374,8 @@ int QOpenGLTimerQuery_SuperSenderSignalIndex(const QOpenGLTimerQuery* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnSenderSignalIndex(const QOpenGLTimerQuery* self, intptr_t slot) {
     auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
         vqopengltimerquery->setQOpenGLTimerQuery_SenderSignalIndex_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -414,9 +402,8 @@ int QOpenGLTimerQuery_SuperReceivers(const QOpenGLTimerQuery* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnReceivers(const QOpenGLTimerQuery* self, intptr_t slot) {
     auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
         vqopengltimerquery->setQOpenGLTimerQuery_Receivers_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -443,9 +430,8 @@ bool QOpenGLTimerQuery_SuperIsSignalConnected(const QOpenGLTimerQuery* self, con
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimerQuery_OnIsSignalConnected(const QOpenGLTimerQuery* self, intptr_t slot) {
     auto* vqopengltimerquery = const_cast<VirtualQOpenGLTimerQuery*>(dynamic_cast<const VirtualQOpenGLTimerQuery*>(self));
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
+    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery)
         vqopengltimerquery->setQOpenGLTimerQuery_IsSignalConnected_Callback(reinterpret_cast<VirtualQOpenGLTimerQuery::QOpenGLTimerQuery_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QOpenGLTimerQuery_Delete(QOpenGLTimerQuery* self) {
@@ -557,9 +543,8 @@ QMetaObject* QOpenGLTimeMonitor_SuperMetaObject(const QOpenGLTimeMonitor* self) 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnMetaObject(const QOpenGLTimeMonitor* self, intptr_t slot) {
     auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
         vqopengltimemonitor->setQOpenGLTimeMonitor_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -576,9 +561,8 @@ void* QOpenGLTimeMonitor_SuperMetacast(QOpenGLTimeMonitor* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnMetacast(QOpenGLTimeMonitor* self, intptr_t slot) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
         vqopengltimemonitor->setQOpenGLTimeMonitor_Metacast_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -595,9 +579,8 @@ int QOpenGLTimeMonitor_SuperMetacall(QOpenGLTimeMonitor* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnMetacall(QOpenGLTimeMonitor* self, intptr_t slot) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
         vqopengltimemonitor->setQOpenGLTimeMonitor_Metacall_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -624,9 +607,8 @@ bool QOpenGLTimeMonitor_SuperEvent(QOpenGLTimeMonitor* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnEvent(QOpenGLTimeMonitor* self, intptr_t slot) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
         vqopengltimemonitor->setQOpenGLTimeMonitor_Event_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -653,9 +635,8 @@ bool QOpenGLTimeMonitor_SuperEventFilter(QOpenGLTimeMonitor* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnEventFilter(QOpenGLTimeMonitor* self, intptr_t slot) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
         vqopengltimemonitor->setQOpenGLTimeMonitor_EventFilter_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -682,9 +663,8 @@ void QOpenGLTimeMonitor_SuperTimerEvent(QOpenGLTimeMonitor* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnTimerEvent(QOpenGLTimeMonitor* self, intptr_t slot) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
         vqopengltimemonitor->setQOpenGLTimeMonitor_TimerEvent_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -711,9 +691,8 @@ void QOpenGLTimeMonitor_SuperChildEvent(QOpenGLTimeMonitor* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnChildEvent(QOpenGLTimeMonitor* self, intptr_t slot) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
         vqopengltimemonitor->setQOpenGLTimeMonitor_ChildEvent_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -740,9 +719,8 @@ void QOpenGLTimeMonitor_SuperCustomEvent(QOpenGLTimeMonitor* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnCustomEvent(QOpenGLTimeMonitor* self, intptr_t slot) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
         vqopengltimemonitor->setQOpenGLTimeMonitor_CustomEvent_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -769,9 +747,8 @@ void QOpenGLTimeMonitor_SuperConnectNotify(QOpenGLTimeMonitor* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnConnectNotify(QOpenGLTimeMonitor* self, intptr_t slot) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
         vqopengltimemonitor->setQOpenGLTimeMonitor_ConnectNotify_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -798,9 +775,8 @@ void QOpenGLTimeMonitor_SuperDisconnectNotify(QOpenGLTimeMonitor* self, const QM
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnDisconnectNotify(QOpenGLTimeMonitor* self, intptr_t slot) {
     auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
         vqopengltimemonitor->setQOpenGLTimeMonitor_DisconnectNotify_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -827,9 +803,8 @@ QObject* QOpenGLTimeMonitor_SuperSender(const QOpenGLTimeMonitor* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnSender(const QOpenGLTimeMonitor* self, intptr_t slot) {
     auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
         vqopengltimemonitor->setQOpenGLTimeMonitor_Sender_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -856,9 +831,8 @@ int QOpenGLTimeMonitor_SuperSenderSignalIndex(const QOpenGLTimeMonitor* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnSenderSignalIndex(const QOpenGLTimeMonitor* self, intptr_t slot) {
     auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
         vqopengltimemonitor->setQOpenGLTimeMonitor_SenderSignalIndex_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -885,9 +859,8 @@ int QOpenGLTimeMonitor_SuperReceivers(const QOpenGLTimeMonitor* self, const char
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnReceivers(const QOpenGLTimeMonitor* self, intptr_t slot) {
     auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
         vqopengltimemonitor->setQOpenGLTimeMonitor_Receivers_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -914,9 +887,8 @@ bool QOpenGLTimeMonitor_SuperIsSignalConnected(const QOpenGLTimeMonitor* self, c
 // Auxiliary method to allow providing re-implementation
 void QOpenGLTimeMonitor_OnIsSignalConnected(const QOpenGLTimeMonitor* self, intptr_t slot) {
     auto* vqopengltimemonitor = const_cast<VirtualQOpenGLTimeMonitor*>(dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self));
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
+    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor)
         vqopengltimemonitor->setQOpenGLTimeMonitor_IsSignalConnected_Callback(reinterpret_cast<VirtualQOpenGLTimeMonitor::QOpenGLTimeMonitor_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QOpenGLTimeMonitor_Delete(QOpenGLTimeMonitor* self) {

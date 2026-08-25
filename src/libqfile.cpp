@@ -242,9 +242,8 @@ QMetaObject* QFile_SuperMetaObject(const QFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnMetaObject(const QFile* self, intptr_t slot) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_MetaObject_Callback(reinterpret_cast<VirtualQFile::QFile_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -261,9 +260,8 @@ void* QFile_SuperMetacast(QFile* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnMetacast(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_Metacast_Callback(reinterpret_cast<VirtualQFile::QFile_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -280,9 +278,8 @@ int QFile_SuperMetacall(QFile* self, int param1, int param2, void** param3) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnMetacall(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_Metacall_Callback(reinterpret_cast<VirtualQFile::QFile_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -315,9 +312,8 @@ libqt_string QFile_SuperFileName(const QFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnFileName(const QFile* self, intptr_t slot) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_FileName_Callback(reinterpret_cast<VirtualQFile::QFile_FileName_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -334,9 +330,8 @@ bool QFile_SuperOpen(QFile* self, int flags) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnOpen(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_Open_Callback(reinterpret_cast<VirtualQFile::QFile_Open_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -353,9 +348,8 @@ long long QFile_SuperSize(const QFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnSize(const QFile* self, intptr_t slot) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_Size_Callback(reinterpret_cast<VirtualQFile::QFile_Size_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -372,9 +366,8 @@ bool QFile_SuperResize(QFile* self, long long sz) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnResize(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_Resize_Callback(reinterpret_cast<VirtualQFile::QFile_Resize_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -391,9 +384,8 @@ int QFile_SuperPermissions(const QFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnPermissions(const QFile* self, intptr_t slot) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_Permissions_Callback(reinterpret_cast<VirtualQFile::QFile_Permissions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -410,9 +402,8 @@ bool QFile_SuperSetPermissions(QFile* self, int permissionSpec) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnSetPermissions(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_SetPermissions_Callback(reinterpret_cast<VirtualQFile::QFile_SetPermissions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -439,9 +430,8 @@ void QFile_SuperClose(QFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnClose(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_Close_Callback(reinterpret_cast<VirtualQFile::QFile_Close_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -468,9 +458,8 @@ bool QFile_SuperIsSequential(const QFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnIsSequential(const QFile* self, intptr_t slot) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_IsSequential_Callback(reinterpret_cast<VirtualQFile::QFile_IsSequential_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -497,9 +486,8 @@ long long QFile_SuperPos(const QFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnPos(const QFile* self, intptr_t slot) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_Pos_Callback(reinterpret_cast<VirtualQFile::QFile_Pos_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -526,9 +514,8 @@ bool QFile_SuperSeek(QFile* self, long long offset) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnSeek(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_Seek_Callback(reinterpret_cast<VirtualQFile::QFile_Seek_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -555,9 +542,8 @@ bool QFile_SuperAtEnd(const QFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnAtEnd(const QFile* self, intptr_t slot) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_AtEnd_Callback(reinterpret_cast<VirtualQFile::QFile_AtEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -584,9 +570,8 @@ long long QFile_SuperReadData(QFile* self, char* data, long long maxlen) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnReadData(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_ReadData_Callback(reinterpret_cast<VirtualQFile::QFile_ReadData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -613,9 +598,8 @@ long long QFile_SuperWriteData(QFile* self, const char* data, long long len) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnWriteData(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_WriteData_Callback(reinterpret_cast<VirtualQFile::QFile_WriteData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -642,9 +626,8 @@ long long QFile_SuperReadLineData(QFile* self, char* data, long long maxlen) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnReadLineData(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_ReadLineData_Callback(reinterpret_cast<VirtualQFile::QFile_ReadLineData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -671,9 +654,8 @@ bool QFile_SuperReset(QFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnReset(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_Reset_Callback(reinterpret_cast<VirtualQFile::QFile_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -700,9 +682,8 @@ long long QFile_SuperBytesAvailable(const QFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnBytesAvailable(const QFile* self, intptr_t slot) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_BytesAvailable_Callback(reinterpret_cast<VirtualQFile::QFile_BytesAvailable_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -729,9 +710,8 @@ long long QFile_SuperBytesToWrite(const QFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnBytesToWrite(const QFile* self, intptr_t slot) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_BytesToWrite_Callback(reinterpret_cast<VirtualQFile::QFile_BytesToWrite_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -758,9 +738,8 @@ bool QFile_SuperCanReadLine(const QFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnCanReadLine(const QFile* self, intptr_t slot) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_CanReadLine_Callback(reinterpret_cast<VirtualQFile::QFile_CanReadLine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -787,9 +766,8 @@ bool QFile_SuperWaitForReadyRead(QFile* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnWaitForReadyRead(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_WaitForReadyRead_Callback(reinterpret_cast<VirtualQFile::QFile_WaitForReadyRead_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -816,9 +794,8 @@ bool QFile_SuperWaitForBytesWritten(QFile* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnWaitForBytesWritten(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_WaitForBytesWritten_Callback(reinterpret_cast<VirtualQFile::QFile_WaitForBytesWritten_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -845,9 +822,8 @@ long long QFile_SuperSkipData(QFile* self, long long maxSize) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnSkipData(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_SkipData_Callback(reinterpret_cast<VirtualQFile::QFile_SkipData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -874,9 +850,8 @@ bool QFile_SuperEvent(QFile* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnEvent(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_Event_Callback(reinterpret_cast<VirtualQFile::QFile_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -903,9 +878,8 @@ bool QFile_SuperEventFilter(QFile* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnEventFilter(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_EventFilter_Callback(reinterpret_cast<VirtualQFile::QFile_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -932,9 +906,8 @@ void QFile_SuperTimerEvent(QFile* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnTimerEvent(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_TimerEvent_Callback(reinterpret_cast<VirtualQFile::QFile_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -961,9 +934,8 @@ void QFile_SuperChildEvent(QFile* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnChildEvent(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_ChildEvent_Callback(reinterpret_cast<VirtualQFile::QFile_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -990,9 +962,8 @@ void QFile_SuperCustomEvent(QFile* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnCustomEvent(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_CustomEvent_Callback(reinterpret_cast<VirtualQFile::QFile_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1019,9 +990,8 @@ void QFile_SuperConnectNotify(QFile* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnConnectNotify(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_ConnectNotify_Callback(reinterpret_cast<VirtualQFile::QFile_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1048,9 +1018,8 @@ void QFile_SuperDisconnectNotify(QFile* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnDisconnectNotify(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_DisconnectNotify_Callback(reinterpret_cast<VirtualQFile::QFile_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1077,9 +1046,8 @@ void QFile_SuperSetOpenMode(QFile* self, int openMode) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnSetOpenMode(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_SetOpenMode_Callback(reinterpret_cast<VirtualQFile::QFile_SetOpenMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1108,9 +1076,8 @@ void QFile_SuperSetErrorString(QFile* self, const libqt_string errorString) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnSetErrorString(QFile* self, intptr_t slot) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_SetErrorString_Callback(reinterpret_cast<VirtualQFile::QFile_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1137,9 +1104,8 @@ QObject* QFile_SuperSender(const QFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnSender(const QFile* self, intptr_t slot) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_Sender_Callback(reinterpret_cast<VirtualQFile::QFile_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1166,9 +1132,8 @@ int QFile_SuperSenderSignalIndex(const QFile* self) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnSenderSignalIndex(const QFile* self, intptr_t slot) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_SenderSignalIndex_Callback(reinterpret_cast<VirtualQFile::QFile_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1195,9 +1160,8 @@ int QFile_SuperReceivers(const QFile* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QFile_OnReceivers(const QFile* self, intptr_t slot) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_Receivers_Callback(reinterpret_cast<VirtualQFile::QFile_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1224,9 +1188,8 @@ bool QFile_SuperIsSignalConnected(const QFile* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QFile_OnIsSignalConnected(const QFile* self, intptr_t slot) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
-    if (vqfile && vqfile->isVirtualQFile) {
+    if (vqfile && vqfile->isVirtualQFile)
         vqfile->setQFile_IsSignalConnected_Callback(reinterpret_cast<VirtualQFile::QFile_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QFile_Delete(QFile* self) {

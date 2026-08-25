@@ -71129,6 +71129,31 @@ pub const QCustomPlot = extern struct {
         return _ret;
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCustomPlot `
+    ///
+    pub fn asQPaintDevice(self: QCustomPlot) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QCustomPlot object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QCustomPlot {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -77113,7 +77138,7 @@ pub const QCustomPlot = extern struct {
     /// ` self: QCustomPlot `
     ///
     pub fn paintingActive(self: QCustomPlot) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -77129,7 +77154,7 @@ pub const QCustomPlot = extern struct {
     /// ` self: QCustomPlot `
     ///
     pub fn widthMM(self: QCustomPlot) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -77145,7 +77170,7 @@ pub const QCustomPlot = extern struct {
     /// ` self: QCustomPlot `
     ///
     pub fn heightMM(self: QCustomPlot) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -77161,7 +77186,7 @@ pub const QCustomPlot = extern struct {
     /// ` self: QCustomPlot `
     ///
     pub fn logicalDpiX(self: QCustomPlot) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -77177,7 +77202,7 @@ pub const QCustomPlot = extern struct {
     /// ` self: QCustomPlot `
     ///
     pub fn logicalDpiY(self: QCustomPlot) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -77193,7 +77218,7 @@ pub const QCustomPlot = extern struct {
     /// ` self: QCustomPlot `
     ///
     pub fn physicalDpiX(self: QCustomPlot) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -77209,7 +77234,7 @@ pub const QCustomPlot = extern struct {
     /// ` self: QCustomPlot `
     ///
     pub fn physicalDpiY(self: QCustomPlot) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -77225,7 +77250,7 @@ pub const QCustomPlot = extern struct {
     /// ` self: QCustomPlot `
     ///
     pub fn devicePixelRatio(self: QCustomPlot) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -77241,7 +77266,7 @@ pub const QCustomPlot = extern struct {
     /// ` self: QCustomPlot `
     ///
     pub fn devicePixelRatioF(self: QCustomPlot) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -77257,7 +77282,7 @@ pub const QCustomPlot = extern struct {
     /// ` self: QCustomPlot `
     ///
     pub fn colorCount(self: QCustomPlot) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -77273,7 +77298,7 @@ pub const QCustomPlot = extern struct {
     /// ` self: QCustomPlot `
     ///
     pub fn depth(self: QCustomPlot) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -149170,6 +149195,27 @@ pub const QCPErrorBars = extern struct {
         return .{ .ptr = qtc.QCPErrorBars_new(@ptrCast(_keyAxis.ptr), @ptrCast(_valueAxis.ptr)) };
     }
 
+    /// Upcasts to a QCPPlottableInterface1D object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPErrorBars `
+    ///
+    pub fn asQCPPlottableInterface1D(self: QCPErrorBars) QCPPlottableInterface1D {
+        return .{ .ptr = qtc.QCPErrorBars_AsQCPPlottableInterface1D(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a QCPErrorBars object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qcpplottableinterface1d: QCPPlottableInterface1D `
+    ///
+    pub fn fromQCPPlottableInterface1D(_qcpplottableinterface1d: anytype) QCPErrorBars {
+        comptime _ = @TypeOf(_qcpplottableinterface1d)._is_QCPPlottableInterface1D;
+        return .{ .ptr = @ptrCast(qtc.QCPErrorBars_FromQCPPlottableInterface1D(@ptrCast(_qcpplottableinterface1d.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `metaObject` instead
     ///
     pub const MetaObject = metaObject;
@@ -152611,7 +152657,7 @@ pub const QCPErrorBars = extern struct {
     ///
     pub fn operatorAssign(self: QCPErrorBars, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCPPlottableInterface1D;
-        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.asQCPPlottableInterface1D().ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `clipRect` instead
@@ -217447,24 +217493,24 @@ pub const QCPPolarGraph = extern struct {
 
 /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCustomPlot.html#pub-types)
 pub const enums = struct {
-    pub const ResolutionUnit = enum(i32) {
+    pub const ResolutionUnit = enum {
         pub const RuDotsPerMeter: i32 = 0;
         pub const RuDotsPerCentimeter: i32 = 1;
         pub const RuDotsPerInch: i32 = 2;
     };
 
-    pub const ExportPen = enum(i32) {
+    pub const ExportPen = enum {
         pub const EpNoCosmetic: i32 = 0;
         pub const EpAllowCosmetic: i32 = 1;
     };
 
-    pub const SignDomain = enum(i32) {
+    pub const SignDomain = enum {
         pub const SdNegative: i32 = 0;
         pub const SdBoth: i32 = 1;
         pub const SdPositive: i32 = 2;
     };
 
-    pub const MarginSide = enum(i32) {
+    pub const MarginSide = enum {
         pub const MsLeft: i32 = 1;
         pub const MsRight: i32 = 2;
         pub const MsTop: i32 = 4;
@@ -217473,7 +217519,7 @@ pub const enums = struct {
         pub const MsNone: i32 = 0;
     };
 
-    pub const AntialiasedElement = enum(i32) {
+    pub const AntialiasedElement = enum {
         pub const AeAxes: i32 = 1;
         pub const AeGrid: i32 = 2;
         pub const AeSubGrid: i32 = 4;
@@ -217489,14 +217535,14 @@ pub const enums = struct {
         pub const AeNone: i32 = 0;
     };
 
-    pub const PlottingHint = enum(i32) {
+    pub const PlottingHint = enum {
         pub const PhNone: i32 = 0;
         pub const PhFastPolylines: i32 = 1;
         pub const PhImmediateRefresh: i32 = 2;
         pub const PhCacheLabels: i32 = 4;
     };
 
-    pub const Interaction = enum(i32) {
+    pub const Interaction = enum {
         pub const INone: i32 = 0;
         pub const IRangeDrag: i32 = 1;
         pub const IRangeZoom: i32 = 2;
@@ -217509,14 +217555,14 @@ pub const enums = struct {
         pub const ISelectPlottablesBeyondAxisRect: i32 = 256;
     };
 
-    pub const SelectionRectMode = enum(i32) {
+    pub const SelectionRectMode = enum {
         pub const SrmNone: i32 = 0;
         pub const SrmZoom: i32 = 1;
         pub const SrmSelect: i32 = 2;
         pub const SrmCustom: i32 = 3;
     };
 
-    pub const SelectionType = enum(i32) {
+    pub const SelectionType = enum {
         pub const StNone: i32 = 0;
         pub const StWhole: i32 = 1;
         pub const StSingleData: i32 = 2;
@@ -217524,40 +217570,40 @@ pub const enums = struct {
         pub const StMultipleDataRanges: i32 = 4;
     };
 
-    pub const PainterMode = enum(i32) {
+    pub const PainterMode = enum {
         pub const PmDefault: i32 = 0;
         pub const PmVectorized: i32 = 1;
         pub const PmNoCaching: i32 = 2;
         pub const PmNonCosmetic: i32 = 4;
     };
 
-    pub const LayerMode = enum(i32) {
+    pub const LayerMode = enum {
         pub const LmLogical: i32 = 0;
         pub const LmBuffered: i32 = 1;
     };
 
-    pub const UpdatePhase = enum(i32) {
+    pub const UpdatePhase = enum {
         pub const UpPreparation: i32 = 0;
         pub const UpMargins: i32 = 1;
         pub const UpLayout: i32 = 2;
     };
 
-    pub const SizeConstraintRect = enum(i32) {
+    pub const SizeConstraintRect = enum {
         pub const ScrInnerRect: i32 = 0;
         pub const ScrOuterRect: i32 = 1;
     };
 
-    pub const FillOrder = enum(i32) {
+    pub const FillOrder = enum {
         pub const FoRowsFirst: i32 = 0;
         pub const FoColumnsFirst: i32 = 1;
     };
 
-    pub const InsetPlacement = enum(i32) {
+    pub const InsetPlacement = enum {
         pub const IpFree: i32 = 0;
         pub const IpBorderAligned: i32 = 1;
     };
 
-    pub const EndingStyle = enum(i32) {
+    pub const EndingStyle = enum {
         pub const EsNone: i32 = 0;
         pub const EsFlatArrow: i32 = 1;
         pub const EsSpikeArrow: i32 = 2;
@@ -217570,18 +217616,18 @@ pub const enums = struct {
         pub const EsSkewedBar: i32 = 9;
     };
 
-    pub const AnchorMode = enum(i32) {
+    pub const AnchorMode = enum {
         pub const AmRectangular: i32 = 0;
         pub const AmSkewedUpright: i32 = 1;
         pub const AmSkewedRotated: i32 = 2;
     };
 
-    pub const AnchorReferenceType = enum(i32) {
+    pub const AnchorReferenceType = enum {
         pub const ArtNormal: i32 = 0;
         pub const ArtTangent: i32 = 1;
     };
 
-    pub const AnchorSide = enum(i32) {
+    pub const AnchorSide = enum {
         pub const AsLeft: i32 = 0;
         pub const AsRight: i32 = 1;
         pub const AsTop: i32 = 2;
@@ -217592,18 +217638,18 @@ pub const enums = struct {
         pub const AsBottomLeft: i32 = 7;
     };
 
-    pub const TickStepStrategy = enum(i32) {
+    pub const TickStepStrategy = enum {
         pub const TssReadability: i32 = 0;
         pub const TssMeetTickCount: i32 = 1;
     };
 
-    pub const DateStrategy = enum(i32) {
+    pub const DateStrategy = enum {
         pub const DsNone: i32 = 0;
         pub const DsUniformTimeInDay: i32 = 1;
         pub const DsUniformDayInMonth: i32 = 2;
     };
 
-    pub const TimeUnit = enum(i32) {
+    pub const TimeUnit = enum {
         pub const TuMilliseconds: i32 = 0;
         pub const TuSeconds: i32 = 1;
         pub const TuMinutes: i32 = 2;
@@ -217611,43 +217657,43 @@ pub const enums = struct {
         pub const TuDays: i32 = 4;
     };
 
-    pub const ScaleStrategy = enum(i32) {
+    pub const ScaleStrategy = enum {
         pub const SsNone: i32 = 0;
         pub const SsMultiples: i32 = 1;
         pub const SsPowers: i32 = 2;
     };
 
-    pub const FractionStyle = enum(i32) {
+    pub const FractionStyle = enum {
         pub const FsFloatingPoint: i32 = 0;
         pub const FsAsciiFractions: i32 = 1;
         pub const FsUnicodeFractions: i32 = 2;
     };
 
-    pub const AxisType = enum(i32) {
+    pub const AxisType = enum {
         pub const AtLeft: i32 = 1;
         pub const AtRight: i32 = 2;
         pub const AtTop: i32 = 4;
         pub const AtBottom: i32 = 8;
     };
 
-    pub const LabelSide = enum(i32) {
+    pub const LabelSide = enum {
         pub const LsInside: i32 = 0;
         pub const LsOutside: i32 = 1;
     };
 
-    pub const ScaleType = enum(i32) {
+    pub const ScaleType = enum {
         pub const StLinear: i32 = 0;
         pub const StLogarithmic: i32 = 1;
     };
 
-    pub const SelectablePart = enum(i32) {
+    pub const SelectablePart = enum {
         pub const SpNone: i32 = 0;
         pub const SpAxis: i32 = 1;
         pub const SpTickLabels: i32 = 2;
         pub const SpAxisLabel: i32 = 4;
     };
 
-    pub const ScatterProperty = enum(i32) {
+    pub const ScatterProperty = enum {
         pub const SpNone: i32 = 0;
         pub const SpPen: i32 = 1;
         pub const SpBrush: i32 = 2;
@@ -217656,7 +217702,7 @@ pub const enums = struct {
         pub const SpAll: i32 = 255;
     };
 
-    pub const ScatterShape = enum(i32) {
+    pub const ScatterShape = enum {
         pub const SsNone: i32 = 0;
         pub const SsDot: i32 = 1;
         pub const SsCross: i32 = 2;
@@ -217677,31 +217723,31 @@ pub const enums = struct {
         pub const SsCustom: i32 = 17;
     };
 
-    pub const PositionType = enum(i32) {
+    pub const PositionType = enum {
         pub const PtAbsolute: i32 = 0;
         pub const PtViewportRatio: i32 = 1;
         pub const PtAxisRectRatio: i32 = 2;
         pub const PtPlotCoords: i32 = 3;
     };
 
-    pub const LayerInsertMode = enum(i32) {
+    pub const LayerInsertMode = enum {
         pub const LimBelow: i32 = 0;
         pub const LimAbove: i32 = 1;
     };
 
-    pub const RefreshPriority = enum(i32) {
+    pub const RefreshPriority = enum {
         pub const RpImmediateRefresh: i32 = 0;
         pub const RpQueuedRefresh: i32 = 1;
         pub const RpRefreshHint: i32 = 2;
         pub const RpQueuedReplot: i32 = 3;
     };
 
-    pub const ColorInterpolation = enum(i32) {
+    pub const ColorInterpolation = enum {
         pub const CiRGB: i32 = 0;
         pub const CiHSV: i32 = 1;
     };
 
-    pub const NanHandling = enum(i32) {
+    pub const NanHandling = enum {
         pub const NhNone: i32 = 0;
         pub const NhLowestColor: i32 = 1;
         pub const NhHighestColor: i32 = 2;
@@ -217709,7 +217755,7 @@ pub const enums = struct {
         pub const NhNanColor: i32 = 4;
     };
 
-    pub const GradientPreset = enum(i32) {
+    pub const GradientPreset = enum {
         pub const GpGrayscale: i32 = 0;
         pub const GpHot: i32 = 1;
         pub const GpCold: i32 = 2;
@@ -217724,7 +217770,7 @@ pub const enums = struct {
         pub const GpHues: i32 = 11;
     };
 
-    pub const BracketStyle = enum(i32) {
+    pub const BracketStyle = enum {
         pub const BsSquareBracket: i32 = 0;
         pub const BsHalfEllipse: i32 = 1;
         pub const BsEllipse: i32 = 2;
@@ -217732,7 +217778,7 @@ pub const enums = struct {
         pub const BsUserStyle: i32 = 4;
     };
 
-    pub const LineStyle = enum(i32) {
+    pub const LineStyle = enum {
         pub const LsNone: i32 = 0;
         pub const LsLine: i32 = 1;
         pub const LsStepLeft: i32 = 2;
@@ -217741,29 +217787,29 @@ pub const enums = struct {
         pub const LsImpulse: i32 = 5;
     };
 
-    pub const SpacingType = enum(i32) {
+    pub const SpacingType = enum {
         pub const StAbsolute: i32 = 0;
         pub const StAxisRectRatio: i32 = 1;
         pub const StPlotCoords: i32 = 2;
     };
 
-    pub const WidthType = enum(i32) {
+    pub const WidthType = enum {
         pub const WtAbsolute: i32 = 0;
         pub const WtAxisRectRatio: i32 = 1;
         pub const WtPlotCoords: i32 = 2;
     };
 
-    pub const ChartStyle = enum(i32) {
+    pub const ChartStyle = enum {
         pub const CsOhlc: i32 = 0;
         pub const CsCandlestick: i32 = 1;
     };
 
-    pub const ErrorType = enum(i32) {
+    pub const ErrorType = enum {
         pub const EtKeyError: i32 = 0;
         pub const EtValueError: i32 = 1;
     };
 
-    pub const AnchorIndex = enum(i32) {
+    pub const AnchorIndex = enum {
         pub const AiTop: i32 = 0;
         pub const AiTopRight: i32 = 1;
         pub const AiRight: i32 = 2;
@@ -217772,7 +217818,7 @@ pub const enums = struct {
         pub const AiLeft: i32 = 5;
     };
 
-    pub const TracerStyle = enum(i32) {
+    pub const TracerStyle = enum {
         pub const TsNone: i32 = 0;
         pub const TsPlus: i32 = 1;
         pub const TsCrosshair: i32 = 2;
@@ -217780,17 +217826,17 @@ pub const enums = struct {
         pub const TsSquare: i32 = 4;
     };
 
-    pub const AngleReference = enum(i32) {
+    pub const AngleReference = enum {
         pub const ArAbsolute: i32 = 0;
         pub const ArAngularAxis: i32 = 1;
     };
 
-    pub const LabelMode = enum(i32) {
+    pub const LabelMode = enum {
         pub const LmUpright: i32 = 0;
         pub const LmRotated: i32 = 1;
     };
 
-    pub const GridType = enum(i32) {
+    pub const GridType = enum {
         pub const GtAngular: i32 = 1;
         pub const GtRadial: i32 = 2;
         pub const GtAll: i32 = 255;

@@ -776,9 +776,8 @@ int QImage_SuperDevType(const QImage* self) {
 // Auxiliary method to allow providing re-implementation
 void QImage_OnDevType(const QImage* self, intptr_t slot) {
     auto* vqimage = const_cast<VirtualQImage*>(dynamic_cast<const VirtualQImage*>(self));
-    if (vqimage && vqimage->isVirtualQImage) {
+    if (vqimage && vqimage->isVirtualQImage)
         vqimage->setQImage_DevType_Callback(reinterpret_cast<VirtualQImage::QImage_DevType_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -795,9 +794,8 @@ QPaintEngine* QImage_SuperPaintEngine(const QImage* self) {
 // Auxiliary method to allow providing re-implementation
 void QImage_OnPaintEngine(const QImage* self, intptr_t slot) {
     auto* vqimage = const_cast<VirtualQImage*>(dynamic_cast<const VirtualQImage*>(self));
-    if (vqimage && vqimage->isVirtualQImage) {
+    if (vqimage && vqimage->isVirtualQImage)
         vqimage->setQImage_PaintEngine_Callback(reinterpret_cast<VirtualQImage::QImage_PaintEngine_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -814,9 +812,8 @@ int QImage_SuperMetric(const QImage* self, int metric) {
 // Auxiliary method to allow providing re-implementation
 void QImage_OnMetric(const QImage* self, intptr_t slot) {
     auto* vqimage = const_cast<VirtualQImage*>(dynamic_cast<const VirtualQImage*>(self));
-    if (vqimage && vqimage->isVirtualQImage) {
+    if (vqimage && vqimage->isVirtualQImage)
         vqimage->setQImage_Metric_Callback(reinterpret_cast<VirtualQImage::QImage_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -843,9 +840,8 @@ void QImage_SuperInitPainter(const QImage* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QImage_OnInitPainter(const QImage* self, intptr_t slot) {
     auto* vqimage = const_cast<VirtualQImage*>(dynamic_cast<const VirtualQImage*>(self));
-    if (vqimage && vqimage->isVirtualQImage) {
+    if (vqimage && vqimage->isVirtualQImage)
         vqimage->setQImage_InitPainter_Callback(reinterpret_cast<VirtualQImage::QImage_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -872,9 +868,8 @@ QPaintDevice* QImage_SuperRedirected(const QImage* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QImage_OnRedirected(const QImage* self, intptr_t slot) {
     auto* vqimage = const_cast<VirtualQImage*>(dynamic_cast<const VirtualQImage*>(self));
-    if (vqimage && vqimage->isVirtualQImage) {
+    if (vqimage && vqimage->isVirtualQImage)
         vqimage->setQImage_Redirected_Callback(reinterpret_cast<VirtualQImage::QImage_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -901,9 +896,8 @@ QPainter* QImage_SuperSharedPainter(const QImage* self) {
 // Auxiliary method to allow providing re-implementation
 void QImage_OnSharedPainter(const QImage* self, intptr_t slot) {
     auto* vqimage = const_cast<VirtualQImage*>(dynamic_cast<const VirtualQImage*>(self));
-    if (vqimage && vqimage->isVirtualQImage) {
+    if (vqimage && vqimage->isVirtualQImage)
         vqimage->setQImage_SharedPainter_Callback(reinterpret_cast<VirtualQImage::QImage_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -928,9 +922,8 @@ QImage* QImage_SuperMirroredHelper(const QImage* self, bool horizontal, bool ver
 // Auxiliary method to allow providing re-implementation
 void QImage_OnMirroredHelper(const QImage* self, intptr_t slot) {
     auto* vqimage = const_cast<VirtualQImage*>(dynamic_cast<const VirtualQImage*>(self));
-    if (vqimage && vqimage->isVirtualQImage) {
+    if (vqimage && vqimage->isVirtualQImage)
         vqimage->setQImage_MirroredHelper_Callback(reinterpret_cast<VirtualQImage::QImage_MirroredHelper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -955,9 +948,8 @@ QImage* QImage_SuperRgbSwappedHelper(const QImage* self) {
 // Auxiliary method to allow providing re-implementation
 void QImage_OnRgbSwappedHelper(const QImage* self, intptr_t slot) {
     auto* vqimage = const_cast<VirtualQImage*>(dynamic_cast<const VirtualQImage*>(self));
-    if (vqimage && vqimage->isVirtualQImage) {
+    if (vqimage && vqimage->isVirtualQImage)
         vqimage->setQImage_RgbSwappedHelper_Callback(reinterpret_cast<VirtualQImage::QImage_RgbSwappedHelper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -984,9 +976,8 @@ void QImage_SuperMirroredInplace(QImage* self, bool horizontal, bool vertical) {
 // Auxiliary method to allow providing re-implementation
 void QImage_OnMirroredInplace(QImage* self, intptr_t slot) {
     auto* vqimage = dynamic_cast<VirtualQImage*>(self);
-    if (vqimage && vqimage->isVirtualQImage) {
+    if (vqimage && vqimage->isVirtualQImage)
         vqimage->setQImage_MirroredInplace_Callback(reinterpret_cast<VirtualQImage::QImage_MirroredInplace_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1013,9 +1004,8 @@ void QImage_SuperRgbSwappedInplace(QImage* self) {
 // Auxiliary method to allow providing re-implementation
 void QImage_OnRgbSwappedInplace(QImage* self, intptr_t slot) {
     auto* vqimage = dynamic_cast<VirtualQImage*>(self);
-    if (vqimage && vqimage->isVirtualQImage) {
+    if (vqimage && vqimage->isVirtualQImage)
         vqimage->setQImage_RgbSwappedInplace_Callback(reinterpret_cast<VirtualQImage::QImage_RgbSwappedInplace_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1040,9 +1030,8 @@ QImage* QImage_SuperConvertToFormatHelper(const QImage* self, int format, int fl
 // Auxiliary method to allow providing re-implementation
 void QImage_OnConvertToFormatHelper(const QImage* self, intptr_t slot) {
     auto* vqimage = const_cast<VirtualQImage*>(dynamic_cast<const VirtualQImage*>(self));
-    if (vqimage && vqimage->isVirtualQImage) {
+    if (vqimage && vqimage->isVirtualQImage)
         vqimage->setQImage_ConvertToFormatHelper_Callback(reinterpret_cast<VirtualQImage::QImage_ConvertToFormatHelper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1069,9 +1058,8 @@ bool QImage_SuperConvertToFormatInplace(QImage* self, int format, int flags) {
 // Auxiliary method to allow providing re-implementation
 void QImage_OnConvertToFormatInplace(QImage* self, intptr_t slot) {
     auto* vqimage = dynamic_cast<VirtualQImage*>(self);
-    if (vqimage && vqimage->isVirtualQImage) {
+    if (vqimage && vqimage->isVirtualQImage)
         vqimage->setQImage_ConvertToFormatInplace_Callback(reinterpret_cast<VirtualQImage::QImage_ConvertToFormatInplace_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1096,9 +1084,8 @@ QImage* QImage_SuperSmoothScaled(const QImage* self, int w, int h) {
 // Auxiliary method to allow providing re-implementation
 void QImage_OnSmoothScaled(const QImage* self, intptr_t slot) {
     auto* vqimage = const_cast<VirtualQImage*>(dynamic_cast<const VirtualQImage*>(self));
-    if (vqimage && vqimage->isVirtualQImage) {
+    if (vqimage && vqimage->isVirtualQImage)
         vqimage->setQImage_SmoothScaled_Callback(reinterpret_cast<VirtualQImage::QImage_SmoothScaled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1125,9 +1112,8 @@ void QImage_SuperDetachMetadata(QImage* self) {
 // Auxiliary method to allow providing re-implementation
 void QImage_OnDetachMetadata(QImage* self, intptr_t slot) {
     auto* vqimage = dynamic_cast<VirtualQImage*>(self);
-    if (vqimage && vqimage->isVirtualQImage) {
+    if (vqimage && vqimage->isVirtualQImage)
         vqimage->setQImage_DetachMetadata_Callback(reinterpret_cast<VirtualQImage::QImage_DetachMetadata_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1154,9 +1140,8 @@ void QImage_SuperDetachMetadata1(QImage* self, bool invalidateCache) {
 // Auxiliary method to allow providing re-implementation
 void QImage_OnDetachMetadata1(QImage* self, intptr_t slot) {
     auto* vqimage = dynamic_cast<VirtualQImage*>(self);
-    if (vqimage && vqimage->isVirtualQImage) {
+    if (vqimage && vqimage->isVirtualQImage)
         vqimage->setQImage_DetachMetadata1_Callback(reinterpret_cast<VirtualQImage::QImage_DetachMetadata1_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1183,9 +1168,8 @@ double QImage_SuperGetDecodedMetricF(const QImage* self, int metricA, int metric
 // Auxiliary method to allow providing re-implementation
 void QImage_OnGetDecodedMetricF(const QImage* self, intptr_t slot) {
     auto* vqimage = const_cast<VirtualQImage*>(dynamic_cast<const VirtualQImage*>(self));
-    if (vqimage && vqimage->isVirtualQImage) {
+    if (vqimage && vqimage->isVirtualQImage)
         vqimage->setQImage_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQImage::QImage_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QImage_Delete(QImage* self) {

@@ -8250,7 +8250,7 @@ pub const QSqlTableModel = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqltablemodel.html#public-types)
 pub const enums = struct {
-    pub const EditStrategy = enum(i32) {
+    pub const EditStrategy = enum {
         pub const OnFieldChange: i32 = 0;
         pub const OnRowChange: i32 = 1;
         pub const OnManualSubmit: i32 = 2;

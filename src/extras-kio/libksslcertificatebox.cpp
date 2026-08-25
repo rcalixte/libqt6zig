@@ -80,9 +80,8 @@ QMetaObject* KSslCertificateBox_SuperMetaObject(const KSslCertificateBox* self) 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMetaObject(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_MetaObject_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -99,9 +98,8 @@ void* KSslCertificateBox_SuperMetacast(KSslCertificateBox* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMetacast(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_Metacast_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -118,9 +116,8 @@ int KSslCertificateBox_SuperMetacall(KSslCertificateBox* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMetacall(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_Metacall_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -147,9 +144,8 @@ int KSslCertificateBox_SuperDevType(const KSslCertificateBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnDevType(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_DevType_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -176,9 +172,8 @@ void KSslCertificateBox_SuperSetVisible(KSslCertificateBox* self, bool visible) 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnSetVisible(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_SetVisible_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -205,9 +200,8 @@ QSize* KSslCertificateBox_SuperSizeHint(const KSslCertificateBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnSizeHint(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_SizeHint_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -234,9 +228,8 @@ QSize* KSslCertificateBox_SuperMinimumSizeHint(const KSslCertificateBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMinimumSizeHint(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -263,9 +256,8 @@ int KSslCertificateBox_SuperHeightForWidth(const KSslCertificateBox* self, int p
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnHeightForWidth(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_HeightForWidth_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -292,9 +284,8 @@ bool KSslCertificateBox_SuperHasHeightForWidth(const KSslCertificateBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnHasHeightForWidth(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -321,9 +312,8 @@ QPaintEngine* KSslCertificateBox_SuperPaintEngine(const KSslCertificateBox* self
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnPaintEngine(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_PaintEngine_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -350,9 +340,8 @@ bool KSslCertificateBox_SuperEvent(KSslCertificateBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_Event_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -379,9 +368,8 @@ void KSslCertificateBox_SuperMousePressEvent(KSslCertificateBox* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMousePressEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_MousePressEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -408,9 +396,8 @@ void KSslCertificateBox_SuperMouseReleaseEvent(KSslCertificateBox* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMouseReleaseEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -437,9 +424,8 @@ void KSslCertificateBox_SuperMouseDoubleClickEvent(KSslCertificateBox* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMouseDoubleClickEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -466,9 +452,8 @@ void KSslCertificateBox_SuperMouseMoveEvent(KSslCertificateBox* self, QMouseEven
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMouseMoveEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -495,9 +480,8 @@ void KSslCertificateBox_SuperWheelEvent(KSslCertificateBox* self, QWheelEvent* e
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnWheelEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_WheelEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -524,9 +508,8 @@ void KSslCertificateBox_SuperKeyPressEvent(KSslCertificateBox* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnKeyPressEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_KeyPressEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -553,9 +536,8 @@ void KSslCertificateBox_SuperKeyReleaseEvent(KSslCertificateBox* self, QKeyEvent
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnKeyReleaseEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -582,9 +564,8 @@ void KSslCertificateBox_SuperFocusInEvent(KSslCertificateBox* self, QFocusEvent*
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnFocusInEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_FocusInEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -611,9 +592,8 @@ void KSslCertificateBox_SuperFocusOutEvent(KSslCertificateBox* self, QFocusEvent
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnFocusOutEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_FocusOutEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -640,9 +620,8 @@ void KSslCertificateBox_SuperEnterEvent(KSslCertificateBox* self, QEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnEnterEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_EnterEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -669,9 +648,8 @@ void KSslCertificateBox_SuperLeaveEvent(KSslCertificateBox* self, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnLeaveEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_LeaveEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -698,9 +676,8 @@ void KSslCertificateBox_SuperPaintEvent(KSslCertificateBox* self, QPaintEvent* e
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnPaintEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_PaintEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -727,9 +704,8 @@ void KSslCertificateBox_SuperMoveEvent(KSslCertificateBox* self, QMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMoveEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_MoveEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -756,9 +732,8 @@ void KSslCertificateBox_SuperResizeEvent(KSslCertificateBox* self, QResizeEvent*
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnResizeEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_ResizeEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -785,9 +760,8 @@ void KSslCertificateBox_SuperCloseEvent(KSslCertificateBox* self, QCloseEvent* e
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnCloseEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_CloseEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -814,9 +788,8 @@ void KSslCertificateBox_SuperContextMenuEvent(KSslCertificateBox* self, QContext
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnContextMenuEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -843,9 +816,8 @@ void KSslCertificateBox_SuperTabletEvent(KSslCertificateBox* self, QTabletEvent*
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnTabletEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_TabletEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -872,9 +844,8 @@ void KSslCertificateBox_SuperActionEvent(KSslCertificateBox* self, QActionEvent*
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnActionEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_ActionEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -901,9 +872,8 @@ void KSslCertificateBox_SuperDragEnterEvent(KSslCertificateBox* self, QDragEnter
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnDragEnterEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_DragEnterEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -930,9 +900,8 @@ void KSslCertificateBox_SuperDragMoveEvent(KSslCertificateBox* self, QDragMoveEv
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnDragMoveEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_DragMoveEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -959,9 +928,8 @@ void KSslCertificateBox_SuperDragLeaveEvent(KSslCertificateBox* self, QDragLeave
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnDragLeaveEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -988,9 +956,8 @@ void KSslCertificateBox_SuperDropEvent(KSslCertificateBox* self, QDropEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnDropEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_DropEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1017,9 +984,8 @@ void KSslCertificateBox_SuperShowEvent(KSslCertificateBox* self, QShowEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnShowEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_ShowEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1046,9 +1012,8 @@ void KSslCertificateBox_SuperHideEvent(KSslCertificateBox* self, QHideEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnHideEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_HideEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1077,9 +1042,8 @@ bool KSslCertificateBox_SuperNativeEvent(KSslCertificateBox* self, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnNativeEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_NativeEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1106,9 +1070,8 @@ void KSslCertificateBox_SuperChangeEvent(KSslCertificateBox* self, QEvent* param
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnChangeEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_ChangeEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1135,9 +1098,8 @@ int KSslCertificateBox_SuperMetric(const KSslCertificateBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnMetric(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_Metric_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1164,9 +1126,8 @@ void KSslCertificateBox_SuperInitPainter(const KSslCertificateBox* self, QPainte
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnInitPainter(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_InitPainter_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1193,9 +1154,8 @@ QPaintDevice* KSslCertificateBox_SuperRedirected(const KSslCertificateBox* self,
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnRedirected(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_Redirected_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1222,9 +1182,8 @@ QPainter* KSslCertificateBox_SuperSharedPainter(const KSslCertificateBox* self) 
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnSharedPainter(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_SharedPainter_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1251,9 +1210,8 @@ void KSslCertificateBox_SuperInputMethodEvent(KSslCertificateBox* self, QInputMe
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnInputMethodEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_InputMethodEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1280,9 +1238,8 @@ QVariant* KSslCertificateBox_SuperInputMethodQuery(const KSslCertificateBox* sel
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnInputMethodQuery(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_InputMethodQuery_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1309,9 +1266,8 @@ bool KSslCertificateBox_SuperFocusNextPrevChild(KSslCertificateBox* self, bool n
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnFocusNextPrevChild(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1338,9 +1294,8 @@ bool KSslCertificateBox_SuperEventFilter(KSslCertificateBox* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnEventFilter(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_EventFilter_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1367,9 +1322,8 @@ void KSslCertificateBox_SuperTimerEvent(KSslCertificateBox* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnTimerEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_TimerEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1396,9 +1350,8 @@ void KSslCertificateBox_SuperChildEvent(KSslCertificateBox* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnChildEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_ChildEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1425,9 +1378,8 @@ void KSslCertificateBox_SuperCustomEvent(KSslCertificateBox* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnCustomEvent(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_CustomEvent_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1454,9 +1406,8 @@ void KSslCertificateBox_SuperConnectNotify(KSslCertificateBox* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnConnectNotify(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_ConnectNotify_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1483,9 +1434,8 @@ void KSslCertificateBox_SuperDisconnectNotify(KSslCertificateBox* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnDisconnectNotify(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_DisconnectNotify_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1512,9 +1462,8 @@ void KSslCertificateBox_SuperUpdateMicroFocus(KSslCertificateBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnUpdateMicroFocus(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1541,9 +1490,8 @@ void KSslCertificateBox_SuperCreate(KSslCertificateBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnCreate(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_Create_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1570,9 +1518,8 @@ void KSslCertificateBox_SuperDestroy(KSslCertificateBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnDestroy(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_Destroy_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1599,9 +1546,8 @@ bool KSslCertificateBox_SuperFocusNextChild(KSslCertificateBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnFocusNextChild(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_FocusNextChild_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1628,9 +1574,8 @@ bool KSslCertificateBox_SuperFocusPreviousChild(KSslCertificateBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnFocusPreviousChild(KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = dynamic_cast<VirtualKSslCertificateBox*>(self);
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1657,9 +1602,8 @@ QObject* KSslCertificateBox_SuperSender(const KSslCertificateBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnSender(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_Sender_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1686,9 +1630,8 @@ int KSslCertificateBox_SuperSenderSignalIndex(const KSslCertificateBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnSenderSignalIndex(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1715,9 +1658,8 @@ int KSslCertificateBox_SuperReceivers(const KSslCertificateBox* self, const char
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnReceivers(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_Receivers_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1744,9 +1686,8 @@ bool KSslCertificateBox_SuperIsSignalConnected(const KSslCertificateBox* self, c
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnIsSignalConnected(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_IsSignalConnected_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1773,9 +1714,8 @@ double KSslCertificateBox_SuperGetDecodedMetricF(const KSslCertificateBox* self,
 // Auxiliary method to allow providing re-implementation
 void KSslCertificateBox_OnGetDecodedMetricF(const KSslCertificateBox* self, intptr_t slot) {
     auto* vksslcertificatebox = const_cast<VirtualKSslCertificateBox*>(dynamic_cast<const VirtualKSslCertificateBox*>(self));
-    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox) {
+    if (vksslcertificatebox && vksslcertificatebox->isVirtualKSslCertificateBox)
         vksslcertificatebox->setKSslCertificateBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKSslCertificateBox::KSslCertificateBox_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KSslCertificateBox_Delete(KSslCertificateBox* self) {

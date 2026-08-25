@@ -84,9 +84,8 @@ QMetaObject* QsciLexerJavaScript_SuperMetaObject(const QsciLexerJavaScript* self
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnMetaObject(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -103,9 +102,8 @@ void* QsciLexerJavaScript_SuperMetacast(QsciLexerJavaScript* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnMetacast(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_Metacast_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -122,9 +120,8 @@ int QsciLexerJavaScript_SuperMetacall(QsciLexerJavaScript* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnMetacall(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_Metacall_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -151,9 +148,8 @@ void QsciLexerJavaScript_SuperSetFoldAtElse(QsciLexerJavaScript* self, bool fold
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnSetFoldAtElse(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_SetFoldAtElse_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_SetFoldAtElse_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -180,9 +176,8 @@ void QsciLexerJavaScript_SuperSetFoldComments(QsciLexerJavaScript* self, bool fo
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnSetFoldComments(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_SetFoldComments_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -209,9 +204,8 @@ void QsciLexerJavaScript_SuperSetFoldCompact(QsciLexerJavaScript* self, bool fol
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnSetFoldCompact(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_SetFoldCompact_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -238,9 +232,8 @@ void QsciLexerJavaScript_SuperSetFoldPreprocessor(QsciLexerJavaScript* self, boo
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnSetFoldPreprocessor(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_SetFoldPreprocessor_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_SetFoldPreprocessor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -267,9 +260,8 @@ void QsciLexerJavaScript_SuperSetStylePreprocessor(QsciLexerJavaScript* self, bo
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnSetStylePreprocessor(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_SetStylePreprocessor_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_SetStylePreprocessor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -296,9 +288,8 @@ const char* QsciLexerJavaScript_SuperLexer(const QsciLexerJavaScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnLexer(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_Lexer_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_Lexer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -325,9 +316,8 @@ int QsciLexerJavaScript_SuperLexerId(const QsciLexerJavaScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnLexerId(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_LexerId_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_LexerId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -354,9 +344,8 @@ const char* QsciLexerJavaScript_SuperAutoCompletionFillups(const QsciLexerJavaSc
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnAutoCompletionFillups(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_AutoCompletionFillups_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -451,9 +440,8 @@ libqt_list /* of libqt_string */ QsciLexerJavaScript_SuperAutoCompletionWordSepa
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnAutoCompletionWordSeparators(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_AutoCompletionWordSeparators_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_AutoCompletionWordSeparators_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -480,9 +468,8 @@ const char* QsciLexerJavaScript_SuperBlockEnd(const QsciLexerJavaScript* self, i
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnBlockEnd(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_BlockEnd_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_BlockEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -509,9 +496,8 @@ int QsciLexerJavaScript_SuperBlockLookback(const QsciLexerJavaScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnBlockLookback(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_BlockLookback_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -538,9 +524,8 @@ const char* QsciLexerJavaScript_SuperBlockStart(const QsciLexerJavaScript* self,
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnBlockStart(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_BlockStart_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_BlockStart_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -567,9 +552,8 @@ const char* QsciLexerJavaScript_SuperBlockStartKeyword(const QsciLexerJavaScript
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnBlockStartKeyword(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_BlockStartKeyword_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -596,9 +580,8 @@ int QsciLexerJavaScript_SuperBraceStyle(const QsciLexerJavaScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnBraceStyle(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_BraceStyle_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_BraceStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -625,9 +608,8 @@ bool QsciLexerJavaScript_SuperCaseSensitive(const QsciLexerJavaScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnCaseSensitive(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_CaseSensitive_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -654,9 +636,8 @@ QColor* QsciLexerJavaScript_SuperColor(const QsciLexerJavaScript* self, int styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnColor(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_Color_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -683,9 +664,8 @@ bool QsciLexerJavaScript_SuperEolFill(const QsciLexerJavaScript* self, int style
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnEolFill(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_EolFill_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_EolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -712,9 +692,8 @@ QFont* QsciLexerJavaScript_SuperFont(const QsciLexerJavaScript* self, int style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnFont(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_Font_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_Font_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -741,9 +720,8 @@ int QsciLexerJavaScript_SuperIndentationGuideView(const QsciLexerJavaScript* sel
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnIndentationGuideView(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_IndentationGuideView_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -770,9 +748,8 @@ int QsciLexerJavaScript_SuperDefaultStyle(const QsciLexerJavaScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnDefaultStyle(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_DefaultStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -799,9 +776,8 @@ QColor* QsciLexerJavaScript_SuperPaper(const QsciLexerJavaScript* self, int styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnPaper(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_Paper_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_Paper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -828,9 +804,8 @@ QColor* QsciLexerJavaScript_SuperDefaultColor2(const QsciLexerJavaScript* self, 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnDefaultColor2(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_DefaultColor2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -857,9 +832,8 @@ QFont* QsciLexerJavaScript_SuperDefaultFont2(const QsciLexerJavaScript* self, in
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnDefaultFont2(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_DefaultFont2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -886,9 +860,8 @@ QColor* QsciLexerJavaScript_SuperDefaultPaper2(const QsciLexerJavaScript* self, 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnDefaultPaper2(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_DefaultPaper2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -915,9 +888,8 @@ void QsciLexerJavaScript_SuperSetEditor(QsciLexerJavaScript* self, QsciScintilla
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnSetEditor(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_SetEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -944,9 +916,8 @@ void QsciLexerJavaScript_SuperRefreshProperties(QsciLexerJavaScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnRefreshProperties(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_RefreshProperties_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_RefreshProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -973,9 +944,8 @@ int QsciLexerJavaScript_SuperStyleBitsNeeded(const QsciLexerJavaScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnStyleBitsNeeded(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_StyleBitsNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1002,9 +972,8 @@ const char* QsciLexerJavaScript_SuperWordCharacters(const QsciLexerJavaScript* s
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnWordCharacters(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_WordCharacters_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1031,9 +1000,8 @@ void QsciLexerJavaScript_SuperSetAutoIndentStyle(QsciLexerJavaScript* self, int 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnSetAutoIndentStyle(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_SetAutoIndentStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1060,9 +1028,8 @@ void QsciLexerJavaScript_SuperSetColor(QsciLexerJavaScript* self, const QColor* 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnSetColor(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_SetColor_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_SetColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1089,9 +1056,8 @@ void QsciLexerJavaScript_SuperSetEolFill(QsciLexerJavaScript* self, bool eoffill
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnSetEolFill(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_SetEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1118,9 +1084,8 @@ void QsciLexerJavaScript_SuperSetFont(QsciLexerJavaScript* self, const QFont* f,
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnSetFont(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_SetFont_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_SetFont_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1147,9 +1112,8 @@ void QsciLexerJavaScript_SuperSetPaper(QsciLexerJavaScript* self, const QColor* 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnSetPaper(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_SetPaper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1178,9 +1142,8 @@ bool QsciLexerJavaScript_SuperReadProperties(QsciLexerJavaScript* self, QSetting
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnReadProperties(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_ReadProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1209,9 +1172,8 @@ bool QsciLexerJavaScript_SuperWriteProperties(const QsciLexerJavaScript* self, Q
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnWriteProperties(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_WriteProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1238,9 +1200,8 @@ bool QsciLexerJavaScript_SuperEvent(QsciLexerJavaScript* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnEvent(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_Event_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1267,9 +1228,8 @@ bool QsciLexerJavaScript_SuperEventFilter(QsciLexerJavaScript* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnEventFilter(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1296,9 +1256,8 @@ void QsciLexerJavaScript_SuperTimerEvent(QsciLexerJavaScript* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnTimerEvent(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1325,9 +1284,8 @@ void QsciLexerJavaScript_SuperChildEvent(QsciLexerJavaScript* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnChildEvent(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1354,9 +1312,8 @@ void QsciLexerJavaScript_SuperCustomEvent(QsciLexerJavaScript* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnCustomEvent(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1383,9 +1340,8 @@ void QsciLexerJavaScript_SuperConnectNotify(QsciLexerJavaScript* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnConnectNotify(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1412,9 +1368,8 @@ void QsciLexerJavaScript_SuperDisconnectNotify(QsciLexerJavaScript* self, const 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnDisconnectNotify(QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1463,9 +1418,8 @@ libqt_string QsciLexerJavaScript_SuperTextAsBytes(const QsciLexerJavaScript* sel
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnTextAsBytes(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_TextAsBytes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1524,9 +1478,8 @@ libqt_string QsciLexerJavaScript_SuperBytesAsText(const QsciLexerJavaScript* sel
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnBytesAsText(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_BytesAsText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1553,9 +1506,8 @@ QObject* QsciLexerJavaScript_SuperSender(const QsciLexerJavaScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnSender(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_Sender_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1582,9 +1534,8 @@ int QsciLexerJavaScript_SuperSenderSignalIndex(const QsciLexerJavaScript* self) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnSenderSignalIndex(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1611,9 +1562,8 @@ int QsciLexerJavaScript_SuperReceivers(const QsciLexerJavaScript* self, const ch
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnReceivers(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_Receivers_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1640,9 +1590,8 @@ bool QsciLexerJavaScript_SuperIsSignalConnected(const QsciLexerJavaScript* self,
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJavaScript_OnIsSignalConnected(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
+    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript)
         vqscilexerjavascript->setQsciLexerJavaScript_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QsciLexerJavaScript_Delete(QsciLexerJavaScript* self) {

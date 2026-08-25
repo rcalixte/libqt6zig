@@ -204,9 +204,8 @@ QMetaObject* KNotificationReplyAction_SuperMetaObject(const KNotificationReplyAc
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnMetaObject(const KNotificationReplyAction* self, intptr_t slot) {
     auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
         vknotificationreplyaction->setKNotificationReplyAction_MetaObject_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -223,9 +222,8 @@ void* KNotificationReplyAction_SuperMetacast(KNotificationReplyAction* self, con
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnMetacast(KNotificationReplyAction* self, intptr_t slot) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
         vknotificationreplyaction->setKNotificationReplyAction_Metacast_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -242,9 +240,8 @@ int KNotificationReplyAction_SuperMetacall(KNotificationReplyAction* self, int p
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnMetacall(KNotificationReplyAction* self, intptr_t slot) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
         vknotificationreplyaction->setKNotificationReplyAction_Metacall_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +268,8 @@ bool KNotificationReplyAction_SuperEvent(KNotificationReplyAction* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnEvent(KNotificationReplyAction* self, intptr_t slot) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
         vknotificationreplyaction->setKNotificationReplyAction_Event_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +296,8 @@ bool KNotificationReplyAction_SuperEventFilter(KNotificationReplyAction* self, Q
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnEventFilter(KNotificationReplyAction* self, intptr_t slot) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
         vknotificationreplyaction->setKNotificationReplyAction_EventFilter_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +324,8 @@ void KNotificationReplyAction_SuperTimerEvent(KNotificationReplyAction* self, QT
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnTimerEvent(KNotificationReplyAction* self, intptr_t slot) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
         vknotificationreplyaction->setKNotificationReplyAction_TimerEvent_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +352,8 @@ void KNotificationReplyAction_SuperChildEvent(KNotificationReplyAction* self, QC
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnChildEvent(KNotificationReplyAction* self, intptr_t slot) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
         vknotificationreplyaction->setKNotificationReplyAction_ChildEvent_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +380,8 @@ void KNotificationReplyAction_SuperCustomEvent(KNotificationReplyAction* self, Q
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnCustomEvent(KNotificationReplyAction* self, intptr_t slot) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
         vknotificationreplyaction->setKNotificationReplyAction_CustomEvent_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +408,8 @@ void KNotificationReplyAction_SuperConnectNotify(KNotificationReplyAction* self,
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnConnectNotify(KNotificationReplyAction* self, intptr_t slot) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
         vknotificationreplyaction->setKNotificationReplyAction_ConnectNotify_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +436,8 @@ void KNotificationReplyAction_SuperDisconnectNotify(KNotificationReplyAction* se
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnDisconnectNotify(KNotificationReplyAction* self, intptr_t slot) {
     auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
         vknotificationreplyaction->setKNotificationReplyAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +464,8 @@ QObject* KNotificationReplyAction_SuperSender(const KNotificationReplyAction* se
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnSender(const KNotificationReplyAction* self, intptr_t slot) {
     auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
         vknotificationreplyaction->setKNotificationReplyAction_Sender_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +492,8 @@ int KNotificationReplyAction_SuperSenderSignalIndex(const KNotificationReplyActi
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnSenderSignalIndex(const KNotificationReplyAction* self, intptr_t slot) {
     auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
         vknotificationreplyaction->setKNotificationReplyAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +520,8 @@ int KNotificationReplyAction_SuperReceivers(const KNotificationReplyAction* self
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnReceivers(const KNotificationReplyAction* self, intptr_t slot) {
     auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
         vknotificationreplyaction->setKNotificationReplyAction_Receivers_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +548,8 @@ bool KNotificationReplyAction_SuperIsSignalConnected(const KNotificationReplyAct
 // Auxiliary method to allow providing re-implementation
 void KNotificationReplyAction_OnIsSignalConnected(const KNotificationReplyAction* self, intptr_t slot) {
     auto* vknotificationreplyaction = const_cast<VirtualKNotificationReplyAction*>(dynamic_cast<const VirtualKNotificationReplyAction*>(self));
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
+    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction)
         vknotificationreplyaction->setKNotificationReplyAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKNotificationReplyAction::KNotificationReplyAction_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KNotificationReplyAction_Delete(KNotificationReplyAction* self) {

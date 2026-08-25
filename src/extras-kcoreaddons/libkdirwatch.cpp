@@ -204,9 +204,8 @@ QMetaObject* KDirWatch_SuperMetaObject(const KDirWatch* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirWatch_OnMetaObject(const KDirWatch* self, intptr_t slot) {
     auto* vkdirwatch = const_cast<VirtualKDirWatch*>(dynamic_cast<const VirtualKDirWatch*>(self));
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch)
         vkdirwatch->setKDirWatch_MetaObject_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -223,9 +222,8 @@ void* KDirWatch_SuperMetacast(KDirWatch* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDirWatch_OnMetacast(KDirWatch* self, intptr_t slot) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch)
         vkdirwatch->setKDirWatch_Metacast_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -242,9 +240,8 @@ int KDirWatch_SuperMetacall(KDirWatch* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void KDirWatch_OnMetacall(KDirWatch* self, intptr_t slot) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch)
         vkdirwatch->setKDirWatch_Metacall_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -261,9 +258,8 @@ bool KDirWatch_SuperEvent(KDirWatch* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirWatch_OnEvent(KDirWatch* self, intptr_t slot) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch)
         vkdirwatch->setKDirWatch_Event_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -290,9 +286,8 @@ bool KDirWatch_SuperEventFilter(KDirWatch* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KDirWatch_OnEventFilter(KDirWatch* self, intptr_t slot) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch)
         vkdirwatch->setKDirWatch_EventFilter_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -319,9 +314,8 @@ void KDirWatch_SuperTimerEvent(KDirWatch* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirWatch_OnTimerEvent(KDirWatch* self, intptr_t slot) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch)
         vkdirwatch->setKDirWatch_TimerEvent_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -348,9 +342,8 @@ void KDirWatch_SuperChildEvent(KDirWatch* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirWatch_OnChildEvent(KDirWatch* self, intptr_t slot) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch)
         vkdirwatch->setKDirWatch_ChildEvent_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -377,9 +370,8 @@ void KDirWatch_SuperCustomEvent(KDirWatch* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirWatch_OnCustomEvent(KDirWatch* self, intptr_t slot) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch)
         vkdirwatch->setKDirWatch_CustomEvent_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -406,9 +398,8 @@ void KDirWatch_SuperConnectNotify(KDirWatch* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KDirWatch_OnConnectNotify(KDirWatch* self, intptr_t slot) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch)
         vkdirwatch->setKDirWatch_ConnectNotify_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -435,9 +426,8 @@ void KDirWatch_SuperDisconnectNotify(KDirWatch* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void KDirWatch_OnDisconnectNotify(KDirWatch* self, intptr_t slot) {
     auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch)
         vkdirwatch->setKDirWatch_DisconnectNotify_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -464,9 +454,8 @@ QObject* KDirWatch_SuperSender(const KDirWatch* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirWatch_OnSender(const KDirWatch* self, intptr_t slot) {
     auto* vkdirwatch = const_cast<VirtualKDirWatch*>(dynamic_cast<const VirtualKDirWatch*>(self));
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch)
         vkdirwatch->setKDirWatch_Sender_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -493,9 +482,8 @@ int KDirWatch_SuperSenderSignalIndex(const KDirWatch* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirWatch_OnSenderSignalIndex(const KDirWatch* self, intptr_t slot) {
     auto* vkdirwatch = const_cast<VirtualKDirWatch*>(dynamic_cast<const VirtualKDirWatch*>(self));
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch)
         vkdirwatch->setKDirWatch_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -522,9 +510,8 @@ int KDirWatch_SuperReceivers(const KDirWatch* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KDirWatch_OnReceivers(const KDirWatch* self, intptr_t slot) {
     auto* vkdirwatch = const_cast<VirtualKDirWatch*>(dynamic_cast<const VirtualKDirWatch*>(self));
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch)
         vkdirwatch->setKDirWatch_Receivers_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -551,9 +538,8 @@ bool KDirWatch_SuperIsSignalConnected(const KDirWatch* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KDirWatch_OnIsSignalConnected(const KDirWatch* self, intptr_t slot) {
     auto* vkdirwatch = const_cast<VirtualKDirWatch*>(dynamic_cast<const VirtualKDirWatch*>(self));
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
+    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch)
         vkdirwatch->setKDirWatch_IsSignalConnected_Callback(reinterpret_cast<VirtualKDirWatch::KDirWatch_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KDirWatch_Delete(KDirWatch* self) {

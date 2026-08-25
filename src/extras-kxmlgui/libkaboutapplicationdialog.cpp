@@ -81,9 +81,8 @@ QMetaObject* KAboutApplicationDialog_SuperMetaObject(const KAboutApplicationDial
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnMetaObject(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_MetaObject_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -100,9 +99,8 @@ void* KAboutApplicationDialog_SuperMetacast(KAboutApplicationDialog* self, const
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnMetacast(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_Metacast_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -119,9 +117,8 @@ int KAboutApplicationDialog_SuperMetacall(KAboutApplicationDialog* self, int par
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnMetacall(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_Metacall_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -148,9 +145,8 @@ void KAboutApplicationDialog_SuperSetVisible(KAboutApplicationDialog* self, bool
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnSetVisible(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_SetVisible_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -177,9 +173,8 @@ QSize* KAboutApplicationDialog_SuperSizeHint(const KAboutApplicationDialog* self
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnSizeHint(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_SizeHint_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -206,9 +201,8 @@ QSize* KAboutApplicationDialog_SuperMinimumSizeHint(const KAboutApplicationDialo
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnMinimumSizeHint(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -235,9 +229,8 @@ void KAboutApplicationDialog_SuperOpen(KAboutApplicationDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnOpen(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_Open_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -264,9 +257,8 @@ int KAboutApplicationDialog_SuperExec(KAboutApplicationDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnExec(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_Exec_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -293,9 +285,8 @@ void KAboutApplicationDialog_SuperDone(KAboutApplicationDialog* self, int param1
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnDone(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_Done_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -322,9 +313,8 @@ void KAboutApplicationDialog_SuperAccept(KAboutApplicationDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnAccept(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_Accept_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -351,9 +341,8 @@ void KAboutApplicationDialog_SuperReject(KAboutApplicationDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnReject(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_Reject_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -380,9 +369,8 @@ void KAboutApplicationDialog_SuperKeyPressEvent(KAboutApplicationDialog* self, Q
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnKeyPressEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -409,9 +397,8 @@ void KAboutApplicationDialog_SuperCloseEvent(KAboutApplicationDialog* self, QClo
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnCloseEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_CloseEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -438,9 +425,8 @@ void KAboutApplicationDialog_SuperShowEvent(KAboutApplicationDialog* self, QShow
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnShowEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_ShowEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +453,8 @@ void KAboutApplicationDialog_SuperResizeEvent(KAboutApplicationDialog* self, QRe
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnResizeEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +481,8 @@ void KAboutApplicationDialog_SuperContextMenuEvent(KAboutApplicationDialog* self
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnContextMenuEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -525,9 +509,8 @@ bool KAboutApplicationDialog_SuperEventFilter(KAboutApplicationDialog* self, QOb
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnEventFilter(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_EventFilter_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -554,9 +537,8 @@ int KAboutApplicationDialog_SuperDevType(const KAboutApplicationDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnDevType(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_DevType_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -583,9 +565,8 @@ int KAboutApplicationDialog_SuperHeightForWidth(const KAboutApplicationDialog* s
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnHeightForWidth(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -612,9 +593,8 @@ bool KAboutApplicationDialog_SuperHasHeightForWidth(const KAboutApplicationDialo
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnHasHeightForWidth(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -641,9 +621,8 @@ QPaintEngine* KAboutApplicationDialog_SuperPaintEngine(const KAboutApplicationDi
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnPaintEngine(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_PaintEngine_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -670,9 +649,8 @@ bool KAboutApplicationDialog_SuperEvent(KAboutApplicationDialog* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_Event_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -699,9 +677,8 @@ void KAboutApplicationDialog_SuperMousePressEvent(KAboutApplicationDialog* self,
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnMousePressEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -728,9 +705,8 @@ void KAboutApplicationDialog_SuperMouseReleaseEvent(KAboutApplicationDialog* sel
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnMouseReleaseEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -757,9 +733,8 @@ void KAboutApplicationDialog_SuperMouseDoubleClickEvent(KAboutApplicationDialog*
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnMouseDoubleClickEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -786,9 +761,8 @@ void KAboutApplicationDialog_SuperMouseMoveEvent(KAboutApplicationDialog* self, 
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnMouseMoveEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -815,9 +789,8 @@ void KAboutApplicationDialog_SuperWheelEvent(KAboutApplicationDialog* self, QWhe
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnWheelEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_WheelEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -844,9 +817,8 @@ void KAboutApplicationDialog_SuperKeyReleaseEvent(KAboutApplicationDialog* self,
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnKeyReleaseEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -873,9 +845,8 @@ void KAboutApplicationDialog_SuperFocusInEvent(KAboutApplicationDialog* self, QF
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnFocusInEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -902,9 +873,8 @@ void KAboutApplicationDialog_SuperFocusOutEvent(KAboutApplicationDialog* self, Q
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnFocusOutEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -931,9 +901,8 @@ void KAboutApplicationDialog_SuperEnterEvent(KAboutApplicationDialog* self, QEnt
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnEnterEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_EnterEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -960,9 +929,8 @@ void KAboutApplicationDialog_SuperLeaveEvent(KAboutApplicationDialog* self, QEve
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnLeaveEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -989,9 +957,8 @@ void KAboutApplicationDialog_SuperPaintEvent(KAboutApplicationDialog* self, QPai
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnPaintEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_PaintEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1018,9 +985,8 @@ void KAboutApplicationDialog_SuperMoveEvent(KAboutApplicationDialog* self, QMove
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnMoveEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_MoveEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1047,9 +1013,8 @@ void KAboutApplicationDialog_SuperTabletEvent(KAboutApplicationDialog* self, QTa
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnTabletEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_TabletEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1076,9 +1041,8 @@ void KAboutApplicationDialog_SuperActionEvent(KAboutApplicationDialog* self, QAc
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnActionEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_ActionEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1105,9 +1069,8 @@ void KAboutApplicationDialog_SuperDragEnterEvent(KAboutApplicationDialog* self, 
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnDragEnterEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1134,9 +1097,8 @@ void KAboutApplicationDialog_SuperDragMoveEvent(KAboutApplicationDialog* self, Q
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnDragMoveEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1163,9 +1125,8 @@ void KAboutApplicationDialog_SuperDragLeaveEvent(KAboutApplicationDialog* self, 
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnDragLeaveEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1192,9 +1153,8 @@ void KAboutApplicationDialog_SuperDropEvent(KAboutApplicationDialog* self, QDrop
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnDropEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_DropEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1221,9 +1181,8 @@ void KAboutApplicationDialog_SuperHideEvent(KAboutApplicationDialog* self, QHide
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnHideEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_HideEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1252,9 +1211,8 @@ bool KAboutApplicationDialog_SuperNativeEvent(KAboutApplicationDialog* self, con
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnNativeEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_NativeEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1281,9 +1239,8 @@ void KAboutApplicationDialog_SuperChangeEvent(KAboutApplicationDialog* self, QEv
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnChangeEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1310,9 +1267,8 @@ int KAboutApplicationDialog_SuperMetric(const KAboutApplicationDialog* self, int
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnMetric(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_Metric_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1339,9 +1295,8 @@ void KAboutApplicationDialog_SuperInitPainter(const KAboutApplicationDialog* sel
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnInitPainter(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_InitPainter_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1368,9 +1323,8 @@ QPaintDevice* KAboutApplicationDialog_SuperRedirected(const KAboutApplicationDia
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnRedirected(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_Redirected_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1397,9 +1351,8 @@ QPainter* KAboutApplicationDialog_SuperSharedPainter(const KAboutApplicationDial
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnSharedPainter(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_SharedPainter_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1426,9 +1379,8 @@ void KAboutApplicationDialog_SuperInputMethodEvent(KAboutApplicationDialog* self
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnInputMethodEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1455,9 +1407,8 @@ QVariant* KAboutApplicationDialog_SuperInputMethodQuery(const KAboutApplicationD
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnInputMethodQuery(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1484,9 +1435,8 @@ bool KAboutApplicationDialog_SuperFocusNextPrevChild(KAboutApplicationDialog* se
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnFocusNextPrevChild(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1513,9 +1463,8 @@ void KAboutApplicationDialog_SuperTimerEvent(KAboutApplicationDialog* self, QTim
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnTimerEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_TimerEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1542,9 +1491,8 @@ void KAboutApplicationDialog_SuperChildEvent(KAboutApplicationDialog* self, QChi
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnChildEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_ChildEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1571,9 +1519,8 @@ void KAboutApplicationDialog_SuperCustomEvent(KAboutApplicationDialog* self, QEv
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnCustomEvent(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_CustomEvent_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1600,9 +1547,8 @@ void KAboutApplicationDialog_SuperConnectNotify(KAboutApplicationDialog* self, c
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnConnectNotify(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1629,9 +1575,8 @@ void KAboutApplicationDialog_SuperDisconnectNotify(KAboutApplicationDialog* self
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnDisconnectNotify(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1658,9 +1603,8 @@ void KAboutApplicationDialog_SuperAdjustPosition(KAboutApplicationDialog* self, 
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnAdjustPosition(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1687,9 +1631,8 @@ void KAboutApplicationDialog_SuperUpdateMicroFocus(KAboutApplicationDialog* self
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnUpdateMicroFocus(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1716,9 +1659,8 @@ void KAboutApplicationDialog_SuperCreate(KAboutApplicationDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnCreate(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_Create_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1745,9 +1687,8 @@ void KAboutApplicationDialog_SuperDestroy(KAboutApplicationDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnDestroy(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_Destroy_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1774,9 +1715,8 @@ bool KAboutApplicationDialog_SuperFocusNextChild(KAboutApplicationDialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnFocusNextChild(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1803,9 +1743,8 @@ bool KAboutApplicationDialog_SuperFocusPreviousChild(KAboutApplicationDialog* se
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnFocusPreviousChild(KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = dynamic_cast<VirtualKAboutApplicationDialog*>(self);
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1832,9 +1771,8 @@ QObject* KAboutApplicationDialog_SuperSender(const KAboutApplicationDialog* self
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnSender(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_Sender_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1861,9 +1799,8 @@ int KAboutApplicationDialog_SuperSenderSignalIndex(const KAboutApplicationDialog
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnSenderSignalIndex(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1890,9 +1827,8 @@ int KAboutApplicationDialog_SuperReceivers(const KAboutApplicationDialog* self, 
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnReceivers(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_Receivers_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1919,9 +1855,8 @@ bool KAboutApplicationDialog_SuperIsSignalConnected(const KAboutApplicationDialo
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnIsSignalConnected(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1948,9 +1883,8 @@ double KAboutApplicationDialog_SuperGetDecodedMetricF(const KAboutApplicationDia
 // Auxiliary method to allow providing re-implementation
 void KAboutApplicationDialog_OnGetDecodedMetricF(const KAboutApplicationDialog* self, intptr_t slot) {
     auto* vkaboutapplicationdialog = const_cast<VirtualKAboutApplicationDialog*>(dynamic_cast<const VirtualKAboutApplicationDialog*>(self));
-    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog) {
+    if (vkaboutapplicationdialog && vkaboutapplicationdialog->isVirtualKAboutApplicationDialog)
         vkaboutapplicationdialog->setKAboutApplicationDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKAboutApplicationDialog::KAboutApplicationDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KAboutApplicationDialog_Delete(KAboutApplicationDialog* self) {

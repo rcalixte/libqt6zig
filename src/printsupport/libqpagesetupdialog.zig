@@ -664,6 +664,31 @@ pub const QPageSetupDialog = extern struct {
         qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPageSetupDialog `
+    ///
+    pub fn asQPaintDevice(self: QPageSetupDialog) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QPageSetupDialog object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QPageSetupDialog {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6648,7 +6673,7 @@ pub const QPageSetupDialog = extern struct {
     /// ` self: QPageSetupDialog `
     ///
     pub fn paintingActive(self: QPageSetupDialog) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6664,7 +6689,7 @@ pub const QPageSetupDialog = extern struct {
     /// ` self: QPageSetupDialog `
     ///
     pub fn widthMM(self: QPageSetupDialog) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6680,7 +6705,7 @@ pub const QPageSetupDialog = extern struct {
     /// ` self: QPageSetupDialog `
     ///
     pub fn heightMM(self: QPageSetupDialog) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6696,7 +6721,7 @@ pub const QPageSetupDialog = extern struct {
     /// ` self: QPageSetupDialog `
     ///
     pub fn logicalDpiX(self: QPageSetupDialog) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6712,7 +6737,7 @@ pub const QPageSetupDialog = extern struct {
     /// ` self: QPageSetupDialog `
     ///
     pub fn logicalDpiY(self: QPageSetupDialog) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6728,7 +6753,7 @@ pub const QPageSetupDialog = extern struct {
     /// ` self: QPageSetupDialog `
     ///
     pub fn physicalDpiX(self: QPageSetupDialog) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6744,7 +6769,7 @@ pub const QPageSetupDialog = extern struct {
     /// ` self: QPageSetupDialog `
     ///
     pub fn physicalDpiY(self: QPageSetupDialog) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -6760,7 +6785,7 @@ pub const QPageSetupDialog = extern struct {
     /// ` self: QPageSetupDialog `
     ///
     pub fn devicePixelRatio(self: QPageSetupDialog) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -6776,7 +6801,7 @@ pub const QPageSetupDialog = extern struct {
     /// ` self: QPageSetupDialog `
     ///
     pub fn devicePixelRatioF(self: QPageSetupDialog) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -6792,7 +6817,7 @@ pub const QPageSetupDialog = extern struct {
     /// ` self: QPageSetupDialog `
     ///
     pub fn colorCount(self: QPageSetupDialog) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -6808,7 +6833,7 @@ pub const QPageSetupDialog = extern struct {
     /// ` self: QPageSetupDialog `
     ///
     pub fn depth(self: QPageSetupDialog) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

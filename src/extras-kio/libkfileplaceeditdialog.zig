@@ -790,6 +790,31 @@ pub const KFilePlaceEditDialog = extern struct {
         qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KFilePlaceEditDialog `
+    ///
+    pub fn asQPaintDevice(self: KFilePlaceEditDialog) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KFilePlaceEditDialog object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KFilePlaceEditDialog {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6774,7 +6799,7 @@ pub const KFilePlaceEditDialog = extern struct {
     /// ` self: KFilePlaceEditDialog `
     ///
     pub fn paintingActive(self: KFilePlaceEditDialog) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6790,7 +6815,7 @@ pub const KFilePlaceEditDialog = extern struct {
     /// ` self: KFilePlaceEditDialog `
     ///
     pub fn widthMM(self: KFilePlaceEditDialog) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6806,7 +6831,7 @@ pub const KFilePlaceEditDialog = extern struct {
     /// ` self: KFilePlaceEditDialog `
     ///
     pub fn heightMM(self: KFilePlaceEditDialog) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6822,7 +6847,7 @@ pub const KFilePlaceEditDialog = extern struct {
     /// ` self: KFilePlaceEditDialog `
     ///
     pub fn logicalDpiX(self: KFilePlaceEditDialog) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6838,7 +6863,7 @@ pub const KFilePlaceEditDialog = extern struct {
     /// ` self: KFilePlaceEditDialog `
     ///
     pub fn logicalDpiY(self: KFilePlaceEditDialog) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6854,7 +6879,7 @@ pub const KFilePlaceEditDialog = extern struct {
     /// ` self: KFilePlaceEditDialog `
     ///
     pub fn physicalDpiX(self: KFilePlaceEditDialog) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6870,7 +6895,7 @@ pub const KFilePlaceEditDialog = extern struct {
     /// ` self: KFilePlaceEditDialog `
     ///
     pub fn physicalDpiY(self: KFilePlaceEditDialog) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -6886,7 +6911,7 @@ pub const KFilePlaceEditDialog = extern struct {
     /// ` self: KFilePlaceEditDialog `
     ///
     pub fn devicePixelRatio(self: KFilePlaceEditDialog) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -6902,7 +6927,7 @@ pub const KFilePlaceEditDialog = extern struct {
     /// ` self: KFilePlaceEditDialog `
     ///
     pub fn devicePixelRatioF(self: KFilePlaceEditDialog) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -6918,7 +6943,7 @@ pub const KFilePlaceEditDialog = extern struct {
     /// ` self: KFilePlaceEditDialog `
     ///
     pub fn colorCount(self: KFilePlaceEditDialog) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -6934,7 +6959,7 @@ pub const KFilePlaceEditDialog = extern struct {
     /// ` self: KFilePlaceEditDialog `
     ///
     pub fn depth(self: KFilePlaceEditDialog) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

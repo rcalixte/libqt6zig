@@ -38,7 +38,7 @@ pub const KFileMetaData__EmbeddedImageData = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-embeddedimagedata.html#public-types)
 pub const enums = struct {
-    pub const ImageType = enum(i32) {
+    pub const ImageType = enum {
         pub const FrontCover: i32 = 1;
         pub const Other: i32 = 2;
         pub const FileIcon: i32 = 4;

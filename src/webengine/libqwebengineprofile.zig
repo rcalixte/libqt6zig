@@ -2956,19 +2956,19 @@ pub const QWebEngineProfile = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineprofile.html#public-types)
 pub const enums = struct {
-    pub const HttpCacheType = enum(i32) {
+    pub const HttpCacheType = enum {
         pub const MemoryHttpCache: i32 = 0;
         pub const DiskHttpCache: i32 = 1;
         pub const NoCache: i32 = 2;
     };
 
-    pub const PersistentCookiesPolicy = enum(i32) {
+    pub const PersistentCookiesPolicy = enum {
         pub const NoPersistentCookies: i32 = 0;
         pub const AllowPersistentCookies: i32 = 1;
         pub const ForcePersistentCookies: i32 = 2;
     };
 
-    pub const PersistentPermissionsPolicy = enum(u8) {
+    pub const PersistentPermissionsPolicy = enum {
         pub const AskEveryTime: u8 = 0;
         pub const StoreInMemory: u8 = 1;
         pub const StoreOnDisk: u8 = 2;

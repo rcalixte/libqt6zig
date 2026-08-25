@@ -294,9 +294,8 @@ QMetaObject* KDescendantsProxyModel_SuperMetaObject(const KDescendantsProxyModel
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnMetaObject(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_MetaObject_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -313,9 +312,8 @@ void* KDescendantsProxyModel_SuperMetacast(KDescendantsProxyModel* self, const c
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnMetacast(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_Metacast_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -332,9 +330,8 @@ int KDescendantsProxyModel_SuperMetacall(KDescendantsProxyModel* self, int param
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnMetacall(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_Metacall_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -351,9 +348,8 @@ void KDescendantsProxyModel_SuperSetSourceModel(KDescendantsProxyModel* self, QA
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnSetSourceModel(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_SetSourceModel_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_SetSourceModel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -370,9 +366,8 @@ QModelIndex* KDescendantsProxyModel_SuperMapFromSource(const KDescendantsProxyMo
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnMapFromSource(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_MapFromSource_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_MapFromSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -389,9 +384,8 @@ QModelIndex* KDescendantsProxyModel_SuperMapToSource(const KDescendantsProxyMode
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnMapToSource(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_MapToSource_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_MapToSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -408,9 +402,8 @@ int KDescendantsProxyModel_SuperFlags(const KDescendantsProxyModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnFlags(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_Flags_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Flags_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -427,9 +420,8 @@ QVariant* KDescendantsProxyModel_SuperData(const KDescendantsProxyModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnData(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_Data_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -446,9 +438,8 @@ int KDescendantsProxyModel_SuperRowCount(const KDescendantsProxyModel* self, con
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnRowCount(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_RowCount_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_RowCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -465,9 +456,8 @@ QVariant* KDescendantsProxyModel_SuperHeaderData(const KDescendantsProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnHeaderData(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_HeaderData_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -490,9 +480,8 @@ QMimeData* KDescendantsProxyModel_SuperMimeData(const KDescendantsProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnMimeData(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_MimeData_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_MimeData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -543,9 +532,8 @@ libqt_list /* of libqt_string */ KDescendantsProxyModel_SuperMimeTypes(const KDe
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnMimeTypes(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_MimeTypes_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -562,9 +550,8 @@ bool KDescendantsProxyModel_SuperHasChildren(const KDescendantsProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnHasChildren(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_HasChildren_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_HasChildren_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -581,9 +568,8 @@ QModelIndex* KDescendantsProxyModel_SuperIndex(const KDescendantsProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnIndex(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_Index_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Index_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -600,9 +586,8 @@ QModelIndex* KDescendantsProxyModel_SuperParent(const KDescendantsProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnParent(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_Parent_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Parent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -619,9 +604,8 @@ int KDescendantsProxyModel_SuperColumnCount(const KDescendantsProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnColumnCount(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_ColumnCount_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_ColumnCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -676,9 +660,8 @@ libqt_map /* of int to libqt_string */ KDescendantsProxyModel_SuperRoleNames(con
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnRoleNames(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_RoleNames_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -695,9 +678,8 @@ int KDescendantsProxyModel_SuperSupportedDropActions(const KDescendantsProxyMode
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnSupportedDropActions(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_SupportedDropActions_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -732,9 +714,8 @@ libqt_list /* of QModelIndex* */ KDescendantsProxyModel_SuperMatch(const KDescen
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnMatch(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_Match_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -761,9 +742,8 @@ QItemSelection* KDescendantsProxyModel_SuperMapSelectionToSource(const KDescenda
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnMapSelectionToSource(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_MapSelectionToSource_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_MapSelectionToSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -790,9 +770,8 @@ QItemSelection* KDescendantsProxyModel_SuperMapSelectionFromSource(const KDescen
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnMapSelectionFromSource(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_MapSelectionFromSource_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_MapSelectionFromSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -819,9 +798,8 @@ bool KDescendantsProxyModel_SuperSubmit(KDescendantsProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnSubmit(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_Submit_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -848,9 +826,8 @@ void KDescendantsProxyModel_SuperRevert(KDescendantsProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnRevert(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_Revert_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -933,9 +910,8 @@ libqt_map /* of int to QVariant* */ KDescendantsProxyModel_SuperItemData(const K
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnItemData(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_ItemData_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -962,9 +938,8 @@ bool KDescendantsProxyModel_SuperSetData(KDescendantsProxyModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnSetData(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_SetData_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1003,9 +978,8 @@ bool KDescendantsProxyModel_SuperSetItemData(KDescendantsProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnSetItemData(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_SetItemData_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1032,9 +1006,8 @@ bool KDescendantsProxyModel_SuperSetHeaderData(KDescendantsProxyModel* self, int
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnSetHeaderData(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_SetHeaderData_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1061,9 +1034,8 @@ bool KDescendantsProxyModel_SuperClearItemData(KDescendantsProxyModel* self, con
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnClearItemData(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_ClearItemData_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1090,9 +1062,8 @@ QModelIndex* KDescendantsProxyModel_SuperBuddy(const KDescendantsProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnBuddy(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_Buddy_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1119,9 +1090,8 @@ bool KDescendantsProxyModel_SuperCanFetchMore(const KDescendantsProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnCanFetchMore(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_CanFetchMore_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1148,9 +1118,8 @@ void KDescendantsProxyModel_SuperFetchMore(KDescendantsProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnFetchMore(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_FetchMore_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1177,9 +1146,8 @@ void KDescendantsProxyModel_SuperSort(KDescendantsProxyModel* self, int column, 
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnSort(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_Sort_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1206,9 +1174,8 @@ QSize* KDescendantsProxyModel_SuperSpan(const KDescendantsProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnSpan(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_Span_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1235,9 +1202,8 @@ QModelIndex* KDescendantsProxyModel_SuperSibling(const KDescendantsProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnSibling(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_Sibling_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1264,9 +1230,8 @@ bool KDescendantsProxyModel_SuperCanDropMimeData(const KDescendantsProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnCanDropMimeData(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_CanDropMimeData_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1293,9 +1258,8 @@ bool KDescendantsProxyModel_SuperDropMimeData(KDescendantsProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnDropMimeData(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_DropMimeData_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1322,9 +1286,8 @@ int KDescendantsProxyModel_SuperSupportedDragActions(const KDescendantsProxyMode
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnSupportedDragActions(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_SupportedDragActions_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1351,9 +1314,8 @@ bool KDescendantsProxyModel_SuperInsertRows(KDescendantsProxyModel* self, int ro
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnInsertRows(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_InsertRows_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1380,9 +1342,8 @@ bool KDescendantsProxyModel_SuperInsertColumns(KDescendantsProxyModel* self, int
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnInsertColumns(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_InsertColumns_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1409,9 +1370,8 @@ bool KDescendantsProxyModel_SuperRemoveRows(KDescendantsProxyModel* self, int ro
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnRemoveRows(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_RemoveRows_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1438,9 +1398,8 @@ bool KDescendantsProxyModel_SuperRemoveColumns(KDescendantsProxyModel* self, int
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnRemoveColumns(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_RemoveColumns_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1467,9 +1426,8 @@ bool KDescendantsProxyModel_SuperMoveRows(KDescendantsProxyModel* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnMoveRows(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_MoveRows_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1496,9 +1454,8 @@ bool KDescendantsProxyModel_SuperMoveColumns(KDescendantsProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnMoveColumns(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_MoveColumns_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1525,9 +1482,8 @@ void KDescendantsProxyModel_SuperMultiData(const KDescendantsProxyModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnMultiData(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_MultiData_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1554,9 +1510,8 @@ void KDescendantsProxyModel_SuperResetInternalData(KDescendantsProxyModel* self)
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnResetInternalData(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_ResetInternalData_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1583,9 +1538,8 @@ bool KDescendantsProxyModel_SuperEvent(KDescendantsProxyModel* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnEvent(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_Event_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1612,9 +1566,8 @@ bool KDescendantsProxyModel_SuperEventFilter(KDescendantsProxyModel* self, QObje
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnEventFilter(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_EventFilter_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1641,9 +1594,8 @@ void KDescendantsProxyModel_SuperTimerEvent(KDescendantsProxyModel* self, QTimer
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnTimerEvent(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_TimerEvent_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1670,9 +1622,8 @@ void KDescendantsProxyModel_SuperChildEvent(KDescendantsProxyModel* self, QChild
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnChildEvent(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_ChildEvent_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1699,9 +1650,8 @@ void KDescendantsProxyModel_SuperCustomEvent(KDescendantsProxyModel* self, QEven
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnCustomEvent(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_CustomEvent_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1728,9 +1678,8 @@ void KDescendantsProxyModel_SuperConnectNotify(KDescendantsProxyModel* self, con
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnConnectNotify(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_ConnectNotify_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1757,9 +1706,8 @@ void KDescendantsProxyModel_SuperDisconnectNotify(KDescendantsProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnDisconnectNotify(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_DisconnectNotify_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1784,9 +1732,8 @@ QModelIndex* KDescendantsProxyModel_SuperCreateSourceIndex(const KDescendantsPro
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnCreateSourceIndex(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_CreateSourceIndex_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_CreateSourceIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1811,9 +1758,8 @@ QModelIndex* KDescendantsProxyModel_SuperCreateIndex(const KDescendantsProxyMode
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnCreateIndex(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_CreateIndex_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1852,9 +1798,8 @@ void KDescendantsProxyModel_SuperEncodeData(const KDescendantsProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnEncodeData(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_EncodeData_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1881,9 +1826,8 @@ bool KDescendantsProxyModel_SuperDecodeData(KDescendantsProxyModel* self, int ro
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnDecodeData(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_DecodeData_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1910,9 +1854,8 @@ void KDescendantsProxyModel_SuperBeginInsertRows(KDescendantsProxyModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnBeginInsertRows(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_BeginInsertRows_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1939,9 +1882,8 @@ void KDescendantsProxyModel_SuperEndInsertRows(KDescendantsProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnEndInsertRows(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_EndInsertRows_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1968,9 +1910,8 @@ void KDescendantsProxyModel_SuperBeginRemoveRows(KDescendantsProxyModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnBeginRemoveRows(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1997,9 +1938,8 @@ void KDescendantsProxyModel_SuperEndRemoveRows(KDescendantsProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnEndRemoveRows(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_EndRemoveRows_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2026,9 +1966,8 @@ bool KDescendantsProxyModel_SuperBeginMoveRows(KDescendantsProxyModel* self, con
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnBeginMoveRows(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_BeginMoveRows_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2055,9 +1994,8 @@ void KDescendantsProxyModel_SuperEndMoveRows(KDescendantsProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnEndMoveRows(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_EndMoveRows_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2084,9 +2022,8 @@ void KDescendantsProxyModel_SuperBeginInsertColumns(KDescendantsProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnBeginInsertColumns(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2113,9 +2050,8 @@ void KDescendantsProxyModel_SuperEndInsertColumns(KDescendantsProxyModel* self) 
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnEndInsertColumns(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_EndInsertColumns_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2142,9 +2078,8 @@ void KDescendantsProxyModel_SuperBeginRemoveColumns(KDescendantsProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnBeginRemoveColumns(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2171,9 +2106,8 @@ void KDescendantsProxyModel_SuperEndRemoveColumns(KDescendantsProxyModel* self) 
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnEndRemoveColumns(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2200,9 +2134,8 @@ bool KDescendantsProxyModel_SuperBeginMoveColumns(KDescendantsProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnBeginMoveColumns(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2229,9 +2162,8 @@ void KDescendantsProxyModel_SuperEndMoveColumns(KDescendantsProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnEndMoveColumns(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_EndMoveColumns_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2258,9 +2190,8 @@ void KDescendantsProxyModel_SuperBeginResetModel(KDescendantsProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnBeginResetModel(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_BeginResetModel_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2287,9 +2218,8 @@ void KDescendantsProxyModel_SuperEndResetModel(KDescendantsProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnEndResetModel(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_EndResetModel_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2316,9 +2246,8 @@ void KDescendantsProxyModel_SuperChangePersistentIndex(KDescendantsProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnChangePersistentIndex(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2369,9 +2298,8 @@ void KDescendantsProxyModel_SuperChangePersistentIndexList(KDescendantsProxyMode
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnChangePersistentIndexList(KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2434,9 +2362,8 @@ libqt_list /* of QModelIndex* */ KDescendantsProxyModel_SuperPersistentIndexList
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnPersistentIndexList(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_PersistentIndexList_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2463,9 +2390,8 @@ QObject* KDescendantsProxyModel_SuperSender(const KDescendantsProxyModel* self) 
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnSender(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_Sender_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2492,9 +2418,8 @@ int KDescendantsProxyModel_SuperSenderSignalIndex(const KDescendantsProxyModel* 
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnSenderSignalIndex(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2521,9 +2446,8 @@ int KDescendantsProxyModel_SuperReceivers(const KDescendantsProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnReceivers(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_Receivers_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2550,9 +2474,8 @@ bool KDescendantsProxyModel_SuperIsSignalConnected(const KDescendantsProxyModel*
 // Auxiliary method to allow providing re-implementation
 void KDescendantsProxyModel_OnIsSignalConnected(const KDescendantsProxyModel* self, intptr_t slot) {
     auto* vkdescendantsproxymodel = const_cast<VirtualKDescendantsProxyModel*>(dynamic_cast<const VirtualKDescendantsProxyModel*>(self));
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
+    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel)
         vkdescendantsproxymodel->setKDescendantsProxyModel_IsSignalConnected_Callback(reinterpret_cast<VirtualKDescendantsProxyModel::KDescendantsProxyModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KDescendantsProxyModel_Delete(KDescendantsProxyModel* self) {

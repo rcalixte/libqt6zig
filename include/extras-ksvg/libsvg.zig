@@ -3005,13 +3005,13 @@ pub const KSvg__Svg = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#public-types)
 pub const enums = struct {
-    pub const Status = enum(i32) {
+    pub const Status = enum {
         pub const Normal: i32 = 0;
         pub const Selected: i32 = 1;
         pub const Inactive: i32 = 2;
     };
 
-    pub const ColorSet = enum(i32) {
+    pub const ColorSet = enum {
         pub const View: i32 = 0;
         pub const Window: i32 = 1;
         pub const Button: i32 = 2;
@@ -3021,7 +3021,7 @@ pub const enums = struct {
         pub const Header: i32 = 6;
     };
 
-    pub const StyleSheetColor = enum(i32) {
+    pub const StyleSheetColor = enum {
         pub const Text: i32 = 0;
         pub const Background: i32 = 1;
         pub const Highlight: i32 = 2;

@@ -387,7 +387,7 @@ pub const KFileMetaData__ExtractionResult = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#public-types)
 pub const enums = struct {
-    pub const Flag = enum(i32) {
+    pub const Flag = enum {
         pub const ExtractNothing: i32 = 0;
         pub const ExtractMetaData: i32 = 1;
         pub const ExtractPlainText: i32 = 2;

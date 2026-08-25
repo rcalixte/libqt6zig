@@ -408,9 +408,8 @@ QMetaObject* QTextToSpeech_SuperMetaObject(const QTextToSpeech* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnMetaObject(const QTextToSpeech* self, intptr_t slot) {
     auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
         vqtexttospeech->setQTextToSpeech_MetaObject_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -427,9 +426,8 @@ void* QTextToSpeech_SuperMetacast(QTextToSpeech* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnMetacast(QTextToSpeech* self, intptr_t slot) {
     auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
         vqtexttospeech->setQTextToSpeech_Metacast_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -446,9 +444,8 @@ int QTextToSpeech_SuperMetacall(QTextToSpeech* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnMetacall(QTextToSpeech* self, intptr_t slot) {
     auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
         vqtexttospeech->setQTextToSpeech_Metacall_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -475,9 +472,8 @@ bool QTextToSpeech_SuperEvent(QTextToSpeech* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnEvent(QTextToSpeech* self, intptr_t slot) {
     auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
         vqtexttospeech->setQTextToSpeech_Event_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -504,9 +500,8 @@ bool QTextToSpeech_SuperEventFilter(QTextToSpeech* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnEventFilter(QTextToSpeech* self, intptr_t slot) {
     auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
         vqtexttospeech->setQTextToSpeech_EventFilter_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -533,9 +528,8 @@ void QTextToSpeech_SuperTimerEvent(QTextToSpeech* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnTimerEvent(QTextToSpeech* self, intptr_t slot) {
     auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
         vqtexttospeech->setQTextToSpeech_TimerEvent_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -562,9 +556,8 @@ void QTextToSpeech_SuperChildEvent(QTextToSpeech* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnChildEvent(QTextToSpeech* self, intptr_t slot) {
     auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
         vqtexttospeech->setQTextToSpeech_ChildEvent_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -591,9 +584,8 @@ void QTextToSpeech_SuperCustomEvent(QTextToSpeech* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnCustomEvent(QTextToSpeech* self, intptr_t slot) {
     auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
         vqtexttospeech->setQTextToSpeech_CustomEvent_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -620,9 +612,8 @@ void QTextToSpeech_SuperConnectNotify(QTextToSpeech* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnConnectNotify(QTextToSpeech* self, intptr_t slot) {
     auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
         vqtexttospeech->setQTextToSpeech_ConnectNotify_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -649,9 +640,8 @@ void QTextToSpeech_SuperDisconnectNotify(QTextToSpeech* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnDisconnectNotify(QTextToSpeech* self, intptr_t slot) {
     auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
         vqtexttospeech->setQTextToSpeech_DisconnectNotify_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -714,9 +704,8 @@ libqt_list /* of QVoice* */ QTextToSpeech_SuperAllVoices(const QTextToSpeech* se
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnAllVoices(const QTextToSpeech* self, intptr_t slot) {
     auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
         vqtexttospeech->setQTextToSpeech_AllVoices_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_AllVoices_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -743,9 +732,8 @@ QObject* QTextToSpeech_SuperSender(const QTextToSpeech* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnSender(const QTextToSpeech* self, intptr_t slot) {
     auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
         vqtexttospeech->setQTextToSpeech_Sender_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -772,9 +760,8 @@ int QTextToSpeech_SuperSenderSignalIndex(const QTextToSpeech* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnSenderSignalIndex(const QTextToSpeech* self, intptr_t slot) {
     auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
         vqtexttospeech->setQTextToSpeech_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -801,9 +788,8 @@ int QTextToSpeech_SuperReceivers(const QTextToSpeech* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnReceivers(const QTextToSpeech* self, intptr_t slot) {
     auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
         vqtexttospeech->setQTextToSpeech_Receivers_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -830,9 +816,8 @@ bool QTextToSpeech_SuperIsSignalConnected(const QTextToSpeech* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QTextToSpeech_OnIsSignalConnected(const QTextToSpeech* self, intptr_t slot) {
     auto* vqtexttospeech = const_cast<VirtualQTextToSpeech*>(dynamic_cast<const VirtualQTextToSpeech*>(self));
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
+    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech)
         vqtexttospeech->setQTextToSpeech_IsSignalConnected_Callback(reinterpret_cast<VirtualQTextToSpeech::QTextToSpeech_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QTextToSpeech_Delete(QTextToSpeech* self) {

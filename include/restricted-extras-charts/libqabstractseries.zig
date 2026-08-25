@@ -1585,7 +1585,7 @@ pub const QAbstractSeries = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries-qtcharts.html#public-types)
 pub const enums = struct {
-    pub const SeriesType = enum(i32) {
+    pub const SeriesType = enum {
         pub const SeriesTypeLine: i32 = 0;
         pub const SeriesTypeArea: i32 = 1;
         pub const SeriesTypeBar: i32 = 2;

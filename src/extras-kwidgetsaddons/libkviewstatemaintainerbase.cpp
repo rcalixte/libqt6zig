@@ -70,9 +70,8 @@ QMetaObject* KViewStateMaintainerBase_SuperMetaObject(const KViewStateMaintainer
 // Auxiliary method to allow providing re-implementation
 void KViewStateMaintainerBase_OnMetaObject(const KViewStateMaintainerBase* self, intptr_t slot) {
     auto* vkviewstatemaintainerbase = const_cast<VirtualKViewStateMaintainerBase*>(dynamic_cast<const VirtualKViewStateMaintainerBase*>(self));
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase)
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_MetaObject_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -89,9 +88,8 @@ void* KViewStateMaintainerBase_SuperMetacast(KViewStateMaintainerBase* self, con
 // Auxiliary method to allow providing re-implementation
 void KViewStateMaintainerBase_OnMetacast(KViewStateMaintainerBase* self, intptr_t slot) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase)
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_Metacast_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -108,9 +106,8 @@ int KViewStateMaintainerBase_SuperMetacall(KViewStateMaintainerBase* self, int p
 // Auxiliary method to allow providing re-implementation
 void KViewStateMaintainerBase_OnMetacall(KViewStateMaintainerBase* self, intptr_t slot) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase)
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_Metacall_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -127,9 +124,8 @@ void KViewStateMaintainerBase_SuperSaveState(KViewStateMaintainerBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KViewStateMaintainerBase_OnSaveState(KViewStateMaintainerBase* self, intptr_t slot) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase)
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_SaveState_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_SaveState_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -146,9 +142,8 @@ void KViewStateMaintainerBase_SuperRestoreState(KViewStateMaintainerBase* self) 
 // Auxiliary method to allow providing re-implementation
 void KViewStateMaintainerBase_OnRestoreState(KViewStateMaintainerBase* self, intptr_t slot) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase)
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_RestoreState_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_RestoreState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -175,9 +170,8 @@ bool KViewStateMaintainerBase_SuperEvent(KViewStateMaintainerBase* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KViewStateMaintainerBase_OnEvent(KViewStateMaintainerBase* self, intptr_t slot) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase)
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_Event_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -204,9 +198,8 @@ bool KViewStateMaintainerBase_SuperEventFilter(KViewStateMaintainerBase* self, Q
 // Auxiliary method to allow providing re-implementation
 void KViewStateMaintainerBase_OnEventFilter(KViewStateMaintainerBase* self, intptr_t slot) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase)
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_EventFilter_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -233,9 +226,8 @@ void KViewStateMaintainerBase_SuperTimerEvent(KViewStateMaintainerBase* self, QT
 // Auxiliary method to allow providing re-implementation
 void KViewStateMaintainerBase_OnTimerEvent(KViewStateMaintainerBase* self, intptr_t slot) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase)
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_TimerEvent_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -262,9 +254,8 @@ void KViewStateMaintainerBase_SuperChildEvent(KViewStateMaintainerBase* self, QC
 // Auxiliary method to allow providing re-implementation
 void KViewStateMaintainerBase_OnChildEvent(KViewStateMaintainerBase* self, intptr_t slot) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase)
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_ChildEvent_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -291,9 +282,8 @@ void KViewStateMaintainerBase_SuperCustomEvent(KViewStateMaintainerBase* self, Q
 // Auxiliary method to allow providing re-implementation
 void KViewStateMaintainerBase_OnCustomEvent(KViewStateMaintainerBase* self, intptr_t slot) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase)
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_CustomEvent_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -320,9 +310,8 @@ void KViewStateMaintainerBase_SuperConnectNotify(KViewStateMaintainerBase* self,
 // Auxiliary method to allow providing re-implementation
 void KViewStateMaintainerBase_OnConnectNotify(KViewStateMaintainerBase* self, intptr_t slot) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase)
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_ConnectNotify_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -349,9 +338,8 @@ void KViewStateMaintainerBase_SuperDisconnectNotify(KViewStateMaintainerBase* se
 // Auxiliary method to allow providing re-implementation
 void KViewStateMaintainerBase_OnDisconnectNotify(KViewStateMaintainerBase* self, intptr_t slot) {
     auto* vkviewstatemaintainerbase = dynamic_cast<VirtualKViewStateMaintainerBase*>(self);
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase)
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_DisconnectNotify_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -378,9 +366,8 @@ QObject* KViewStateMaintainerBase_SuperSender(const KViewStateMaintainerBase* se
 // Auxiliary method to allow providing re-implementation
 void KViewStateMaintainerBase_OnSender(const KViewStateMaintainerBase* self, intptr_t slot) {
     auto* vkviewstatemaintainerbase = const_cast<VirtualKViewStateMaintainerBase*>(dynamic_cast<const VirtualKViewStateMaintainerBase*>(self));
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase)
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_Sender_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -407,9 +394,8 @@ int KViewStateMaintainerBase_SuperSenderSignalIndex(const KViewStateMaintainerBa
 // Auxiliary method to allow providing re-implementation
 void KViewStateMaintainerBase_OnSenderSignalIndex(const KViewStateMaintainerBase* self, intptr_t slot) {
     auto* vkviewstatemaintainerbase = const_cast<VirtualKViewStateMaintainerBase*>(dynamic_cast<const VirtualKViewStateMaintainerBase*>(self));
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase)
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_SenderSignalIndex_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -436,9 +422,8 @@ int KViewStateMaintainerBase_SuperReceivers(const KViewStateMaintainerBase* self
 // Auxiliary method to allow providing re-implementation
 void KViewStateMaintainerBase_OnReceivers(const KViewStateMaintainerBase* self, intptr_t slot) {
     auto* vkviewstatemaintainerbase = const_cast<VirtualKViewStateMaintainerBase*>(dynamic_cast<const VirtualKViewStateMaintainerBase*>(self));
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase)
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_Receivers_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -465,9 +450,8 @@ bool KViewStateMaintainerBase_SuperIsSignalConnected(const KViewStateMaintainerB
 // Auxiliary method to allow providing re-implementation
 void KViewStateMaintainerBase_OnIsSignalConnected(const KViewStateMaintainerBase* self, intptr_t slot) {
     auto* vkviewstatemaintainerbase = const_cast<VirtualKViewStateMaintainerBase*>(dynamic_cast<const VirtualKViewStateMaintainerBase*>(self));
-    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase) {
+    if (vkviewstatemaintainerbase && vkviewstatemaintainerbase->isVirtualKViewStateMaintainerBase)
         vkviewstatemaintainerbase->setKViewStateMaintainerBase_IsSignalConnected_Callback(reinterpret_cast<VirtualKViewStateMaintainerBase::KViewStateMaintainerBase_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KViewStateMaintainerBase_Delete(KViewStateMaintainerBase* self) {

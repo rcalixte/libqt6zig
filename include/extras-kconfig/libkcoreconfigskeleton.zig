@@ -15406,7 +15406,7 @@ pub const KCoreConfigSkeleton__ItemIntList = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#public-types)
 pub const enums = struct {
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const Normal: i32 = 0;
         pub const Password: i32 = 1;
         pub const Path: i32 = 2;

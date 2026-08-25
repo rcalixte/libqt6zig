@@ -88,9 +88,8 @@ QMetaObject* KFileCopyToMenu_SuperMetaObject(const KFileCopyToMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCopyToMenu_OnMetaObject(const KFileCopyToMenu* self, intptr_t slot) {
     auto* vkfilecopytomenu = const_cast<VirtualKFileCopyToMenu*>(dynamic_cast<const VirtualKFileCopyToMenu*>(self));
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
+    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu)
         vkfilecopytomenu->setKFileCopyToMenu_MetaObject_Callback(reinterpret_cast<VirtualKFileCopyToMenu::KFileCopyToMenu_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -107,9 +106,8 @@ void* KFileCopyToMenu_SuperMetacast(KFileCopyToMenu* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFileCopyToMenu_OnMetacast(KFileCopyToMenu* self, intptr_t slot) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
+    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu)
         vkfilecopytomenu->setKFileCopyToMenu_Metacast_Callback(reinterpret_cast<VirtualKFileCopyToMenu::KFileCopyToMenu_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -126,9 +124,8 @@ int KFileCopyToMenu_SuperMetacall(KFileCopyToMenu* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KFileCopyToMenu_OnMetacall(KFileCopyToMenu* self, intptr_t slot) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
+    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu)
         vkfilecopytomenu->setKFileCopyToMenu_Metacall_Callback(reinterpret_cast<VirtualKFileCopyToMenu::KFileCopyToMenu_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -155,9 +152,8 @@ bool KFileCopyToMenu_SuperEvent(KFileCopyToMenu* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileCopyToMenu_OnEvent(KFileCopyToMenu* self, intptr_t slot) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
+    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu)
         vkfilecopytomenu->setKFileCopyToMenu_Event_Callback(reinterpret_cast<VirtualKFileCopyToMenu::KFileCopyToMenu_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -184,9 +180,8 @@ bool KFileCopyToMenu_SuperEventFilter(KFileCopyToMenu* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void KFileCopyToMenu_OnEventFilter(KFileCopyToMenu* self, intptr_t slot) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
+    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu)
         vkfilecopytomenu->setKFileCopyToMenu_EventFilter_Callback(reinterpret_cast<VirtualKFileCopyToMenu::KFileCopyToMenu_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -213,9 +208,8 @@ void KFileCopyToMenu_SuperTimerEvent(KFileCopyToMenu* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFileCopyToMenu_OnTimerEvent(KFileCopyToMenu* self, intptr_t slot) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
+    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu)
         vkfilecopytomenu->setKFileCopyToMenu_TimerEvent_Callback(reinterpret_cast<VirtualKFileCopyToMenu::KFileCopyToMenu_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -242,9 +236,8 @@ void KFileCopyToMenu_SuperChildEvent(KFileCopyToMenu* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFileCopyToMenu_OnChildEvent(KFileCopyToMenu* self, intptr_t slot) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
+    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu)
         vkfilecopytomenu->setKFileCopyToMenu_ChildEvent_Callback(reinterpret_cast<VirtualKFileCopyToMenu::KFileCopyToMenu_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +264,8 @@ void KFileCopyToMenu_SuperCustomEvent(KFileCopyToMenu* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileCopyToMenu_OnCustomEvent(KFileCopyToMenu* self, intptr_t slot) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
+    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu)
         vkfilecopytomenu->setKFileCopyToMenu_CustomEvent_Callback(reinterpret_cast<VirtualKFileCopyToMenu::KFileCopyToMenu_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +292,8 @@ void KFileCopyToMenu_SuperConnectNotify(KFileCopyToMenu* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KFileCopyToMenu_OnConnectNotify(KFileCopyToMenu* self, intptr_t slot) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
+    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu)
         vkfilecopytomenu->setKFileCopyToMenu_ConnectNotify_Callback(reinterpret_cast<VirtualKFileCopyToMenu::KFileCopyToMenu_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +320,8 @@ void KFileCopyToMenu_SuperDisconnectNotify(KFileCopyToMenu* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KFileCopyToMenu_OnDisconnectNotify(KFileCopyToMenu* self, intptr_t slot) {
     auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
+    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu)
         vkfilecopytomenu->setKFileCopyToMenu_DisconnectNotify_Callback(reinterpret_cast<VirtualKFileCopyToMenu::KFileCopyToMenu_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +348,8 @@ QObject* KFileCopyToMenu_SuperSender(const KFileCopyToMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCopyToMenu_OnSender(const KFileCopyToMenu* self, intptr_t slot) {
     auto* vkfilecopytomenu = const_cast<VirtualKFileCopyToMenu*>(dynamic_cast<const VirtualKFileCopyToMenu*>(self));
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
+    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu)
         vkfilecopytomenu->setKFileCopyToMenu_Sender_Callback(reinterpret_cast<VirtualKFileCopyToMenu::KFileCopyToMenu_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +376,8 @@ int KFileCopyToMenu_SuperSenderSignalIndex(const KFileCopyToMenu* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCopyToMenu_OnSenderSignalIndex(const KFileCopyToMenu* self, intptr_t slot) {
     auto* vkfilecopytomenu = const_cast<VirtualKFileCopyToMenu*>(dynamic_cast<const VirtualKFileCopyToMenu*>(self));
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
+    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu)
         vkfilecopytomenu->setKFileCopyToMenu_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFileCopyToMenu::KFileCopyToMenu_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +404,8 @@ int KFileCopyToMenu_SuperReceivers(const KFileCopyToMenu* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KFileCopyToMenu_OnReceivers(const KFileCopyToMenu* self, intptr_t slot) {
     auto* vkfilecopytomenu = const_cast<VirtualKFileCopyToMenu*>(dynamic_cast<const VirtualKFileCopyToMenu*>(self));
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
+    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu)
         vkfilecopytomenu->setKFileCopyToMenu_Receivers_Callback(reinterpret_cast<VirtualKFileCopyToMenu::KFileCopyToMenu_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +432,8 @@ bool KFileCopyToMenu_SuperIsSignalConnected(const KFileCopyToMenu* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KFileCopyToMenu_OnIsSignalConnected(const KFileCopyToMenu* self, intptr_t slot) {
     auto* vkfilecopytomenu = const_cast<VirtualKFileCopyToMenu*>(dynamic_cast<const VirtualKFileCopyToMenu*>(self));
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
+    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu)
         vkfilecopytomenu->setKFileCopyToMenu_IsSignalConnected_Callback(reinterpret_cast<VirtualKFileCopyToMenu::KFileCopyToMenu_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KFileCopyToMenu_Delete(KFileCopyToMenu* self) {

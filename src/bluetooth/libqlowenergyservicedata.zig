@@ -293,7 +293,7 @@ pub const QLowEnergyServiceData = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergyservicedata.html#public-types)
 pub const enums = struct {
-    pub const ServiceType = enum(i32) {
+    pub const ServiceType = enum {
         pub const ServiceTypePrimary: i32 = 10240;
         pub const ServiceTypeSecondary: i32 = 10241;
     };

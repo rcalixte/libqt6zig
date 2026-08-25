@@ -113,9 +113,8 @@ QWidget* QAbstractFormBuilder_SuperLoad(QAbstractFormBuilder* self, QIODevice* d
 // Auxiliary method to allow providing re-implementation
 void QAbstractFormBuilder_OnLoad(QAbstractFormBuilder* self, intptr_t slot) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
-    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
+    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder)
         vqabstractformbuilder->setQAbstractFormBuilder_Load_Callback(reinterpret_cast<VirtualQAbstractFormBuilder::QAbstractFormBuilder_Load_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -132,9 +131,8 @@ void QAbstractFormBuilder_SuperSave(QAbstractFormBuilder* self, QIODevice* dev, 
 // Auxiliary method to allow providing re-implementation
 void QAbstractFormBuilder_OnSave(QAbstractFormBuilder* self, intptr_t slot) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
-    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
+    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder)
         vqabstractformbuilder->setQAbstractFormBuilder_Save_Callback(reinterpret_cast<VirtualQAbstractFormBuilder::QAbstractFormBuilder_Save_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -151,9 +149,8 @@ void QAbstractFormBuilder_SuperAddMenuAction(QAbstractFormBuilder* self, QAction
 // Auxiliary method to allow providing re-implementation
 void QAbstractFormBuilder_OnAddMenuAction(QAbstractFormBuilder* self, intptr_t slot) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
-    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
+    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder)
         vqabstractformbuilder->setQAbstractFormBuilder_AddMenuAction_Callback(reinterpret_cast<VirtualQAbstractFormBuilder::QAbstractFormBuilder_AddMenuAction_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -172,9 +169,8 @@ QWidget* QAbstractFormBuilder_SuperCreateWidget(QAbstractFormBuilder* self, cons
 // Auxiliary method to allow providing re-implementation
 void QAbstractFormBuilder_OnCreateWidget(QAbstractFormBuilder* self, intptr_t slot) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
-    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
+    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder)
         vqabstractformbuilder->setQAbstractFormBuilder_CreateWidget_Callback(reinterpret_cast<VirtualQAbstractFormBuilder::QAbstractFormBuilder_CreateWidget_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -193,9 +189,8 @@ QLayout* QAbstractFormBuilder_SuperCreateLayout(QAbstractFormBuilder* self, cons
 // Auxiliary method to allow providing re-implementation
 void QAbstractFormBuilder_OnCreateLayout(QAbstractFormBuilder* self, intptr_t slot) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
-    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
+    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder)
         vqabstractformbuilder->setQAbstractFormBuilder_CreateLayout_Callback(reinterpret_cast<VirtualQAbstractFormBuilder::QAbstractFormBuilder_CreateLayout_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -213,9 +208,8 @@ QAction* QAbstractFormBuilder_SuperCreateAction(QAbstractFormBuilder* self, QObj
 // Auxiliary method to allow providing re-implementation
 void QAbstractFormBuilder_OnCreateAction(QAbstractFormBuilder* self, intptr_t slot) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
-    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
+    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder)
         vqabstractformbuilder->setQAbstractFormBuilder_CreateAction_Callback(reinterpret_cast<VirtualQAbstractFormBuilder::QAbstractFormBuilder_CreateAction_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -233,9 +227,8 @@ QActionGroup* QAbstractFormBuilder_SuperCreateActionGroup(QAbstractFormBuilder* 
 // Auxiliary method to allow providing re-implementation
 void QAbstractFormBuilder_OnCreateActionGroup(QAbstractFormBuilder* self, intptr_t slot) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
-    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
+    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder)
         vqabstractformbuilder->setQAbstractFormBuilder_CreateActionGroup_Callback(reinterpret_cast<VirtualQAbstractFormBuilder::QAbstractFormBuilder_CreateActionGroup_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -253,9 +246,8 @@ bool QAbstractFormBuilder_SuperCheckProperty(const QAbstractFormBuilder* self, Q
 // Auxiliary method to allow providing re-implementation
 void QAbstractFormBuilder_OnCheckProperty(const QAbstractFormBuilder* self, intptr_t slot) {
     auto* vqabstractformbuilder = const_cast<VirtualQAbstractFormBuilder*>(dynamic_cast<const VirtualQAbstractFormBuilder*>(self));
-    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
+    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder)
         vqabstractformbuilder->setQAbstractFormBuilder_CheckProperty_Callback(reinterpret_cast<VirtualQAbstractFormBuilder::QAbstractFormBuilder_CheckProperty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -284,9 +276,8 @@ bool QAbstractFormBuilder_SuperApplyPropertyInternally(QAbstractFormBuilder* sel
 // Auxiliary method to allow providing re-implementation
 void QAbstractFormBuilder_OnApplyPropertyInternally(QAbstractFormBuilder* self, intptr_t slot) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
-    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
+    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder)
         vqabstractformbuilder->setQAbstractFormBuilder_ApplyPropertyInternally_Callback(reinterpret_cast<VirtualQAbstractFormBuilder::QAbstractFormBuilder_ApplyPropertyInternally_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -313,9 +304,8 @@ void QAbstractFormBuilder_SuperReset(QAbstractFormBuilder* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractFormBuilder_OnReset(QAbstractFormBuilder* self, intptr_t slot) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
-    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
+    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder)
         vqabstractformbuilder->setQAbstractFormBuilder_Reset_Callback(reinterpret_cast<VirtualQAbstractFormBuilder::QAbstractFormBuilder_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -340,9 +330,8 @@ QMetaEnum* QAbstractFormBuilder_SuperToolBarAreaMetaEnum(QAbstractFormBuilder* s
 // Auxiliary method to allow providing re-implementation
 void QAbstractFormBuilder_OnToolBarAreaMetaEnum(QAbstractFormBuilder* self, intptr_t slot) {
     auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
-    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
+    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder)
         vqabstractformbuilder->setQAbstractFormBuilder_ToolBarAreaMetaEnum_Callback(reinterpret_cast<VirtualQAbstractFormBuilder::QAbstractFormBuilder_ToolBarAreaMetaEnum_Callback>(slot));
-    }
 }
 
 void QAbstractFormBuilder_Delete(QAbstractFormBuilder* self) {

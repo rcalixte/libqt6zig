@@ -148,7 +148,7 @@ pub const QPrintEngine = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#public-types)
 pub const enums = struct {
-    pub const PrintEnginePropertyKey = enum(i32) {
+    pub const PrintEnginePropertyKey = enum {
         pub const PPK_CollateCopies: i32 = 0;
         pub const PPK_ColorMode: i32 = 1;
         pub const PPK_Creator: i32 = 2;

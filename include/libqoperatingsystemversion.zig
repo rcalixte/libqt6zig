@@ -804,7 +804,7 @@ pub const QOperatingSystemVersion = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qoperatingsystemversion.html#public-types)
 pub const enums = struct {
-    pub const QOperatingSystemVersionBase__OSType = enum(i32) {
+    pub const QOperatingSystemVersionBase__OSType = enum {
         pub const Unknown: i32 = 0;
         pub const Windows: i32 = 1;
         pub const MacOS: i32 = 2;
@@ -815,7 +815,7 @@ pub const enums = struct {
         pub const VisionOS: i32 = 7;
     };
 
-    pub const QOperatingSystemVersion__OSType = enum(i32) {
+    pub const QOperatingSystemVersion__OSType = enum {
         pub const Unknown: i32 = 0;
         pub const Windows: i32 = 1;
         pub const MacOS: i32 = 2;

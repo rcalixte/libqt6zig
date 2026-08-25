@@ -5241,7 +5241,7 @@ pub const QAccessibleAnnouncementEvent = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#public-types)
 pub const enums = struct {
-    pub const ModelChangeType = enum(i32) {
+    pub const ModelChangeType = enum {
         pub const ModelReset: i32 = 0;
         pub const DataChanged: i32 = 1;
         pub const RowsInserted: i32 = 2;

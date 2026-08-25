@@ -7,6 +7,7 @@ const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
 const QObject = @import("libqt6").QObject;
+const QSharedData = @import("libqt6").QSharedData;
 const QThread = @import("libqt6").QThread;
 const QTimerEvent = @import("libqt6").QTimerEvent;
 const QVariant = @import("libqt6").QVariant;
@@ -35,6 +36,16 @@ pub const KModifierKeyInfoProvider = extern struct {
     ///
     pub fn new() KModifierKeyInfoProvider {
         return .{ .ptr = qtc.KModifierKeyInfoProvider_new() };
+    }
+
+    /// Upcasts to a QSharedData object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KModifierKeyInfoProvider `
+    ///
+    pub fn asQSharedData(self: KModifierKeyInfoProvider) QSharedData {
+        return .{ .ptr = qtc.KModifierKeyInfoProvider_AsQSharedData(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `metaObject` instead
@@ -2411,7 +2422,7 @@ pub const KModifierKeyInfoProvider = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider-p.html#public-types)
 pub const enums = struct {
-    pub const ModifierState = enum(i32) {
+    pub const ModifierState = enum {
         pub const Nothing: i32 = 0;
         pub const Pressed: i32 = 1;
         pub const Latched: i32 = 2;

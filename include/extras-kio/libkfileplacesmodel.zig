@@ -7809,7 +7809,7 @@ pub const KFilePlacesModel = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kfileplacesmodel.html#public-types)
 pub const enums = struct {
-    pub const AdditionalRoles = enum(i32) {
+    pub const AdditionalRoles = enum {
         pub const UrlRole: i32 = 110940459;
         pub const HiddenRole: i32 = 121752236;
         pub const SetupNeededRole: i32 = 94016349;
@@ -7824,7 +7824,7 @@ pub const enums = struct {
         pub const DeviceAccessibilityRole: i32 = 37748115;
     };
 
-    pub const GroupType = enum(i32) {
+    pub const GroupType = enum {
         pub const PlacesType: i32 = 0;
         pub const RemoteType: i32 = 1;
         pub const RecentlySavedType: i32 = 2;
@@ -7835,7 +7835,7 @@ pub const enums = struct {
         pub const TagsType: i32 = 7;
     };
 
-    pub const DeviceAccessibility = enum(i32) {
+    pub const DeviceAccessibility = enum {
         pub const SetupNeeded: i32 = 0;
         pub const SetupInProgress: i32 = 1;
         pub const Accessible: i32 = 2;

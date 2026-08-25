@@ -4406,7 +4406,7 @@ pub const KSelectAction = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kselectaction.html#public-types)
 pub const enums = struct {
-    pub const ToolBarMode = enum(i32) {
+    pub const ToolBarMode = enum {
         pub const MenuMode: i32 = 0;
         pub const ComboBoxMode: i32 = 1;
     };

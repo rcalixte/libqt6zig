@@ -2362,7 +2362,7 @@ pub const QHistoryState = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qhistorystate.html#public-types)
 pub const enums = struct {
-    pub const HistoryType = enum(i32) {
+    pub const HistoryType = enum {
         pub const ShallowHistory: i32 = 0;
         pub const DeepHistory: i32 = 1;
     };

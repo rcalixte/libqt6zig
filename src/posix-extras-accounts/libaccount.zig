@@ -5242,7 +5242,7 @@ pub const Accounts__Account = extern struct {
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Account.html)
 pub const enums = struct {
-    pub const SettingSource = enum(i32) {
+    pub const SettingSource = enum {
         pub const NONE: i32 = 0;
         pub const ACCOUNT: i32 = 1;
         pub const TEMPLATE: i32 = 2;

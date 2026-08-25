@@ -276,9 +276,8 @@ QMetaObject* KMessageWidget_SuperMetaObject(const KMessageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMetaObject(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_MetaObject_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -295,9 +294,8 @@ void* KMessageWidget_SuperMetacast(KMessageWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMetacast(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_Metacast_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -314,9 +312,8 @@ int KMessageWidget_SuperMetacall(KMessageWidget* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMetacall(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_Metacall_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -333,9 +330,8 @@ QSize* KMessageWidget_SuperSizeHint(const KMessageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnSizeHint(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_SizeHint_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -352,9 +348,8 @@ QSize* KMessageWidget_SuperMinimumSizeHint(const KMessageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMinimumSizeHint(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -371,9 +366,8 @@ int KMessageWidget_SuperHeightForWidth(const KMessageWidget* self, int width) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnHeightForWidth(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -390,9 +384,8 @@ void KMessageWidget_SuperPaintEvent(KMessageWidget* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnPaintEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_PaintEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -409,9 +402,8 @@ bool KMessageWidget_SuperEvent(KMessageWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_Event_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -428,9 +420,8 @@ void KMessageWidget_SuperResizeEvent(KMessageWidget* self, QResizeEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnResizeEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -457,9 +448,8 @@ void KMessageWidget_SuperChangeEvent(KMessageWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnChangeEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -486,9 +476,8 @@ void KMessageWidget_SuperInitStyleOption(const KMessageWidget* self, QStyleOptio
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnInitStyleOption(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_InitStyleOption_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -515,9 +504,8 @@ int KMessageWidget_SuperDevType(const KMessageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnDevType(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_DevType_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -544,9 +532,8 @@ void KMessageWidget_SuperSetVisible(KMessageWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnSetVisible(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_SetVisible_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -573,9 +560,8 @@ bool KMessageWidget_SuperHasHeightForWidth(const KMessageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnHasHeightForWidth(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -602,9 +588,8 @@ QPaintEngine* KMessageWidget_SuperPaintEngine(const KMessageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnPaintEngine(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_PaintEngine_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -631,9 +616,8 @@ void KMessageWidget_SuperMousePressEvent(KMessageWidget* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMousePressEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -660,9 +644,8 @@ void KMessageWidget_SuperMouseReleaseEvent(KMessageWidget* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMouseReleaseEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -689,9 +672,8 @@ void KMessageWidget_SuperMouseDoubleClickEvent(KMessageWidget* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMouseDoubleClickEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -718,9 +700,8 @@ void KMessageWidget_SuperMouseMoveEvent(KMessageWidget* self, QMouseEvent* event
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMouseMoveEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -747,9 +728,8 @@ void KMessageWidget_SuperWheelEvent(KMessageWidget* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnWheelEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_WheelEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -776,9 +756,8 @@ void KMessageWidget_SuperKeyPressEvent(KMessageWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnKeyPressEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -805,9 +784,8 @@ void KMessageWidget_SuperKeyReleaseEvent(KMessageWidget* self, QKeyEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnKeyReleaseEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -834,9 +812,8 @@ void KMessageWidget_SuperFocusInEvent(KMessageWidget* self, QFocusEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnFocusInEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -863,9 +840,8 @@ void KMessageWidget_SuperFocusOutEvent(KMessageWidget* self, QFocusEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnFocusOutEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -892,9 +868,8 @@ void KMessageWidget_SuperEnterEvent(KMessageWidget* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnEnterEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_EnterEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -921,9 +896,8 @@ void KMessageWidget_SuperLeaveEvent(KMessageWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnLeaveEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -950,9 +924,8 @@ void KMessageWidget_SuperMoveEvent(KMessageWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMoveEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_MoveEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -979,9 +952,8 @@ void KMessageWidget_SuperCloseEvent(KMessageWidget* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnCloseEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_CloseEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1008,9 +980,8 @@ void KMessageWidget_SuperContextMenuEvent(KMessageWidget* self, QContextMenuEven
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnContextMenuEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1037,9 +1008,8 @@ void KMessageWidget_SuperTabletEvent(KMessageWidget* self, QTabletEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnTabletEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_TabletEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1066,9 +1036,8 @@ void KMessageWidget_SuperActionEvent(KMessageWidget* self, QActionEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnActionEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_ActionEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1095,9 +1064,8 @@ void KMessageWidget_SuperDragEnterEvent(KMessageWidget* self, QDragEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnDragEnterEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1124,9 +1092,8 @@ void KMessageWidget_SuperDragMoveEvent(KMessageWidget* self, QDragMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnDragMoveEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1153,9 +1120,8 @@ void KMessageWidget_SuperDragLeaveEvent(KMessageWidget* self, QDragLeaveEvent* e
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnDragLeaveEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1182,9 +1148,8 @@ void KMessageWidget_SuperDropEvent(KMessageWidget* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnDropEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_DropEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1211,9 +1176,8 @@ void KMessageWidget_SuperShowEvent(KMessageWidget* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnShowEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_ShowEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1240,9 +1204,8 @@ void KMessageWidget_SuperHideEvent(KMessageWidget* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnHideEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_HideEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1271,9 +1234,8 @@ bool KMessageWidget_SuperNativeEvent(KMessageWidget* self, const libqt_string ev
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnNativeEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_NativeEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1300,9 +1262,8 @@ int KMessageWidget_SuperMetric(const KMessageWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnMetric(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_Metric_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1329,9 +1290,8 @@ void KMessageWidget_SuperInitPainter(const KMessageWidget* self, QPainter* paint
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnInitPainter(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_InitPainter_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1358,9 +1318,8 @@ QPaintDevice* KMessageWidget_SuperRedirected(const KMessageWidget* self, QPoint*
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnRedirected(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_Redirected_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1387,9 +1346,8 @@ QPainter* KMessageWidget_SuperSharedPainter(const KMessageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnSharedPainter(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_SharedPainter_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1416,9 +1374,8 @@ void KMessageWidget_SuperInputMethodEvent(KMessageWidget* self, QInputMethodEven
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnInputMethodEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1445,9 +1402,8 @@ QVariant* KMessageWidget_SuperInputMethodQuery(const KMessageWidget* self, int p
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnInputMethodQuery(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1474,9 +1430,8 @@ bool KMessageWidget_SuperFocusNextPrevChild(KMessageWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnFocusNextPrevChild(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1503,9 +1458,8 @@ bool KMessageWidget_SuperEventFilter(KMessageWidget* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnEventFilter(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_EventFilter_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1532,9 +1486,8 @@ void KMessageWidget_SuperTimerEvent(KMessageWidget* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnTimerEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_TimerEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1561,9 +1514,8 @@ void KMessageWidget_SuperChildEvent(KMessageWidget* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnChildEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_ChildEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1590,9 +1542,8 @@ void KMessageWidget_SuperCustomEvent(KMessageWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnCustomEvent(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_CustomEvent_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1619,9 +1570,8 @@ void KMessageWidget_SuperConnectNotify(KMessageWidget* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnConnectNotify(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1648,9 +1598,8 @@ void KMessageWidget_SuperDisconnectNotify(KMessageWidget* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnDisconnectNotify(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1677,9 +1626,8 @@ void KMessageWidget_SuperDrawFrame(KMessageWidget* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnDrawFrame(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_DrawFrame_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1706,9 +1654,8 @@ void KMessageWidget_SuperUpdateMicroFocus(KMessageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnUpdateMicroFocus(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1735,9 +1682,8 @@ void KMessageWidget_SuperCreate(KMessageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnCreate(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_Create_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1764,9 +1710,8 @@ void KMessageWidget_SuperDestroy(KMessageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnDestroy(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_Destroy_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1793,9 +1738,8 @@ bool KMessageWidget_SuperFocusNextChild(KMessageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnFocusNextChild(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1822,9 +1766,8 @@ bool KMessageWidget_SuperFocusPreviousChild(KMessageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnFocusPreviousChild(KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1851,9 +1794,8 @@ QObject* KMessageWidget_SuperSender(const KMessageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnSender(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_Sender_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1880,9 +1822,8 @@ int KMessageWidget_SuperSenderSignalIndex(const KMessageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnSenderSignalIndex(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1909,9 +1850,8 @@ int KMessageWidget_SuperReceivers(const KMessageWidget* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnReceivers(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_Receivers_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1938,9 +1878,8 @@ bool KMessageWidget_SuperIsSignalConnected(const KMessageWidget* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnIsSignalConnected(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1967,9 +1906,8 @@ double KMessageWidget_SuperGetDecodedMetricF(const KMessageWidget* self, int met
 // Auxiliary method to allow providing re-implementation
 void KMessageWidget_OnGetDecodedMetricF(const KMessageWidget* self, intptr_t slot) {
     auto* vkmessagewidget = const_cast<VirtualKMessageWidget*>(dynamic_cast<const VirtualKMessageWidget*>(self));
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
+    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget)
         vkmessagewidget->setKMessageWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKMessageWidget::KMessageWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KMessageWidget_Delete(KMessageWidget* self) {

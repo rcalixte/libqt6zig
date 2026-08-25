@@ -201,9 +201,8 @@ QMetaObject* QPdfDocument_SuperMetaObject(const QPdfDocument* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfDocument_OnMetaObject(const QPdfDocument* self, intptr_t slot) {
     auto* vqpdfdocument = const_cast<VirtualQPdfDocument*>(dynamic_cast<const VirtualQPdfDocument*>(self));
-    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument)
         vqpdfdocument->setQPdfDocument_MetaObject_Callback(reinterpret_cast<VirtualQPdfDocument::QPdfDocument_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -220,9 +219,8 @@ void* QPdfDocument_SuperMetacast(QPdfDocument* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QPdfDocument_OnMetacast(QPdfDocument* self, intptr_t slot) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
-    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument)
         vqpdfdocument->setQPdfDocument_Metacast_Callback(reinterpret_cast<VirtualQPdfDocument::QPdfDocument_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -239,9 +237,8 @@ int QPdfDocument_SuperMetacall(QPdfDocument* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void QPdfDocument_OnMetacall(QPdfDocument* self, intptr_t slot) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
-    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument)
         vqpdfdocument->setQPdfDocument_Metacall_Callback(reinterpret_cast<VirtualQPdfDocument::QPdfDocument_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -268,9 +265,8 @@ bool QPdfDocument_SuperEvent(QPdfDocument* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPdfDocument_OnEvent(QPdfDocument* self, intptr_t slot) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
-    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument)
         vqpdfdocument->setQPdfDocument_Event_Callback(reinterpret_cast<VirtualQPdfDocument::QPdfDocument_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -297,9 +293,8 @@ bool QPdfDocument_SuperEventFilter(QPdfDocument* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QPdfDocument_OnEventFilter(QPdfDocument* self, intptr_t slot) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
-    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument)
         vqpdfdocument->setQPdfDocument_EventFilter_Callback(reinterpret_cast<VirtualQPdfDocument::QPdfDocument_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -326,9 +321,8 @@ void QPdfDocument_SuperTimerEvent(QPdfDocument* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPdfDocument_OnTimerEvent(QPdfDocument* self, intptr_t slot) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
-    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument)
         vqpdfdocument->setQPdfDocument_TimerEvent_Callback(reinterpret_cast<VirtualQPdfDocument::QPdfDocument_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -355,9 +349,8 @@ void QPdfDocument_SuperChildEvent(QPdfDocument* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPdfDocument_OnChildEvent(QPdfDocument* self, intptr_t slot) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
-    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument)
         vqpdfdocument->setQPdfDocument_ChildEvent_Callback(reinterpret_cast<VirtualQPdfDocument::QPdfDocument_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -384,9 +377,8 @@ void QPdfDocument_SuperCustomEvent(QPdfDocument* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPdfDocument_OnCustomEvent(QPdfDocument* self, intptr_t slot) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
-    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument)
         vqpdfdocument->setQPdfDocument_CustomEvent_Callback(reinterpret_cast<VirtualQPdfDocument::QPdfDocument_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -413,9 +405,8 @@ void QPdfDocument_SuperConnectNotify(QPdfDocument* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QPdfDocument_OnConnectNotify(QPdfDocument* self, intptr_t slot) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
-    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument)
         vqpdfdocument->setQPdfDocument_ConnectNotify_Callback(reinterpret_cast<VirtualQPdfDocument::QPdfDocument_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -442,9 +433,8 @@ void QPdfDocument_SuperDisconnectNotify(QPdfDocument* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void QPdfDocument_OnDisconnectNotify(QPdfDocument* self, intptr_t slot) {
     auto* vqpdfdocument = dynamic_cast<VirtualQPdfDocument*>(self);
-    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument)
         vqpdfdocument->setQPdfDocument_DisconnectNotify_Callback(reinterpret_cast<VirtualQPdfDocument::QPdfDocument_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -471,9 +461,8 @@ QObject* QPdfDocument_SuperSender(const QPdfDocument* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfDocument_OnSender(const QPdfDocument* self, intptr_t slot) {
     auto* vqpdfdocument = const_cast<VirtualQPdfDocument*>(dynamic_cast<const VirtualQPdfDocument*>(self));
-    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument)
         vqpdfdocument->setQPdfDocument_Sender_Callback(reinterpret_cast<VirtualQPdfDocument::QPdfDocument_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -500,9 +489,8 @@ int QPdfDocument_SuperSenderSignalIndex(const QPdfDocument* self) {
 // Auxiliary method to allow providing re-implementation
 void QPdfDocument_OnSenderSignalIndex(const QPdfDocument* self, intptr_t slot) {
     auto* vqpdfdocument = const_cast<VirtualQPdfDocument*>(dynamic_cast<const VirtualQPdfDocument*>(self));
-    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument)
         vqpdfdocument->setQPdfDocument_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPdfDocument::QPdfDocument_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -529,9 +517,8 @@ int QPdfDocument_SuperReceivers(const QPdfDocument* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QPdfDocument_OnReceivers(const QPdfDocument* self, intptr_t slot) {
     auto* vqpdfdocument = const_cast<VirtualQPdfDocument*>(dynamic_cast<const VirtualQPdfDocument*>(self));
-    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument)
         vqpdfdocument->setQPdfDocument_Receivers_Callback(reinterpret_cast<VirtualQPdfDocument::QPdfDocument_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -558,9 +545,8 @@ bool QPdfDocument_SuperIsSignalConnected(const QPdfDocument* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QPdfDocument_OnIsSignalConnected(const QPdfDocument* self, intptr_t slot) {
     auto* vqpdfdocument = const_cast<VirtualQPdfDocument*>(dynamic_cast<const VirtualQPdfDocument*>(self));
-    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument) {
+    if (vqpdfdocument && vqpdfdocument->isVirtualQPdfDocument)
         vqpdfdocument->setQPdfDocument_IsSignalConnected_Callback(reinterpret_cast<VirtualQPdfDocument::QPdfDocument_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QPdfDocument_Delete(QPdfDocument* self) {

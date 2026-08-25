@@ -22,6 +22,10 @@ KTextEditor__Attribute* KTextEditor__Attribute_new3(const KTextEditor__Attribute
     return new KTextEditor::Attribute(*a);
 }
 
+QSharedData* KTextEditor__Attribute_AsQSharedData(KTextEditor__Attribute* self) {
+    return static_cast<QSharedData*>(self);
+}
+
 libqt_string KTextEditor__Attribute_Name(const KTextEditor__Attribute* self) {
     auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

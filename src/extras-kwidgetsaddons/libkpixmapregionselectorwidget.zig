@@ -664,6 +664,31 @@ pub const KPixmapRegionSelectorWidget = extern struct {
         return _ret;
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPixmapRegionSelectorWidget `
+    ///
+    pub fn asQPaintDevice(self: KPixmapRegionSelectorWidget) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KPixmapRegionSelectorWidget object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KPixmapRegionSelectorWidget {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6648,7 +6673,7 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     /// ` self: KPixmapRegionSelectorWidget `
     ///
     pub fn paintingActive(self: KPixmapRegionSelectorWidget) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6664,7 +6689,7 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     /// ` self: KPixmapRegionSelectorWidget `
     ///
     pub fn widthMM(self: KPixmapRegionSelectorWidget) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6680,7 +6705,7 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     /// ` self: KPixmapRegionSelectorWidget `
     ///
     pub fn heightMM(self: KPixmapRegionSelectorWidget) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6696,7 +6721,7 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     /// ` self: KPixmapRegionSelectorWidget `
     ///
     pub fn logicalDpiX(self: KPixmapRegionSelectorWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6712,7 +6737,7 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     /// ` self: KPixmapRegionSelectorWidget `
     ///
     pub fn logicalDpiY(self: KPixmapRegionSelectorWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6728,7 +6753,7 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     /// ` self: KPixmapRegionSelectorWidget `
     ///
     pub fn physicalDpiX(self: KPixmapRegionSelectorWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6744,7 +6769,7 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     /// ` self: KPixmapRegionSelectorWidget `
     ///
     pub fn physicalDpiY(self: KPixmapRegionSelectorWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -6760,7 +6785,7 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     /// ` self: KPixmapRegionSelectorWidget `
     ///
     pub fn devicePixelRatio(self: KPixmapRegionSelectorWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -6776,7 +6801,7 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     /// ` self: KPixmapRegionSelectorWidget `
     ///
     pub fn devicePixelRatioF(self: KPixmapRegionSelectorWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -6792,7 +6817,7 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     /// ` self: KPixmapRegionSelectorWidget `
     ///
     pub fn colorCount(self: KPixmapRegionSelectorWidget) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -6808,7 +6833,7 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     /// ` self: KPixmapRegionSelectorWidget `
     ///
     pub fn depth(self: KPixmapRegionSelectorWidget) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10286,7 +10311,7 @@ pub const KPixmapRegionSelectorWidget = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kpixmapregionselectorwidget.html#public-types)
 pub const enums = struct {
-    pub const RotateDirection = enum(i32) {
+    pub const RotateDirection = enum {
         pub const Rotate90: i32 = 0;
         pub const Rotate180: i32 = 1;
         pub const Rotate270: i32 = 2;

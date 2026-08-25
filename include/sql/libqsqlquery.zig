@@ -977,7 +977,7 @@ pub const QSqlQuery = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#public-types)
 pub const enums = struct {
-    pub const BatchExecutionMode = enum(i32) {
+    pub const BatchExecutionMode = enum {
         pub const ValuesAsRows: i32 = 0;
         pub const ValuesAsColumns: i32 = 1;
     };

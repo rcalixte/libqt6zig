@@ -156,9 +156,8 @@ QMetaObject* KDatePickerPopup_SuperMetaObject(const KDatePickerPopup* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnMetaObject(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_MetaObject_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -175,9 +174,8 @@ void* KDatePickerPopup_SuperMetacast(KDatePickerPopup* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnMetacast(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_Metacast_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -194,9 +192,8 @@ int KDatePickerPopup_SuperMetacall(KDatePickerPopup* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnMetacall(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_Metacall_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -223,9 +220,8 @@ QSize* KDatePickerPopup_SuperSizeHint(const KDatePickerPopup* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnSizeHint(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_SizeHint_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -252,9 +248,8 @@ void KDatePickerPopup_SuperChangeEvent(KDatePickerPopup* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnChangeEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_ChangeEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -281,9 +276,8 @@ void KDatePickerPopup_SuperKeyPressEvent(KDatePickerPopup* self, QKeyEvent* para
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnKeyPressEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_KeyPressEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -310,9 +304,8 @@ void KDatePickerPopup_SuperMouseReleaseEvent(KDatePickerPopup* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnMouseReleaseEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +332,8 @@ void KDatePickerPopup_SuperMousePressEvent(KDatePickerPopup* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnMousePressEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_MousePressEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +360,8 @@ void KDatePickerPopup_SuperMouseMoveEvent(KDatePickerPopup* self, QMouseEvent* p
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnMouseMoveEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_MouseMoveEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +388,8 @@ void KDatePickerPopup_SuperWheelEvent(KDatePickerPopup* self, QWheelEvent* param
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnWheelEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_WheelEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +416,8 @@ void KDatePickerPopup_SuperEnterEvent(KDatePickerPopup* self, QEnterEvent* param
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnEnterEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_EnterEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +444,8 @@ void KDatePickerPopup_SuperLeaveEvent(KDatePickerPopup* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnLeaveEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_LeaveEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -484,9 +472,8 @@ void KDatePickerPopup_SuperHideEvent(KDatePickerPopup* self, QHideEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnHideEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_HideEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -513,9 +500,8 @@ void KDatePickerPopup_SuperPaintEvent(KDatePickerPopup* self, QPaintEvent* param
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnPaintEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_PaintEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -542,9 +528,8 @@ void KDatePickerPopup_SuperActionEvent(KDatePickerPopup* self, QActionEvent* par
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnActionEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_ActionEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -571,9 +556,8 @@ void KDatePickerPopup_SuperTimerEvent(KDatePickerPopup* self, QTimerEvent* param
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnTimerEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_TimerEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -600,9 +584,8 @@ bool KDatePickerPopup_SuperEvent(KDatePickerPopup* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_Event_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -629,9 +612,8 @@ bool KDatePickerPopup_SuperFocusNextPrevChild(KDatePickerPopup* self, bool next)
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnFocusNextPrevChild(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -658,9 +640,8 @@ void KDatePickerPopup_SuperInitStyleOption(const KDatePickerPopup* self, QStyleO
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnInitStyleOption(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_InitStyleOption_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -687,9 +668,8 @@ int KDatePickerPopup_SuperDevType(const KDatePickerPopup* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnDevType(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_DevType_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -716,9 +696,8 @@ void KDatePickerPopup_SuperSetVisible(KDatePickerPopup* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnSetVisible(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_SetVisible_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -745,9 +724,8 @@ QSize* KDatePickerPopup_SuperMinimumSizeHint(const KDatePickerPopup* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnMinimumSizeHint(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_MinimumSizeHint_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -774,9 +752,8 @@ int KDatePickerPopup_SuperHeightForWidth(const KDatePickerPopup* self, int param
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnHeightForWidth(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_HeightForWidth_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -803,9 +780,8 @@ bool KDatePickerPopup_SuperHasHeightForWidth(const KDatePickerPopup* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnHasHeightForWidth(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_HasHeightForWidth_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -832,9 +808,8 @@ QPaintEngine* KDatePickerPopup_SuperPaintEngine(const KDatePickerPopup* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnPaintEngine(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_PaintEngine_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -861,9 +836,8 @@ void KDatePickerPopup_SuperMouseDoubleClickEvent(KDatePickerPopup* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnMouseDoubleClickEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -890,9 +864,8 @@ void KDatePickerPopup_SuperKeyReleaseEvent(KDatePickerPopup* self, QKeyEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnKeyReleaseEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -919,9 +892,8 @@ void KDatePickerPopup_SuperFocusInEvent(KDatePickerPopup* self, QFocusEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnFocusInEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_FocusInEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -948,9 +920,8 @@ void KDatePickerPopup_SuperFocusOutEvent(KDatePickerPopup* self, QFocusEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnFocusOutEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_FocusOutEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -977,9 +948,8 @@ void KDatePickerPopup_SuperMoveEvent(KDatePickerPopup* self, QMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnMoveEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_MoveEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1006,9 +976,8 @@ void KDatePickerPopup_SuperResizeEvent(KDatePickerPopup* self, QResizeEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnResizeEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_ResizeEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1035,9 +1004,8 @@ void KDatePickerPopup_SuperCloseEvent(KDatePickerPopup* self, QCloseEvent* event
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnCloseEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_CloseEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1064,9 +1032,8 @@ void KDatePickerPopup_SuperContextMenuEvent(KDatePickerPopup* self, QContextMenu
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnContextMenuEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_ContextMenuEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1093,9 +1060,8 @@ void KDatePickerPopup_SuperTabletEvent(KDatePickerPopup* self, QTabletEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnTabletEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_TabletEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1122,9 +1088,8 @@ void KDatePickerPopup_SuperDragEnterEvent(KDatePickerPopup* self, QDragEnterEven
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnDragEnterEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_DragEnterEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1151,9 +1116,8 @@ void KDatePickerPopup_SuperDragMoveEvent(KDatePickerPopup* self, QDragMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnDragMoveEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_DragMoveEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1180,9 +1144,8 @@ void KDatePickerPopup_SuperDragLeaveEvent(KDatePickerPopup* self, QDragLeaveEven
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnDragLeaveEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_DragLeaveEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1209,9 +1172,8 @@ void KDatePickerPopup_SuperDropEvent(KDatePickerPopup* self, QDropEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnDropEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_DropEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1238,9 +1200,8 @@ void KDatePickerPopup_SuperShowEvent(KDatePickerPopup* self, QShowEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnShowEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_ShowEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1269,9 +1230,8 @@ bool KDatePickerPopup_SuperNativeEvent(KDatePickerPopup* self, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnNativeEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_NativeEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1298,9 +1258,8 @@ int KDatePickerPopup_SuperMetric(const KDatePickerPopup* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnMetric(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_Metric_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1327,9 +1286,8 @@ void KDatePickerPopup_SuperInitPainter(const KDatePickerPopup* self, QPainter* p
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnInitPainter(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_InitPainter_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1356,9 +1314,8 @@ QPaintDevice* KDatePickerPopup_SuperRedirected(const KDatePickerPopup* self, QPo
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnRedirected(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_Redirected_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1385,9 +1342,8 @@ QPainter* KDatePickerPopup_SuperSharedPainter(const KDatePickerPopup* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnSharedPainter(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_SharedPainter_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1414,9 +1370,8 @@ void KDatePickerPopup_SuperInputMethodEvent(KDatePickerPopup* self, QInputMethod
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnInputMethodEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_InputMethodEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1443,9 +1398,8 @@ QVariant* KDatePickerPopup_SuperInputMethodQuery(const KDatePickerPopup* self, i
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnInputMethodQuery(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_InputMethodQuery_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1472,9 +1426,8 @@ bool KDatePickerPopup_SuperEventFilter(KDatePickerPopup* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnEventFilter(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_EventFilter_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1501,9 +1454,8 @@ void KDatePickerPopup_SuperChildEvent(KDatePickerPopup* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnChildEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_ChildEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1530,9 +1482,8 @@ void KDatePickerPopup_SuperCustomEvent(KDatePickerPopup* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnCustomEvent(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_CustomEvent_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1559,9 +1510,8 @@ void KDatePickerPopup_SuperConnectNotify(KDatePickerPopup* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnConnectNotify(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_ConnectNotify_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1588,9 +1538,8 @@ void KDatePickerPopup_SuperDisconnectNotify(KDatePickerPopup* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnDisconnectNotify(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_DisconnectNotify_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1617,9 +1566,8 @@ int KDatePickerPopup_SuperColumnCount(const KDatePickerPopup* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnColumnCount(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_ColumnCount_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_ColumnCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1646,9 +1594,8 @@ void KDatePickerPopup_SuperUpdateMicroFocus(KDatePickerPopup* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnUpdateMicroFocus(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1675,9 +1622,8 @@ void KDatePickerPopup_SuperCreate(KDatePickerPopup* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnCreate(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_Create_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1704,9 +1650,8 @@ void KDatePickerPopup_SuperDestroy(KDatePickerPopup* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnDestroy(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_Destroy_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1733,9 +1678,8 @@ bool KDatePickerPopup_SuperFocusNextChild(KDatePickerPopup* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnFocusNextChild(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_FocusNextChild_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1762,9 +1706,8 @@ bool KDatePickerPopup_SuperFocusPreviousChild(KDatePickerPopup* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnFocusPreviousChild(KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_FocusPreviousChild_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1791,9 +1734,8 @@ QObject* KDatePickerPopup_SuperSender(const KDatePickerPopup* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnSender(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_Sender_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1820,9 +1762,8 @@ int KDatePickerPopup_SuperSenderSignalIndex(const KDatePickerPopup* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnSenderSignalIndex(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1849,9 +1790,8 @@ int KDatePickerPopup_SuperReceivers(const KDatePickerPopup* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnReceivers(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_Receivers_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1878,9 +1818,8 @@ bool KDatePickerPopup_SuperIsSignalConnected(const KDatePickerPopup* self, const
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnIsSignalConnected(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_IsSignalConnected_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1907,9 +1846,8 @@ double KDatePickerPopup_SuperGetDecodedMetricF(const KDatePickerPopup* self, int
 // Auxiliary method to allow providing re-implementation
 void KDatePickerPopup_OnGetDecodedMetricF(const KDatePickerPopup* self, intptr_t slot) {
     auto* vkdatepickerpopup = const_cast<VirtualKDatePickerPopup*>(dynamic_cast<const VirtualKDatePickerPopup*>(self));
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
+    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup)
         vkdatepickerpopup->setKDatePickerPopup_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKDatePickerPopup::KDatePickerPopup_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KDatePickerPopup_Delete(KDatePickerPopup* self) {

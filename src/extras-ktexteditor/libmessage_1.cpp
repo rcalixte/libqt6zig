@@ -208,9 +208,8 @@ QMetaObject* KTextEditor__Message_SuperMetaObject(const KTextEditor__Message* se
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Message_OnMetaObject(const KTextEditor__Message* self, intptr_t slot) {
     auto* vktexteditormessage = const_cast<VirtualKTextEditorMessage*>(dynamic_cast<const VirtualKTextEditorMessage*>(self));
-    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage)
         vktexteditormessage->setKTextEditor__Message_MetaObject_Callback(reinterpret_cast<VirtualKTextEditorMessage::KTextEditor__Message_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -227,9 +226,8 @@ void* KTextEditor__Message_SuperMetacast(KTextEditor__Message* self, const char*
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Message_OnMetacast(KTextEditor__Message* self, intptr_t slot) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
-    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage)
         vktexteditormessage->setKTextEditor__Message_Metacast_Callback(reinterpret_cast<VirtualKTextEditorMessage::KTextEditor__Message_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -246,9 +244,8 @@ int KTextEditor__Message_SuperMetacall(KTextEditor__Message* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Message_OnMetacall(KTextEditor__Message* self, intptr_t slot) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
-    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage)
         vktexteditormessage->setKTextEditor__Message_Metacall_Callback(reinterpret_cast<VirtualKTextEditorMessage::KTextEditor__Message_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -275,9 +272,8 @@ bool KTextEditor__Message_SuperEvent(KTextEditor__Message* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Message_OnEvent(KTextEditor__Message* self, intptr_t slot) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
-    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage)
         vktexteditormessage->setKTextEditor__Message_Event_Callback(reinterpret_cast<VirtualKTextEditorMessage::KTextEditor__Message_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +300,8 @@ bool KTextEditor__Message_SuperEventFilter(KTextEditor__Message* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Message_OnEventFilter(KTextEditor__Message* self, intptr_t slot) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
-    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage)
         vktexteditormessage->setKTextEditor__Message_EventFilter_Callback(reinterpret_cast<VirtualKTextEditorMessage::KTextEditor__Message_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +328,8 @@ void KTextEditor__Message_SuperTimerEvent(KTextEditor__Message* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Message_OnTimerEvent(KTextEditor__Message* self, intptr_t slot) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
-    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage)
         vktexteditormessage->setKTextEditor__Message_TimerEvent_Callback(reinterpret_cast<VirtualKTextEditorMessage::KTextEditor__Message_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +356,8 @@ void KTextEditor__Message_SuperChildEvent(KTextEditor__Message* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Message_OnChildEvent(KTextEditor__Message* self, intptr_t slot) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
-    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage)
         vktexteditormessage->setKTextEditor__Message_ChildEvent_Callback(reinterpret_cast<VirtualKTextEditorMessage::KTextEditor__Message_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +384,8 @@ void KTextEditor__Message_SuperCustomEvent(KTextEditor__Message* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Message_OnCustomEvent(KTextEditor__Message* self, intptr_t slot) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
-    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage)
         vktexteditormessage->setKTextEditor__Message_CustomEvent_Callback(reinterpret_cast<VirtualKTextEditorMessage::KTextEditor__Message_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +412,8 @@ void KTextEditor__Message_SuperConnectNotify(KTextEditor__Message* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Message_OnConnectNotify(KTextEditor__Message* self, intptr_t slot) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
-    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage)
         vktexteditormessage->setKTextEditor__Message_ConnectNotify_Callback(reinterpret_cast<VirtualKTextEditorMessage::KTextEditor__Message_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +440,8 @@ void KTextEditor__Message_SuperDisconnectNotify(KTextEditor__Message* self, cons
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Message_OnDisconnectNotify(KTextEditor__Message* self, intptr_t slot) {
     auto* vktexteditormessage = dynamic_cast<VirtualKTextEditorMessage*>(self);
-    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage)
         vktexteditormessage->setKTextEditor__Message_DisconnectNotify_Callback(reinterpret_cast<VirtualKTextEditorMessage::KTextEditor__Message_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +468,8 @@ QObject* KTextEditor__Message_SuperSender(const KTextEditor__Message* self) {
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Message_OnSender(const KTextEditor__Message* self, intptr_t slot) {
     auto* vktexteditormessage = const_cast<VirtualKTextEditorMessage*>(dynamic_cast<const VirtualKTextEditorMessage*>(self));
-    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage)
         vktexteditormessage->setKTextEditor__Message_Sender_Callback(reinterpret_cast<VirtualKTextEditorMessage::KTextEditor__Message_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +496,8 @@ int KTextEditor__Message_SuperSenderSignalIndex(const KTextEditor__Message* self
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Message_OnSenderSignalIndex(const KTextEditor__Message* self, intptr_t slot) {
     auto* vktexteditormessage = const_cast<VirtualKTextEditorMessage*>(dynamic_cast<const VirtualKTextEditorMessage*>(self));
-    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage)
         vktexteditormessage->setKTextEditor__Message_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTextEditorMessage::KTextEditor__Message_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +524,8 @@ int KTextEditor__Message_SuperReceivers(const KTextEditor__Message* self, const 
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Message_OnReceivers(const KTextEditor__Message* self, intptr_t slot) {
     auto* vktexteditormessage = const_cast<VirtualKTextEditorMessage*>(dynamic_cast<const VirtualKTextEditorMessage*>(self));
-    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage)
         vktexteditormessage->setKTextEditor__Message_Receivers_Callback(reinterpret_cast<VirtualKTextEditorMessage::KTextEditor__Message_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +552,8 @@ bool KTextEditor__Message_SuperIsSignalConnected(const KTextEditor__Message* sel
 // Auxiliary method to allow providing re-implementation
 void KTextEditor__Message_OnIsSignalConnected(const KTextEditor__Message* self, intptr_t slot) {
     auto* vktexteditormessage = const_cast<VirtualKTextEditorMessage*>(dynamic_cast<const VirtualKTextEditorMessage*>(self));
-    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage) {
+    if (vktexteditormessage && vktexteditormessage->isVirtualKTextEditorMessage)
         vktexteditormessage->setKTextEditor__Message_IsSignalConnected_Callback(reinterpret_cast<VirtualKTextEditorMessage::KTextEditor__Message_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KTextEditor__Message_Delete(KTextEditor__Message* self) {

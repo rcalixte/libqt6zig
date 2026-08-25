@@ -180,9 +180,8 @@ QMetaObject* QSplashScreen_SuperMetaObject(const QSplashScreen* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMetaObject(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_MetaObject_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -199,9 +198,8 @@ void* QSplashScreen_SuperMetacast(QSplashScreen* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMetacast(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_Metacast_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -218,9 +216,8 @@ int QSplashScreen_SuperMetacall(QSplashScreen* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMetacall(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_Metacall_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -237,9 +234,8 @@ bool QSplashScreen_SuperEvent(QSplashScreen* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_Event_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -256,9 +252,8 @@ void QSplashScreen_SuperDrawContents(QSplashScreen* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnDrawContents(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_DrawContents_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DrawContents_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -275,9 +270,8 @@ void QSplashScreen_SuperMousePressEvent(QSplashScreen* self, QMouseEvent* param1
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMousePressEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_MousePressEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +298,8 @@ int QSplashScreen_SuperDevType(const QSplashScreen* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnDevType(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_DevType_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +326,8 @@ void QSplashScreen_SuperSetVisible(QSplashScreen* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnSetVisible(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_SetVisible_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +354,8 @@ QSize* QSplashScreen_SuperSizeHint(const QSplashScreen* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnSizeHint(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_SizeHint_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +382,8 @@ QSize* QSplashScreen_SuperMinimumSizeHint(const QSplashScreen* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMinimumSizeHint(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_MinimumSizeHint_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +410,8 @@ int QSplashScreen_SuperHeightForWidth(const QSplashScreen* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnHeightForWidth(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_HeightForWidth_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +438,8 @@ bool QSplashScreen_SuperHasHeightForWidth(const QSplashScreen* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnHasHeightForWidth(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_HasHeightForWidth_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +466,8 @@ QPaintEngine* QSplashScreen_SuperPaintEngine(const QSplashScreen* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnPaintEngine(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_PaintEngine_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +494,8 @@ void QSplashScreen_SuperMouseReleaseEvent(QSplashScreen* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMouseReleaseEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +522,8 @@ void QSplashScreen_SuperMouseDoubleClickEvent(QSplashScreen* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMouseDoubleClickEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +550,8 @@ void QSplashScreen_SuperMouseMoveEvent(QSplashScreen* self, QMouseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMouseMoveEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_MouseMoveEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +578,8 @@ void QSplashScreen_SuperWheelEvent(QSplashScreen* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnWheelEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_WheelEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -623,9 +606,8 @@ void QSplashScreen_SuperKeyPressEvent(QSplashScreen* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnKeyPressEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_KeyPressEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -652,9 +634,8 @@ void QSplashScreen_SuperKeyReleaseEvent(QSplashScreen* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnKeyReleaseEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -681,9 +662,8 @@ void QSplashScreen_SuperFocusInEvent(QSplashScreen* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnFocusInEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_FocusInEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -710,9 +690,8 @@ void QSplashScreen_SuperFocusOutEvent(QSplashScreen* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnFocusOutEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_FocusOutEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -739,9 +718,8 @@ void QSplashScreen_SuperEnterEvent(QSplashScreen* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnEnterEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_EnterEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -768,9 +746,8 @@ void QSplashScreen_SuperLeaveEvent(QSplashScreen* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnLeaveEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_LeaveEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -797,9 +774,8 @@ void QSplashScreen_SuperPaintEvent(QSplashScreen* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnPaintEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_PaintEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -826,9 +802,8 @@ void QSplashScreen_SuperMoveEvent(QSplashScreen* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMoveEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_MoveEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +830,8 @@ void QSplashScreen_SuperResizeEvent(QSplashScreen* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnResizeEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_ResizeEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -884,9 +858,8 @@ void QSplashScreen_SuperCloseEvent(QSplashScreen* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnCloseEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_CloseEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -913,9 +886,8 @@ void QSplashScreen_SuperContextMenuEvent(QSplashScreen* self, QContextMenuEvent*
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnContextMenuEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_ContextMenuEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +914,8 @@ void QSplashScreen_SuperTabletEvent(QSplashScreen* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnTabletEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_TabletEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +942,8 @@ void QSplashScreen_SuperActionEvent(QSplashScreen* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnActionEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_ActionEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +970,8 @@ void QSplashScreen_SuperDragEnterEvent(QSplashScreen* self, QDragEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnDragEnterEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_DragEnterEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +998,8 @@ void QSplashScreen_SuperDragMoveEvent(QSplashScreen* self, QDragMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnDragMoveEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_DragMoveEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1058,9 +1026,8 @@ void QSplashScreen_SuperDragLeaveEvent(QSplashScreen* self, QDragLeaveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnDragLeaveEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_DragLeaveEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1087,9 +1054,8 @@ void QSplashScreen_SuperDropEvent(QSplashScreen* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnDropEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_DropEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1116,9 +1082,8 @@ void QSplashScreen_SuperShowEvent(QSplashScreen* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnShowEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_ShowEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1145,9 +1110,8 @@ void QSplashScreen_SuperHideEvent(QSplashScreen* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnHideEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_HideEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1176,9 +1140,8 @@ bool QSplashScreen_SuperNativeEvent(QSplashScreen* self, const libqt_string even
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnNativeEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_NativeEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1205,9 +1168,8 @@ void QSplashScreen_SuperChangeEvent(QSplashScreen* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnChangeEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_ChangeEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1234,9 +1196,8 @@ int QSplashScreen_SuperMetric(const QSplashScreen* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnMetric(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_Metric_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1263,9 +1224,8 @@ void QSplashScreen_SuperInitPainter(const QSplashScreen* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnInitPainter(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_InitPainter_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1292,9 +1252,8 @@ QPaintDevice* QSplashScreen_SuperRedirected(const QSplashScreen* self, QPoint* o
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnRedirected(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_Redirected_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1321,9 +1280,8 @@ QPainter* QSplashScreen_SuperSharedPainter(const QSplashScreen* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnSharedPainter(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_SharedPainter_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1350,9 +1308,8 @@ void QSplashScreen_SuperInputMethodEvent(QSplashScreen* self, QInputMethodEvent*
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnInputMethodEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_InputMethodEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1379,9 +1336,8 @@ QVariant* QSplashScreen_SuperInputMethodQuery(const QSplashScreen* self, int par
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnInputMethodQuery(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_InputMethodQuery_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1408,9 +1364,8 @@ bool QSplashScreen_SuperFocusNextPrevChild(QSplashScreen* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnFocusNextPrevChild(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1437,9 +1392,8 @@ bool QSplashScreen_SuperEventFilter(QSplashScreen* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnEventFilter(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_EventFilter_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1466,9 +1420,8 @@ void QSplashScreen_SuperTimerEvent(QSplashScreen* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnTimerEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_TimerEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1495,9 +1448,8 @@ void QSplashScreen_SuperChildEvent(QSplashScreen* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnChildEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_ChildEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1524,9 +1476,8 @@ void QSplashScreen_SuperCustomEvent(QSplashScreen* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnCustomEvent(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_CustomEvent_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1553,9 +1504,8 @@ void QSplashScreen_SuperConnectNotify(QSplashScreen* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnConnectNotify(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_ConnectNotify_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1582,9 +1532,8 @@ void QSplashScreen_SuperDisconnectNotify(QSplashScreen* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnDisconnectNotify(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_DisconnectNotify_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1611,9 +1560,8 @@ void QSplashScreen_SuperUpdateMicroFocus(QSplashScreen* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnUpdateMicroFocus(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1640,9 +1588,8 @@ void QSplashScreen_SuperCreate(QSplashScreen* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnCreate(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_Create_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1669,9 +1616,8 @@ void QSplashScreen_SuperDestroy(QSplashScreen* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnDestroy(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_Destroy_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1698,9 +1644,8 @@ bool QSplashScreen_SuperFocusNextChild(QSplashScreen* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnFocusNextChild(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_FocusNextChild_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1727,9 +1672,8 @@ bool QSplashScreen_SuperFocusPreviousChild(QSplashScreen* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnFocusPreviousChild(QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_FocusPreviousChild_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1756,9 +1700,8 @@ QObject* QSplashScreen_SuperSender(const QSplashScreen* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnSender(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_Sender_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1785,9 +1728,8 @@ int QSplashScreen_SuperSenderSignalIndex(const QSplashScreen* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnSenderSignalIndex(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1814,9 +1756,8 @@ int QSplashScreen_SuperReceivers(const QSplashScreen* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnReceivers(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_Receivers_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1843,9 +1784,8 @@ bool QSplashScreen_SuperIsSignalConnected(const QSplashScreen* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnIsSignalConnected(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_IsSignalConnected_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1872,9 +1812,8 @@ double QSplashScreen_SuperGetDecodedMetricF(const QSplashScreen* self, int metri
 // Auxiliary method to allow providing re-implementation
 void QSplashScreen_OnGetDecodedMetricF(const QSplashScreen* self, intptr_t slot) {
     auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen)
         vqsplashscreen->setQSplashScreen_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QSplashScreen_Delete(QSplashScreen* self) {

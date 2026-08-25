@@ -29,6 +29,8 @@ typedef struct QSurface QSurface;
 typedef struct QWindow QWindow;
 #endif
 
+QPaintDevice* QPaintDeviceWindow_AsQPaintDevice(QPaintDeviceWindow* self);
+QPaintDeviceWindow* QPaintDeviceWindow_FromQPaintDevice(QPaintDevice* _qpaintdevice);
 QMetaObject* QPaintDeviceWindow_MetaObject(const QPaintDeviceWindow* self);
 void* QPaintDeviceWindow_Metacast(QPaintDeviceWindow* self, const char* param1);
 int QPaintDeviceWindow_Metacall(QPaintDeviceWindow* self, int param1, int param2, void** param3);

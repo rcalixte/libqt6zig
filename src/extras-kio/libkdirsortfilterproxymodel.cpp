@@ -100,9 +100,8 @@ QMetaObject* KDirSortFilterProxyModel_SuperMetaObject(const KDirSortFilterProxyM
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnMetaObject(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MetaObject_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -119,9 +118,8 @@ void* KDirSortFilterProxyModel_SuperMetacast(KDirSortFilterProxyModel* self, con
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnMetacast(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Metacast_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -138,9 +136,8 @@ int KDirSortFilterProxyModel_SuperMetacall(KDirSortFilterProxyModel* self, int p
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnMetacall(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Metacall_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -157,9 +154,8 @@ bool KDirSortFilterProxyModel_SuperHasChildren(const KDirSortFilterProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnHasChildren(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_HasChildren_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_HasChildren_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -176,9 +172,8 @@ bool KDirSortFilterProxyModel_SuperCanFetchMore(const KDirSortFilterProxyModel* 
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnCanFetchMore(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_CanFetchMore_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -195,9 +190,8 @@ bool KDirSortFilterProxyModel_SuperSubSortLessThan(const KDirSortFilterProxyMode
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnSubSortLessThan(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_SubSortLessThan_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_SubSortLessThan_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -224,9 +218,8 @@ void KDirSortFilterProxyModel_SuperSort(KDirSortFilterProxyModel* self, int colu
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnSort(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Sort_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -253,9 +246,8 @@ bool KDirSortFilterProxyModel_SuperLessThan(const KDirSortFilterProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnLessThan(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_LessThan_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_LessThan_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -282,9 +274,8 @@ int KDirSortFilterProxyModel_SuperCompareCategories(const KDirSortFilterProxyMod
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnCompareCategories(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_CompareCategories_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_CompareCategories_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -311,9 +302,8 @@ void KDirSortFilterProxyModel_SuperSetSourceModel(KDirSortFilterProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnSetSourceModel(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_SetSourceModel_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_SetSourceModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -340,9 +330,8 @@ QModelIndex* KDirSortFilterProxyModel_SuperMapToSource(const KDirSortFilterProxy
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnMapToSource(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MapToSource_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_MapToSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -369,9 +358,8 @@ QModelIndex* KDirSortFilterProxyModel_SuperMapFromSource(const KDirSortFilterPro
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnMapFromSource(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MapFromSource_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_MapFromSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -398,9 +386,8 @@ QItemSelection* KDirSortFilterProxyModel_SuperMapSelectionToSource(const KDirSor
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnMapSelectionToSource(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MapSelectionToSource_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_MapSelectionToSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -427,9 +414,8 @@ QItemSelection* KDirSortFilterProxyModel_SuperMapSelectionFromSource(const KDirS
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnMapSelectionFromSource(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MapSelectionFromSource_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_MapSelectionFromSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -456,9 +442,8 @@ bool KDirSortFilterProxyModel_SuperFilterAcceptsRow(const KDirSortFilterProxyMod
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnFilterAcceptsRow(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_FilterAcceptsRow_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_FilterAcceptsRow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -485,9 +470,8 @@ bool KDirSortFilterProxyModel_SuperFilterAcceptsColumn(const KDirSortFilterProxy
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnFilterAcceptsColumn(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_FilterAcceptsColumn_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_FilterAcceptsColumn_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -514,9 +498,8 @@ QModelIndex* KDirSortFilterProxyModel_SuperIndex(const KDirSortFilterProxyModel*
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnIndex(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Index_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Index_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -543,9 +526,8 @@ QModelIndex* KDirSortFilterProxyModel_SuperParent(const KDirSortFilterProxyModel
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnParent(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Parent_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Parent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -572,9 +554,8 @@ QModelIndex* KDirSortFilterProxyModel_SuperSibling(const KDirSortFilterProxyMode
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnSibling(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Sibling_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -601,9 +582,8 @@ int KDirSortFilterProxyModel_SuperRowCount(const KDirSortFilterProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnRowCount(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_RowCount_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_RowCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -630,9 +610,8 @@ int KDirSortFilterProxyModel_SuperColumnCount(const KDirSortFilterProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnColumnCount(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_ColumnCount_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_ColumnCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -659,9 +638,8 @@ QVariant* KDirSortFilterProxyModel_SuperData(const KDirSortFilterProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnData(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Data_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Data_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -688,9 +666,8 @@ bool KDirSortFilterProxyModel_SuperSetData(KDirSortFilterProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnSetData(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_SetData_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -717,9 +694,8 @@ QVariant* KDirSortFilterProxyModel_SuperHeaderData(const KDirSortFilterProxyMode
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnHeaderData(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_HeaderData_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -746,9 +722,8 @@ bool KDirSortFilterProxyModel_SuperSetHeaderData(KDirSortFilterProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnSetHeaderData(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_SetHeaderData_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -787,9 +762,8 @@ QMimeData* KDirSortFilterProxyModel_SuperMimeData(const KDirSortFilterProxyModel
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnMimeData(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MimeData_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -816,9 +790,8 @@ bool KDirSortFilterProxyModel_SuperDropMimeData(KDirSortFilterProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnDropMimeData(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_DropMimeData_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -845,9 +818,8 @@ bool KDirSortFilterProxyModel_SuperInsertRows(KDirSortFilterProxyModel* self, in
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnInsertRows(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_InsertRows_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -874,9 +846,8 @@ bool KDirSortFilterProxyModel_SuperInsertColumns(KDirSortFilterProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnInsertColumns(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_InsertColumns_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -903,9 +874,8 @@ bool KDirSortFilterProxyModel_SuperRemoveRows(KDirSortFilterProxyModel* self, in
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnRemoveRows(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_RemoveRows_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -932,9 +902,8 @@ bool KDirSortFilterProxyModel_SuperRemoveColumns(KDirSortFilterProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnRemoveColumns(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_RemoveColumns_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -961,9 +930,8 @@ void KDirSortFilterProxyModel_SuperFetchMore(KDirSortFilterProxyModel* self, con
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnFetchMore(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_FetchMore_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -990,9 +958,8 @@ int KDirSortFilterProxyModel_SuperFlags(const KDirSortFilterProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnFlags(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Flags_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Flags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1019,9 +986,8 @@ QModelIndex* KDirSortFilterProxyModel_SuperBuddy(const KDirSortFilterProxyModel*
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnBuddy(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Buddy_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1084,9 +1050,8 @@ libqt_list /* of QModelIndex* */ KDirSortFilterProxyModel_SuperMatch(const KDirS
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnMatch(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Match_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1113,9 +1078,8 @@ QSize* KDirSortFilterProxyModel_SuperSpan(const KDirSortFilterProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnSpan(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Span_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1210,9 +1174,8 @@ libqt_list /* of libqt_string */ KDirSortFilterProxyModel_SuperMimeTypes(const K
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnMimeTypes(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MimeTypes_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1239,9 +1202,8 @@ int KDirSortFilterProxyModel_SuperSupportedDropActions(const KDirSortFilterProxy
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnSupportedDropActions(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_SupportedDropActions_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1268,9 +1230,8 @@ bool KDirSortFilterProxyModel_SuperSubmit(KDirSortFilterProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnSubmit(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Submit_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1297,9 +1258,8 @@ void KDirSortFilterProxyModel_SuperRevert(KDirSortFilterProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnRevert(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Revert_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1382,9 +1342,8 @@ libqt_map /* of int to QVariant* */ KDirSortFilterProxyModel_SuperItemData(const
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnItemData(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_ItemData_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1423,9 +1382,8 @@ bool KDirSortFilterProxyModel_SuperSetItemData(KDirSortFilterProxyModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnSetItemData(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_SetItemData_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1452,9 +1410,8 @@ bool KDirSortFilterProxyModel_SuperClearItemData(KDirSortFilterProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnClearItemData(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_ClearItemData_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1481,9 +1438,8 @@ bool KDirSortFilterProxyModel_SuperCanDropMimeData(const KDirSortFilterProxyMode
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnCanDropMimeData(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_CanDropMimeData_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1510,9 +1466,8 @@ int KDirSortFilterProxyModel_SuperSupportedDragActions(const KDirSortFilterProxy
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnSupportedDragActions(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_SupportedDragActions_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1615,9 +1570,8 @@ libqt_map /* of int to libqt_string */ KDirSortFilterProxyModel_SuperRoleNames(c
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnRoleNames(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_RoleNames_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1644,9 +1598,8 @@ bool KDirSortFilterProxyModel_SuperMoveRows(KDirSortFilterProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnMoveRows(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MoveRows_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1673,9 +1626,8 @@ bool KDirSortFilterProxyModel_SuperMoveColumns(KDirSortFilterProxyModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnMoveColumns(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MoveColumns_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1702,9 +1654,8 @@ void KDirSortFilterProxyModel_SuperMultiData(const KDirSortFilterProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnMultiData(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_MultiData_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1731,9 +1682,8 @@ void KDirSortFilterProxyModel_SuperResetInternalData(KDirSortFilterProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnResetInternalData(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_ResetInternalData_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1760,9 +1710,8 @@ bool KDirSortFilterProxyModel_SuperEvent(KDirSortFilterProxyModel* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnEvent(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Event_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1789,9 +1738,8 @@ bool KDirSortFilterProxyModel_SuperEventFilter(KDirSortFilterProxyModel* self, Q
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnEventFilter(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EventFilter_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1818,9 +1766,8 @@ void KDirSortFilterProxyModel_SuperTimerEvent(KDirSortFilterProxyModel* self, QT
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnTimerEvent(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_TimerEvent_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1847,9 +1794,8 @@ void KDirSortFilterProxyModel_SuperChildEvent(KDirSortFilterProxyModel* self, QC
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnChildEvent(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_ChildEvent_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1876,9 +1822,8 @@ void KDirSortFilterProxyModel_SuperCustomEvent(KDirSortFilterProxyModel* self, Q
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnCustomEvent(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_CustomEvent_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1905,9 +1850,8 @@ void KDirSortFilterProxyModel_SuperConnectNotify(KDirSortFilterProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnConnectNotify(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_ConnectNotify_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1934,9 +1878,8 @@ void KDirSortFilterProxyModel_SuperDisconnectNotify(KDirSortFilterProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnDisconnectNotify(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_DisconnectNotify_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1963,9 +1906,8 @@ void KDirSortFilterProxyModel_SuperInvalidateFilter(KDirSortFilterProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnInvalidateFilter(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_InvalidateFilter_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_InvalidateFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1992,9 +1934,8 @@ void KDirSortFilterProxyModel_SuperInvalidateRowsFilter(KDirSortFilterProxyModel
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnInvalidateRowsFilter(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_InvalidateRowsFilter_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_InvalidateRowsFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2021,9 +1962,8 @@ void KDirSortFilterProxyModel_SuperInvalidateColumnsFilter(KDirSortFilterProxyMo
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnInvalidateColumnsFilter(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_InvalidateColumnsFilter_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_InvalidateColumnsFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2048,9 +1988,8 @@ QModelIndex* KDirSortFilterProxyModel_SuperCreateSourceIndex(const KDirSortFilte
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnCreateSourceIndex(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_CreateSourceIndex_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_CreateSourceIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2075,9 +2014,8 @@ QModelIndex* KDirSortFilterProxyModel_SuperCreateIndex(const KDirSortFilterProxy
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnCreateIndex(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_CreateIndex_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2116,9 +2054,8 @@ void KDirSortFilterProxyModel_SuperEncodeData(const KDirSortFilterProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnEncodeData(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EncodeData_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2145,9 +2082,8 @@ bool KDirSortFilterProxyModel_SuperDecodeData(KDirSortFilterProxyModel* self, in
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnDecodeData(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_DecodeData_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2174,9 +2110,8 @@ void KDirSortFilterProxyModel_SuperBeginInsertRows(KDirSortFilterProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnBeginInsertRows(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_BeginInsertRows_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2203,9 +2138,8 @@ void KDirSortFilterProxyModel_SuperEndInsertRows(KDirSortFilterProxyModel* self)
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnEndInsertRows(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EndInsertRows_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2232,9 +2166,8 @@ void KDirSortFilterProxyModel_SuperBeginRemoveRows(KDirSortFilterProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnBeginRemoveRows(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2261,9 +2194,8 @@ void KDirSortFilterProxyModel_SuperEndRemoveRows(KDirSortFilterProxyModel* self)
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnEndRemoveRows(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EndRemoveRows_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2290,9 +2222,8 @@ bool KDirSortFilterProxyModel_SuperBeginMoveRows(KDirSortFilterProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnBeginMoveRows(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_BeginMoveRows_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2319,9 +2250,8 @@ void KDirSortFilterProxyModel_SuperEndMoveRows(KDirSortFilterProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnEndMoveRows(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EndMoveRows_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2348,9 +2278,8 @@ void KDirSortFilterProxyModel_SuperBeginInsertColumns(KDirSortFilterProxyModel* 
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnBeginInsertColumns(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2377,9 +2306,8 @@ void KDirSortFilterProxyModel_SuperEndInsertColumns(KDirSortFilterProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnEndInsertColumns(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EndInsertColumns_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2406,9 +2334,8 @@ void KDirSortFilterProxyModel_SuperBeginRemoveColumns(KDirSortFilterProxyModel* 
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnBeginRemoveColumns(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2435,9 +2362,8 @@ void KDirSortFilterProxyModel_SuperEndRemoveColumns(KDirSortFilterProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnEndRemoveColumns(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2464,9 +2390,8 @@ bool KDirSortFilterProxyModel_SuperBeginMoveColumns(KDirSortFilterProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnBeginMoveColumns(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2493,9 +2418,8 @@ void KDirSortFilterProxyModel_SuperEndMoveColumns(KDirSortFilterProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnEndMoveColumns(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EndMoveColumns_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2522,9 +2446,8 @@ void KDirSortFilterProxyModel_SuperBeginResetModel(KDirSortFilterProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnBeginResetModel(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_BeginResetModel_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2551,9 +2474,8 @@ void KDirSortFilterProxyModel_SuperEndResetModel(KDirSortFilterProxyModel* self)
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnEndResetModel(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_EndResetModel_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2580,9 +2502,8 @@ void KDirSortFilterProxyModel_SuperChangePersistentIndex(KDirSortFilterProxyMode
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnChangePersistentIndex(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2633,9 +2554,8 @@ void KDirSortFilterProxyModel_SuperChangePersistentIndexList(KDirSortFilterProxy
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnChangePersistentIndexList(KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2698,9 +2618,8 @@ libqt_list /* of QModelIndex* */ KDirSortFilterProxyModel_SuperPersistentIndexLi
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnPersistentIndexList(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_PersistentIndexList_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2727,9 +2646,8 @@ QObject* KDirSortFilterProxyModel_SuperSender(const KDirSortFilterProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnSender(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Sender_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2756,9 +2674,8 @@ int KDirSortFilterProxyModel_SuperSenderSignalIndex(const KDirSortFilterProxyMod
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnSenderSignalIndex(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2785,9 +2702,8 @@ int KDirSortFilterProxyModel_SuperReceivers(const KDirSortFilterProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnReceivers(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_Receivers_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2814,9 +2730,8 @@ bool KDirSortFilterProxyModel_SuperIsSignalConnected(const KDirSortFilterProxyMo
 // Auxiliary method to allow providing re-implementation
 void KDirSortFilterProxyModel_OnIsSignalConnected(const KDirSortFilterProxyModel* self, intptr_t slot) {
     auto* vkdirsortfilterproxymodel = const_cast<VirtualKDirSortFilterProxyModel*>(dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self));
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
+    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel)
         vkdirsortfilterproxymodel->setKDirSortFilterProxyModel_IsSignalConnected_Callback(reinterpret_cast<VirtualKDirSortFilterProxyModel::KDirSortFilterProxyModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KDirSortFilterProxyModel_Delete(KDirSortFilterProxyModel* self) {

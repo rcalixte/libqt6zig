@@ -5,6 +5,7 @@ const QBindingStorage = @import("libqt6").QBindingStorage;
 const QChildEvent = @import("libqt6").QChildEvent;
 const QEvent = @import("libqt6").QEvent;
 const QHostAddress = @import("libqt6").QHostAddress;
+const QIODeviceBase = @import("libqt6").QIODeviceBase;
 const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
@@ -1234,6 +1235,18 @@ pub const QSctpSocket = extern struct {
     pub fn connectToHost3(self: QSctpSocket, address: anytype, port: u16, mode: i32) void {
         comptime _ = @TypeOf(address)._is_QHostAddress;
         qtc.QAbstractSocket_ConnectToHost3(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port), @bitCast(mode));
+    }
+
+    /// Inherited from QIODevice
+    ///
+    /// Upcasts to a QIODeviceBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSctpSocket `
+    ///
+    pub fn asQIODeviceBase(self: QSctpSocket) QIODeviceBase {
+        return .{ .ptr = qtc.QIODevice_AsQIODeviceBase(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `openMode` instead

@@ -4814,7 +4814,7 @@ pub const QValueAxis = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#public-types)
 pub const enums = struct {
-    pub const TickType = enum(i32) {
+    pub const TickType = enum {
         pub const TicksDynamic: i32 = 0;
         pub const TicksFixed: i32 = 1;
     };

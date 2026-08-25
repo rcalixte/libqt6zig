@@ -88,9 +88,8 @@ QMetaObject* KAdjustingScrollArea_SuperMetaObject(const KAdjustingScrollArea* se
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnMetaObject(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_MetaObject_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -107,9 +106,8 @@ void* KAdjustingScrollArea_SuperMetacast(KAdjustingScrollArea* self, const char*
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnMetacast(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_Metacast_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -126,9 +124,8 @@ int KAdjustingScrollArea_SuperMetacall(KAdjustingScrollArea* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnMetacall(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_Metacall_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -145,9 +142,8 @@ QSize* KAdjustingScrollArea_SuperMinimumSizeHint(const KAdjustingScrollArea* sel
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnMinimumSizeHint(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_MinimumSizeHint_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -164,9 +160,8 @@ QSize* KAdjustingScrollArea_SuperSizeHint(const KAdjustingScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnSizeHint(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_SizeHint_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -183,9 +178,8 @@ bool KAdjustingScrollArea_SuperEvent(KAdjustingScrollArea* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_Event_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -212,9 +206,8 @@ bool KAdjustingScrollArea_SuperFocusNextPrevChild(KAdjustingScrollArea* self, bo
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnFocusNextPrevChild(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -241,9 +234,8 @@ void KAdjustingScrollArea_SuperResizeEvent(KAdjustingScrollArea* self, QResizeEv
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnResizeEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_ResizeEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -270,9 +262,8 @@ void KAdjustingScrollArea_SuperScrollContentsBy(KAdjustingScrollArea* self, int 
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnScrollContentsBy(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_ScrollContentsBy_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -297,9 +288,8 @@ QSize* KAdjustingScrollArea_SuperViewportSizeHint(const KAdjustingScrollArea* se
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnViewportSizeHint(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_ViewportSizeHint_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -326,9 +316,8 @@ void KAdjustingScrollArea_SuperSetupViewport(KAdjustingScrollArea* self, QWidget
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnSetupViewport(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_SetupViewport_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -355,9 +344,8 @@ bool KAdjustingScrollArea_SuperViewportEvent(KAdjustingScrollArea* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnViewportEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_ViewportEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -384,9 +372,8 @@ void KAdjustingScrollArea_SuperPaintEvent(KAdjustingScrollArea* self, QPaintEven
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnPaintEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_PaintEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -413,9 +400,8 @@ void KAdjustingScrollArea_SuperMousePressEvent(KAdjustingScrollArea* self, QMous
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnMousePressEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_MousePressEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -442,9 +428,8 @@ void KAdjustingScrollArea_SuperMouseReleaseEvent(KAdjustingScrollArea* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnMouseReleaseEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -471,9 +456,8 @@ void KAdjustingScrollArea_SuperMouseDoubleClickEvent(KAdjustingScrollArea* self,
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnMouseDoubleClickEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -500,9 +484,8 @@ void KAdjustingScrollArea_SuperMouseMoveEvent(KAdjustingScrollArea* self, QMouse
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnMouseMoveEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_MouseMoveEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -529,9 +512,8 @@ void KAdjustingScrollArea_SuperWheelEvent(KAdjustingScrollArea* self, QWheelEven
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnWheelEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_WheelEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -558,9 +540,8 @@ void KAdjustingScrollArea_SuperContextMenuEvent(KAdjustingScrollArea* self, QCon
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnContextMenuEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_ContextMenuEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -587,9 +568,8 @@ void KAdjustingScrollArea_SuperDragEnterEvent(KAdjustingScrollArea* self, QDragE
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnDragEnterEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_DragEnterEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -616,9 +596,8 @@ void KAdjustingScrollArea_SuperDragMoveEvent(KAdjustingScrollArea* self, QDragMo
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnDragMoveEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_DragMoveEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -645,9 +624,8 @@ void KAdjustingScrollArea_SuperDragLeaveEvent(KAdjustingScrollArea* self, QDragL
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnDragLeaveEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_DragLeaveEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -674,9 +652,8 @@ void KAdjustingScrollArea_SuperDropEvent(KAdjustingScrollArea* self, QDropEvent*
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnDropEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_DropEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -703,9 +680,8 @@ void KAdjustingScrollArea_SuperKeyPressEvent(KAdjustingScrollArea* self, QKeyEve
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnKeyPressEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_KeyPressEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -732,9 +708,8 @@ void KAdjustingScrollArea_SuperChangeEvent(KAdjustingScrollArea* self, QEvent* p
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnChangeEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_ChangeEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -761,9 +736,8 @@ void KAdjustingScrollArea_SuperInitStyleOption(const KAdjustingScrollArea* self,
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnInitStyleOption(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_InitStyleOption_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -790,9 +764,8 @@ int KAdjustingScrollArea_SuperDevType(const KAdjustingScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnDevType(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_DevType_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -819,9 +792,8 @@ void KAdjustingScrollArea_SuperSetVisible(KAdjustingScrollArea* self, bool visib
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnSetVisible(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_SetVisible_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -848,9 +820,8 @@ int KAdjustingScrollArea_SuperHeightForWidth(const KAdjustingScrollArea* self, i
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnHeightForWidth(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_HeightForWidth_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -877,9 +848,8 @@ bool KAdjustingScrollArea_SuperHasHeightForWidth(const KAdjustingScrollArea* sel
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnHasHeightForWidth(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_HasHeightForWidth_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -906,9 +876,8 @@ QPaintEngine* KAdjustingScrollArea_SuperPaintEngine(const KAdjustingScrollArea* 
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnPaintEngine(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_PaintEngine_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -935,9 +904,8 @@ void KAdjustingScrollArea_SuperKeyReleaseEvent(KAdjustingScrollArea* self, QKeyE
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnKeyReleaseEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -964,9 +932,8 @@ void KAdjustingScrollArea_SuperFocusInEvent(KAdjustingScrollArea* self, QFocusEv
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnFocusInEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_FocusInEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -993,9 +960,8 @@ void KAdjustingScrollArea_SuperFocusOutEvent(KAdjustingScrollArea* self, QFocusE
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnFocusOutEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_FocusOutEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1022,9 +988,8 @@ void KAdjustingScrollArea_SuperEnterEvent(KAdjustingScrollArea* self, QEnterEven
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnEnterEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_EnterEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1051,9 +1016,8 @@ void KAdjustingScrollArea_SuperLeaveEvent(KAdjustingScrollArea* self, QEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnLeaveEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_LeaveEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1080,9 +1044,8 @@ void KAdjustingScrollArea_SuperMoveEvent(KAdjustingScrollArea* self, QMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnMoveEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_MoveEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1109,9 +1072,8 @@ void KAdjustingScrollArea_SuperCloseEvent(KAdjustingScrollArea* self, QCloseEven
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnCloseEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_CloseEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1138,9 +1100,8 @@ void KAdjustingScrollArea_SuperTabletEvent(KAdjustingScrollArea* self, QTabletEv
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnTabletEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_TabletEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1167,9 +1128,8 @@ void KAdjustingScrollArea_SuperActionEvent(KAdjustingScrollArea* self, QActionEv
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnActionEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_ActionEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1196,9 +1156,8 @@ void KAdjustingScrollArea_SuperShowEvent(KAdjustingScrollArea* self, QShowEvent*
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnShowEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_ShowEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1225,9 +1184,8 @@ void KAdjustingScrollArea_SuperHideEvent(KAdjustingScrollArea* self, QHideEvent*
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnHideEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_HideEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1256,9 +1214,8 @@ bool KAdjustingScrollArea_SuperNativeEvent(KAdjustingScrollArea* self, const lib
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnNativeEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_NativeEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1285,9 +1242,8 @@ int KAdjustingScrollArea_SuperMetric(const KAdjustingScrollArea* self, int param
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnMetric(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_Metric_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1314,9 +1270,8 @@ void KAdjustingScrollArea_SuperInitPainter(const KAdjustingScrollArea* self, QPa
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnInitPainter(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_InitPainter_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1343,9 +1298,8 @@ QPaintDevice* KAdjustingScrollArea_SuperRedirected(const KAdjustingScrollArea* s
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnRedirected(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_Redirected_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1372,9 +1326,8 @@ QPainter* KAdjustingScrollArea_SuperSharedPainter(const KAdjustingScrollArea* se
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnSharedPainter(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_SharedPainter_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1401,9 +1354,8 @@ void KAdjustingScrollArea_SuperInputMethodEvent(KAdjustingScrollArea* self, QInp
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnInputMethodEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_InputMethodEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1430,9 +1382,8 @@ QVariant* KAdjustingScrollArea_SuperInputMethodQuery(const KAdjustingScrollArea*
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnInputMethodQuery(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_InputMethodQuery_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1459,9 +1410,8 @@ void KAdjustingScrollArea_SuperTimerEvent(KAdjustingScrollArea* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnTimerEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_TimerEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1488,9 +1438,8 @@ void KAdjustingScrollArea_SuperChildEvent(KAdjustingScrollArea* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnChildEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_ChildEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1517,9 +1466,8 @@ void KAdjustingScrollArea_SuperCustomEvent(KAdjustingScrollArea* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnCustomEvent(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_CustomEvent_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1546,9 +1494,8 @@ void KAdjustingScrollArea_SuperConnectNotify(KAdjustingScrollArea* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnConnectNotify(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_ConnectNotify_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1575,9 +1522,8 @@ void KAdjustingScrollArea_SuperDisconnectNotify(KAdjustingScrollArea* self, cons
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnDisconnectNotify(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_DisconnectNotify_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1604,9 +1550,8 @@ void KAdjustingScrollArea_SuperSetViewportMargins(KAdjustingScrollArea* self, in
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnSetViewportMargins(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_SetViewportMargins_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1631,9 +1576,8 @@ QMargins* KAdjustingScrollArea_SuperViewportMargins(const KAdjustingScrollArea* 
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnViewportMargins(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_ViewportMargins_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1660,9 +1604,8 @@ void KAdjustingScrollArea_SuperDrawFrame(KAdjustingScrollArea* self, QPainter* p
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnDrawFrame(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_DrawFrame_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1689,9 +1632,8 @@ void KAdjustingScrollArea_SuperUpdateMicroFocus(KAdjustingScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnUpdateMicroFocus(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1718,9 +1660,8 @@ void KAdjustingScrollArea_SuperCreate(KAdjustingScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnCreate(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_Create_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1747,9 +1688,8 @@ void KAdjustingScrollArea_SuperDestroy(KAdjustingScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnDestroy(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_Destroy_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1776,9 +1716,8 @@ bool KAdjustingScrollArea_SuperFocusNextChild(KAdjustingScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnFocusNextChild(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_FocusNextChild_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1805,9 +1744,8 @@ bool KAdjustingScrollArea_SuperFocusPreviousChild(KAdjustingScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnFocusPreviousChild(KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = dynamic_cast<VirtualKAdjustingScrollArea*>(self);
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_FocusPreviousChild_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1834,9 +1772,8 @@ QObject* KAdjustingScrollArea_SuperSender(const KAdjustingScrollArea* self) {
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnSender(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_Sender_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1863,9 +1800,8 @@ int KAdjustingScrollArea_SuperSenderSignalIndex(const KAdjustingScrollArea* self
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnSenderSignalIndex(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_SenderSignalIndex_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1892,9 +1828,8 @@ int KAdjustingScrollArea_SuperReceivers(const KAdjustingScrollArea* self, const 
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnReceivers(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_Receivers_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1921,9 +1856,8 @@ bool KAdjustingScrollArea_SuperIsSignalConnected(const KAdjustingScrollArea* sel
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnIsSignalConnected(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_IsSignalConnected_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1950,9 +1884,8 @@ double KAdjustingScrollArea_SuperGetDecodedMetricF(const KAdjustingScrollArea* s
 // Auxiliary method to allow providing re-implementation
 void KAdjustingScrollArea_OnGetDecodedMetricF(const KAdjustingScrollArea* self, intptr_t slot) {
     auto* vkadjustingscrollarea = const_cast<VirtualKAdjustingScrollArea*>(dynamic_cast<const VirtualKAdjustingScrollArea*>(self));
-    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea) {
+    if (vkadjustingscrollarea && vkadjustingscrollarea->isVirtualKAdjustingScrollArea)
         vkadjustingscrollarea->setKAdjustingScrollArea_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKAdjustingScrollArea::KAdjustingScrollArea_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KAdjustingScrollArea_Delete(KAdjustingScrollArea* self) {

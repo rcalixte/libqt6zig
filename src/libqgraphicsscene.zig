@@ -5577,12 +5577,12 @@ pub const QGraphicsScene = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscene.html#public-types)
 pub const enums = struct {
-    pub const ItemIndexMethod = enum(i32) {
+    pub const ItemIndexMethod = enum {
         pub const BspTreeIndex: i32 = 0;
         pub const NoIndex: i32 = -1;
     };
 
-    pub const SceneLayer = enum(i32) {
+    pub const SceneLayer = enum {
         pub const ItemLayer: i32 = 1;
         pub const BackgroundLayer: i32 = 2;
         pub const ForegroundLayer: i32 = 4;

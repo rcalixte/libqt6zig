@@ -124,9 +124,8 @@ bool KTar_SuperDoWriteSymLink(KTar* self, const libqt_string name, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void KTar_OnDoWriteSymLink(KTar* self, intptr_t slot) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar && vktar->isVirtualKTar)
         vktar->setKTar_DoWriteSymLink_Callback(reinterpret_cast<VirtualKTar::KTar_DoWriteSymLink_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -146,9 +145,8 @@ bool KTar_SuperDoWriteDir(KTar* self, const libqt_string name, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void KTar_OnDoWriteDir(KTar* self, intptr_t slot) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar && vktar->isVirtualKTar)
         vktar->setKTar_DoWriteDir_Callback(reinterpret_cast<VirtualKTar::KTar_DoWriteDir_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -168,9 +166,8 @@ bool KTar_SuperDoPrepareWriting(KTar* self, const libqt_string name, const libqt
 // Auxiliary method to allow providing re-implementation
 void KTar_OnDoPrepareWriting(KTar* self, intptr_t slot) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar && vktar->isVirtualKTar)
         vktar->setKTar_DoPrepareWriting_Callback(reinterpret_cast<VirtualKTar::KTar_DoPrepareWriting_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -187,9 +184,8 @@ bool KTar_SuperDoFinishWriting(KTar* self, long long size) {
 // Auxiliary method to allow providing re-implementation
 void KTar_OnDoFinishWriting(KTar* self, intptr_t slot) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar && vktar->isVirtualKTar)
         vktar->setKTar_DoFinishWriting_Callback(reinterpret_cast<VirtualKTar::KTar_DoFinishWriting_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -206,9 +202,8 @@ bool KTar_SuperOpenArchive(KTar* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KTar_OnOpenArchive(KTar* self, intptr_t slot) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar && vktar->isVirtualKTar)
         vktar->setKTar_OpenArchive_Callback(reinterpret_cast<VirtualKTar::KTar_OpenArchive_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -225,9 +220,8 @@ bool KTar_SuperCloseArchive(KTar* self) {
 // Auxiliary method to allow providing re-implementation
 void KTar_OnCloseArchive(KTar* self, intptr_t slot) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar && vktar->isVirtualKTar)
         vktar->setKTar_CloseArchive_Callback(reinterpret_cast<VirtualKTar::KTar_CloseArchive_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -244,9 +238,8 @@ bool KTar_SuperCreateDevice(KTar* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KTar_OnCreateDevice(KTar* self, intptr_t slot) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar && vktar->isVirtualKTar)
         vktar->setKTar_CreateDevice_Callback(reinterpret_cast<VirtualKTar::KTar_CreateDevice_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -263,9 +256,8 @@ void KTar_SuperVirtualHook(KTar* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void KTar_OnVirtualHook(KTar* self, intptr_t slot) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar && vktar->isVirtualKTar)
         vktar->setKTar_VirtualHook_Callback(reinterpret_cast<VirtualKTar::KTar_VirtualHook_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -292,9 +284,8 @@ bool KTar_SuperOpen(KTar* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KTar_OnOpen(KTar* self, intptr_t slot) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar && vktar->isVirtualKTar)
         vktar->setKTar_Open_Callback(reinterpret_cast<VirtualKTar::KTar_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -321,9 +312,8 @@ bool KTar_SuperClose(KTar* self) {
 // Auxiliary method to allow providing re-implementation
 void KTar_OnClose(KTar* self, intptr_t slot) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar && vktar->isVirtualKTar)
         vktar->setKTar_Close_Callback(reinterpret_cast<VirtualKTar::KTar_Close_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -350,9 +340,8 @@ KArchiveDirectory* KTar_SuperRootDir(KTar* self) {
 // Auxiliary method to allow providing re-implementation
 void KTar_OnRootDir(KTar* self, intptr_t slot) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar && vktar->isVirtualKTar)
         vktar->setKTar_RootDir_Callback(reinterpret_cast<VirtualKTar::KTar_RootDir_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -379,9 +368,8 @@ bool KTar_SuperDoWriteData(KTar* self, const char* data, long long size) {
 // Auxiliary method to allow providing re-implementation
 void KTar_OnDoWriteData(KTar* self, intptr_t slot) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar && vktar->isVirtualKTar)
         vktar->setKTar_DoWriteData_Callback(reinterpret_cast<VirtualKTar::KTar_DoWriteData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -410,9 +398,8 @@ void KTar_SuperSetErrorString(KTar* self, const libqt_string errorStr) {
 // Auxiliary method to allow providing re-implementation
 void KTar_OnSetErrorString(KTar* self, intptr_t slot) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar && vktar->isVirtualKTar)
         vktar->setKTar_SetErrorString_Callback(reinterpret_cast<VirtualKTar::KTar_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -441,9 +428,8 @@ KArchiveDirectory* KTar_SuperFindOrCreate(KTar* self, const libqt_string path) {
 // Auxiliary method to allow providing re-implementation
 void KTar_OnFindOrCreate(KTar* self, intptr_t slot) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar && vktar->isVirtualKTar)
         vktar->setKTar_FindOrCreate_Callback(reinterpret_cast<VirtualKTar::KTar_FindOrCreate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -470,9 +456,8 @@ void KTar_SuperSetDevice(KTar* self, QIODevice* dev) {
 // Auxiliary method to allow providing re-implementation
 void KTar_OnSetDevice(KTar* self, intptr_t slot) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar && vktar->isVirtualKTar)
         vktar->setKTar_SetDevice_Callback(reinterpret_cast<VirtualKTar::KTar_SetDevice_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -499,9 +484,8 @@ void KTar_SuperSetRootDir(KTar* self, KArchiveDirectory* rootDir) {
 // Auxiliary method to allow providing re-implementation
 void KTar_OnSetRootDir(KTar* self, intptr_t slot) {
     auto* vktar = dynamic_cast<VirtualKTar*>(self);
-    if (vktar && vktar->isVirtualKTar) {
+    if (vktar && vktar->isVirtualKTar)
         vktar->setKTar_SetRootDir_Callback(reinterpret_cast<VirtualKTar::KTar_SetRootDir_Callback>(slot));
-    }
 }
 
 void KTar_Delete(KTar* self) {

@@ -124,13 +124,13 @@ pub const KParts__PartLoader = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kparts-partloader.html#public-types)
 pub const enums = struct {
-    pub const PartCapability = enum(i32) {
+    pub const PartCapability = enum {
         pub const ReadOnly: i32 = 1;
         pub const ReadWrite: i32 = 2;
         pub const BrowserView: i32 = 4;
     };
 
-    pub const ErrorType = enum(i32) {
+    pub const ErrorType = enum {
         pub const CouldNotLoadPlugin: i32 = 0;
         pub const NoPartFoundForMimeType: i32 = 1;
         pub const NoPartInstantiatedForMimeType: i32 = 2;

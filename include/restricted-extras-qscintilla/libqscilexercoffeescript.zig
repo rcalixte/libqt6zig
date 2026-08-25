@@ -4279,7 +4279,7 @@ pub const QsciLexerCoffeeScript = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerCoffeeScript = enum(i32) {
+    pub const QsciLexerCoffeeScript = enum {
         pub const Default: i32 = 0;
         pub const Comment: i32 = 1;
         pub const CommentLine: i32 = 2;

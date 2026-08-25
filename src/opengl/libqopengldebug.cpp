@@ -312,9 +312,8 @@ QMetaObject* QOpenGLDebugLogger_SuperMetaObject(const QOpenGLDebugLogger* self) 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLDebugLogger_OnMetaObject(const QOpenGLDebugLogger* self, intptr_t slot) {
     auto* vqopengldebuglogger = const_cast<VirtualQOpenGLDebugLogger*>(dynamic_cast<const VirtualQOpenGLDebugLogger*>(self));
-    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger)
         vqopengldebuglogger->setQOpenGLDebugLogger_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLDebugLogger::QOpenGLDebugLogger_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -331,9 +330,8 @@ void* QOpenGLDebugLogger_SuperMetacast(QOpenGLDebugLogger* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void QOpenGLDebugLogger_OnMetacast(QOpenGLDebugLogger* self, intptr_t slot) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
-    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger)
         vqopengldebuglogger->setQOpenGLDebugLogger_Metacast_Callback(reinterpret_cast<VirtualQOpenGLDebugLogger::QOpenGLDebugLogger_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -350,9 +348,8 @@ int QOpenGLDebugLogger_SuperMetacall(QOpenGLDebugLogger* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void QOpenGLDebugLogger_OnMetacall(QOpenGLDebugLogger* self, intptr_t slot) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
-    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger)
         vqopengldebuglogger->setQOpenGLDebugLogger_Metacall_Callback(reinterpret_cast<VirtualQOpenGLDebugLogger::QOpenGLDebugLogger_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -379,9 +376,8 @@ bool QOpenGLDebugLogger_SuperEvent(QOpenGLDebugLogger* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLDebugLogger_OnEvent(QOpenGLDebugLogger* self, intptr_t slot) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
-    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger)
         vqopengldebuglogger->setQOpenGLDebugLogger_Event_Callback(reinterpret_cast<VirtualQOpenGLDebugLogger::QOpenGLDebugLogger_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -408,9 +404,8 @@ bool QOpenGLDebugLogger_SuperEventFilter(QOpenGLDebugLogger* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void QOpenGLDebugLogger_OnEventFilter(QOpenGLDebugLogger* self, intptr_t slot) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
-    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger)
         vqopengldebuglogger->setQOpenGLDebugLogger_EventFilter_Callback(reinterpret_cast<VirtualQOpenGLDebugLogger::QOpenGLDebugLogger_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -437,9 +432,8 @@ void QOpenGLDebugLogger_SuperTimerEvent(QOpenGLDebugLogger* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void QOpenGLDebugLogger_OnTimerEvent(QOpenGLDebugLogger* self, intptr_t slot) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
-    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger)
         vqopengldebuglogger->setQOpenGLDebugLogger_TimerEvent_Callback(reinterpret_cast<VirtualQOpenGLDebugLogger::QOpenGLDebugLogger_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -466,9 +460,8 @@ void QOpenGLDebugLogger_SuperChildEvent(QOpenGLDebugLogger* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void QOpenGLDebugLogger_OnChildEvent(QOpenGLDebugLogger* self, intptr_t slot) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
-    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger)
         vqopengldebuglogger->setQOpenGLDebugLogger_ChildEvent_Callback(reinterpret_cast<VirtualQOpenGLDebugLogger::QOpenGLDebugLogger_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -495,9 +488,8 @@ void QOpenGLDebugLogger_SuperCustomEvent(QOpenGLDebugLogger* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QOpenGLDebugLogger_OnCustomEvent(QOpenGLDebugLogger* self, intptr_t slot) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
-    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger)
         vqopengldebuglogger->setQOpenGLDebugLogger_CustomEvent_Callback(reinterpret_cast<VirtualQOpenGLDebugLogger::QOpenGLDebugLogger_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -524,9 +516,8 @@ void QOpenGLDebugLogger_SuperConnectNotify(QOpenGLDebugLogger* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QOpenGLDebugLogger_OnConnectNotify(QOpenGLDebugLogger* self, intptr_t slot) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
-    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger)
         vqopengldebuglogger->setQOpenGLDebugLogger_ConnectNotify_Callback(reinterpret_cast<VirtualQOpenGLDebugLogger::QOpenGLDebugLogger_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -553,9 +544,8 @@ void QOpenGLDebugLogger_SuperDisconnectNotify(QOpenGLDebugLogger* self, const QM
 // Auxiliary method to allow providing re-implementation
 void QOpenGLDebugLogger_OnDisconnectNotify(QOpenGLDebugLogger* self, intptr_t slot) {
     auto* vqopengldebuglogger = dynamic_cast<VirtualQOpenGLDebugLogger*>(self);
-    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger)
         vqopengldebuglogger->setQOpenGLDebugLogger_DisconnectNotify_Callback(reinterpret_cast<VirtualQOpenGLDebugLogger::QOpenGLDebugLogger_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -582,9 +572,8 @@ QObject* QOpenGLDebugLogger_SuperSender(const QOpenGLDebugLogger* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLDebugLogger_OnSender(const QOpenGLDebugLogger* self, intptr_t slot) {
     auto* vqopengldebuglogger = const_cast<VirtualQOpenGLDebugLogger*>(dynamic_cast<const VirtualQOpenGLDebugLogger*>(self));
-    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger)
         vqopengldebuglogger->setQOpenGLDebugLogger_Sender_Callback(reinterpret_cast<VirtualQOpenGLDebugLogger::QOpenGLDebugLogger_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -611,9 +600,8 @@ int QOpenGLDebugLogger_SuperSenderSignalIndex(const QOpenGLDebugLogger* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLDebugLogger_OnSenderSignalIndex(const QOpenGLDebugLogger* self, intptr_t slot) {
     auto* vqopengldebuglogger = const_cast<VirtualQOpenGLDebugLogger*>(dynamic_cast<const VirtualQOpenGLDebugLogger*>(self));
-    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger)
         vqopengldebuglogger->setQOpenGLDebugLogger_SenderSignalIndex_Callback(reinterpret_cast<VirtualQOpenGLDebugLogger::QOpenGLDebugLogger_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -640,9 +628,8 @@ int QOpenGLDebugLogger_SuperReceivers(const QOpenGLDebugLogger* self, const char
 // Auxiliary method to allow providing re-implementation
 void QOpenGLDebugLogger_OnReceivers(const QOpenGLDebugLogger* self, intptr_t slot) {
     auto* vqopengldebuglogger = const_cast<VirtualQOpenGLDebugLogger*>(dynamic_cast<const VirtualQOpenGLDebugLogger*>(self));
-    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger)
         vqopengldebuglogger->setQOpenGLDebugLogger_Receivers_Callback(reinterpret_cast<VirtualQOpenGLDebugLogger::QOpenGLDebugLogger_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -669,9 +656,8 @@ bool QOpenGLDebugLogger_SuperIsSignalConnected(const QOpenGLDebugLogger* self, c
 // Auxiliary method to allow providing re-implementation
 void QOpenGLDebugLogger_OnIsSignalConnected(const QOpenGLDebugLogger* self, intptr_t slot) {
     auto* vqopengldebuglogger = const_cast<VirtualQOpenGLDebugLogger*>(dynamic_cast<const VirtualQOpenGLDebugLogger*>(self));
-    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger) {
+    if (vqopengldebuglogger && vqopengldebuglogger->isVirtualQOpenGLDebugLogger)
         vqopengldebuglogger->setQOpenGLDebugLogger_IsSignalConnected_Callback(reinterpret_cast<VirtualQOpenGLDebugLogger::QOpenGLDebugLogger_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QOpenGLDebugLogger_Delete(QOpenGLDebugLogger* self) {

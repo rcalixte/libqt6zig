@@ -116,9 +116,8 @@ QMetaObject* KPixmapSequenceOverlayPainter_SuperMetaObject(const KPixmapSequence
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnMetaObject(const KPixmapSequenceOverlayPainter* self, intptr_t slot) {
     auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_MetaObject_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -135,9 +134,8 @@ void* KPixmapSequenceOverlayPainter_SuperMetacast(KPixmapSequenceOverlayPainter*
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnMetacast(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Metacast_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -154,9 +152,8 @@ int KPixmapSequenceOverlayPainter_SuperMetacall(KPixmapSequenceOverlayPainter* s
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnMetacall(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Metacall_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -173,9 +170,8 @@ bool KPixmapSequenceOverlayPainter_SuperEventFilter(KPixmapSequenceOverlayPainte
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnEventFilter(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_EventFilter_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -202,9 +198,8 @@ bool KPixmapSequenceOverlayPainter_SuperEvent(KPixmapSequenceOverlayPainter* sel
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnEvent(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Event_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -231,9 +226,8 @@ void KPixmapSequenceOverlayPainter_SuperTimerEvent(KPixmapSequenceOverlayPainter
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnTimerEvent(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_TimerEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -260,9 +254,8 @@ void KPixmapSequenceOverlayPainter_SuperChildEvent(KPixmapSequenceOverlayPainter
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnChildEvent(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_ChildEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -289,9 +282,8 @@ void KPixmapSequenceOverlayPainter_SuperCustomEvent(KPixmapSequenceOverlayPainte
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnCustomEvent(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_CustomEvent_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -318,9 +310,8 @@ void KPixmapSequenceOverlayPainter_SuperConnectNotify(KPixmapSequenceOverlayPain
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnConnectNotify(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_ConnectNotify_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -347,9 +338,8 @@ void KPixmapSequenceOverlayPainter_SuperDisconnectNotify(KPixmapSequenceOverlayP
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnDisconnectNotify(KPixmapSequenceOverlayPainter* self, intptr_t slot) {
     auto* vkpixmapsequenceoverlaypainter = dynamic_cast<VirtualKPixmapSequenceOverlayPainter*>(self);
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_DisconnectNotify_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -376,9 +366,8 @@ QObject* KPixmapSequenceOverlayPainter_SuperSender(const KPixmapSequenceOverlayP
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnSender(const KPixmapSequenceOverlayPainter* self, intptr_t slot) {
     auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Sender_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -405,9 +394,8 @@ int KPixmapSequenceOverlayPainter_SuperSenderSignalIndex(const KPixmapSequenceOv
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnSenderSignalIndex(const KPixmapSequenceOverlayPainter* self, intptr_t slot) {
     auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -434,9 +422,8 @@ int KPixmapSequenceOverlayPainter_SuperReceivers(const KPixmapSequenceOverlayPai
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnReceivers(const KPixmapSequenceOverlayPainter* self, intptr_t slot) {
     auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_Receivers_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -463,9 +450,8 @@ bool KPixmapSequenceOverlayPainter_SuperIsSignalConnected(const KPixmapSequenceO
 // Auxiliary method to allow providing re-implementation
 void KPixmapSequenceOverlayPainter_OnIsSignalConnected(const KPixmapSequenceOverlayPainter* self, intptr_t slot) {
     auto* vkpixmapsequenceoverlaypainter = const_cast<VirtualKPixmapSequenceOverlayPainter*>(dynamic_cast<const VirtualKPixmapSequenceOverlayPainter*>(self));
-    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter) {
+    if (vkpixmapsequenceoverlaypainter && vkpixmapsequenceoverlaypainter->isVirtualKPixmapSequenceOverlayPainter)
         vkpixmapsequenceoverlaypainter->setKPixmapSequenceOverlayPainter_IsSignalConnected_Callback(reinterpret_cast<VirtualKPixmapSequenceOverlayPainter::KPixmapSequenceOverlayPainter_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KPixmapSequenceOverlayPainter_Delete(KPixmapSequenceOverlayPainter* self) {

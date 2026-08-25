@@ -2448,7 +2448,7 @@ pub const QPdfDocument = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfdocument.html#public-types)
 pub const enums = struct {
-    pub const Status = enum(i32) {
+    pub const Status = enum {
         pub const Null: i32 = 0;
         pub const Loading: i32 = 1;
         pub const Ready: i32 = 2;
@@ -2456,7 +2456,7 @@ pub const enums = struct {
         pub const Error: i32 = 4;
     };
 
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const None: i32 = 0;
         pub const Unknown: i32 = 1;
         pub const DataNotYetAvailable: i32 = 2;
@@ -2466,7 +2466,7 @@ pub const enums = struct {
         pub const UnsupportedSecurityScheme: i32 = 6;
     };
 
-    pub const MetaDataField = enum(i32) {
+    pub const MetaDataField = enum {
         pub const Title: i32 = 0;
         pub const Subject: i32 = 1;
         pub const Author: i32 = 2;
@@ -2477,7 +2477,7 @@ pub const enums = struct {
         pub const ModificationDate: i32 = 7;
     };
 
-    pub const PageModelRole = enum(i32) {
+    pub const PageModelRole = enum {
         pub const Label: i32 = 256;
         pub const PointSize: i32 = 257;
         pub const NRoles: i32 = 258;

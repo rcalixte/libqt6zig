@@ -148,9 +148,8 @@ QMetaObject* KGlobalShortcutInfo_SuperMetaObject(const KGlobalShortcutInfo* self
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnMetaObject(const KGlobalShortcutInfo* self, intptr_t slot) {
     auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
         vkglobalshortcutinfo->setKGlobalShortcutInfo_MetaObject_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -167,9 +166,8 @@ void* KGlobalShortcutInfo_SuperMetacast(KGlobalShortcutInfo* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnMetacast(KGlobalShortcutInfo* self, intptr_t slot) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
         vkglobalshortcutinfo->setKGlobalShortcutInfo_Metacast_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -186,9 +184,8 @@ int KGlobalShortcutInfo_SuperMetacall(KGlobalShortcutInfo* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnMetacall(KGlobalShortcutInfo* self, intptr_t slot) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
         vkglobalshortcutinfo->setKGlobalShortcutInfo_Metacall_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -215,9 +212,8 @@ bool KGlobalShortcutInfo_SuperEvent(KGlobalShortcutInfo* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnEvent(KGlobalShortcutInfo* self, intptr_t slot) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
         vkglobalshortcutinfo->setKGlobalShortcutInfo_Event_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -244,9 +240,8 @@ bool KGlobalShortcutInfo_SuperEventFilter(KGlobalShortcutInfo* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnEventFilter(KGlobalShortcutInfo* self, intptr_t slot) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
         vkglobalshortcutinfo->setKGlobalShortcutInfo_EventFilter_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -273,9 +268,8 @@ void KGlobalShortcutInfo_SuperTimerEvent(KGlobalShortcutInfo* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnTimerEvent(KGlobalShortcutInfo* self, intptr_t slot) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
         vkglobalshortcutinfo->setKGlobalShortcutInfo_TimerEvent_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -302,9 +296,8 @@ void KGlobalShortcutInfo_SuperChildEvent(KGlobalShortcutInfo* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnChildEvent(KGlobalShortcutInfo* self, intptr_t slot) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
         vkglobalshortcutinfo->setKGlobalShortcutInfo_ChildEvent_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -331,9 +324,8 @@ void KGlobalShortcutInfo_SuperCustomEvent(KGlobalShortcutInfo* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnCustomEvent(KGlobalShortcutInfo* self, intptr_t slot) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
         vkglobalshortcutinfo->setKGlobalShortcutInfo_CustomEvent_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -360,9 +352,8 @@ void KGlobalShortcutInfo_SuperConnectNotify(KGlobalShortcutInfo* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnConnectNotify(KGlobalShortcutInfo* self, intptr_t slot) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
         vkglobalshortcutinfo->setKGlobalShortcutInfo_ConnectNotify_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -389,9 +380,8 @@ void KGlobalShortcutInfo_SuperDisconnectNotify(KGlobalShortcutInfo* self, const 
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnDisconnectNotify(KGlobalShortcutInfo* self, intptr_t slot) {
     auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
         vkglobalshortcutinfo->setKGlobalShortcutInfo_DisconnectNotify_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -418,9 +408,8 @@ QObject* KGlobalShortcutInfo_SuperSender(const KGlobalShortcutInfo* self) {
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnSender(const KGlobalShortcutInfo* self, intptr_t slot) {
     auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
         vkglobalshortcutinfo->setKGlobalShortcutInfo_Sender_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -447,9 +436,8 @@ int KGlobalShortcutInfo_SuperSenderSignalIndex(const KGlobalShortcutInfo* self) 
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnSenderSignalIndex(const KGlobalShortcutInfo* self, intptr_t slot) {
     auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
         vkglobalshortcutinfo->setKGlobalShortcutInfo_SenderSignalIndex_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -476,9 +464,8 @@ int KGlobalShortcutInfo_SuperReceivers(const KGlobalShortcutInfo* self, const ch
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnReceivers(const KGlobalShortcutInfo* self, intptr_t slot) {
     auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
         vkglobalshortcutinfo->setKGlobalShortcutInfo_Receivers_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -505,9 +492,8 @@ bool KGlobalShortcutInfo_SuperIsSignalConnected(const KGlobalShortcutInfo* self,
 // Auxiliary method to allow providing re-implementation
 void KGlobalShortcutInfo_OnIsSignalConnected(const KGlobalShortcutInfo* self, intptr_t slot) {
     auto* vkglobalshortcutinfo = const_cast<VirtualKGlobalShortcutInfo*>(dynamic_cast<const VirtualKGlobalShortcutInfo*>(self));
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
+    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo)
         vkglobalshortcutinfo->setKGlobalShortcutInfo_IsSignalConnected_Callback(reinterpret_cast<VirtualKGlobalShortcutInfo::KGlobalShortcutInfo_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KGlobalShortcutInfo_Delete(KGlobalShortcutInfo* self) {

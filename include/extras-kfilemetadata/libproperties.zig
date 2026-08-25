@@ -1,6 +1,6 @@
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-properties.html#public-types)
 pub const enums = struct {
-    pub const Property = enum(i32) {
+    pub const Property = enum {
         pub const Empty: i32 = 0;
         pub const BitRate: i32 = 1;
         pub const Channels: i32 = 2;

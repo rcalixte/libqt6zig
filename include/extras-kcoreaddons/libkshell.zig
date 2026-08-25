@@ -157,13 +157,13 @@ pub const KShell = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kshell.html#public-types)
 pub const enums = struct {
-    pub const Option = enum(i32) {
+    pub const Option = enum {
         pub const NoOptions: i32 = 0;
         pub const TildeExpand: i32 = 1;
         pub const AbortOnMeta: i32 = 2;
     };
 
-    pub const Errors = enum(i32) {
+    pub const Errors = enum {
         pub const NoError: i32 = 0;
         pub const BadQuoting: i32 = 1;
         pub const FoundMeta: i32 = 2;

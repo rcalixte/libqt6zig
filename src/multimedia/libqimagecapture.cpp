@@ -337,9 +337,8 @@ QMetaObject* QImageCapture_SuperMetaObject(const QImageCapture* self) {
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnMetaObject(const QImageCapture* self, intptr_t slot) {
     auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
         vqimagecapture->setQImageCapture_MetaObject_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -356,9 +355,8 @@ void* QImageCapture_SuperMetacast(QImageCapture* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnMetacast(QImageCapture* self, intptr_t slot) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
         vqimagecapture->setQImageCapture_Metacast_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -375,9 +373,8 @@ int QImageCapture_SuperMetacall(QImageCapture* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnMetacall(QImageCapture* self, intptr_t slot) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
         vqimagecapture->setQImageCapture_Metacall_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -404,9 +401,8 @@ bool QImageCapture_SuperEvent(QImageCapture* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnEvent(QImageCapture* self, intptr_t slot) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
         vqimagecapture->setQImageCapture_Event_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -433,9 +429,8 @@ bool QImageCapture_SuperEventFilter(QImageCapture* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnEventFilter(QImageCapture* self, intptr_t slot) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
         vqimagecapture->setQImageCapture_EventFilter_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -462,9 +457,8 @@ void QImageCapture_SuperTimerEvent(QImageCapture* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnTimerEvent(QImageCapture* self, intptr_t slot) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
         vqimagecapture->setQImageCapture_TimerEvent_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -491,9 +485,8 @@ void QImageCapture_SuperChildEvent(QImageCapture* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnChildEvent(QImageCapture* self, intptr_t slot) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
         vqimagecapture->setQImageCapture_ChildEvent_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -520,9 +513,8 @@ void QImageCapture_SuperCustomEvent(QImageCapture* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnCustomEvent(QImageCapture* self, intptr_t slot) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
         vqimagecapture->setQImageCapture_CustomEvent_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -549,9 +541,8 @@ void QImageCapture_SuperConnectNotify(QImageCapture* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnConnectNotify(QImageCapture* self, intptr_t slot) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
         vqimagecapture->setQImageCapture_ConnectNotify_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -578,9 +569,8 @@ void QImageCapture_SuperDisconnectNotify(QImageCapture* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnDisconnectNotify(QImageCapture* self, intptr_t slot) {
     auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
         vqimagecapture->setQImageCapture_DisconnectNotify_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -607,9 +597,8 @@ QObject* QImageCapture_SuperSender(const QImageCapture* self) {
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnSender(const QImageCapture* self, intptr_t slot) {
     auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
         vqimagecapture->setQImageCapture_Sender_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -636,9 +625,8 @@ int QImageCapture_SuperSenderSignalIndex(const QImageCapture* self) {
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnSenderSignalIndex(const QImageCapture* self, intptr_t slot) {
     auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
         vqimagecapture->setQImageCapture_SenderSignalIndex_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -665,9 +653,8 @@ int QImageCapture_SuperReceivers(const QImageCapture* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnReceivers(const QImageCapture* self, intptr_t slot) {
     auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
         vqimagecapture->setQImageCapture_Receivers_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -694,9 +681,8 @@ bool QImageCapture_SuperIsSignalConnected(const QImageCapture* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QImageCapture_OnIsSignalConnected(const QImageCapture* self, intptr_t slot) {
     auto* vqimagecapture = const_cast<VirtualQImageCapture*>(dynamic_cast<const VirtualQImageCapture*>(self));
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
+    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture)
         vqimagecapture->setQImageCapture_IsSignalConnected_Callback(reinterpret_cast<VirtualQImageCapture::QImageCapture_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QImageCapture_Delete(QImageCapture* self) {

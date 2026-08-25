@@ -184,9 +184,8 @@ QMetaObject* QShortcut_SuperMetaObject(const QShortcut* self) {
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnMetaObject(const QShortcut* self, intptr_t slot) {
     auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut && vqshortcut->isVirtualQShortcut)
         vqshortcut->setQShortcut_MetaObject_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -203,9 +202,8 @@ void* QShortcut_SuperMetacast(QShortcut* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnMetacast(QShortcut* self, intptr_t slot) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut && vqshortcut->isVirtualQShortcut)
         vqshortcut->setQShortcut_Metacast_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -222,9 +220,8 @@ int QShortcut_SuperMetacall(QShortcut* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnMetacall(QShortcut* self, intptr_t slot) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut && vqshortcut->isVirtualQShortcut)
         vqshortcut->setQShortcut_Metacall_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -241,9 +238,8 @@ bool QShortcut_SuperEvent(QShortcut* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnEvent(QShortcut* self, intptr_t slot) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut && vqshortcut->isVirtualQShortcut)
         vqshortcut->setQShortcut_Event_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -270,9 +266,8 @@ bool QShortcut_SuperEventFilter(QShortcut* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnEventFilter(QShortcut* self, intptr_t slot) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut && vqshortcut->isVirtualQShortcut)
         vqshortcut->setQShortcut_EventFilter_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -299,9 +294,8 @@ void QShortcut_SuperTimerEvent(QShortcut* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnTimerEvent(QShortcut* self, intptr_t slot) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut && vqshortcut->isVirtualQShortcut)
         vqshortcut->setQShortcut_TimerEvent_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -328,9 +322,8 @@ void QShortcut_SuperChildEvent(QShortcut* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnChildEvent(QShortcut* self, intptr_t slot) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut && vqshortcut->isVirtualQShortcut)
         vqshortcut->setQShortcut_ChildEvent_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -357,9 +350,8 @@ void QShortcut_SuperCustomEvent(QShortcut* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnCustomEvent(QShortcut* self, intptr_t slot) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut && vqshortcut->isVirtualQShortcut)
         vqshortcut->setQShortcut_CustomEvent_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -386,9 +378,8 @@ void QShortcut_SuperConnectNotify(QShortcut* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnConnectNotify(QShortcut* self, intptr_t slot) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut && vqshortcut->isVirtualQShortcut)
         vqshortcut->setQShortcut_ConnectNotify_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -415,9 +406,8 @@ void QShortcut_SuperDisconnectNotify(QShortcut* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnDisconnectNotify(QShortcut* self, intptr_t slot) {
     auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut && vqshortcut->isVirtualQShortcut)
         vqshortcut->setQShortcut_DisconnectNotify_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -444,9 +434,8 @@ QObject* QShortcut_SuperSender(const QShortcut* self) {
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnSender(const QShortcut* self, intptr_t slot) {
     auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut && vqshortcut->isVirtualQShortcut)
         vqshortcut->setQShortcut_Sender_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -473,9 +462,8 @@ int QShortcut_SuperSenderSignalIndex(const QShortcut* self) {
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnSenderSignalIndex(const QShortcut* self, intptr_t slot) {
     auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut && vqshortcut->isVirtualQShortcut)
         vqshortcut->setQShortcut_SenderSignalIndex_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -502,9 +490,8 @@ int QShortcut_SuperReceivers(const QShortcut* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnReceivers(const QShortcut* self, intptr_t slot) {
     auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut && vqshortcut->isVirtualQShortcut)
         vqshortcut->setQShortcut_Receivers_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -531,9 +518,8 @@ bool QShortcut_SuperIsSignalConnected(const QShortcut* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QShortcut_OnIsSignalConnected(const QShortcut* self, intptr_t slot) {
     auto* vqshortcut = const_cast<VirtualQShortcut*>(dynamic_cast<const VirtualQShortcut*>(self));
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
+    if (vqshortcut && vqshortcut->isVirtualQShortcut)
         vqshortcut->setQShortcut_IsSignalConnected_Callback(reinterpret_cast<VirtualQShortcut::QShortcut_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QShortcut_Delete(QShortcut* self) {

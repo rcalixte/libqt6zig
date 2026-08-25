@@ -301,9 +301,8 @@ QMetaObject* QMenuBar_SuperMetaObject(const QMenuBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnMetaObject(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_MetaObject_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -320,9 +319,8 @@ void* QMenuBar_SuperMetacast(QMenuBar* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnMetacast(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_Metacast_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -339,9 +337,8 @@ int QMenuBar_SuperMetacall(QMenuBar* self, int param1, int param2, void** param3
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnMetacall(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_Metacall_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -358,9 +355,8 @@ QSize* QMenuBar_SuperSizeHint(const QMenuBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnSizeHint(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_SizeHint_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -377,9 +373,8 @@ QSize* QMenuBar_SuperMinimumSizeHint(const QMenuBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnMinimumSizeHint(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -396,9 +391,8 @@ int QMenuBar_SuperHeightForWidth(const QMenuBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnHeightForWidth(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_HeightForWidth_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -415,9 +409,8 @@ void QMenuBar_SuperSetVisible(QMenuBar* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnSetVisible(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_SetVisible_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_SetVisible_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -434,9 +427,8 @@ void QMenuBar_SuperChangeEvent(QMenuBar* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnChangeEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_ChangeEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -453,9 +445,8 @@ void QMenuBar_SuperKeyPressEvent(QMenuBar* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnKeyPressEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_KeyPressEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -472,9 +463,8 @@ void QMenuBar_SuperMouseReleaseEvent(QMenuBar* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnMouseReleaseEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -491,9 +481,8 @@ void QMenuBar_SuperMousePressEvent(QMenuBar* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnMousePressEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_MousePressEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -510,9 +499,8 @@ void QMenuBar_SuperMouseMoveEvent(QMenuBar* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnMouseMoveEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -529,9 +517,8 @@ void QMenuBar_SuperLeaveEvent(QMenuBar* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnLeaveEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_LeaveEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -548,9 +535,8 @@ void QMenuBar_SuperPaintEvent(QMenuBar* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnPaintEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_PaintEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -567,9 +553,8 @@ void QMenuBar_SuperResizeEvent(QMenuBar* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnResizeEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_ResizeEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -586,9 +571,8 @@ void QMenuBar_SuperActionEvent(QMenuBar* self, QActionEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnActionEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_ActionEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_ActionEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -605,9 +589,8 @@ void QMenuBar_SuperFocusOutEvent(QMenuBar* self, QFocusEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnFocusOutEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_FocusOutEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -624,9 +607,8 @@ void QMenuBar_SuperFocusInEvent(QMenuBar* self, QFocusEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnFocusInEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_FocusInEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -643,9 +625,8 @@ void QMenuBar_SuperTimerEvent(QMenuBar* self, QTimerEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnTimerEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_TimerEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_TimerEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -662,9 +643,8 @@ bool QMenuBar_SuperEventFilter(QMenuBar* self, QObject* param1, QEvent* param2) 
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnEventFilter(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_EventFilter_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -681,9 +661,8 @@ bool QMenuBar_SuperEvent(QMenuBar* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_Event_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -700,9 +679,8 @@ void QMenuBar_SuperInitStyleOption(const QMenuBar* self, QStyleOptionMenuItem* o
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnInitStyleOption(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_InitStyleOption_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -729,9 +707,8 @@ int QMenuBar_SuperDevType(const QMenuBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnDevType(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_DevType_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -758,9 +735,8 @@ bool QMenuBar_SuperHasHeightForWidth(const QMenuBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnHasHeightForWidth(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -787,9 +763,8 @@ QPaintEngine* QMenuBar_SuperPaintEngine(const QMenuBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnPaintEngine(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_PaintEngine_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -816,9 +791,8 @@ void QMenuBar_SuperMouseDoubleClickEvent(QMenuBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnMouseDoubleClickEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -845,9 +819,8 @@ void QMenuBar_SuperWheelEvent(QMenuBar* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnWheelEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_WheelEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -874,9 +847,8 @@ void QMenuBar_SuperKeyReleaseEvent(QMenuBar* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnKeyReleaseEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -903,9 +875,8 @@ void QMenuBar_SuperEnterEvent(QMenuBar* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnEnterEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_EnterEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -932,9 +903,8 @@ void QMenuBar_SuperMoveEvent(QMenuBar* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnMoveEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_MoveEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -961,9 +931,8 @@ void QMenuBar_SuperCloseEvent(QMenuBar* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnCloseEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_CloseEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -990,9 +959,8 @@ void QMenuBar_SuperContextMenuEvent(QMenuBar* self, QContextMenuEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnContextMenuEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1019,9 +987,8 @@ void QMenuBar_SuperTabletEvent(QMenuBar* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnTabletEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_TabletEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1048,9 +1015,8 @@ void QMenuBar_SuperDragEnterEvent(QMenuBar* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnDragEnterEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_DragEnterEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1077,9 +1043,8 @@ void QMenuBar_SuperDragMoveEvent(QMenuBar* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnDragMoveEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_DragMoveEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1106,9 +1071,8 @@ void QMenuBar_SuperDragLeaveEvent(QMenuBar* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnDragLeaveEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1135,9 +1099,8 @@ void QMenuBar_SuperDropEvent(QMenuBar* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnDropEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_DropEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1164,9 +1127,8 @@ void QMenuBar_SuperShowEvent(QMenuBar* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnShowEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_ShowEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1193,9 +1155,8 @@ void QMenuBar_SuperHideEvent(QMenuBar* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnHideEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_HideEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1224,9 +1185,8 @@ bool QMenuBar_SuperNativeEvent(QMenuBar* self, const libqt_string eventType, voi
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnNativeEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_NativeEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1253,9 +1213,8 @@ int QMenuBar_SuperMetric(const QMenuBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnMetric(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_Metric_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1282,9 +1241,8 @@ void QMenuBar_SuperInitPainter(const QMenuBar* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnInitPainter(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_InitPainter_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1311,9 +1269,8 @@ QPaintDevice* QMenuBar_SuperRedirected(const QMenuBar* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnRedirected(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_Redirected_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1340,9 +1297,8 @@ QPainter* QMenuBar_SuperSharedPainter(const QMenuBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnSharedPainter(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_SharedPainter_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1369,9 +1325,8 @@ void QMenuBar_SuperInputMethodEvent(QMenuBar* self, QInputMethodEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnInputMethodEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_InputMethodEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1398,9 +1353,8 @@ QVariant* QMenuBar_SuperInputMethodQuery(const QMenuBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnInputMethodQuery(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_InputMethodQuery_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1427,9 +1381,8 @@ bool QMenuBar_SuperFocusNextPrevChild(QMenuBar* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnFocusNextPrevChild(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1456,9 +1409,8 @@ void QMenuBar_SuperChildEvent(QMenuBar* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnChildEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_ChildEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1485,9 +1437,8 @@ void QMenuBar_SuperCustomEvent(QMenuBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnCustomEvent(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_CustomEvent_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1514,9 +1465,8 @@ void QMenuBar_SuperConnectNotify(QMenuBar* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnConnectNotify(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_ConnectNotify_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1543,9 +1493,8 @@ void QMenuBar_SuperDisconnectNotify(QMenuBar* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnDisconnectNotify(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_DisconnectNotify_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1572,9 +1521,8 @@ void QMenuBar_SuperUpdateMicroFocus(QMenuBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnUpdateMicroFocus(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1601,9 +1549,8 @@ void QMenuBar_SuperCreate(QMenuBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnCreate(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_Create_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1630,9 +1577,8 @@ void QMenuBar_SuperDestroy(QMenuBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnDestroy(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_Destroy_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1659,9 +1605,8 @@ bool QMenuBar_SuperFocusNextChild(QMenuBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnFocusNextChild(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_FocusNextChild_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1688,9 +1633,8 @@ bool QMenuBar_SuperFocusPreviousChild(QMenuBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnFocusPreviousChild(QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1717,9 +1661,8 @@ QObject* QMenuBar_SuperSender(const QMenuBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnSender(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_Sender_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1746,9 +1689,8 @@ int QMenuBar_SuperSenderSignalIndex(const QMenuBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnSenderSignalIndex(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1775,9 +1717,8 @@ int QMenuBar_SuperReceivers(const QMenuBar* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnReceivers(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_Receivers_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1804,9 +1745,8 @@ bool QMenuBar_SuperIsSignalConnected(const QMenuBar* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnIsSignalConnected(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_IsSignalConnected_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1833,9 +1773,8 @@ double QMenuBar_SuperGetDecodedMetricF(const QMenuBar* self, int metricA, int me
 // Auxiliary method to allow providing re-implementation
 void QMenuBar_OnGetDecodedMetricF(const QMenuBar* self, intptr_t slot) {
     auto* vqmenubar = const_cast<VirtualQMenuBar*>(dynamic_cast<const VirtualQMenuBar*>(self));
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
+    if (vqmenubar && vqmenubar->isVirtualQMenuBar)
         vqmenubar->setQMenuBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQMenuBar::QMenuBar_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QMenuBar_Delete(QMenuBar* self) {

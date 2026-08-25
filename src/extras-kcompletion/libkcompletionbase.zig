@@ -928,7 +928,7 @@ pub const KCompletionBase = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#public-types)
 pub const enums = struct {
-    pub const KeyBindingType = enum(i32) {
+    pub const KeyBindingType = enum {
         pub const TextCompletion: i32 = 0;
         pub const PrevCompletionMatch: i32 = 1;
         pub const NextCompletionMatch: i32 = 2;

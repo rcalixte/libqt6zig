@@ -161,9 +161,8 @@ QMetaObject* KPageDialog_SuperMetaObject(const KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMetaObject(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_MetaObject_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -180,9 +179,8 @@ void* KPageDialog_SuperMetacast(KPageDialog* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMetacast(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_Metacast_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -199,9 +197,8 @@ int KPageDialog_SuperMetacall(KPageDialog* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMetacall(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_Metacall_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -228,9 +225,8 @@ void KPageDialog_SuperSetVisible(KPageDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnSetVisible(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_SetVisible_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -257,9 +253,8 @@ QSize* KPageDialog_SuperSizeHint(const KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnSizeHint(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_SizeHint_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -286,9 +281,8 @@ QSize* KPageDialog_SuperMinimumSizeHint(const KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMinimumSizeHint(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -315,9 +309,8 @@ void KPageDialog_SuperOpen(KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnOpen(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_Open_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -344,9 +337,8 @@ int KPageDialog_SuperExec(KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnExec(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_Exec_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -373,9 +365,8 @@ void KPageDialog_SuperDone(KPageDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnDone(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_Done_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -402,9 +393,8 @@ void KPageDialog_SuperAccept(KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnAccept(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_Accept_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -431,9 +421,8 @@ void KPageDialog_SuperReject(KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnReject(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_Reject_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -460,9 +449,8 @@ void KPageDialog_SuperKeyPressEvent(KPageDialog* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnKeyPressEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -489,9 +477,8 @@ void KPageDialog_SuperCloseEvent(KPageDialog* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnCloseEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_CloseEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -518,9 +505,8 @@ void KPageDialog_SuperShowEvent(KPageDialog* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnShowEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_ShowEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -547,9 +533,8 @@ void KPageDialog_SuperResizeEvent(KPageDialog* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnResizeEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -576,9 +561,8 @@ void KPageDialog_SuperContextMenuEvent(KPageDialog* self, QContextMenuEvent* par
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnContextMenuEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -605,9 +589,8 @@ bool KPageDialog_SuperEventFilter(KPageDialog* self, QObject* param1, QEvent* pa
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnEventFilter(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_EventFilter_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -634,9 +617,8 @@ int KPageDialog_SuperDevType(const KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnDevType(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_DevType_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -663,9 +645,8 @@ int KPageDialog_SuperHeightForWidth(const KPageDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnHeightForWidth(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -692,9 +673,8 @@ bool KPageDialog_SuperHasHeightForWidth(const KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnHasHeightForWidth(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -721,9 +701,8 @@ QPaintEngine* KPageDialog_SuperPaintEngine(const KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnPaintEngine(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_PaintEngine_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -750,9 +729,8 @@ bool KPageDialog_SuperEvent(KPageDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_Event_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -779,9 +757,8 @@ void KPageDialog_SuperMousePressEvent(KPageDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMousePressEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -808,9 +785,8 @@ void KPageDialog_SuperMouseReleaseEvent(KPageDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMouseReleaseEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -837,9 +813,8 @@ void KPageDialog_SuperMouseDoubleClickEvent(KPageDialog* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMouseDoubleClickEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -866,9 +841,8 @@ void KPageDialog_SuperMouseMoveEvent(KPageDialog* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMouseMoveEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -895,9 +869,8 @@ void KPageDialog_SuperWheelEvent(KPageDialog* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnWheelEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_WheelEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -924,9 +897,8 @@ void KPageDialog_SuperKeyReleaseEvent(KPageDialog* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnKeyReleaseEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -953,9 +925,8 @@ void KPageDialog_SuperFocusInEvent(KPageDialog* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnFocusInEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -982,9 +953,8 @@ void KPageDialog_SuperFocusOutEvent(KPageDialog* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnFocusOutEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1011,9 +981,8 @@ void KPageDialog_SuperEnterEvent(KPageDialog* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnEnterEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_EnterEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1040,9 +1009,8 @@ void KPageDialog_SuperLeaveEvent(KPageDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnLeaveEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1069,9 +1037,8 @@ void KPageDialog_SuperPaintEvent(KPageDialog* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnPaintEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_PaintEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1098,9 +1065,8 @@ void KPageDialog_SuperMoveEvent(KPageDialog* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMoveEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_MoveEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1127,9 +1093,8 @@ void KPageDialog_SuperTabletEvent(KPageDialog* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnTabletEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_TabletEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1156,9 +1121,8 @@ void KPageDialog_SuperActionEvent(KPageDialog* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnActionEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_ActionEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1185,9 +1149,8 @@ void KPageDialog_SuperDragEnterEvent(KPageDialog* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnDragEnterEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1214,9 +1177,8 @@ void KPageDialog_SuperDragMoveEvent(KPageDialog* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnDragMoveEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1243,9 +1205,8 @@ void KPageDialog_SuperDragLeaveEvent(KPageDialog* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnDragLeaveEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1272,9 +1233,8 @@ void KPageDialog_SuperDropEvent(KPageDialog* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnDropEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_DropEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1301,9 +1261,8 @@ void KPageDialog_SuperHideEvent(KPageDialog* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnHideEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_HideEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1332,9 +1291,8 @@ bool KPageDialog_SuperNativeEvent(KPageDialog* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnNativeEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_NativeEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1361,9 +1319,8 @@ void KPageDialog_SuperChangeEvent(KPageDialog* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnChangeEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1390,9 +1347,8 @@ int KPageDialog_SuperMetric(const KPageDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnMetric(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_Metric_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1419,9 +1375,8 @@ void KPageDialog_SuperInitPainter(const KPageDialog* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnInitPainter(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_InitPainter_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1448,9 +1403,8 @@ QPaintDevice* KPageDialog_SuperRedirected(const KPageDialog* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnRedirected(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_Redirected_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1477,9 +1431,8 @@ QPainter* KPageDialog_SuperSharedPainter(const KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnSharedPainter(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_SharedPainter_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1506,9 +1459,8 @@ void KPageDialog_SuperInputMethodEvent(KPageDialog* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnInputMethodEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1535,9 +1487,8 @@ QVariant* KPageDialog_SuperInputMethodQuery(const KPageDialog* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnInputMethodQuery(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1564,9 +1515,8 @@ bool KPageDialog_SuperFocusNextPrevChild(KPageDialog* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnFocusNextPrevChild(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1593,9 +1543,8 @@ void KPageDialog_SuperTimerEvent(KPageDialog* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnTimerEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_TimerEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1622,9 +1571,8 @@ void KPageDialog_SuperChildEvent(KPageDialog* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnChildEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_ChildEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1651,9 +1599,8 @@ void KPageDialog_SuperCustomEvent(KPageDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnCustomEvent(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_CustomEvent_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1680,9 +1627,8 @@ void KPageDialog_SuperConnectNotify(KPageDialog* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnConnectNotify(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1709,9 +1655,8 @@ void KPageDialog_SuperDisconnectNotify(KPageDialog* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnDisconnectNotify(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1738,9 +1683,8 @@ KPageWidget* KPageDialog_SuperPageWidget(KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnPageWidget(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_PageWidget_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_PageWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1767,9 +1711,8 @@ KPageWidget* KPageDialog_SuperPageWidget2(const KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnPageWidget2(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_PageWidget2_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_PageWidget2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1796,9 +1739,8 @@ void KPageDialog_SuperSetPageWidget(KPageDialog* self, KPageWidget* widget) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnSetPageWidget(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_SetPageWidget_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_SetPageWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1825,9 +1767,8 @@ QDialogButtonBox* KPageDialog_SuperButtonBox(KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnButtonBox(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_ButtonBox_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ButtonBox_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1854,9 +1795,8 @@ QDialogButtonBox* KPageDialog_SuperButtonBox2(const KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnButtonBox2(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_ButtonBox2_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_ButtonBox2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1883,9 +1823,8 @@ void KPageDialog_SuperSetButtonBox(KPageDialog* self, QDialogButtonBox* box) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnSetButtonBox(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_SetButtonBox_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_SetButtonBox_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1912,9 +1851,8 @@ void KPageDialog_SuperAdjustPosition(KPageDialog* self, QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnAdjustPosition(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1941,9 +1879,8 @@ void KPageDialog_SuperUpdateMicroFocus(KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnUpdateMicroFocus(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1970,9 +1907,8 @@ void KPageDialog_SuperCreate(KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnCreate(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_Create_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1999,9 +1935,8 @@ void KPageDialog_SuperDestroy(KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnDestroy(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_Destroy_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2028,9 +1963,8 @@ bool KPageDialog_SuperFocusNextChild(KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnFocusNextChild(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2057,9 +1991,8 @@ bool KPageDialog_SuperFocusPreviousChild(KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnFocusPreviousChild(KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2086,9 +2019,8 @@ QObject* KPageDialog_SuperSender(const KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnSender(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_Sender_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2115,9 +2047,8 @@ int KPageDialog_SuperSenderSignalIndex(const KPageDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnSenderSignalIndex(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2144,9 +2075,8 @@ int KPageDialog_SuperReceivers(const KPageDialog* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnReceivers(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_Receivers_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2173,9 +2103,8 @@ bool KPageDialog_SuperIsSignalConnected(const KPageDialog* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnIsSignalConnected(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2202,9 +2131,8 @@ double KPageDialog_SuperGetDecodedMetricF(const KPageDialog* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void KPageDialog_OnGetDecodedMetricF(const KPageDialog* self, intptr_t slot) {
     auto* vkpagedialog = const_cast<VirtualKPageDialog*>(dynamic_cast<const VirtualKPageDialog*>(self));
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
+    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog)
         vkpagedialog->setKPageDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKPageDialog::KPageDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KPageDialog_Delete(KPageDialog* self) {

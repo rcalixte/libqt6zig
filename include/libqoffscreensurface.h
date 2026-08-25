@@ -31,6 +31,8 @@ typedef struct QTimerEvent QTimerEvent;
 QOffscreenSurface* QOffscreenSurface_new();
 QOffscreenSurface* QOffscreenSurface_new2(QScreen* screen);
 QOffscreenSurface* QOffscreenSurface_new3(QScreen* screen, QObject* parent);
+QSurface* QOffscreenSurface_AsQSurface(QOffscreenSurface* self);
+QOffscreenSurface* QOffscreenSurface_FromQSurface(QSurface* _qsurface);
 QMetaObject* QOffscreenSurface_MetaObject(const QOffscreenSurface* self);
 void* QOffscreenSurface_Metacast(QOffscreenSurface* self, const char* param1);
 int QOffscreenSurface_Metacall(QOffscreenSurface* self, int param1, int param2, void** param3);

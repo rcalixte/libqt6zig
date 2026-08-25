@@ -61,9 +61,8 @@ QMetaObject* QTcpSocket_SuperMetaObject(const QTcpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnMetaObject(const QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_MetaObject_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -80,9 +79,8 @@ void* QTcpSocket_SuperMetacast(QTcpSocket* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnMetacast(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_Metacast_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -99,9 +97,8 @@ int QTcpSocket_SuperMetacall(QTcpSocket* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnMetacall(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_Metacall_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -128,9 +125,8 @@ void QTcpSocket_SuperResume(QTcpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnResume(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_Resume_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Resume_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -159,9 +155,8 @@ void QTcpSocket_SuperConnectToHost(QTcpSocket* self, const libqt_string hostName
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnConnectToHost(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_ConnectToHost_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_ConnectToHost_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -188,9 +183,8 @@ void QTcpSocket_SuperDisconnectFromHost(QTcpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnDisconnectFromHost(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_DisconnectFromHost_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_DisconnectFromHost_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -217,9 +211,8 @@ long long QTcpSocket_SuperBytesAvailable(const QTcpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnBytesAvailable(const QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_BytesAvailable_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_BytesAvailable_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -246,9 +239,8 @@ long long QTcpSocket_SuperBytesToWrite(const QTcpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnBytesToWrite(const QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_BytesToWrite_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_BytesToWrite_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -275,9 +267,8 @@ void QTcpSocket_SuperSetReadBufferSize(QTcpSocket* self, long long size) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSetReadBufferSize(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_SetReadBufferSize_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_SetReadBufferSize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -308,9 +299,8 @@ intptr_t QTcpSocket_SuperSocketDescriptor(const QTcpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSocketDescriptor(const QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_SocketDescriptor_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_SocketDescriptor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -337,9 +327,8 @@ bool QTcpSocket_SuperSetSocketDescriptor(QTcpSocket* self, intptr_t socketDescri
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSetSocketDescriptor(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_SetSocketDescriptor_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_SetSocketDescriptor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -366,9 +355,8 @@ void QTcpSocket_SuperSetSocketOption(QTcpSocket* self, int option, const QVarian
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSetSocketOption(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_SetSocketOption_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_SetSocketOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -395,9 +383,8 @@ QVariant* QTcpSocket_SuperSocketOption(QTcpSocket* self, int option) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSocketOption(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_SocketOption_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_SocketOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -424,9 +411,8 @@ void QTcpSocket_SuperClose(QTcpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnClose(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_Close_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Close_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -453,9 +439,8 @@ bool QTcpSocket_SuperIsSequential(const QTcpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnIsSequential(const QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_IsSequential_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_IsSequential_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -482,9 +467,8 @@ bool QTcpSocket_SuperWaitForConnected(QTcpSocket* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnWaitForConnected(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_WaitForConnected_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_WaitForConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -511,9 +495,8 @@ bool QTcpSocket_SuperWaitForReadyRead(QTcpSocket* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnWaitForReadyRead(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_WaitForReadyRead_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_WaitForReadyRead_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -540,9 +523,8 @@ bool QTcpSocket_SuperWaitForBytesWritten(QTcpSocket* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnWaitForBytesWritten(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_WaitForBytesWritten_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_WaitForBytesWritten_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -569,9 +551,8 @@ bool QTcpSocket_SuperWaitForDisconnected(QTcpSocket* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnWaitForDisconnected(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_WaitForDisconnected_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_WaitForDisconnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -598,9 +579,8 @@ long long QTcpSocket_SuperReadData(QTcpSocket* self, char* data, long long maxle
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnReadData(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_ReadData_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_ReadData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -627,9 +607,8 @@ long long QTcpSocket_SuperReadLineData(QTcpSocket* self, char* data, long long m
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnReadLineData(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_ReadLineData_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_ReadLineData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -656,9 +635,8 @@ long long QTcpSocket_SuperSkipData(QTcpSocket* self, long long maxSize) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSkipData(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_SkipData_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_SkipData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -685,9 +663,8 @@ long long QTcpSocket_SuperWriteData(QTcpSocket* self, const char* data, long lon
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnWriteData(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_WriteData_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_WriteData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -714,9 +691,8 @@ bool QTcpSocket_SuperOpen(QTcpSocket* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnOpen(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_Open_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -743,9 +719,8 @@ long long QTcpSocket_SuperPos(const QTcpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnPos(const QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_Pos_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Pos_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -772,9 +747,8 @@ long long QTcpSocket_SuperSize(const QTcpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSize(const QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_Size_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Size_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -801,9 +775,8 @@ bool QTcpSocket_SuperSeek(QTcpSocket* self, long long pos) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSeek(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_Seek_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Seek_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -830,9 +803,8 @@ bool QTcpSocket_SuperAtEnd(const QTcpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnAtEnd(const QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_AtEnd_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_AtEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -859,9 +831,8 @@ bool QTcpSocket_SuperReset(QTcpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnReset(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_Reset_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -888,9 +859,8 @@ bool QTcpSocket_SuperCanReadLine(const QTcpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnCanReadLine(const QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_CanReadLine_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_CanReadLine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -917,9 +887,8 @@ bool QTcpSocket_SuperEvent(QTcpSocket* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnEvent(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_Event_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -946,9 +915,8 @@ bool QTcpSocket_SuperEventFilter(QTcpSocket* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnEventFilter(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_EventFilter_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -975,9 +943,8 @@ void QTcpSocket_SuperTimerEvent(QTcpSocket* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnTimerEvent(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_TimerEvent_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1004,9 +971,8 @@ void QTcpSocket_SuperChildEvent(QTcpSocket* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnChildEvent(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_ChildEvent_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1033,9 +999,8 @@ void QTcpSocket_SuperCustomEvent(QTcpSocket* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnCustomEvent(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_CustomEvent_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1062,9 +1027,8 @@ void QTcpSocket_SuperConnectNotify(QTcpSocket* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnConnectNotify(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_ConnectNotify_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1091,9 +1055,8 @@ void QTcpSocket_SuperDisconnectNotify(QTcpSocket* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnDisconnectNotify(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_DisconnectNotify_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1120,9 +1083,8 @@ void QTcpSocket_SuperSetSocketState(QTcpSocket* self, int state) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSetSocketState(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_SetSocketState_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_SetSocketState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1149,9 +1111,8 @@ void QTcpSocket_SuperSetSocketError(QTcpSocket* self, int socketError) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSetSocketError(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_SetSocketError_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_SetSocketError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1178,9 +1139,8 @@ void QTcpSocket_SuperSetLocalPort(QTcpSocket* self, uint16_t port) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSetLocalPort(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_SetLocalPort_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_SetLocalPort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1207,9 +1167,8 @@ void QTcpSocket_SuperSetLocalAddress(QTcpSocket* self, const QHostAddress* addre
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSetLocalAddress(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_SetLocalAddress_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_SetLocalAddress_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1236,9 +1195,8 @@ void QTcpSocket_SuperSetPeerPort(QTcpSocket* self, uint16_t port) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSetPeerPort(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_SetPeerPort_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_SetPeerPort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1265,9 +1223,8 @@ void QTcpSocket_SuperSetPeerAddress(QTcpSocket* self, const QHostAddress* addres
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSetPeerAddress(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_SetPeerAddress_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_SetPeerAddress_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1296,9 +1253,8 @@ void QTcpSocket_SuperSetPeerName(QTcpSocket* self, const libqt_string name) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSetPeerName(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_SetPeerName_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_SetPeerName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1325,9 +1281,8 @@ void QTcpSocket_SuperSetOpenMode(QTcpSocket* self, int openMode) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSetOpenMode(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_SetOpenMode_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_SetOpenMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1356,9 +1311,8 @@ void QTcpSocket_SuperSetErrorString(QTcpSocket* self, const libqt_string errorSt
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSetErrorString(QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_SetErrorString_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1385,9 +1339,8 @@ QObject* QTcpSocket_SuperSender(const QTcpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSender(const QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_Sender_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1414,9 +1367,8 @@ int QTcpSocket_SuperSenderSignalIndex(const QTcpSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnSenderSignalIndex(const QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1443,9 +1395,8 @@ int QTcpSocket_SuperReceivers(const QTcpSocket* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnReceivers(const QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_Receivers_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1472,9 +1423,8 @@ bool QTcpSocket_SuperIsSignalConnected(const QTcpSocket* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QTcpSocket_OnIsSignalConnected(const QTcpSocket* self, intptr_t slot) {
     auto* vqtcpsocket = const_cast<VirtualQTcpSocket*>(dynamic_cast<const VirtualQTcpSocket*>(self));
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
+    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket)
         vqtcpsocket->setQTcpSocket_IsSignalConnected_Callback(reinterpret_cast<VirtualQTcpSocket::QTcpSocket_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QTcpSocket_Delete(QTcpSocket* self) {

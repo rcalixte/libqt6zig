@@ -305,9 +305,8 @@ QMetaObject* KPlotWidget_SuperMetaObject(const KPlotWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMetaObject(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_MetaObject_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -324,9 +323,8 @@ void* KPlotWidget_SuperMetacast(KPlotWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMetacast(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_Metacast_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -343,9 +341,8 @@ int KPlotWidget_SuperMetacall(KPlotWidget* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMetacall(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_Metacall_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -362,9 +359,8 @@ QSize* KPlotWidget_SuperMinimumSizeHint(const KPlotWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMinimumSizeHint(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -381,9 +377,8 @@ QSize* KPlotWidget_SuperSizeHint(const KPlotWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnSizeHint(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_SizeHint_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -400,9 +395,8 @@ bool KPlotWidget_SuperEvent(KPlotWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_Event_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -419,9 +413,8 @@ void KPlotWidget_SuperPaintEvent(KPlotWidget* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnPaintEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_PaintEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -438,9 +431,8 @@ void KPlotWidget_SuperResizeEvent(KPlotWidget* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnResizeEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -457,9 +449,8 @@ void KPlotWidget_SuperDrawAxes(KPlotWidget* self, QPainter* p) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnDrawAxes(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_DrawAxes_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DrawAxes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -486,9 +477,8 @@ void KPlotWidget_SuperChangeEvent(KPlotWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnChangeEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -515,9 +505,8 @@ void KPlotWidget_SuperInitStyleOption(const KPlotWidget* self, QStyleOptionFrame
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnInitStyleOption(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_InitStyleOption_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -544,9 +533,8 @@ int KPlotWidget_SuperDevType(const KPlotWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnDevType(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_DevType_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -573,9 +561,8 @@ void KPlotWidget_SuperSetVisible(KPlotWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnSetVisible(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_SetVisible_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -602,9 +589,8 @@ int KPlotWidget_SuperHeightForWidth(const KPlotWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnHeightForWidth(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -631,9 +617,8 @@ bool KPlotWidget_SuperHasHeightForWidth(const KPlotWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnHasHeightForWidth(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -660,9 +645,8 @@ QPaintEngine* KPlotWidget_SuperPaintEngine(const KPlotWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnPaintEngine(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_PaintEngine_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -689,9 +673,8 @@ void KPlotWidget_SuperMousePressEvent(KPlotWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMousePressEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -718,9 +701,8 @@ void KPlotWidget_SuperMouseReleaseEvent(KPlotWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMouseReleaseEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -747,9 +729,8 @@ void KPlotWidget_SuperMouseDoubleClickEvent(KPlotWidget* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMouseDoubleClickEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -776,9 +757,8 @@ void KPlotWidget_SuperMouseMoveEvent(KPlotWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMouseMoveEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -805,9 +785,8 @@ void KPlotWidget_SuperWheelEvent(KPlotWidget* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnWheelEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_WheelEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -834,9 +813,8 @@ void KPlotWidget_SuperKeyPressEvent(KPlotWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnKeyPressEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -863,9 +841,8 @@ void KPlotWidget_SuperKeyReleaseEvent(KPlotWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnKeyReleaseEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -892,9 +869,8 @@ void KPlotWidget_SuperFocusInEvent(KPlotWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnFocusInEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -921,9 +897,8 @@ void KPlotWidget_SuperFocusOutEvent(KPlotWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnFocusOutEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -950,9 +925,8 @@ void KPlotWidget_SuperEnterEvent(KPlotWidget* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnEnterEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_EnterEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -979,9 +953,8 @@ void KPlotWidget_SuperLeaveEvent(KPlotWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnLeaveEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1008,9 +981,8 @@ void KPlotWidget_SuperMoveEvent(KPlotWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMoveEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_MoveEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1037,9 +1009,8 @@ void KPlotWidget_SuperCloseEvent(KPlotWidget* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnCloseEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_CloseEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1066,9 +1037,8 @@ void KPlotWidget_SuperContextMenuEvent(KPlotWidget* self, QContextMenuEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnContextMenuEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1095,9 +1065,8 @@ void KPlotWidget_SuperTabletEvent(KPlotWidget* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnTabletEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_TabletEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1124,9 +1093,8 @@ void KPlotWidget_SuperActionEvent(KPlotWidget* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnActionEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_ActionEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1153,9 +1121,8 @@ void KPlotWidget_SuperDragEnterEvent(KPlotWidget* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnDragEnterEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1182,9 +1149,8 @@ void KPlotWidget_SuperDragMoveEvent(KPlotWidget* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnDragMoveEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1211,9 +1177,8 @@ void KPlotWidget_SuperDragLeaveEvent(KPlotWidget* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnDragLeaveEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1240,9 +1205,8 @@ void KPlotWidget_SuperDropEvent(KPlotWidget* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnDropEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_DropEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1269,9 +1233,8 @@ void KPlotWidget_SuperShowEvent(KPlotWidget* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnShowEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_ShowEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1298,9 +1261,8 @@ void KPlotWidget_SuperHideEvent(KPlotWidget* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnHideEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_HideEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1329,9 +1291,8 @@ bool KPlotWidget_SuperNativeEvent(KPlotWidget* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnNativeEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_NativeEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1358,9 +1319,8 @@ int KPlotWidget_SuperMetric(const KPlotWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnMetric(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_Metric_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1387,9 +1347,8 @@ void KPlotWidget_SuperInitPainter(const KPlotWidget* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnInitPainter(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_InitPainter_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1416,9 +1375,8 @@ QPaintDevice* KPlotWidget_SuperRedirected(const KPlotWidget* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnRedirected(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_Redirected_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1445,9 +1403,8 @@ QPainter* KPlotWidget_SuperSharedPainter(const KPlotWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnSharedPainter(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_SharedPainter_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1474,9 +1431,8 @@ void KPlotWidget_SuperInputMethodEvent(KPlotWidget* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnInputMethodEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1503,9 +1459,8 @@ QVariant* KPlotWidget_SuperInputMethodQuery(const KPlotWidget* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnInputMethodQuery(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1532,9 +1487,8 @@ bool KPlotWidget_SuperFocusNextPrevChild(KPlotWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnFocusNextPrevChild(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1561,9 +1515,8 @@ bool KPlotWidget_SuperEventFilter(KPlotWidget* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnEventFilter(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_EventFilter_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1590,9 +1543,8 @@ void KPlotWidget_SuperTimerEvent(KPlotWidget* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnTimerEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_TimerEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1619,9 +1571,8 @@ void KPlotWidget_SuperChildEvent(KPlotWidget* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnChildEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_ChildEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1648,9 +1599,8 @@ void KPlotWidget_SuperCustomEvent(KPlotWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnCustomEvent(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_CustomEvent_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1677,9 +1627,8 @@ void KPlotWidget_SuperConnectNotify(KPlotWidget* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnConnectNotify(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1706,9 +1655,8 @@ void KPlotWidget_SuperDisconnectNotify(KPlotWidget* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnDisconnectNotify(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1735,9 +1683,8 @@ void KPlotWidget_SuperSetPixRect(KPlotWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnSetPixRect(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_SetPixRect_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_SetPixRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1800,9 +1747,8 @@ libqt_list /* of KPlotPoint* */ KPlotWidget_SuperPointsUnderPoint(const KPlotWid
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnPointsUnderPoint(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_PointsUnderPoint_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_PointsUnderPoint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1829,9 +1775,8 @@ void KPlotWidget_SuperDrawFrame(KPlotWidget* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnDrawFrame(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_DrawFrame_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1858,9 +1803,8 @@ void KPlotWidget_SuperUpdateMicroFocus(KPlotWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnUpdateMicroFocus(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1887,9 +1831,8 @@ void KPlotWidget_SuperCreate(KPlotWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnCreate(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_Create_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1916,9 +1859,8 @@ void KPlotWidget_SuperDestroy(KPlotWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnDestroy(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_Destroy_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1945,9 +1887,8 @@ bool KPlotWidget_SuperFocusNextChild(KPlotWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnFocusNextChild(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1974,9 +1915,8 @@ bool KPlotWidget_SuperFocusPreviousChild(KPlotWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnFocusPreviousChild(KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = dynamic_cast<VirtualKPlotWidget*>(self);
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2003,9 +1943,8 @@ QObject* KPlotWidget_SuperSender(const KPlotWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnSender(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_Sender_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2032,9 +1971,8 @@ int KPlotWidget_SuperSenderSignalIndex(const KPlotWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnSenderSignalIndex(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2061,9 +1999,8 @@ int KPlotWidget_SuperReceivers(const KPlotWidget* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnReceivers(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_Receivers_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2090,9 +2027,8 @@ bool KPlotWidget_SuperIsSignalConnected(const KPlotWidget* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnIsSignalConnected(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2119,9 +2055,8 @@ double KPlotWidget_SuperGetDecodedMetricF(const KPlotWidget* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void KPlotWidget_OnGetDecodedMetricF(const KPlotWidget* self, intptr_t slot) {
     auto* vkplotwidget = const_cast<VirtualKPlotWidget*>(dynamic_cast<const VirtualKPlotWidget*>(self));
-    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget) {
+    if (vkplotwidget && vkplotwidget->isVirtualKPlotWidget)
         vkplotwidget->setKPlotWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKPlotWidget::KPlotWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KPlotWidget_Delete(KPlotWidget* self) {

@@ -228,9 +228,8 @@ QMetaObject* QToolBox_SuperMetaObject(const QToolBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnMetaObject(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_MetaObject_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -247,9 +246,8 @@ void* QToolBox_SuperMetacast(QToolBox* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnMetacast(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_Metacast_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -266,9 +264,8 @@ int QToolBox_SuperMetacall(QToolBox* self, int param1, int param2, void** param3
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnMetacall(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_Metacall_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -285,9 +282,8 @@ bool QToolBox_SuperEvent(QToolBox* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_Event_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -304,9 +300,8 @@ void QToolBox_SuperItemInserted(QToolBox* self, int index) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnItemInserted(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_ItemInserted_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ItemInserted_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -323,9 +318,8 @@ void QToolBox_SuperItemRemoved(QToolBox* self, int index) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnItemRemoved(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_ItemRemoved_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ItemRemoved_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -342,9 +336,8 @@ void QToolBox_SuperShowEvent(QToolBox* self, QShowEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnShowEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_ShowEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -361,9 +354,8 @@ void QToolBox_SuperChangeEvent(QToolBox* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnChangeEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_ChangeEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -390,9 +382,8 @@ QSize* QToolBox_SuperSizeHint(const QToolBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnSizeHint(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_SizeHint_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -419,9 +410,8 @@ void QToolBox_SuperPaintEvent(QToolBox* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnPaintEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_PaintEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -448,9 +438,8 @@ void QToolBox_SuperInitStyleOption(const QToolBox* self, QStyleOptionFrame* opti
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnInitStyleOption(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_InitStyleOption_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -477,9 +466,8 @@ int QToolBox_SuperDevType(const QToolBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnDevType(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_DevType_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -506,9 +494,8 @@ void QToolBox_SuperSetVisible(QToolBox* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnSetVisible(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_SetVisible_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -535,9 +522,8 @@ QSize* QToolBox_SuperMinimumSizeHint(const QToolBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnMinimumSizeHint(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -564,9 +550,8 @@ int QToolBox_SuperHeightForWidth(const QToolBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnHeightForWidth(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_HeightForWidth_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -593,9 +578,8 @@ bool QToolBox_SuperHasHeightForWidth(const QToolBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnHasHeightForWidth(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -622,9 +606,8 @@ QPaintEngine* QToolBox_SuperPaintEngine(const QToolBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnPaintEngine(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_PaintEngine_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -651,9 +634,8 @@ void QToolBox_SuperMousePressEvent(QToolBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnMousePressEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_MousePressEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -680,9 +662,8 @@ void QToolBox_SuperMouseReleaseEvent(QToolBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnMouseReleaseEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -709,9 +690,8 @@ void QToolBox_SuperMouseDoubleClickEvent(QToolBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnMouseDoubleClickEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -738,9 +718,8 @@ void QToolBox_SuperMouseMoveEvent(QToolBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnMouseMoveEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -767,9 +746,8 @@ void QToolBox_SuperWheelEvent(QToolBox* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnWheelEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_WheelEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -796,9 +774,8 @@ void QToolBox_SuperKeyPressEvent(QToolBox* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnKeyPressEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -825,9 +802,8 @@ void QToolBox_SuperKeyReleaseEvent(QToolBox* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnKeyReleaseEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -854,9 +830,8 @@ void QToolBox_SuperFocusInEvent(QToolBox* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnFocusInEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_FocusInEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -883,9 +858,8 @@ void QToolBox_SuperFocusOutEvent(QToolBox* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnFocusOutEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_FocusOutEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -912,9 +886,8 @@ void QToolBox_SuperEnterEvent(QToolBox* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnEnterEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_EnterEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -941,9 +914,8 @@ void QToolBox_SuperLeaveEvent(QToolBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnLeaveEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_LeaveEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -970,9 +942,8 @@ void QToolBox_SuperMoveEvent(QToolBox* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnMoveEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_MoveEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -999,9 +970,8 @@ void QToolBox_SuperResizeEvent(QToolBox* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnResizeEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_ResizeEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1028,9 +998,8 @@ void QToolBox_SuperCloseEvent(QToolBox* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnCloseEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_CloseEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1057,9 +1026,8 @@ void QToolBox_SuperContextMenuEvent(QToolBox* self, QContextMenuEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnContextMenuEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1086,9 +1054,8 @@ void QToolBox_SuperTabletEvent(QToolBox* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnTabletEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_TabletEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1115,9 +1082,8 @@ void QToolBox_SuperActionEvent(QToolBox* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnActionEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_ActionEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1144,9 +1110,8 @@ void QToolBox_SuperDragEnterEvent(QToolBox* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnDragEnterEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_DragEnterEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1173,9 +1138,8 @@ void QToolBox_SuperDragMoveEvent(QToolBox* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnDragMoveEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_DragMoveEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1202,9 +1166,8 @@ void QToolBox_SuperDragLeaveEvent(QToolBox* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnDragLeaveEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1231,9 +1194,8 @@ void QToolBox_SuperDropEvent(QToolBox* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnDropEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_DropEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1260,9 +1222,8 @@ void QToolBox_SuperHideEvent(QToolBox* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnHideEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_HideEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1291,9 +1252,8 @@ bool QToolBox_SuperNativeEvent(QToolBox* self, const libqt_string eventType, voi
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnNativeEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_NativeEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1320,9 +1280,8 @@ int QToolBox_SuperMetric(const QToolBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnMetric(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_Metric_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1349,9 +1308,8 @@ void QToolBox_SuperInitPainter(const QToolBox* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnInitPainter(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_InitPainter_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1378,9 +1336,8 @@ QPaintDevice* QToolBox_SuperRedirected(const QToolBox* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnRedirected(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_Redirected_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1407,9 +1364,8 @@ QPainter* QToolBox_SuperSharedPainter(const QToolBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnSharedPainter(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_SharedPainter_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1436,9 +1392,8 @@ void QToolBox_SuperInputMethodEvent(QToolBox* self, QInputMethodEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnInputMethodEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_InputMethodEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1465,9 +1420,8 @@ QVariant* QToolBox_SuperInputMethodQuery(const QToolBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnInputMethodQuery(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_InputMethodQuery_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1494,9 +1448,8 @@ bool QToolBox_SuperFocusNextPrevChild(QToolBox* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnFocusNextPrevChild(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1523,9 +1476,8 @@ bool QToolBox_SuperEventFilter(QToolBox* self, QObject* watched, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnEventFilter(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_EventFilter_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1552,9 +1504,8 @@ void QToolBox_SuperTimerEvent(QToolBox* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnTimerEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_TimerEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1581,9 +1532,8 @@ void QToolBox_SuperChildEvent(QToolBox* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnChildEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_ChildEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1610,9 +1560,8 @@ void QToolBox_SuperCustomEvent(QToolBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnCustomEvent(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_CustomEvent_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1639,9 +1588,8 @@ void QToolBox_SuperConnectNotify(QToolBox* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnConnectNotify(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_ConnectNotify_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1668,9 +1616,8 @@ void QToolBox_SuperDisconnectNotify(QToolBox* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnDisconnectNotify(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_DisconnectNotify_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1697,9 +1644,8 @@ void QToolBox_SuperDrawFrame(QToolBox* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnDrawFrame(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_DrawFrame_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1726,9 +1672,8 @@ void QToolBox_SuperUpdateMicroFocus(QToolBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnUpdateMicroFocus(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1755,9 +1700,8 @@ void QToolBox_SuperCreate(QToolBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnCreate(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_Create_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1784,9 +1728,8 @@ void QToolBox_SuperDestroy(QToolBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnDestroy(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_Destroy_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1813,9 +1756,8 @@ bool QToolBox_SuperFocusNextChild(QToolBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnFocusNextChild(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_FocusNextChild_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1842,9 +1784,8 @@ bool QToolBox_SuperFocusPreviousChild(QToolBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnFocusPreviousChild(QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1871,9 +1812,8 @@ QObject* QToolBox_SuperSender(const QToolBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnSender(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_Sender_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1900,9 +1840,8 @@ int QToolBox_SuperSenderSignalIndex(const QToolBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnSenderSignalIndex(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1929,9 +1868,8 @@ int QToolBox_SuperReceivers(const QToolBox* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnReceivers(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_Receivers_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1958,9 +1896,8 @@ bool QToolBox_SuperIsSignalConnected(const QToolBox* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnIsSignalConnected(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_IsSignalConnected_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1987,9 +1924,8 @@ double QToolBox_SuperGetDecodedMetricF(const QToolBox* self, int metricA, int me
 // Auxiliary method to allow providing re-implementation
 void QToolBox_OnGetDecodedMetricF(const QToolBox* self, intptr_t slot) {
     auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox)
         vqtoolbox->setQToolBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QToolBox_Delete(QToolBox* self) {

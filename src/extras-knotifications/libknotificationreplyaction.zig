@@ -2355,7 +2355,7 @@ pub const KNotificationReplyAction = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/knotificationreplyaction.html#public-types)
 pub const enums = struct {
-    pub const FallbackBehavior = enum(i32) {
+    pub const FallbackBehavior = enum {
         pub const HideAction: i32 = 0;
         pub const UseRegularAction: i32 = 1;
     };

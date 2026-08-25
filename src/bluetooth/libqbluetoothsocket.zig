@@ -6,6 +6,7 @@ const QBluetoothServiceInfo = @import("libqt6").QBluetoothServiceInfo;
 const QBluetoothUuid = @import("libqt6").QBluetoothUuid;
 const QChildEvent = @import("libqt6").QChildEvent;
 const QEvent = @import("libqt6").QEvent;
+const QIODeviceBase = @import("libqt6").QIODeviceBase;
 const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
@@ -1418,6 +1419,18 @@ pub const QBluetoothSocket = extern struct {
     ///
     pub fn setSocketDescriptor4(self: QBluetoothSocket, _socketDescriptor: i32, _socketType: i32, socketState: i32, _openMode: i32) bool {
         return qtc.QBluetoothSocket_SetSocketDescriptor4(@ptrCast(self.ptr), @bitCast(_socketDescriptor), @bitCast(_socketType), @bitCast(socketState), @bitCast(_openMode));
+    }
+
+    /// Inherited from QIODevice
+    ///
+    /// Upcasts to a QIODeviceBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QBluetoothSocket `
+    ///
+    pub fn asQIODeviceBase(self: QBluetoothSocket) QIODeviceBase {
+        return .{ .ptr = qtc.QIODevice_AsQIODeviceBase(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `openMode` instead
@@ -4610,7 +4623,7 @@ pub const QBluetoothSocket = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothsocket.html#public-types)
 pub const enums = struct {
-    pub const SocketState = enum(i32) {
+    pub const SocketState = enum {
         pub const UnconnectedState: i32 = 0;
         pub const ServiceLookupState: i32 = 1;
         pub const ConnectingState: i32 = 2;
@@ -4620,7 +4633,7 @@ pub const enums = struct {
         pub const ListeningState: i32 = 6;
     };
 
-    pub const SocketError = enum(i32) {
+    pub const SocketError = enum {
         pub const NoSocketError: i32 = 0;
         pub const UnknownSocketError: i32 = 1;
         pub const RemoteHostClosedError: i32 = 2;

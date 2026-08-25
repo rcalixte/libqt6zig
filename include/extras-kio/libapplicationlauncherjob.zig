@@ -3896,7 +3896,7 @@ pub const KIO__ApplicationLauncherJob = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-applicationlauncherjob.html#public-types)
 pub const enums = struct {
-    pub const RunFlag = enum(i32) {
+    pub const RunFlag = enum {
         pub const DeleteTemporaryFiles: i32 = 1;
     };
 };

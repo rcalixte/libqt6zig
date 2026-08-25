@@ -31,6 +31,14 @@ TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* TextCustomEditor__Pla
     return new VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter(plainText, *misspelledColor);
 }
 
+KSyntaxHighlighting__AbstractHighlighter* TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_AsKSyntaxHighlighting__AbstractHighlighter(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self) {
+    return static_cast<KSyntaxHighlighting::AbstractHighlighter*>(self);
+}
+
+TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_FromKSyntaxHighlighting__AbstractHighlighter(KSyntaxHighlighting::AbstractHighlighter* _ksyntaxhighlighting__abstracthighlighter) {
+    return dynamic_cast<TextCustomEditor::PlainTextSyntaxSpellCheckingHighlighter*>(static_cast<KSyntaxHighlighting::AbstractHighlighter*>(_ksyntaxhighlighting__abstracthighlighter));
+}
+
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_ToggleSpellHighlighting(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, bool on) {
     self->toggleSpellHighlighting(on);
 }
@@ -79,9 +87,8 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperSetDefinitio
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnSetDefinition(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetDefinition_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetDefinition_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -99,9 +106,8 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperHighlightBlo
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnHighlightBlock(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightBlock_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightBlock_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -118,9 +124,8 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperUnsetMisspel
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnUnsetMisspelled(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_UnsetMisspelled_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_UnsetMisspelled_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -137,9 +142,8 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperSetMisspelle
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnSetMisspelled(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetMisspelled_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetMisspelled_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -156,9 +160,8 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperApplyFormat(
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnApplyFormat(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_ApplyFormat_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_ApplyFormat_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -185,9 +188,8 @@ QMetaObject* TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperMeta
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnMetaObject(const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = const_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(dynamic_cast<const VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self));
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_MetaObject_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_MetaObject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -214,9 +216,8 @@ void* TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperMetacast(Te
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnMetacast(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Metacast_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Metacast_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -243,9 +244,8 @@ int TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperMetacall(Text
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnMetacall(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Metacall_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -272,9 +272,8 @@ bool TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperEventFilter(
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnEventFilter(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_EventFilter_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -301,9 +300,8 @@ bool TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperEvent(TextCu
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnEvent(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Event_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -330,9 +328,8 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperTimerEvent(T
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnTimerEvent(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_TimerEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -359,9 +356,8 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperChildEvent(T
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnChildEvent(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_ChildEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -388,9 +384,8 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperCustomEvent(
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnCustomEvent(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_CustomEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -417,9 +412,8 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperConnectNotif
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnConnectNotify(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_ConnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -446,9 +440,8 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperDisconnectNo
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnDisconnectNotify(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_DisconnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -475,9 +468,8 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperSetTheme(Tex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnSetTheme(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetTheme_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetTheme_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -504,9 +496,8 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperApplyFolding
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnApplyFolding(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_ApplyFolding_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_ApplyFolding_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -533,9 +524,8 @@ bool TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperIntraWordEdi
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnIntraWordEditing(const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = const_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(dynamic_cast<const VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self));
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_IntraWordEditing_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_IntraWordEditing_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -562,9 +552,8 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperSetIntraWord
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnSetIntraWordEditing(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetIntraWordEditing_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetIntraWordEditing_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -591,9 +580,8 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperSetFormat(Te
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnSetFormat(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetFormat_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetFormat_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -618,9 +606,8 @@ QTextCharFormat* TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Super
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnFormat(const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = const_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(dynamic_cast<const VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self));
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Format_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Format_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -647,9 +634,8 @@ int TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperPreviousBlock
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnPreviousBlockState(const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = const_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(dynamic_cast<const VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self));
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_PreviousBlockState_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_PreviousBlockState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -676,9 +662,8 @@ int TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperCurrentBlockS
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnCurrentBlockState(const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = const_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(dynamic_cast<const VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self));
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_CurrentBlockState_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_CurrentBlockState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -705,9 +690,8 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperSetCurrentBl
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnSetCurrentBlockState(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetCurrentBlockState_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetCurrentBlockState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -734,9 +718,8 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperSetCurrentBl
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnSetCurrentBlockUserData(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetCurrentBlockUserData_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetCurrentBlockUserData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -763,9 +746,8 @@ QTextBlockUserData* TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Su
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnCurrentBlockUserData(const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = const_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(dynamic_cast<const VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self));
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_CurrentBlockUserData_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_CurrentBlockUserData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -790,9 +772,8 @@ QTextBlock* TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperCurre
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnCurrentBlock(const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = const_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(dynamic_cast<const VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self));
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_CurrentBlock_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_CurrentBlock_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -819,9 +800,8 @@ QObject* TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperSender(c
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnSender(const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = const_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(dynamic_cast<const VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self));
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Sender_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -848,9 +828,8 @@ int TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperSenderSignalI
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnSenderSignalIndex(const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = const_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(dynamic_cast<const VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self));
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -877,9 +856,8 @@ int TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperReceivers(con
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnReceivers(const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = const_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(dynamic_cast<const VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self));
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Receivers_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -906,9 +884,8 @@ bool TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperIsSignalConn
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnIsSignalConnected(const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = const_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(dynamic_cast<const VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self));
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_IsSignalConnected_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -935,9 +912,8 @@ KSyntaxHighlighting__State* TextCustomEditor__PlainTextSyntaxSpellCheckingHighli
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnHighlightLine(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter)
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightLine_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightLine_Callback>(slot));
-    }
 }
 
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Delete(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self) {

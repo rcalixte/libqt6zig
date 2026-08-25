@@ -143,9 +143,8 @@ QMetaObject* QAudioSource_SuperMetaObject(const QAudioSource* self) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnMetaObject(const QAudioSource* self, intptr_t slot) {
     auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource)
         vqaudiosource->setQAudioSource_MetaObject_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -162,9 +161,8 @@ void* QAudioSource_SuperMetacast(QAudioSource* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnMetacast(QAudioSource* self, intptr_t slot) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource)
         vqaudiosource->setQAudioSource_Metacast_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -181,9 +179,8 @@ int QAudioSource_SuperMetacall(QAudioSource* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnMetacall(QAudioSource* self, intptr_t slot) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource)
         vqaudiosource->setQAudioSource_Metacall_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -210,9 +207,8 @@ bool QAudioSource_SuperEvent(QAudioSource* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnEvent(QAudioSource* self, intptr_t slot) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource)
         vqaudiosource->setQAudioSource_Event_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -239,9 +235,8 @@ bool QAudioSource_SuperEventFilter(QAudioSource* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnEventFilter(QAudioSource* self, intptr_t slot) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource)
         vqaudiosource->setQAudioSource_EventFilter_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -268,9 +263,8 @@ void QAudioSource_SuperTimerEvent(QAudioSource* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnTimerEvent(QAudioSource* self, intptr_t slot) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource)
         vqaudiosource->setQAudioSource_TimerEvent_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -297,9 +291,8 @@ void QAudioSource_SuperChildEvent(QAudioSource* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnChildEvent(QAudioSource* self, intptr_t slot) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource)
         vqaudiosource->setQAudioSource_ChildEvent_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -326,9 +319,8 @@ void QAudioSource_SuperCustomEvent(QAudioSource* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnCustomEvent(QAudioSource* self, intptr_t slot) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource)
         vqaudiosource->setQAudioSource_CustomEvent_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -355,9 +347,8 @@ void QAudioSource_SuperConnectNotify(QAudioSource* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnConnectNotify(QAudioSource* self, intptr_t slot) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource)
         vqaudiosource->setQAudioSource_ConnectNotify_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -384,9 +375,8 @@ void QAudioSource_SuperDisconnectNotify(QAudioSource* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnDisconnectNotify(QAudioSource* self, intptr_t slot) {
     auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource)
         vqaudiosource->setQAudioSource_DisconnectNotify_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -413,9 +403,8 @@ QObject* QAudioSource_SuperSender(const QAudioSource* self) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnSender(const QAudioSource* self, intptr_t slot) {
     auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource)
         vqaudiosource->setQAudioSource_Sender_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -442,9 +431,8 @@ int QAudioSource_SuperSenderSignalIndex(const QAudioSource* self) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnSenderSignalIndex(const QAudioSource* self, intptr_t slot) {
     auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource)
         vqaudiosource->setQAudioSource_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -471,9 +459,8 @@ int QAudioSource_SuperReceivers(const QAudioSource* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnReceivers(const QAudioSource* self, intptr_t slot) {
     auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource)
         vqaudiosource->setQAudioSource_Receivers_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -500,9 +487,8 @@ bool QAudioSource_SuperIsSignalConnected(const QAudioSource* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QAudioSource_OnIsSignalConnected(const QAudioSource* self, intptr_t slot) {
     auto* vqaudiosource = const_cast<VirtualQAudioSource*>(dynamic_cast<const VirtualQAudioSource*>(self));
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
+    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource)
         vqaudiosource->setQAudioSource_IsSignalConnected_Callback(reinterpret_cast<VirtualQAudioSource::QAudioSource_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QAudioSource_Delete(QAudioSource* self) {

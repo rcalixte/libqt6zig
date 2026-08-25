@@ -359,9 +359,8 @@ QMetaObject* KFilePlacesView_SuperMetaObject(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMetaObject(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_MetaObject_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -378,9 +377,8 @@ void* KFilePlacesView_SuperMetacast(KFilePlacesView* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMetacast(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_Metacast_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -397,9 +395,8 @@ int KFilePlacesView_SuperMetacall(KFilePlacesView* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMetacall(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_Metacall_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -416,9 +413,8 @@ QSize* KFilePlacesView_SuperSizeHint(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSizeHint(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SizeHint_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -435,9 +431,8 @@ void KFilePlacesView_SuperSetModel(KFilePlacesView* self, QAbstractItemModel* mo
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSetModel(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SetModel_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetModel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -454,9 +449,8 @@ void KFilePlacesView_SuperKeyPressEvent(KFilePlacesView* self, QKeyEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnKeyPressEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_KeyPressEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -473,9 +467,8 @@ void KFilePlacesView_SuperContextMenuEvent(KFilePlacesView* self, QContextMenuEv
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnContextMenuEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ContextMenuEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -492,9 +485,8 @@ void KFilePlacesView_SuperResizeEvent(KFilePlacesView* self, QResizeEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnResizeEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ResizeEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -511,9 +503,8 @@ void KFilePlacesView_SuperShowEvent(KFilePlacesView* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnShowEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ShowEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -530,9 +521,8 @@ void KFilePlacesView_SuperHideEvent(KFilePlacesView* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnHideEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_HideEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HideEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -549,9 +539,8 @@ void KFilePlacesView_SuperDragEnterEvent(KFilePlacesView* self, QDragEnterEvent*
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDragEnterEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_DragEnterEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -568,9 +557,8 @@ void KFilePlacesView_SuperDragLeaveEvent(KFilePlacesView* self, QDragLeaveEvent*
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDragLeaveEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_DragLeaveEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -587,9 +575,8 @@ void KFilePlacesView_SuperDragMoveEvent(KFilePlacesView* self, QDragMoveEvent* e
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDragMoveEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_DragMoveEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -606,9 +593,8 @@ void KFilePlacesView_SuperDropEvent(KFilePlacesView* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDropEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_DropEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DropEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -625,9 +611,8 @@ void KFilePlacesView_SuperPaintEvent(KFilePlacesView* self, QPaintEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnPaintEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_PaintEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -644,9 +629,8 @@ void KFilePlacesView_SuperStartDrag(KFilePlacesView* self, int supportedActions)
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnStartDrag(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_StartDrag_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_StartDrag_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -663,9 +647,8 @@ void KFilePlacesView_SuperMousePressEvent(KFilePlacesView* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMousePressEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_MousePressEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -682,9 +665,8 @@ void KFilePlacesView_SuperRowsInserted(KFilePlacesView* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnRowsInserted(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_RowsInserted_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_RowsInserted_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -707,9 +689,8 @@ void KFilePlacesView_SuperDataChanged(KFilePlacesView* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDataChanged(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_DataChanged_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DataChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -736,9 +717,8 @@ QRect* KFilePlacesView_SuperVisualRect(const KFilePlacesView* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnVisualRect(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_VisualRect_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_VisualRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -765,9 +745,8 @@ void KFilePlacesView_SuperScrollTo(KFilePlacesView* self, const QModelIndex* ind
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnScrollTo(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ScrollTo_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ScrollTo_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -794,9 +773,8 @@ QModelIndex* KFilePlacesView_SuperIndexAt(const KFilePlacesView* self, const QPo
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnIndexAt(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_IndexAt_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_IndexAt_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -823,9 +801,8 @@ void KFilePlacesView_SuperDoItemsLayout(KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDoItemsLayout(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_DoItemsLayout_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DoItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -852,9 +829,8 @@ void KFilePlacesView_SuperReset(KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnReset(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_Reset_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -881,9 +857,8 @@ void KFilePlacesView_SuperSetRootIndex(KFilePlacesView* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSetRootIndex(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SetRootIndex_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetRootIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -910,9 +885,8 @@ bool KFilePlacesView_SuperEvent(KFilePlacesView* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_Event_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -939,9 +913,8 @@ void KFilePlacesView_SuperScrollContentsBy(KFilePlacesView* self, int dx, int dy
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnScrollContentsBy(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ScrollContentsBy_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -968,9 +941,8 @@ void KFilePlacesView_SuperRowsAboutToBeRemoved(KFilePlacesView* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnRowsAboutToBeRemoved(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_RowsAboutToBeRemoved_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -997,9 +969,8 @@ void KFilePlacesView_SuperMouseMoveEvent(KFilePlacesView* self, QMouseEvent* e) 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMouseMoveEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_MouseMoveEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1026,9 +997,8 @@ void KFilePlacesView_SuperMouseReleaseEvent(KFilePlacesView* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMouseReleaseEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1055,9 +1025,8 @@ void KFilePlacesView_SuperWheelEvent(KFilePlacesView* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnWheelEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_WheelEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1084,9 +1053,8 @@ void KFilePlacesView_SuperTimerEvent(KFilePlacesView* self, QTimerEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnTimerEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_TimerEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1113,9 +1081,8 @@ void KFilePlacesView_SuperInitViewItemOption(const KFilePlacesView* self, QStyle
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnInitViewItemOption(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_InitViewItemOption_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_InitViewItemOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1142,9 +1109,8 @@ int KFilePlacesView_SuperHorizontalOffset(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnHorizontalOffset(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_HorizontalOffset_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HorizontalOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1171,9 +1137,8 @@ int KFilePlacesView_SuperVerticalOffset(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnVerticalOffset(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_VerticalOffset_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_VerticalOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1198,9 +1163,8 @@ QModelIndex* KFilePlacesView_SuperMoveCursor(KFilePlacesView* self, int cursorAc
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMoveCursor(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_MoveCursor_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MoveCursor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1227,9 +1191,8 @@ void KFilePlacesView_SuperSetSelection(KFilePlacesView* self, const QRect* rect,
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSetSelection(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SetSelection_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1254,9 +1217,8 @@ QRegion* KFilePlacesView_SuperVisualRegionForSelection(const KFilePlacesView* se
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnVisualRegionForSelection(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_VisualRegionForSelection_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_VisualRegionForSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1319,9 +1281,8 @@ libqt_list /* of QModelIndex* */ KFilePlacesView_SuperSelectedIndexes(const KFil
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSelectedIndexes(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SelectedIndexes_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SelectedIndexes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1348,9 +1309,8 @@ void KFilePlacesView_SuperUpdateGeometries(KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnUpdateGeometries(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_UpdateGeometries_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_UpdateGeometries_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1377,9 +1337,8 @@ bool KFilePlacesView_SuperIsIndexHidden(const KFilePlacesView* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnIsIndexHidden(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_IsIndexHidden_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_IsIndexHidden_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1406,9 +1365,8 @@ void KFilePlacesView_SuperSelectionChanged(KFilePlacesView* self, const QItemSel
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSelectionChanged(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SelectionChanged_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SelectionChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1435,9 +1393,8 @@ void KFilePlacesView_SuperCurrentChanged(KFilePlacesView* self, const QModelInde
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnCurrentChanged(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_CurrentChanged_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_CurrentChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1462,9 +1419,8 @@ QSize* KFilePlacesView_SuperViewportSizeHint(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnViewportSizeHint(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ViewportSizeHint_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1491,9 +1447,8 @@ void KFilePlacesView_SuperSetSelectionModel(KFilePlacesView* self, QItemSelectio
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSetSelectionModel(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SetSelectionModel_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetSelectionModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1522,9 +1477,8 @@ void KFilePlacesView_SuperKeyboardSearch(KFilePlacesView* self, const libqt_stri
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnKeyboardSearch(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_KeyboardSearch_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_KeyboardSearch_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1551,9 +1505,8 @@ int KFilePlacesView_SuperSizeHintForRow(const KFilePlacesView* self, int row) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSizeHintForRow(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SizeHintForRow_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SizeHintForRow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1580,9 +1533,8 @@ int KFilePlacesView_SuperSizeHintForColumn(const KFilePlacesView* self, int colu
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSizeHintForColumn(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SizeHintForColumn_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SizeHintForColumn_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1609,9 +1561,8 @@ QAbstractItemDelegate* KFilePlacesView_SuperItemDelegateForIndex(const KFilePlac
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnItemDelegateForIndex(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ItemDelegateForIndex_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ItemDelegateForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1638,9 +1589,8 @@ QVariant* KFilePlacesView_SuperInputMethodQuery(const KFilePlacesView* self, int
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnInputMethodQuery(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_InputMethodQuery_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1667,9 +1617,8 @@ void KFilePlacesView_SuperSelectAll(KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSelectAll(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SelectAll_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SelectAll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1696,9 +1645,8 @@ void KFilePlacesView_SuperUpdateEditorData(KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnUpdateEditorData(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_UpdateEditorData_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_UpdateEditorData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1725,9 +1673,8 @@ void KFilePlacesView_SuperUpdateEditorGeometries(KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnUpdateEditorGeometries(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_UpdateEditorGeometries_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_UpdateEditorGeometries_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1754,9 +1701,8 @@ void KFilePlacesView_SuperVerticalScrollbarAction(KFilePlacesView* self, int act
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnVerticalScrollbarAction(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_VerticalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1783,9 +1729,8 @@ void KFilePlacesView_SuperHorizontalScrollbarAction(KFilePlacesView* self, int a
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnHorizontalScrollbarAction(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HorizontalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1812,9 +1757,8 @@ void KFilePlacesView_SuperVerticalScrollbarValueChanged(KFilePlacesView* self, i
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnVerticalScrollbarValueChanged(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_VerticalScrollbarValueChanged_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_VerticalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1841,9 +1785,8 @@ void KFilePlacesView_SuperHorizontalScrollbarValueChanged(KFilePlacesView* self,
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnHorizontalScrollbarValueChanged(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_HorizontalScrollbarValueChanged_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HorizontalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1870,9 +1813,8 @@ void KFilePlacesView_SuperCloseEditor(KFilePlacesView* self, QWidget* editor, in
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnCloseEditor(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_CloseEditor_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_CloseEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1899,9 +1841,8 @@ void KFilePlacesView_SuperCommitData(KFilePlacesView* self, QWidget* editor) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnCommitData(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_CommitData_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_CommitData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1928,9 +1869,8 @@ void KFilePlacesView_SuperEditorDestroyed(KFilePlacesView* self, QObject* editor
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnEditorDestroyed(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_EditorDestroyed_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_EditorDestroyed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1957,9 +1897,8 @@ bool KFilePlacesView_SuperEdit2(KFilePlacesView* self, const QModelIndex* index,
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnEdit2(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_Edit2_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Edit2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1986,9 +1925,8 @@ int KFilePlacesView_SuperSelectionCommand(const KFilePlacesView* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSelectionCommand(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SelectionCommand_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SelectionCommand_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2015,9 +1953,8 @@ bool KFilePlacesView_SuperFocusNextPrevChild(KFilePlacesView* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnFocusNextPrevChild(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2044,9 +1981,8 @@ bool KFilePlacesView_SuperViewportEvent(KFilePlacesView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnViewportEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ViewportEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2073,9 +2009,8 @@ void KFilePlacesView_SuperMouseDoubleClickEvent(KFilePlacesView* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMouseDoubleClickEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2102,9 +2037,8 @@ void KFilePlacesView_SuperFocusInEvent(KFilePlacesView* self, QFocusEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnFocusInEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_FocusInEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2131,9 +2065,8 @@ void KFilePlacesView_SuperFocusOutEvent(KFilePlacesView* self, QFocusEvent* even
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnFocusOutEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_FocusOutEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2160,9 +2093,8 @@ void KFilePlacesView_SuperInputMethodEvent(KFilePlacesView* self, QInputMethodEv
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnInputMethodEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_InputMethodEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2189,9 +2121,8 @@ bool KFilePlacesView_SuperEventFilter(KFilePlacesView* self, QObject* object, QE
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnEventFilter(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_EventFilter_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2218,9 +2149,8 @@ QSize* KFilePlacesView_SuperMinimumSizeHint(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMinimumSizeHint(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_MinimumSizeHint_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2247,9 +2177,8 @@ void KFilePlacesView_SuperSetupViewport(KFilePlacesView* self, QWidget* viewport
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSetupViewport(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SetupViewport_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2276,9 +2205,8 @@ void KFilePlacesView_SuperChangeEvent(KFilePlacesView* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnChangeEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ChangeEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2305,9 +2233,8 @@ void KFilePlacesView_SuperInitStyleOption(const KFilePlacesView* self, QStyleOpt
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnInitStyleOption(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_InitStyleOption_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2334,9 +2261,8 @@ int KFilePlacesView_SuperDevType(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDevType(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_DevType_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2363,9 +2289,8 @@ void KFilePlacesView_SuperSetVisible(KFilePlacesView* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSetVisible(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SetVisible_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2392,9 +2317,8 @@ int KFilePlacesView_SuperHeightForWidth(const KFilePlacesView* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnHeightForWidth(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_HeightForWidth_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2421,9 +2345,8 @@ bool KFilePlacesView_SuperHasHeightForWidth(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnHasHeightForWidth(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_HasHeightForWidth_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2450,9 +2373,8 @@ QPaintEngine* KFilePlacesView_SuperPaintEngine(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnPaintEngine(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_PaintEngine_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2479,9 +2401,8 @@ void KFilePlacesView_SuperKeyReleaseEvent(KFilePlacesView* self, QKeyEvent* even
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnKeyReleaseEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2508,9 +2429,8 @@ void KFilePlacesView_SuperEnterEvent(KFilePlacesView* self, QEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnEnterEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_EnterEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2537,9 +2457,8 @@ void KFilePlacesView_SuperLeaveEvent(KFilePlacesView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnLeaveEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_LeaveEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2566,9 +2485,8 @@ void KFilePlacesView_SuperMoveEvent(KFilePlacesView* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMoveEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_MoveEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2595,9 +2513,8 @@ void KFilePlacesView_SuperCloseEvent(KFilePlacesView* self, QCloseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnCloseEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_CloseEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2624,9 +2541,8 @@ void KFilePlacesView_SuperTabletEvent(KFilePlacesView* self, QTabletEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnTabletEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_TabletEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2653,9 +2569,8 @@ void KFilePlacesView_SuperActionEvent(KFilePlacesView* self, QActionEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnActionEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ActionEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2684,9 +2599,8 @@ bool KFilePlacesView_SuperNativeEvent(KFilePlacesView* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnNativeEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_NativeEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2713,9 +2627,8 @@ int KFilePlacesView_SuperMetric(const KFilePlacesView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnMetric(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_Metric_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2742,9 +2655,8 @@ void KFilePlacesView_SuperInitPainter(const KFilePlacesView* self, QPainter* pai
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnInitPainter(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_InitPainter_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2771,9 +2683,8 @@ QPaintDevice* KFilePlacesView_SuperRedirected(const KFilePlacesView* self, QPoin
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnRedirected(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_Redirected_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2800,9 +2711,8 @@ QPainter* KFilePlacesView_SuperSharedPainter(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSharedPainter(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SharedPainter_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2829,9 +2739,8 @@ void KFilePlacesView_SuperChildEvent(KFilePlacesView* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnChildEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ChildEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2858,9 +2767,8 @@ void KFilePlacesView_SuperCustomEvent(KFilePlacesView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnCustomEvent(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_CustomEvent_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2887,9 +2795,8 @@ void KFilePlacesView_SuperConnectNotify(KFilePlacesView* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnConnectNotify(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ConnectNotify_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2916,9 +2823,8 @@ void KFilePlacesView_SuperDisconnectNotify(KFilePlacesView* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDisconnectNotify(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_DisconnectNotify_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2945,9 +2851,8 @@ void KFilePlacesView_SuperResizeContents(KFilePlacesView* self, int width, int h
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnResizeContents(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ResizeContents_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ResizeContents_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2972,9 +2877,8 @@ QSize* KFilePlacesView_SuperContentsSize(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnContentsSize(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ContentsSize_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ContentsSize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2999,9 +2903,8 @@ QRect* KFilePlacesView_SuperRectForIndex(const KFilePlacesView* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnRectForIndex(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_RectForIndex_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_RectForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3028,9 +2931,8 @@ void KFilePlacesView_SuperSetPositionForIndex(KFilePlacesView* self, const QPoin
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSetPositionForIndex(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SetPositionForIndex_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetPositionForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3057,9 +2959,8 @@ int KFilePlacesView_SuperState(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnState(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_State_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_State_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3086,9 +2987,8 @@ void KFilePlacesView_SuperSetState(KFilePlacesView* self, int state) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSetState(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SetState_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3115,9 +3015,8 @@ void KFilePlacesView_SuperScheduleDelayedItemsLayout(KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnScheduleDelayedItemsLayout(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ScheduleDelayedItemsLayout_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ScheduleDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3144,9 +3043,8 @@ void KFilePlacesView_SuperExecuteDelayedItemsLayout(KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnExecuteDelayedItemsLayout(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ExecuteDelayedItemsLayout_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ExecuteDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3173,9 +3071,8 @@ void KFilePlacesView_SuperSetDirtyRegion(KFilePlacesView* self, const QRegion* r
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSetDirtyRegion(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SetDirtyRegion_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3202,9 +3099,8 @@ void KFilePlacesView_SuperScrollDirtyRegion(KFilePlacesView* self, int dx, int d
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnScrollDirtyRegion(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ScrollDirtyRegion_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ScrollDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3229,9 +3125,8 @@ QPoint* KFilePlacesView_SuperDirtyRegionOffset(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDirtyRegionOffset(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_DirtyRegionOffset_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DirtyRegionOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3258,9 +3153,8 @@ void KFilePlacesView_SuperStartAutoScroll(KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnStartAutoScroll(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_StartAutoScroll_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_StartAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3287,9 +3181,8 @@ void KFilePlacesView_SuperStopAutoScroll(KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnStopAutoScroll(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_StopAutoScroll_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_StopAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3316,9 +3209,8 @@ void KFilePlacesView_SuperDoAutoScroll(KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDoAutoScroll(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_DoAutoScroll_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DoAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3345,9 +3237,8 @@ int KFilePlacesView_SuperDropIndicatorPosition(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDropIndicatorPosition(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_DropIndicatorPosition_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DropIndicatorPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3374,9 +3265,8 @@ void KFilePlacesView_SuperSetViewportMargins(KFilePlacesView* self, int left, in
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSetViewportMargins(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SetViewportMargins_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3401,9 +3291,8 @@ QMargins* KFilePlacesView_SuperViewportMargins(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnViewportMargins(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_ViewportMargins_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3430,9 +3319,8 @@ void KFilePlacesView_SuperDrawFrame(KFilePlacesView* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDrawFrame(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_DrawFrame_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3459,9 +3347,8 @@ void KFilePlacesView_SuperUpdateMicroFocus(KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnUpdateMicroFocus(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3488,9 +3375,8 @@ void KFilePlacesView_SuperCreate(KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnCreate(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_Create_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3517,9 +3403,8 @@ void KFilePlacesView_SuperDestroy(KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnDestroy(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_Destroy_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3546,9 +3431,8 @@ bool KFilePlacesView_SuperFocusNextChild(KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnFocusNextChild(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_FocusNextChild_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3575,9 +3459,8 @@ bool KFilePlacesView_SuperFocusPreviousChild(KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnFocusPreviousChild(KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_FocusPreviousChild_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3604,9 +3487,8 @@ QObject* KFilePlacesView_SuperSender(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSender(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_Sender_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3633,9 +3515,8 @@ int KFilePlacesView_SuperSenderSignalIndex(const KFilePlacesView* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnSenderSignalIndex(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3662,9 +3543,8 @@ int KFilePlacesView_SuperReceivers(const KFilePlacesView* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnReceivers(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_Receivers_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3691,9 +3571,8 @@ bool KFilePlacesView_SuperIsSignalConnected(const KFilePlacesView* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnIsSignalConnected(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_IsSignalConnected_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3720,9 +3599,8 @@ double KFilePlacesView_SuperGetDecodedMetricF(const KFilePlacesView* self, int m
 // Auxiliary method to allow providing re-implementation
 void KFilePlacesView_OnGetDecodedMetricF(const KFilePlacesView* self, intptr_t slot) {
     auto* vkfileplacesview = const_cast<VirtualKFilePlacesView*>(dynamic_cast<const VirtualKFilePlacesView*>(self));
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
+    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView)
         vkfileplacesview->setKFilePlacesView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKFilePlacesView::KFilePlacesView_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KFilePlacesView_Delete(KFilePlacesView* self) {

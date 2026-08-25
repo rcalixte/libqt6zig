@@ -7021,7 +7021,7 @@ pub const KColumnHeadersModel = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kcolumnheadersmodel.html#public-types)
 pub const enums = struct {
-    pub const ExtraRoles = enum(i32) {
+    pub const ExtraRoles = enum {
         pub const SortRole: i32 = 18714894;
     };
 };

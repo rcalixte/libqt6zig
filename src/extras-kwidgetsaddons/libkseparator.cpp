@@ -97,9 +97,8 @@ QMetaObject* KSeparator_SuperMetaObject(const KSeparator* self) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMetaObject(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_MetaObject_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -116,9 +115,8 @@ void* KSeparator_SuperMetacast(KSeparator* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMetacast(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_Metacast_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -135,9 +133,8 @@ int KSeparator_SuperMetacall(KSeparator* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMetacall(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_Metacall_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -164,9 +161,8 @@ QSize* KSeparator_SuperSizeHint(const KSeparator* self) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnSizeHint(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_SizeHint_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -193,9 +189,8 @@ bool KSeparator_SuperEvent(KSeparator* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_Event_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -222,9 +217,8 @@ void KSeparator_SuperPaintEvent(KSeparator* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnPaintEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_PaintEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -251,9 +245,8 @@ void KSeparator_SuperChangeEvent(KSeparator* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnChangeEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_ChangeEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -280,9 +273,8 @@ void KSeparator_SuperInitStyleOption(const KSeparator* self, QStyleOptionFrame* 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnInitStyleOption(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_InitStyleOption_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -309,9 +301,8 @@ int KSeparator_SuperDevType(const KSeparator* self) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnDevType(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_DevType_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -338,9 +329,8 @@ void KSeparator_SuperSetVisible(KSeparator* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnSetVisible(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_SetVisible_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -367,9 +357,8 @@ QSize* KSeparator_SuperMinimumSizeHint(const KSeparator* self) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMinimumSizeHint(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_MinimumSizeHint_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -396,9 +385,8 @@ int KSeparator_SuperHeightForWidth(const KSeparator* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnHeightForWidth(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_HeightForWidth_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -425,9 +413,8 @@ bool KSeparator_SuperHasHeightForWidth(const KSeparator* self) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnHasHeightForWidth(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_HasHeightForWidth_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -454,9 +441,8 @@ QPaintEngine* KSeparator_SuperPaintEngine(const KSeparator* self) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnPaintEngine(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_PaintEngine_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -483,9 +469,8 @@ void KSeparator_SuperMousePressEvent(KSeparator* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMousePressEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_MousePressEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -512,9 +497,8 @@ void KSeparator_SuperMouseReleaseEvent(KSeparator* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMouseReleaseEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -541,9 +525,8 @@ void KSeparator_SuperMouseDoubleClickEvent(KSeparator* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMouseDoubleClickEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -570,9 +553,8 @@ void KSeparator_SuperMouseMoveEvent(KSeparator* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMouseMoveEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_MouseMoveEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -599,9 +581,8 @@ void KSeparator_SuperWheelEvent(KSeparator* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnWheelEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_WheelEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -628,9 +609,8 @@ void KSeparator_SuperKeyPressEvent(KSeparator* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnKeyPressEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_KeyPressEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -657,9 +637,8 @@ void KSeparator_SuperKeyReleaseEvent(KSeparator* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnKeyReleaseEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -686,9 +665,8 @@ void KSeparator_SuperFocusInEvent(KSeparator* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnFocusInEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_FocusInEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -715,9 +693,8 @@ void KSeparator_SuperFocusOutEvent(KSeparator* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnFocusOutEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_FocusOutEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -744,9 +721,8 @@ void KSeparator_SuperEnterEvent(KSeparator* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnEnterEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_EnterEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -773,9 +749,8 @@ void KSeparator_SuperLeaveEvent(KSeparator* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnLeaveEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_LeaveEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -802,9 +777,8 @@ void KSeparator_SuperMoveEvent(KSeparator* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMoveEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_MoveEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -831,9 +805,8 @@ void KSeparator_SuperResizeEvent(KSeparator* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnResizeEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_ResizeEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -860,9 +833,8 @@ void KSeparator_SuperCloseEvent(KSeparator* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnCloseEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_CloseEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -889,9 +861,8 @@ void KSeparator_SuperContextMenuEvent(KSeparator* self, QContextMenuEvent* event
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnContextMenuEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_ContextMenuEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -918,9 +889,8 @@ void KSeparator_SuperTabletEvent(KSeparator* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnTabletEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_TabletEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -947,9 +917,8 @@ void KSeparator_SuperActionEvent(KSeparator* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnActionEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_ActionEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -976,9 +945,8 @@ void KSeparator_SuperDragEnterEvent(KSeparator* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnDragEnterEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_DragEnterEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1005,9 +973,8 @@ void KSeparator_SuperDragMoveEvent(KSeparator* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnDragMoveEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_DragMoveEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1034,9 +1001,8 @@ void KSeparator_SuperDragLeaveEvent(KSeparator* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnDragLeaveEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_DragLeaveEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1063,9 +1029,8 @@ void KSeparator_SuperDropEvent(KSeparator* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnDropEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_DropEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1092,9 +1057,8 @@ void KSeparator_SuperShowEvent(KSeparator* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnShowEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_ShowEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1121,9 +1085,8 @@ void KSeparator_SuperHideEvent(KSeparator* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnHideEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_HideEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1152,9 +1115,8 @@ bool KSeparator_SuperNativeEvent(KSeparator* self, const libqt_string eventType,
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnNativeEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_NativeEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1181,9 +1143,8 @@ int KSeparator_SuperMetric(const KSeparator* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnMetric(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_Metric_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1210,9 +1171,8 @@ void KSeparator_SuperInitPainter(const KSeparator* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnInitPainter(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_InitPainter_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1239,9 +1199,8 @@ QPaintDevice* KSeparator_SuperRedirected(const KSeparator* self, QPoint* offset)
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnRedirected(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_Redirected_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1268,9 +1227,8 @@ QPainter* KSeparator_SuperSharedPainter(const KSeparator* self) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnSharedPainter(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_SharedPainter_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1297,9 +1255,8 @@ void KSeparator_SuperInputMethodEvent(KSeparator* self, QInputMethodEvent* param
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnInputMethodEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_InputMethodEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1326,9 +1283,8 @@ QVariant* KSeparator_SuperInputMethodQuery(const KSeparator* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnInputMethodQuery(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_InputMethodQuery_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1355,9 +1311,8 @@ bool KSeparator_SuperFocusNextPrevChild(KSeparator* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnFocusNextPrevChild(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1384,9 +1339,8 @@ bool KSeparator_SuperEventFilter(KSeparator* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnEventFilter(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_EventFilter_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1413,9 +1367,8 @@ void KSeparator_SuperTimerEvent(KSeparator* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnTimerEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_TimerEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1442,9 +1395,8 @@ void KSeparator_SuperChildEvent(KSeparator* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnChildEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_ChildEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1471,9 +1423,8 @@ void KSeparator_SuperCustomEvent(KSeparator* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnCustomEvent(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_CustomEvent_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1500,9 +1451,8 @@ void KSeparator_SuperConnectNotify(KSeparator* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnConnectNotify(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_ConnectNotify_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1529,9 +1479,8 @@ void KSeparator_SuperDisconnectNotify(KSeparator* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnDisconnectNotify(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_DisconnectNotify_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1558,9 +1507,8 @@ void KSeparator_SuperDrawFrame(KSeparator* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnDrawFrame(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_DrawFrame_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1587,9 +1535,8 @@ void KSeparator_SuperUpdateMicroFocus(KSeparator* self) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnUpdateMicroFocus(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1616,9 +1563,8 @@ void KSeparator_SuperCreate(KSeparator* self) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnCreate(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_Create_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1645,9 +1591,8 @@ void KSeparator_SuperDestroy(KSeparator* self) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnDestroy(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_Destroy_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1674,9 +1619,8 @@ bool KSeparator_SuperFocusNextChild(KSeparator* self) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnFocusNextChild(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_FocusNextChild_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1703,9 +1647,8 @@ bool KSeparator_SuperFocusPreviousChild(KSeparator* self) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnFocusPreviousChild(KSeparator* self, intptr_t slot) {
     auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_FocusPreviousChild_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1732,9 +1675,8 @@ QObject* KSeparator_SuperSender(const KSeparator* self) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnSender(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_Sender_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1761,9 +1703,8 @@ int KSeparator_SuperSenderSignalIndex(const KSeparator* self) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnSenderSignalIndex(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1790,9 +1731,8 @@ int KSeparator_SuperReceivers(const KSeparator* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnReceivers(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_Receivers_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1819,9 +1759,8 @@ bool KSeparator_SuperIsSignalConnected(const KSeparator* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnIsSignalConnected(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_IsSignalConnected_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1848,9 +1787,8 @@ double KSeparator_SuperGetDecodedMetricF(const KSeparator* self, int metricA, in
 // Auxiliary method to allow providing re-implementation
 void KSeparator_OnGetDecodedMetricF(const KSeparator* self, intptr_t slot) {
     auto* vkseparator = const_cast<VirtualKSeparator*>(dynamic_cast<const VirtualKSeparator*>(self));
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
+    if (vkseparator && vkseparator->isVirtualKSeparator)
         vkseparator->setKSeparator_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKSeparator::KSeparator_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KSeparator_Delete(KSeparator* self) {

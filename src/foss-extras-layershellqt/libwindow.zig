@@ -1700,7 +1700,7 @@ pub const LayerShellQt__Window = extern struct {
 
 /// ### [Upstream resources](https://invent.kde.org/plasma/layer-shell-qt)
 pub const enums = struct {
-    pub const Anchor = enum(i32) {
+    pub const Anchor = enum {
         pub const AnchorNone: i32 = 0;
         pub const AnchorTop: i32 = 1;
         pub const AnchorBottom: i32 = 2;
@@ -1708,20 +1708,20 @@ pub const enums = struct {
         pub const AnchorRight: i32 = 8;
     };
 
-    pub const Layer = enum(i32) {
+    pub const Layer = enum {
         pub const LayerBackground: i32 = 0;
         pub const LayerBottom: i32 = 1;
         pub const LayerTop: i32 = 2;
         pub const LayerOverlay: i32 = 3;
     };
 
-    pub const KeyboardInteractivity = enum(i32) {
+    pub const KeyboardInteractivity = enum {
         pub const KeyboardInteractivityNone: i32 = 0;
         pub const KeyboardInteractivityExclusive: i32 = 1;
         pub const KeyboardInteractivityOnDemand: i32 = 2;
     };
 
-    pub const ScreenConfiguration = enum(i32) {
+    pub const ScreenConfiguration = enum {
         pub const ScreenFromQWindow: i32 = 0;
         pub const ScreenFromCompositor: i32 = 1;
     };

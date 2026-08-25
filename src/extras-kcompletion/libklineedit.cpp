@@ -66,6 +66,14 @@ KLineEdit* KLineEdit_new4(const libqt_string string, QWidget* parent) {
     return new VirtualKLineEdit(string_QString, parent);
 }
 
+KCompletionBase* KLineEdit_AsKCompletionBase(KLineEdit* self) {
+    return static_cast<KCompletionBase*>(self);
+}
+
+KLineEdit* KLineEdit_FromKCompletionBase(KCompletionBase* _kcompletionbase) {
+    return dynamic_cast<KLineEdit*>(static_cast<KCompletionBase*>(_kcompletionbase));
+}
+
 QMetaObject* KLineEdit_MetaObject(const KLineEdit* self) {
     return (QMetaObject*)self->metaObject();
 }
@@ -415,9 +423,8 @@ QMetaObject* KLineEdit_SuperMetaObject(const KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMetaObject(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_MetaObject_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -434,9 +441,8 @@ void* KLineEdit_SuperMetacast(KLineEdit* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMetacast(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_Metacast_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -453,9 +459,8 @@ int KLineEdit_SuperMetacall(KLineEdit* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMetacall(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_Metacall_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -472,9 +477,8 @@ void KLineEdit_SuperSetCompletionMode(KLineEdit* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetCompletionMode(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_SetCompletionMode_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetCompletionMode_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -491,9 +495,8 @@ KCompletionBox* KLineEdit_SuperCompletionBox(KLineEdit* self, bool create) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnCompletionBox(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_CompletionBox_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_CompletionBox_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -510,9 +513,8 @@ void KLineEdit_SuperSetCompletionObject(KLineEdit* self, KCompletion* param1, bo
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetCompletionObject(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_SetCompletionObject_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetCompletionObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -529,9 +531,8 @@ void KLineEdit_SuperCopy(const KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnCopy(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_Copy_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Copy_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -548,9 +549,8 @@ void KLineEdit_SuperSetReadOnly(KLineEdit* self, bool readOnly) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetReadOnly(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_SetReadOnly_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetReadOnly_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -568,9 +568,8 @@ void KLineEdit_SuperSetCompletedText(KLineEdit* self, const libqt_string complet
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetCompletedText(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_SetCompletedText_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetCompletedText_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -594,9 +593,8 @@ void KLineEdit_SuperSetCompletedItems(KLineEdit* self, const libqt_list /* of li
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetCompletedItems(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_SetCompletedItems_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetCompletedItems_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -614,9 +612,8 @@ void KLineEdit_SuperSetText(KLineEdit* self, const libqt_string text) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetText(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_SetText_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetText_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -634,9 +631,8 @@ void KLineEdit_SuperMakeCompletion(KLineEdit* self, const libqt_string param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMakeCompletion(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_MakeCompletion_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MakeCompletion_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -653,9 +649,8 @@ bool KLineEdit_SuperEvent(KLineEdit* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_Event_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -672,9 +667,8 @@ void KLineEdit_SuperResizeEvent(KLineEdit* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnResizeEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_ResizeEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -691,9 +685,8 @@ void KLineEdit_SuperKeyPressEvent(KLineEdit* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnKeyPressEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -710,9 +703,8 @@ void KLineEdit_SuperMousePressEvent(KLineEdit* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMousePressEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_MousePressEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -729,9 +721,8 @@ void KLineEdit_SuperMouseReleaseEvent(KLineEdit* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMouseReleaseEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -748,9 +739,8 @@ void KLineEdit_SuperMouseDoubleClickEvent(KLineEdit* self, QMouseEvent* param1) 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMouseDoubleClickEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -767,9 +757,8 @@ void KLineEdit_SuperContextMenuEvent(KLineEdit* self, QContextMenuEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnContextMenuEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -787,9 +776,8 @@ void KLineEdit_SuperSetCompletedText2(KLineEdit* self, const libqt_string param1
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetCompletedText2(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_SetCompletedText2_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetCompletedText2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -806,9 +794,8 @@ void KLineEdit_SuperPaintEvent(KLineEdit* self, QPaintEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnPaintEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_PaintEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -835,9 +822,8 @@ QSize* KLineEdit_SuperSizeHint(const KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSizeHint(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_SizeHint_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -864,9 +850,8 @@ QSize* KLineEdit_SuperMinimumSizeHint(const KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMinimumSizeHint(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -893,9 +878,8 @@ void KLineEdit_SuperMouseMoveEvent(KLineEdit* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMouseMoveEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -922,9 +906,8 @@ void KLineEdit_SuperKeyReleaseEvent(KLineEdit* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnKeyReleaseEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -951,9 +934,8 @@ void KLineEdit_SuperFocusInEvent(KLineEdit* self, QFocusEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnFocusInEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_FocusInEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -980,9 +962,8 @@ void KLineEdit_SuperFocusOutEvent(KLineEdit* self, QFocusEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnFocusOutEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1009,9 +990,8 @@ void KLineEdit_SuperDragEnterEvent(KLineEdit* self, QDragEnterEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnDragEnterEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1038,9 +1018,8 @@ void KLineEdit_SuperDragMoveEvent(KLineEdit* self, QDragMoveEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnDragMoveEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1067,9 +1046,8 @@ void KLineEdit_SuperDragLeaveEvent(KLineEdit* self, QDragLeaveEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnDragLeaveEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1096,9 +1074,8 @@ void KLineEdit_SuperDropEvent(KLineEdit* self, QDropEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnDropEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_DropEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1125,9 +1102,8 @@ void KLineEdit_SuperChangeEvent(KLineEdit* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnChangeEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_ChangeEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1154,9 +1130,8 @@ void KLineEdit_SuperInputMethodEvent(KLineEdit* self, QInputMethodEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnInputMethodEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1183,9 +1158,8 @@ void KLineEdit_SuperInitStyleOption(const KLineEdit* self, QStyleOptionFrame* op
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnInitStyleOption(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_InitStyleOption_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1212,9 +1186,8 @@ QVariant* KLineEdit_SuperInputMethodQuery(const KLineEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnInputMethodQuery(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1241,9 +1214,8 @@ void KLineEdit_SuperTimerEvent(KLineEdit* self, QTimerEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnTimerEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_TimerEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1270,9 +1242,8 @@ int KLineEdit_SuperDevType(const KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnDevType(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_DevType_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1299,9 +1270,8 @@ void KLineEdit_SuperSetVisible(KLineEdit* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetVisible(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_SetVisible_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1328,9 +1298,8 @@ int KLineEdit_SuperHeightForWidth(const KLineEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnHeightForWidth(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_HeightForWidth_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1357,9 +1326,8 @@ bool KLineEdit_SuperHasHeightForWidth(const KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnHasHeightForWidth(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1386,9 +1354,8 @@ QPaintEngine* KLineEdit_SuperPaintEngine(const KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnPaintEngine(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_PaintEngine_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1415,9 +1382,8 @@ void KLineEdit_SuperWheelEvent(KLineEdit* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnWheelEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_WheelEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1444,9 +1410,8 @@ void KLineEdit_SuperEnterEvent(KLineEdit* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnEnterEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_EnterEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1473,9 +1438,8 @@ void KLineEdit_SuperLeaveEvent(KLineEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnLeaveEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_LeaveEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1502,9 +1466,8 @@ void KLineEdit_SuperMoveEvent(KLineEdit* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMoveEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_MoveEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1531,9 +1494,8 @@ void KLineEdit_SuperCloseEvent(KLineEdit* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnCloseEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_CloseEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1560,9 +1522,8 @@ void KLineEdit_SuperTabletEvent(KLineEdit* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnTabletEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_TabletEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1589,9 +1550,8 @@ void KLineEdit_SuperActionEvent(KLineEdit* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnActionEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_ActionEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1618,9 +1578,8 @@ void KLineEdit_SuperShowEvent(KLineEdit* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnShowEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_ShowEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1647,9 +1606,8 @@ void KLineEdit_SuperHideEvent(KLineEdit* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnHideEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_HideEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1678,9 +1636,8 @@ bool KLineEdit_SuperNativeEvent(KLineEdit* self, const libqt_string eventType, v
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnNativeEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_NativeEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1707,9 +1664,8 @@ int KLineEdit_SuperMetric(const KLineEdit* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnMetric(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_Metric_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1736,9 +1692,8 @@ void KLineEdit_SuperInitPainter(const KLineEdit* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnInitPainter(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_InitPainter_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1765,9 +1720,8 @@ QPaintDevice* KLineEdit_SuperRedirected(const KLineEdit* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnRedirected(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_Redirected_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1794,9 +1748,8 @@ QPainter* KLineEdit_SuperSharedPainter(const KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSharedPainter(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_SharedPainter_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1823,9 +1776,8 @@ bool KLineEdit_SuperFocusNextPrevChild(KLineEdit* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnFocusNextPrevChild(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1852,9 +1804,8 @@ bool KLineEdit_SuperEventFilter(KLineEdit* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnEventFilter(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_EventFilter_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1881,9 +1832,8 @@ void KLineEdit_SuperChildEvent(KLineEdit* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnChildEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_ChildEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1910,9 +1860,8 @@ void KLineEdit_SuperCustomEvent(KLineEdit* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnCustomEvent(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_CustomEvent_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1939,9 +1888,8 @@ void KLineEdit_SuperConnectNotify(KLineEdit* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnConnectNotify(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_ConnectNotify_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1968,9 +1916,8 @@ void KLineEdit_SuperDisconnectNotify(KLineEdit* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnDisconnectNotify(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1997,9 +1944,8 @@ void KLineEdit_SuperSetHandleSignals(KLineEdit* self, bool handle) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetHandleSignals(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_SetHandleSignals_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetHandleSignals_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2026,9 +1972,8 @@ void KLineEdit_SuperVirtualHook(KLineEdit* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnVirtualHook(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_VirtualHook_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_VirtualHook_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2057,9 +2002,8 @@ void KLineEdit_SuperUserCancelled(KLineEdit* self, const libqt_string cancelText
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnUserCancelled(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_UserCancelled_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_UserCancelled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2086,9 +2030,8 @@ QMenu* KLineEdit_SuperCreateStandardContextMenu(KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnCreateStandardContextMenu(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_CreateStandardContextMenu_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_CreateStandardContextMenu_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2115,9 +2058,8 @@ void KLineEdit_SuperSetUserSelection(KLineEdit* self, bool userSelection) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetUserSelection(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_SetUserSelection_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetUserSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2144,9 +2086,8 @@ bool KLineEdit_SuperAutoSuggest(const KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnAutoSuggest(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_AutoSuggest_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_AutoSuggest_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2171,9 +2112,8 @@ QRect* KLineEdit_SuperCursorRect(const KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnCursorRect(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_CursorRect_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_CursorRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2200,9 +2140,8 @@ void KLineEdit_SuperUpdateMicroFocus(KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnUpdateMicroFocus(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2229,9 +2168,8 @@ void KLineEdit_SuperCreate(KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnCreate(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_Create_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2258,9 +2196,8 @@ void KLineEdit_SuperDestroy(KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnDestroy(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_Destroy_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2287,9 +2224,8 @@ bool KLineEdit_SuperFocusNextChild(KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnFocusNextChild(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_FocusNextChild_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2316,9 +2252,8 @@ bool KLineEdit_SuperFocusPreviousChild(KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnFocusPreviousChild(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2345,9 +2280,8 @@ QObject* KLineEdit_SuperSender(const KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSender(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_Sender_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2374,9 +2308,8 @@ int KLineEdit_SuperSenderSignalIndex(const KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSenderSignalIndex(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2403,9 +2336,8 @@ int KLineEdit_SuperReceivers(const KLineEdit* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnReceivers(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_Receivers_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2432,9 +2364,8 @@ bool KLineEdit_SuperIsSignalConnected(const KLineEdit* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnIsSignalConnected(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2461,9 +2392,8 @@ double KLineEdit_SuperGetDecodedMetricF(const KLineEdit* self, int metricA, int 
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnGetDecodedMetricF(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2582,9 +2512,8 @@ libqt_map /* of int to libqt_list of QKeySequence* */ KLineEdit_SuperKeyBindingM
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnKeyBindingMap(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_KeyBindingMap_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_KeyBindingMap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2635,9 +2564,8 @@ void KLineEdit_SuperSetKeyBindingMap(KLineEdit* self, libqt_map /* of int to lib
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetKeyBindingMap(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_SetKeyBindingMap_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetKeyBindingMap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2664,9 +2592,8 @@ void KLineEdit_SuperSetDelegate(KLineEdit* self, KCompletionBase* delegate) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnSetDelegate(KLineEdit* self, intptr_t slot) {
     auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_SetDelegate_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_SetDelegate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2693,9 +2620,8 @@ KCompletionBase* KLineEdit_SuperDelegate(const KLineEdit* self) {
 // Auxiliary method to allow providing re-implementation
 void KLineEdit_OnDelegate(const KLineEdit* self, intptr_t slot) {
     auto* vklineedit = const_cast<VirtualKLineEdit*>(dynamic_cast<const VirtualKLineEdit*>(self));
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
+    if (vklineedit && vklineedit->isVirtualKLineEdit)
         vklineedit->setKLineEdit_Delegate_Callback(reinterpret_cast<VirtualKLineEdit::KLineEdit_Delegate_Callback>(slot));
-    }
 }
 
 void KLineEdit_Delete(KLineEdit* self) {

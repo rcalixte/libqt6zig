@@ -85,9 +85,8 @@ QMetaObject* QAnimationGroup_SuperMetaObject(const QAnimationGroup* self) {
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnMetaObject(const QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = const_cast<VirtualQAnimationGroup*>(dynamic_cast<const VirtualQAnimationGroup*>(self));
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_MetaObject_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -104,9 +103,8 @@ void* QAnimationGroup_SuperMetacast(QAnimationGroup* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnMetacast(QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_Metacast_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -123,9 +121,8 @@ int QAnimationGroup_SuperMetacall(QAnimationGroup* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnMetacall(QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_Metacall_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -142,9 +139,8 @@ bool QAnimationGroup_SuperEvent(QAnimationGroup* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnEvent(QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_Event_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -171,9 +167,8 @@ int QAnimationGroup_SuperDuration(const QAnimationGroup* self) {
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnDuration(const QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = const_cast<VirtualQAnimationGroup*>(dynamic_cast<const VirtualQAnimationGroup*>(self));
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_Duration_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_Duration_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -200,9 +195,8 @@ void QAnimationGroup_SuperUpdateCurrentTime(QAnimationGroup* self, int currentTi
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnUpdateCurrentTime(QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_UpdateCurrentTime_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_UpdateCurrentTime_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -229,9 +223,8 @@ void QAnimationGroup_SuperUpdateState(QAnimationGroup* self, int newState, int o
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnUpdateState(QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_UpdateState_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_UpdateState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -258,9 +251,8 @@ void QAnimationGroup_SuperUpdateDirection(QAnimationGroup* self, int direction) 
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnUpdateDirection(QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_UpdateDirection_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_UpdateDirection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -287,9 +279,8 @@ bool QAnimationGroup_SuperEventFilter(QAnimationGroup* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnEventFilter(QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_EventFilter_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -316,9 +307,8 @@ void QAnimationGroup_SuperTimerEvent(QAnimationGroup* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnTimerEvent(QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_TimerEvent_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -345,9 +335,8 @@ void QAnimationGroup_SuperChildEvent(QAnimationGroup* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnChildEvent(QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_ChildEvent_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -374,9 +363,8 @@ void QAnimationGroup_SuperCustomEvent(QAnimationGroup* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnCustomEvent(QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_CustomEvent_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -403,9 +391,8 @@ void QAnimationGroup_SuperConnectNotify(QAnimationGroup* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnConnectNotify(QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_ConnectNotify_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -432,9 +419,8 @@ void QAnimationGroup_SuperDisconnectNotify(QAnimationGroup* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnDisconnectNotify(QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_DisconnectNotify_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -461,9 +447,8 @@ QObject* QAnimationGroup_SuperSender(const QAnimationGroup* self) {
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnSender(const QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = const_cast<VirtualQAnimationGroup*>(dynamic_cast<const VirtualQAnimationGroup*>(self));
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_Sender_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -490,9 +475,8 @@ int QAnimationGroup_SuperSenderSignalIndex(const QAnimationGroup* self) {
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnSenderSignalIndex(const QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = const_cast<VirtualQAnimationGroup*>(dynamic_cast<const VirtualQAnimationGroup*>(self));
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -519,9 +503,8 @@ int QAnimationGroup_SuperReceivers(const QAnimationGroup* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnReceivers(const QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = const_cast<VirtualQAnimationGroup*>(dynamic_cast<const VirtualQAnimationGroup*>(self));
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_Receivers_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -548,9 +531,8 @@ bool QAnimationGroup_SuperIsSignalConnected(const QAnimationGroup* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QAnimationGroup_OnIsSignalConnected(const QAnimationGroup* self, intptr_t slot) {
     auto* vqanimationgroup = const_cast<VirtualQAnimationGroup*>(dynamic_cast<const VirtualQAnimationGroup*>(self));
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
+    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup)
         vqanimationgroup->setQAnimationGroup_IsSignalConnected_Callback(reinterpret_cast<VirtualQAnimationGroup::QAnimationGroup_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QAnimationGroup_Delete(QAnimationGroup* self) {

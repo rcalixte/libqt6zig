@@ -4430,7 +4430,7 @@ pub const QsciLexerPascal = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerPascal = enum(i32) {
+    pub const QsciLexerPascal = enum {
         pub const Default: i32 = 0;
         pub const Identifier: i32 = 1;
         pub const Comment: i32 = 2;

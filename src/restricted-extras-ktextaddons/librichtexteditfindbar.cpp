@@ -118,9 +118,8 @@ QMetaObject* TextCustomEditor__RichTextEditFindBar_SuperMetaObject(const TextCus
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnMetaObject(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_MetaObject_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -137,9 +136,8 @@ void* TextCustomEditor__RichTextEditFindBar_SuperMetacast(TextCustomEditor__Rich
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnMetacast(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_Metacast_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -156,9 +154,8 @@ int TextCustomEditor__RichTextEditFindBar_SuperMetacall(TextCustomEditor__RichTe
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnMetacall(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_Metacall_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -175,9 +172,8 @@ bool TextCustomEditor__RichTextEditFindBar_SuperViewIsReadOnly(const TextCustomE
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnViewIsReadOnly(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_ViewIsReadOnly_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_ViewIsReadOnly_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -194,9 +190,8 @@ bool TextCustomEditor__RichTextEditFindBar_SuperDocumentIsEmpty(const TextCustom
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnDocumentIsEmpty(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_DocumentIsEmpty_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_DocumentIsEmpty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -214,9 +209,8 @@ bool TextCustomEditor__RichTextEditFindBar_SuperSearchInDocument(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnSearchInDocument(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_SearchInDocument_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_SearchInDocument_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -233,9 +227,8 @@ bool TextCustomEditor__RichTextEditFindBar_SuperSearchInDocument2(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnSearchInDocument2(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_SearchInDocument2_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_SearchInDocument2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -252,9 +245,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperAutoSearchMoveCursor(TextCustomE
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnAutoSearchMoveCursor(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_AutoSearchMoveCursor_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_AutoSearchMoveCursor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -271,9 +263,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperSlotSearchText(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnSlotSearchText(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_SlotSearchText_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_SlotSearchText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +291,8 @@ bool TextCustomEditor__RichTextEditFindBar_SuperEvent(TextCustomEditor__RichText
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_Event_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +319,8 @@ int TextCustomEditor__RichTextEditFindBar_SuperDevType(const TextCustomEditor__R
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnDevType(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_DevType_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +347,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperSetVisible(TextCustomEditor__Ric
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnSetVisible(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_SetVisible_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +375,8 @@ QSize* TextCustomEditor__RichTextEditFindBar_SuperSizeHint(const TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnSizeHint(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_SizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +403,8 @@ QSize* TextCustomEditor__RichTextEditFindBar_SuperMinimumSizeHint(const TextCust
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnMinimumSizeHint(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +431,8 @@ int TextCustomEditor__RichTextEditFindBar_SuperHeightForWidth(const TextCustomEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnHeightForWidth(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_HeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +459,8 @@ bool TextCustomEditor__RichTextEditFindBar_SuperHasHeightForWidth(const TextCust
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnHasHeightForWidth(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +487,8 @@ QPaintEngine* TextCustomEditor__RichTextEditFindBar_SuperPaintEngine(const TextC
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnPaintEngine(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_PaintEngine_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +515,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperMousePressEvent(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnMousePressEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_MousePressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +543,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperMouseReleaseEvent(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnMouseReleaseEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +571,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperMouseDoubleClickEvent(TextCustom
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnMouseDoubleClickEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -619,9 +599,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperMouseMoveEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnMouseMoveEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -648,9 +627,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperWheelEvent(TextCustomEditor__Ric
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnWheelEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_WheelEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -677,9 +655,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperKeyPressEvent(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnKeyPressEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_KeyPressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +683,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperKeyReleaseEvent(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnKeyReleaseEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -735,9 +711,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperFocusInEvent(TextCustomEditor__R
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnFocusInEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_FocusInEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -764,9 +739,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperFocusOutEvent(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnFocusOutEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_FocusOutEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -793,9 +767,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperEnterEvent(TextCustomEditor__Ric
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnEnterEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_EnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -822,9 +795,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperLeaveEvent(TextCustomEditor__Ric
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnLeaveEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_LeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -851,9 +823,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperPaintEvent(TextCustomEditor__Ric
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnPaintEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_PaintEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -880,9 +851,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperMoveEvent(TextCustomEditor__Rich
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnMoveEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_MoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -909,9 +879,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperResizeEvent(TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnResizeEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_ResizeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -938,9 +907,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperCloseEvent(TextCustomEditor__Ric
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnCloseEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_CloseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -967,9 +935,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperContextMenuEvent(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnContextMenuEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -996,9 +963,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperTabletEvent(TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnTabletEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_TabletEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1025,9 +991,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperActionEvent(TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnActionEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_ActionEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1054,9 +1019,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperDragEnterEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnDragEnterEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_DragEnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1083,9 +1047,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperDragMoveEvent(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnDragMoveEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_DragMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1112,9 +1075,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperDragLeaveEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnDragLeaveEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1141,9 +1103,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperDropEvent(TextCustomEditor__Rich
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnDropEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_DropEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1170,9 +1131,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperShowEvent(TextCustomEditor__Rich
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnShowEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_ShowEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1199,9 +1159,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperHideEvent(TextCustomEditor__Rich
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnHideEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_HideEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1230,9 +1189,8 @@ bool TextCustomEditor__RichTextEditFindBar_SuperNativeEvent(TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnNativeEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_NativeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1259,9 +1217,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperChangeEvent(TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnChangeEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_ChangeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1288,9 +1245,8 @@ int TextCustomEditor__RichTextEditFindBar_SuperMetric(const TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnMetric(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_Metric_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1317,9 +1273,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperInitPainter(const TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnInitPainter(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_InitPainter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1346,9 +1301,8 @@ QPaintDevice* TextCustomEditor__RichTextEditFindBar_SuperRedirected(const TextCu
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnRedirected(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_Redirected_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1375,9 +1329,8 @@ QPainter* TextCustomEditor__RichTextEditFindBar_SuperSharedPainter(const TextCus
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnSharedPainter(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_SharedPainter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1404,9 +1357,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperInputMethodEvent(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnInputMethodEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_InputMethodEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1433,9 +1385,8 @@ QVariant* TextCustomEditor__RichTextEditFindBar_SuperInputMethodQuery(const Text
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnInputMethodQuery(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_InputMethodQuery_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1462,9 +1413,8 @@ bool TextCustomEditor__RichTextEditFindBar_SuperFocusNextPrevChild(TextCustomEdi
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnFocusNextPrevChild(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1491,9 +1441,8 @@ bool TextCustomEditor__RichTextEditFindBar_SuperEventFilter(TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnEventFilter(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_EventFilter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1520,9 +1469,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperTimerEvent(TextCustomEditor__Ric
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnTimerEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_TimerEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1549,9 +1497,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperChildEvent(TextCustomEditor__Ric
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnChildEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_ChildEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1578,9 +1525,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperCustomEvent(TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnCustomEvent(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_CustomEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1607,9 +1553,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperConnectNotify(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnConnectNotify(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_ConnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1636,9 +1581,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperDisconnectNotify(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnDisconnectNotify(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_DisconnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1665,9 +1609,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperClearSelections(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnClearSelections(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_ClearSelections_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_ClearSelections_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1694,9 +1637,8 @@ bool TextCustomEditor__RichTextEditFindBar_SuperSearchText(TextCustomEditor__Ric
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnSearchText(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_SearchText_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_SearchText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1723,9 +1665,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperSetFoundMatch(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnSetFoundMatch(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_SetFoundMatch_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_SetFoundMatch_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1752,9 +1693,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperMessageInfo(TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnMessageInfo(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_MessageInfo_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_MessageInfo_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1781,9 +1721,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperUpdateMicroFocus(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnUpdateMicroFocus(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1810,9 +1749,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperCreate(TextCustomEditor__RichTex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnCreate(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_Create_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1839,9 +1777,8 @@ void TextCustomEditor__RichTextEditFindBar_SuperDestroy(TextCustomEditor__RichTe
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnDestroy(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_Destroy_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1868,9 +1805,8 @@ bool TextCustomEditor__RichTextEditFindBar_SuperFocusNextChild(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnFocusNextChild(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_FocusNextChild_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1897,9 +1833,8 @@ bool TextCustomEditor__RichTextEditFindBar_SuperFocusPreviousChild(TextCustomEdi
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnFocusPreviousChild(TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1926,9 +1861,8 @@ QObject* TextCustomEditor__RichTextEditFindBar_SuperSender(const TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnSender(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_Sender_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1955,9 +1889,8 @@ int TextCustomEditor__RichTextEditFindBar_SuperSenderSignalIndex(const TextCusto
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnSenderSignalIndex(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1984,9 +1917,8 @@ int TextCustomEditor__RichTextEditFindBar_SuperReceivers(const TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnReceivers(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_Receivers_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2013,9 +1945,8 @@ bool TextCustomEditor__RichTextEditFindBar_SuperIsSignalConnected(const TextCust
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnIsSignalConnected(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_IsSignalConnected_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2042,9 +1973,8 @@ double TextCustomEditor__RichTextEditFindBar_SuperGetDecodedMetricF(const TextCu
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditFindBar_OnGetDecodedMetricF(const TextCustomEditor__RichTextEditFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditfindbar = const_cast<VirtualTextCustomEditorRichTextEditFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self));
-    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
+    if (vtextcustomeditorrichtexteditfindbar && vtextcustomeditorrichtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar)
         vtextcustomeditorrichtexteditfindbar->setTextCustomEditor__RichTextEditFindBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditFindBar::TextCustomEditor__RichTextEditFindBar_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextCustomEditor__RichTextEditFindBar_Delete(TextCustomEditor__RichTextEditFindBar* self) {

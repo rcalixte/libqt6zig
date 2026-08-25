@@ -1820,18 +1820,18 @@ pub const QDBusConnectionInterface = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#public-types)
 pub const enums = struct {
-    pub const ServiceQueueOptions = enum(i32) {
+    pub const ServiceQueueOptions = enum {
         pub const DontQueueService: i32 = 0;
         pub const QueueService: i32 = 1;
         pub const ReplaceExistingService: i32 = 2;
     };
 
-    pub const ServiceReplacementOptions = enum(i32) {
+    pub const ServiceReplacementOptions = enum {
         pub const DontAllowReplacement: i32 = 0;
         pub const AllowReplacement: i32 = 1;
     };
 
-    pub const RegisterServiceReply = enum(i32) {
+    pub const RegisterServiceReply = enum {
         pub const ServiceNotRegistered: i32 = 0;
         pub const ServiceRegistered: i32 = 1;
         pub const ServiceQueued: i32 = 2;

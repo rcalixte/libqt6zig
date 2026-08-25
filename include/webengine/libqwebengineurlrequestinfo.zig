@@ -245,7 +245,7 @@ pub const QWebEngineUrlRequestInfo = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#public-types)
 pub const enums = struct {
-    pub const ResourceType = enum(i32) {
+    pub const ResourceType = enum {
         pub const ResourceTypeMainFrame: i32 = 0;
         pub const ResourceTypeSubFrame: i32 = 1;
         pub const ResourceTypeStylesheet: i32 = 2;
@@ -272,7 +272,7 @@ pub const enums = struct {
         pub const ResourceTypeUnknown: i32 = 255;
     };
 
-    pub const NavigationType = enum(i32) {
+    pub const NavigationType = enum {
         pub const NavigationTypeLink: i32 = 0;
         pub const NavigationTypeTyped: i32 = 1;
         pub const NavigationTypeFormSubmitted: i32 = 2;

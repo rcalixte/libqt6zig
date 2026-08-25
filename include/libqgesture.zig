@@ -13585,18 +13585,18 @@ pub const QGestureEvent = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesture.html#public-types)
 pub const enums = struct {
-    pub const GestureCancelPolicy = enum(i32) {
+    pub const GestureCancelPolicy = enum {
         pub const CancelNone: i32 = 0;
         pub const CancelAllInContext: i32 = 1;
     };
 
-    pub const ChangeFlag = enum(i32) {
+    pub const ChangeFlag = enum {
         pub const ScaleFactorChanged: i32 = 1;
         pub const RotationAngleChanged: i32 = 2;
         pub const CenterPointChanged: i32 = 4;
     };
 
-    pub const SwipeDirection = enum(i32) {
+    pub const SwipeDirection = enum {
         pub const NoDirection: i32 = 0;
         pub const Left: i32 = 1;
         pub const Right: i32 = 2;

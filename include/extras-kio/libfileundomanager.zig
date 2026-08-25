@@ -1778,7 +1778,7 @@ pub const KIO__FileUndoManager__UiInterface = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-fileundomanager.html#public-types)
 pub const enums = struct {
-    pub const CommandType = enum(i32) {
+    pub const CommandType = enum {
         pub const Copy: i32 = 0;
         pub const Move: i32 = 1;
         pub const Rename: i32 = 2;
@@ -1790,7 +1790,7 @@ pub const enums = struct {
         pub const BatchRename: i32 = 8;
     };
 
-    pub const KIO__FileUndoManager__UiInterface = enum(i32) {
+    pub const KIO__FileUndoManager__UiInterface = enum {
         pub const HookGetAskUserActionInterface: i32 = 1;
     };
 };

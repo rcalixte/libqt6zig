@@ -2752,7 +2752,7 @@ pub const QAbstractItemDelegate = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#public-types)
 pub const enums = struct {
-    pub const EndEditHint = enum(i32) {
+    pub const EndEditHint = enum {
         pub const NoHint: i32 = 0;
         pub const EditNextItem: i32 = 1;
         pub const EditPreviousItem: i32 = 2;

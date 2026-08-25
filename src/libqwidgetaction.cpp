@@ -90,9 +90,8 @@ QMetaObject* QWidgetAction_SuperMetaObject(const QWidgetAction* self) {
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnMetaObject(const QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = const_cast<VirtualQWidgetAction*>(dynamic_cast<const VirtualQWidgetAction*>(self));
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_MetaObject_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -109,9 +108,8 @@ void* QWidgetAction_SuperMetacast(QWidgetAction* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnMetacast(QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_Metacast_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -128,9 +126,8 @@ int QWidgetAction_SuperMetacall(QWidgetAction* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnMetacall(QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_Metacall_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -147,9 +144,8 @@ bool QWidgetAction_SuperEvent(QWidgetAction* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnEvent(QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_Event_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -166,9 +162,8 @@ bool QWidgetAction_SuperEventFilter(QWidgetAction* self, QObject* param1, QEvent
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnEventFilter(QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_EventFilter_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -185,9 +180,8 @@ QWidget* QWidgetAction_SuperCreateWidget(QWidgetAction* self, QWidget* parent) {
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnCreateWidget(QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_CreateWidget_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_CreateWidget_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -204,9 +198,8 @@ void QWidgetAction_SuperDeleteWidget(QWidgetAction* self, QWidget* widget) {
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnDeleteWidget(QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_DeleteWidget_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_DeleteWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -233,9 +226,8 @@ void QWidgetAction_SuperTimerEvent(QWidgetAction* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnTimerEvent(QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_TimerEvent_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -262,9 +254,8 @@ void QWidgetAction_SuperChildEvent(QWidgetAction* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnChildEvent(QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_ChildEvent_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -291,9 +282,8 @@ void QWidgetAction_SuperCustomEvent(QWidgetAction* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnCustomEvent(QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_CustomEvent_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -320,9 +310,8 @@ void QWidgetAction_SuperConnectNotify(QWidgetAction* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnConnectNotify(QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_ConnectNotify_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -349,9 +338,8 @@ void QWidgetAction_SuperDisconnectNotify(QWidgetAction* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnDisconnectNotify(QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_DisconnectNotify_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -414,9 +402,8 @@ libqt_list /* of QWidget* */ QWidgetAction_SuperCreatedWidgets(const QWidgetActi
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnCreatedWidgets(const QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = const_cast<VirtualQWidgetAction*>(dynamic_cast<const VirtualQWidgetAction*>(self));
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_CreatedWidgets_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_CreatedWidgets_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -443,9 +430,8 @@ QObject* QWidgetAction_SuperSender(const QWidgetAction* self) {
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnSender(const QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = const_cast<VirtualQWidgetAction*>(dynamic_cast<const VirtualQWidgetAction*>(self));
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_Sender_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -472,9 +458,8 @@ int QWidgetAction_SuperSenderSignalIndex(const QWidgetAction* self) {
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnSenderSignalIndex(const QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = const_cast<VirtualQWidgetAction*>(dynamic_cast<const VirtualQWidgetAction*>(self));
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -501,9 +486,8 @@ int QWidgetAction_SuperReceivers(const QWidgetAction* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnReceivers(const QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = const_cast<VirtualQWidgetAction*>(dynamic_cast<const VirtualQWidgetAction*>(self));
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_Receivers_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -530,9 +514,8 @@ bool QWidgetAction_SuperIsSignalConnected(const QWidgetAction* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QWidgetAction_OnIsSignalConnected(const QWidgetAction* self, intptr_t slot) {
     auto* vqwidgetaction = const_cast<VirtualQWidgetAction*>(dynamic_cast<const VirtualQWidgetAction*>(self));
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
+    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction)
         vqwidgetaction->setQWidgetAction_IsSignalConnected_Callback(reinterpret_cast<VirtualQWidgetAction::QWidgetAction_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QWidgetAction_Delete(QWidgetAction* self) {

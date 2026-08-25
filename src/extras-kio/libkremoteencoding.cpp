@@ -102,9 +102,8 @@ void KRemoteEncoding_SuperVirtualHook(KRemoteEncoding* self, int id, void* data)
 // Auxiliary method to allow providing re-implementation
 void KRemoteEncoding_OnVirtualHook(KRemoteEncoding* self, intptr_t slot) {
     auto* vkremoteencoding = dynamic_cast<VirtualKRemoteEncoding*>(self);
-    if (vkremoteencoding && vkremoteencoding->isVirtualKRemoteEncoding) {
+    if (vkremoteencoding && vkremoteencoding->isVirtualKRemoteEncoding)
         vkremoteencoding->setKRemoteEncoding_VirtualHook_Callback(reinterpret_cast<VirtualKRemoteEncoding::KRemoteEncoding_VirtualHook_Callback>(slot));
-    }
 }
 
 void KRemoteEncoding_Delete(KRemoteEncoding* self) {

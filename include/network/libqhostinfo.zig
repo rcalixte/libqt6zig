@@ -387,7 +387,7 @@ pub const QHostInfo = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostinfo.html#public-types)
 pub const enums = struct {
-    pub const HostInfoError = enum(i32) {
+    pub const HostInfoError = enum {
         pub const NoError: i32 = 0;
         pub const HostNotFound: i32 = 1;
         pub const UnknownError: i32 = 2;

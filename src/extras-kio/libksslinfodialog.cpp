@@ -131,9 +131,8 @@ QMetaObject* KSslInfoDialog_SuperMetaObject(const KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnMetaObject(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_MetaObject_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -150,9 +149,8 @@ void* KSslInfoDialog_SuperMetacast(KSslInfoDialog* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnMetacast(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_Metacast_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -169,9 +167,8 @@ int KSslInfoDialog_SuperMetacall(KSslInfoDialog* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnMetacall(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_Metacall_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -198,9 +195,8 @@ void KSslInfoDialog_SuperSetVisible(KSslInfoDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnSetVisible(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_SetVisible_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -227,9 +223,8 @@ QSize* KSslInfoDialog_SuperSizeHint(const KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnSizeHint(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_SizeHint_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -256,9 +251,8 @@ QSize* KSslInfoDialog_SuperMinimumSizeHint(const KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnMinimumSizeHint(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -285,9 +279,8 @@ void KSslInfoDialog_SuperOpen(KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnOpen(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_Open_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -314,9 +307,8 @@ int KSslInfoDialog_SuperExec(KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnExec(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_Exec_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -343,9 +335,8 @@ void KSslInfoDialog_SuperDone(KSslInfoDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnDone(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_Done_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +363,8 @@ void KSslInfoDialog_SuperAccept(KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnAccept(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_Accept_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -401,9 +391,8 @@ void KSslInfoDialog_SuperReject(KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnReject(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_Reject_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -430,9 +419,8 @@ void KSslInfoDialog_SuperKeyPressEvent(KSslInfoDialog* self, QKeyEvent* param1) 
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnKeyPressEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -459,9 +447,8 @@ void KSslInfoDialog_SuperCloseEvent(KSslInfoDialog* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnCloseEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_CloseEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -488,9 +475,8 @@ void KSslInfoDialog_SuperShowEvent(KSslInfoDialog* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnShowEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_ShowEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -517,9 +503,8 @@ void KSslInfoDialog_SuperResizeEvent(KSslInfoDialog* self, QResizeEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnResizeEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -546,9 +531,8 @@ void KSslInfoDialog_SuperContextMenuEvent(KSslInfoDialog* self, QContextMenuEven
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnContextMenuEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -575,9 +559,8 @@ bool KSslInfoDialog_SuperEventFilter(KSslInfoDialog* self, QObject* param1, QEve
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnEventFilter(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_EventFilter_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -604,9 +587,8 @@ int KSslInfoDialog_SuperDevType(const KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnDevType(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_DevType_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -633,9 +615,8 @@ int KSslInfoDialog_SuperHeightForWidth(const KSslInfoDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnHeightForWidth(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -662,9 +643,8 @@ bool KSslInfoDialog_SuperHasHeightForWidth(const KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnHasHeightForWidth(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -691,9 +671,8 @@ QPaintEngine* KSslInfoDialog_SuperPaintEngine(const KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnPaintEngine(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_PaintEngine_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -720,9 +699,8 @@ bool KSslInfoDialog_SuperEvent(KSslInfoDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_Event_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -749,9 +727,8 @@ void KSslInfoDialog_SuperMousePressEvent(KSslInfoDialog* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnMousePressEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -778,9 +755,8 @@ void KSslInfoDialog_SuperMouseReleaseEvent(KSslInfoDialog* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnMouseReleaseEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -807,9 +783,8 @@ void KSslInfoDialog_SuperMouseDoubleClickEvent(KSslInfoDialog* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnMouseDoubleClickEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -836,9 +811,8 @@ void KSslInfoDialog_SuperMouseMoveEvent(KSslInfoDialog* self, QMouseEvent* event
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnMouseMoveEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -865,9 +839,8 @@ void KSslInfoDialog_SuperWheelEvent(KSslInfoDialog* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnWheelEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_WheelEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -894,9 +867,8 @@ void KSslInfoDialog_SuperKeyReleaseEvent(KSslInfoDialog* self, QKeyEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnKeyReleaseEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -923,9 +895,8 @@ void KSslInfoDialog_SuperFocusInEvent(KSslInfoDialog* self, QFocusEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnFocusInEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -952,9 +923,8 @@ void KSslInfoDialog_SuperFocusOutEvent(KSslInfoDialog* self, QFocusEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnFocusOutEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -981,9 +951,8 @@ void KSslInfoDialog_SuperEnterEvent(KSslInfoDialog* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnEnterEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_EnterEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1010,9 +979,8 @@ void KSslInfoDialog_SuperLeaveEvent(KSslInfoDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnLeaveEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1039,9 +1007,8 @@ void KSslInfoDialog_SuperPaintEvent(KSslInfoDialog* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnPaintEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_PaintEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1068,9 +1035,8 @@ void KSslInfoDialog_SuperMoveEvent(KSslInfoDialog* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnMoveEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_MoveEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1097,9 +1063,8 @@ void KSslInfoDialog_SuperTabletEvent(KSslInfoDialog* self, QTabletEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnTabletEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_TabletEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1126,9 +1091,8 @@ void KSslInfoDialog_SuperActionEvent(KSslInfoDialog* self, QActionEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnActionEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_ActionEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1155,9 +1119,8 @@ void KSslInfoDialog_SuperDragEnterEvent(KSslInfoDialog* self, QDragEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnDragEnterEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1184,9 +1147,8 @@ void KSslInfoDialog_SuperDragMoveEvent(KSslInfoDialog* self, QDragMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnDragMoveEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1213,9 +1175,8 @@ void KSslInfoDialog_SuperDragLeaveEvent(KSslInfoDialog* self, QDragLeaveEvent* e
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnDragLeaveEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1242,9 +1203,8 @@ void KSslInfoDialog_SuperDropEvent(KSslInfoDialog* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnDropEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_DropEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1271,9 +1231,8 @@ void KSslInfoDialog_SuperHideEvent(KSslInfoDialog* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnHideEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_HideEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1302,9 +1261,8 @@ bool KSslInfoDialog_SuperNativeEvent(KSslInfoDialog* self, const libqt_string ev
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnNativeEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_NativeEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1331,9 +1289,8 @@ void KSslInfoDialog_SuperChangeEvent(KSslInfoDialog* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnChangeEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1360,9 +1317,8 @@ int KSslInfoDialog_SuperMetric(const KSslInfoDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnMetric(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_Metric_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1389,9 +1345,8 @@ void KSslInfoDialog_SuperInitPainter(const KSslInfoDialog* self, QPainter* paint
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnInitPainter(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_InitPainter_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1418,9 +1373,8 @@ QPaintDevice* KSslInfoDialog_SuperRedirected(const KSslInfoDialog* self, QPoint*
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnRedirected(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_Redirected_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1447,9 +1401,8 @@ QPainter* KSslInfoDialog_SuperSharedPainter(const KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnSharedPainter(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_SharedPainter_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1476,9 +1429,8 @@ void KSslInfoDialog_SuperInputMethodEvent(KSslInfoDialog* self, QInputMethodEven
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnInputMethodEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1505,9 +1457,8 @@ QVariant* KSslInfoDialog_SuperInputMethodQuery(const KSslInfoDialog* self, int p
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnInputMethodQuery(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1534,9 +1485,8 @@ bool KSslInfoDialog_SuperFocusNextPrevChild(KSslInfoDialog* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnFocusNextPrevChild(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1563,9 +1513,8 @@ void KSslInfoDialog_SuperTimerEvent(KSslInfoDialog* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnTimerEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_TimerEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1592,9 +1541,8 @@ void KSslInfoDialog_SuperChildEvent(KSslInfoDialog* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnChildEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_ChildEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1621,9 +1569,8 @@ void KSslInfoDialog_SuperCustomEvent(KSslInfoDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnCustomEvent(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_CustomEvent_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1650,9 +1597,8 @@ void KSslInfoDialog_SuperConnectNotify(KSslInfoDialog* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnConnectNotify(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1679,9 +1625,8 @@ void KSslInfoDialog_SuperDisconnectNotify(KSslInfoDialog* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnDisconnectNotify(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1708,9 +1653,8 @@ void KSslInfoDialog_SuperAdjustPosition(KSslInfoDialog* self, QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnAdjustPosition(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1737,9 +1681,8 @@ void KSslInfoDialog_SuperUpdateMicroFocus(KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnUpdateMicroFocus(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1766,9 +1709,8 @@ void KSslInfoDialog_SuperCreate(KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnCreate(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_Create_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1795,9 +1737,8 @@ void KSslInfoDialog_SuperDestroy(KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnDestroy(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_Destroy_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1824,9 +1765,8 @@ bool KSslInfoDialog_SuperFocusNextChild(KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnFocusNextChild(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1853,9 +1793,8 @@ bool KSslInfoDialog_SuperFocusPreviousChild(KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnFocusPreviousChild(KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1882,9 +1821,8 @@ QObject* KSslInfoDialog_SuperSender(const KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnSender(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_Sender_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1911,9 +1849,8 @@ int KSslInfoDialog_SuperSenderSignalIndex(const KSslInfoDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnSenderSignalIndex(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1940,9 +1877,8 @@ int KSslInfoDialog_SuperReceivers(const KSslInfoDialog* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnReceivers(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_Receivers_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1969,9 +1905,8 @@ bool KSslInfoDialog_SuperIsSignalConnected(const KSslInfoDialog* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnIsSignalConnected(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1998,9 +1933,8 @@ double KSslInfoDialog_SuperGetDecodedMetricF(const KSslInfoDialog* self, int met
 // Auxiliary method to allow providing re-implementation
 void KSslInfoDialog_OnGetDecodedMetricF(const KSslInfoDialog* self, intptr_t slot) {
     auto* vksslinfodialog = const_cast<VirtualKSslInfoDialog*>(dynamic_cast<const VirtualKSslInfoDialog*>(self));
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
+    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog)
         vksslinfodialog->setKSslInfoDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKSslInfoDialog::KSslInfoDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KSslInfoDialog_Delete(KSslInfoDialog* self) {

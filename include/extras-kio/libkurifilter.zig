@@ -1571,7 +1571,7 @@ pub const KUriFilter = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kurifilter.html#public-types)
 pub const enums = struct {
-    pub const UriTypes = enum(i32) {
+    pub const UriTypes = enum {
         pub const NetProtocol: i32 = 0;
         pub const LocalFile: i32 = 1;
         pub const LocalDir: i32 = 2;
@@ -1583,14 +1583,14 @@ pub const enums = struct {
         pub const Unknown: i32 = 8;
     };
 
-    pub const SearchFilterOption = enum(i32) {
+    pub const SearchFilterOption = enum {
         pub const SearchFilterOptionNone: i32 = 0;
         pub const RetrieveSearchProvidersOnly: i32 = 1;
         pub const RetrievePreferredSearchProvidersOnly: i32 = 2;
         pub const RetrieveAvailableSearchProvidersOnly: i32 = 3;
     };
 
-    pub const SearchFilterType = enum(i32) {
+    pub const SearchFilterType = enum {
         pub const NormalTextFilter: i32 = 1;
         pub const WebShortcutFilter: i32 = 2;
     };

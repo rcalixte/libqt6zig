@@ -115,9 +115,8 @@ QMetaObject* QSvgWidget_SuperMetaObject(const QSvgWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnMetaObject(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_MetaObject_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -134,9 +133,8 @@ void* QSvgWidget_SuperMetacast(QSvgWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnMetacast(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_Metacast_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -153,9 +151,8 @@ int QSvgWidget_SuperMetacall(QSvgWidget* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnMetacall(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_Metacall_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -172,9 +169,8 @@ QSize* QSvgWidget_SuperSizeHint(const QSvgWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnSizeHint(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_SizeHint_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -191,9 +187,8 @@ void QSvgWidget_SuperPaintEvent(QSvgWidget* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnPaintEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_PaintEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -220,9 +215,8 @@ int QSvgWidget_SuperDevType(const QSvgWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnDevType(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_DevType_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -249,9 +243,8 @@ void QSvgWidget_SuperSetVisible(QSvgWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnSetVisible(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_SetVisible_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -278,9 +271,8 @@ QSize* QSvgWidget_SuperMinimumSizeHint(const QSvgWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnMinimumSizeHint(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -307,9 +299,8 @@ int QSvgWidget_SuperHeightForWidth(const QSvgWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnHeightForWidth(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_HeightForWidth_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -336,9 +327,8 @@ bool QSvgWidget_SuperHasHeightForWidth(const QSvgWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnHasHeightForWidth(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -365,9 +355,8 @@ QPaintEngine* QSvgWidget_SuperPaintEngine(const QSvgWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnPaintEngine(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_PaintEngine_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -394,9 +383,8 @@ bool QSvgWidget_SuperEvent(QSvgWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_Event_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -423,9 +411,8 @@ void QSvgWidget_SuperMousePressEvent(QSvgWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnMousePressEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -452,9 +439,8 @@ void QSvgWidget_SuperMouseReleaseEvent(QSvgWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnMouseReleaseEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -481,9 +467,8 @@ void QSvgWidget_SuperMouseDoubleClickEvent(QSvgWidget* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnMouseDoubleClickEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -510,9 +495,8 @@ void QSvgWidget_SuperMouseMoveEvent(QSvgWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnMouseMoveEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -539,9 +523,8 @@ void QSvgWidget_SuperWheelEvent(QSvgWidget* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnWheelEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_WheelEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -568,9 +551,8 @@ void QSvgWidget_SuperKeyPressEvent(QSvgWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnKeyPressEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -597,9 +579,8 @@ void QSvgWidget_SuperKeyReleaseEvent(QSvgWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnKeyReleaseEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -626,9 +607,8 @@ void QSvgWidget_SuperFocusInEvent(QSvgWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnFocusInEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -655,9 +635,8 @@ void QSvgWidget_SuperFocusOutEvent(QSvgWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnFocusOutEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -684,9 +663,8 @@ void QSvgWidget_SuperEnterEvent(QSvgWidget* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnEnterEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_EnterEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -713,9 +691,8 @@ void QSvgWidget_SuperLeaveEvent(QSvgWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnLeaveEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_LeaveEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -742,9 +719,8 @@ void QSvgWidget_SuperMoveEvent(QSvgWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnMoveEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_MoveEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -771,9 +747,8 @@ void QSvgWidget_SuperResizeEvent(QSvgWidget* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnResizeEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -800,9 +775,8 @@ void QSvgWidget_SuperCloseEvent(QSvgWidget* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnCloseEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_CloseEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -829,9 +803,8 @@ void QSvgWidget_SuperContextMenuEvent(QSvgWidget* self, QContextMenuEvent* event
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnContextMenuEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -858,9 +831,8 @@ void QSvgWidget_SuperTabletEvent(QSvgWidget* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnTabletEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_TabletEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -887,9 +859,8 @@ void QSvgWidget_SuperActionEvent(QSvgWidget* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnActionEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_ActionEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -916,9 +887,8 @@ void QSvgWidget_SuperDragEnterEvent(QSvgWidget* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnDragEnterEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -945,9 +915,8 @@ void QSvgWidget_SuperDragMoveEvent(QSvgWidget* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnDragMoveEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -974,9 +943,8 @@ void QSvgWidget_SuperDragLeaveEvent(QSvgWidget* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnDragLeaveEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1003,9 +971,8 @@ void QSvgWidget_SuperDropEvent(QSvgWidget* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnDropEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_DropEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1032,9 +999,8 @@ void QSvgWidget_SuperShowEvent(QSvgWidget* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnShowEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_ShowEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1061,9 +1027,8 @@ void QSvgWidget_SuperHideEvent(QSvgWidget* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnHideEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_HideEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1092,9 +1057,8 @@ bool QSvgWidget_SuperNativeEvent(QSvgWidget* self, const libqt_string eventType,
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnNativeEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_NativeEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1121,9 +1085,8 @@ void QSvgWidget_SuperChangeEvent(QSvgWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnChangeEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1150,9 +1113,8 @@ int QSvgWidget_SuperMetric(const QSvgWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnMetric(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_Metric_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1179,9 +1141,8 @@ void QSvgWidget_SuperInitPainter(const QSvgWidget* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnInitPainter(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_InitPainter_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1208,9 +1169,8 @@ QPaintDevice* QSvgWidget_SuperRedirected(const QSvgWidget* self, QPoint* offset)
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnRedirected(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_Redirected_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1237,9 +1197,8 @@ QPainter* QSvgWidget_SuperSharedPainter(const QSvgWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnSharedPainter(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_SharedPainter_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1266,9 +1225,8 @@ void QSvgWidget_SuperInputMethodEvent(QSvgWidget* self, QInputMethodEvent* param
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnInputMethodEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1295,9 +1253,8 @@ QVariant* QSvgWidget_SuperInputMethodQuery(const QSvgWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnInputMethodQuery(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1324,9 +1281,8 @@ bool QSvgWidget_SuperFocusNextPrevChild(QSvgWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnFocusNextPrevChild(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1353,9 +1309,8 @@ bool QSvgWidget_SuperEventFilter(QSvgWidget* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnEventFilter(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_EventFilter_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1382,9 +1337,8 @@ void QSvgWidget_SuperTimerEvent(QSvgWidget* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnTimerEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_TimerEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1411,9 +1365,8 @@ void QSvgWidget_SuperChildEvent(QSvgWidget* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnChildEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_ChildEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1440,9 +1393,8 @@ void QSvgWidget_SuperCustomEvent(QSvgWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnCustomEvent(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_CustomEvent_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1469,9 +1421,8 @@ void QSvgWidget_SuperConnectNotify(QSvgWidget* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnConnectNotify(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_ConnectNotify_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1498,9 +1449,8 @@ void QSvgWidget_SuperDisconnectNotify(QSvgWidget* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnDisconnectNotify(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1527,9 +1477,8 @@ void QSvgWidget_SuperUpdateMicroFocus(QSvgWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnUpdateMicroFocus(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1556,9 +1505,8 @@ void QSvgWidget_SuperCreate(QSvgWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnCreate(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_Create_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1585,9 +1533,8 @@ void QSvgWidget_SuperDestroy(QSvgWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnDestroy(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_Destroy_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1614,9 +1561,8 @@ bool QSvgWidget_SuperFocusNextChild(QSvgWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnFocusNextChild(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_FocusNextChild_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1643,9 +1589,8 @@ bool QSvgWidget_SuperFocusPreviousChild(QSvgWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnFocusPreviousChild(QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1672,9 +1617,8 @@ QObject* QSvgWidget_SuperSender(const QSvgWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnSender(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_Sender_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1701,9 +1645,8 @@ int QSvgWidget_SuperSenderSignalIndex(const QSvgWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnSenderSignalIndex(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1730,9 +1673,8 @@ int QSvgWidget_SuperReceivers(const QSvgWidget* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnReceivers(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_Receivers_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1759,9 +1701,8 @@ bool QSvgWidget_SuperIsSignalConnected(const QSvgWidget* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnIsSignalConnected(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1788,9 +1729,8 @@ double QSvgWidget_SuperGetDecodedMetricF(const QSvgWidget* self, int metricA, in
 // Auxiliary method to allow providing re-implementation
 void QSvgWidget_OnGetDecodedMetricF(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget)
         vqsvgwidget->setQSvgWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QSvgWidget_Delete(QSvgWidget* self) {

@@ -136,9 +136,8 @@ QMetaObject* QState_SuperMetaObject(const QState* self) {
 // Auxiliary method to allow providing re-implementation
 void QState_OnMetaObject(const QState* self, intptr_t slot) {
     auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate && vqstate->isVirtualQState)
         vqstate->setQState_MetaObject_Callback(reinterpret_cast<VirtualQState::QState_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -155,9 +154,8 @@ void* QState_SuperMetacast(QState* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QState_OnMetacast(QState* self, intptr_t slot) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate && vqstate->isVirtualQState)
         vqstate->setQState_Metacast_Callback(reinterpret_cast<VirtualQState::QState_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -174,9 +172,8 @@ int QState_SuperMetacall(QState* self, int param1, int param2, void** param3) {
 // Auxiliary method to allow providing re-implementation
 void QState_OnMetacall(QState* self, intptr_t slot) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate && vqstate->isVirtualQState)
         vqstate->setQState_Metacall_Callback(reinterpret_cast<VirtualQState::QState_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -193,9 +190,8 @@ void QState_SuperOnEntry(QState* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QState_OnOnEntry(QState* self, intptr_t slot) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate && vqstate->isVirtualQState)
         vqstate->setQState_OnEntry_Callback(reinterpret_cast<VirtualQState::QState_OnEntry_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -212,9 +208,8 @@ void QState_SuperOnExit(QState* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QState_OnOnExit(QState* self, intptr_t slot) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate && vqstate->isVirtualQState)
         vqstate->setQState_OnExit_Callback(reinterpret_cast<VirtualQState::QState_OnExit_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -231,9 +226,8 @@ bool QState_SuperEvent(QState* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QState_OnEvent(QState* self, intptr_t slot) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate && vqstate->isVirtualQState)
         vqstate->setQState_Event_Callback(reinterpret_cast<VirtualQState::QState_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -260,9 +254,8 @@ bool QState_SuperEventFilter(QState* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QState_OnEventFilter(QState* self, intptr_t slot) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate && vqstate->isVirtualQState)
         vqstate->setQState_EventFilter_Callback(reinterpret_cast<VirtualQState::QState_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -289,9 +282,8 @@ void QState_SuperTimerEvent(QState* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QState_OnTimerEvent(QState* self, intptr_t slot) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate && vqstate->isVirtualQState)
         vqstate->setQState_TimerEvent_Callback(reinterpret_cast<VirtualQState::QState_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -318,9 +310,8 @@ void QState_SuperChildEvent(QState* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QState_OnChildEvent(QState* self, intptr_t slot) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate && vqstate->isVirtualQState)
         vqstate->setQState_ChildEvent_Callback(reinterpret_cast<VirtualQState::QState_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -347,9 +338,8 @@ void QState_SuperCustomEvent(QState* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QState_OnCustomEvent(QState* self, intptr_t slot) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate && vqstate->isVirtualQState)
         vqstate->setQState_CustomEvent_Callback(reinterpret_cast<VirtualQState::QState_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -376,9 +366,8 @@ void QState_SuperConnectNotify(QState* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QState_OnConnectNotify(QState* self, intptr_t slot) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate && vqstate->isVirtualQState)
         vqstate->setQState_ConnectNotify_Callback(reinterpret_cast<VirtualQState::QState_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -405,9 +394,8 @@ void QState_SuperDisconnectNotify(QState* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QState_OnDisconnectNotify(QState* self, intptr_t slot) {
     auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate && vqstate->isVirtualQState)
         vqstate->setQState_DisconnectNotify_Callback(reinterpret_cast<VirtualQState::QState_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -434,9 +422,8 @@ QObject* QState_SuperSender(const QState* self) {
 // Auxiliary method to allow providing re-implementation
 void QState_OnSender(const QState* self, intptr_t slot) {
     auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate && vqstate->isVirtualQState)
         vqstate->setQState_Sender_Callback(reinterpret_cast<VirtualQState::QState_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -463,9 +450,8 @@ int QState_SuperSenderSignalIndex(const QState* self) {
 // Auxiliary method to allow providing re-implementation
 void QState_OnSenderSignalIndex(const QState* self, intptr_t slot) {
     auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate && vqstate->isVirtualQState)
         vqstate->setQState_SenderSignalIndex_Callback(reinterpret_cast<VirtualQState::QState_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -492,9 +478,8 @@ int QState_SuperReceivers(const QState* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QState_OnReceivers(const QState* self, intptr_t slot) {
     auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate && vqstate->isVirtualQState)
         vqstate->setQState_Receivers_Callback(reinterpret_cast<VirtualQState::QState_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -521,9 +506,8 @@ bool QState_SuperIsSignalConnected(const QState* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QState_OnIsSignalConnected(const QState* self, intptr_t slot) {
     auto* vqstate = const_cast<VirtualQState*>(dynamic_cast<const VirtualQState*>(self));
-    if (vqstate && vqstate->isVirtualQState) {
+    if (vqstate && vqstate->isVirtualQState)
         vqstate->setQState_IsSignalConnected_Callback(reinterpret_cast<VirtualQState::QState_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QState_Connect_Finished(QState* self, intptr_t slot) {

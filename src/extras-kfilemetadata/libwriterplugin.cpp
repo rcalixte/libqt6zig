@@ -67,9 +67,8 @@ QMetaObject* KFileMetaData__WriterPlugin_SuperMetaObject(const KFileMetaData__Wr
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__WriterPlugin_OnMetaObject(const KFileMetaData__WriterPlugin* self, intptr_t slot) {
     auto* vkfilemetadatawriterplugin = const_cast<VirtualKFileMetaDataWriterPlugin*>(dynamic_cast<const VirtualKFileMetaDataWriterPlugin*>(self));
-    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
+    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin)
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_MetaObject_Callback(reinterpret_cast<VirtualKFileMetaDataWriterPlugin::KFileMetaData__WriterPlugin_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -86,9 +85,8 @@ void* KFileMetaData__WriterPlugin_SuperMetacast(KFileMetaData__WriterPlugin* sel
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__WriterPlugin_OnMetacast(KFileMetaData__WriterPlugin* self, intptr_t slot) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
-    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
+    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin)
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_Metacast_Callback(reinterpret_cast<VirtualKFileMetaDataWriterPlugin::KFileMetaData__WriterPlugin_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -105,9 +103,8 @@ int KFileMetaData__WriterPlugin_SuperMetacall(KFileMetaData__WriterPlugin* self,
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__WriterPlugin_OnMetacall(KFileMetaData__WriterPlugin* self, intptr_t slot) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
-    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
+    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin)
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_Metacall_Callback(reinterpret_cast<VirtualKFileMetaDataWriterPlugin::KFileMetaData__WriterPlugin_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -158,9 +155,8 @@ libqt_list /* of libqt_string */ KFileMetaData__WriterPlugin_SuperWriteMimetypes
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__WriterPlugin_OnWriteMimetypes(const KFileMetaData__WriterPlugin* self, intptr_t slot) {
     auto* vkfilemetadatawriterplugin = const_cast<VirtualKFileMetaDataWriterPlugin*>(dynamic_cast<const VirtualKFileMetaDataWriterPlugin*>(self));
-    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
+    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin)
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_WriteMimetypes_Callback(reinterpret_cast<VirtualKFileMetaDataWriterPlugin::KFileMetaData__WriterPlugin_WriteMimetypes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -177,9 +173,8 @@ void KFileMetaData__WriterPlugin_SuperWrite(KFileMetaData__WriterPlugin* self, c
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__WriterPlugin_OnWrite(KFileMetaData__WriterPlugin* self, intptr_t slot) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
-    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
+    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin)
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_Write_Callback(reinterpret_cast<VirtualKFileMetaDataWriterPlugin::KFileMetaData__WriterPlugin_Write_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -206,9 +201,8 @@ bool KFileMetaData__WriterPlugin_SuperEvent(KFileMetaData__WriterPlugin* self, Q
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__WriterPlugin_OnEvent(KFileMetaData__WriterPlugin* self, intptr_t slot) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
-    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
+    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin)
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_Event_Callback(reinterpret_cast<VirtualKFileMetaDataWriterPlugin::KFileMetaData__WriterPlugin_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -235,9 +229,8 @@ bool KFileMetaData__WriterPlugin_SuperEventFilter(KFileMetaData__WriterPlugin* s
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__WriterPlugin_OnEventFilter(KFileMetaData__WriterPlugin* self, intptr_t slot) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
-    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
+    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin)
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_EventFilter_Callback(reinterpret_cast<VirtualKFileMetaDataWriterPlugin::KFileMetaData__WriterPlugin_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -264,9 +257,8 @@ void KFileMetaData__WriterPlugin_SuperTimerEvent(KFileMetaData__WriterPlugin* se
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__WriterPlugin_OnTimerEvent(KFileMetaData__WriterPlugin* self, intptr_t slot) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
-    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
+    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin)
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_TimerEvent_Callback(reinterpret_cast<VirtualKFileMetaDataWriterPlugin::KFileMetaData__WriterPlugin_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -293,9 +285,8 @@ void KFileMetaData__WriterPlugin_SuperChildEvent(KFileMetaData__WriterPlugin* se
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__WriterPlugin_OnChildEvent(KFileMetaData__WriterPlugin* self, intptr_t slot) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
-    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
+    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin)
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_ChildEvent_Callback(reinterpret_cast<VirtualKFileMetaDataWriterPlugin::KFileMetaData__WriterPlugin_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -322,9 +313,8 @@ void KFileMetaData__WriterPlugin_SuperCustomEvent(KFileMetaData__WriterPlugin* s
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__WriterPlugin_OnCustomEvent(KFileMetaData__WriterPlugin* self, intptr_t slot) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
-    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
+    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin)
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_CustomEvent_Callback(reinterpret_cast<VirtualKFileMetaDataWriterPlugin::KFileMetaData__WriterPlugin_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -351,9 +341,8 @@ void KFileMetaData__WriterPlugin_SuperConnectNotify(KFileMetaData__WriterPlugin*
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__WriterPlugin_OnConnectNotify(KFileMetaData__WriterPlugin* self, intptr_t slot) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
-    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
+    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin)
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_ConnectNotify_Callback(reinterpret_cast<VirtualKFileMetaDataWriterPlugin::KFileMetaData__WriterPlugin_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -380,9 +369,8 @@ void KFileMetaData__WriterPlugin_SuperDisconnectNotify(KFileMetaData__WriterPlug
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__WriterPlugin_OnDisconnectNotify(KFileMetaData__WriterPlugin* self, intptr_t slot) {
     auto* vkfilemetadatawriterplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
-    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
+    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin)
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_DisconnectNotify_Callback(reinterpret_cast<VirtualKFileMetaDataWriterPlugin::KFileMetaData__WriterPlugin_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -409,9 +397,8 @@ QObject* KFileMetaData__WriterPlugin_SuperSender(const KFileMetaData__WriterPlug
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__WriterPlugin_OnSender(const KFileMetaData__WriterPlugin* self, intptr_t slot) {
     auto* vkfilemetadatawriterplugin = const_cast<VirtualKFileMetaDataWriterPlugin*>(dynamic_cast<const VirtualKFileMetaDataWriterPlugin*>(self));
-    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
+    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin)
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_Sender_Callback(reinterpret_cast<VirtualKFileMetaDataWriterPlugin::KFileMetaData__WriterPlugin_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -438,9 +425,8 @@ int KFileMetaData__WriterPlugin_SuperSenderSignalIndex(const KFileMetaData__Writ
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__WriterPlugin_OnSenderSignalIndex(const KFileMetaData__WriterPlugin* self, intptr_t slot) {
     auto* vkfilemetadatawriterplugin = const_cast<VirtualKFileMetaDataWriterPlugin*>(dynamic_cast<const VirtualKFileMetaDataWriterPlugin*>(self));
-    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
+    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin)
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFileMetaDataWriterPlugin::KFileMetaData__WriterPlugin_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +453,8 @@ int KFileMetaData__WriterPlugin_SuperReceivers(const KFileMetaData__WriterPlugin
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__WriterPlugin_OnReceivers(const KFileMetaData__WriterPlugin* self, intptr_t slot) {
     auto* vkfilemetadatawriterplugin = const_cast<VirtualKFileMetaDataWriterPlugin*>(dynamic_cast<const VirtualKFileMetaDataWriterPlugin*>(self));
-    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
+    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin)
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_Receivers_Callback(reinterpret_cast<VirtualKFileMetaDataWriterPlugin::KFileMetaData__WriterPlugin_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +481,8 @@ bool KFileMetaData__WriterPlugin_SuperIsSignalConnected(const KFileMetaData__Wri
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__WriterPlugin_OnIsSignalConnected(const KFileMetaData__WriterPlugin* self, intptr_t slot) {
     auto* vkfilemetadatawriterplugin = const_cast<VirtualKFileMetaDataWriterPlugin*>(dynamic_cast<const VirtualKFileMetaDataWriterPlugin*>(self));
-    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin) {
+    if (vkfilemetadatawriterplugin && vkfilemetadatawriterplugin->isVirtualKFileMetaDataWriterPlugin)
         vkfilemetadatawriterplugin->setKFileMetaData__WriterPlugin_IsSignalConnected_Callback(reinterpret_cast<VirtualKFileMetaDataWriterPlugin::KFileMetaData__WriterPlugin_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KFileMetaData__WriterPlugin_Delete(KFileMetaData__WriterPlugin* self) {

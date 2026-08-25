@@ -77,9 +77,8 @@ QMetaObject* KCompositeJob_SuperMetaObject(const KCompositeJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnMetaObject(const KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_MetaObject_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -96,9 +95,8 @@ void* KCompositeJob_SuperMetacast(KCompositeJob* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnMetacast(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_Metacast_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -115,9 +113,8 @@ int KCompositeJob_SuperMetacall(KCompositeJob* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnMetacall(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_Metacall_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -134,9 +131,8 @@ bool KCompositeJob_SuperAddSubjob(KCompositeJob* self, KJob* job) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnAddSubjob(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_AddSubjob_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_AddSubjob_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -153,9 +149,8 @@ bool KCompositeJob_SuperRemoveSubjob(KCompositeJob* self, KJob* job) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnRemoveSubjob(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_RemoveSubjob_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_RemoveSubjob_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -172,9 +167,8 @@ void KCompositeJob_SuperSlotResult(KCompositeJob* self, KJob* job) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnSlotResult(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_SlotResult_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SlotResult_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -192,9 +186,8 @@ void KCompositeJob_SuperSlotInfoMessage(KCompositeJob* self, KJob* job, const li
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnSlotInfoMessage(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_SlotInfoMessage_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SlotInfoMessage_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -221,9 +214,8 @@ void KCompositeJob_SuperStart(KCompositeJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnStart(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_Start_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Start_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -250,9 +242,8 @@ bool KCompositeJob_SuperDoKill(KCompositeJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnDoKill(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_DoKill_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_DoKill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -279,9 +270,8 @@ bool KCompositeJob_SuperDoSuspend(KCompositeJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnDoSuspend(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_DoSuspend_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_DoSuspend_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -308,9 +298,8 @@ bool KCompositeJob_SuperDoResume(KCompositeJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnDoResume(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_DoResume_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_DoResume_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -369,9 +358,8 @@ libqt_string KCompositeJob_SuperErrorString(const KCompositeJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnErrorString(const KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_ErrorString_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_ErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -398,9 +386,8 @@ bool KCompositeJob_SuperEvent(KCompositeJob* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnEvent(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_Event_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -427,9 +414,8 @@ bool KCompositeJob_SuperEventFilter(KCompositeJob* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnEventFilter(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_EventFilter_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -456,9 +442,8 @@ void KCompositeJob_SuperTimerEvent(KCompositeJob* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnTimerEvent(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_TimerEvent_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -485,9 +470,8 @@ void KCompositeJob_SuperChildEvent(KCompositeJob* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnChildEvent(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_ChildEvent_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -514,9 +498,8 @@ void KCompositeJob_SuperCustomEvent(KCompositeJob* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnCustomEvent(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_CustomEvent_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -543,9 +526,8 @@ void KCompositeJob_SuperConnectNotify(KCompositeJob* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnConnectNotify(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_ConnectNotify_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -572,9 +554,8 @@ void KCompositeJob_SuperDisconnectNotify(KCompositeJob* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnDisconnectNotify(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -601,9 +582,8 @@ bool KCompositeJob_SuperHasSubjobs(const KCompositeJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnHasSubjobs(const KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_HasSubjobs_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_HasSubjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -666,9 +646,8 @@ libqt_list /* of KJob* */ KCompositeJob_SuperSubjobs(const KCompositeJob* self) 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnSubjobs(const KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_Subjobs_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Subjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -695,9 +674,8 @@ void KCompositeJob_SuperClearSubjobs(KCompositeJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnClearSubjobs(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_ClearSubjobs_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_ClearSubjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -724,9 +702,8 @@ void KCompositeJob_SuperSetCapabilities(KCompositeJob* self, int capabilities) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnSetCapabilities(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_SetCapabilities_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SetCapabilities_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -753,9 +730,8 @@ bool KCompositeJob_SuperIsFinished(const KCompositeJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnIsFinished(const KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_IsFinished_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_IsFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -782,9 +758,8 @@ void KCompositeJob_SuperSetError(KCompositeJob* self, int errorCode) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnSetError(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_SetError_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -813,9 +788,8 @@ void KCompositeJob_SuperSetErrorText(KCompositeJob* self, const libqt_string err
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnSetErrorText(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_SetErrorText_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SetErrorText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -842,9 +816,8 @@ void KCompositeJob_SuperSetProcessedAmount(KCompositeJob* self, int unit, unsign
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnSetProcessedAmount(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SetProcessedAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -871,9 +844,8 @@ void KCompositeJob_SuperSetTotalAmount(KCompositeJob* self, int unit, unsigned l
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnSetTotalAmount(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SetTotalAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -900,9 +872,8 @@ void KCompositeJob_SuperSetProgressUnit(KCompositeJob* self, int unit) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnSetProgressUnit(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SetProgressUnit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -929,9 +900,8 @@ void KCompositeJob_SuperSetPercent(KCompositeJob* self, unsigned long percentage
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnSetPercent(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_SetPercent_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SetPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -958,9 +928,8 @@ void KCompositeJob_SuperEmitResult(KCompositeJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnEmitResult(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_EmitResult_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_EmitResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -987,9 +956,8 @@ void KCompositeJob_SuperEmitPercent(KCompositeJob* self, unsigned long long proc
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnEmitPercent(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_EmitPercent_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_EmitPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1016,9 +984,8 @@ void KCompositeJob_SuperEmitSpeed(KCompositeJob* self, unsigned long speed) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnEmitSpeed(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_EmitSpeed_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_EmitSpeed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1045,9 +1012,8 @@ void KCompositeJob_SuperStartElapsedTimer(KCompositeJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnStartElapsedTimer(KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_StartElapsedTimer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1074,9 +1040,8 @@ QObject* KCompositeJob_SuperSender(const KCompositeJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnSender(const KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_Sender_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1103,9 +1068,8 @@ int KCompositeJob_SuperSenderSignalIndex(const KCompositeJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnSenderSignalIndex(const KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1132,9 +1096,8 @@ int KCompositeJob_SuperReceivers(const KCompositeJob* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnReceivers(const KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_Receivers_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1161,9 +1124,8 @@ bool KCompositeJob_SuperIsSignalConnected(const KCompositeJob* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KCompositeJob_OnIsSignalConnected(const KCompositeJob* self, intptr_t slot) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
+    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob)
         vkcompositejob->setKCompositeJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKCompositeJob::KCompositeJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KCompositeJob_Delete(KCompositeJob* self) {

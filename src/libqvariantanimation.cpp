@@ -175,9 +175,8 @@ QMetaObject* QVariantAnimation_SuperMetaObject(const QVariantAnimation* self) {
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnMetaObject(const QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = const_cast<VirtualQVariantAnimation*>(dynamic_cast<const VirtualQVariantAnimation*>(self));
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_MetaObject_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -194,9 +193,8 @@ void* QVariantAnimation_SuperMetacast(QVariantAnimation* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnMetacast(QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_Metacast_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -213,9 +211,8 @@ int QVariantAnimation_SuperMetacall(QVariantAnimation* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnMetacall(QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_Metacall_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -232,9 +229,8 @@ int QVariantAnimation_SuperDuration(const QVariantAnimation* self) {
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnDuration(const QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = const_cast<VirtualQVariantAnimation*>(dynamic_cast<const VirtualQVariantAnimation*>(self));
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_Duration_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_Duration_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -251,9 +247,8 @@ bool QVariantAnimation_SuperEvent(QVariantAnimation* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnEvent(QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_Event_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -270,9 +265,8 @@ void QVariantAnimation_SuperUpdateCurrentTime(QVariantAnimation* self, int param
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnUpdateCurrentTime(QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_UpdateCurrentTime_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_UpdateCurrentTime_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -289,9 +283,8 @@ void QVariantAnimation_SuperUpdateState(QVariantAnimation* self, int newState, i
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnUpdateState(QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_UpdateState_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_UpdateState_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -308,9 +301,8 @@ void QVariantAnimation_SuperUpdateCurrentValue(QVariantAnimation* self, const QV
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnUpdateCurrentValue(QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_UpdateCurrentValue_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_UpdateCurrentValue_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -326,9 +318,8 @@ QVariant* QVariantAnimation_SuperInterpolated(const QVariantAnimation* self, con
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnInterpolated(const QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = const_cast<VirtualQVariantAnimation*>(dynamic_cast<const VirtualQVariantAnimation*>(self));
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_Interpolated_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_Interpolated_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -355,9 +346,8 @@ void QVariantAnimation_SuperUpdateDirection(QVariantAnimation* self, int directi
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnUpdateDirection(QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_UpdateDirection_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_UpdateDirection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -384,9 +374,8 @@ bool QVariantAnimation_SuperEventFilter(QVariantAnimation* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnEventFilter(QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_EventFilter_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -413,9 +402,8 @@ void QVariantAnimation_SuperTimerEvent(QVariantAnimation* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnTimerEvent(QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_TimerEvent_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -442,9 +430,8 @@ void QVariantAnimation_SuperChildEvent(QVariantAnimation* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnChildEvent(QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_ChildEvent_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -471,9 +458,8 @@ void QVariantAnimation_SuperCustomEvent(QVariantAnimation* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnCustomEvent(QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_CustomEvent_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -500,9 +486,8 @@ void QVariantAnimation_SuperConnectNotify(QVariantAnimation* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnConnectNotify(QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_ConnectNotify_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -529,9 +514,8 @@ void QVariantAnimation_SuperDisconnectNotify(QVariantAnimation* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnDisconnectNotify(QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_DisconnectNotify_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -558,9 +542,8 @@ QObject* QVariantAnimation_SuperSender(const QVariantAnimation* self) {
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnSender(const QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = const_cast<VirtualQVariantAnimation*>(dynamic_cast<const VirtualQVariantAnimation*>(self));
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_Sender_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -587,9 +570,8 @@ int QVariantAnimation_SuperSenderSignalIndex(const QVariantAnimation* self) {
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnSenderSignalIndex(const QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = const_cast<VirtualQVariantAnimation*>(dynamic_cast<const VirtualQVariantAnimation*>(self));
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_SenderSignalIndex_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -616,9 +598,8 @@ int QVariantAnimation_SuperReceivers(const QVariantAnimation* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnReceivers(const QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = const_cast<VirtualQVariantAnimation*>(dynamic_cast<const VirtualQVariantAnimation*>(self));
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_Receivers_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -645,9 +626,8 @@ bool QVariantAnimation_SuperIsSignalConnected(const QVariantAnimation* self, con
 // Auxiliary method to allow providing re-implementation
 void QVariantAnimation_OnIsSignalConnected(const QVariantAnimation* self, intptr_t slot) {
     auto* vqvariantanimation = const_cast<VirtualQVariantAnimation*>(dynamic_cast<const VirtualQVariantAnimation*>(self));
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
+    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation)
         vqvariantanimation->setQVariantAnimation_IsSignalConnected_Callback(reinterpret_cast<VirtualQVariantAnimation::QVariantAnimation_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QVariantAnimation_Delete(QVariantAnimation* self) {

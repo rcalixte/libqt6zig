@@ -69,6 +69,8 @@ typedef struct QVariant QVariant;
 typedef struct QWidget QWidget;
 #endif
 
+KXMLGUIClient* KTextEditor__View_AsKXMLGUIClient(KTextEditor__View* self);
+KTextEditor__View* KTextEditor__View_FromKXMLGUIClient(KXMLGUIClient* _kxmlguiclient);
 QMetaObject* KTextEditor__View_MetaObject(const KTextEditor__View* self);
 void* KTextEditor__View_Metacast(KTextEditor__View* self, const char* param1);
 int KTextEditor__View_Metacall(KTextEditor__View* self, int param1, int param2, void** param3);

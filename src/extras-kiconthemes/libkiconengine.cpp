@@ -134,9 +134,8 @@ QSize* KIconEngine_SuperActualSize(KIconEngine* self, const QSize* size, int mod
 // Auxiliary method to allow providing re-implementation
 void KIconEngine_OnActualSize(KIconEngine* self, intptr_t slot) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
-    if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
+    if (vkiconengine && vkiconengine->isVirtualKIconEngine)
         vkiconengine->setKIconEngine_ActualSize_Callback(reinterpret_cast<VirtualKIconEngine::KIconEngine_ActualSize_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -153,9 +152,8 @@ void KIconEngine_SuperPaint(KIconEngine* self, QPainter* painter, const QRect* r
 // Auxiliary method to allow providing re-implementation
 void KIconEngine_OnPaint(KIconEngine* self, intptr_t slot) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
-    if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
+    if (vkiconengine && vkiconengine->isVirtualKIconEngine)
         vkiconengine->setKIconEngine_Paint_Callback(reinterpret_cast<VirtualKIconEngine::KIconEngine_Paint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -172,9 +170,8 @@ QPixmap* KIconEngine_SuperPixmap(KIconEngine* self, const QSize* size, int mode,
 // Auxiliary method to allow providing re-implementation
 void KIconEngine_OnPixmap(KIconEngine* self, intptr_t slot) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
-    if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
+    if (vkiconengine && vkiconengine->isVirtualKIconEngine)
         vkiconengine->setKIconEngine_Pixmap_Callback(reinterpret_cast<VirtualKIconEngine::KIconEngine_Pixmap_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -191,9 +188,8 @@ QPixmap* KIconEngine_SuperScaledPixmap(KIconEngine* self, const QSize* size, int
 // Auxiliary method to allow providing re-implementation
 void KIconEngine_OnScaledPixmap(KIconEngine* self, intptr_t slot) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
-    if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
+    if (vkiconengine && vkiconengine->isVirtualKIconEngine)
         vkiconengine->setKIconEngine_ScaledPixmap_Callback(reinterpret_cast<VirtualKIconEngine::KIconEngine_ScaledPixmap_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -226,9 +222,8 @@ libqt_string KIconEngine_SuperIconName(KIconEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconEngine_OnIconName(KIconEngine* self, intptr_t slot) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
-    if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
+    if (vkiconengine && vkiconengine->isVirtualKIconEngine)
         vkiconengine->setKIconEngine_IconName_Callback(reinterpret_cast<VirtualKIconEngine::KIconEngine_IconName_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -263,9 +258,8 @@ libqt_list /* of QSize* */ KIconEngine_SuperAvailableSizes(KIconEngine* self, in
 // Auxiliary method to allow providing re-implementation
 void KIconEngine_OnAvailableSizes(KIconEngine* self, intptr_t slot) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
-    if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
+    if (vkiconengine && vkiconengine->isVirtualKIconEngine)
         vkiconengine->setKIconEngine_AvailableSizes_Callback(reinterpret_cast<VirtualKIconEngine::KIconEngine_AvailableSizes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -282,9 +276,8 @@ bool KIconEngine_SuperIsNull(KIconEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconEngine_OnIsNull(KIconEngine* self, intptr_t slot) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
-    if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
+    if (vkiconengine && vkiconengine->isVirtualKIconEngine)
         vkiconengine->setKIconEngine_IsNull_Callback(reinterpret_cast<VirtualKIconEngine::KIconEngine_IsNull_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -317,9 +310,8 @@ libqt_string KIconEngine_SuperKey(const KIconEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconEngine_OnKey(const KIconEngine* self, intptr_t slot) {
     auto* vkiconengine = const_cast<VirtualKIconEngine*>(dynamic_cast<const VirtualKIconEngine*>(self));
-    if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
+    if (vkiconengine && vkiconengine->isVirtualKIconEngine)
         vkiconengine->setKIconEngine_Key_Callback(reinterpret_cast<VirtualKIconEngine::KIconEngine_Key_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -336,9 +328,8 @@ QIconEngine* KIconEngine_SuperClone(const KIconEngine* self) {
 // Auxiliary method to allow providing re-implementation
 void KIconEngine_OnClone(const KIconEngine* self, intptr_t slot) {
     auto* vkiconengine = const_cast<VirtualKIconEngine*>(dynamic_cast<const VirtualKIconEngine*>(self));
-    if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
+    if (vkiconengine && vkiconengine->isVirtualKIconEngine)
         vkiconengine->setKIconEngine_Clone_Callback(reinterpret_cast<VirtualKIconEngine::KIconEngine_Clone_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -355,9 +346,8 @@ bool KIconEngine_SuperRead(KIconEngine* self, QDataStream* in) {
 // Auxiliary method to allow providing re-implementation
 void KIconEngine_OnRead(KIconEngine* self, intptr_t slot) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
-    if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
+    if (vkiconengine && vkiconengine->isVirtualKIconEngine)
         vkiconengine->setKIconEngine_Read_Callback(reinterpret_cast<VirtualKIconEngine::KIconEngine_Read_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -374,9 +364,8 @@ bool KIconEngine_SuperWrite(const KIconEngine* self, QDataStream* out) {
 // Auxiliary method to allow providing re-implementation
 void KIconEngine_OnWrite(const KIconEngine* self, intptr_t slot) {
     auto* vkiconengine = const_cast<VirtualKIconEngine*>(dynamic_cast<const VirtualKIconEngine*>(self));
-    if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
+    if (vkiconengine && vkiconengine->isVirtualKIconEngine)
         vkiconengine->setKIconEngine_Write_Callback(reinterpret_cast<VirtualKIconEngine::KIconEngine_Write_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -403,9 +392,8 @@ void KIconEngine_SuperAddPixmap(KIconEngine* self, const QPixmap* pixmap, int mo
 // Auxiliary method to allow providing re-implementation
 void KIconEngine_OnAddPixmap(KIconEngine* self, intptr_t slot) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
-    if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
+    if (vkiconengine && vkiconengine->isVirtualKIconEngine)
         vkiconengine->setKIconEngine_AddPixmap_Callback(reinterpret_cast<VirtualKIconEngine::KIconEngine_AddPixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -434,9 +422,8 @@ void KIconEngine_SuperAddFile(KIconEngine* self, const libqt_string fileName, co
 // Auxiliary method to allow providing re-implementation
 void KIconEngine_OnAddFile(KIconEngine* self, intptr_t slot) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
-    if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
+    if (vkiconengine && vkiconengine->isVirtualKIconEngine)
         vkiconengine->setKIconEngine_AddFile_Callback(reinterpret_cast<VirtualKIconEngine::KIconEngine_AddFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -463,9 +450,8 @@ void KIconEngine_SuperVirtualHook(KIconEngine* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void KIconEngine_OnVirtualHook(KIconEngine* self, intptr_t slot) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
-    if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
+    if (vkiconengine && vkiconengine->isVirtualKIconEngine)
         vkiconengine->setKIconEngine_VirtualHook_Callback(reinterpret_cast<VirtualKIconEngine::KIconEngine_VirtualHook_Callback>(slot));
-    }
 }
 
 void KIconEngine_Delete(KIconEngine* self) {

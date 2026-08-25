@@ -2433,7 +2433,7 @@ pub const KKeySequenceRecorder = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kkeysequencerecorder.html#public-types)
 pub const enums = struct {
-    pub const Pattern = enum(i32) {
+    pub const Pattern = enum {
         pub const Modifier: i32 = 1;
         pub const Key: i32 = 2;
         pub const ModifierAndKey: i32 = 4;

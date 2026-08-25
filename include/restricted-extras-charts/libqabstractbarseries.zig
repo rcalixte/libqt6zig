@@ -2427,7 +2427,7 @@ pub const QAbstractBarSeries = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#public-types)
 pub const enums = struct {
-    pub const LabelsPosition = enum(i32) {
+    pub const LabelsPosition = enum {
         pub const LabelsCenter: i32 = 0;
         pub const LabelsInsideEnd: i32 = 1;
         pub const LabelsInsideBase: i32 = 2;

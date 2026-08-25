@@ -2212,7 +2212,7 @@ pub const KFileItemActions = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kfileitemactions.html#public-types)
 pub const enums = struct {
-    pub const MenuActionSource = enum(i32) {
+    pub const MenuActionSource = enum {
         pub const Services: i32 = 1;
         pub const Plugins: i32 = 2;
         pub const All: i32 = 3;

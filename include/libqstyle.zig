@@ -3750,7 +3750,7 @@ pub const QStyle = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyle.html#public-types)
 pub const enums = struct {
-    pub const StateFlag = enum(i32) {
+    pub const StateFlag = enum {
         pub const State_None: i32 = 0;
         pub const State_Enabled: i32 = 1;
         pub const State_Raised: i32 = 2;
@@ -3781,7 +3781,7 @@ pub const enums = struct {
         pub const State_Mini: i32 = 134217728;
     };
 
-    pub const PrimitiveElement = enum(i32) {
+    pub const PrimitiveElement = enum {
         pub const PE_Frame: i32 = 0;
         pub const PE_FrameDefaultButton: i32 = 1;
         pub const PE_FrameDockWidget: i32 = 2;
@@ -3836,7 +3836,7 @@ pub const enums = struct {
         pub const PE_CustomBase: i32 = 251658240;
     };
 
-    pub const ControlElement = enum(i32) {
+    pub const ControlElement = enum {
         pub const CE_PushButton: i32 = 0;
         pub const CE_PushButtonBevel: i32 = 1;
         pub const CE_PushButtonLabel: i32 = 2;
@@ -3887,7 +3887,7 @@ pub const enums = struct {
         pub const CE_CustomBase: i32 = -268435456;
     };
 
-    pub const SubElement = enum(i32) {
+    pub const SubElement = enum {
         pub const SE_PushButtonContents: i32 = 0;
         pub const SE_PushButtonFocusRect: i32 = 1;
         pub const SE_CheckBoxIndicator: i32 = 2;
@@ -3949,7 +3949,7 @@ pub const enums = struct {
         pub const SE_CustomBase: i32 = -268435456;
     };
 
-    pub const ComplexControl = enum(i32) {
+    pub const ComplexControl = enum {
         pub const CC_SpinBox: i32 = 0;
         pub const CC_ComboBox: i32 = 1;
         pub const CC_ScrollBar: i32 = 2;
@@ -3962,7 +3962,7 @@ pub const enums = struct {
         pub const CC_CustomBase: i32 = -268435456;
     };
 
-    pub const SubControl = enum(i32) {
+    pub const SubControl = enum {
         pub const SC_None: i32 = 0;
         pub const SC_ScrollBarAddLine: i32 = 1;
         pub const SC_ScrollBarSubLine: i32 = 2;
@@ -4008,7 +4008,7 @@ pub const enums = struct {
         pub const SC_All: i32 = -1;
     };
 
-    pub const PixelMetric = enum(i32) {
+    pub const PixelMetric = enum {
         pub const PM_ButtonMargin: i32 = 0;
         pub const PM_ButtonDefaultIndicator: i32 = 1;
         pub const PM_MenuButtonIndicator: i32 = 2;
@@ -4104,7 +4104,7 @@ pub const enums = struct {
         pub const PM_CustomBase: i32 = -268435456;
     };
 
-    pub const ContentsType = enum(i32) {
+    pub const ContentsType = enum {
         pub const CT_PushButton: i32 = 0;
         pub const CT_CheckBox: i32 = 1;
         pub const CT_RadioButton: i32 = 2;
@@ -4131,12 +4131,12 @@ pub const enums = struct {
         pub const CT_CustomBase: i32 = -268435456;
     };
 
-    pub const RequestSoftwareInputPanel = enum(i32) {
+    pub const RequestSoftwareInputPanel = enum {
         pub const RSIP_OnMouseClickAndAlreadyFocused: i32 = 0;
         pub const RSIP_OnMouseClick: i32 = 1;
     };
 
-    pub const StyleHint = enum(i32) {
+    pub const StyleHint = enum {
         pub const SH_EtchDisabledText: i32 = 0;
         pub const SH_DitherDisabledText: i32 = 1;
         pub const SH_ScrollBar_MiddleClickAbsolutePosition: i32 = 2;
@@ -4260,7 +4260,7 @@ pub const enums = struct {
         pub const SH_CustomBase: i32 = -268435456;
     };
 
-    pub const StandardPixmap = enum(i32) {
+    pub const StandardPixmap = enum {
         pub const SP_TitleBarMenuButton: i32 = 0;
         pub const SP_TitleBarMinButton: i32 = 1;
         pub const SP_TitleBarMaxButton: i32 = 2;

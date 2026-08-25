@@ -195,9 +195,8 @@ QMetaObject* KDatePicker_SuperMetaObject(const KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMetaObject(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_MetaObject_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -214,9 +213,8 @@ void* KDatePicker_SuperMetacast(KDatePicker* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMetacast(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_Metacast_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -233,9 +231,8 @@ int KDatePicker_SuperMetacall(KDatePicker* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMetacall(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_Metacall_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -252,9 +249,8 @@ QSize* KDatePicker_SuperSizeHint(const KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnSizeHint(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_SizeHint_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -271,9 +267,8 @@ bool KDatePicker_SuperEventFilter(KDatePicker* self, QObject* o, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnEventFilter(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_EventFilter_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -290,9 +285,8 @@ void KDatePicker_SuperResizeEvent(KDatePicker* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnResizeEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_ResizeEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -309,9 +303,8 @@ void KDatePicker_SuperChangeEvent(KDatePicker* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnChangeEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_ChangeEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -338,9 +331,8 @@ bool KDatePicker_SuperEvent(KDatePicker* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_Event_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -367,9 +359,8 @@ void KDatePicker_SuperPaintEvent(KDatePicker* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnPaintEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_PaintEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -396,9 +387,8 @@ void KDatePicker_SuperInitStyleOption(const KDatePicker* self, QStyleOptionFrame
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnInitStyleOption(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_InitStyleOption_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -425,9 +415,8 @@ int KDatePicker_SuperDevType(const KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnDevType(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_DevType_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -454,9 +443,8 @@ void KDatePicker_SuperSetVisible(KDatePicker* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnSetVisible(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_SetVisible_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -483,9 +471,8 @@ QSize* KDatePicker_SuperMinimumSizeHint(const KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMinimumSizeHint(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_MinimumSizeHint_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -512,9 +499,8 @@ int KDatePicker_SuperHeightForWidth(const KDatePicker* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnHeightForWidth(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_HeightForWidth_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -541,9 +527,8 @@ bool KDatePicker_SuperHasHeightForWidth(const KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnHasHeightForWidth(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_HasHeightForWidth_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -570,9 +555,8 @@ QPaintEngine* KDatePicker_SuperPaintEngine(const KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnPaintEngine(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_PaintEngine_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -599,9 +583,8 @@ void KDatePicker_SuperMousePressEvent(KDatePicker* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMousePressEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_MousePressEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -628,9 +611,8 @@ void KDatePicker_SuperMouseReleaseEvent(KDatePicker* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMouseReleaseEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -657,9 +639,8 @@ void KDatePicker_SuperMouseDoubleClickEvent(KDatePicker* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMouseDoubleClickEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -686,9 +667,8 @@ void KDatePicker_SuperMouseMoveEvent(KDatePicker* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMouseMoveEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_MouseMoveEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -715,9 +695,8 @@ void KDatePicker_SuperWheelEvent(KDatePicker* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnWheelEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_WheelEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -744,9 +723,8 @@ void KDatePicker_SuperKeyPressEvent(KDatePicker* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnKeyPressEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_KeyPressEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -773,9 +751,8 @@ void KDatePicker_SuperKeyReleaseEvent(KDatePicker* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnKeyReleaseEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -802,9 +779,8 @@ void KDatePicker_SuperFocusInEvent(KDatePicker* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnFocusInEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_FocusInEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -831,9 +807,8 @@ void KDatePicker_SuperFocusOutEvent(KDatePicker* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnFocusOutEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_FocusOutEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -860,9 +835,8 @@ void KDatePicker_SuperEnterEvent(KDatePicker* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnEnterEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_EnterEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -889,9 +863,8 @@ void KDatePicker_SuperLeaveEvent(KDatePicker* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnLeaveEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_LeaveEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -918,9 +891,8 @@ void KDatePicker_SuperMoveEvent(KDatePicker* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMoveEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_MoveEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -947,9 +919,8 @@ void KDatePicker_SuperCloseEvent(KDatePicker* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnCloseEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_CloseEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -976,9 +947,8 @@ void KDatePicker_SuperContextMenuEvent(KDatePicker* self, QContextMenuEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnContextMenuEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_ContextMenuEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1005,9 +975,8 @@ void KDatePicker_SuperTabletEvent(KDatePicker* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnTabletEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_TabletEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1034,9 +1003,8 @@ void KDatePicker_SuperActionEvent(KDatePicker* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnActionEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_ActionEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1063,9 +1031,8 @@ void KDatePicker_SuperDragEnterEvent(KDatePicker* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnDragEnterEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_DragEnterEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1092,9 +1059,8 @@ void KDatePicker_SuperDragMoveEvent(KDatePicker* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnDragMoveEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_DragMoveEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1121,9 +1087,8 @@ void KDatePicker_SuperDragLeaveEvent(KDatePicker* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnDragLeaveEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_DragLeaveEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1150,9 +1115,8 @@ void KDatePicker_SuperDropEvent(KDatePicker* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnDropEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_DropEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1179,9 +1143,8 @@ void KDatePicker_SuperShowEvent(KDatePicker* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnShowEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_ShowEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1208,9 +1171,8 @@ void KDatePicker_SuperHideEvent(KDatePicker* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnHideEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_HideEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1239,9 +1201,8 @@ bool KDatePicker_SuperNativeEvent(KDatePicker* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnNativeEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_NativeEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1268,9 +1229,8 @@ int KDatePicker_SuperMetric(const KDatePicker* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMetric(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_Metric_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1297,9 +1257,8 @@ void KDatePicker_SuperInitPainter(const KDatePicker* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnInitPainter(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_InitPainter_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1326,9 +1285,8 @@ QPaintDevice* KDatePicker_SuperRedirected(const KDatePicker* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnRedirected(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_Redirected_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1355,9 +1313,8 @@ QPainter* KDatePicker_SuperSharedPainter(const KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnSharedPainter(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_SharedPainter_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1384,9 +1341,8 @@ void KDatePicker_SuperInputMethodEvent(KDatePicker* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnInputMethodEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_InputMethodEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1413,9 +1369,8 @@ QVariant* KDatePicker_SuperInputMethodQuery(const KDatePicker* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnInputMethodQuery(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_InputMethodQuery_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1442,9 +1397,8 @@ bool KDatePicker_SuperFocusNextPrevChild(KDatePicker* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnFocusNextPrevChild(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1471,9 +1425,8 @@ void KDatePicker_SuperTimerEvent(KDatePicker* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnTimerEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_TimerEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1500,9 +1453,8 @@ void KDatePicker_SuperChildEvent(KDatePicker* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnChildEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_ChildEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1529,9 +1481,8 @@ void KDatePicker_SuperCustomEvent(KDatePicker* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnCustomEvent(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_CustomEvent_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1558,9 +1509,8 @@ void KDatePicker_SuperConnectNotify(KDatePicker* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnConnectNotify(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_ConnectNotify_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1587,9 +1537,8 @@ void KDatePicker_SuperDisconnectNotify(KDatePicker* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnDisconnectNotify(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_DisconnectNotify_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1616,9 +1565,8 @@ void KDatePicker_SuperDateChangedSlot(KDatePicker* self, const QDate* date) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnDateChangedSlot(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_DateChangedSlot_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_DateChangedSlot_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1645,9 +1593,8 @@ void KDatePicker_SuperTableClickedSlot(KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnTableClickedSlot(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_TableClickedSlot_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_TableClickedSlot_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1674,9 +1621,8 @@ void KDatePicker_SuperMonthForwardClicked(KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMonthForwardClicked(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_MonthForwardClicked_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MonthForwardClicked_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1703,9 +1649,8 @@ void KDatePicker_SuperMonthBackwardClicked(KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnMonthBackwardClicked(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_MonthBackwardClicked_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_MonthBackwardClicked_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1732,9 +1677,8 @@ void KDatePicker_SuperYearForwardClicked(KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnYearForwardClicked(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_YearForwardClicked_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_YearForwardClicked_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1761,9 +1705,8 @@ void KDatePicker_SuperYearBackwardClicked(KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnYearBackwardClicked(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_YearBackwardClicked_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_YearBackwardClicked_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1790,9 +1733,8 @@ void KDatePicker_SuperSelectMonthClicked(KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnSelectMonthClicked(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_SelectMonthClicked_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_SelectMonthClicked_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1819,9 +1761,8 @@ void KDatePicker_SuperSelectYearClicked(KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnSelectYearClicked(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_SelectYearClicked_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_SelectYearClicked_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1848,9 +1789,8 @@ void KDatePicker_SuperUncheckYearSelector(KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnUncheckYearSelector(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_UncheckYearSelector_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_UncheckYearSelector_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1877,9 +1817,8 @@ void KDatePicker_SuperLineEnterPressed(KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnLineEnterPressed(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_LineEnterPressed_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_LineEnterPressed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1906,9 +1845,8 @@ void KDatePicker_SuperTodayButtonClicked(KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnTodayButtonClicked(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_TodayButtonClicked_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_TodayButtonClicked_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1935,9 +1873,8 @@ void KDatePicker_SuperWeekSelected(KDatePicker* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnWeekSelected(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_WeekSelected_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_WeekSelected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1964,9 +1901,8 @@ void KDatePicker_SuperDrawFrame(KDatePicker* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnDrawFrame(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_DrawFrame_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1993,9 +1929,8 @@ void KDatePicker_SuperUpdateMicroFocus(KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnUpdateMicroFocus(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2022,9 +1957,8 @@ void KDatePicker_SuperCreate(KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnCreate(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_Create_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2051,9 +1985,8 @@ void KDatePicker_SuperDestroy(KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnDestroy(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_Destroy_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2080,9 +2013,8 @@ bool KDatePicker_SuperFocusNextChild(KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnFocusNextChild(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_FocusNextChild_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2109,9 +2041,8 @@ bool KDatePicker_SuperFocusPreviousChild(KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnFocusPreviousChild(KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_FocusPreviousChild_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2138,9 +2069,8 @@ QObject* KDatePicker_SuperSender(const KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnSender(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_Sender_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2167,9 +2097,8 @@ int KDatePicker_SuperSenderSignalIndex(const KDatePicker* self) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnSenderSignalIndex(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2196,9 +2125,8 @@ int KDatePicker_SuperReceivers(const KDatePicker* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnReceivers(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_Receivers_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2225,9 +2153,8 @@ bool KDatePicker_SuperIsSignalConnected(const KDatePicker* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnIsSignalConnected(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_IsSignalConnected_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2254,9 +2181,8 @@ double KDatePicker_SuperGetDecodedMetricF(const KDatePicker* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void KDatePicker_OnGetDecodedMetricF(const KDatePicker* self, intptr_t slot) {
     auto* vkdatepicker = const_cast<VirtualKDatePicker*>(dynamic_cast<const VirtualKDatePicker*>(self));
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
+    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker)
         vkdatepicker->setKDatePicker_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKDatePicker::KDatePicker_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KDatePicker_Delete(KDatePicker* self) {

@@ -95,9 +95,8 @@ int QOpenGLPaintDevice_SuperDevType(const QOpenGLPaintDevice* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLPaintDevice_OnDevType(const QOpenGLPaintDevice* self, intptr_t slot) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
+    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice)
         vqopenglpaintdevice->setQOpenGLPaintDevice_DevType_Callback(reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_DevType_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -114,9 +113,8 @@ QPaintEngine* QOpenGLPaintDevice_SuperPaintEngine(const QOpenGLPaintDevice* self
 // Auxiliary method to allow providing re-implementation
 void QOpenGLPaintDevice_OnPaintEngine(const QOpenGLPaintDevice* self, intptr_t slot) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
+    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice)
         vqopenglpaintdevice->setQOpenGLPaintDevice_PaintEngine_Callback(reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_PaintEngine_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -133,9 +131,8 @@ void QOpenGLPaintDevice_SuperEnsureActiveTarget(QOpenGLPaintDevice* self) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLPaintDevice_OnEnsureActiveTarget(QOpenGLPaintDevice* self, intptr_t slot) {
     auto* vqopenglpaintdevice = dynamic_cast<VirtualQOpenGLPaintDevice*>(self);
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
+    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice)
         vqopenglpaintdevice->setQOpenGLPaintDevice_EnsureActiveTarget_Callback(reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_EnsureActiveTarget_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -152,9 +149,8 @@ int QOpenGLPaintDevice_SuperMetric(const QOpenGLPaintDevice* self, int metric) {
 // Auxiliary method to allow providing re-implementation
 void QOpenGLPaintDevice_OnMetric(const QOpenGLPaintDevice* self, intptr_t slot) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
+    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice)
         vqopenglpaintdevice->setQOpenGLPaintDevice_Metric_Callback(reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -181,9 +177,8 @@ void QOpenGLPaintDevice_SuperInitPainter(const QOpenGLPaintDevice* self, QPainte
 // Auxiliary method to allow providing re-implementation
 void QOpenGLPaintDevice_OnInitPainter(const QOpenGLPaintDevice* self, intptr_t slot) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
+    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice)
         vqopenglpaintdevice->setQOpenGLPaintDevice_InitPainter_Callback(reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -210,9 +205,8 @@ QPaintDevice* QOpenGLPaintDevice_SuperRedirected(const QOpenGLPaintDevice* self,
 // Auxiliary method to allow providing re-implementation
 void QOpenGLPaintDevice_OnRedirected(const QOpenGLPaintDevice* self, intptr_t slot) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
+    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice)
         vqopenglpaintdevice->setQOpenGLPaintDevice_Redirected_Callback(reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -239,9 +233,8 @@ QPainter* QOpenGLPaintDevice_SuperSharedPainter(const QOpenGLPaintDevice* self) 
 // Auxiliary method to allow providing re-implementation
 void QOpenGLPaintDevice_OnSharedPainter(const QOpenGLPaintDevice* self, intptr_t slot) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
+    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice)
         vqopenglpaintdevice->setQOpenGLPaintDevice_SharedPainter_Callback(reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -268,9 +261,8 @@ double QOpenGLPaintDevice_SuperGetDecodedMetricF(const QOpenGLPaintDevice* self,
 // Auxiliary method to allow providing re-implementation
 void QOpenGLPaintDevice_OnGetDecodedMetricF(const QOpenGLPaintDevice* self, intptr_t slot) {
     auto* vqopenglpaintdevice = const_cast<VirtualQOpenGLPaintDevice*>(dynamic_cast<const VirtualQOpenGLPaintDevice*>(self));
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
+    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice)
         vqopenglpaintdevice->setQOpenGLPaintDevice_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQOpenGLPaintDevice::QOpenGLPaintDevice_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QOpenGLPaintDevice_Delete(QOpenGLPaintDevice* self) {

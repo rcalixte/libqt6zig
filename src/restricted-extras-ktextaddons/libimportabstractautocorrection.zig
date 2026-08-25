@@ -371,7 +371,7 @@ pub const TextAutoCorrectionCore__ImportAbstractAutocorrection = extern struct {
 };
 
 pub const enums = struct {
-    pub const LoadAttribute = enum(i32) {
+    pub const LoadAttribute = enum {
         pub const All: i32 = 0;
         pub const SuperScript: i32 = 1;
     };

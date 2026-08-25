@@ -166,9 +166,8 @@ QMetaObject* QDial_SuperMetaObject(const QDial* self) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnMetaObject(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_MetaObject_Callback(reinterpret_cast<VirtualQDial::QDial_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -185,9 +184,8 @@ void* QDial_SuperMetacast(QDial* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnMetacast(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_Metacast_Callback(reinterpret_cast<VirtualQDial::QDial_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -204,9 +202,8 @@ int QDial_SuperMetacall(QDial* self, int param1, int param2, void** param3) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnMetacall(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_Metacall_Callback(reinterpret_cast<VirtualQDial::QDial_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -223,9 +220,8 @@ QSize* QDial_SuperSizeHint(const QDial* self) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnSizeHint(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_SizeHint_Callback(reinterpret_cast<VirtualQDial::QDial_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -242,9 +238,8 @@ QSize* QDial_SuperMinimumSizeHint(const QDial* self) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnMinimumSizeHint(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDial::QDial_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -261,9 +256,8 @@ bool QDial_SuperEvent(QDial* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_Event_Callback(reinterpret_cast<VirtualQDial::QDial_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -280,9 +274,8 @@ void QDial_SuperResizeEvent(QDial* self, QResizeEvent* re) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnResizeEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_ResizeEvent_Callback(reinterpret_cast<VirtualQDial::QDial_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -299,9 +292,8 @@ void QDial_SuperPaintEvent(QDial* self, QPaintEvent* pe) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnPaintEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_PaintEvent_Callback(reinterpret_cast<VirtualQDial::QDial_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -318,9 +310,8 @@ void QDial_SuperMousePressEvent(QDial* self, QMouseEvent* me) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnMousePressEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_MousePressEvent_Callback(reinterpret_cast<VirtualQDial::QDial_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -337,9 +328,8 @@ void QDial_SuperMouseReleaseEvent(QDial* self, QMouseEvent* me) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnMouseReleaseEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQDial::QDial_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -356,9 +346,8 @@ void QDial_SuperMouseMoveEvent(QDial* self, QMouseEvent* me) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnMouseMoveEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_MouseMoveEvent_Callback(reinterpret_cast<VirtualQDial::QDial_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -375,9 +364,8 @@ void QDial_SuperSliderChange(QDial* self, int change) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnSliderChange(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_SliderChange_Callback(reinterpret_cast<VirtualQDial::QDial_SliderChange_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -394,9 +382,8 @@ void QDial_SuperInitStyleOption(const QDial* self, QStyleOptionSlider* option) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnInitStyleOption(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_InitStyleOption_Callback(reinterpret_cast<VirtualQDial::QDial_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -423,9 +410,8 @@ void QDial_SuperKeyPressEvent(QDial* self, QKeyEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnKeyPressEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_KeyPressEvent_Callback(reinterpret_cast<VirtualQDial::QDial_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -452,9 +438,8 @@ void QDial_SuperTimerEvent(QDial* self, QTimerEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnTimerEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_TimerEvent_Callback(reinterpret_cast<VirtualQDial::QDial_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -481,9 +466,8 @@ void QDial_SuperWheelEvent(QDial* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnWheelEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_WheelEvent_Callback(reinterpret_cast<VirtualQDial::QDial_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -510,9 +494,8 @@ void QDial_SuperChangeEvent(QDial* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnChangeEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_ChangeEvent_Callback(reinterpret_cast<VirtualQDial::QDial_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -539,9 +522,8 @@ int QDial_SuperDevType(const QDial* self) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnDevType(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_DevType_Callback(reinterpret_cast<VirtualQDial::QDial_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -568,9 +550,8 @@ void QDial_SuperSetVisible(QDial* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnSetVisible(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_SetVisible_Callback(reinterpret_cast<VirtualQDial::QDial_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -597,9 +578,8 @@ int QDial_SuperHeightForWidth(const QDial* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnHeightForWidth(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_HeightForWidth_Callback(reinterpret_cast<VirtualQDial::QDial_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -626,9 +606,8 @@ bool QDial_SuperHasHeightForWidth(const QDial* self) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnHasHeightForWidth(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_HasHeightForWidth_Callback(reinterpret_cast<VirtualQDial::QDial_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -655,9 +634,8 @@ QPaintEngine* QDial_SuperPaintEngine(const QDial* self) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnPaintEngine(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_PaintEngine_Callback(reinterpret_cast<VirtualQDial::QDial_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -684,9 +662,8 @@ void QDial_SuperMouseDoubleClickEvent(QDial* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnMouseDoubleClickEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQDial::QDial_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -713,9 +690,8 @@ void QDial_SuperKeyReleaseEvent(QDial* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnKeyReleaseEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQDial::QDial_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -742,9 +718,8 @@ void QDial_SuperFocusInEvent(QDial* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnFocusInEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_FocusInEvent_Callback(reinterpret_cast<VirtualQDial::QDial_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -771,9 +746,8 @@ void QDial_SuperFocusOutEvent(QDial* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnFocusOutEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_FocusOutEvent_Callback(reinterpret_cast<VirtualQDial::QDial_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -800,9 +774,8 @@ void QDial_SuperEnterEvent(QDial* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnEnterEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_EnterEvent_Callback(reinterpret_cast<VirtualQDial::QDial_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -829,9 +802,8 @@ void QDial_SuperLeaveEvent(QDial* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnLeaveEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_LeaveEvent_Callback(reinterpret_cast<VirtualQDial::QDial_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -858,9 +830,8 @@ void QDial_SuperMoveEvent(QDial* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnMoveEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_MoveEvent_Callback(reinterpret_cast<VirtualQDial::QDial_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -887,9 +858,8 @@ void QDial_SuperCloseEvent(QDial* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnCloseEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_CloseEvent_Callback(reinterpret_cast<VirtualQDial::QDial_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -916,9 +886,8 @@ void QDial_SuperContextMenuEvent(QDial* self, QContextMenuEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnContextMenuEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDial::QDial_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -945,9 +914,8 @@ void QDial_SuperTabletEvent(QDial* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnTabletEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_TabletEvent_Callback(reinterpret_cast<VirtualQDial::QDial_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -974,9 +942,8 @@ void QDial_SuperActionEvent(QDial* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnActionEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_ActionEvent_Callback(reinterpret_cast<VirtualQDial::QDial_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1003,9 +970,8 @@ void QDial_SuperDragEnterEvent(QDial* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnDragEnterEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_DragEnterEvent_Callback(reinterpret_cast<VirtualQDial::QDial_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1032,9 +998,8 @@ void QDial_SuperDragMoveEvent(QDial* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnDragMoveEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_DragMoveEvent_Callback(reinterpret_cast<VirtualQDial::QDial_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1061,9 +1026,8 @@ void QDial_SuperDragLeaveEvent(QDial* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnDragLeaveEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_DragLeaveEvent_Callback(reinterpret_cast<VirtualQDial::QDial_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1090,9 +1054,8 @@ void QDial_SuperDropEvent(QDial* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnDropEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_DropEvent_Callback(reinterpret_cast<VirtualQDial::QDial_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1119,9 +1082,8 @@ void QDial_SuperShowEvent(QDial* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnShowEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_ShowEvent_Callback(reinterpret_cast<VirtualQDial::QDial_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1148,9 +1110,8 @@ void QDial_SuperHideEvent(QDial* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnHideEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_HideEvent_Callback(reinterpret_cast<VirtualQDial::QDial_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1179,9 +1140,8 @@ bool QDial_SuperNativeEvent(QDial* self, const libqt_string eventType, void* mes
 // Auxiliary method to allow providing re-implementation
 void QDial_OnNativeEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_NativeEvent_Callback(reinterpret_cast<VirtualQDial::QDial_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1208,9 +1168,8 @@ int QDial_SuperMetric(const QDial* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnMetric(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_Metric_Callback(reinterpret_cast<VirtualQDial::QDial_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1237,9 +1196,8 @@ void QDial_SuperInitPainter(const QDial* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnInitPainter(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_InitPainter_Callback(reinterpret_cast<VirtualQDial::QDial_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1266,9 +1224,8 @@ QPaintDevice* QDial_SuperRedirected(const QDial* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnRedirected(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_Redirected_Callback(reinterpret_cast<VirtualQDial::QDial_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1295,9 +1252,8 @@ QPainter* QDial_SuperSharedPainter(const QDial* self) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnSharedPainter(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_SharedPainter_Callback(reinterpret_cast<VirtualQDial::QDial_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1324,9 +1280,8 @@ void QDial_SuperInputMethodEvent(QDial* self, QInputMethodEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnInputMethodEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_InputMethodEvent_Callback(reinterpret_cast<VirtualQDial::QDial_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1353,9 +1308,8 @@ QVariant* QDial_SuperInputMethodQuery(const QDial* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnInputMethodQuery(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_InputMethodQuery_Callback(reinterpret_cast<VirtualQDial::QDial_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1382,9 +1336,8 @@ bool QDial_SuperFocusNextPrevChild(QDial* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnFocusNextPrevChild(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDial::QDial_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1411,9 +1364,8 @@ bool QDial_SuperEventFilter(QDial* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnEventFilter(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_EventFilter_Callback(reinterpret_cast<VirtualQDial::QDial_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1440,9 +1392,8 @@ void QDial_SuperChildEvent(QDial* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnChildEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_ChildEvent_Callback(reinterpret_cast<VirtualQDial::QDial_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1469,9 +1420,8 @@ void QDial_SuperCustomEvent(QDial* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnCustomEvent(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_CustomEvent_Callback(reinterpret_cast<VirtualQDial::QDial_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1498,9 +1448,8 @@ void QDial_SuperConnectNotify(QDial* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnConnectNotify(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_ConnectNotify_Callback(reinterpret_cast<VirtualQDial::QDial_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1527,9 +1476,8 @@ void QDial_SuperDisconnectNotify(QDial* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnDisconnectNotify(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_DisconnectNotify_Callback(reinterpret_cast<VirtualQDial::QDial_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1556,9 +1504,8 @@ void QDial_SuperSetRepeatAction(QDial* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnSetRepeatAction(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_SetRepeatAction_Callback(reinterpret_cast<VirtualQDial::QDial_SetRepeatAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1585,9 +1532,8 @@ int QDial_SuperRepeatAction(const QDial* self) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnRepeatAction(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_RepeatAction_Callback(reinterpret_cast<VirtualQDial::QDial_RepeatAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1614,9 +1560,8 @@ void QDial_SuperUpdateMicroFocus(QDial* self) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnUpdateMicroFocus(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQDial::QDial_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1643,9 +1588,8 @@ void QDial_SuperCreate(QDial* self) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnCreate(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_Create_Callback(reinterpret_cast<VirtualQDial::QDial_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1672,9 +1616,8 @@ void QDial_SuperDestroy(QDial* self) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnDestroy(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_Destroy_Callback(reinterpret_cast<VirtualQDial::QDial_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1701,9 +1644,8 @@ bool QDial_SuperFocusNextChild(QDial* self) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnFocusNextChild(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_FocusNextChild_Callback(reinterpret_cast<VirtualQDial::QDial_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1730,9 +1672,8 @@ bool QDial_SuperFocusPreviousChild(QDial* self) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnFocusPreviousChild(QDial* self, intptr_t slot) {
     auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_FocusPreviousChild_Callback(reinterpret_cast<VirtualQDial::QDial_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1759,9 +1700,8 @@ QObject* QDial_SuperSender(const QDial* self) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnSender(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_Sender_Callback(reinterpret_cast<VirtualQDial::QDial_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1788,9 +1728,8 @@ int QDial_SuperSenderSignalIndex(const QDial* self) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnSenderSignalIndex(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDial::QDial_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1817,9 +1756,8 @@ int QDial_SuperReceivers(const QDial* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QDial_OnReceivers(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_Receivers_Callback(reinterpret_cast<VirtualQDial::QDial_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1846,9 +1784,8 @@ bool QDial_SuperIsSignalConnected(const QDial* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QDial_OnIsSignalConnected(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_IsSignalConnected_Callback(reinterpret_cast<VirtualQDial::QDial_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1875,9 +1812,8 @@ double QDial_SuperGetDecodedMetricF(const QDial* self, int metricA, int metricB)
 // Auxiliary method to allow providing re-implementation
 void QDial_OnGetDecodedMetricF(const QDial* self, intptr_t slot) {
     auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
-    if (vqdial && vqdial->isVirtualQDial) {
+    if (vqdial && vqdial->isVirtualQDial)
         vqdial->setQDial_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDial::QDial_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QDial_Delete(QDial* self) {

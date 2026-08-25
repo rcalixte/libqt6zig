@@ -50,9 +50,8 @@ QMetaObject* QBarSeries_SuperMetaObject(const QBarSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnMetaObject(const QBarSeries* self, intptr_t slot) {
     auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
         vqbarseries->setQBarSeries_MetaObject_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -69,9 +68,8 @@ void* QBarSeries_SuperMetacast(QBarSeries* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnMetacast(QBarSeries* self, intptr_t slot) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
         vqbarseries->setQBarSeries_Metacast_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -88,9 +86,8 @@ int QBarSeries_SuperMetacall(QBarSeries* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnMetacall(QBarSeries* self, intptr_t slot) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
         vqbarseries->setQBarSeries_Metacall_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -107,9 +104,8 @@ int QBarSeries_SuperType(const QBarSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnType(const QBarSeries* self, intptr_t slot) {
     auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
         vqbarseries->setQBarSeries_Type_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -136,9 +132,8 @@ bool QBarSeries_SuperEvent(QBarSeries* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnEvent(QBarSeries* self, intptr_t slot) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
         vqbarseries->setQBarSeries_Event_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -165,9 +160,8 @@ bool QBarSeries_SuperEventFilter(QBarSeries* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnEventFilter(QBarSeries* self, intptr_t slot) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
         vqbarseries->setQBarSeries_EventFilter_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -194,9 +188,8 @@ void QBarSeries_SuperTimerEvent(QBarSeries* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnTimerEvent(QBarSeries* self, intptr_t slot) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
         vqbarseries->setQBarSeries_TimerEvent_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -223,9 +216,8 @@ void QBarSeries_SuperChildEvent(QBarSeries* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnChildEvent(QBarSeries* self, intptr_t slot) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
         vqbarseries->setQBarSeries_ChildEvent_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -252,9 +244,8 @@ void QBarSeries_SuperCustomEvent(QBarSeries* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnCustomEvent(QBarSeries* self, intptr_t slot) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
         vqbarseries->setQBarSeries_CustomEvent_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -281,9 +272,8 @@ void QBarSeries_SuperConnectNotify(QBarSeries* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnConnectNotify(QBarSeries* self, intptr_t slot) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
         vqbarseries->setQBarSeries_ConnectNotify_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -310,9 +300,8 @@ void QBarSeries_SuperDisconnectNotify(QBarSeries* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnDisconnectNotify(QBarSeries* self, intptr_t slot) {
     auto* vqbarseries = dynamic_cast<VirtualQBarSeries*>(self);
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
         vqbarseries->setQBarSeries_DisconnectNotify_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +328,8 @@ QObject* QBarSeries_SuperSender(const QBarSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnSender(const QBarSeries* self, intptr_t slot) {
     auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
         vqbarseries->setQBarSeries_Sender_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +356,8 @@ int QBarSeries_SuperSenderSignalIndex(const QBarSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnSenderSignalIndex(const QBarSeries* self, intptr_t slot) {
     auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
         vqbarseries->setQBarSeries_SenderSignalIndex_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +384,8 @@ int QBarSeries_SuperReceivers(const QBarSeries* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnReceivers(const QBarSeries* self, intptr_t slot) {
     auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
         vqbarseries->setQBarSeries_Receivers_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +412,8 @@ bool QBarSeries_SuperIsSignalConnected(const QBarSeries* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QBarSeries_OnIsSignalConnected(const QBarSeries* self, intptr_t slot) {
     auto* vqbarseries = const_cast<VirtualQBarSeries*>(dynamic_cast<const VirtualQBarSeries*>(self));
-    if (vqbarseries && vqbarseries->isVirtualQBarSeries) {
+    if (vqbarseries && vqbarseries->isVirtualQBarSeries)
         vqbarseries->setQBarSeries_IsSignalConnected_Callback(reinterpret_cast<VirtualQBarSeries::QBarSeries_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QBarSeries_Delete(QBarSeries* self) {

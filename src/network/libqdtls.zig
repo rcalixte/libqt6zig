@@ -4769,7 +4769,7 @@ pub const QDtlsClientVerifier__GeneratorParameters = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdtls.html#public-types)
 pub const enums = struct {
-    pub const QDtlsError = enum(u8) {
+    pub const QDtlsError = enum {
         pub const NoError: u8 = 0;
         pub const InvalidInputParameters: u8 = 1;
         pub const InvalidOperation: u8 = 2;
@@ -4781,7 +4781,7 @@ pub const enums = struct {
         pub const TlsNonFatalError: u8 = 8;
     };
 
-    pub const HandshakeState = enum(i32) {
+    pub const HandshakeState = enum {
         pub const HandshakeNotStarted: i32 = 0;
         pub const HandshakeInProgress: i32 = 1;
         pub const PeerVerificationFailed: i32 = 2;

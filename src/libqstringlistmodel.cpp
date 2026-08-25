@@ -182,9 +182,8 @@ QMetaObject* QStringListModel_SuperMetaObject(const QStringListModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnMetaObject(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_MetaObject_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -201,9 +200,8 @@ void* QStringListModel_SuperMetacast(QStringListModel* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnMetacast(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_Metacast_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -220,9 +218,8 @@ int QStringListModel_SuperMetacall(QStringListModel* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnMetacall(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_Metacall_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -239,9 +236,8 @@ int QStringListModel_SuperRowCount(const QStringListModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnRowCount(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_RowCount_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_RowCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -258,9 +254,8 @@ QModelIndex* QStringListModel_SuperSibling(const QStringListModel* self, int row
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnSibling(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_Sibling_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Sibling_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -277,9 +272,8 @@ QVariant* QStringListModel_SuperData(const QStringListModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnData(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_Data_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -296,9 +290,8 @@ bool QStringListModel_SuperSetData(QStringListModel* self, const QModelIndex* in
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnSetData(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_SetData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_SetData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -315,9 +308,8 @@ bool QStringListModel_SuperClearItemData(QStringListModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnClearItemData(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_ClearItemData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -334,9 +326,8 @@ int QStringListModel_SuperFlags(const QStringListModel* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnFlags(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_Flags_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Flags_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -353,9 +344,8 @@ bool QStringListModel_SuperInsertRows(QStringListModel* self, int row, int count
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnInsertRows(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_InsertRows_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -372,9 +362,8 @@ bool QStringListModel_SuperRemoveRows(QStringListModel* self, int row, int count
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnRemoveRows(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_RemoveRows_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -391,9 +380,8 @@ bool QStringListModel_SuperMoveRows(QStringListModel* self, const QModelIndex* s
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnMoveRows(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_MoveRows_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -438,9 +426,8 @@ libqt_map /* of int to QVariant* */ QStringListModel_SuperItemData(const QString
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnItemData(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_ItemData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_ItemData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -463,9 +450,8 @@ bool QStringListModel_SuperSetItemData(QStringListModel* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnSetItemData(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_SetItemData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -482,9 +468,8 @@ void QStringListModel_SuperSort(QStringListModel* self, int column, int order) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnSort(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_Sort_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Sort_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -501,9 +486,8 @@ int QStringListModel_SuperSupportedDropActions(const QStringListModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnSupportedDropActions(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_SupportedDropActions_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -530,9 +514,8 @@ QModelIndex* QStringListModel_SuperIndex(const QStringListModel* self, int row, 
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnIndex(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_Index_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Index_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -559,9 +542,8 @@ bool QStringListModel_SuperDropMimeData(QStringListModel* self, const QMimeData*
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnDropMimeData(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_DropMimeData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -588,9 +570,8 @@ QVariant* QStringListModel_SuperHeaderData(const QStringListModel* self, int sec
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnHeaderData(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_HeaderData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -617,9 +598,8 @@ bool QStringListModel_SuperSetHeaderData(QStringListModel* self, int section, in
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnSetHeaderData(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_SetHeaderData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -714,9 +694,8 @@ libqt_list /* of libqt_string */ QStringListModel_SuperMimeTypes(const QStringLi
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnMimeTypes(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_MimeTypes_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -755,9 +734,8 @@ QMimeData* QStringListModel_SuperMimeData(const QStringListModel* self, const li
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnMimeData(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_MimeData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -784,9 +762,8 @@ bool QStringListModel_SuperCanDropMimeData(const QStringListModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnCanDropMimeData(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_CanDropMimeData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -813,9 +790,8 @@ int QStringListModel_SuperSupportedDragActions(const QStringListModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnSupportedDragActions(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_SupportedDragActions_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -842,9 +818,8 @@ bool QStringListModel_SuperInsertColumns(QStringListModel* self, int column, int
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnInsertColumns(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_InsertColumns_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -871,9 +846,8 @@ bool QStringListModel_SuperRemoveColumns(QStringListModel* self, int column, int
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnRemoveColumns(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_RemoveColumns_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -900,9 +874,8 @@ bool QStringListModel_SuperMoveColumns(QStringListModel* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnMoveColumns(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_MoveColumns_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -929,9 +902,8 @@ void QStringListModel_SuperFetchMore(QStringListModel* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnFetchMore(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_FetchMore_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -958,9 +930,8 @@ bool QStringListModel_SuperCanFetchMore(const QStringListModel* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnCanFetchMore(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_CanFetchMore_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -987,9 +958,8 @@ QModelIndex* QStringListModel_SuperBuddy(const QStringListModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnBuddy(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_Buddy_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1052,9 +1022,8 @@ libqt_list /* of QModelIndex* */ QStringListModel_SuperMatch(const QStringListMo
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnMatch(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_Match_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1081,9 +1050,8 @@ QSize* QStringListModel_SuperSpan(const QStringListModel* self, const QModelInde
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnSpan(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_Span_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1186,9 +1154,8 @@ libqt_map /* of int to libqt_string */ QStringListModel_SuperRoleNames(const QSt
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnRoleNames(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_RoleNames_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1215,9 +1182,8 @@ void QStringListModel_SuperMultiData(const QStringListModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnMultiData(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_MultiData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1244,9 +1210,8 @@ bool QStringListModel_SuperSubmit(QStringListModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnSubmit(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_Submit_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1273,9 +1238,8 @@ void QStringListModel_SuperRevert(QStringListModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnRevert(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_Revert_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1302,9 +1266,8 @@ void QStringListModel_SuperResetInternalData(QStringListModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnResetInternalData(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_ResetInternalData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1331,9 +1294,8 @@ bool QStringListModel_SuperEvent(QStringListModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnEvent(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_Event_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1360,9 +1322,8 @@ bool QStringListModel_SuperEventFilter(QStringListModel* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnEventFilter(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_EventFilter_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1389,9 +1350,8 @@ void QStringListModel_SuperTimerEvent(QStringListModel* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnTimerEvent(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_TimerEvent_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1418,9 +1378,8 @@ void QStringListModel_SuperChildEvent(QStringListModel* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnChildEvent(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_ChildEvent_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1447,9 +1406,8 @@ void QStringListModel_SuperCustomEvent(QStringListModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnCustomEvent(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_CustomEvent_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1476,9 +1434,8 @@ void QStringListModel_SuperConnectNotify(QStringListModel* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnConnectNotify(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_ConnectNotify_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1505,9 +1462,8 @@ void QStringListModel_SuperDisconnectNotify(QStringListModel* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnDisconnectNotify(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_DisconnectNotify_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1532,9 +1488,8 @@ QModelIndex* QStringListModel_SuperCreateIndex(const QStringListModel* self, int
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnCreateIndex(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_CreateIndex_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1573,9 +1528,8 @@ void QStringListModel_SuperEncodeData(const QStringListModel* self, const libqt_
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnEncodeData(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_EncodeData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1602,9 +1556,8 @@ bool QStringListModel_SuperDecodeData(QStringListModel* self, int row, int colum
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnDecodeData(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_DecodeData_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1631,9 +1584,8 @@ void QStringListModel_SuperBeginInsertRows(QStringListModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnBeginInsertRows(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_BeginInsertRows_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1660,9 +1612,8 @@ void QStringListModel_SuperEndInsertRows(QStringListModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnEndInsertRows(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_EndInsertRows_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1689,9 +1640,8 @@ void QStringListModel_SuperBeginRemoveRows(QStringListModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnBeginRemoveRows(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1718,9 +1668,8 @@ void QStringListModel_SuperEndRemoveRows(QStringListModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnEndRemoveRows(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_EndRemoveRows_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1747,9 +1696,8 @@ bool QStringListModel_SuperBeginMoveRows(QStringListModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnBeginMoveRows(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_BeginMoveRows_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1776,9 +1724,8 @@ void QStringListModel_SuperEndMoveRows(QStringListModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnEndMoveRows(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_EndMoveRows_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1805,9 +1752,8 @@ void QStringListModel_SuperBeginInsertColumns(QStringListModel* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnBeginInsertColumns(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1834,9 +1780,8 @@ void QStringListModel_SuperEndInsertColumns(QStringListModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnEndInsertColumns(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_EndInsertColumns_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1863,9 +1808,8 @@ void QStringListModel_SuperBeginRemoveColumns(QStringListModel* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnBeginRemoveColumns(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1892,9 +1836,8 @@ void QStringListModel_SuperEndRemoveColumns(QStringListModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnEndRemoveColumns(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1921,9 +1864,8 @@ bool QStringListModel_SuperBeginMoveColumns(QStringListModel* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnBeginMoveColumns(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1950,9 +1892,8 @@ void QStringListModel_SuperEndMoveColumns(QStringListModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnEndMoveColumns(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_EndMoveColumns_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1979,9 +1920,8 @@ void QStringListModel_SuperBeginResetModel(QStringListModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnBeginResetModel(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_BeginResetModel_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2008,9 +1948,8 @@ void QStringListModel_SuperEndResetModel(QStringListModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnEndResetModel(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_EndResetModel_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2037,9 +1976,8 @@ void QStringListModel_SuperChangePersistentIndex(QStringListModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnChangePersistentIndex(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2090,9 +2028,8 @@ void QStringListModel_SuperChangePersistentIndexList(QStringListModel* self, con
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnChangePersistentIndexList(QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = dynamic_cast<VirtualQStringListModel*>(self);
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2155,9 +2092,8 @@ libqt_list /* of QModelIndex* */ QStringListModel_SuperPersistentIndexList(const
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnPersistentIndexList(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_PersistentIndexList_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2184,9 +2120,8 @@ QObject* QStringListModel_SuperSender(const QStringListModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnSender(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_Sender_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2213,9 +2148,8 @@ int QStringListModel_SuperSenderSignalIndex(const QStringListModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnSenderSignalIndex(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2242,9 +2176,8 @@ int QStringListModel_SuperReceivers(const QStringListModel* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnReceivers(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_Receivers_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2271,9 +2204,8 @@ bool QStringListModel_SuperIsSignalConnected(const QStringListModel* self, const
 // Auxiliary method to allow providing re-implementation
 void QStringListModel_OnIsSignalConnected(const QStringListModel* self, intptr_t slot) {
     auto* vqstringlistmodel = const_cast<VirtualQStringListModel*>(dynamic_cast<const VirtualQStringListModel*>(self));
-    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel) {
+    if (vqstringlistmodel && vqstringlistmodel->isVirtualQStringListModel)
         vqstringlistmodel->setQStringListModel_IsSignalConnected_Callback(reinterpret_cast<VirtualQStringListModel::QStringListModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QStringListModel_Delete(QStringListModel* self) {

@@ -1879,7 +1879,7 @@ pub const KMessageBox = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#public-types)
 pub const enums = struct {
-    pub const ButtonCode = enum(i32) {
+    pub const ButtonCode = enum {
         pub const Ok: i32 = 1;
         pub const Cancel: i32 = 2;
         pub const PrimaryAction: i32 = 3;
@@ -1887,7 +1887,7 @@ pub const enums = struct {
         pub const Continue: i32 = 5;
     };
 
-    pub const DialogType = enum(i32) {
+    pub const DialogType = enum {
         pub const QuestionTwoActions: i32 = 1;
         pub const WarningTwoActions: i32 = 2;
         pub const WarningContinueCancel: i32 = 3;
@@ -1897,7 +1897,7 @@ pub const enums = struct {
         pub const QuestionTwoActionsCancel: i32 = 9;
     };
 
-    pub const Option = enum(i32) {
+    pub const Option = enum {
         pub const Notify: i32 = 1;
         pub const AllowLink: i32 = 2;
         pub const Dangerous: i32 = 4;

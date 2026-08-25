@@ -3071,6 +3071,31 @@ pub const QChartView = extern struct {
         qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    pub fn asQPaintDevice(self: QChartView) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QChartView object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QChartView {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -8965,7 +8990,7 @@ pub const QChartView = extern struct {
     /// ` self: QChartView `
     ///
     pub fn paintingActive(self: QChartView) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -8981,7 +9006,7 @@ pub const QChartView = extern struct {
     /// ` self: QChartView `
     ///
     pub fn widthMM(self: QChartView) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -8997,7 +9022,7 @@ pub const QChartView = extern struct {
     /// ` self: QChartView `
     ///
     pub fn heightMM(self: QChartView) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -9013,7 +9038,7 @@ pub const QChartView = extern struct {
     /// ` self: QChartView `
     ///
     pub fn logicalDpiX(self: QChartView) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -9029,7 +9054,7 @@ pub const QChartView = extern struct {
     /// ` self: QChartView `
     ///
     pub fn logicalDpiY(self: QChartView) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -9045,7 +9070,7 @@ pub const QChartView = extern struct {
     /// ` self: QChartView `
     ///
     pub fn physicalDpiX(self: QChartView) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -9061,7 +9086,7 @@ pub const QChartView = extern struct {
     /// ` self: QChartView `
     ///
     pub fn physicalDpiY(self: QChartView) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -9077,7 +9102,7 @@ pub const QChartView = extern struct {
     /// ` self: QChartView `
     ///
     pub fn devicePixelRatio(self: QChartView) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -9093,7 +9118,7 @@ pub const QChartView = extern struct {
     /// ` self: QChartView `
     ///
     pub fn devicePixelRatioF(self: QChartView) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -9109,7 +9134,7 @@ pub const QChartView = extern struct {
     /// ` self: QChartView `
     ///
     pub fn colorCount(self: QChartView) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -9125,7 +9150,7 @@ pub const QChartView = extern struct {
     /// ` self: QChartView `
     ///
     pub fn depth(self: QChartView) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -13135,7 +13160,7 @@ pub const QChartView = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qchartview-qtcharts.html#public-types)
 pub const enums = struct {
-    pub const RubberBand = enum(i32) {
+    pub const RubberBand = enum {
         pub const NoRubberBand: i32 = 0;
         pub const VerticalRubberBand: i32 = 1;
         pub const HorizontalRubberBand: i32 = 2;

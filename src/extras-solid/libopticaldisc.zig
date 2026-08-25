@@ -1497,7 +1497,7 @@ pub const Solid__OpticalDisc = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/solid-opticaldisc.html#public-types)
 pub const enums = struct {
-    pub const ContentType = enum(i32) {
+    pub const ContentType = enum {
         pub const NoContent: i32 = 0;
         pub const Audio: i32 = 1;
         pub const Data: i32 = 2;
@@ -1507,7 +1507,7 @@ pub const enums = struct {
         pub const VideoBluRay: i32 = 32;
     };
 
-    pub const DiscType = enum(i32) {
+    pub const DiscType = enum {
         pub const UnknownDiscType: i32 = -1;
         pub const CdRom: i32 = 0;
         pub const CdRecordable: i32 = 1;

@@ -238,9 +238,8 @@ QMetaObject* QDesignerFormWindowManagerInterface_SuperMetaObject(const QDesigner
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnMetaObject(const QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = const_cast<VirtualQDesignerFormWindowManagerInterface*>(dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self));
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -257,9 +256,8 @@ void* QDesignerFormWindowManagerInterface_SuperMetacast(QDesignerFormWindowManag
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnMetacast(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -276,9 +274,8 @@ int QDesignerFormWindowManagerInterface_SuperMetacall(QDesignerFormWindowManager
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnMetacall(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_Metacall_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -295,9 +292,8 @@ QAction* QDesignerFormWindowManagerInterface_SuperAction(const QDesignerFormWind
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnAction(const QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = const_cast<VirtualQDesignerFormWindowManagerInterface*>(dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self));
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_Action_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_Action_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -314,9 +310,8 @@ QActionGroup* QDesignerFormWindowManagerInterface_SuperActionGroup(const QDesign
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnActionGroup(const QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = const_cast<VirtualQDesignerFormWindowManagerInterface*>(dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self));
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_ActionGroup_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_ActionGroup_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -333,9 +328,8 @@ QDesignerFormWindowInterface* QDesignerFormWindowManagerInterface_SuperActiveFor
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnActiveFormWindow(const QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = const_cast<VirtualQDesignerFormWindowManagerInterface*>(dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self));
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_ActiveFormWindow_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_ActiveFormWindow_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -352,9 +346,8 @@ int QDesignerFormWindowManagerInterface_SuperFormWindowCount(const QDesignerForm
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnFormWindowCount(const QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = const_cast<VirtualQDesignerFormWindowManagerInterface*>(dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self));
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_FormWindowCount_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_FormWindowCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -371,9 +364,8 @@ QDesignerFormWindowInterface* QDesignerFormWindowManagerInterface_SuperFormWindo
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnFormWindow(const QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = const_cast<VirtualQDesignerFormWindowManagerInterface*>(dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self));
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_FormWindow_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_FormWindow_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -390,9 +382,8 @@ QDesignerFormWindowInterface* QDesignerFormWindowManagerInterface_SuperCreateFor
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnCreateFormWindow(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_CreateFormWindow_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_CreateFormWindow_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -409,9 +400,8 @@ QDesignerFormEditorInterface* QDesignerFormWindowManagerInterface_SuperCore(cons
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnCore(const QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = const_cast<VirtualQDesignerFormWindowManagerInterface*>(dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self));
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_Core_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_Core_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -434,9 +424,8 @@ void QDesignerFormWindowManagerInterface_SuperDragItems(QDesignerFormWindowManag
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnDragItems(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_DragItems_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_DragItems_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -453,9 +442,8 @@ QPixmap* QDesignerFormWindowManagerInterface_SuperCreatePreviewPixmap(const QDes
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnCreatePreviewPixmap(const QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = const_cast<VirtualQDesignerFormWindowManagerInterface*>(dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self));
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_CreatePreviewPixmap_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_CreatePreviewPixmap_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -472,9 +460,8 @@ void QDesignerFormWindowManagerInterface_SuperAddFormWindow(QDesignerFormWindowM
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnAddFormWindow(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_AddFormWindow_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_AddFormWindow_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -491,9 +478,8 @@ void QDesignerFormWindowManagerInterface_SuperRemoveFormWindow(QDesignerFormWind
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnRemoveFormWindow(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_RemoveFormWindow_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_RemoveFormWindow_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -510,9 +496,8 @@ void QDesignerFormWindowManagerInterface_SuperSetActiveFormWindow(QDesignerFormW
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnSetActiveFormWindow(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_SetActiveFormWindow_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_SetActiveFormWindow_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -529,9 +514,8 @@ void QDesignerFormWindowManagerInterface_SuperShowPreview(QDesignerFormWindowMan
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnShowPreview(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_ShowPreview_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_ShowPreview_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -548,9 +532,8 @@ void QDesignerFormWindowManagerInterface_SuperCloseAllPreviews(QDesignerFormWind
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnCloseAllPreviews(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_CloseAllPreviews_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_CloseAllPreviews_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -567,9 +550,8 @@ void QDesignerFormWindowManagerInterface_SuperShowPluginDialog(QDesignerFormWind
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnShowPluginDialog(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_ShowPluginDialog_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_ShowPluginDialog_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -596,9 +578,8 @@ bool QDesignerFormWindowManagerInterface_SuperEvent(QDesignerFormWindowManagerIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnEvent(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_Event_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -625,9 +606,8 @@ bool QDesignerFormWindowManagerInterface_SuperEventFilter(QDesignerFormWindowMan
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnEventFilter(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_EventFilter_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -654,9 +634,8 @@ void QDesignerFormWindowManagerInterface_SuperTimerEvent(QDesignerFormWindowMana
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnTimerEvent(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_TimerEvent_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -683,9 +662,8 @@ void QDesignerFormWindowManagerInterface_SuperChildEvent(QDesignerFormWindowMana
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnChildEvent(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_ChildEvent_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -712,9 +690,8 @@ void QDesignerFormWindowManagerInterface_SuperCustomEvent(QDesignerFormWindowMan
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnCustomEvent(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_CustomEvent_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -741,9 +718,8 @@ void QDesignerFormWindowManagerInterface_SuperConnectNotify(QDesignerFormWindowM
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnConnectNotify(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_ConnectNotify_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -770,9 +746,8 @@ void QDesignerFormWindowManagerInterface_SuperDisconnectNotify(QDesignerFormWind
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnDisconnectNotify(QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_DisconnectNotify_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -799,9 +774,8 @@ QObject* QDesignerFormWindowManagerInterface_SuperSender(const QDesignerFormWind
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnSender(const QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = const_cast<VirtualQDesignerFormWindowManagerInterface*>(dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self));
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_Sender_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -828,9 +802,8 @@ int QDesignerFormWindowManagerInterface_SuperSenderSignalIndex(const QDesignerFo
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnSenderSignalIndex(const QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = const_cast<VirtualQDesignerFormWindowManagerInterface*>(dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self));
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -857,9 +830,8 @@ int QDesignerFormWindowManagerInterface_SuperReceivers(const QDesignerFormWindow
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnReceivers(const QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = const_cast<VirtualQDesignerFormWindowManagerInterface*>(dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self));
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_Receivers_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -886,9 +858,8 @@ bool QDesignerFormWindowManagerInterface_SuperIsSignalConnected(const QDesignerF
 // Auxiliary method to allow providing re-implementation
 void QDesignerFormWindowManagerInterface_OnIsSignalConnected(const QDesignerFormWindowManagerInterface* self, intptr_t slot) {
     auto* vqdesignerformwindowmanagerinterface = const_cast<VirtualQDesignerFormWindowManagerInterface*>(dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self));
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
+    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface)
         vqdesignerformwindowmanagerinterface->setQDesignerFormWindowManagerInterface_IsSignalConnected_Callback(reinterpret_cast<VirtualQDesignerFormWindowManagerInterface::QDesignerFormWindowManagerInterface_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QDesignerFormWindowManagerInterface_Delete(QDesignerFormWindowManagerInterface* self) {

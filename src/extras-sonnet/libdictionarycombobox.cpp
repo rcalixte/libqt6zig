@@ -164,9 +164,8 @@ QMetaObject* Sonnet__DictionaryComboBox_SuperMetaObject(const Sonnet__Dictionary
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMetaObject(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MetaObject_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -183,9 +182,8 @@ void* Sonnet__DictionaryComboBox_SuperMetacast(Sonnet__DictionaryComboBox* self,
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMetacast(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Metacast_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -202,9 +200,8 @@ int Sonnet__DictionaryComboBox_SuperMetacall(Sonnet__DictionaryComboBox* self, i
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMetacall(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Metacall_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -231,9 +228,8 @@ void Sonnet__DictionaryComboBox_SuperSetModel(Sonnet__DictionaryComboBox* self, 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnSetModel(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SetModel_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_SetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -260,9 +256,8 @@ QSize* Sonnet__DictionaryComboBox_SuperSizeHint(const Sonnet__DictionaryComboBox
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnSizeHint(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SizeHint_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -289,9 +284,8 @@ QSize* Sonnet__DictionaryComboBox_SuperMinimumSizeHint(const Sonnet__DictionaryC
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMinimumSizeHint(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -318,9 +312,8 @@ void Sonnet__DictionaryComboBox_SuperShowPopup(Sonnet__DictionaryComboBox* self)
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnShowPopup(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ShowPopup_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ShowPopup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -347,9 +340,8 @@ void Sonnet__DictionaryComboBox_SuperHidePopup(Sonnet__DictionaryComboBox* self)
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnHidePopup(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_HidePopup_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_HidePopup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -376,9 +368,8 @@ bool Sonnet__DictionaryComboBox_SuperEvent(Sonnet__DictionaryComboBox* self, QEv
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Event_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -405,9 +396,8 @@ QVariant* Sonnet__DictionaryComboBox_SuperInputMethodQuery(const Sonnet__Diction
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnInputMethodQuery(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_InputMethodQuery_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -434,9 +424,8 @@ void Sonnet__DictionaryComboBox_SuperFocusInEvent(Sonnet__DictionaryComboBox* se
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnFocusInEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusInEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -463,9 +452,8 @@ void Sonnet__DictionaryComboBox_SuperFocusOutEvent(Sonnet__DictionaryComboBox* s
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnFocusOutEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusOutEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -492,9 +480,8 @@ void Sonnet__DictionaryComboBox_SuperChangeEvent(Sonnet__DictionaryComboBox* sel
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnChangeEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ChangeEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -521,9 +508,8 @@ void Sonnet__DictionaryComboBox_SuperResizeEvent(Sonnet__DictionaryComboBox* sel
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnResizeEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ResizeEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -550,9 +536,8 @@ void Sonnet__DictionaryComboBox_SuperPaintEvent(Sonnet__DictionaryComboBox* self
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnPaintEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_PaintEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -579,9 +564,8 @@ void Sonnet__DictionaryComboBox_SuperShowEvent(Sonnet__DictionaryComboBox* self,
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnShowEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ShowEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -608,9 +592,8 @@ void Sonnet__DictionaryComboBox_SuperHideEvent(Sonnet__DictionaryComboBox* self,
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnHideEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_HideEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -637,9 +620,8 @@ void Sonnet__DictionaryComboBox_SuperMousePressEvent(Sonnet__DictionaryComboBox*
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMousePressEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MousePressEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -666,9 +648,8 @@ void Sonnet__DictionaryComboBox_SuperMouseReleaseEvent(Sonnet__DictionaryComboBo
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMouseReleaseEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -695,9 +676,8 @@ void Sonnet__DictionaryComboBox_SuperKeyPressEvent(Sonnet__DictionaryComboBox* s
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnKeyPressEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_KeyPressEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -724,9 +704,8 @@ void Sonnet__DictionaryComboBox_SuperKeyReleaseEvent(Sonnet__DictionaryComboBox*
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnKeyReleaseEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -753,9 +732,8 @@ void Sonnet__DictionaryComboBox_SuperWheelEvent(Sonnet__DictionaryComboBox* self
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnWheelEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_WheelEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -782,9 +760,8 @@ void Sonnet__DictionaryComboBox_SuperContextMenuEvent(Sonnet__DictionaryComboBox
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnContextMenuEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -811,9 +788,8 @@ void Sonnet__DictionaryComboBox_SuperInputMethodEvent(Sonnet__DictionaryComboBox
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnInputMethodEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_InputMethodEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -840,9 +816,8 @@ void Sonnet__DictionaryComboBox_SuperInitStyleOption(const Sonnet__DictionaryCom
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnInitStyleOption(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_InitStyleOption_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -869,9 +844,8 @@ int Sonnet__DictionaryComboBox_SuperDevType(const Sonnet__DictionaryComboBox* se
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnDevType(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DevType_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -898,9 +872,8 @@ void Sonnet__DictionaryComboBox_SuperSetVisible(Sonnet__DictionaryComboBox* self
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnSetVisible(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SetVisible_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -927,9 +900,8 @@ int Sonnet__DictionaryComboBox_SuperHeightForWidth(const Sonnet__DictionaryCombo
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnHeightForWidth(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_HeightForWidth_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -956,9 +928,8 @@ bool Sonnet__DictionaryComboBox_SuperHasHeightForWidth(const Sonnet__DictionaryC
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnHasHeightForWidth(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -985,9 +956,8 @@ QPaintEngine* Sonnet__DictionaryComboBox_SuperPaintEngine(const Sonnet__Dictiona
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnPaintEngine(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_PaintEngine_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1014,9 +984,8 @@ void Sonnet__DictionaryComboBox_SuperMouseDoubleClickEvent(Sonnet__DictionaryCom
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMouseDoubleClickEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1043,9 +1012,8 @@ void Sonnet__DictionaryComboBox_SuperMouseMoveEvent(Sonnet__DictionaryComboBox* 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMouseMoveEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1072,9 +1040,8 @@ void Sonnet__DictionaryComboBox_SuperEnterEvent(Sonnet__DictionaryComboBox* self
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnEnterEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_EnterEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1101,9 +1068,8 @@ void Sonnet__DictionaryComboBox_SuperLeaveEvent(Sonnet__DictionaryComboBox* self
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnLeaveEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_LeaveEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1130,9 +1096,8 @@ void Sonnet__DictionaryComboBox_SuperMoveEvent(Sonnet__DictionaryComboBox* self,
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMoveEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_MoveEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1159,9 +1124,8 @@ void Sonnet__DictionaryComboBox_SuperCloseEvent(Sonnet__DictionaryComboBox* self
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnCloseEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_CloseEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1188,9 +1152,8 @@ void Sonnet__DictionaryComboBox_SuperTabletEvent(Sonnet__DictionaryComboBox* sel
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnTabletEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_TabletEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1217,9 +1180,8 @@ void Sonnet__DictionaryComboBox_SuperActionEvent(Sonnet__DictionaryComboBox* sel
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnActionEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ActionEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1246,9 +1208,8 @@ void Sonnet__DictionaryComboBox_SuperDragEnterEvent(Sonnet__DictionaryComboBox* 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnDragEnterEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DragEnterEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1275,9 +1236,8 @@ void Sonnet__DictionaryComboBox_SuperDragMoveEvent(Sonnet__DictionaryComboBox* s
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnDragMoveEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DragMoveEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1304,9 +1264,8 @@ void Sonnet__DictionaryComboBox_SuperDragLeaveEvent(Sonnet__DictionaryComboBox* 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnDragLeaveEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1333,9 +1292,8 @@ void Sonnet__DictionaryComboBox_SuperDropEvent(Sonnet__DictionaryComboBox* self,
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnDropEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DropEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1364,9 +1322,8 @@ bool Sonnet__DictionaryComboBox_SuperNativeEvent(Sonnet__DictionaryComboBox* sel
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnNativeEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_NativeEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1393,9 +1350,8 @@ int Sonnet__DictionaryComboBox_SuperMetric(const Sonnet__DictionaryComboBox* sel
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnMetric(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Metric_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1422,9 +1378,8 @@ void Sonnet__DictionaryComboBox_SuperInitPainter(const Sonnet__DictionaryComboBo
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnInitPainter(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_InitPainter_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1451,9 +1406,8 @@ QPaintDevice* Sonnet__DictionaryComboBox_SuperRedirected(const Sonnet__Dictionar
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnRedirected(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Redirected_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1480,9 +1434,8 @@ QPainter* Sonnet__DictionaryComboBox_SuperSharedPainter(const Sonnet__Dictionary
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnSharedPainter(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SharedPainter_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1509,9 +1462,8 @@ bool Sonnet__DictionaryComboBox_SuperFocusNextPrevChild(Sonnet__DictionaryComboB
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnFocusNextPrevChild(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1538,9 +1490,8 @@ bool Sonnet__DictionaryComboBox_SuperEventFilter(Sonnet__DictionaryComboBox* sel
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnEventFilter(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_EventFilter_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1567,9 +1518,8 @@ void Sonnet__DictionaryComboBox_SuperTimerEvent(Sonnet__DictionaryComboBox* self
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnTimerEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_TimerEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1596,9 +1546,8 @@ void Sonnet__DictionaryComboBox_SuperChildEvent(Sonnet__DictionaryComboBox* self
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnChildEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ChildEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1625,9 +1574,8 @@ void Sonnet__DictionaryComboBox_SuperCustomEvent(Sonnet__DictionaryComboBox* sel
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnCustomEvent(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_CustomEvent_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1654,9 +1602,8 @@ void Sonnet__DictionaryComboBox_SuperConnectNotify(Sonnet__DictionaryComboBox* s
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnConnectNotify(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_ConnectNotify_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1683,9 +1630,8 @@ void Sonnet__DictionaryComboBox_SuperDisconnectNotify(Sonnet__DictionaryComboBox
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnDisconnectNotify(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_DisconnectNotify_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1712,9 +1658,8 @@ void Sonnet__DictionaryComboBox_SuperUpdateMicroFocus(Sonnet__DictionaryComboBox
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnUpdateMicroFocus(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1741,9 +1686,8 @@ void Sonnet__DictionaryComboBox_SuperCreate(Sonnet__DictionaryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnCreate(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Create_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1770,9 +1714,8 @@ void Sonnet__DictionaryComboBox_SuperDestroy(Sonnet__DictionaryComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnDestroy(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Destroy_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1799,9 +1742,8 @@ bool Sonnet__DictionaryComboBox_SuperFocusNextChild(Sonnet__DictionaryComboBox* 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnFocusNextChild(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusNextChild_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1828,9 +1770,8 @@ bool Sonnet__DictionaryComboBox_SuperFocusPreviousChild(Sonnet__DictionaryComboB
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnFocusPreviousChild(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = dynamic_cast<VirtualSonnetDictionaryComboBox*>(self);
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1857,9 +1798,8 @@ QObject* Sonnet__DictionaryComboBox_SuperSender(const Sonnet__DictionaryComboBox
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnSender(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Sender_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1886,9 +1826,8 @@ int Sonnet__DictionaryComboBox_SuperSenderSignalIndex(const Sonnet__DictionaryCo
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnSenderSignalIndex(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1915,9 +1854,8 @@ int Sonnet__DictionaryComboBox_SuperReceivers(const Sonnet__DictionaryComboBox* 
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnReceivers(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_Receivers_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1944,9 +1882,8 @@ bool Sonnet__DictionaryComboBox_SuperIsSignalConnected(const Sonnet__DictionaryC
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnIsSignalConnected(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_IsSignalConnected_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1973,9 +1910,8 @@ double Sonnet__DictionaryComboBox_SuperGetDecodedMetricF(const Sonnet__Dictionar
 // Auxiliary method to allow providing re-implementation
 void Sonnet__DictionaryComboBox_OnGetDecodedMetricF(const Sonnet__DictionaryComboBox* self, intptr_t slot) {
     auto* vsonnetdictionarycombobox = const_cast<VirtualSonnetDictionaryComboBox*>(dynamic_cast<const VirtualSonnetDictionaryComboBox*>(self));
-    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox) {
+    if (vsonnetdictionarycombobox && vsonnetdictionarycombobox->isVirtualSonnetDictionaryComboBox)
         vsonnetdictionarycombobox->setSonnet__DictionaryComboBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualSonnetDictionaryComboBox::Sonnet__DictionaryComboBox_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void Sonnet__DictionaryComboBox_Delete(Sonnet__DictionaryComboBox* self) {

@@ -142,9 +142,8 @@ int QDesignerMemberSheetExtension_SuperCount(const QDesignerMemberSheetExtension
 // Auxiliary method to allow providing re-implementation
 void QDesignerMemberSheetExtension_OnCount(const QDesignerMemberSheetExtension* self, intptr_t slot) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
+    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension)
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_Count_Callback(reinterpret_cast<VirtualQDesignerMemberSheetExtension::QDesignerMemberSheetExtension_Count_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -162,9 +161,8 @@ int QDesignerMemberSheetExtension_SuperIndexOf(const QDesignerMemberSheetExtensi
 // Auxiliary method to allow providing re-implementation
 void QDesignerMemberSheetExtension_OnIndexOf(const QDesignerMemberSheetExtension* self, intptr_t slot) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
+    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension)
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_IndexOf_Callback(reinterpret_cast<VirtualQDesignerMemberSheetExtension::QDesignerMemberSheetExtension_IndexOf_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -197,9 +195,8 @@ libqt_string QDesignerMemberSheetExtension_SuperMemberName(const QDesignerMember
 // Auxiliary method to allow providing re-implementation
 void QDesignerMemberSheetExtension_OnMemberName(const QDesignerMemberSheetExtension* self, intptr_t slot) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
+    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension)
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_MemberName_Callback(reinterpret_cast<VirtualQDesignerMemberSheetExtension::QDesignerMemberSheetExtension_MemberName_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -232,9 +229,8 @@ libqt_string QDesignerMemberSheetExtension_SuperMemberGroup(const QDesignerMembe
 // Auxiliary method to allow providing re-implementation
 void QDesignerMemberSheetExtension_OnMemberGroup(const QDesignerMemberSheetExtension* self, intptr_t slot) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
+    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension)
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_MemberGroup_Callback(reinterpret_cast<VirtualQDesignerMemberSheetExtension::QDesignerMemberSheetExtension_MemberGroup_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -252,9 +248,8 @@ void QDesignerMemberSheetExtension_SuperSetMemberGroup(QDesignerMemberSheetExten
 // Auxiliary method to allow providing re-implementation
 void QDesignerMemberSheetExtension_OnSetMemberGroup(QDesignerMemberSheetExtension* self, intptr_t slot) {
     auto* vqdesignermembersheetextension = dynamic_cast<VirtualQDesignerMemberSheetExtension*>(self);
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
+    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension)
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_SetMemberGroup_Callback(reinterpret_cast<VirtualQDesignerMemberSheetExtension::QDesignerMemberSheetExtension_SetMemberGroup_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -271,9 +266,8 @@ bool QDesignerMemberSheetExtension_SuperIsVisible(const QDesignerMemberSheetExte
 // Auxiliary method to allow providing re-implementation
 void QDesignerMemberSheetExtension_OnIsVisible(const QDesignerMemberSheetExtension* self, intptr_t slot) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
+    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension)
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_IsVisible_Callback(reinterpret_cast<VirtualQDesignerMemberSheetExtension::QDesignerMemberSheetExtension_IsVisible_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -290,9 +284,8 @@ void QDesignerMemberSheetExtension_SuperSetVisible(QDesignerMemberSheetExtension
 // Auxiliary method to allow providing re-implementation
 void QDesignerMemberSheetExtension_OnSetVisible(QDesignerMemberSheetExtension* self, intptr_t slot) {
     auto* vqdesignermembersheetextension = dynamic_cast<VirtualQDesignerMemberSheetExtension*>(self);
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
+    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension)
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_SetVisible_Callback(reinterpret_cast<VirtualQDesignerMemberSheetExtension::QDesignerMemberSheetExtension_SetVisible_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -309,9 +302,8 @@ bool QDesignerMemberSheetExtension_SuperIsSignal(const QDesignerMemberSheetExten
 // Auxiliary method to allow providing re-implementation
 void QDesignerMemberSheetExtension_OnIsSignal(const QDesignerMemberSheetExtension* self, intptr_t slot) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
+    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension)
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_IsSignal_Callback(reinterpret_cast<VirtualQDesignerMemberSheetExtension::QDesignerMemberSheetExtension_IsSignal_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -328,9 +320,8 @@ bool QDesignerMemberSheetExtension_SuperIsSlot(const QDesignerMemberSheetExtensi
 // Auxiliary method to allow providing re-implementation
 void QDesignerMemberSheetExtension_OnIsSlot(const QDesignerMemberSheetExtension* self, intptr_t slot) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
+    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension)
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_IsSlot_Callback(reinterpret_cast<VirtualQDesignerMemberSheetExtension::QDesignerMemberSheetExtension_IsSlot_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -347,9 +338,8 @@ bool QDesignerMemberSheetExtension_SuperInheritedFromWidget(const QDesignerMembe
 // Auxiliary method to allow providing re-implementation
 void QDesignerMemberSheetExtension_OnInheritedFromWidget(const QDesignerMemberSheetExtension* self, intptr_t slot) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
+    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension)
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_InheritedFromWidget_Callback(reinterpret_cast<VirtualQDesignerMemberSheetExtension::QDesignerMemberSheetExtension_InheritedFromWidget_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -382,9 +372,8 @@ libqt_string QDesignerMemberSheetExtension_SuperDeclaredInClass(const QDesignerM
 // Auxiliary method to allow providing re-implementation
 void QDesignerMemberSheetExtension_OnDeclaredInClass(const QDesignerMemberSheetExtension* self, intptr_t slot) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
+    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension)
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_DeclaredInClass_Callback(reinterpret_cast<VirtualQDesignerMemberSheetExtension::QDesignerMemberSheetExtension_DeclaredInClass_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -417,9 +406,8 @@ libqt_string QDesignerMemberSheetExtension_SuperSignature(const QDesignerMemberS
 // Auxiliary method to allow providing re-implementation
 void QDesignerMemberSheetExtension_OnSignature(const QDesignerMemberSheetExtension* self, intptr_t slot) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
+    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension)
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_Signature_Callback(reinterpret_cast<VirtualQDesignerMemberSheetExtension::QDesignerMemberSheetExtension_Signature_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -464,9 +452,8 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_SuperParameterTyp
 // Auxiliary method to allow providing re-implementation
 void QDesignerMemberSheetExtension_OnParameterTypes(const QDesignerMemberSheetExtension* self, intptr_t slot) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
+    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension)
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_ParameterTypes_Callback(reinterpret_cast<VirtualQDesignerMemberSheetExtension::QDesignerMemberSheetExtension_ParameterTypes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -511,9 +498,8 @@ libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_SuperParameterNam
 // Auxiliary method to allow providing re-implementation
 void QDesignerMemberSheetExtension_OnParameterNames(const QDesignerMemberSheetExtension* self, intptr_t slot) {
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
+    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension)
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_ParameterNames_Callback(reinterpret_cast<VirtualQDesignerMemberSheetExtension::QDesignerMemberSheetExtension_ParameterNames_Callback>(slot));
-    }
 }
 
 void QDesignerMemberSheetExtension_Delete(QDesignerMemberSheetExtension* self) {

@@ -2682,7 +2682,7 @@ pub const KIO = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-listjob.html#public-types)
 pub const enums = struct {
-    pub const ListFlag = enum(i32) {
+    pub const ListFlag = enum {
         pub const IncludeHidden: i32 = 1;
     };
 };

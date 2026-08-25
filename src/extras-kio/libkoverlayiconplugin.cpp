@@ -103,9 +103,8 @@ QMetaObject* KOverlayIconPlugin_SuperMetaObject(const KOverlayIconPlugin* self) 
 // Auxiliary method to allow providing re-implementation
 void KOverlayIconPlugin_OnMetaObject(const KOverlayIconPlugin* self, intptr_t slot) {
     auto* vkoverlayiconplugin = const_cast<VirtualKOverlayIconPlugin*>(dynamic_cast<const VirtualKOverlayIconPlugin*>(self));
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin)
         vkoverlayiconplugin->setKOverlayIconPlugin_MetaObject_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -122,9 +121,8 @@ void* KOverlayIconPlugin_SuperMetacast(KOverlayIconPlugin* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void KOverlayIconPlugin_OnMetacast(KOverlayIconPlugin* self, intptr_t slot) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin)
         vkoverlayiconplugin->setKOverlayIconPlugin_Metacast_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -141,9 +139,8 @@ int KOverlayIconPlugin_SuperMetacall(KOverlayIconPlugin* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void KOverlayIconPlugin_OnMetacall(KOverlayIconPlugin* self, intptr_t slot) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin)
         vkoverlayiconplugin->setKOverlayIconPlugin_Metacall_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -194,9 +191,8 @@ libqt_list /* of libqt_string */ KOverlayIconPlugin_SuperGetOverlays(KOverlayIco
 // Auxiliary method to allow providing re-implementation
 void KOverlayIconPlugin_OnGetOverlays(KOverlayIconPlugin* self, intptr_t slot) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin)
         vkoverlayiconplugin->setKOverlayIconPlugin_GetOverlays_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_GetOverlays_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -223,9 +219,8 @@ bool KOverlayIconPlugin_SuperEvent(KOverlayIconPlugin* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KOverlayIconPlugin_OnEvent(KOverlayIconPlugin* self, intptr_t slot) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin)
         vkoverlayiconplugin->setKOverlayIconPlugin_Event_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -252,9 +247,8 @@ bool KOverlayIconPlugin_SuperEventFilter(KOverlayIconPlugin* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void KOverlayIconPlugin_OnEventFilter(KOverlayIconPlugin* self, intptr_t slot) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin)
         vkoverlayiconplugin->setKOverlayIconPlugin_EventFilter_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -281,9 +275,8 @@ void KOverlayIconPlugin_SuperTimerEvent(KOverlayIconPlugin* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void KOverlayIconPlugin_OnTimerEvent(KOverlayIconPlugin* self, intptr_t slot) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin)
         vkoverlayiconplugin->setKOverlayIconPlugin_TimerEvent_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -310,9 +303,8 @@ void KOverlayIconPlugin_SuperChildEvent(KOverlayIconPlugin* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void KOverlayIconPlugin_OnChildEvent(KOverlayIconPlugin* self, intptr_t slot) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin)
         vkoverlayiconplugin->setKOverlayIconPlugin_ChildEvent_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +331,8 @@ void KOverlayIconPlugin_SuperCustomEvent(KOverlayIconPlugin* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KOverlayIconPlugin_OnCustomEvent(KOverlayIconPlugin* self, intptr_t slot) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin)
         vkoverlayiconplugin->setKOverlayIconPlugin_CustomEvent_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +359,8 @@ void KOverlayIconPlugin_SuperConnectNotify(KOverlayIconPlugin* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KOverlayIconPlugin_OnConnectNotify(KOverlayIconPlugin* self, intptr_t slot) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin)
         vkoverlayiconplugin->setKOverlayIconPlugin_ConnectNotify_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +387,8 @@ void KOverlayIconPlugin_SuperDisconnectNotify(KOverlayIconPlugin* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KOverlayIconPlugin_OnDisconnectNotify(KOverlayIconPlugin* self, intptr_t slot) {
     auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin)
         vkoverlayiconplugin->setKOverlayIconPlugin_DisconnectNotify_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +415,8 @@ QObject* KOverlayIconPlugin_SuperSender(const KOverlayIconPlugin* self) {
 // Auxiliary method to allow providing re-implementation
 void KOverlayIconPlugin_OnSender(const KOverlayIconPlugin* self, intptr_t slot) {
     auto* vkoverlayiconplugin = const_cast<VirtualKOverlayIconPlugin*>(dynamic_cast<const VirtualKOverlayIconPlugin*>(self));
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin)
         vkoverlayiconplugin->setKOverlayIconPlugin_Sender_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +443,8 @@ int KOverlayIconPlugin_SuperSenderSignalIndex(const KOverlayIconPlugin* self) {
 // Auxiliary method to allow providing re-implementation
 void KOverlayIconPlugin_OnSenderSignalIndex(const KOverlayIconPlugin* self, intptr_t slot) {
     auto* vkoverlayiconplugin = const_cast<VirtualKOverlayIconPlugin*>(dynamic_cast<const VirtualKOverlayIconPlugin*>(self));
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin)
         vkoverlayiconplugin->setKOverlayIconPlugin_SenderSignalIndex_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -484,9 +471,8 @@ int KOverlayIconPlugin_SuperReceivers(const KOverlayIconPlugin* self, const char
 // Auxiliary method to allow providing re-implementation
 void KOverlayIconPlugin_OnReceivers(const KOverlayIconPlugin* self, intptr_t slot) {
     auto* vkoverlayiconplugin = const_cast<VirtualKOverlayIconPlugin*>(dynamic_cast<const VirtualKOverlayIconPlugin*>(self));
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin)
         vkoverlayiconplugin->setKOverlayIconPlugin_Receivers_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -513,9 +499,8 @@ bool KOverlayIconPlugin_SuperIsSignalConnected(const KOverlayIconPlugin* self, c
 // Auxiliary method to allow providing re-implementation
 void KOverlayIconPlugin_OnIsSignalConnected(const KOverlayIconPlugin* self, intptr_t slot) {
     auto* vkoverlayiconplugin = const_cast<VirtualKOverlayIconPlugin*>(dynamic_cast<const VirtualKOverlayIconPlugin*>(self));
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
+    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin)
         vkoverlayiconplugin->setKOverlayIconPlugin_IsSignalConnected_Callback(reinterpret_cast<VirtualKOverlayIconPlugin::KOverlayIconPlugin_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KOverlayIconPlugin_Delete(KOverlayIconPlugin* self) {

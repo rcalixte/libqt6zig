@@ -424,9 +424,8 @@ QMetaObject* QWebEngineProfile_SuperMetaObject(const QWebEngineProfile* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineProfile_OnMetaObject(const QWebEngineProfile* self, intptr_t slot) {
     auto* vqwebengineprofile = const_cast<VirtualQWebEngineProfile*>(dynamic_cast<const VirtualQWebEngineProfile*>(self));
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile)
         vqwebengineprofile->setQWebEngineProfile_MetaObject_Callback(reinterpret_cast<VirtualQWebEngineProfile::QWebEngineProfile_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -443,9 +442,8 @@ void* QWebEngineProfile_SuperMetacast(QWebEngineProfile* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void QWebEngineProfile_OnMetacast(QWebEngineProfile* self, intptr_t slot) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile)
         vqwebengineprofile->setQWebEngineProfile_Metacast_Callback(reinterpret_cast<VirtualQWebEngineProfile::QWebEngineProfile_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -462,9 +460,8 @@ int QWebEngineProfile_SuperMetacall(QWebEngineProfile* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void QWebEngineProfile_OnMetacall(QWebEngineProfile* self, intptr_t slot) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile)
         vqwebengineprofile->setQWebEngineProfile_Metacall_Callback(reinterpret_cast<VirtualQWebEngineProfile::QWebEngineProfile_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -491,9 +488,8 @@ bool QWebEngineProfile_SuperEvent(QWebEngineProfile* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineProfile_OnEvent(QWebEngineProfile* self, intptr_t slot) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile)
         vqwebengineprofile->setQWebEngineProfile_Event_Callback(reinterpret_cast<VirtualQWebEngineProfile::QWebEngineProfile_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -520,9 +516,8 @@ bool QWebEngineProfile_SuperEventFilter(QWebEngineProfile* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void QWebEngineProfile_OnEventFilter(QWebEngineProfile* self, intptr_t slot) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile)
         vqwebengineprofile->setQWebEngineProfile_EventFilter_Callback(reinterpret_cast<VirtualQWebEngineProfile::QWebEngineProfile_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -549,9 +544,8 @@ void QWebEngineProfile_SuperTimerEvent(QWebEngineProfile* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QWebEngineProfile_OnTimerEvent(QWebEngineProfile* self, intptr_t slot) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile)
         vqwebengineprofile->setQWebEngineProfile_TimerEvent_Callback(reinterpret_cast<VirtualQWebEngineProfile::QWebEngineProfile_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -578,9 +572,8 @@ void QWebEngineProfile_SuperChildEvent(QWebEngineProfile* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QWebEngineProfile_OnChildEvent(QWebEngineProfile* self, intptr_t slot) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile)
         vqwebengineprofile->setQWebEngineProfile_ChildEvent_Callback(reinterpret_cast<VirtualQWebEngineProfile::QWebEngineProfile_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -607,9 +600,8 @@ void QWebEngineProfile_SuperCustomEvent(QWebEngineProfile* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QWebEngineProfile_OnCustomEvent(QWebEngineProfile* self, intptr_t slot) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile)
         vqwebengineprofile->setQWebEngineProfile_CustomEvent_Callback(reinterpret_cast<VirtualQWebEngineProfile::QWebEngineProfile_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -636,9 +628,8 @@ void QWebEngineProfile_SuperConnectNotify(QWebEngineProfile* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QWebEngineProfile_OnConnectNotify(QWebEngineProfile* self, intptr_t slot) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile)
         vqwebengineprofile->setQWebEngineProfile_ConnectNotify_Callback(reinterpret_cast<VirtualQWebEngineProfile::QWebEngineProfile_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -665,9 +656,8 @@ void QWebEngineProfile_SuperDisconnectNotify(QWebEngineProfile* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void QWebEngineProfile_OnDisconnectNotify(QWebEngineProfile* self, intptr_t slot) {
     auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile)
         vqwebengineprofile->setQWebEngineProfile_DisconnectNotify_Callback(reinterpret_cast<VirtualQWebEngineProfile::QWebEngineProfile_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -694,9 +684,8 @@ QObject* QWebEngineProfile_SuperSender(const QWebEngineProfile* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineProfile_OnSender(const QWebEngineProfile* self, intptr_t slot) {
     auto* vqwebengineprofile = const_cast<VirtualQWebEngineProfile*>(dynamic_cast<const VirtualQWebEngineProfile*>(self));
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile)
         vqwebengineprofile->setQWebEngineProfile_Sender_Callback(reinterpret_cast<VirtualQWebEngineProfile::QWebEngineProfile_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -723,9 +712,8 @@ int QWebEngineProfile_SuperSenderSignalIndex(const QWebEngineProfile* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebEngineProfile_OnSenderSignalIndex(const QWebEngineProfile* self, intptr_t slot) {
     auto* vqwebengineprofile = const_cast<VirtualQWebEngineProfile*>(dynamic_cast<const VirtualQWebEngineProfile*>(self));
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile)
         vqwebengineprofile->setQWebEngineProfile_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWebEngineProfile::QWebEngineProfile_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -752,9 +740,8 @@ int QWebEngineProfile_SuperReceivers(const QWebEngineProfile* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void QWebEngineProfile_OnReceivers(const QWebEngineProfile* self, intptr_t slot) {
     auto* vqwebengineprofile = const_cast<VirtualQWebEngineProfile*>(dynamic_cast<const VirtualQWebEngineProfile*>(self));
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile)
         vqwebengineprofile->setQWebEngineProfile_Receivers_Callback(reinterpret_cast<VirtualQWebEngineProfile::QWebEngineProfile_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -781,9 +768,8 @@ bool QWebEngineProfile_SuperIsSignalConnected(const QWebEngineProfile* self, con
 // Auxiliary method to allow providing re-implementation
 void QWebEngineProfile_OnIsSignalConnected(const QWebEngineProfile* self, intptr_t slot) {
     auto* vqwebengineprofile = const_cast<VirtualQWebEngineProfile*>(dynamic_cast<const VirtualQWebEngineProfile*>(self));
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
+    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile)
         vqwebengineprofile->setQWebEngineProfile_IsSignalConnected_Callback(reinterpret_cast<VirtualQWebEngineProfile::QWebEngineProfile_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QWebEngineProfile_Delete(QWebEngineProfile* self) {

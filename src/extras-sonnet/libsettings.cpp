@@ -401,9 +401,8 @@ QMetaObject* Sonnet__Settings_SuperMetaObject(const Sonnet__Settings* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnMetaObject(const Sonnet__Settings* self, intptr_t slot) {
     auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
         vsonnetsettings->setSonnet__Settings_MetaObject_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -420,9 +419,8 @@ void* Sonnet__Settings_SuperMetacast(Sonnet__Settings* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnMetacast(Sonnet__Settings* self, intptr_t slot) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
         vsonnetsettings->setSonnet__Settings_Metacast_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -439,9 +437,8 @@ int Sonnet__Settings_SuperMetacall(Sonnet__Settings* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnMetacall(Sonnet__Settings* self, intptr_t slot) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
         vsonnetsettings->setSonnet__Settings_Metacall_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -468,9 +465,8 @@ bool Sonnet__Settings_SuperEvent(Sonnet__Settings* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnEvent(Sonnet__Settings* self, intptr_t slot) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
         vsonnetsettings->setSonnet__Settings_Event_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -497,9 +493,8 @@ bool Sonnet__Settings_SuperEventFilter(Sonnet__Settings* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnEventFilter(Sonnet__Settings* self, intptr_t slot) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
         vsonnetsettings->setSonnet__Settings_EventFilter_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -526,9 +521,8 @@ void Sonnet__Settings_SuperTimerEvent(Sonnet__Settings* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnTimerEvent(Sonnet__Settings* self, intptr_t slot) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
         vsonnetsettings->setSonnet__Settings_TimerEvent_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -555,9 +549,8 @@ void Sonnet__Settings_SuperChildEvent(Sonnet__Settings* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnChildEvent(Sonnet__Settings* self, intptr_t slot) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
         vsonnetsettings->setSonnet__Settings_ChildEvent_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -584,9 +577,8 @@ void Sonnet__Settings_SuperCustomEvent(Sonnet__Settings* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnCustomEvent(Sonnet__Settings* self, intptr_t slot) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
         vsonnetsettings->setSonnet__Settings_CustomEvent_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -613,9 +605,8 @@ void Sonnet__Settings_SuperConnectNotify(Sonnet__Settings* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnConnectNotify(Sonnet__Settings* self, intptr_t slot) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
         vsonnetsettings->setSonnet__Settings_ConnectNotify_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -642,9 +633,8 @@ void Sonnet__Settings_SuperDisconnectNotify(Sonnet__Settings* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnDisconnectNotify(Sonnet__Settings* self, intptr_t slot) {
     auto* vsonnetsettings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
         vsonnetsettings->setSonnet__Settings_DisconnectNotify_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -671,9 +661,8 @@ QObject* Sonnet__Settings_SuperSender(const Sonnet__Settings* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnSender(const Sonnet__Settings* self, intptr_t slot) {
     auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
         vsonnetsettings->setSonnet__Settings_Sender_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -700,9 +689,8 @@ int Sonnet__Settings_SuperSenderSignalIndex(const Sonnet__Settings* self) {
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnSenderSignalIndex(const Sonnet__Settings* self, intptr_t slot) {
     auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
         vsonnetsettings->setSonnet__Settings_SenderSignalIndex_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -729,9 +717,8 @@ int Sonnet__Settings_SuperReceivers(const Sonnet__Settings* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnReceivers(const Sonnet__Settings* self, intptr_t slot) {
     auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
         vsonnetsettings->setSonnet__Settings_Receivers_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -758,9 +745,8 @@ bool Sonnet__Settings_SuperIsSignalConnected(const Sonnet__Settings* self, const
 // Auxiliary method to allow providing re-implementation
 void Sonnet__Settings_OnIsSignalConnected(const Sonnet__Settings* self, intptr_t slot) {
     auto* vsonnetsettings = const_cast<VirtualSonnetSettings*>(dynamic_cast<const VirtualSonnetSettings*>(self));
-    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings) {
+    if (vsonnetsettings && vsonnetsettings->isVirtualSonnetSettings)
         vsonnetsettings->setSonnet__Settings_IsSignalConnected_Callback(reinterpret_cast<VirtualSonnetSettings::Sonnet__Settings_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void Sonnet__Settings_Delete(Sonnet__Settings* self) {

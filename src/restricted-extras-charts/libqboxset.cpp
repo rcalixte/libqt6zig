@@ -252,9 +252,8 @@ QMetaObject* QBoxSet_SuperMetaObject(const QBoxSet* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnMetaObject(const QBoxSet* self, intptr_t slot) {
     auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+    if (vqboxset && vqboxset->isVirtualQBoxSet)
         vqboxset->setQBoxSet_MetaObject_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -271,9 +270,8 @@ void* QBoxSet_SuperMetacast(QBoxSet* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnMetacast(QBoxSet* self, intptr_t slot) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+    if (vqboxset && vqboxset->isVirtualQBoxSet)
         vqboxset->setQBoxSet_Metacast_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -290,9 +288,8 @@ int QBoxSet_SuperMetacall(QBoxSet* self, int param1, int param2, void** param3) 
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnMetacall(QBoxSet* self, intptr_t slot) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+    if (vqboxset && vqboxset->isVirtualQBoxSet)
         vqboxset->setQBoxSet_Metacall_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -319,9 +316,8 @@ bool QBoxSet_SuperEvent(QBoxSet* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnEvent(QBoxSet* self, intptr_t slot) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+    if (vqboxset && vqboxset->isVirtualQBoxSet)
         vqboxset->setQBoxSet_Event_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -348,9 +344,8 @@ bool QBoxSet_SuperEventFilter(QBoxSet* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnEventFilter(QBoxSet* self, intptr_t slot) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+    if (vqboxset && vqboxset->isVirtualQBoxSet)
         vqboxset->setQBoxSet_EventFilter_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -377,9 +372,8 @@ void QBoxSet_SuperTimerEvent(QBoxSet* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnTimerEvent(QBoxSet* self, intptr_t slot) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+    if (vqboxset && vqboxset->isVirtualQBoxSet)
         vqboxset->setQBoxSet_TimerEvent_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -406,9 +400,8 @@ void QBoxSet_SuperChildEvent(QBoxSet* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnChildEvent(QBoxSet* self, intptr_t slot) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+    if (vqboxset && vqboxset->isVirtualQBoxSet)
         vqboxset->setQBoxSet_ChildEvent_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -435,9 +428,8 @@ void QBoxSet_SuperCustomEvent(QBoxSet* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnCustomEvent(QBoxSet* self, intptr_t slot) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+    if (vqboxset && vqboxset->isVirtualQBoxSet)
         vqboxset->setQBoxSet_CustomEvent_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -464,9 +456,8 @@ void QBoxSet_SuperConnectNotify(QBoxSet* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnConnectNotify(QBoxSet* self, intptr_t slot) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+    if (vqboxset && vqboxset->isVirtualQBoxSet)
         vqboxset->setQBoxSet_ConnectNotify_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -493,9 +484,8 @@ void QBoxSet_SuperDisconnectNotify(QBoxSet* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnDisconnectNotify(QBoxSet* self, intptr_t slot) {
     auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+    if (vqboxset && vqboxset->isVirtualQBoxSet)
         vqboxset->setQBoxSet_DisconnectNotify_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -522,9 +512,8 @@ QObject* QBoxSet_SuperSender(const QBoxSet* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnSender(const QBoxSet* self, intptr_t slot) {
     auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+    if (vqboxset && vqboxset->isVirtualQBoxSet)
         vqboxset->setQBoxSet_Sender_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -551,9 +540,8 @@ int QBoxSet_SuperSenderSignalIndex(const QBoxSet* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnSenderSignalIndex(const QBoxSet* self, intptr_t slot) {
     auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+    if (vqboxset && vqboxset->isVirtualQBoxSet)
         vqboxset->setQBoxSet_SenderSignalIndex_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -580,9 +568,8 @@ int QBoxSet_SuperReceivers(const QBoxSet* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnReceivers(const QBoxSet* self, intptr_t slot) {
     auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+    if (vqboxset && vqboxset->isVirtualQBoxSet)
         vqboxset->setQBoxSet_Receivers_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -609,9 +596,8 @@ bool QBoxSet_SuperIsSignalConnected(const QBoxSet* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QBoxSet_OnIsSignalConnected(const QBoxSet* self, intptr_t slot) {
     auto* vqboxset = const_cast<VirtualQBoxSet*>(dynamic_cast<const VirtualQBoxSet*>(self));
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
+    if (vqboxset && vqboxset->isVirtualQBoxSet)
         vqboxset->setQBoxSet_IsSignalConnected_Callback(reinterpret_cast<VirtualQBoxSet::QBoxSet_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QBoxSet_Delete(QBoxSet* self) {

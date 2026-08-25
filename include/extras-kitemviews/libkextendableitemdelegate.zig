@@ -3493,7 +3493,7 @@ pub const KExtendableItemDelegate = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kextendableitemdelegate.html#public-types)
 pub const enums = struct {
-    pub const auxDataRoles = enum(i32) {
+    pub const auxDataRoles = enum {
         pub const ShowExtensionIndicatorRole: i32 = 456;
     };
 };

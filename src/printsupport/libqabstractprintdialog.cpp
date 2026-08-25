@@ -120,9 +120,8 @@ QMetaObject* QAbstractPrintDialog_SuperMetaObject(const QAbstractPrintDialog* se
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnMetaObject(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_MetaObject_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -139,9 +138,8 @@ void* QAbstractPrintDialog_SuperMetacast(QAbstractPrintDialog* self, const char*
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnMetacast(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_Metacast_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -158,9 +156,8 @@ int QAbstractPrintDialog_SuperMetacall(QAbstractPrintDialog* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnMetacall(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_Metacall_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -187,9 +184,8 @@ void QAbstractPrintDialog_SuperSetVisible(QAbstractPrintDialog* self, bool visib
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnSetVisible(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_SetVisible_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -216,9 +212,8 @@ QSize* QAbstractPrintDialog_SuperSizeHint(const QAbstractPrintDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnSizeHint(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_SizeHint_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -245,9 +240,8 @@ QSize* QAbstractPrintDialog_SuperMinimumSizeHint(const QAbstractPrintDialog* sel
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnMinimumSizeHint(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -274,9 +268,8 @@ void QAbstractPrintDialog_SuperOpen(QAbstractPrintDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnOpen(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_Open_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -303,9 +296,8 @@ int QAbstractPrintDialog_SuperExec(QAbstractPrintDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnExec(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_Exec_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -332,9 +324,8 @@ void QAbstractPrintDialog_SuperDone(QAbstractPrintDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnDone(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_Done_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -361,9 +352,8 @@ void QAbstractPrintDialog_SuperAccept(QAbstractPrintDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnAccept(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_Accept_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -390,9 +380,8 @@ void QAbstractPrintDialog_SuperReject(QAbstractPrintDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnReject(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_Reject_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -419,9 +408,8 @@ void QAbstractPrintDialog_SuperKeyPressEvent(QAbstractPrintDialog* self, QKeyEve
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnKeyPressEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -448,9 +436,8 @@ void QAbstractPrintDialog_SuperCloseEvent(QAbstractPrintDialog* self, QCloseEven
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnCloseEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_CloseEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -477,9 +464,8 @@ void QAbstractPrintDialog_SuperShowEvent(QAbstractPrintDialog* self, QShowEvent*
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnShowEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_ShowEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -506,9 +492,8 @@ void QAbstractPrintDialog_SuperResizeEvent(QAbstractPrintDialog* self, QResizeEv
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnResizeEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_ResizeEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -535,9 +520,8 @@ void QAbstractPrintDialog_SuperContextMenuEvent(QAbstractPrintDialog* self, QCon
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnContextMenuEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -564,9 +548,8 @@ bool QAbstractPrintDialog_SuperEventFilter(QAbstractPrintDialog* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnEventFilter(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_EventFilter_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -593,9 +576,8 @@ int QAbstractPrintDialog_SuperDevType(const QAbstractPrintDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnDevType(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_DevType_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -622,9 +604,8 @@ int QAbstractPrintDialog_SuperHeightForWidth(const QAbstractPrintDialog* self, i
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnHeightForWidth(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_HeightForWidth_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -651,9 +632,8 @@ bool QAbstractPrintDialog_SuperHasHeightForWidth(const QAbstractPrintDialog* sel
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnHasHeightForWidth(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -680,9 +660,8 @@ QPaintEngine* QAbstractPrintDialog_SuperPaintEngine(const QAbstractPrintDialog* 
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnPaintEngine(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_PaintEngine_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -709,9 +688,8 @@ bool QAbstractPrintDialog_SuperEvent(QAbstractPrintDialog* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_Event_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -738,9 +716,8 @@ void QAbstractPrintDialog_SuperMousePressEvent(QAbstractPrintDialog* self, QMous
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnMousePressEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_MousePressEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -767,9 +744,8 @@ void QAbstractPrintDialog_SuperMouseReleaseEvent(QAbstractPrintDialog* self, QMo
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnMouseReleaseEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -796,9 +772,8 @@ void QAbstractPrintDialog_SuperMouseDoubleClickEvent(QAbstractPrintDialog* self,
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnMouseDoubleClickEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -825,9 +800,8 @@ void QAbstractPrintDialog_SuperMouseMoveEvent(QAbstractPrintDialog* self, QMouse
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnMouseMoveEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -854,9 +828,8 @@ void QAbstractPrintDialog_SuperWheelEvent(QAbstractPrintDialog* self, QWheelEven
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnWheelEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_WheelEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -883,9 +856,8 @@ void QAbstractPrintDialog_SuperKeyReleaseEvent(QAbstractPrintDialog* self, QKeyE
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnKeyReleaseEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -912,9 +884,8 @@ void QAbstractPrintDialog_SuperFocusInEvent(QAbstractPrintDialog* self, QFocusEv
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnFocusInEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_FocusInEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -941,9 +912,8 @@ void QAbstractPrintDialog_SuperFocusOutEvent(QAbstractPrintDialog* self, QFocusE
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnFocusOutEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -970,9 +940,8 @@ void QAbstractPrintDialog_SuperEnterEvent(QAbstractPrintDialog* self, QEnterEven
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnEnterEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_EnterEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -999,9 +968,8 @@ void QAbstractPrintDialog_SuperLeaveEvent(QAbstractPrintDialog* self, QEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnLeaveEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_LeaveEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1028,9 +996,8 @@ void QAbstractPrintDialog_SuperPaintEvent(QAbstractPrintDialog* self, QPaintEven
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnPaintEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_PaintEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1057,9 +1024,8 @@ void QAbstractPrintDialog_SuperMoveEvent(QAbstractPrintDialog* self, QMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnMoveEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_MoveEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1086,9 +1052,8 @@ void QAbstractPrintDialog_SuperTabletEvent(QAbstractPrintDialog* self, QTabletEv
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnTabletEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_TabletEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1115,9 +1080,8 @@ void QAbstractPrintDialog_SuperActionEvent(QAbstractPrintDialog* self, QActionEv
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnActionEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_ActionEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1144,9 +1108,8 @@ void QAbstractPrintDialog_SuperDragEnterEvent(QAbstractPrintDialog* self, QDragE
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnDragEnterEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1173,9 +1136,8 @@ void QAbstractPrintDialog_SuperDragMoveEvent(QAbstractPrintDialog* self, QDragMo
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnDragMoveEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1202,9 +1164,8 @@ void QAbstractPrintDialog_SuperDragLeaveEvent(QAbstractPrintDialog* self, QDragL
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnDragLeaveEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1231,9 +1192,8 @@ void QAbstractPrintDialog_SuperDropEvent(QAbstractPrintDialog* self, QDropEvent*
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnDropEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_DropEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1260,9 +1220,8 @@ void QAbstractPrintDialog_SuperHideEvent(QAbstractPrintDialog* self, QHideEvent*
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnHideEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_HideEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1291,9 +1250,8 @@ bool QAbstractPrintDialog_SuperNativeEvent(QAbstractPrintDialog* self, const lib
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnNativeEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_NativeEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1320,9 +1278,8 @@ void QAbstractPrintDialog_SuperChangeEvent(QAbstractPrintDialog* self, QEvent* p
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnChangeEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1349,9 +1306,8 @@ int QAbstractPrintDialog_SuperMetric(const QAbstractPrintDialog* self, int param
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnMetric(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_Metric_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1378,9 +1334,8 @@ void QAbstractPrintDialog_SuperInitPainter(const QAbstractPrintDialog* self, QPa
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnInitPainter(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_InitPainter_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1407,9 +1362,8 @@ QPaintDevice* QAbstractPrintDialog_SuperRedirected(const QAbstractPrintDialog* s
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnRedirected(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_Redirected_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1436,9 +1390,8 @@ QPainter* QAbstractPrintDialog_SuperSharedPainter(const QAbstractPrintDialog* se
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnSharedPainter(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_SharedPainter_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1465,9 +1418,8 @@ void QAbstractPrintDialog_SuperInputMethodEvent(QAbstractPrintDialog* self, QInp
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnInputMethodEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1494,9 +1446,8 @@ QVariant* QAbstractPrintDialog_SuperInputMethodQuery(const QAbstractPrintDialog*
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnInputMethodQuery(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1523,9 +1474,8 @@ bool QAbstractPrintDialog_SuperFocusNextPrevChild(QAbstractPrintDialog* self, bo
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnFocusNextPrevChild(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1552,9 +1502,8 @@ void QAbstractPrintDialog_SuperTimerEvent(QAbstractPrintDialog* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnTimerEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_TimerEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1581,9 +1530,8 @@ void QAbstractPrintDialog_SuperChildEvent(QAbstractPrintDialog* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnChildEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_ChildEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1610,9 +1558,8 @@ void QAbstractPrintDialog_SuperCustomEvent(QAbstractPrintDialog* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnCustomEvent(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_CustomEvent_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1639,9 +1586,8 @@ void QAbstractPrintDialog_SuperConnectNotify(QAbstractPrintDialog* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnConnectNotify(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_ConnectNotify_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1668,9 +1614,8 @@ void QAbstractPrintDialog_SuperDisconnectNotify(QAbstractPrintDialog* self, cons
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnDisconnectNotify(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1697,9 +1642,8 @@ void QAbstractPrintDialog_SuperAdjustPosition(QAbstractPrintDialog* self, QWidge
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnAdjustPosition(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_AdjustPosition_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1726,9 +1670,8 @@ void QAbstractPrintDialog_SuperUpdateMicroFocus(QAbstractPrintDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnUpdateMicroFocus(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1755,9 +1698,8 @@ void QAbstractPrintDialog_SuperCreate(QAbstractPrintDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnCreate(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_Create_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1784,9 +1726,8 @@ void QAbstractPrintDialog_SuperDestroy(QAbstractPrintDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnDestroy(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_Destroy_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1813,9 +1754,8 @@ bool QAbstractPrintDialog_SuperFocusNextChild(QAbstractPrintDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnFocusNextChild(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_FocusNextChild_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1842,9 +1782,8 @@ bool QAbstractPrintDialog_SuperFocusPreviousChild(QAbstractPrintDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnFocusPreviousChild(QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1871,9 +1810,8 @@ QObject* QAbstractPrintDialog_SuperSender(const QAbstractPrintDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnSender(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_Sender_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1900,9 +1838,8 @@ int QAbstractPrintDialog_SuperSenderSignalIndex(const QAbstractPrintDialog* self
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnSenderSignalIndex(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1929,9 +1866,8 @@ int QAbstractPrintDialog_SuperReceivers(const QAbstractPrintDialog* self, const 
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnReceivers(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_Receivers_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1958,9 +1894,8 @@ bool QAbstractPrintDialog_SuperIsSignalConnected(const QAbstractPrintDialog* sel
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnIsSignalConnected(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1987,9 +1922,8 @@ double QAbstractPrintDialog_SuperGetDecodedMetricF(const QAbstractPrintDialog* s
 // Auxiliary method to allow providing re-implementation
 void QAbstractPrintDialog_OnGetDecodedMetricF(const QAbstractPrintDialog* self, intptr_t slot) {
     auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog)
         vqabstractprintdialog->setQAbstractPrintDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QAbstractPrintDialog_Delete(QAbstractPrintDialog* self) {

@@ -2997,7 +2997,7 @@ pub const QTextToSpeech = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeech.html#public-types)
 pub const enums = struct {
-    pub const State = enum(i32) {
+    pub const State = enum {
         pub const Ready: i32 = 0;
         pub const Speaking: i32 = 1;
         pub const Paused: i32 = 2;
@@ -3005,7 +3005,7 @@ pub const enums = struct {
         pub const Synthesizing: i32 = 4;
     };
 
-    pub const ErrorReason = enum(i32) {
+    pub const ErrorReason = enum {
         pub const NoError: i32 = 0;
         pub const Initialization: i32 = 1;
         pub const Configuration: i32 = 2;
@@ -3013,7 +3013,7 @@ pub const enums = struct {
         pub const Playback: i32 = 4;
     };
 
-    pub const BoundaryHint = enum(i32) {
+    pub const BoundaryHint = enum {
         pub const Default: i32 = 0;
         pub const Immediate: i32 = 1;
         pub const Word: i32 = 2;
@@ -3021,7 +3021,7 @@ pub const enums = struct {
         pub const Utterance: i32 = 4;
     };
 
-    pub const Capability = enum(i32) {
+    pub const Capability = enum {
         pub const None: i32 = 0;
         pub const Speak: i32 = 1;
         pub const PauseResume: i32 = 2;

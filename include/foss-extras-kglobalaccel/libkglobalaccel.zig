@@ -1668,19 +1668,19 @@ pub const KGlobalAccel = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kglobalaccel.html#public-types)
 pub const enums = struct {
-    pub const GlobalShortcutLoading = enum(i32) {
+    pub const GlobalShortcutLoading = enum {
         pub const Autoloading: i32 = 0;
         pub const NoAutoloading: i32 = 4;
     };
 
-    pub const actionIdFields = enum(i32) {
+    pub const actionIdFields = enum {
         pub const ComponentUnique: i32 = 0;
         pub const ActionUnique: i32 = 1;
         pub const ComponentFriendly: i32 = 2;
         pub const ActionFriendly: i32 = 3;
     };
 
-    pub const MatchType = enum(i32) {
+    pub const MatchType = enum {
         pub const Equal: i32 = 0;
         pub const Shadows: i32 = 1;
         pub const Shadowed: i32 = 2;

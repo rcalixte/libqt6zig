@@ -149,9 +149,8 @@ QMetaObject* KExtraColumnsProxyModel_SuperMetaObject(const KExtraColumnsProxyMod
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnMetaObject(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MetaObject_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -168,9 +167,8 @@ void* KExtraColumnsProxyModel_SuperMetacast(KExtraColumnsProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnMetacast(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Metacast_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -187,9 +185,8 @@ int KExtraColumnsProxyModel_SuperMetacall(KExtraColumnsProxyModel* self, int par
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnMetacall(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Metacall_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -206,9 +203,8 @@ QVariant* KExtraColumnsProxyModel_SuperExtraColumnData(const KExtraColumnsProxyM
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnExtraColumnData(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ExtraColumnData_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_ExtraColumnData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -225,9 +221,8 @@ bool KExtraColumnsProxyModel_SuperSetExtraColumnData(KExtraColumnsProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnSetExtraColumnData(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SetExtraColumnData_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_SetExtraColumnData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -244,9 +239,8 @@ void KExtraColumnsProxyModel_SuperSetSourceModel(KExtraColumnsProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnSetSourceModel(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SetSourceModel_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_SetSourceModel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -263,9 +257,8 @@ QModelIndex* KExtraColumnsProxyModel_SuperMapToSource(const KExtraColumnsProxyMo
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnMapToSource(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MapToSource_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_MapToSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -282,9 +275,8 @@ QItemSelection* KExtraColumnsProxyModel_SuperMapSelectionToSource(const KExtraCo
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnMapSelectionToSource(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MapSelectionToSource_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_MapSelectionToSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -301,9 +293,8 @@ int KExtraColumnsProxyModel_SuperColumnCount(const KExtraColumnsProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnColumnCount(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ColumnCount_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_ColumnCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -320,9 +311,8 @@ QVariant* KExtraColumnsProxyModel_SuperData(const KExtraColumnsProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnData(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Data_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -339,9 +329,8 @@ bool KExtraColumnsProxyModel_SuperSetData(KExtraColumnsProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnSetData(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SetData_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_SetData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -358,9 +347,8 @@ QModelIndex* KExtraColumnsProxyModel_SuperSibling(const KExtraColumnsProxyModel*
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnSibling(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Sibling_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Sibling_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -377,9 +365,8 @@ QModelIndex* KExtraColumnsProxyModel_SuperBuddy(const KExtraColumnsProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnBuddy(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Buddy_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Buddy_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -396,9 +383,8 @@ int KExtraColumnsProxyModel_SuperFlags(const KExtraColumnsProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnFlags(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Flags_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Flags_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -415,9 +401,8 @@ bool KExtraColumnsProxyModel_SuperHasChildren(const KExtraColumnsProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnHasChildren(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_HasChildren_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_HasChildren_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -434,9 +419,8 @@ QVariant* KExtraColumnsProxyModel_SuperHeaderData(const KExtraColumnsProxyModel*
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnHeaderData(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_HeaderData_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -453,9 +437,8 @@ QModelIndex* KExtraColumnsProxyModel_SuperIndex(const KExtraColumnsProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnIndex(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Index_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Index_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -472,9 +455,8 @@ QModelIndex* KExtraColumnsProxyModel_SuperParent(const KExtraColumnsProxyModel* 
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnParent(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Parent_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Parent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -501,9 +483,8 @@ QModelIndex* KExtraColumnsProxyModel_SuperMapFromSource(const KExtraColumnsProxy
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnMapFromSource(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MapFromSource_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_MapFromSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -530,9 +511,8 @@ int KExtraColumnsProxyModel_SuperRowCount(const KExtraColumnsProxyModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnRowCount(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_RowCount_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_RowCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -559,9 +539,8 @@ bool KExtraColumnsProxyModel_SuperDropMimeData(KExtraColumnsProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnDropMimeData(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_DropMimeData_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -588,9 +567,8 @@ QItemSelection* KExtraColumnsProxyModel_SuperMapSelectionFromSource(const KExtra
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnMapSelectionFromSource(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MapSelectionFromSource_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_MapSelectionFromSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -653,9 +631,8 @@ libqt_list /* of QModelIndex* */ KExtraColumnsProxyModel_SuperMatch(const KExtra
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnMatch(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Match_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -682,9 +659,8 @@ bool KExtraColumnsProxyModel_SuperInsertColumns(KExtraColumnsProxyModel* self, i
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnInsertColumns(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_InsertColumns_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -711,9 +687,8 @@ bool KExtraColumnsProxyModel_SuperInsertRows(KExtraColumnsProxyModel* self, int 
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnInsertRows(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_InsertRows_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -740,9 +715,8 @@ bool KExtraColumnsProxyModel_SuperRemoveColumns(KExtraColumnsProxyModel* self, i
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnRemoveColumns(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_RemoveColumns_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -769,9 +743,8 @@ bool KExtraColumnsProxyModel_SuperRemoveRows(KExtraColumnsProxyModel* self, int 
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnRemoveRows(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_RemoveRows_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -798,9 +771,8 @@ bool KExtraColumnsProxyModel_SuperMoveRows(KExtraColumnsProxyModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnMoveRows(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MoveRows_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -827,9 +799,8 @@ bool KExtraColumnsProxyModel_SuperMoveColumns(KExtraColumnsProxyModel* self, con
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnMoveColumns(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MoveColumns_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -856,9 +827,8 @@ bool KExtraColumnsProxyModel_SuperSubmit(KExtraColumnsProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnSubmit(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Submit_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -885,9 +855,8 @@ void KExtraColumnsProxyModel_SuperRevert(KExtraColumnsProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnRevert(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Revert_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -970,9 +939,8 @@ libqt_map /* of int to QVariant* */ KExtraColumnsProxyModel_SuperItemData(const 
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnItemData(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ItemData_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1011,9 +979,8 @@ bool KExtraColumnsProxyModel_SuperSetItemData(KExtraColumnsProxyModel* self, con
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnSetItemData(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SetItemData_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1040,9 +1007,8 @@ bool KExtraColumnsProxyModel_SuperSetHeaderData(KExtraColumnsProxyModel* self, i
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnSetHeaderData(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SetHeaderData_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1069,9 +1035,8 @@ bool KExtraColumnsProxyModel_SuperClearItemData(KExtraColumnsProxyModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnClearItemData(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ClearItemData_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1098,9 +1063,8 @@ bool KExtraColumnsProxyModel_SuperCanFetchMore(const KExtraColumnsProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnCanFetchMore(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_CanFetchMore_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1127,9 +1091,8 @@ void KExtraColumnsProxyModel_SuperFetchMore(KExtraColumnsProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnFetchMore(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_FetchMore_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1156,9 +1119,8 @@ void KExtraColumnsProxyModel_SuperSort(KExtraColumnsProxyModel* self, int column
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnSort(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Sort_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1185,9 +1147,8 @@ QSize* KExtraColumnsProxyModel_SuperSpan(const KExtraColumnsProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnSpan(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Span_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1226,9 +1187,8 @@ QMimeData* KExtraColumnsProxyModel_SuperMimeData(const KExtraColumnsProxyModel* 
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnMimeData(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MimeData_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1255,9 +1215,8 @@ bool KExtraColumnsProxyModel_SuperCanDropMimeData(const KExtraColumnsProxyModel*
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnCanDropMimeData(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_CanDropMimeData_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1352,9 +1311,8 @@ libqt_list /* of libqt_string */ KExtraColumnsProxyModel_SuperMimeTypes(const KE
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnMimeTypes(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MimeTypes_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1381,9 +1339,8 @@ int KExtraColumnsProxyModel_SuperSupportedDragActions(const KExtraColumnsProxyMo
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnSupportedDragActions(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SupportedDragActions_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1410,9 +1367,8 @@ int KExtraColumnsProxyModel_SuperSupportedDropActions(const KExtraColumnsProxyMo
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnSupportedDropActions(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SupportedDropActions_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1515,9 +1471,8 @@ libqt_map /* of int to libqt_string */ KExtraColumnsProxyModel_SuperRoleNames(co
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnRoleNames(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_RoleNames_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1544,9 +1499,8 @@ void KExtraColumnsProxyModel_SuperMultiData(const KExtraColumnsProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnMultiData(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_MultiData_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1573,9 +1527,8 @@ void KExtraColumnsProxyModel_SuperResetInternalData(KExtraColumnsProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnResetInternalData(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ResetInternalData_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1602,9 +1555,8 @@ bool KExtraColumnsProxyModel_SuperEvent(KExtraColumnsProxyModel* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnEvent(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Event_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1631,9 +1583,8 @@ bool KExtraColumnsProxyModel_SuperEventFilter(KExtraColumnsProxyModel* self, QOb
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnEventFilter(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EventFilter_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1660,9 +1611,8 @@ void KExtraColumnsProxyModel_SuperTimerEvent(KExtraColumnsProxyModel* self, QTim
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnTimerEvent(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_TimerEvent_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1689,9 +1639,8 @@ void KExtraColumnsProxyModel_SuperChildEvent(KExtraColumnsProxyModel* self, QChi
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnChildEvent(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ChildEvent_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1718,9 +1667,8 @@ void KExtraColumnsProxyModel_SuperCustomEvent(KExtraColumnsProxyModel* self, QEv
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnCustomEvent(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_CustomEvent_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1747,9 +1695,8 @@ void KExtraColumnsProxyModel_SuperConnectNotify(KExtraColumnsProxyModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnConnectNotify(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ConnectNotify_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1776,9 +1723,8 @@ void KExtraColumnsProxyModel_SuperDisconnectNotify(KExtraColumnsProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnDisconnectNotify(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_DisconnectNotify_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1805,9 +1751,8 @@ void KExtraColumnsProxyModel_SuperSetHandleSourceLayoutChanges(KExtraColumnsProx
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnSetHandleSourceLayoutChanges(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SetHandleSourceLayoutChanges_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_SetHandleSourceLayoutChanges_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1834,9 +1779,8 @@ void KExtraColumnsProxyModel_SuperSetHandleSourceDataChanges(KExtraColumnsProxyM
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnSetHandleSourceDataChanges(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SetHandleSourceDataChanges_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_SetHandleSourceDataChanges_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1861,9 +1805,8 @@ QModelIndex* KExtraColumnsProxyModel_SuperCreateSourceIndex(const KExtraColumnsP
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnCreateSourceIndex(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_CreateSourceIndex_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_CreateSourceIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1888,9 +1831,8 @@ QModelIndex* KExtraColumnsProxyModel_SuperCreateIndex(const KExtraColumnsProxyMo
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnCreateIndex(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_CreateIndex_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1929,9 +1871,8 @@ void KExtraColumnsProxyModel_SuperEncodeData(const KExtraColumnsProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnEncodeData(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EncodeData_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1958,9 +1899,8 @@ bool KExtraColumnsProxyModel_SuperDecodeData(KExtraColumnsProxyModel* self, int 
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnDecodeData(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_DecodeData_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1987,9 +1927,8 @@ void KExtraColumnsProxyModel_SuperBeginInsertRows(KExtraColumnsProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnBeginInsertRows(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_BeginInsertRows_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2016,9 +1955,8 @@ void KExtraColumnsProxyModel_SuperEndInsertRows(KExtraColumnsProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnEndInsertRows(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EndInsertRows_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2045,9 +1983,8 @@ void KExtraColumnsProxyModel_SuperBeginRemoveRows(KExtraColumnsProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnBeginRemoveRows(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2074,9 +2011,8 @@ void KExtraColumnsProxyModel_SuperEndRemoveRows(KExtraColumnsProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnEndRemoveRows(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EndRemoveRows_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2103,9 +2039,8 @@ bool KExtraColumnsProxyModel_SuperBeginMoveRows(KExtraColumnsProxyModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnBeginMoveRows(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_BeginMoveRows_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2132,9 +2067,8 @@ void KExtraColumnsProxyModel_SuperEndMoveRows(KExtraColumnsProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnEndMoveRows(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EndMoveRows_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2161,9 +2095,8 @@ void KExtraColumnsProxyModel_SuperBeginInsertColumns(KExtraColumnsProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnBeginInsertColumns(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2190,9 +2123,8 @@ void KExtraColumnsProxyModel_SuperEndInsertColumns(KExtraColumnsProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnEndInsertColumns(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EndInsertColumns_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2219,9 +2151,8 @@ void KExtraColumnsProxyModel_SuperBeginRemoveColumns(KExtraColumnsProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnBeginRemoveColumns(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2248,9 +2179,8 @@ void KExtraColumnsProxyModel_SuperEndRemoveColumns(KExtraColumnsProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnEndRemoveColumns(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2277,9 +2207,8 @@ bool KExtraColumnsProxyModel_SuperBeginMoveColumns(KExtraColumnsProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnBeginMoveColumns(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2306,9 +2235,8 @@ void KExtraColumnsProxyModel_SuperEndMoveColumns(KExtraColumnsProxyModel* self) 
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnEndMoveColumns(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EndMoveColumns_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2335,9 +2263,8 @@ void KExtraColumnsProxyModel_SuperBeginResetModel(KExtraColumnsProxyModel* self)
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnBeginResetModel(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_BeginResetModel_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2364,9 +2291,8 @@ void KExtraColumnsProxyModel_SuperEndResetModel(KExtraColumnsProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnEndResetModel(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_EndResetModel_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2393,9 +2319,8 @@ void KExtraColumnsProxyModel_SuperChangePersistentIndex(KExtraColumnsProxyModel*
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnChangePersistentIndex(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2446,9 +2371,8 @@ void KExtraColumnsProxyModel_SuperChangePersistentIndexList(KExtraColumnsProxyMo
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnChangePersistentIndexList(KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2511,9 +2435,8 @@ libqt_list /* of QModelIndex* */ KExtraColumnsProxyModel_SuperPersistentIndexLis
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnPersistentIndexList(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_PersistentIndexList_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2540,9 +2463,8 @@ QObject* KExtraColumnsProxyModel_SuperSender(const KExtraColumnsProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnSender(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Sender_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2569,9 +2491,8 @@ int KExtraColumnsProxyModel_SuperSenderSignalIndex(const KExtraColumnsProxyModel
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnSenderSignalIndex(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2598,9 +2519,8 @@ int KExtraColumnsProxyModel_SuperReceivers(const KExtraColumnsProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnReceivers(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_Receivers_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2627,9 +2547,8 @@ bool KExtraColumnsProxyModel_SuperIsSignalConnected(const KExtraColumnsProxyMode
 // Auxiliary method to allow providing re-implementation
 void KExtraColumnsProxyModel_OnIsSignalConnected(const KExtraColumnsProxyModel* self, intptr_t slot) {
     auto* vkextracolumnsproxymodel = const_cast<VirtualKExtraColumnsProxyModel*>(dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self));
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
+    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel)
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_IsSignalConnected_Callback(reinterpret_cast<VirtualKExtraColumnsProxyModel::KExtraColumnsProxyModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KExtraColumnsProxyModel_Delete(KExtraColumnsProxyModel* self) {

@@ -140,9 +140,8 @@ QMetaObject* QSizeGrip_SuperMetaObject(const QSizeGrip* self) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMetaObject(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_MetaObject_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -159,9 +158,8 @@ void* QSizeGrip_SuperMetacast(QSizeGrip* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMetacast(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_Metacast_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -178,9 +176,8 @@ int QSizeGrip_SuperMetacall(QSizeGrip* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMetacall(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_Metacall_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -197,9 +194,8 @@ QSize* QSizeGrip_SuperSizeHint(const QSizeGrip* self) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnSizeHint(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_SizeHint_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -216,9 +212,8 @@ void QSizeGrip_SuperSetVisible(QSizeGrip* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnSetVisible(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_SetVisible_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_SetVisible_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -235,9 +230,8 @@ void QSizeGrip_SuperPaintEvent(QSizeGrip* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnPaintEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_PaintEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -254,9 +248,8 @@ void QSizeGrip_SuperMousePressEvent(QSizeGrip* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMousePressEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_MousePressEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -273,9 +266,8 @@ void QSizeGrip_SuperMouseMoveEvent(QSizeGrip* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMouseMoveEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_MouseMoveEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -292,9 +284,8 @@ void QSizeGrip_SuperMouseReleaseEvent(QSizeGrip* self, QMouseEvent* mouseEvent) 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMouseReleaseEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -311,9 +302,8 @@ void QSizeGrip_SuperMoveEvent(QSizeGrip* self, QMoveEvent* moveEvent) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMoveEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_MoveEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -330,9 +320,8 @@ void QSizeGrip_SuperShowEvent(QSizeGrip* self, QShowEvent* showEvent) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnShowEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_ShowEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -349,9 +338,8 @@ void QSizeGrip_SuperHideEvent(QSizeGrip* self, QHideEvent* hideEvent) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnHideEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_HideEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_HideEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -368,9 +356,8 @@ bool QSizeGrip_SuperEventFilter(QSizeGrip* self, QObject* param1, QEvent* param2
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnEventFilter(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_EventFilter_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -387,9 +374,8 @@ bool QSizeGrip_SuperEvent(QSizeGrip* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_Event_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +402,8 @@ int QSizeGrip_SuperDevType(const QSizeGrip* self) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnDevType(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_DevType_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +430,8 @@ QSize* QSizeGrip_SuperMinimumSizeHint(const QSizeGrip* self) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMinimumSizeHint(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_MinimumSizeHint_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +458,8 @@ int QSizeGrip_SuperHeightForWidth(const QSizeGrip* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnHeightForWidth(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_HeightForWidth_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +486,8 @@ bool QSizeGrip_SuperHasHeightForWidth(const QSizeGrip* self) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnHasHeightForWidth(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_HasHeightForWidth_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +514,8 @@ QPaintEngine* QSizeGrip_SuperPaintEngine(const QSizeGrip* self) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnPaintEngine(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_PaintEngine_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +542,8 @@ void QSizeGrip_SuperMouseDoubleClickEvent(QSizeGrip* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMouseDoubleClickEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +570,8 @@ void QSizeGrip_SuperWheelEvent(QSizeGrip* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnWheelEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_WheelEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -619,9 +598,8 @@ void QSizeGrip_SuperKeyPressEvent(QSizeGrip* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnKeyPressEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_KeyPressEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -648,9 +626,8 @@ void QSizeGrip_SuperKeyReleaseEvent(QSizeGrip* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnKeyReleaseEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -677,9 +654,8 @@ void QSizeGrip_SuperFocusInEvent(QSizeGrip* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnFocusInEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_FocusInEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +682,8 @@ void QSizeGrip_SuperFocusOutEvent(QSizeGrip* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnFocusOutEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_FocusOutEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -735,9 +710,8 @@ void QSizeGrip_SuperEnterEvent(QSizeGrip* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnEnterEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_EnterEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -764,9 +738,8 @@ void QSizeGrip_SuperLeaveEvent(QSizeGrip* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnLeaveEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_LeaveEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -793,9 +766,8 @@ void QSizeGrip_SuperResizeEvent(QSizeGrip* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnResizeEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_ResizeEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -822,9 +794,8 @@ void QSizeGrip_SuperCloseEvent(QSizeGrip* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnCloseEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_CloseEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -851,9 +822,8 @@ void QSizeGrip_SuperContextMenuEvent(QSizeGrip* self, QContextMenuEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnContextMenuEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_ContextMenuEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -880,9 +850,8 @@ void QSizeGrip_SuperTabletEvent(QSizeGrip* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnTabletEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_TabletEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -909,9 +878,8 @@ void QSizeGrip_SuperActionEvent(QSizeGrip* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnActionEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_ActionEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -938,9 +906,8 @@ void QSizeGrip_SuperDragEnterEvent(QSizeGrip* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnDragEnterEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_DragEnterEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -967,9 +934,8 @@ void QSizeGrip_SuperDragMoveEvent(QSizeGrip* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnDragMoveEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_DragMoveEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -996,9 +962,8 @@ void QSizeGrip_SuperDragLeaveEvent(QSizeGrip* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnDragLeaveEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_DragLeaveEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1025,9 +990,8 @@ void QSizeGrip_SuperDropEvent(QSizeGrip* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnDropEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_DropEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1056,9 +1020,8 @@ bool QSizeGrip_SuperNativeEvent(QSizeGrip* self, const libqt_string eventType, v
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnNativeEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_NativeEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1085,9 +1048,8 @@ void QSizeGrip_SuperChangeEvent(QSizeGrip* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnChangeEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_ChangeEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1114,9 +1076,8 @@ int QSizeGrip_SuperMetric(const QSizeGrip* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnMetric(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_Metric_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1143,9 +1104,8 @@ void QSizeGrip_SuperInitPainter(const QSizeGrip* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnInitPainter(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_InitPainter_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1172,9 +1132,8 @@ QPaintDevice* QSizeGrip_SuperRedirected(const QSizeGrip* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnRedirected(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_Redirected_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1201,9 +1160,8 @@ QPainter* QSizeGrip_SuperSharedPainter(const QSizeGrip* self) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnSharedPainter(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_SharedPainter_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1230,9 +1188,8 @@ void QSizeGrip_SuperInputMethodEvent(QSizeGrip* self, QInputMethodEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnInputMethodEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_InputMethodEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1259,9 +1216,8 @@ QVariant* QSizeGrip_SuperInputMethodQuery(const QSizeGrip* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnInputMethodQuery(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_InputMethodQuery_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1288,9 +1244,8 @@ bool QSizeGrip_SuperFocusNextPrevChild(QSizeGrip* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnFocusNextPrevChild(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1317,9 +1272,8 @@ void QSizeGrip_SuperTimerEvent(QSizeGrip* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnTimerEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_TimerEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1346,9 +1300,8 @@ void QSizeGrip_SuperChildEvent(QSizeGrip* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnChildEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_ChildEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1375,9 +1328,8 @@ void QSizeGrip_SuperCustomEvent(QSizeGrip* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnCustomEvent(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_CustomEvent_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1404,9 +1356,8 @@ void QSizeGrip_SuperConnectNotify(QSizeGrip* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnConnectNotify(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_ConnectNotify_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1433,9 +1384,8 @@ void QSizeGrip_SuperDisconnectNotify(QSizeGrip* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnDisconnectNotify(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_DisconnectNotify_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1462,9 +1412,8 @@ void QSizeGrip_SuperUpdateMicroFocus(QSizeGrip* self) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnUpdateMicroFocus(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1491,9 +1440,8 @@ void QSizeGrip_SuperCreate(QSizeGrip* self) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnCreate(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_Create_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1520,9 +1468,8 @@ void QSizeGrip_SuperDestroy(QSizeGrip* self) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnDestroy(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_Destroy_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1549,9 +1496,8 @@ bool QSizeGrip_SuperFocusNextChild(QSizeGrip* self) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnFocusNextChild(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_FocusNextChild_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1578,9 +1524,8 @@ bool QSizeGrip_SuperFocusPreviousChild(QSizeGrip* self) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnFocusPreviousChild(QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_FocusPreviousChild_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1607,9 +1552,8 @@ QObject* QSizeGrip_SuperSender(const QSizeGrip* self) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnSender(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_Sender_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1636,9 +1580,8 @@ int QSizeGrip_SuperSenderSignalIndex(const QSizeGrip* self) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnSenderSignalIndex(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1665,9 +1608,8 @@ int QSizeGrip_SuperReceivers(const QSizeGrip* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnReceivers(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_Receivers_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1694,9 +1636,8 @@ bool QSizeGrip_SuperIsSignalConnected(const QSizeGrip* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnIsSignalConnected(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_IsSignalConnected_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1723,9 +1664,8 @@ double QSizeGrip_SuperGetDecodedMetricF(const QSizeGrip* self, int metricA, int 
 // Auxiliary method to allow providing re-implementation
 void QSizeGrip_OnGetDecodedMetricF(const QSizeGrip* self, intptr_t slot) {
     auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip)
         vqsizegrip->setQSizeGrip_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QSizeGrip_Delete(QSizeGrip* self) {

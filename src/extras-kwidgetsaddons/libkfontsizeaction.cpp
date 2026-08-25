@@ -83,9 +83,8 @@ QMetaObject* KFontSizeAction_SuperMetaObject(const KFontSizeAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnMetaObject(const KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = const_cast<VirtualKFontSizeAction*>(dynamic_cast<const VirtualKFontSizeAction*>(self));
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_MetaObject_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -102,9 +101,8 @@ void* KFontSizeAction_SuperMetacast(KFontSizeAction* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnMetacast(KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_Metacast_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -121,9 +119,8 @@ int KFontSizeAction_SuperMetacall(KFontSizeAction* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnMetacall(KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_Metacall_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -140,9 +137,8 @@ void KFontSizeAction_SuperSlotActionTriggered(KFontSizeAction* self, QAction* ac
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnSlotActionTriggered(KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_SlotActionTriggered_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_SlotActionTriggered_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -169,9 +165,8 @@ QAction* KFontSizeAction_SuperRemoveAction(KFontSizeAction* self, QAction* actio
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnRemoveAction(KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_RemoveAction_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_RemoveAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -198,9 +193,8 @@ void KFontSizeAction_SuperInsertAction(KFontSizeAction* self, QAction* before, Q
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnInsertAction(KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_InsertAction_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_InsertAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -227,9 +221,8 @@ QWidget* KFontSizeAction_SuperCreateWidget(KFontSizeAction* self, QWidget* paren
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnCreateWidget(KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_CreateWidget_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_CreateWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -256,9 +249,8 @@ void KFontSizeAction_SuperDeleteWidget(KFontSizeAction* self, QWidget* widget) {
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnDeleteWidget(KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_DeleteWidget_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_DeleteWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -285,9 +277,8 @@ bool KFontSizeAction_SuperEvent(KFontSizeAction* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnEvent(KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_Event_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -314,9 +305,8 @@ bool KFontSizeAction_SuperEventFilter(KFontSizeAction* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnEventFilter(KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_EventFilter_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -343,9 +333,8 @@ void KFontSizeAction_SuperTimerEvent(KFontSizeAction* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnTimerEvent(KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_TimerEvent_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +361,8 @@ void KFontSizeAction_SuperChildEvent(KFontSizeAction* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnChildEvent(KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_ChildEvent_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -401,9 +389,8 @@ void KFontSizeAction_SuperCustomEvent(KFontSizeAction* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnCustomEvent(KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_CustomEvent_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -430,9 +417,8 @@ void KFontSizeAction_SuperConnectNotify(KFontSizeAction* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnConnectNotify(KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_ConnectNotify_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -459,9 +445,8 @@ void KFontSizeAction_SuperDisconnectNotify(KFontSizeAction* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnDisconnectNotify(KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -488,9 +473,8 @@ void KFontSizeAction_SuperSlotToggled(KFontSizeAction* self, bool param1) {
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnSlotToggled(KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_SlotToggled_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_SlotToggled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -553,9 +537,8 @@ libqt_list /* of QWidget* */ KFontSizeAction_SuperCreatedWidgets(const KFontSize
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnCreatedWidgets(const KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = const_cast<VirtualKFontSizeAction*>(dynamic_cast<const VirtualKFontSizeAction*>(self));
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_CreatedWidgets_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_CreatedWidgets_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -582,9 +565,8 @@ QObject* KFontSizeAction_SuperSender(const KFontSizeAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnSender(const KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = const_cast<VirtualKFontSizeAction*>(dynamic_cast<const VirtualKFontSizeAction*>(self));
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_Sender_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -611,9 +593,8 @@ int KFontSizeAction_SuperSenderSignalIndex(const KFontSizeAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnSenderSignalIndex(const KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = const_cast<VirtualKFontSizeAction*>(dynamic_cast<const VirtualKFontSizeAction*>(self));
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -640,9 +621,8 @@ int KFontSizeAction_SuperReceivers(const KFontSizeAction* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnReceivers(const KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = const_cast<VirtualKFontSizeAction*>(dynamic_cast<const VirtualKFontSizeAction*>(self));
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_Receivers_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -669,9 +649,8 @@ bool KFontSizeAction_SuperIsSignalConnected(const KFontSizeAction* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KFontSizeAction_OnIsSignalConnected(const KFontSizeAction* self, intptr_t slot) {
     auto* vkfontsizeaction = const_cast<VirtualKFontSizeAction*>(dynamic_cast<const VirtualKFontSizeAction*>(self));
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
+    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction)
         vkfontsizeaction->setKFontSizeAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKFontSizeAction::KFontSizeAction_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KFontSizeAction_Delete(KFontSizeAction* self) {

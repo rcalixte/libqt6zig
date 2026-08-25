@@ -2664,7 +2664,7 @@ pub const QGeoSatelliteInfoSource = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#public-types)
 pub const enums = struct {
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const AccessError: i32 = 0;
         pub const ClosedError: i32 = 1;
         pub const NoError: i32 = 2;

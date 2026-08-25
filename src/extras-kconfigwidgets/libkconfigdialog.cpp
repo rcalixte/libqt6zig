@@ -210,9 +210,8 @@ QMetaObject* KConfigDialog_SuperMetaObject(const KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnMetaObject(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_MetaObject_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -229,9 +228,8 @@ void* KConfigDialog_SuperMetacast(KConfigDialog* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnMetacast(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_Metacast_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -248,9 +246,8 @@ int KConfigDialog_SuperMetacall(KConfigDialog* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnMetacall(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_Metacall_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -267,9 +264,8 @@ void KConfigDialog_SuperUpdateSettings(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnUpdateSettings(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_UpdateSettings_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_UpdateSettings_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -286,9 +282,8 @@ void KConfigDialog_SuperUpdateWidgets(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnUpdateWidgets(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_UpdateWidgets_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_UpdateWidgets_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -305,9 +300,8 @@ void KConfigDialog_SuperUpdateWidgetsDefault(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnUpdateWidgetsDefault(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_UpdateWidgetsDefault_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_UpdateWidgetsDefault_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -324,9 +318,8 @@ void KConfigDialog_SuperShowHelp(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnShowHelp(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_ShowHelp_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_ShowHelp_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -343,9 +336,8 @@ bool KConfigDialog_SuperHasChanged(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnHasChanged(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_HasChanged_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_HasChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -362,9 +354,8 @@ bool KConfigDialog_SuperIsDefault(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnIsDefault(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_IsDefault_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_IsDefault_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -381,9 +372,8 @@ void KConfigDialog_SuperShowEvent(KConfigDialog* self, QShowEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnShowEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_ShowEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -410,9 +400,8 @@ void KConfigDialog_SuperSetVisible(KConfigDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnSetVisible(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_SetVisible_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -439,9 +428,8 @@ QSize* KConfigDialog_SuperSizeHint(const KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnSizeHint(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_SizeHint_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -468,9 +456,8 @@ QSize* KConfigDialog_SuperMinimumSizeHint(const KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnMinimumSizeHint(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -497,9 +484,8 @@ void KConfigDialog_SuperOpen(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnOpen(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_Open_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -526,9 +512,8 @@ int KConfigDialog_SuperExec(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnExec(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_Exec_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -555,9 +540,8 @@ void KConfigDialog_SuperDone(KConfigDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnDone(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_Done_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -584,9 +568,8 @@ void KConfigDialog_SuperAccept(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnAccept(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_Accept_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -613,9 +596,8 @@ void KConfigDialog_SuperReject(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnReject(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_Reject_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -642,9 +624,8 @@ void KConfigDialog_SuperKeyPressEvent(KConfigDialog* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnKeyPressEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -671,9 +652,8 @@ void KConfigDialog_SuperCloseEvent(KConfigDialog* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnCloseEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_CloseEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -700,9 +680,8 @@ void KConfigDialog_SuperResizeEvent(KConfigDialog* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnResizeEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -729,9 +708,8 @@ void KConfigDialog_SuperContextMenuEvent(KConfigDialog* self, QContextMenuEvent*
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnContextMenuEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -758,9 +736,8 @@ bool KConfigDialog_SuperEventFilter(KConfigDialog* self, QObject* param1, QEvent
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnEventFilter(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_EventFilter_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -787,9 +764,8 @@ int KConfigDialog_SuperDevType(const KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnDevType(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_DevType_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -816,9 +792,8 @@ int KConfigDialog_SuperHeightForWidth(const KConfigDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnHeightForWidth(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -845,9 +820,8 @@ bool KConfigDialog_SuperHasHeightForWidth(const KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnHasHeightForWidth(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -874,9 +848,8 @@ QPaintEngine* KConfigDialog_SuperPaintEngine(const KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnPaintEngine(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_PaintEngine_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -903,9 +876,8 @@ bool KConfigDialog_SuperEvent(KConfigDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_Event_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -932,9 +904,8 @@ void KConfigDialog_SuperMousePressEvent(KConfigDialog* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnMousePressEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -961,9 +932,8 @@ void KConfigDialog_SuperMouseReleaseEvent(KConfigDialog* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnMouseReleaseEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -990,9 +960,8 @@ void KConfigDialog_SuperMouseDoubleClickEvent(KConfigDialog* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnMouseDoubleClickEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1019,9 +988,8 @@ void KConfigDialog_SuperMouseMoveEvent(KConfigDialog* self, QMouseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnMouseMoveEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1048,9 +1016,8 @@ void KConfigDialog_SuperWheelEvent(KConfigDialog* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnWheelEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_WheelEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1077,9 +1044,8 @@ void KConfigDialog_SuperKeyReleaseEvent(KConfigDialog* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnKeyReleaseEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1106,9 +1072,8 @@ void KConfigDialog_SuperFocusInEvent(KConfigDialog* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnFocusInEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1135,9 +1100,8 @@ void KConfigDialog_SuperFocusOutEvent(KConfigDialog* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnFocusOutEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1164,9 +1128,8 @@ void KConfigDialog_SuperEnterEvent(KConfigDialog* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnEnterEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_EnterEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1193,9 +1156,8 @@ void KConfigDialog_SuperLeaveEvent(KConfigDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnLeaveEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1222,9 +1184,8 @@ void KConfigDialog_SuperPaintEvent(KConfigDialog* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnPaintEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_PaintEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1251,9 +1212,8 @@ void KConfigDialog_SuperMoveEvent(KConfigDialog* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnMoveEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_MoveEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1280,9 +1240,8 @@ void KConfigDialog_SuperTabletEvent(KConfigDialog* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnTabletEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_TabletEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1309,9 +1268,8 @@ void KConfigDialog_SuperActionEvent(KConfigDialog* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnActionEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_ActionEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1338,9 +1296,8 @@ void KConfigDialog_SuperDragEnterEvent(KConfigDialog* self, QDragEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnDragEnterEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1367,9 +1324,8 @@ void KConfigDialog_SuperDragMoveEvent(KConfigDialog* self, QDragMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnDragMoveEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1396,9 +1352,8 @@ void KConfigDialog_SuperDragLeaveEvent(KConfigDialog* self, QDragLeaveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnDragLeaveEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1425,9 +1380,8 @@ void KConfigDialog_SuperDropEvent(KConfigDialog* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnDropEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_DropEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1454,9 +1408,8 @@ void KConfigDialog_SuperHideEvent(KConfigDialog* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnHideEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_HideEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1485,9 +1438,8 @@ bool KConfigDialog_SuperNativeEvent(KConfigDialog* self, const libqt_string even
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnNativeEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_NativeEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1514,9 +1466,8 @@ void KConfigDialog_SuperChangeEvent(KConfigDialog* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnChangeEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1543,9 +1494,8 @@ int KConfigDialog_SuperMetric(const KConfigDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnMetric(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_Metric_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1572,9 +1522,8 @@ void KConfigDialog_SuperInitPainter(const KConfigDialog* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnInitPainter(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_InitPainter_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1601,9 +1550,8 @@ QPaintDevice* KConfigDialog_SuperRedirected(const KConfigDialog* self, QPoint* o
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnRedirected(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_Redirected_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1630,9 +1578,8 @@ QPainter* KConfigDialog_SuperSharedPainter(const KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnSharedPainter(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_SharedPainter_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1659,9 +1606,8 @@ void KConfigDialog_SuperInputMethodEvent(KConfigDialog* self, QInputMethodEvent*
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnInputMethodEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1688,9 +1634,8 @@ QVariant* KConfigDialog_SuperInputMethodQuery(const KConfigDialog* self, int par
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnInputMethodQuery(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1717,9 +1662,8 @@ bool KConfigDialog_SuperFocusNextPrevChild(KConfigDialog* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnFocusNextPrevChild(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1746,9 +1690,8 @@ void KConfigDialog_SuperTimerEvent(KConfigDialog* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnTimerEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_TimerEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1775,9 +1718,8 @@ void KConfigDialog_SuperChildEvent(KConfigDialog* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnChildEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_ChildEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1804,9 +1746,8 @@ void KConfigDialog_SuperCustomEvent(KConfigDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnCustomEvent(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_CustomEvent_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1833,9 +1774,8 @@ void KConfigDialog_SuperConnectNotify(KConfigDialog* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnConnectNotify(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1862,9 +1802,8 @@ void KConfigDialog_SuperDisconnectNotify(KConfigDialog* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnDisconnectNotify(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1891,9 +1830,8 @@ void KConfigDialog_SuperUpdateButtons(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnUpdateButtons(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_UpdateButtons_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_UpdateButtons_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1920,9 +1858,8 @@ void KConfigDialog_SuperSettingsChangedSlot(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnSettingsChangedSlot(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_SettingsChangedSlot_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_SettingsChangedSlot_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1951,9 +1888,8 @@ void KConfigDialog_SuperSetHelp(KConfigDialog* self, const libqt_string anchor) 
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnSetHelp(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_SetHelp_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_SetHelp_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1984,9 +1920,8 @@ void KConfigDialog_SuperSetHelp2(KConfigDialog* self, const libqt_string anchor,
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnSetHelp2(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_SetHelp2_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_SetHelp2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2013,9 +1948,8 @@ KPageWidget* KConfigDialog_SuperPageWidget(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnPageWidget(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_PageWidget_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_PageWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2042,9 +1976,8 @@ void KConfigDialog_SuperSetPageWidget(KConfigDialog* self, KPageWidget* widget) 
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnSetPageWidget(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_SetPageWidget_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_SetPageWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2071,9 +2004,8 @@ QDialogButtonBox* KConfigDialog_SuperButtonBox(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnButtonBox(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_ButtonBox_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_ButtonBox_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2100,9 +2032,8 @@ void KConfigDialog_SuperSetButtonBox(KConfigDialog* self, QDialogButtonBox* box)
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnSetButtonBox(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_SetButtonBox_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_SetButtonBox_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2129,9 +2060,8 @@ void KConfigDialog_SuperAdjustPosition(KConfigDialog* self, QWidget* param1) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnAdjustPosition(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2158,9 +2088,8 @@ void KConfigDialog_SuperUpdateMicroFocus(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnUpdateMicroFocus(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2187,9 +2116,8 @@ void KConfigDialog_SuperCreate(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnCreate(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_Create_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2216,9 +2144,8 @@ void KConfigDialog_SuperDestroy(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnDestroy(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_Destroy_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2245,9 +2172,8 @@ bool KConfigDialog_SuperFocusNextChild(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnFocusNextChild(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2274,9 +2200,8 @@ bool KConfigDialog_SuperFocusPreviousChild(KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnFocusPreviousChild(KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = dynamic_cast<VirtualKConfigDialog*>(self);
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2303,9 +2228,8 @@ QObject* KConfigDialog_SuperSender(const KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnSender(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_Sender_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2332,9 +2256,8 @@ int KConfigDialog_SuperSenderSignalIndex(const KConfigDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnSenderSignalIndex(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2361,9 +2284,8 @@ int KConfigDialog_SuperReceivers(const KConfigDialog* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnReceivers(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_Receivers_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2390,9 +2312,8 @@ bool KConfigDialog_SuperIsSignalConnected(const KConfigDialog* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnIsSignalConnected(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2419,9 +2340,8 @@ double KConfigDialog_SuperGetDecodedMetricF(const KConfigDialog* self, int metri
 // Auxiliary method to allow providing re-implementation
 void KConfigDialog_OnGetDecodedMetricF(const KConfigDialog* self, intptr_t slot) {
     auto* vkconfigdialog = const_cast<VirtualKConfigDialog*>(dynamic_cast<const VirtualKConfigDialog*>(self));
-    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog) {
+    if (vkconfigdialog && vkconfigdialog->isVirtualKConfigDialog)
         vkconfigdialog->setKConfigDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKConfigDialog::KConfigDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KConfigDialog_Delete(KConfigDialog* self) {

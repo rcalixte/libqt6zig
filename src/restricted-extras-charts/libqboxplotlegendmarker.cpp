@@ -55,9 +55,8 @@ QMetaObject* QBoxPlotLegendMarker_SuperMetaObject(const QBoxPlotLegendMarker* se
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnMetaObject(const QBoxPlotLegendMarker* self, intptr_t slot) {
     auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_MetaObject_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -74,9 +73,8 @@ void* QBoxPlotLegendMarker_SuperMetacast(QBoxPlotLegendMarker* self, const char*
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnMetacast(QBoxPlotLegendMarker* self, intptr_t slot) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_Metacast_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -93,9 +91,8 @@ int QBoxPlotLegendMarker_SuperMetacall(QBoxPlotLegendMarker* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnMetacall(QBoxPlotLegendMarker* self, intptr_t slot) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_Metacall_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -112,9 +109,8 @@ int QBoxPlotLegendMarker_SuperType(QBoxPlotLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnType(QBoxPlotLegendMarker* self, intptr_t slot) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_Type_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Type_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -131,9 +127,8 @@ QBoxPlotSeries* QBoxPlotLegendMarker_SuperSeries(QBoxPlotLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnSeries(QBoxPlotLegendMarker* self, intptr_t slot) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_Series_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Series_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -160,9 +155,8 @@ bool QBoxPlotLegendMarker_SuperEvent(QBoxPlotLegendMarker* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnEvent(QBoxPlotLegendMarker* self, intptr_t slot) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_Event_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -189,9 +183,8 @@ bool QBoxPlotLegendMarker_SuperEventFilter(QBoxPlotLegendMarker* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnEventFilter(QBoxPlotLegendMarker* self, intptr_t slot) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_EventFilter_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -218,9 +211,8 @@ void QBoxPlotLegendMarker_SuperTimerEvent(QBoxPlotLegendMarker* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnTimerEvent(QBoxPlotLegendMarker* self, intptr_t slot) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_TimerEvent_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -247,9 +239,8 @@ void QBoxPlotLegendMarker_SuperChildEvent(QBoxPlotLegendMarker* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnChildEvent(QBoxPlotLegendMarker* self, intptr_t slot) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_ChildEvent_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -276,9 +267,8 @@ void QBoxPlotLegendMarker_SuperCustomEvent(QBoxPlotLegendMarker* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnCustomEvent(QBoxPlotLegendMarker* self, intptr_t slot) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_CustomEvent_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -305,9 +295,8 @@ void QBoxPlotLegendMarker_SuperConnectNotify(QBoxPlotLegendMarker* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnConnectNotify(QBoxPlotLegendMarker* self, intptr_t slot) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_ConnectNotify_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -334,9 +323,8 @@ void QBoxPlotLegendMarker_SuperDisconnectNotify(QBoxPlotLegendMarker* self, cons
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnDisconnectNotify(QBoxPlotLegendMarker* self, intptr_t slot) {
     auto* vqboxplotlegendmarker = dynamic_cast<VirtualQBoxPlotLegendMarker*>(self);
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_DisconnectNotify_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -363,9 +351,8 @@ QObject* QBoxPlotLegendMarker_SuperSender(const QBoxPlotLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnSender(const QBoxPlotLegendMarker* self, intptr_t slot) {
     auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_Sender_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -392,9 +379,8 @@ int QBoxPlotLegendMarker_SuperSenderSignalIndex(const QBoxPlotLegendMarker* self
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnSenderSignalIndex(const QBoxPlotLegendMarker* self, intptr_t slot) {
     auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_SenderSignalIndex_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -421,9 +407,8 @@ int QBoxPlotLegendMarker_SuperReceivers(const QBoxPlotLegendMarker* self, const 
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnReceivers(const QBoxPlotLegendMarker* self, intptr_t slot) {
     auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_Receivers_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -450,9 +435,8 @@ bool QBoxPlotLegendMarker_SuperIsSignalConnected(const QBoxPlotLegendMarker* sel
 // Auxiliary method to allow providing re-implementation
 void QBoxPlotLegendMarker_OnIsSignalConnected(const QBoxPlotLegendMarker* self, intptr_t slot) {
     auto* vqboxplotlegendmarker = const_cast<VirtualQBoxPlotLegendMarker*>(dynamic_cast<const VirtualQBoxPlotLegendMarker*>(self));
-    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker) {
+    if (vqboxplotlegendmarker && vqboxplotlegendmarker->isVirtualQBoxPlotLegendMarker)
         vqboxplotlegendmarker->setQBoxPlotLegendMarker_IsSignalConnected_Callback(reinterpret_cast<VirtualQBoxPlotLegendMarker::QBoxPlotLegendMarker_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QBoxPlotLegendMarker_Delete(QBoxPlotLegendMarker* self) {

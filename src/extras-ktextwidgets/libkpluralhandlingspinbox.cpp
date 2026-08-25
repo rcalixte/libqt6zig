@@ -80,9 +80,8 @@ QMetaObject* KPluralHandlingSpinBox_SuperMetaObject(const KPluralHandlingSpinBox
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnMetaObject(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_MetaObject_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -99,9 +98,8 @@ void* KPluralHandlingSpinBox_SuperMetacast(KPluralHandlingSpinBox* self, const c
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnMetacast(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Metacast_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -118,9 +116,8 @@ int KPluralHandlingSpinBox_SuperMetacall(KPluralHandlingSpinBox* self, int param
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnMetacall(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Metacall_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -147,9 +144,8 @@ bool KPluralHandlingSpinBox_SuperEvent(KPluralHandlingSpinBox* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Event_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -178,9 +174,8 @@ int KPluralHandlingSpinBox_SuperValidate(const KPluralHandlingSpinBox* self, lib
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnValidate(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Validate_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_Validate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -209,9 +204,8 @@ int KPluralHandlingSpinBox_SuperValueFromText(const KPluralHandlingSpinBox* self
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnValueFromText(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_ValueFromText_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_ValueFromText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -270,9 +264,8 @@ libqt_string KPluralHandlingSpinBox_SuperTextFromValue(const KPluralHandlingSpin
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnTextFromValue(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_TextFromValue_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_TextFromValue_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -301,9 +294,8 @@ void KPluralHandlingSpinBox_SuperFixup(const KPluralHandlingSpinBox* self, libqt
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnFixup(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Fixup_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_Fixup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -330,9 +322,8 @@ QSize* KPluralHandlingSpinBox_SuperSizeHint(const KPluralHandlingSpinBox* self) 
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnSizeHint(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_SizeHint_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -359,9 +350,8 @@ QSize* KPluralHandlingSpinBox_SuperMinimumSizeHint(const KPluralHandlingSpinBox*
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnMinimumSizeHint(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -388,9 +378,8 @@ QVariant* KPluralHandlingSpinBox_SuperInputMethodQuery(const KPluralHandlingSpin
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnInputMethodQuery(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_InputMethodQuery_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -417,9 +406,8 @@ void KPluralHandlingSpinBox_SuperStepBy(KPluralHandlingSpinBox* self, int steps)
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnStepBy(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_StepBy_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_StepBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -446,9 +434,8 @@ void KPluralHandlingSpinBox_SuperClear(KPluralHandlingSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnClear(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Clear_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_Clear_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -475,9 +462,8 @@ void KPluralHandlingSpinBox_SuperResizeEvent(KPluralHandlingSpinBox* self, QResi
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnResizeEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_ResizeEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -504,9 +490,8 @@ void KPluralHandlingSpinBox_SuperKeyPressEvent(KPluralHandlingSpinBox* self, QKe
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnKeyPressEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_KeyPressEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -533,9 +518,8 @@ void KPluralHandlingSpinBox_SuperKeyReleaseEvent(KPluralHandlingSpinBox* self, Q
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnKeyReleaseEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -562,9 +546,8 @@ void KPluralHandlingSpinBox_SuperWheelEvent(KPluralHandlingSpinBox* self, QWheel
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnWheelEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_WheelEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -591,9 +574,8 @@ void KPluralHandlingSpinBox_SuperFocusInEvent(KPluralHandlingSpinBox* self, QFoc
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnFocusInEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_FocusInEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -620,9 +602,8 @@ void KPluralHandlingSpinBox_SuperFocusOutEvent(KPluralHandlingSpinBox* self, QFo
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnFocusOutEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_FocusOutEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -649,9 +630,8 @@ void KPluralHandlingSpinBox_SuperContextMenuEvent(KPluralHandlingSpinBox* self, 
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnContextMenuEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -678,9 +658,8 @@ void KPluralHandlingSpinBox_SuperChangeEvent(KPluralHandlingSpinBox* self, QEven
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnChangeEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_ChangeEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -707,9 +686,8 @@ void KPluralHandlingSpinBox_SuperCloseEvent(KPluralHandlingSpinBox* self, QClose
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnCloseEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_CloseEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -736,9 +714,8 @@ void KPluralHandlingSpinBox_SuperHideEvent(KPluralHandlingSpinBox* self, QHideEv
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnHideEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_HideEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -765,9 +742,8 @@ void KPluralHandlingSpinBox_SuperMousePressEvent(KPluralHandlingSpinBox* self, Q
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnMousePressEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_MousePressEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -794,9 +770,8 @@ void KPluralHandlingSpinBox_SuperMouseReleaseEvent(KPluralHandlingSpinBox* self,
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnMouseReleaseEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -823,9 +798,8 @@ void KPluralHandlingSpinBox_SuperMouseMoveEvent(KPluralHandlingSpinBox* self, QM
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnMouseMoveEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -852,9 +826,8 @@ void KPluralHandlingSpinBox_SuperTimerEvent(KPluralHandlingSpinBox* self, QTimer
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnTimerEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_TimerEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -881,9 +854,8 @@ void KPluralHandlingSpinBox_SuperPaintEvent(KPluralHandlingSpinBox* self, QPaint
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnPaintEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_PaintEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -910,9 +882,8 @@ void KPluralHandlingSpinBox_SuperShowEvent(KPluralHandlingSpinBox* self, QShowEv
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnShowEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_ShowEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -939,9 +910,8 @@ void KPluralHandlingSpinBox_SuperInitStyleOption(const KPluralHandlingSpinBox* s
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnInitStyleOption(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_InitStyleOption_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -968,9 +938,8 @@ int KPluralHandlingSpinBox_SuperStepEnabled(const KPluralHandlingSpinBox* self) 
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnStepEnabled(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_StepEnabled_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_StepEnabled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -997,9 +966,8 @@ int KPluralHandlingSpinBox_SuperDevType(const KPluralHandlingSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnDevType(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_DevType_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1026,9 +994,8 @@ void KPluralHandlingSpinBox_SuperSetVisible(KPluralHandlingSpinBox* self, bool v
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnSetVisible(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_SetVisible_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1055,9 +1022,8 @@ int KPluralHandlingSpinBox_SuperHeightForWidth(const KPluralHandlingSpinBox* sel
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnHeightForWidth(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_HeightForWidth_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1084,9 +1050,8 @@ bool KPluralHandlingSpinBox_SuperHasHeightForWidth(const KPluralHandlingSpinBox*
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnHasHeightForWidth(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1113,9 +1078,8 @@ QPaintEngine* KPluralHandlingSpinBox_SuperPaintEngine(const KPluralHandlingSpinB
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnPaintEngine(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_PaintEngine_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1142,9 +1106,8 @@ void KPluralHandlingSpinBox_SuperMouseDoubleClickEvent(KPluralHandlingSpinBox* s
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnMouseDoubleClickEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1171,9 +1134,8 @@ void KPluralHandlingSpinBox_SuperEnterEvent(KPluralHandlingSpinBox* self, QEnter
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnEnterEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_EnterEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1200,9 +1162,8 @@ void KPluralHandlingSpinBox_SuperLeaveEvent(KPluralHandlingSpinBox* self, QEvent
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnLeaveEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_LeaveEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1229,9 +1190,8 @@ void KPluralHandlingSpinBox_SuperMoveEvent(KPluralHandlingSpinBox* self, QMoveEv
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnMoveEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_MoveEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1258,9 +1218,8 @@ void KPluralHandlingSpinBox_SuperTabletEvent(KPluralHandlingSpinBox* self, QTabl
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnTabletEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_TabletEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1287,9 +1246,8 @@ void KPluralHandlingSpinBox_SuperActionEvent(KPluralHandlingSpinBox* self, QActi
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnActionEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_ActionEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1316,9 +1274,8 @@ void KPluralHandlingSpinBox_SuperDragEnterEvent(KPluralHandlingSpinBox* self, QD
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnDragEnterEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_DragEnterEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1345,9 +1302,8 @@ void KPluralHandlingSpinBox_SuperDragMoveEvent(KPluralHandlingSpinBox* self, QDr
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnDragMoveEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_DragMoveEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1374,9 +1330,8 @@ void KPluralHandlingSpinBox_SuperDragLeaveEvent(KPluralHandlingSpinBox* self, QD
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnDragLeaveEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1403,9 +1358,8 @@ void KPluralHandlingSpinBox_SuperDropEvent(KPluralHandlingSpinBox* self, QDropEv
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnDropEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_DropEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1434,9 +1388,8 @@ bool KPluralHandlingSpinBox_SuperNativeEvent(KPluralHandlingSpinBox* self, const
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnNativeEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_NativeEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1463,9 +1416,8 @@ int KPluralHandlingSpinBox_SuperMetric(const KPluralHandlingSpinBox* self, int p
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnMetric(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Metric_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1492,9 +1444,8 @@ void KPluralHandlingSpinBox_SuperInitPainter(const KPluralHandlingSpinBox* self,
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnInitPainter(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_InitPainter_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1521,9 +1472,8 @@ QPaintDevice* KPluralHandlingSpinBox_SuperRedirected(const KPluralHandlingSpinBo
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnRedirected(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Redirected_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1550,9 +1500,8 @@ QPainter* KPluralHandlingSpinBox_SuperSharedPainter(const KPluralHandlingSpinBox
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnSharedPainter(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_SharedPainter_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1579,9 +1528,8 @@ void KPluralHandlingSpinBox_SuperInputMethodEvent(KPluralHandlingSpinBox* self, 
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnInputMethodEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_InputMethodEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1608,9 +1556,8 @@ bool KPluralHandlingSpinBox_SuperFocusNextPrevChild(KPluralHandlingSpinBox* self
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnFocusNextPrevChild(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1637,9 +1584,8 @@ bool KPluralHandlingSpinBox_SuperEventFilter(KPluralHandlingSpinBox* self, QObje
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnEventFilter(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_EventFilter_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1666,9 +1612,8 @@ void KPluralHandlingSpinBox_SuperChildEvent(KPluralHandlingSpinBox* self, QChild
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnChildEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_ChildEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1695,9 +1640,8 @@ void KPluralHandlingSpinBox_SuperCustomEvent(KPluralHandlingSpinBox* self, QEven
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnCustomEvent(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_CustomEvent_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1724,9 +1668,8 @@ void KPluralHandlingSpinBox_SuperConnectNotify(KPluralHandlingSpinBox* self, con
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnConnectNotify(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_ConnectNotify_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1753,9 +1696,8 @@ void KPluralHandlingSpinBox_SuperDisconnectNotify(KPluralHandlingSpinBox* self, 
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnDisconnectNotify(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_DisconnectNotify_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1782,9 +1724,8 @@ QLineEdit* KPluralHandlingSpinBox_SuperLineEdit(const KPluralHandlingSpinBox* se
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnLineEdit(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_LineEdit_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_LineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1811,9 +1752,8 @@ void KPluralHandlingSpinBox_SuperSetLineEdit(KPluralHandlingSpinBox* self, QLine
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnSetLineEdit(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_SetLineEdit_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_SetLineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1840,9 +1780,8 @@ void KPluralHandlingSpinBox_SuperUpdateMicroFocus(KPluralHandlingSpinBox* self) 
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnUpdateMicroFocus(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1869,9 +1808,8 @@ void KPluralHandlingSpinBox_SuperCreate(KPluralHandlingSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnCreate(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Create_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1898,9 +1836,8 @@ void KPluralHandlingSpinBox_SuperDestroy(KPluralHandlingSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnDestroy(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Destroy_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1927,9 +1864,8 @@ bool KPluralHandlingSpinBox_SuperFocusNextChild(KPluralHandlingSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnFocusNextChild(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_FocusNextChild_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1956,9 +1892,8 @@ bool KPluralHandlingSpinBox_SuperFocusPreviousChild(KPluralHandlingSpinBox* self
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnFocusPreviousChild(KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1985,9 +1920,8 @@ QObject* KPluralHandlingSpinBox_SuperSender(const KPluralHandlingSpinBox* self) 
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnSender(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Sender_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2014,9 +1948,8 @@ int KPluralHandlingSpinBox_SuperSenderSignalIndex(const KPluralHandlingSpinBox* 
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnSenderSignalIndex(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2043,9 +1976,8 @@ int KPluralHandlingSpinBox_SuperReceivers(const KPluralHandlingSpinBox* self, co
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnReceivers(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_Receivers_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2072,9 +2004,8 @@ bool KPluralHandlingSpinBox_SuperIsSignalConnected(const KPluralHandlingSpinBox*
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnIsSignalConnected(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_IsSignalConnected_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2101,9 +2032,8 @@ double KPluralHandlingSpinBox_SuperGetDecodedMetricF(const KPluralHandlingSpinBo
 // Auxiliary method to allow providing re-implementation
 void KPluralHandlingSpinBox_OnGetDecodedMetricF(const KPluralHandlingSpinBox* self, intptr_t slot) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
+    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox)
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKPluralHandlingSpinBox::KPluralHandlingSpinBox_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KPluralHandlingSpinBox_Delete(KPluralHandlingSpinBox* self) {

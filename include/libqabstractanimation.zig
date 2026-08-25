@@ -4816,18 +4816,18 @@ pub const QAnimationDriver = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractanimation.html#public-types)
 pub const enums = struct {
-    pub const Direction = enum(i32) {
+    pub const Direction = enum {
         pub const Forward: i32 = 0;
         pub const Backward: i32 = 1;
     };
 
-    pub const State = enum(i32) {
+    pub const State = enum {
         pub const Stopped: i32 = 0;
         pub const Paused: i32 = 1;
         pub const Running: i32 = 2;
     };
 
-    pub const DeletionPolicy = enum(i32) {
+    pub const DeletionPolicy = enum {
         pub const KeepWhenStopped: i32 = 0;
         pub const DeleteWhenStopped: i32 = 1;
     };

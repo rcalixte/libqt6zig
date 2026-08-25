@@ -171,9 +171,8 @@ QMetaObject* KNewPasswordWidget_SuperMetaObject(const KNewPasswordWidget* self) 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMetaObject(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_MetaObject_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -190,9 +189,8 @@ void* KNewPasswordWidget_SuperMetacast(KNewPasswordWidget* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMetacast(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_Metacast_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -209,9 +207,8 @@ int KNewPasswordWidget_SuperMetacall(KNewPasswordWidget* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMetacall(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_Metacall_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -238,9 +235,8 @@ int KNewPasswordWidget_SuperDevType(const KNewPasswordWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnDevType(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_DevType_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -267,9 +263,8 @@ void KNewPasswordWidget_SuperSetVisible(KNewPasswordWidget* self, bool visible) 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnSetVisible(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_SetVisible_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -296,9 +291,8 @@ QSize* KNewPasswordWidget_SuperSizeHint(const KNewPasswordWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnSizeHint(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_SizeHint_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -325,9 +319,8 @@ QSize* KNewPasswordWidget_SuperMinimumSizeHint(const KNewPasswordWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMinimumSizeHint(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -354,9 +347,8 @@ int KNewPasswordWidget_SuperHeightForWidth(const KNewPasswordWidget* self, int p
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnHeightForWidth(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -383,9 +375,8 @@ bool KNewPasswordWidget_SuperHasHeightForWidth(const KNewPasswordWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnHasHeightForWidth(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -412,9 +403,8 @@ QPaintEngine* KNewPasswordWidget_SuperPaintEngine(const KNewPasswordWidget* self
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnPaintEngine(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_PaintEngine_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -441,9 +431,8 @@ bool KNewPasswordWidget_SuperEvent(KNewPasswordWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_Event_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -470,9 +459,8 @@ void KNewPasswordWidget_SuperMousePressEvent(KNewPasswordWidget* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMousePressEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -499,9 +487,8 @@ void KNewPasswordWidget_SuperMouseReleaseEvent(KNewPasswordWidget* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMouseReleaseEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -528,9 +515,8 @@ void KNewPasswordWidget_SuperMouseDoubleClickEvent(KNewPasswordWidget* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMouseDoubleClickEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -557,9 +543,8 @@ void KNewPasswordWidget_SuperMouseMoveEvent(KNewPasswordWidget* self, QMouseEven
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMouseMoveEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -586,9 +571,8 @@ void KNewPasswordWidget_SuperWheelEvent(KNewPasswordWidget* self, QWheelEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnWheelEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_WheelEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -615,9 +599,8 @@ void KNewPasswordWidget_SuperKeyPressEvent(KNewPasswordWidget* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnKeyPressEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -644,9 +627,8 @@ void KNewPasswordWidget_SuperKeyReleaseEvent(KNewPasswordWidget* self, QKeyEvent
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnKeyReleaseEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -673,9 +655,8 @@ void KNewPasswordWidget_SuperFocusInEvent(KNewPasswordWidget* self, QFocusEvent*
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnFocusInEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -702,9 +683,8 @@ void KNewPasswordWidget_SuperFocusOutEvent(KNewPasswordWidget* self, QFocusEvent
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnFocusOutEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -731,9 +711,8 @@ void KNewPasswordWidget_SuperEnterEvent(KNewPasswordWidget* self, QEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnEnterEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_EnterEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -760,9 +739,8 @@ void KNewPasswordWidget_SuperLeaveEvent(KNewPasswordWidget* self, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnLeaveEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -789,9 +767,8 @@ void KNewPasswordWidget_SuperPaintEvent(KNewPasswordWidget* self, QPaintEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnPaintEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_PaintEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -818,9 +795,8 @@ void KNewPasswordWidget_SuperMoveEvent(KNewPasswordWidget* self, QMoveEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMoveEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_MoveEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -847,9 +823,8 @@ void KNewPasswordWidget_SuperResizeEvent(KNewPasswordWidget* self, QResizeEvent*
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnResizeEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -876,9 +851,8 @@ void KNewPasswordWidget_SuperCloseEvent(KNewPasswordWidget* self, QCloseEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnCloseEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_CloseEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -905,9 +879,8 @@ void KNewPasswordWidget_SuperContextMenuEvent(KNewPasswordWidget* self, QContext
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnContextMenuEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -934,9 +907,8 @@ void KNewPasswordWidget_SuperTabletEvent(KNewPasswordWidget* self, QTabletEvent*
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnTabletEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_TabletEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -963,9 +935,8 @@ void KNewPasswordWidget_SuperActionEvent(KNewPasswordWidget* self, QActionEvent*
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnActionEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_ActionEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -992,9 +963,8 @@ void KNewPasswordWidget_SuperDragEnterEvent(KNewPasswordWidget* self, QDragEnter
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnDragEnterEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1021,9 +991,8 @@ void KNewPasswordWidget_SuperDragMoveEvent(KNewPasswordWidget* self, QDragMoveEv
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnDragMoveEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1050,9 +1019,8 @@ void KNewPasswordWidget_SuperDragLeaveEvent(KNewPasswordWidget* self, QDragLeave
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnDragLeaveEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1079,9 +1047,8 @@ void KNewPasswordWidget_SuperDropEvent(KNewPasswordWidget* self, QDropEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnDropEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_DropEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1108,9 +1075,8 @@ void KNewPasswordWidget_SuperShowEvent(KNewPasswordWidget* self, QShowEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnShowEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_ShowEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1137,9 +1103,8 @@ void KNewPasswordWidget_SuperHideEvent(KNewPasswordWidget* self, QHideEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnHideEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_HideEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1168,9 +1133,8 @@ bool KNewPasswordWidget_SuperNativeEvent(KNewPasswordWidget* self, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnNativeEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_NativeEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1197,9 +1161,8 @@ void KNewPasswordWidget_SuperChangeEvent(KNewPasswordWidget* self, QEvent* param
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnChangeEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1226,9 +1189,8 @@ int KNewPasswordWidget_SuperMetric(const KNewPasswordWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnMetric(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_Metric_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1255,9 +1217,8 @@ void KNewPasswordWidget_SuperInitPainter(const KNewPasswordWidget* self, QPainte
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnInitPainter(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_InitPainter_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1284,9 +1245,8 @@ QPaintDevice* KNewPasswordWidget_SuperRedirected(const KNewPasswordWidget* self,
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnRedirected(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_Redirected_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1313,9 +1273,8 @@ QPainter* KNewPasswordWidget_SuperSharedPainter(const KNewPasswordWidget* self) 
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnSharedPainter(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_SharedPainter_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1342,9 +1301,8 @@ void KNewPasswordWidget_SuperInputMethodEvent(KNewPasswordWidget* self, QInputMe
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnInputMethodEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1371,9 +1329,8 @@ QVariant* KNewPasswordWidget_SuperInputMethodQuery(const KNewPasswordWidget* sel
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnInputMethodQuery(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1400,9 +1357,8 @@ bool KNewPasswordWidget_SuperFocusNextPrevChild(KNewPasswordWidget* self, bool n
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnFocusNextPrevChild(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1429,9 +1385,8 @@ bool KNewPasswordWidget_SuperEventFilter(KNewPasswordWidget* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnEventFilter(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_EventFilter_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1458,9 +1413,8 @@ void KNewPasswordWidget_SuperTimerEvent(KNewPasswordWidget* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnTimerEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_TimerEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1487,9 +1441,8 @@ void KNewPasswordWidget_SuperChildEvent(KNewPasswordWidget* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnChildEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_ChildEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1516,9 +1469,8 @@ void KNewPasswordWidget_SuperCustomEvent(KNewPasswordWidget* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnCustomEvent(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_CustomEvent_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1545,9 +1497,8 @@ void KNewPasswordWidget_SuperConnectNotify(KNewPasswordWidget* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnConnectNotify(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1574,9 +1525,8 @@ void KNewPasswordWidget_SuperDisconnectNotify(KNewPasswordWidget* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnDisconnectNotify(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1603,9 +1553,8 @@ void KNewPasswordWidget_SuperUpdateMicroFocus(KNewPasswordWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnUpdateMicroFocus(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1632,9 +1581,8 @@ void KNewPasswordWidget_SuperCreate(KNewPasswordWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnCreate(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_Create_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1661,9 +1609,8 @@ void KNewPasswordWidget_SuperDestroy(KNewPasswordWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnDestroy(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_Destroy_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1690,9 +1637,8 @@ bool KNewPasswordWidget_SuperFocusNextChild(KNewPasswordWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnFocusNextChild(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1719,9 +1665,8 @@ bool KNewPasswordWidget_SuperFocusPreviousChild(KNewPasswordWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnFocusPreviousChild(KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1748,9 +1693,8 @@ QObject* KNewPasswordWidget_SuperSender(const KNewPasswordWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnSender(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_Sender_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1777,9 +1721,8 @@ int KNewPasswordWidget_SuperSenderSignalIndex(const KNewPasswordWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnSenderSignalIndex(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1806,9 +1749,8 @@ int KNewPasswordWidget_SuperReceivers(const KNewPasswordWidget* self, const char
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnReceivers(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_Receivers_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1835,9 +1777,8 @@ bool KNewPasswordWidget_SuperIsSignalConnected(const KNewPasswordWidget* self, c
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnIsSignalConnected(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1864,9 +1805,8 @@ double KNewPasswordWidget_SuperGetDecodedMetricF(const KNewPasswordWidget* self,
 // Auxiliary method to allow providing re-implementation
 void KNewPasswordWidget_OnGetDecodedMetricF(const KNewPasswordWidget* self, intptr_t slot) {
     auto* vknewpasswordwidget = const_cast<VirtualKNewPasswordWidget*>(dynamic_cast<const VirtualKNewPasswordWidget*>(self));
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
+    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget)
         vknewpasswordwidget->setKNewPasswordWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKNewPasswordWidget::KNewPasswordWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KNewPasswordWidget_Delete(KNewPasswordWidget* self) {

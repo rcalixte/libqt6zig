@@ -6878,7 +6878,7 @@ pub const KNSCore__ProvidersModel = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/knscore-providersmodel.html#public-types)
 pub const enums = struct {
-    pub const Roles = enum(i32) {
+    pub const Roles = enum {
         pub const IdRole: i32 = 257;
         pub const NameRole: i32 = 258;
         pub const VersionRole: i32 = 259;

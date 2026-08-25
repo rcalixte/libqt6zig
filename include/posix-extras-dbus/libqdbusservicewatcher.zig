@@ -2307,7 +2307,7 @@ pub const QDBusServiceWatcher = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusservicewatcher.html#public-types)
 pub const enums = struct {
-    pub const WatchModeFlag = enum(i32) {
+    pub const WatchModeFlag = enum {
         pub const WatchForRegistration: i32 = 1;
         pub const WatchForUnregistration: i32 = 2;
         pub const WatchForOwnerChange: i32 = 3;

@@ -138,9 +138,8 @@ QMetaObject* QMediaDevices_SuperMetaObject(const QMediaDevices* self) {
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnMetaObject(const QMediaDevices* self, intptr_t slot) {
     auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices)
         vqmediadevices->setQMediaDevices_MetaObject_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -157,9 +156,8 @@ void* QMediaDevices_SuperMetacast(QMediaDevices* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnMetacast(QMediaDevices* self, intptr_t slot) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices)
         vqmediadevices->setQMediaDevices_Metacast_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -176,9 +174,8 @@ int QMediaDevices_SuperMetacall(QMediaDevices* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnMetacall(QMediaDevices* self, intptr_t slot) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices)
         vqmediadevices->setQMediaDevices_Metacall_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -195,9 +192,8 @@ void QMediaDevices_SuperConnectNotify(QMediaDevices* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnConnectNotify(QMediaDevices* self, intptr_t slot) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices)
         vqmediadevices->setQMediaDevices_ConnectNotify_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -224,9 +220,8 @@ bool QMediaDevices_SuperEvent(QMediaDevices* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnEvent(QMediaDevices* self, intptr_t slot) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices)
         vqmediadevices->setQMediaDevices_Event_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -253,9 +248,8 @@ bool QMediaDevices_SuperEventFilter(QMediaDevices* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnEventFilter(QMediaDevices* self, intptr_t slot) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices)
         vqmediadevices->setQMediaDevices_EventFilter_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -282,9 +276,8 @@ void QMediaDevices_SuperTimerEvent(QMediaDevices* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnTimerEvent(QMediaDevices* self, intptr_t slot) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices)
         vqmediadevices->setQMediaDevices_TimerEvent_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -311,9 +304,8 @@ void QMediaDevices_SuperChildEvent(QMediaDevices* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnChildEvent(QMediaDevices* self, intptr_t slot) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices)
         vqmediadevices->setQMediaDevices_ChildEvent_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -340,9 +332,8 @@ void QMediaDevices_SuperCustomEvent(QMediaDevices* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnCustomEvent(QMediaDevices* self, intptr_t slot) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices)
         vqmediadevices->setQMediaDevices_CustomEvent_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -369,9 +360,8 @@ void QMediaDevices_SuperDisconnectNotify(QMediaDevices* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnDisconnectNotify(QMediaDevices* self, intptr_t slot) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices)
         vqmediadevices->setQMediaDevices_DisconnectNotify_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -398,9 +388,8 @@ QObject* QMediaDevices_SuperSender(const QMediaDevices* self) {
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnSender(const QMediaDevices* self, intptr_t slot) {
     auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices)
         vqmediadevices->setQMediaDevices_Sender_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -427,9 +416,8 @@ int QMediaDevices_SuperSenderSignalIndex(const QMediaDevices* self) {
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnSenderSignalIndex(const QMediaDevices* self, intptr_t slot) {
     auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices)
         vqmediadevices->setQMediaDevices_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -456,9 +444,8 @@ int QMediaDevices_SuperReceivers(const QMediaDevices* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnReceivers(const QMediaDevices* self, intptr_t slot) {
     auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices)
         vqmediadevices->setQMediaDevices_Receivers_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -485,9 +472,8 @@ bool QMediaDevices_SuperIsSignalConnected(const QMediaDevices* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QMediaDevices_OnIsSignalConnected(const QMediaDevices* self, intptr_t slot) {
     auto* vqmediadevices = const_cast<VirtualQMediaDevices*>(dynamic_cast<const VirtualQMediaDevices*>(self));
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices)
         vqmediadevices->setQMediaDevices_IsSignalConnected_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QMediaDevices_Delete(QMediaDevices* self) {

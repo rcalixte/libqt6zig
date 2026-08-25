@@ -105,9 +105,8 @@ void QUndoCommand_SuperUndo(QUndoCommand* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoCommand_OnUndo(QUndoCommand* self, intptr_t slot) {
     auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
-    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
+    if (vqundocommand && vqundocommand->isVirtualQUndoCommand)
         vqundocommand->setQUndoCommand_Undo_Callback(reinterpret_cast<VirtualQUndoCommand::QUndoCommand_Undo_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -124,9 +123,8 @@ void QUndoCommand_SuperRedo(QUndoCommand* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoCommand_OnRedo(QUndoCommand* self, intptr_t slot) {
     auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
-    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
+    if (vqundocommand && vqundocommand->isVirtualQUndoCommand)
         vqundocommand->setQUndoCommand_Redo_Callback(reinterpret_cast<VirtualQUndoCommand::QUndoCommand_Redo_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -143,9 +141,8 @@ int QUndoCommand_SuperId(const QUndoCommand* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoCommand_OnId(const QUndoCommand* self, intptr_t slot) {
     auto* vqundocommand = const_cast<VirtualQUndoCommand*>(dynamic_cast<const VirtualQUndoCommand*>(self));
-    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
+    if (vqundocommand && vqundocommand->isVirtualQUndoCommand)
         vqundocommand->setQUndoCommand_Id_Callback(reinterpret_cast<VirtualQUndoCommand::QUndoCommand_Id_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -162,9 +159,8 @@ bool QUndoCommand_SuperMergeWith(QUndoCommand* self, const QUndoCommand* other) 
 // Auxiliary method to allow providing re-implementation
 void QUndoCommand_OnMergeWith(QUndoCommand* self, intptr_t slot) {
     auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
-    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
+    if (vqundocommand && vqundocommand->isVirtualQUndoCommand)
         vqundocommand->setQUndoCommand_MergeWith_Callback(reinterpret_cast<VirtualQUndoCommand::QUndoCommand_MergeWith_Callback>(slot));
-    }
 }
 
 void QUndoCommand_Delete(QUndoCommand* self) {
@@ -434,9 +430,8 @@ QMetaObject* QUndoStack_SuperMetaObject(const QUndoStack* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoStack_OnMetaObject(const QUndoStack* self, intptr_t slot) {
     auto* vqundostack = const_cast<VirtualQUndoStack*>(dynamic_cast<const VirtualQUndoStack*>(self));
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+    if (vqundostack && vqundostack->isVirtualQUndoStack)
         vqundostack->setQUndoStack_MetaObject_Callback(reinterpret_cast<VirtualQUndoStack::QUndoStack_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -453,9 +448,8 @@ void* QUndoStack_SuperMetacast(QUndoStack* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QUndoStack_OnMetacast(QUndoStack* self, intptr_t slot) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+    if (vqundostack && vqundostack->isVirtualQUndoStack)
         vqundostack->setQUndoStack_Metacast_Callback(reinterpret_cast<VirtualQUndoStack::QUndoStack_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -472,9 +466,8 @@ int QUndoStack_SuperMetacall(QUndoStack* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QUndoStack_OnMetacall(QUndoStack* self, intptr_t slot) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+    if (vqundostack && vqundostack->isVirtualQUndoStack)
         vqundostack->setQUndoStack_Metacall_Callback(reinterpret_cast<VirtualQUndoStack::QUndoStack_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -501,9 +494,8 @@ bool QUndoStack_SuperEvent(QUndoStack* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoStack_OnEvent(QUndoStack* self, intptr_t slot) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+    if (vqundostack && vqundostack->isVirtualQUndoStack)
         vqundostack->setQUndoStack_Event_Callback(reinterpret_cast<VirtualQUndoStack::QUndoStack_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -530,9 +522,8 @@ bool QUndoStack_SuperEventFilter(QUndoStack* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QUndoStack_OnEventFilter(QUndoStack* self, intptr_t slot) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+    if (vqundostack && vqundostack->isVirtualQUndoStack)
         vqundostack->setQUndoStack_EventFilter_Callback(reinterpret_cast<VirtualQUndoStack::QUndoStack_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -559,9 +550,8 @@ void QUndoStack_SuperTimerEvent(QUndoStack* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoStack_OnTimerEvent(QUndoStack* self, intptr_t slot) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+    if (vqundostack && vqundostack->isVirtualQUndoStack)
         vqundostack->setQUndoStack_TimerEvent_Callback(reinterpret_cast<VirtualQUndoStack::QUndoStack_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -588,9 +578,8 @@ void QUndoStack_SuperChildEvent(QUndoStack* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoStack_OnChildEvent(QUndoStack* self, intptr_t slot) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+    if (vqundostack && vqundostack->isVirtualQUndoStack)
         vqundostack->setQUndoStack_ChildEvent_Callback(reinterpret_cast<VirtualQUndoStack::QUndoStack_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -617,9 +606,8 @@ void QUndoStack_SuperCustomEvent(QUndoStack* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QUndoStack_OnCustomEvent(QUndoStack* self, intptr_t slot) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+    if (vqundostack && vqundostack->isVirtualQUndoStack)
         vqundostack->setQUndoStack_CustomEvent_Callback(reinterpret_cast<VirtualQUndoStack::QUndoStack_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -646,9 +634,8 @@ void QUndoStack_SuperConnectNotify(QUndoStack* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QUndoStack_OnConnectNotify(QUndoStack* self, intptr_t slot) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+    if (vqundostack && vqundostack->isVirtualQUndoStack)
         vqundostack->setQUndoStack_ConnectNotify_Callback(reinterpret_cast<VirtualQUndoStack::QUndoStack_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -675,9 +662,8 @@ void QUndoStack_SuperDisconnectNotify(QUndoStack* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QUndoStack_OnDisconnectNotify(QUndoStack* self, intptr_t slot) {
     auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+    if (vqundostack && vqundostack->isVirtualQUndoStack)
         vqundostack->setQUndoStack_DisconnectNotify_Callback(reinterpret_cast<VirtualQUndoStack::QUndoStack_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -704,9 +690,8 @@ QObject* QUndoStack_SuperSender(const QUndoStack* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoStack_OnSender(const QUndoStack* self, intptr_t slot) {
     auto* vqundostack = const_cast<VirtualQUndoStack*>(dynamic_cast<const VirtualQUndoStack*>(self));
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+    if (vqundostack && vqundostack->isVirtualQUndoStack)
         vqundostack->setQUndoStack_Sender_Callback(reinterpret_cast<VirtualQUndoStack::QUndoStack_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -733,9 +718,8 @@ int QUndoStack_SuperSenderSignalIndex(const QUndoStack* self) {
 // Auxiliary method to allow providing re-implementation
 void QUndoStack_OnSenderSignalIndex(const QUndoStack* self, intptr_t slot) {
     auto* vqundostack = const_cast<VirtualQUndoStack*>(dynamic_cast<const VirtualQUndoStack*>(self));
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+    if (vqundostack && vqundostack->isVirtualQUndoStack)
         vqundostack->setQUndoStack_SenderSignalIndex_Callback(reinterpret_cast<VirtualQUndoStack::QUndoStack_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -762,9 +746,8 @@ int QUndoStack_SuperReceivers(const QUndoStack* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QUndoStack_OnReceivers(const QUndoStack* self, intptr_t slot) {
     auto* vqundostack = const_cast<VirtualQUndoStack*>(dynamic_cast<const VirtualQUndoStack*>(self));
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+    if (vqundostack && vqundostack->isVirtualQUndoStack)
         vqundostack->setQUndoStack_Receivers_Callback(reinterpret_cast<VirtualQUndoStack::QUndoStack_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -791,9 +774,8 @@ bool QUndoStack_SuperIsSignalConnected(const QUndoStack* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QUndoStack_OnIsSignalConnected(const QUndoStack* self, intptr_t slot) {
     auto* vqundostack = const_cast<VirtualQUndoStack*>(dynamic_cast<const VirtualQUndoStack*>(self));
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
+    if (vqundostack && vqundostack->isVirtualQUndoStack)
         vqundostack->setQUndoStack_IsSignalConnected_Callback(reinterpret_cast<VirtualQUndoStack::QUndoStack_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QUndoStack_Delete(QUndoStack* self) {

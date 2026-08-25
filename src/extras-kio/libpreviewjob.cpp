@@ -218,9 +218,8 @@ QMetaObject* KIO__PreviewJob_SuperMetaObject(const KIO__PreviewJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnMetaObject(const KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_MetaObject_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -237,9 +236,8 @@ void* KIO__PreviewJob_SuperMetacast(KIO__PreviewJob* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnMetacast(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_Metacast_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -256,9 +254,8 @@ int KIO__PreviewJob_SuperMetacall(KIO__PreviewJob* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnMetacall(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_Metacall_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -275,9 +272,8 @@ void KIO__PreviewJob_SuperSlotResult(KIO__PreviewJob* self, KJob* job) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnSlotResult(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_SlotResult_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SlotResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +300,8 @@ void KIO__PreviewJob_SuperStart(KIO__PreviewJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnStart(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_Start_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Start_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +328,8 @@ bool KIO__PreviewJob_SuperDoKill(KIO__PreviewJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnDoKill(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_DoKill_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_DoKill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +356,8 @@ bool KIO__PreviewJob_SuperDoSuspend(KIO__PreviewJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnDoSuspend(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_DoSuspend_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_DoSuspend_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +384,8 @@ bool KIO__PreviewJob_SuperDoResume(KIO__PreviewJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnDoResume(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_DoResume_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_DoResume_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -452,9 +444,8 @@ libqt_string KIO__PreviewJob_SuperErrorString(const KIO__PreviewJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnErrorString(const KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_ErrorString_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_ErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -481,9 +472,8 @@ bool KIO__PreviewJob_SuperAddSubjob(KIO__PreviewJob* self, KJob* job) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnAddSubjob(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_AddSubjob_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_AddSubjob_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -510,9 +500,8 @@ bool KIO__PreviewJob_SuperRemoveSubjob(KIO__PreviewJob* self, KJob* job) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnRemoveSubjob(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_RemoveSubjob_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_RemoveSubjob_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -541,9 +530,8 @@ void KIO__PreviewJob_SuperSlotInfoMessage(KIO__PreviewJob* self, KJob* job, cons
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnSlotInfoMessage(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_SlotInfoMessage_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SlotInfoMessage_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -570,9 +558,8 @@ bool KIO__PreviewJob_SuperEvent(KIO__PreviewJob* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnEvent(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_Event_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -599,9 +586,8 @@ bool KIO__PreviewJob_SuperEventFilter(KIO__PreviewJob* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnEventFilter(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_EventFilter_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -628,9 +614,8 @@ void KIO__PreviewJob_SuperTimerEvent(KIO__PreviewJob* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnTimerEvent(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_TimerEvent_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -657,9 +642,8 @@ void KIO__PreviewJob_SuperChildEvent(KIO__PreviewJob* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnChildEvent(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_ChildEvent_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -686,9 +670,8 @@ void KIO__PreviewJob_SuperCustomEvent(KIO__PreviewJob* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnCustomEvent(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_CustomEvent_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -715,9 +698,8 @@ void KIO__PreviewJob_SuperConnectNotify(KIO__PreviewJob* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnConnectNotify(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_ConnectNotify_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -744,9 +726,8 @@ void KIO__PreviewJob_SuperDisconnectNotify(KIO__PreviewJob* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnDisconnectNotify(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -773,9 +754,8 @@ bool KIO__PreviewJob_SuperHasSubjobs(const KIO__PreviewJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnHasSubjobs(const KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_HasSubjobs_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_HasSubjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -838,9 +818,8 @@ libqt_list /* of KJob* */ KIO__PreviewJob_SuperSubjobs(const KIO__PreviewJob* se
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnSubjobs(const KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_Subjobs_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Subjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -867,9 +846,8 @@ void KIO__PreviewJob_SuperClearSubjobs(KIO__PreviewJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnClearSubjobs(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_ClearSubjobs_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_ClearSubjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -896,9 +874,8 @@ void KIO__PreviewJob_SuperSetCapabilities(KIO__PreviewJob* self, int capabilitie
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnSetCapabilities(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_SetCapabilities_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SetCapabilities_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -925,9 +902,8 @@ bool KIO__PreviewJob_SuperIsFinished(const KIO__PreviewJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnIsFinished(const KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_IsFinished_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_IsFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -954,9 +930,8 @@ void KIO__PreviewJob_SuperSetError(KIO__PreviewJob* self, int errorCode) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnSetError(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_SetError_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -985,9 +960,8 @@ void KIO__PreviewJob_SuperSetErrorText(KIO__PreviewJob* self, const libqt_string
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnSetErrorText(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_SetErrorText_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SetErrorText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1014,9 +988,8 @@ void KIO__PreviewJob_SuperSetProcessedAmount(KIO__PreviewJob* self, int unit, un
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnSetProcessedAmount(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SetProcessedAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1043,9 +1016,8 @@ void KIO__PreviewJob_SuperSetTotalAmount(KIO__PreviewJob* self, int unit, unsign
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnSetTotalAmount(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SetTotalAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1072,9 +1044,8 @@ void KIO__PreviewJob_SuperSetProgressUnit(KIO__PreviewJob* self, int unit) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnSetProgressUnit(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SetProgressUnit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1101,9 +1072,8 @@ void KIO__PreviewJob_SuperSetPercent(KIO__PreviewJob* self, unsigned long percen
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnSetPercent(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_SetPercent_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SetPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1130,9 +1100,8 @@ void KIO__PreviewJob_SuperEmitResult(KIO__PreviewJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnEmitResult(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_EmitResult_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_EmitResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1159,9 +1128,8 @@ void KIO__PreviewJob_SuperEmitPercent(KIO__PreviewJob* self, unsigned long long 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnEmitPercent(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_EmitPercent_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_EmitPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1188,9 +1156,8 @@ void KIO__PreviewJob_SuperEmitSpeed(KIO__PreviewJob* self, unsigned long speed) 
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnEmitSpeed(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_EmitSpeed_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_EmitSpeed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1217,9 +1184,8 @@ void KIO__PreviewJob_SuperStartElapsedTimer(KIO__PreviewJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnStartElapsedTimer(KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_StartElapsedTimer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1246,9 +1212,8 @@ QObject* KIO__PreviewJob_SuperSender(const KIO__PreviewJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnSender(const KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_Sender_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1275,9 +1240,8 @@ int KIO__PreviewJob_SuperSenderSignalIndex(const KIO__PreviewJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnSenderSignalIndex(const KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1304,9 +1268,8 @@ int KIO__PreviewJob_SuperReceivers(const KIO__PreviewJob* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnReceivers(const KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_Receivers_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1333,9 +1296,8 @@ bool KIO__PreviewJob_SuperIsSignalConnected(const KIO__PreviewJob* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KIO__PreviewJob_OnIsSignalConnected(const KIO__PreviewJob* self, intptr_t slot) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
-    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
+    if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob)
         vkiopreviewjob->setKIO__PreviewJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOPreviewJob::KIO__PreviewJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KIO__PreviewJob_Delete(KIO__PreviewJob* self) {

@@ -636,6 +636,31 @@ pub const KPasswordLineEdit = extern struct {
         return _ret;
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPasswordLineEdit `
+    ///
+    pub fn asQPaintDevice(self: KPasswordLineEdit) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KPasswordLineEdit object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KPasswordLineEdit {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6620,7 +6645,7 @@ pub const KPasswordLineEdit = extern struct {
     /// ` self: KPasswordLineEdit `
     ///
     pub fn paintingActive(self: KPasswordLineEdit) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6636,7 +6661,7 @@ pub const KPasswordLineEdit = extern struct {
     /// ` self: KPasswordLineEdit `
     ///
     pub fn widthMM(self: KPasswordLineEdit) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6652,7 +6677,7 @@ pub const KPasswordLineEdit = extern struct {
     /// ` self: KPasswordLineEdit `
     ///
     pub fn heightMM(self: KPasswordLineEdit) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6668,7 +6693,7 @@ pub const KPasswordLineEdit = extern struct {
     /// ` self: KPasswordLineEdit `
     ///
     pub fn logicalDpiX(self: KPasswordLineEdit) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6684,7 +6709,7 @@ pub const KPasswordLineEdit = extern struct {
     /// ` self: KPasswordLineEdit `
     ///
     pub fn logicalDpiY(self: KPasswordLineEdit) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6700,7 +6725,7 @@ pub const KPasswordLineEdit = extern struct {
     /// ` self: KPasswordLineEdit `
     ///
     pub fn physicalDpiX(self: KPasswordLineEdit) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6716,7 +6741,7 @@ pub const KPasswordLineEdit = extern struct {
     /// ` self: KPasswordLineEdit `
     ///
     pub fn physicalDpiY(self: KPasswordLineEdit) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -6732,7 +6757,7 @@ pub const KPasswordLineEdit = extern struct {
     /// ` self: KPasswordLineEdit `
     ///
     pub fn devicePixelRatio(self: KPasswordLineEdit) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -6748,7 +6773,7 @@ pub const KPasswordLineEdit = extern struct {
     /// ` self: KPasswordLineEdit `
     ///
     pub fn devicePixelRatioF(self: KPasswordLineEdit) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -6764,7 +6789,7 @@ pub const KPasswordLineEdit = extern struct {
     /// ` self: KPasswordLineEdit `
     ///
     pub fn colorCount(self: KPasswordLineEdit) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -6780,7 +6805,7 @@ pub const KPasswordLineEdit = extern struct {
     /// ` self: KPasswordLineEdit `
     ///
     pub fn depth(self: KPasswordLineEdit) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

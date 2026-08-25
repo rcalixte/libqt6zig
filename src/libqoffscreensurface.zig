@@ -9,6 +9,7 @@ const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
 const QObject = @import("libqt6").QObject;
 const QScreen = @import("libqt6").QScreen;
 const QSize = @import("libqt6").QSize;
+const QSurface = @import("libqt6").QSurface;
 const QSurfaceFormat = @import("libqt6").QSurfaceFormat;
 const QThread = @import("libqt6").QThread;
 const QTimerEvent = @import("libqt6").QTimerEvent;
@@ -71,6 +72,27 @@ pub const QOffscreenSurface = extern struct {
         comptime _ = @TypeOf(_screen)._is_QScreen;
         comptime _ = @TypeOf(_parent)._is_QObject;
         return .{ .ptr = qtc.QOffscreenSurface_new3(@ptrCast(_screen.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// Upcasts to a QSurface object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOffscreenSurface `
+    ///
+    pub fn asQSurface(self: QOffscreenSurface) QSurface {
+        return .{ .ptr = qtc.QOffscreenSurface_AsQSurface(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a QOffscreenSurface object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qsurface: QSurface `
+    ///
+    pub fn fromQSurface(_qsurface: anytype) QOffscreenSurface {
+        comptime _ = @TypeOf(_qsurface)._is_QSurface;
+        return .{ .ptr = @ptrCast(qtc.QOffscreenSurface_FromQSurface(@ptrCast(_qsurface.ptr))) };
     }
 
     /// ### DEPRECATED: Use `metaObject` instead
@@ -1627,7 +1649,7 @@ pub const QOffscreenSurface = extern struct {
     /// ` qsurface_enums.SurfaceClass `
     ///
     pub fn surfaceClass(self: QOffscreenSurface) i32 {
-        return qtc.QSurface_SurfaceClass(@ptrCast(self.ptr));
+        return qtc.QSurface_SurfaceClass(@ptrCast(self.asQSurface().ptr));
     }
 
     /// ### DEPRECATED: Use `supportsOpenGL` instead
@@ -1643,7 +1665,7 @@ pub const QOffscreenSurface = extern struct {
     /// ` self: QOffscreenSurface `
     ///
     pub fn supportsOpenGL(self: QOffscreenSurface) bool {
-        return qtc.QSurface_SupportsOpenGL(@ptrCast(self.ptr));
+        return qtc.QSurface_SupportsOpenGL(@ptrCast(self.asQSurface().ptr));
     }
 
     /// ### DEPRECATED: Use `event` instead

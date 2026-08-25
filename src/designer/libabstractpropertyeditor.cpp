@@ -133,9 +133,8 @@ QMetaObject* QDesignerPropertyEditorInterface_SuperMetaObject(const QDesignerPro
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnMetaObject(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -152,9 +151,8 @@ void* QDesignerPropertyEditorInterface_SuperMetacast(QDesignerPropertyEditorInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnMetacast(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -171,9 +169,8 @@ int QDesignerPropertyEditorInterface_SuperMetacall(QDesignerPropertyEditorInterf
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnMetacall(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Metacall_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -190,9 +187,8 @@ QDesignerFormEditorInterface* QDesignerPropertyEditorInterface_SuperCore(const Q
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnCore(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Core_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_Core_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -209,9 +205,8 @@ bool QDesignerPropertyEditorInterface_SuperIsReadOnly(const QDesignerPropertyEdi
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnIsReadOnly(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_IsReadOnly_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_IsReadOnly_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -228,9 +223,8 @@ QObject* QDesignerPropertyEditorInterface_SuperObject(const QDesignerPropertyEdi
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnObject(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Object_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_Object_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -263,9 +257,8 @@ libqt_string QDesignerPropertyEditorInterface_SuperCurrentPropertyName(const QDe
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnCurrentPropertyName(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_CurrentPropertyName_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_CurrentPropertyName_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -282,9 +275,8 @@ void QDesignerPropertyEditorInterface_SuperSetObject(QDesignerPropertyEditorInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnSetObject(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_SetObject_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_SetObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -302,9 +294,8 @@ void QDesignerPropertyEditorInterface_SuperSetPropertyValue(QDesignerPropertyEdi
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnSetPropertyValue(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_SetPropertyValue_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_SetPropertyValue_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -321,9 +312,8 @@ void QDesignerPropertyEditorInterface_SuperSetReadOnly(QDesignerPropertyEditorIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnSetReadOnly(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_SetReadOnly_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_SetReadOnly_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -350,9 +340,8 @@ int QDesignerPropertyEditorInterface_SuperDevType(const QDesignerPropertyEditorI
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnDevType(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_DevType_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -379,9 +368,8 @@ void QDesignerPropertyEditorInterface_SuperSetVisible(QDesignerPropertyEditorInt
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnSetVisible(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_SetVisible_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -408,9 +396,8 @@ QSize* QDesignerPropertyEditorInterface_SuperSizeHint(const QDesignerPropertyEdi
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnSizeHint(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_SizeHint_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -437,9 +424,8 @@ QSize* QDesignerPropertyEditorInterface_SuperMinimumSizeHint(const QDesignerProp
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnMinimumSizeHint(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_MinimumSizeHint_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -466,9 +452,8 @@ int QDesignerPropertyEditorInterface_SuperHeightForWidth(const QDesignerProperty
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnHeightForWidth(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_HeightForWidth_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -495,9 +480,8 @@ bool QDesignerPropertyEditorInterface_SuperHasHeightForWidth(const QDesignerProp
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnHasHeightForWidth(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_HasHeightForWidth_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -524,9 +508,8 @@ QPaintEngine* QDesignerPropertyEditorInterface_SuperPaintEngine(const QDesignerP
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnPaintEngine(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_PaintEngine_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -553,9 +536,8 @@ bool QDesignerPropertyEditorInterface_SuperEvent(QDesignerPropertyEditorInterfac
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Event_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -582,9 +564,8 @@ void QDesignerPropertyEditorInterface_SuperMousePressEvent(QDesignerPropertyEdit
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnMousePressEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_MousePressEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -611,9 +592,8 @@ void QDesignerPropertyEditorInterface_SuperMouseReleaseEvent(QDesignerPropertyEd
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnMouseReleaseEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -640,9 +620,8 @@ void QDesignerPropertyEditorInterface_SuperMouseDoubleClickEvent(QDesignerProper
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnMouseDoubleClickEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -669,9 +648,8 @@ void QDesignerPropertyEditorInterface_SuperMouseMoveEvent(QDesignerPropertyEdito
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnMouseMoveEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_MouseMoveEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -698,9 +676,8 @@ void QDesignerPropertyEditorInterface_SuperWheelEvent(QDesignerPropertyEditorInt
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnWheelEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_WheelEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -727,9 +704,8 @@ void QDesignerPropertyEditorInterface_SuperKeyPressEvent(QDesignerPropertyEditor
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnKeyPressEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_KeyPressEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -756,9 +732,8 @@ void QDesignerPropertyEditorInterface_SuperKeyReleaseEvent(QDesignerPropertyEdit
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnKeyReleaseEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -785,9 +760,8 @@ void QDesignerPropertyEditorInterface_SuperFocusInEvent(QDesignerPropertyEditorI
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnFocusInEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_FocusInEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -814,9 +788,8 @@ void QDesignerPropertyEditorInterface_SuperFocusOutEvent(QDesignerPropertyEditor
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnFocusOutEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_FocusOutEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -843,9 +816,8 @@ void QDesignerPropertyEditorInterface_SuperEnterEvent(QDesignerPropertyEditorInt
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnEnterEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_EnterEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -872,9 +844,8 @@ void QDesignerPropertyEditorInterface_SuperLeaveEvent(QDesignerPropertyEditorInt
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnLeaveEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_LeaveEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -901,9 +872,8 @@ void QDesignerPropertyEditorInterface_SuperPaintEvent(QDesignerPropertyEditorInt
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnPaintEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_PaintEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -930,9 +900,8 @@ void QDesignerPropertyEditorInterface_SuperMoveEvent(QDesignerPropertyEditorInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnMoveEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_MoveEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -959,9 +928,8 @@ void QDesignerPropertyEditorInterface_SuperResizeEvent(QDesignerPropertyEditorIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnResizeEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_ResizeEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -988,9 +956,8 @@ void QDesignerPropertyEditorInterface_SuperCloseEvent(QDesignerPropertyEditorInt
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnCloseEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_CloseEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1017,9 +984,8 @@ void QDesignerPropertyEditorInterface_SuperContextMenuEvent(QDesignerPropertyEdi
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnContextMenuEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_ContextMenuEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1046,9 +1012,8 @@ void QDesignerPropertyEditorInterface_SuperTabletEvent(QDesignerPropertyEditorIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnTabletEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_TabletEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1075,9 +1040,8 @@ void QDesignerPropertyEditorInterface_SuperActionEvent(QDesignerPropertyEditorIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnActionEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_ActionEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1104,9 +1068,8 @@ void QDesignerPropertyEditorInterface_SuperDragEnterEvent(QDesignerPropertyEdito
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnDragEnterEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_DragEnterEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1133,9 +1096,8 @@ void QDesignerPropertyEditorInterface_SuperDragMoveEvent(QDesignerPropertyEditor
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnDragMoveEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_DragMoveEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1162,9 +1124,8 @@ void QDesignerPropertyEditorInterface_SuperDragLeaveEvent(QDesignerPropertyEdito
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnDragLeaveEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_DragLeaveEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1191,9 +1152,8 @@ void QDesignerPropertyEditorInterface_SuperDropEvent(QDesignerPropertyEditorInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnDropEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_DropEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1220,9 +1180,8 @@ void QDesignerPropertyEditorInterface_SuperShowEvent(QDesignerPropertyEditorInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnShowEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_ShowEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1249,9 +1208,8 @@ void QDesignerPropertyEditorInterface_SuperHideEvent(QDesignerPropertyEditorInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnHideEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_HideEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1280,9 +1238,8 @@ bool QDesignerPropertyEditorInterface_SuperNativeEvent(QDesignerPropertyEditorIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnNativeEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_NativeEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1309,9 +1266,8 @@ void QDesignerPropertyEditorInterface_SuperChangeEvent(QDesignerPropertyEditorIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnChangeEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_ChangeEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1338,9 +1294,8 @@ int QDesignerPropertyEditorInterface_SuperMetric(const QDesignerPropertyEditorIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnMetric(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Metric_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1367,9 +1322,8 @@ void QDesignerPropertyEditorInterface_SuperInitPainter(const QDesignerPropertyEd
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnInitPainter(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_InitPainter_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1396,9 +1350,8 @@ QPaintDevice* QDesignerPropertyEditorInterface_SuperRedirected(const QDesignerPr
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnRedirected(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Redirected_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1425,9 +1378,8 @@ QPainter* QDesignerPropertyEditorInterface_SuperSharedPainter(const QDesignerPro
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnSharedPainter(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_SharedPainter_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1454,9 +1406,8 @@ void QDesignerPropertyEditorInterface_SuperInputMethodEvent(QDesignerPropertyEdi
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnInputMethodEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_InputMethodEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1483,9 +1434,8 @@ QVariant* QDesignerPropertyEditorInterface_SuperInputMethodQuery(const QDesigner
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnInputMethodQuery(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_InputMethodQuery_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1512,9 +1462,8 @@ bool QDesignerPropertyEditorInterface_SuperFocusNextPrevChild(QDesignerPropertyE
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnFocusNextPrevChild(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1541,9 +1490,8 @@ bool QDesignerPropertyEditorInterface_SuperEventFilter(QDesignerPropertyEditorIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnEventFilter(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_EventFilter_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1570,9 +1518,8 @@ void QDesignerPropertyEditorInterface_SuperTimerEvent(QDesignerPropertyEditorInt
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnTimerEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_TimerEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1599,9 +1546,8 @@ void QDesignerPropertyEditorInterface_SuperChildEvent(QDesignerPropertyEditorInt
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnChildEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_ChildEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1628,9 +1574,8 @@ void QDesignerPropertyEditorInterface_SuperCustomEvent(QDesignerPropertyEditorIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnCustomEvent(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_CustomEvent_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1657,9 +1602,8 @@ void QDesignerPropertyEditorInterface_SuperConnectNotify(QDesignerPropertyEditor
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnConnectNotify(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_ConnectNotify_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1686,9 +1630,8 @@ void QDesignerPropertyEditorInterface_SuperDisconnectNotify(QDesignerPropertyEdi
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnDisconnectNotify(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_DisconnectNotify_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1715,9 +1658,8 @@ void QDesignerPropertyEditorInterface_SuperUpdateMicroFocus(QDesignerPropertyEdi
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnUpdateMicroFocus(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1744,9 +1686,8 @@ void QDesignerPropertyEditorInterface_SuperCreate(QDesignerPropertyEditorInterfa
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnCreate(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Create_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1773,9 +1714,8 @@ void QDesignerPropertyEditorInterface_SuperDestroy(QDesignerPropertyEditorInterf
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnDestroy(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Destroy_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1802,9 +1742,8 @@ bool QDesignerPropertyEditorInterface_SuperFocusNextChild(QDesignerPropertyEdito
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnFocusNextChild(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_FocusNextChild_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1831,9 +1770,8 @@ bool QDesignerPropertyEditorInterface_SuperFocusPreviousChild(QDesignerPropertyE
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnFocusPreviousChild(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_FocusPreviousChild_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1860,9 +1798,8 @@ QObject* QDesignerPropertyEditorInterface_SuperSender(const QDesignerPropertyEdi
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnSender(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Sender_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1889,9 +1826,8 @@ int QDesignerPropertyEditorInterface_SuperSenderSignalIndex(const QDesignerPrope
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnSenderSignalIndex(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1918,9 +1854,8 @@ int QDesignerPropertyEditorInterface_SuperReceivers(const QDesignerPropertyEdito
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnReceivers(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_Receivers_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1947,9 +1882,8 @@ bool QDesignerPropertyEditorInterface_SuperIsSignalConnected(const QDesignerProp
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnIsSignalConnected(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_IsSignalConnected_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1976,9 +1910,8 @@ double QDesignerPropertyEditorInterface_SuperGetDecodedMetricF(const QDesignerPr
 // Auxiliary method to allow providing re-implementation
 void QDesignerPropertyEditorInterface_OnGetDecodedMetricF(const QDesignerPropertyEditorInterface* self, intptr_t slot) {
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
+    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface)
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDesignerPropertyEditorInterface::QDesignerPropertyEditorInterface_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QDesignerPropertyEditorInterface_Delete(QDesignerPropertyEditorInterface* self) {

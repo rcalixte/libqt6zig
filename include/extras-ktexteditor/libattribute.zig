@@ -4,6 +4,7 @@ const QBrush = @import("libqt6").QBrush;
 const QColor = @import("libqt6").QColor;
 const QFont = @import("libqt6").QFont;
 const QPen = @import("libqt6").QPen;
+const QSharedData = @import("libqt6").QSharedData;
 const QTextBlockFormat = @import("libqt6").QTextBlockFormat;
 const QTextCharFormat = @import("libqt6").QTextCharFormat;
 const QTextFormat = @import("libqt6").QTextFormat;
@@ -77,6 +78,16 @@ pub const KTextEditor__Attribute = extern struct {
     pub fn new3(a: anytype) KTextEditor__Attribute {
         comptime _ = @TypeOf(a)._is_KTextEditor__Attribute;
         return .{ .ptr = qtc.KTextEditor__Attribute_new3(@ptrCast(a.ptr)) };
+    }
+
+    /// Upcasts to a QSharedData object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTextEditor__Attribute `
+    ///
+    pub fn asQSharedData(self: KTextEditor__Attribute) QSharedData {
+        return .{ .ptr = qtc.KTextEditor__Attribute_AsQSharedData(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `name` instead
@@ -2714,7 +2725,7 @@ pub const KTextEditor__AttributeBlock = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/attribute.html#public-types)
 pub const enums = struct {
-    pub const ActivationType = enum(i32) {
+    pub const ActivationType = enum {
         pub const ActivateMouseIn: i32 = 0;
         pub const ActivateCaretIn: i32 = 1;
     };

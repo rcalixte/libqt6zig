@@ -76,9 +76,8 @@ QMetaObject* QDesignerWidgetFactoryInterface_SuperMetaObject(const QDesignerWidg
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnMetaObject(const QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_MetaObject_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -95,9 +94,8 @@ void* QDesignerWidgetFactoryInterface_SuperMetacast(QDesignerWidgetFactoryInterf
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnMetacast(QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_Metacast_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -114,9 +112,8 @@ int QDesignerWidgetFactoryInterface_SuperMetacall(QDesignerWidgetFactoryInterfac
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnMetacall(QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_Metacall_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -133,9 +130,8 @@ QDesignerFormEditorInterface* QDesignerWidgetFactoryInterface_SuperCore(const QD
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnCore(const QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_Core_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_Core_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -152,9 +148,8 @@ QWidget* QDesignerWidgetFactoryInterface_SuperContainerOfWidget(const QDesignerW
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnContainerOfWidget(const QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_ContainerOfWidget_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_ContainerOfWidget_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -171,9 +166,8 @@ QWidget* QDesignerWidgetFactoryInterface_SuperWidgetOfContainer(const QDesignerW
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnWidgetOfContainer(const QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_WidgetOfContainer_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_WidgetOfContainer_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -191,9 +185,8 @@ QWidget* QDesignerWidgetFactoryInterface_SuperCreateWidget(const QDesignerWidget
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnCreateWidget(const QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_CreateWidget_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_CreateWidget_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -210,9 +203,8 @@ QLayout* QDesignerWidgetFactoryInterface_SuperCreateLayout(const QDesignerWidget
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnCreateLayout(const QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_CreateLayout_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_CreateLayout_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -229,9 +221,8 @@ bool QDesignerWidgetFactoryInterface_SuperIsPassiveInteractor(QDesignerWidgetFac
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnIsPassiveInteractor(QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_IsPassiveInteractor_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_IsPassiveInteractor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -248,9 +239,8 @@ void QDesignerWidgetFactoryInterface_SuperInitialize(const QDesignerWidgetFactor
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnInitialize(const QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_Initialize_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_Initialize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -277,9 +267,8 @@ bool QDesignerWidgetFactoryInterface_SuperEvent(QDesignerWidgetFactoryInterface*
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnEvent(QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_Event_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -306,9 +295,8 @@ bool QDesignerWidgetFactoryInterface_SuperEventFilter(QDesignerWidgetFactoryInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnEventFilter(QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_EventFilter_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -335,9 +323,8 @@ void QDesignerWidgetFactoryInterface_SuperTimerEvent(QDesignerWidgetFactoryInter
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnTimerEvent(QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_TimerEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -364,9 +351,8 @@ void QDesignerWidgetFactoryInterface_SuperChildEvent(QDesignerWidgetFactoryInter
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnChildEvent(QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_ChildEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -393,9 +379,8 @@ void QDesignerWidgetFactoryInterface_SuperCustomEvent(QDesignerWidgetFactoryInte
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnCustomEvent(QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_CustomEvent_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -422,9 +407,8 @@ void QDesignerWidgetFactoryInterface_SuperConnectNotify(QDesignerWidgetFactoryIn
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnConnectNotify(QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_ConnectNotify_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -451,9 +435,8 @@ void QDesignerWidgetFactoryInterface_SuperDisconnectNotify(QDesignerWidgetFactor
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnDisconnectNotify(QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_DisconnectNotify_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -480,9 +463,8 @@ QObject* QDesignerWidgetFactoryInterface_SuperSender(const QDesignerWidgetFactor
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnSender(const QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_Sender_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -509,9 +491,8 @@ int QDesignerWidgetFactoryInterface_SuperSenderSignalIndex(const QDesignerWidget
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnSenderSignalIndex(const QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -538,9 +519,8 @@ int QDesignerWidgetFactoryInterface_SuperReceivers(const QDesignerWidgetFactoryI
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnReceivers(const QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_Receivers_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -567,9 +547,8 @@ bool QDesignerWidgetFactoryInterface_SuperIsSignalConnected(const QDesignerWidge
 // Auxiliary method to allow providing re-implementation
 void QDesignerWidgetFactoryInterface_OnIsSignalConnected(const QDesignerWidgetFactoryInterface* self, intptr_t slot) {
     auto* vqdesignerwidgetfactoryinterface = const_cast<VirtualQDesignerWidgetFactoryInterface*>(dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self));
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
+    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface)
         vqdesignerwidgetfactoryinterface->setQDesignerWidgetFactoryInterface_IsSignalConnected_Callback(reinterpret_cast<VirtualQDesignerWidgetFactoryInterface::QDesignerWidgetFactoryInterface_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QDesignerWidgetFactoryInterface_Delete(QDesignerWidgetFactoryInterface* self) {

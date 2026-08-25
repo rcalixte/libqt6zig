@@ -32,6 +32,7 @@ typedef struct QTextFormat QTextFormat;
 KTextEditor__Attribute* KTextEditor__Attribute_new();
 KTextEditor__Attribute* KTextEditor__Attribute_new2(const libqt_string name, int style);
 KTextEditor__Attribute* KTextEditor__Attribute_new3(const KTextEditor__Attribute* a);
+QSharedData* KTextEditor__Attribute_AsQSharedData(KTextEditor__Attribute* self);
 libqt_string KTextEditor__Attribute_Name(const KTextEditor__Attribute* self);
 void KTextEditor__Attribute_SetName(KTextEditor__Attribute* self, const libqt_string name);
 int KTextEditor__Attribute_DefaultStyle(const KTextEditor__Attribute* self);

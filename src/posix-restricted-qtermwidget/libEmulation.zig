@@ -3349,20 +3349,20 @@ pub const Konsole__Emulation = extern struct {
 
 /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
 pub const enums = struct {
-    pub const Konsole = enum(i32) {
+    pub const Konsole = enum {
         pub const NOTIFYNORMAL: i32 = 0;
         pub const NOTIFYBELL: i32 = 1;
         pub const NOTIFYACTIVITY: i32 = 2;
         pub const NOTIFYSILENCE: i32 = 3;
     };
 
-    pub const KeyboardCursorShape = enum(i32) {
+    pub const KeyboardCursorShape = enum {
         pub const BlockCursor: i32 = 0;
         pub const UnderlineCursor: i32 = 1;
         pub const IBeamCursor: i32 = 2;
     };
 
-    pub const EmulationCodec = enum(i32) {
+    pub const EmulationCodec = enum {
         pub const LocaleCodec: i32 = 0;
         pub const Utf8Codec: i32 = 1;
     };

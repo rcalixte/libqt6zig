@@ -2484,13 +2484,13 @@ pub const QTimeLine = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimeline.html#public-types)
 pub const enums = struct {
-    pub const State = enum(i32) {
+    pub const State = enum {
         pub const NotRunning: i32 = 0;
         pub const Paused: i32 = 1;
         pub const Running: i32 = 2;
     };
 
-    pub const Direction = enum(i32) {
+    pub const Direction = enum {
         pub const Forward: i32 = 0;
         pub const Backward: i32 = 1;
     };

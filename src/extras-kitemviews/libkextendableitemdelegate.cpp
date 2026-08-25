@@ -113,9 +113,8 @@ QMetaObject* KExtendableItemDelegate_SuperMetaObject(const KExtendableItemDelega
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnMetaObject(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_MetaObject_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -132,9 +131,8 @@ void* KExtendableItemDelegate_SuperMetacast(KExtendableItemDelegate* self, const
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnMetacast(KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_Metacast_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -151,9 +149,8 @@ int KExtendableItemDelegate_SuperMetacall(KExtendableItemDelegate* self, int par
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnMetacall(KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_Metacall_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -170,9 +167,8 @@ QSize* KExtendableItemDelegate_SuperSizeHint(const KExtendableItemDelegate* self
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnSizeHint(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_SizeHint_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -189,9 +185,8 @@ void KExtendableItemDelegate_SuperPaint(const KExtendableItemDelegate* self, QPa
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnPaint(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_Paint_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Paint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -208,9 +203,8 @@ void KExtendableItemDelegate_SuperUpdateExtenderGeometry(const KExtendableItemDe
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnUpdateExtenderGeometry(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_UpdateExtenderGeometry_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_UpdateExtenderGeometry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -237,9 +231,8 @@ QWidget* KExtendableItemDelegate_SuperCreateEditor(const KExtendableItemDelegate
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnCreateEditor(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_CreateEditor_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_CreateEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -266,9 +259,8 @@ void KExtendableItemDelegate_SuperSetEditorData(const KExtendableItemDelegate* s
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnSetEditorData(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_SetEditorData_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SetEditorData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -295,9 +287,8 @@ void KExtendableItemDelegate_SuperSetModelData(const KExtendableItemDelegate* se
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnSetModelData(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_SetModelData_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SetModelData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -324,9 +315,8 @@ void KExtendableItemDelegate_SuperUpdateEditorGeometry(const KExtendableItemDele
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnUpdateEditorGeometry(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_UpdateEditorGeometry_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_UpdateEditorGeometry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -385,9 +375,8 @@ libqt_string KExtendableItemDelegate_SuperDisplayText(const KExtendableItemDeleg
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnDisplayText(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_DisplayText_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_DisplayText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -414,9 +403,8 @@ void KExtendableItemDelegate_SuperInitStyleOption(const KExtendableItemDelegate*
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnInitStyleOption(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_InitStyleOption_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -443,9 +431,8 @@ bool KExtendableItemDelegate_SuperEventFilter(KExtendableItemDelegate* self, QOb
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnEventFilter(KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_EventFilter_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -472,9 +459,8 @@ bool KExtendableItemDelegate_SuperEditorEvent(KExtendableItemDelegate* self, QEv
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnEditorEvent(KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_EditorEvent_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_EditorEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -501,9 +487,8 @@ void KExtendableItemDelegate_SuperDestroyEditor(const KExtendableItemDelegate* s
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnDestroyEditor(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_DestroyEditor_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_DestroyEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -530,9 +515,8 @@ bool KExtendableItemDelegate_SuperHelpEvent(KExtendableItemDelegate* self, QHelp
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnHelpEvent(KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_HelpEvent_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_HelpEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -595,9 +579,8 @@ libqt_list /* of int */ KExtendableItemDelegate_SuperPaintingRoles(const KExtend
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnPaintingRoles(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_PaintingRoles_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_PaintingRoles_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -624,9 +607,8 @@ bool KExtendableItemDelegate_SuperEvent(KExtendableItemDelegate* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnEvent(KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_Event_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -653,9 +635,8 @@ void KExtendableItemDelegate_SuperTimerEvent(KExtendableItemDelegate* self, QTim
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnTimerEvent(KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_TimerEvent_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -682,9 +663,8 @@ void KExtendableItemDelegate_SuperChildEvent(KExtendableItemDelegate* self, QChi
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnChildEvent(KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_ChildEvent_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -711,9 +691,8 @@ void KExtendableItemDelegate_SuperCustomEvent(KExtendableItemDelegate* self, QEv
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnCustomEvent(KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_CustomEvent_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -740,9 +719,8 @@ void KExtendableItemDelegate_SuperConnectNotify(KExtendableItemDelegate* self, c
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnConnectNotify(KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_ConnectNotify_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -769,9 +747,8 @@ void KExtendableItemDelegate_SuperDisconnectNotify(KExtendableItemDelegate* self
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnDisconnectNotify(KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_DisconnectNotify_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -796,9 +773,8 @@ QRect* KExtendableItemDelegate_SuperExtenderRect(const KExtendableItemDelegate* 
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnExtenderRect(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_ExtenderRect_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_ExtenderRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -825,9 +801,8 @@ void KExtendableItemDelegate_SuperSetExtendPixmap(KExtendableItemDelegate* self,
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnSetExtendPixmap(KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_SetExtendPixmap_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SetExtendPixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -854,9 +829,8 @@ void KExtendableItemDelegate_SuperSetContractPixmap(KExtendableItemDelegate* sel
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnSetContractPixmap(KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_SetContractPixmap_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SetContractPixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -881,9 +855,8 @@ QPixmap* KExtendableItemDelegate_SuperExtendPixmap(KExtendableItemDelegate* self
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnExtendPixmap(KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_ExtendPixmap_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_ExtendPixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -908,9 +881,8 @@ QPixmap* KExtendableItemDelegate_SuperContractPixmap(KExtendableItemDelegate* se
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnContractPixmap(KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_ContractPixmap_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_ContractPixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -937,9 +909,8 @@ QObject* KExtendableItemDelegate_SuperSender(const KExtendableItemDelegate* self
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnSender(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_Sender_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -966,9 +937,8 @@ int KExtendableItemDelegate_SuperSenderSignalIndex(const KExtendableItemDelegate
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnSenderSignalIndex(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_SenderSignalIndex_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -995,9 +965,8 @@ int KExtendableItemDelegate_SuperReceivers(const KExtendableItemDelegate* self, 
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnReceivers(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_Receivers_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1024,9 +993,8 @@ bool KExtendableItemDelegate_SuperIsSignalConnected(const KExtendableItemDelegat
 // Auxiliary method to allow providing re-implementation
 void KExtendableItemDelegate_OnIsSignalConnected(const KExtendableItemDelegate* self, intptr_t slot) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
+    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate)
         vkextendableitemdelegate->setKExtendableItemDelegate_IsSignalConnected_Callback(reinterpret_cast<VirtualKExtendableItemDelegate::KExtendableItemDelegate_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KExtendableItemDelegate_Delete(KExtendableItemDelegate* self) {

@@ -140,9 +140,8 @@ QMetaObject* QBluetoothServer_SuperMetaObject(const QBluetoothServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothServer_OnMetaObject(const QBluetoothServer* self, intptr_t slot) {
     auto* vqbluetoothserver = const_cast<VirtualQBluetoothServer*>(dynamic_cast<const VirtualQBluetoothServer*>(self));
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
+    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer)
         vqbluetoothserver->setQBluetoothServer_MetaObject_Callback(reinterpret_cast<VirtualQBluetoothServer::QBluetoothServer_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -159,9 +158,8 @@ void* QBluetoothServer_SuperMetacast(QBluetoothServer* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void QBluetoothServer_OnMetacast(QBluetoothServer* self, intptr_t slot) {
     auto* vqbluetoothserver = dynamic_cast<VirtualQBluetoothServer*>(self);
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
+    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer)
         vqbluetoothserver->setQBluetoothServer_Metacast_Callback(reinterpret_cast<VirtualQBluetoothServer::QBluetoothServer_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -178,9 +176,8 @@ int QBluetoothServer_SuperMetacall(QBluetoothServer* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void QBluetoothServer_OnMetacall(QBluetoothServer* self, intptr_t slot) {
     auto* vqbluetoothserver = dynamic_cast<VirtualQBluetoothServer*>(self);
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
+    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer)
         vqbluetoothserver->setQBluetoothServer_Metacall_Callback(reinterpret_cast<VirtualQBluetoothServer::QBluetoothServer_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -207,9 +204,8 @@ bool QBluetoothServer_SuperEvent(QBluetoothServer* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothServer_OnEvent(QBluetoothServer* self, intptr_t slot) {
     auto* vqbluetoothserver = dynamic_cast<VirtualQBluetoothServer*>(self);
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
+    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer)
         vqbluetoothserver->setQBluetoothServer_Event_Callback(reinterpret_cast<VirtualQBluetoothServer::QBluetoothServer_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -236,9 +232,8 @@ bool QBluetoothServer_SuperEventFilter(QBluetoothServer* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void QBluetoothServer_OnEventFilter(QBluetoothServer* self, intptr_t slot) {
     auto* vqbluetoothserver = dynamic_cast<VirtualQBluetoothServer*>(self);
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
+    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer)
         vqbluetoothserver->setQBluetoothServer_EventFilter_Callback(reinterpret_cast<VirtualQBluetoothServer::QBluetoothServer_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -265,9 +260,8 @@ void QBluetoothServer_SuperTimerEvent(QBluetoothServer* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void QBluetoothServer_OnTimerEvent(QBluetoothServer* self, intptr_t slot) {
     auto* vqbluetoothserver = dynamic_cast<VirtualQBluetoothServer*>(self);
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
+    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer)
         vqbluetoothserver->setQBluetoothServer_TimerEvent_Callback(reinterpret_cast<VirtualQBluetoothServer::QBluetoothServer_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -294,9 +288,8 @@ void QBluetoothServer_SuperChildEvent(QBluetoothServer* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void QBluetoothServer_OnChildEvent(QBluetoothServer* self, intptr_t slot) {
     auto* vqbluetoothserver = dynamic_cast<VirtualQBluetoothServer*>(self);
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
+    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer)
         vqbluetoothserver->setQBluetoothServer_ChildEvent_Callback(reinterpret_cast<VirtualQBluetoothServer::QBluetoothServer_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -323,9 +316,8 @@ void QBluetoothServer_SuperCustomEvent(QBluetoothServer* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothServer_OnCustomEvent(QBluetoothServer* self, intptr_t slot) {
     auto* vqbluetoothserver = dynamic_cast<VirtualQBluetoothServer*>(self);
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
+    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer)
         vqbluetoothserver->setQBluetoothServer_CustomEvent_Callback(reinterpret_cast<VirtualQBluetoothServer::QBluetoothServer_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -352,9 +344,8 @@ void QBluetoothServer_SuperConnectNotify(QBluetoothServer* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QBluetoothServer_OnConnectNotify(QBluetoothServer* self, intptr_t slot) {
     auto* vqbluetoothserver = dynamic_cast<VirtualQBluetoothServer*>(self);
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
+    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer)
         vqbluetoothserver->setQBluetoothServer_ConnectNotify_Callback(reinterpret_cast<VirtualQBluetoothServer::QBluetoothServer_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -381,9 +372,8 @@ void QBluetoothServer_SuperDisconnectNotify(QBluetoothServer* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void QBluetoothServer_OnDisconnectNotify(QBluetoothServer* self, intptr_t slot) {
     auto* vqbluetoothserver = dynamic_cast<VirtualQBluetoothServer*>(self);
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
+    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer)
         vqbluetoothserver->setQBluetoothServer_DisconnectNotify_Callback(reinterpret_cast<VirtualQBluetoothServer::QBluetoothServer_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -410,9 +400,8 @@ QObject* QBluetoothServer_SuperSender(const QBluetoothServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothServer_OnSender(const QBluetoothServer* self, intptr_t slot) {
     auto* vqbluetoothserver = const_cast<VirtualQBluetoothServer*>(dynamic_cast<const VirtualQBluetoothServer*>(self));
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
+    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer)
         vqbluetoothserver->setQBluetoothServer_Sender_Callback(reinterpret_cast<VirtualQBluetoothServer::QBluetoothServer_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -439,9 +428,8 @@ int QBluetoothServer_SuperSenderSignalIndex(const QBluetoothServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QBluetoothServer_OnSenderSignalIndex(const QBluetoothServer* self, intptr_t slot) {
     auto* vqbluetoothserver = const_cast<VirtualQBluetoothServer*>(dynamic_cast<const VirtualQBluetoothServer*>(self));
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
+    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer)
         vqbluetoothserver->setQBluetoothServer_SenderSignalIndex_Callback(reinterpret_cast<VirtualQBluetoothServer::QBluetoothServer_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -468,9 +456,8 @@ int QBluetoothServer_SuperReceivers(const QBluetoothServer* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void QBluetoothServer_OnReceivers(const QBluetoothServer* self, intptr_t slot) {
     auto* vqbluetoothserver = const_cast<VirtualQBluetoothServer*>(dynamic_cast<const VirtualQBluetoothServer*>(self));
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
+    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer)
         vqbluetoothserver->setQBluetoothServer_Receivers_Callback(reinterpret_cast<VirtualQBluetoothServer::QBluetoothServer_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -497,9 +484,8 @@ bool QBluetoothServer_SuperIsSignalConnected(const QBluetoothServer* self, const
 // Auxiliary method to allow providing re-implementation
 void QBluetoothServer_OnIsSignalConnected(const QBluetoothServer* self, intptr_t slot) {
     auto* vqbluetoothserver = const_cast<VirtualQBluetoothServer*>(dynamic_cast<const VirtualQBluetoothServer*>(self));
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
+    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer)
         vqbluetoothserver->setQBluetoothServer_IsSignalConnected_Callback(reinterpret_cast<VirtualQBluetoothServer::QBluetoothServer_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QBluetoothServer_Delete(QBluetoothServer* self) {

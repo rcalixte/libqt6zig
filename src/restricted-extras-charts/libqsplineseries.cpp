@@ -54,9 +54,8 @@ QMetaObject* QSplineSeries_SuperMetaObject(const QSplineSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnMetaObject(const QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_MetaObject_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -73,9 +72,8 @@ void* QSplineSeries_SuperMetacast(QSplineSeries* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnMetacast(QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_Metacast_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -92,9 +90,8 @@ int QSplineSeries_SuperMetacall(QSplineSeries* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnMetacall(QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_Metacall_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -111,9 +108,8 @@ int QSplineSeries_SuperType(const QSplineSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnType(const QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_Type_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -140,9 +136,8 @@ void QSplineSeries_SuperSetPen(QSplineSeries* self, const QPen* pen) {
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnSetPen(QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_SetPen_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_SetPen_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -169,9 +164,8 @@ void QSplineSeries_SuperSetBrush(QSplineSeries* self, const QBrush* brush) {
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnSetBrush(QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_SetBrush_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_SetBrush_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -198,9 +192,8 @@ void QSplineSeries_SuperSetColor(QSplineSeries* self, const QColor* color) {
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnSetColor(QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_SetColor_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_SetColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -227,9 +220,8 @@ QColor* QSplineSeries_SuperColor(const QSplineSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnColor(const QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_Color_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -256,9 +248,8 @@ bool QSplineSeries_SuperEvent(QSplineSeries* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnEvent(QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_Event_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -285,9 +276,8 @@ bool QSplineSeries_SuperEventFilter(QSplineSeries* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnEventFilter(QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_EventFilter_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -314,9 +304,8 @@ void QSplineSeries_SuperTimerEvent(QSplineSeries* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnTimerEvent(QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_TimerEvent_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -343,9 +332,8 @@ void QSplineSeries_SuperChildEvent(QSplineSeries* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnChildEvent(QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_ChildEvent_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +360,8 @@ void QSplineSeries_SuperCustomEvent(QSplineSeries* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnCustomEvent(QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_CustomEvent_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -401,9 +388,8 @@ void QSplineSeries_SuperConnectNotify(QSplineSeries* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnConnectNotify(QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_ConnectNotify_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -430,9 +416,8 @@ void QSplineSeries_SuperDisconnectNotify(QSplineSeries* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnDisconnectNotify(QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_DisconnectNotify_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -459,9 +444,8 @@ QObject* QSplineSeries_SuperSender(const QSplineSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnSender(const QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_Sender_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -488,9 +472,8 @@ int QSplineSeries_SuperSenderSignalIndex(const QSplineSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnSenderSignalIndex(const QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -517,9 +500,8 @@ int QSplineSeries_SuperReceivers(const QSplineSeries* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnReceivers(const QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_Receivers_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -546,9 +528,8 @@ bool QSplineSeries_SuperIsSignalConnected(const QSplineSeries* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QSplineSeries_OnIsSignalConnected(const QSplineSeries* self, intptr_t slot) {
     auto* vqsplineseries = const_cast<VirtualQSplineSeries*>(dynamic_cast<const VirtualQSplineSeries*>(self));
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
+    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries)
         vqsplineseries->setQSplineSeries_IsSignalConnected_Callback(reinterpret_cast<VirtualQSplineSeries::QSplineSeries_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QSplineSeries_Delete(QSplineSeries* self) {

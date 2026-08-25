@@ -72,9 +72,8 @@ QMetaObject* KParts__StatusBarExtension_SuperMetaObject(const KParts__StatusBarE
 // Auxiliary method to allow providing re-implementation
 void KParts__StatusBarExtension_OnMetaObject(const KParts__StatusBarExtension* self, intptr_t slot) {
     auto* vkpartsstatusbarextension = const_cast<VirtualKPartsStatusBarExtension*>(dynamic_cast<const VirtualKPartsStatusBarExtension*>(self));
-    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension)
         vkpartsstatusbarextension->setKParts__StatusBarExtension_MetaObject_Callback(reinterpret_cast<VirtualKPartsStatusBarExtension::KParts__StatusBarExtension_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -91,9 +90,8 @@ void* KParts__StatusBarExtension_SuperMetacast(KParts__StatusBarExtension* self,
 // Auxiliary method to allow providing re-implementation
 void KParts__StatusBarExtension_OnMetacast(KParts__StatusBarExtension* self, intptr_t slot) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
-    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension)
         vkpartsstatusbarextension->setKParts__StatusBarExtension_Metacast_Callback(reinterpret_cast<VirtualKPartsStatusBarExtension::KParts__StatusBarExtension_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -110,9 +108,8 @@ int KParts__StatusBarExtension_SuperMetacall(KParts__StatusBarExtension* self, i
 // Auxiliary method to allow providing re-implementation
 void KParts__StatusBarExtension_OnMetacall(KParts__StatusBarExtension* self, intptr_t slot) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
-    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension)
         vkpartsstatusbarextension->setKParts__StatusBarExtension_Metacall_Callback(reinterpret_cast<VirtualKPartsStatusBarExtension::KParts__StatusBarExtension_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -129,9 +126,8 @@ bool KParts__StatusBarExtension_SuperEventFilter(KParts__StatusBarExtension* sel
 // Auxiliary method to allow providing re-implementation
 void KParts__StatusBarExtension_OnEventFilter(KParts__StatusBarExtension* self, intptr_t slot) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
-    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension)
         vkpartsstatusbarextension->setKParts__StatusBarExtension_EventFilter_Callback(reinterpret_cast<VirtualKPartsStatusBarExtension::KParts__StatusBarExtension_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -158,9 +154,8 @@ bool KParts__StatusBarExtension_SuperEvent(KParts__StatusBarExtension* self, QEv
 // Auxiliary method to allow providing re-implementation
 void KParts__StatusBarExtension_OnEvent(KParts__StatusBarExtension* self, intptr_t slot) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
-    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension)
         vkpartsstatusbarextension->setKParts__StatusBarExtension_Event_Callback(reinterpret_cast<VirtualKPartsStatusBarExtension::KParts__StatusBarExtension_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -187,9 +182,8 @@ void KParts__StatusBarExtension_SuperTimerEvent(KParts__StatusBarExtension* self
 // Auxiliary method to allow providing re-implementation
 void KParts__StatusBarExtension_OnTimerEvent(KParts__StatusBarExtension* self, intptr_t slot) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
-    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension)
         vkpartsstatusbarextension->setKParts__StatusBarExtension_TimerEvent_Callback(reinterpret_cast<VirtualKPartsStatusBarExtension::KParts__StatusBarExtension_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -216,9 +210,8 @@ void KParts__StatusBarExtension_SuperChildEvent(KParts__StatusBarExtension* self
 // Auxiliary method to allow providing re-implementation
 void KParts__StatusBarExtension_OnChildEvent(KParts__StatusBarExtension* self, intptr_t slot) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
-    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension)
         vkpartsstatusbarextension->setKParts__StatusBarExtension_ChildEvent_Callback(reinterpret_cast<VirtualKPartsStatusBarExtension::KParts__StatusBarExtension_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -245,9 +238,8 @@ void KParts__StatusBarExtension_SuperCustomEvent(KParts__StatusBarExtension* sel
 // Auxiliary method to allow providing re-implementation
 void KParts__StatusBarExtension_OnCustomEvent(KParts__StatusBarExtension* self, intptr_t slot) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
-    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension)
         vkpartsstatusbarextension->setKParts__StatusBarExtension_CustomEvent_Callback(reinterpret_cast<VirtualKPartsStatusBarExtension::KParts__StatusBarExtension_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -274,9 +266,8 @@ void KParts__StatusBarExtension_SuperConnectNotify(KParts__StatusBarExtension* s
 // Auxiliary method to allow providing re-implementation
 void KParts__StatusBarExtension_OnConnectNotify(KParts__StatusBarExtension* self, intptr_t slot) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
-    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension)
         vkpartsstatusbarextension->setKParts__StatusBarExtension_ConnectNotify_Callback(reinterpret_cast<VirtualKPartsStatusBarExtension::KParts__StatusBarExtension_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -303,9 +294,8 @@ void KParts__StatusBarExtension_SuperDisconnectNotify(KParts__StatusBarExtension
 // Auxiliary method to allow providing re-implementation
 void KParts__StatusBarExtension_OnDisconnectNotify(KParts__StatusBarExtension* self, intptr_t slot) {
     auto* vkpartsstatusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
-    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension)
         vkpartsstatusbarextension->setKParts__StatusBarExtension_DisconnectNotify_Callback(reinterpret_cast<VirtualKPartsStatusBarExtension::KParts__StatusBarExtension_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -332,9 +322,8 @@ QObject* KParts__StatusBarExtension_SuperSender(const KParts__StatusBarExtension
 // Auxiliary method to allow providing re-implementation
 void KParts__StatusBarExtension_OnSender(const KParts__StatusBarExtension* self, intptr_t slot) {
     auto* vkpartsstatusbarextension = const_cast<VirtualKPartsStatusBarExtension*>(dynamic_cast<const VirtualKPartsStatusBarExtension*>(self));
-    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension)
         vkpartsstatusbarextension->setKParts__StatusBarExtension_Sender_Callback(reinterpret_cast<VirtualKPartsStatusBarExtension::KParts__StatusBarExtension_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -361,9 +350,8 @@ int KParts__StatusBarExtension_SuperSenderSignalIndex(const KParts__StatusBarExt
 // Auxiliary method to allow providing re-implementation
 void KParts__StatusBarExtension_OnSenderSignalIndex(const KParts__StatusBarExtension* self, intptr_t slot) {
     auto* vkpartsstatusbarextension = const_cast<VirtualKPartsStatusBarExtension*>(dynamic_cast<const VirtualKPartsStatusBarExtension*>(self));
-    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension)
         vkpartsstatusbarextension->setKParts__StatusBarExtension_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPartsStatusBarExtension::KParts__StatusBarExtension_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -390,9 +378,8 @@ int KParts__StatusBarExtension_SuperReceivers(const KParts__StatusBarExtension* 
 // Auxiliary method to allow providing re-implementation
 void KParts__StatusBarExtension_OnReceivers(const KParts__StatusBarExtension* self, intptr_t slot) {
     auto* vkpartsstatusbarextension = const_cast<VirtualKPartsStatusBarExtension*>(dynamic_cast<const VirtualKPartsStatusBarExtension*>(self));
-    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension)
         vkpartsstatusbarextension->setKParts__StatusBarExtension_Receivers_Callback(reinterpret_cast<VirtualKPartsStatusBarExtension::KParts__StatusBarExtension_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -419,9 +406,8 @@ bool KParts__StatusBarExtension_SuperIsSignalConnected(const KParts__StatusBarEx
 // Auxiliary method to allow providing re-implementation
 void KParts__StatusBarExtension_OnIsSignalConnected(const KParts__StatusBarExtension* self, intptr_t slot) {
     auto* vkpartsstatusbarextension = const_cast<VirtualKPartsStatusBarExtension*>(dynamic_cast<const VirtualKPartsStatusBarExtension*>(self));
-    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension) {
+    if (vkpartsstatusbarextension && vkpartsstatusbarextension->isVirtualKPartsStatusBarExtension)
         vkpartsstatusbarextension->setKParts__StatusBarExtension_IsSignalConnected_Callback(reinterpret_cast<VirtualKPartsStatusBarExtension::KParts__StatusBarExtension_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KParts__StatusBarExtension_Delete(KParts__StatusBarExtension* self) {

@@ -3289,7 +3289,7 @@ pub const QNetworkAccessManager = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#public-types)
 pub const enums = struct {
-    pub const Operation = enum(i32) {
+    pub const Operation = enum {
         pub const HeadOperation: i32 = 1;
         pub const GetOperation: i32 = 2;
         pub const PutOperation: i32 = 3;

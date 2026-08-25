@@ -7410,7 +7410,7 @@ pub const KSelectionProxyModel = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kselectionproxymodel.html#public-types)
 pub const enums = struct {
-    pub const FilterBehavior = enum(i32) {
+    pub const FilterBehavior = enum {
         pub const SubTrees: i32 = 0;
         pub const SubTreeRoots: i32 = 1;
         pub const SubTreesWithoutRoots: i32 = 2;

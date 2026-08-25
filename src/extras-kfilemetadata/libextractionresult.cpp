@@ -107,9 +107,8 @@ void KFileMetaData__ExtractionResult_SuperAppend(KFileMetaData__ExtractionResult
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__ExtractionResult_OnAppend(KFileMetaData__ExtractionResult* self, intptr_t slot) {
     auto* vkfilemetadataextractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self);
-    if (vkfilemetadataextractionresult && vkfilemetadataextractionresult->isVirtualKFileMetaDataExtractionResult) {
+    if (vkfilemetadataextractionresult && vkfilemetadataextractionresult->isVirtualKFileMetaDataExtractionResult)
         vkfilemetadataextractionresult->setKFileMetaData__ExtractionResult_Append_Callback(reinterpret_cast<VirtualKFileMetaDataExtractionResult::KFileMetaData__ExtractionResult_Append_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -126,9 +125,8 @@ void KFileMetaData__ExtractionResult_SuperAdd(KFileMetaData__ExtractionResult* s
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__ExtractionResult_OnAdd(KFileMetaData__ExtractionResult* self, intptr_t slot) {
     auto* vkfilemetadataextractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self);
-    if (vkfilemetadataextractionresult && vkfilemetadataextractionresult->isVirtualKFileMetaDataExtractionResult) {
+    if (vkfilemetadataextractionresult && vkfilemetadataextractionresult->isVirtualKFileMetaDataExtractionResult)
         vkfilemetadataextractionresult->setKFileMetaData__ExtractionResult_Add_Callback(reinterpret_cast<VirtualKFileMetaDataExtractionResult::KFileMetaData__ExtractionResult_Add_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -145,9 +143,8 @@ void KFileMetaData__ExtractionResult_SuperAddType(KFileMetaData__ExtractionResul
 // Auxiliary method to allow providing re-implementation
 void KFileMetaData__ExtractionResult_OnAddType(KFileMetaData__ExtractionResult* self, intptr_t slot) {
     auto* vkfilemetadataextractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self);
-    if (vkfilemetadataextractionresult && vkfilemetadataextractionresult->isVirtualKFileMetaDataExtractionResult) {
+    if (vkfilemetadataextractionresult && vkfilemetadataextractionresult->isVirtualKFileMetaDataExtractionResult)
         vkfilemetadataextractionresult->setKFileMetaData__ExtractionResult_AddType_Callback(reinterpret_cast<VirtualKFileMetaDataExtractionResult::KFileMetaData__ExtractionResult_AddType_Callback>(slot));
-    }
 }
 
 void KFileMetaData__ExtractionResult_Delete(KFileMetaData__ExtractionResult* self) {

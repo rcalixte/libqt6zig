@@ -122,9 +122,8 @@ QMetaObject* KListWidgetSearchLine_SuperMetaObject(const KListWidgetSearchLine* 
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnMetaObject(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_MetaObject_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -141,9 +140,8 @@ void* KListWidgetSearchLine_SuperMetacast(KListWidgetSearchLine* self, const cha
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnMetacast(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_Metacast_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -160,9 +158,8 @@ int KListWidgetSearchLine_SuperMetacall(KListWidgetSearchLine* self, int param1,
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnMetacall(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_Metacall_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -180,9 +177,8 @@ void KListWidgetSearchLine_SuperUpdateSearch(KListWidgetSearchLine* self, const 
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnUpdateSearch(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_UpdateSearch_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_UpdateSearch_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -200,9 +196,8 @@ bool KListWidgetSearchLine_SuperItemMatches(const KListWidgetSearchLine* self, c
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnItemMatches(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_ItemMatches_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_ItemMatches_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -219,9 +214,8 @@ bool KListWidgetSearchLine_SuperEvent(KListWidgetSearchLine* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_Event_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -248,9 +242,8 @@ QSize* KListWidgetSearchLine_SuperSizeHint(const KListWidgetSearchLine* self) {
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnSizeHint(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_SizeHint_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -277,9 +270,8 @@ QSize* KListWidgetSearchLine_SuperMinimumSizeHint(const KListWidgetSearchLine* s
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnMinimumSizeHint(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_MinimumSizeHint_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -306,9 +298,8 @@ void KListWidgetSearchLine_SuperMousePressEvent(KListWidgetSearchLine* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnMousePressEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_MousePressEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -335,9 +326,8 @@ void KListWidgetSearchLine_SuperMouseMoveEvent(KListWidgetSearchLine* self, QMou
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnMouseMoveEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_MouseMoveEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -364,9 +354,8 @@ void KListWidgetSearchLine_SuperMouseReleaseEvent(KListWidgetSearchLine* self, Q
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnMouseReleaseEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -393,9 +382,8 @@ void KListWidgetSearchLine_SuperMouseDoubleClickEvent(KListWidgetSearchLine* sel
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnMouseDoubleClickEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -422,9 +410,8 @@ void KListWidgetSearchLine_SuperKeyPressEvent(KListWidgetSearchLine* self, QKeyE
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnKeyPressEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_KeyPressEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -451,9 +438,8 @@ void KListWidgetSearchLine_SuperKeyReleaseEvent(KListWidgetSearchLine* self, QKe
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnKeyReleaseEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -480,9 +466,8 @@ void KListWidgetSearchLine_SuperFocusInEvent(KListWidgetSearchLine* self, QFocus
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnFocusInEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_FocusInEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -509,9 +494,8 @@ void KListWidgetSearchLine_SuperFocusOutEvent(KListWidgetSearchLine* self, QFocu
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnFocusOutEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_FocusOutEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -538,9 +522,8 @@ void KListWidgetSearchLine_SuperPaintEvent(KListWidgetSearchLine* self, QPaintEv
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnPaintEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_PaintEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -567,9 +550,8 @@ void KListWidgetSearchLine_SuperDragEnterEvent(KListWidgetSearchLine* self, QDra
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnDragEnterEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_DragEnterEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -596,9 +578,8 @@ void KListWidgetSearchLine_SuperDragMoveEvent(KListWidgetSearchLine* self, QDrag
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnDragMoveEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_DragMoveEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -625,9 +606,8 @@ void KListWidgetSearchLine_SuperDragLeaveEvent(KListWidgetSearchLine* self, QDra
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnDragLeaveEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_DragLeaveEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -654,9 +634,8 @@ void KListWidgetSearchLine_SuperDropEvent(KListWidgetSearchLine* self, QDropEven
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnDropEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_DropEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -683,9 +662,8 @@ void KListWidgetSearchLine_SuperChangeEvent(KListWidgetSearchLine* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnChangeEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_ChangeEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -712,9 +690,8 @@ void KListWidgetSearchLine_SuperContextMenuEvent(KListWidgetSearchLine* self, QC
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnContextMenuEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_ContextMenuEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -741,9 +718,8 @@ void KListWidgetSearchLine_SuperInputMethodEvent(KListWidgetSearchLine* self, QI
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnInputMethodEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_InputMethodEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -770,9 +746,8 @@ void KListWidgetSearchLine_SuperInitStyleOption(const KListWidgetSearchLine* sel
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnInitStyleOption(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_InitStyleOption_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -799,9 +774,8 @@ QVariant* KListWidgetSearchLine_SuperInputMethodQuery(const KListWidgetSearchLin
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnInputMethodQuery(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_InputMethodQuery_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -828,9 +802,8 @@ void KListWidgetSearchLine_SuperTimerEvent(KListWidgetSearchLine* self, QTimerEv
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnTimerEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_TimerEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -857,9 +830,8 @@ int KListWidgetSearchLine_SuperDevType(const KListWidgetSearchLine* self) {
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnDevType(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_DevType_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -886,9 +858,8 @@ void KListWidgetSearchLine_SuperSetVisible(KListWidgetSearchLine* self, bool vis
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnSetVisible(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_SetVisible_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -915,9 +886,8 @@ int KListWidgetSearchLine_SuperHeightForWidth(const KListWidgetSearchLine* self,
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnHeightForWidth(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_HeightForWidth_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -944,9 +914,8 @@ bool KListWidgetSearchLine_SuperHasHeightForWidth(const KListWidgetSearchLine* s
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnHasHeightForWidth(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_HasHeightForWidth_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -973,9 +942,8 @@ QPaintEngine* KListWidgetSearchLine_SuperPaintEngine(const KListWidgetSearchLine
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnPaintEngine(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_PaintEngine_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1002,9 +970,8 @@ void KListWidgetSearchLine_SuperWheelEvent(KListWidgetSearchLine* self, QWheelEv
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnWheelEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_WheelEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1031,9 +998,8 @@ void KListWidgetSearchLine_SuperEnterEvent(KListWidgetSearchLine* self, QEnterEv
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnEnterEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_EnterEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1060,9 +1026,8 @@ void KListWidgetSearchLine_SuperLeaveEvent(KListWidgetSearchLine* self, QEvent* 
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnLeaveEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_LeaveEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1089,9 +1054,8 @@ void KListWidgetSearchLine_SuperMoveEvent(KListWidgetSearchLine* self, QMoveEven
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnMoveEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_MoveEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1118,9 +1082,8 @@ void KListWidgetSearchLine_SuperResizeEvent(KListWidgetSearchLine* self, QResize
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnResizeEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_ResizeEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1147,9 +1110,8 @@ void KListWidgetSearchLine_SuperCloseEvent(KListWidgetSearchLine* self, QCloseEv
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnCloseEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_CloseEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1176,9 +1138,8 @@ void KListWidgetSearchLine_SuperTabletEvent(KListWidgetSearchLine* self, QTablet
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnTabletEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_TabletEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1205,9 +1166,8 @@ void KListWidgetSearchLine_SuperActionEvent(KListWidgetSearchLine* self, QAction
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnActionEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_ActionEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1234,9 +1194,8 @@ void KListWidgetSearchLine_SuperShowEvent(KListWidgetSearchLine* self, QShowEven
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnShowEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_ShowEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1263,9 +1222,8 @@ void KListWidgetSearchLine_SuperHideEvent(KListWidgetSearchLine* self, QHideEven
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnHideEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_HideEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1294,9 +1252,8 @@ bool KListWidgetSearchLine_SuperNativeEvent(KListWidgetSearchLine* self, const l
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnNativeEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_NativeEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1323,9 +1280,8 @@ int KListWidgetSearchLine_SuperMetric(const KListWidgetSearchLine* self, int par
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnMetric(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_Metric_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1352,9 +1308,8 @@ void KListWidgetSearchLine_SuperInitPainter(const KListWidgetSearchLine* self, Q
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnInitPainter(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_InitPainter_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1381,9 +1336,8 @@ QPaintDevice* KListWidgetSearchLine_SuperRedirected(const KListWidgetSearchLine*
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnRedirected(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_Redirected_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1410,9 +1364,8 @@ QPainter* KListWidgetSearchLine_SuperSharedPainter(const KListWidgetSearchLine* 
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnSharedPainter(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_SharedPainter_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1439,9 +1392,8 @@ bool KListWidgetSearchLine_SuperFocusNextPrevChild(KListWidgetSearchLine* self, 
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnFocusNextPrevChild(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1468,9 +1420,8 @@ bool KListWidgetSearchLine_SuperEventFilter(KListWidgetSearchLine* self, QObject
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnEventFilter(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_EventFilter_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1497,9 +1448,8 @@ void KListWidgetSearchLine_SuperChildEvent(KListWidgetSearchLine* self, QChildEv
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnChildEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_ChildEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1526,9 +1476,8 @@ void KListWidgetSearchLine_SuperCustomEvent(KListWidgetSearchLine* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnCustomEvent(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_CustomEvent_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1555,9 +1504,8 @@ void KListWidgetSearchLine_SuperConnectNotify(KListWidgetSearchLine* self, const
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnConnectNotify(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_ConnectNotify_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1584,9 +1532,8 @@ void KListWidgetSearchLine_SuperDisconnectNotify(KListWidgetSearchLine* self, co
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnDisconnectNotify(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_DisconnectNotify_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1611,9 +1558,8 @@ QRect* KListWidgetSearchLine_SuperCursorRect(const KListWidgetSearchLine* self) 
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnCursorRect(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_CursorRect_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_CursorRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1640,9 +1586,8 @@ void KListWidgetSearchLine_SuperUpdateMicroFocus(KListWidgetSearchLine* self) {
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnUpdateMicroFocus(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1669,9 +1614,8 @@ void KListWidgetSearchLine_SuperCreate(KListWidgetSearchLine* self) {
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnCreate(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_Create_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1698,9 +1642,8 @@ void KListWidgetSearchLine_SuperDestroy(KListWidgetSearchLine* self) {
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnDestroy(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_Destroy_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1727,9 +1670,8 @@ bool KListWidgetSearchLine_SuperFocusNextChild(KListWidgetSearchLine* self) {
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnFocusNextChild(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_FocusNextChild_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1756,9 +1698,8 @@ bool KListWidgetSearchLine_SuperFocusPreviousChild(KListWidgetSearchLine* self) 
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnFocusPreviousChild(KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_FocusPreviousChild_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1785,9 +1726,8 @@ QObject* KListWidgetSearchLine_SuperSender(const KListWidgetSearchLine* self) {
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnSender(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_Sender_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1814,9 +1754,8 @@ int KListWidgetSearchLine_SuperSenderSignalIndex(const KListWidgetSearchLine* se
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnSenderSignalIndex(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_SenderSignalIndex_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1843,9 +1782,8 @@ int KListWidgetSearchLine_SuperReceivers(const KListWidgetSearchLine* self, cons
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnReceivers(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_Receivers_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1872,9 +1810,8 @@ bool KListWidgetSearchLine_SuperIsSignalConnected(const KListWidgetSearchLine* s
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnIsSignalConnected(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_IsSignalConnected_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1901,9 +1838,8 @@ double KListWidgetSearchLine_SuperGetDecodedMetricF(const KListWidgetSearchLine*
 // Auxiliary method to allow providing re-implementation
 void KListWidgetSearchLine_OnGetDecodedMetricF(const KListWidgetSearchLine* self, intptr_t slot) {
     auto* vklistwidgetsearchline = const_cast<VirtualKListWidgetSearchLine*>(dynamic_cast<const VirtualKListWidgetSearchLine*>(self));
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
+    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine)
         vklistwidgetsearchline->setKListWidgetSearchLine_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKListWidgetSearchLine::KListWidgetSearchLine_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KListWidgetSearchLine_Delete(KListWidgetSearchLine* self) {

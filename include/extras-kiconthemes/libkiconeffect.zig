@@ -471,7 +471,7 @@ pub const KIconEffect = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kiconeffect.html#public-types)
 pub const enums = struct {
-    pub const Effects = enum(i32) {
+    pub const Effects = enum {
         pub const NoEffect: i32 = 0;
         pub const ToGray: i32 = 1;
         pub const Colorize: i32 = 2;

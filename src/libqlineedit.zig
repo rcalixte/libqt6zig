@@ -2908,6 +2908,31 @@ pub const QLineEdit = extern struct {
         qtc.QLineEdit_CursorBackward2(@ptrCast(self.ptr), mark, @bitCast(steps));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLineEdit `
+    ///
+    pub fn asQPaintDevice(self: QLineEdit) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QLineEdit object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QLineEdit {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -8851,7 +8876,7 @@ pub const QLineEdit = extern struct {
     /// ` self: QLineEdit `
     ///
     pub fn paintingActive(self: QLineEdit) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -8867,7 +8892,7 @@ pub const QLineEdit = extern struct {
     /// ` self: QLineEdit `
     ///
     pub fn widthMM(self: QLineEdit) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -8883,7 +8908,7 @@ pub const QLineEdit = extern struct {
     /// ` self: QLineEdit `
     ///
     pub fn heightMM(self: QLineEdit) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -8899,7 +8924,7 @@ pub const QLineEdit = extern struct {
     /// ` self: QLineEdit `
     ///
     pub fn logicalDpiX(self: QLineEdit) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -8915,7 +8940,7 @@ pub const QLineEdit = extern struct {
     /// ` self: QLineEdit `
     ///
     pub fn logicalDpiY(self: QLineEdit) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -8931,7 +8956,7 @@ pub const QLineEdit = extern struct {
     /// ` self: QLineEdit `
     ///
     pub fn physicalDpiX(self: QLineEdit) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -8947,7 +8972,7 @@ pub const QLineEdit = extern struct {
     /// ` self: QLineEdit `
     ///
     pub fn physicalDpiY(self: QLineEdit) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -8963,7 +8988,7 @@ pub const QLineEdit = extern struct {
     /// ` self: QLineEdit `
     ///
     pub fn devicePixelRatio(self: QLineEdit) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -8979,7 +9004,7 @@ pub const QLineEdit = extern struct {
     /// ` self: QLineEdit `
     ///
     pub fn devicePixelRatioF(self: QLineEdit) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -8995,7 +9020,7 @@ pub const QLineEdit = extern struct {
     /// ` self: QLineEdit `
     ///
     pub fn colorCount(self: QLineEdit) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -9011,7 +9036,7 @@ pub const QLineEdit = extern struct {
     /// ` self: QLineEdit `
     ///
     pub fn depth(self: QLineEdit) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -11263,12 +11288,12 @@ pub const QLineEdit = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#public-types)
 pub const enums = struct {
-    pub const ActionPosition = enum(i32) {
+    pub const ActionPosition = enum {
         pub const LeadingPosition: i32 = 0;
         pub const TrailingPosition: i32 = 1;
     };
 
-    pub const EchoMode = enum(i32) {
+    pub const EchoMode = enum {
         pub const Normal: i32 = 0;
         pub const NoEcho: i32 = 1;
         pub const Password: i32 = 2;

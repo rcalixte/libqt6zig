@@ -154,6 +154,27 @@ pub const KComboBox = extern struct {
         return .{ .ptr = qtc.KComboBox_new4(rw, @ptrCast(_parent.ptr)) };
     }
 
+    /// Upcasts to a KCompletionBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KComboBox `
+    ///
+    pub fn asKCompletionBase(self: KComboBox) KCompletionBase {
+        return .{ .ptr = qtc.KComboBox_AsKCompletionBase(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a KComboBox object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _kcompletionbase: KCompletionBase `
+    ///
+    pub fn fromKCompletionBase(_kcompletionbase: anytype) KComboBox {
+        comptime _ = @TypeOf(_kcompletionbase)._is_KCompletionBase;
+        return .{ .ptr = @ptrCast(qtc.KComboBox_FromKCompletionBase(@ptrCast(_kcompletionbase.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `metaObject` instead
     ///
     pub const MetaObject = metaObject;
@@ -3009,6 +3030,31 @@ pub const KComboBox = extern struct {
     pub fn setItemData3(self: KComboBox, index: i32, value: anytype, role: i32) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QComboBox_SetItemData3(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr), @bitCast(role));
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KComboBox `
+    ///
+    pub fn asQPaintDevice(self: KComboBox) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KComboBox object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KComboBox {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
     }
 
     /// ### DEPRECATED: Use `winId` instead
@@ -8995,7 +9041,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn paintingActive(self: KComboBox) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -9011,7 +9057,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn widthMM(self: KComboBox) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -9027,7 +9073,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn heightMM(self: KComboBox) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -9043,7 +9089,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn logicalDpiX(self: KComboBox) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -9059,7 +9105,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn logicalDpiY(self: KComboBox) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -9075,7 +9121,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn physicalDpiX(self: KComboBox) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -9091,7 +9137,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn physicalDpiY(self: KComboBox) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -9107,7 +9153,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn devicePixelRatio(self: KComboBox) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -9123,7 +9169,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn devicePixelRatioF(self: KComboBox) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -9139,7 +9185,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn colorCount(self: KComboBox) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -9155,7 +9201,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn depth(self: KComboBox) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -9201,7 +9247,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn completionObject(self: KComboBox) KCompletion {
-        return .{ .ptr = qtc.KCompletionBase_CompletionObject(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.KCompletionBase_CompletionObject(@ptrCast(self.asKCompletionBase().ptr)) };
     }
 
     /// ### DEPRECATED: Use `isCompletionObjectAutoDeleted` instead
@@ -9217,7 +9263,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn isCompletionObjectAutoDeleted(self: KComboBox) bool {
-        return qtc.KCompletionBase_IsCompletionObjectAutoDeleted(@ptrCast(self.ptr));
+        return qtc.KCompletionBase_IsCompletionObjectAutoDeleted(@ptrCast(self.asKCompletionBase().ptr));
     }
 
     /// ### DEPRECATED: Use `setAutoDeleteCompletionObject` instead
@@ -9235,7 +9281,7 @@ pub const KComboBox = extern struct {
     /// ` autoDelete: bool `
     ///
     pub fn setAutoDeleteCompletionObject(self: KComboBox, autoDelete: bool) void {
-        qtc.KCompletionBase_SetAutoDeleteCompletionObject(@ptrCast(self.ptr), autoDelete);
+        qtc.KCompletionBase_SetAutoDeleteCompletionObject(@ptrCast(self.asKCompletionBase().ptr), autoDelete);
     }
 
     /// ### DEPRECATED: Use `setEnableSignals` instead
@@ -9253,7 +9299,7 @@ pub const KComboBox = extern struct {
     /// ` enable: bool `
     ///
     pub fn setEnableSignals(self: KComboBox, enable: bool) void {
-        qtc.KCompletionBase_SetEnableSignals(@ptrCast(self.ptr), enable);
+        qtc.KCompletionBase_SetEnableSignals(@ptrCast(self.asKCompletionBase().ptr), enable);
     }
 
     /// ### DEPRECATED: Use `handleSignals` instead
@@ -9269,7 +9315,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn handleSignals(self: KComboBox) bool {
-        return qtc.KCompletionBase_HandleSignals(@ptrCast(self.ptr));
+        return qtc.KCompletionBase_HandleSignals(@ptrCast(self.asKCompletionBase().ptr));
     }
 
     /// ### DEPRECATED: Use `emitSignals` instead
@@ -9285,7 +9331,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn emitSignals(self: KComboBox) bool {
-        return qtc.KCompletionBase_EmitSignals(@ptrCast(self.ptr));
+        return qtc.KCompletionBase_EmitSignals(@ptrCast(self.asKCompletionBase().ptr));
     }
 
     /// ### DEPRECATED: Use `setEmitSignals` instead
@@ -9303,7 +9349,7 @@ pub const KComboBox = extern struct {
     /// ` emitRotationSignals: bool `
     ///
     pub fn setEmitSignals(self: KComboBox, emitRotationSignals: bool) void {
-        qtc.KCompletionBase_SetEmitSignals(@ptrCast(self.ptr), emitRotationSignals);
+        qtc.KCompletionBase_SetEmitSignals(@ptrCast(self.asKCompletionBase().ptr), emitRotationSignals);
     }
 
     /// ### DEPRECATED: Use `completionMode` instead
@@ -9323,7 +9369,7 @@ pub const KComboBox = extern struct {
     /// ` kcompletion_enums.CompletionMode `
     ///
     pub fn completionMode(self: KComboBox) i32 {
-        return qtc.KCompletionBase_CompletionMode(@ptrCast(self.ptr));
+        return qtc.KCompletionBase_CompletionMode(@ptrCast(self.asKCompletionBase().ptr));
     }
 
     /// ### DEPRECATED: Use `setKeyBinding` instead
@@ -9347,7 +9393,7 @@ pub const KComboBox = extern struct {
             .len = key.len,
             .data = @ptrCast(key.ptr),
         };
-        return qtc.KCompletionBase_SetKeyBinding(@ptrCast(self.ptr), @bitCast(item), key_list);
+        return qtc.KCompletionBase_SetKeyBinding(@ptrCast(self.asKCompletionBase().ptr), @bitCast(item), key_list);
     }
 
     /// ### DEPRECATED: Use `keyBinding` instead
@@ -9367,7 +9413,7 @@ pub const KComboBox = extern struct {
     /// ` item: kcompletionbase_enums.KeyBindingType `
     ///
     pub fn keyBinding(self: KComboBox, allocator: std.mem.Allocator, item: i32) []QKeySequence {
-        const _arr: qtc.libqt_list = qtc.KCompletionBase_KeyBinding(@ptrCast(self.ptr), @bitCast(item));
+        const _arr: qtc.libqt_list = qtc.KCompletionBase_KeyBinding(@ptrCast(self.asKCompletionBase().ptr), @bitCast(item));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KComboBox.keyBinding: Memory allocation failed");
         const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
@@ -9389,7 +9435,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn useGlobalKeyBindings(self: KComboBox) void {
-        qtc.KCompletionBase_UseGlobalKeyBindings(@ptrCast(self.ptr));
+        qtc.KCompletionBase_UseGlobalKeyBindings(@ptrCast(self.asKCompletionBase().ptr));
     }
 
     /// ### DEPRECATED: Use `compObj` instead
@@ -9405,7 +9451,7 @@ pub const KComboBox = extern struct {
     /// ` self: KComboBox `
     ///
     pub fn compObj(self: KComboBox) KCompletion {
-        return .{ .ptr = qtc.KCompletionBase_CompObj(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.KCompletionBase_CompObj(@ptrCast(self.asKCompletionBase().ptr)) };
     }
 
     /// ### DEPRECATED: Use `completionObject1` instead
@@ -9423,7 +9469,7 @@ pub const KComboBox = extern struct {
     /// ` _handleSignals: bool `
     ///
     pub fn completionObject1(self: KComboBox, _handleSignals: bool) KCompletion {
-        return .{ .ptr = qtc.KCompletionBase_CompletionObject1(@ptrCast(self.ptr), _handleSignals) };
+        return .{ .ptr = qtc.KCompletionBase_CompletionObject1(@ptrCast(self.asKCompletionBase().ptr), _handleSignals) };
     }
 
     /// ### DEPRECATED: Use `setModel` instead

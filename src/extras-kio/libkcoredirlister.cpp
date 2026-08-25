@@ -496,9 +496,8 @@ QMetaObject* KCoreDirLister_SuperMetaObject(const KCoreDirLister* self) {
 // Auxiliary method to allow providing re-implementation
 void KCoreDirLister_OnMetaObject(const KCoreDirLister* self, intptr_t slot) {
     auto* vkcoredirlister = const_cast<VirtualKCoreDirLister*>(dynamic_cast<const VirtualKCoreDirLister*>(self));
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister)
         vkcoredirlister->setKCoreDirLister_MetaObject_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -515,9 +514,8 @@ void* KCoreDirLister_SuperMetacast(KCoreDirLister* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCoreDirLister_OnMetacast(KCoreDirLister* self, intptr_t slot) {
     auto* vkcoredirlister = dynamic_cast<VirtualKCoreDirLister*>(self);
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister)
         vkcoredirlister->setKCoreDirLister_Metacast_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -534,9 +532,8 @@ int KCoreDirLister_SuperMetacall(KCoreDirLister* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void KCoreDirLister_OnMetacall(KCoreDirLister* self, intptr_t slot) {
     auto* vkcoredirlister = dynamic_cast<VirtualKCoreDirLister*>(self);
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister)
         vkcoredirlister->setKCoreDirLister_Metacall_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -553,9 +550,8 @@ void KCoreDirLister_SuperJobStarted(KCoreDirLister* self, KIO__ListJob* param1) 
 // Auxiliary method to allow providing re-implementation
 void KCoreDirLister_OnJobStarted(KCoreDirLister* self, intptr_t slot) {
     auto* vkcoredirlister = dynamic_cast<VirtualKCoreDirLister*>(self);
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister)
         vkcoredirlister->setKCoreDirLister_JobStarted_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_JobStarted_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -582,9 +578,8 @@ bool KCoreDirLister_SuperEvent(KCoreDirLister* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCoreDirLister_OnEvent(KCoreDirLister* self, intptr_t slot) {
     auto* vkcoredirlister = dynamic_cast<VirtualKCoreDirLister*>(self);
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister)
         vkcoredirlister->setKCoreDirLister_Event_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -611,9 +606,8 @@ bool KCoreDirLister_SuperEventFilter(KCoreDirLister* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void KCoreDirLister_OnEventFilter(KCoreDirLister* self, intptr_t slot) {
     auto* vkcoredirlister = dynamic_cast<VirtualKCoreDirLister*>(self);
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister)
         vkcoredirlister->setKCoreDirLister_EventFilter_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -640,9 +634,8 @@ void KCoreDirLister_SuperTimerEvent(KCoreDirLister* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCoreDirLister_OnTimerEvent(KCoreDirLister* self, intptr_t slot) {
     auto* vkcoredirlister = dynamic_cast<VirtualKCoreDirLister*>(self);
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister)
         vkcoredirlister->setKCoreDirLister_TimerEvent_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -669,9 +662,8 @@ void KCoreDirLister_SuperChildEvent(KCoreDirLister* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCoreDirLister_OnChildEvent(KCoreDirLister* self, intptr_t slot) {
     auto* vkcoredirlister = dynamic_cast<VirtualKCoreDirLister*>(self);
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister)
         vkcoredirlister->setKCoreDirLister_ChildEvent_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -698,9 +690,8 @@ void KCoreDirLister_SuperCustomEvent(KCoreDirLister* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCoreDirLister_OnCustomEvent(KCoreDirLister* self, intptr_t slot) {
     auto* vkcoredirlister = dynamic_cast<VirtualKCoreDirLister*>(self);
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister)
         vkcoredirlister->setKCoreDirLister_CustomEvent_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -727,9 +718,8 @@ void KCoreDirLister_SuperConnectNotify(KCoreDirLister* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KCoreDirLister_OnConnectNotify(KCoreDirLister* self, intptr_t slot) {
     auto* vkcoredirlister = dynamic_cast<VirtualKCoreDirLister*>(self);
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister)
         vkcoredirlister->setKCoreDirLister_ConnectNotify_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -756,9 +746,8 @@ void KCoreDirLister_SuperDisconnectNotify(KCoreDirLister* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void KCoreDirLister_OnDisconnectNotify(KCoreDirLister* self, intptr_t slot) {
     auto* vkcoredirlister = dynamic_cast<VirtualKCoreDirLister*>(self);
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister)
         vkcoredirlister->setKCoreDirLister_DisconnectNotify_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -785,9 +774,8 @@ QObject* KCoreDirLister_SuperSender(const KCoreDirLister* self) {
 // Auxiliary method to allow providing re-implementation
 void KCoreDirLister_OnSender(const KCoreDirLister* self, intptr_t slot) {
     auto* vkcoredirlister = const_cast<VirtualKCoreDirLister*>(dynamic_cast<const VirtualKCoreDirLister*>(self));
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister)
         vkcoredirlister->setKCoreDirLister_Sender_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -814,9 +802,8 @@ int KCoreDirLister_SuperSenderSignalIndex(const KCoreDirLister* self) {
 // Auxiliary method to allow providing re-implementation
 void KCoreDirLister_OnSenderSignalIndex(const KCoreDirLister* self, intptr_t slot) {
     auto* vkcoredirlister = const_cast<VirtualKCoreDirLister*>(dynamic_cast<const VirtualKCoreDirLister*>(self));
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister)
         vkcoredirlister->setKCoreDirLister_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -843,9 +830,8 @@ int KCoreDirLister_SuperReceivers(const KCoreDirLister* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void KCoreDirLister_OnReceivers(const KCoreDirLister* self, intptr_t slot) {
     auto* vkcoredirlister = const_cast<VirtualKCoreDirLister*>(dynamic_cast<const VirtualKCoreDirLister*>(self));
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister)
         vkcoredirlister->setKCoreDirLister_Receivers_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -872,9 +858,8 @@ bool KCoreDirLister_SuperIsSignalConnected(const KCoreDirLister* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KCoreDirLister_OnIsSignalConnected(const KCoreDirLister* self, intptr_t slot) {
     auto* vkcoredirlister = const_cast<VirtualKCoreDirLister*>(dynamic_cast<const VirtualKCoreDirLister*>(self));
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
+    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister)
         vkcoredirlister->setKCoreDirLister_IsSignalConnected_Callback(reinterpret_cast<VirtualKCoreDirLister::KCoreDirLister_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KCoreDirLister_Delete(KCoreDirLister* self) {

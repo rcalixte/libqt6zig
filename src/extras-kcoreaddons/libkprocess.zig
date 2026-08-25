@@ -3,6 +3,7 @@ const qtc = @import("qt6c");
 const QBindingStorage = @import("libqt6").QBindingStorage;
 const QChildEvent = @import("libqt6").QChildEvent;
 const QEvent = @import("libqt6").QEvent;
+const QIODeviceBase = @import("libqt6").QIODeviceBase;
 const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
@@ -2146,6 +2147,18 @@ pub const KProcess = extern struct {
     ///
     pub fn onFinished2(self: KProcess, callback: *const fn (KProcess, i32, i32) callconv(.c) void) void {
         qtc.QProcess_Connect_Finished2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QIODevice
+    ///
+    /// Upcasts to a QIODeviceBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KProcess `
+    ///
+    pub fn asQIODeviceBase(self: KProcess) QIODeviceBase {
+        return .{ .ptr = qtc.QIODevice_AsQIODeviceBase(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `openMode` instead
@@ -5912,7 +5925,7 @@ pub const KProcess = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kprocess.html#public-types)
 pub const enums = struct {
-    pub const OutputChannelMode = enum(i32) {
+    pub const OutputChannelMode = enum {
         pub const SeparateChannels: i32 = 0;
         pub const MergedChannels: i32 = 1;
         pub const ForwardedChannels: i32 = 2;

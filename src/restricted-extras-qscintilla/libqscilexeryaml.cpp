@@ -100,9 +100,8 @@ QMetaObject* QsciLexerYAML_SuperMetaObject(const QsciLexerYAML* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnMetaObject(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -119,9 +118,8 @@ void* QsciLexerYAML_SuperMetacast(QsciLexerYAML* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnMetacast(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_Metacast_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -138,9 +136,8 @@ int QsciLexerYAML_SuperMetacall(QsciLexerYAML* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnMetacall(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_Metacall_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -157,9 +154,8 @@ void QsciLexerYAML_SuperSetFoldComments(QsciLexerYAML* self, bool fold) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnSetFoldComments(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_SetFoldComments_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -186,9 +182,8 @@ int QsciLexerYAML_SuperLexerId(const QsciLexerYAML* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnLexerId(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_LexerId_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_LexerId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -215,9 +210,8 @@ const char* QsciLexerYAML_SuperAutoCompletionFillups(const QsciLexerYAML* self) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnAutoCompletionFillups(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_AutoCompletionFillups_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -312,9 +306,8 @@ libqt_list /* of libqt_string */ QsciLexerYAML_SuperAutoCompletionWordSeparators
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnAutoCompletionWordSeparators(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_AutoCompletionWordSeparators_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_AutoCompletionWordSeparators_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -341,9 +334,8 @@ const char* QsciLexerYAML_SuperBlockEnd(const QsciLexerYAML* self, int* style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnBlockEnd(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_BlockEnd_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_BlockEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -370,9 +362,8 @@ int QsciLexerYAML_SuperBlockLookback(const QsciLexerYAML* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnBlockLookback(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_BlockLookback_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -399,9 +390,8 @@ const char* QsciLexerYAML_SuperBlockStart(const QsciLexerYAML* self, int* style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnBlockStart(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_BlockStart_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_BlockStart_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -428,9 +418,8 @@ const char* QsciLexerYAML_SuperBlockStartKeyword(const QsciLexerYAML* self, int*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnBlockStartKeyword(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_BlockStartKeyword_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -457,9 +446,8 @@ int QsciLexerYAML_SuperBraceStyle(const QsciLexerYAML* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnBraceStyle(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_BraceStyle_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_BraceStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -486,9 +474,8 @@ bool QsciLexerYAML_SuperCaseSensitive(const QsciLexerYAML* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnCaseSensitive(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_CaseSensitive_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -515,9 +502,8 @@ QColor* QsciLexerYAML_SuperColor(const QsciLexerYAML* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnColor(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_Color_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -544,9 +530,8 @@ bool QsciLexerYAML_SuperEolFill(const QsciLexerYAML* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnEolFill(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_EolFill_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_EolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -573,9 +558,8 @@ QFont* QsciLexerYAML_SuperFont(const QsciLexerYAML* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnFont(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_Font_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_Font_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -602,9 +586,8 @@ int QsciLexerYAML_SuperIndentationGuideView(const QsciLexerYAML* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnIndentationGuideView(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_IndentationGuideView_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -631,9 +614,8 @@ int QsciLexerYAML_SuperDefaultStyle(const QsciLexerYAML* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnDefaultStyle(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_DefaultStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -660,9 +642,8 @@ QColor* QsciLexerYAML_SuperPaper(const QsciLexerYAML* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnPaper(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_Paper_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_Paper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -689,9 +670,8 @@ QColor* QsciLexerYAML_SuperDefaultColor2(const QsciLexerYAML* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnDefaultColor2(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_DefaultColor2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -718,9 +698,8 @@ QFont* QsciLexerYAML_SuperDefaultFont2(const QsciLexerYAML* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnDefaultFont2(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_DefaultFont2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -747,9 +726,8 @@ QColor* QsciLexerYAML_SuperDefaultPaper2(const QsciLexerYAML* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnDefaultPaper2(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_DefaultPaper2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -776,9 +754,8 @@ void QsciLexerYAML_SuperSetEditor(QsciLexerYAML* self, QsciScintilla* editor) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnSetEditor(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_SetEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -805,9 +782,8 @@ int QsciLexerYAML_SuperStyleBitsNeeded(const QsciLexerYAML* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnStyleBitsNeeded(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_StyleBitsNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -834,9 +810,8 @@ const char* QsciLexerYAML_SuperWordCharacters(const QsciLexerYAML* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnWordCharacters(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_WordCharacters_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -863,9 +838,8 @@ void QsciLexerYAML_SuperSetAutoIndentStyle(QsciLexerYAML* self, int autoindentst
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnSetAutoIndentStyle(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_SetAutoIndentStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -892,9 +866,8 @@ void QsciLexerYAML_SuperSetColor(QsciLexerYAML* self, const QColor* c, int style
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnSetColor(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_SetColor_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_SetColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -921,9 +894,8 @@ void QsciLexerYAML_SuperSetEolFill(QsciLexerYAML* self, bool eoffill, int style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnSetEolFill(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_SetEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -950,9 +922,8 @@ void QsciLexerYAML_SuperSetFont(QsciLexerYAML* self, const QFont* f, int style) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnSetFont(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_SetFont_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_SetFont_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -979,9 +950,8 @@ void QsciLexerYAML_SuperSetPaper(QsciLexerYAML* self, const QColor* c, int style
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnSetPaper(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_SetPaper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1010,9 +980,8 @@ bool QsciLexerYAML_SuperReadProperties(QsciLexerYAML* self, QSettings* qs, const
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnReadProperties(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_ReadProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1041,9 +1010,8 @@ bool QsciLexerYAML_SuperWriteProperties(const QsciLexerYAML* self, QSettings* qs
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnWriteProperties(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_WriteProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1070,9 +1038,8 @@ bool QsciLexerYAML_SuperEvent(QsciLexerYAML* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnEvent(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_Event_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1099,9 +1066,8 @@ bool QsciLexerYAML_SuperEventFilter(QsciLexerYAML* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnEventFilter(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1128,9 +1094,8 @@ void QsciLexerYAML_SuperTimerEvent(QsciLexerYAML* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnTimerEvent(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1157,9 +1122,8 @@ void QsciLexerYAML_SuperChildEvent(QsciLexerYAML* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnChildEvent(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1186,9 +1150,8 @@ void QsciLexerYAML_SuperCustomEvent(QsciLexerYAML* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnCustomEvent(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1215,9 +1178,8 @@ void QsciLexerYAML_SuperConnectNotify(QsciLexerYAML* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnConnectNotify(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1244,9 +1206,8 @@ void QsciLexerYAML_SuperDisconnectNotify(QsciLexerYAML* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnDisconnectNotify(QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1295,9 +1256,8 @@ libqt_string QsciLexerYAML_SuperTextAsBytes(const QsciLexerYAML* self, const lib
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnTextAsBytes(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_TextAsBytes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1356,9 +1316,8 @@ libqt_string QsciLexerYAML_SuperBytesAsText(const QsciLexerYAML* self, const cha
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnBytesAsText(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_BytesAsText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1385,9 +1344,8 @@ QObject* QsciLexerYAML_SuperSender(const QsciLexerYAML* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnSender(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_Sender_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1414,9 +1372,8 @@ int QsciLexerYAML_SuperSenderSignalIndex(const QsciLexerYAML* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnSenderSignalIndex(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1443,9 +1400,8 @@ int QsciLexerYAML_SuperReceivers(const QsciLexerYAML* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnReceivers(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_Receivers_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1472,9 +1428,8 @@ bool QsciLexerYAML_SuperIsSignalConnected(const QsciLexerYAML* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QsciLexerYAML_OnIsSignalConnected(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
+    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML)
         vqscilexeryaml->setQsciLexerYAML_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QsciLexerYAML_Delete(QsciLexerYAML* self) {

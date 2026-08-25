@@ -4244,26 +4244,26 @@ pub const QTextDocument = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#public-types)
 pub const enums = struct {
-    pub const MetaInformation = enum(i32) {
+    pub const MetaInformation = enum {
         pub const DocumentTitle: i32 = 0;
         pub const DocumentUrl: i32 = 1;
         pub const CssMedia: i32 = 2;
         pub const FrontMatter: i32 = 3;
     };
 
-    pub const MarkdownFeature = enum(i32) {
+    pub const MarkdownFeature = enum {
         pub const MarkdownNoHTML: i32 = 96;
         pub const MarkdownDialectCommonMark: i32 = 0;
         pub const MarkdownDialectGitHub: i32 = 1068812;
     };
 
-    pub const FindFlag = enum(i32) {
+    pub const FindFlag = enum {
         pub const FindBackward: i32 = 1;
         pub const FindCaseSensitively: i32 = 2;
         pub const FindWholeWords: i32 = 4;
     };
 
-    pub const ResourceType = enum(i32) {
+    pub const ResourceType = enum {
         pub const UnknownResource: i32 = 0;
         pub const HtmlResource: i32 = 1;
         pub const ImageResource: i32 = 2;
@@ -4272,7 +4272,7 @@ pub const enums = struct {
         pub const UserResource: i32 = 100;
     };
 
-    pub const Stacks = enum(i32) {
+    pub const Stacks = enum {
         pub const UndoStack: i32 = 1;
         pub const RedoStack: i32 = 2;
         pub const UndoAndRedoStacks: i32 = 3;

@@ -1478,6 +1478,31 @@ pub const QSlider = extern struct {
         qtc.QAbstractSlider_Connect_ActionTriggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSlider `
+    ///
+    pub fn asQPaintDevice(self: QSlider) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QSlider object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QSlider {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -7462,7 +7487,7 @@ pub const QSlider = extern struct {
     /// ` self: QSlider `
     ///
     pub fn paintingActive(self: QSlider) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -7478,7 +7503,7 @@ pub const QSlider = extern struct {
     /// ` self: QSlider `
     ///
     pub fn widthMM(self: QSlider) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -7494,7 +7519,7 @@ pub const QSlider = extern struct {
     /// ` self: QSlider `
     ///
     pub fn heightMM(self: QSlider) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -7510,7 +7535,7 @@ pub const QSlider = extern struct {
     /// ` self: QSlider `
     ///
     pub fn logicalDpiX(self: QSlider) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7526,7 +7551,7 @@ pub const QSlider = extern struct {
     /// ` self: QSlider `
     ///
     pub fn logicalDpiY(self: QSlider) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7542,7 +7567,7 @@ pub const QSlider = extern struct {
     /// ` self: QSlider `
     ///
     pub fn physicalDpiX(self: QSlider) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7558,7 +7583,7 @@ pub const QSlider = extern struct {
     /// ` self: QSlider `
     ///
     pub fn physicalDpiY(self: QSlider) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7574,7 +7599,7 @@ pub const QSlider = extern struct {
     /// ` self: QSlider `
     ///
     pub fn devicePixelRatio(self: QSlider) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7590,7 +7615,7 @@ pub const QSlider = extern struct {
     /// ` self: QSlider `
     ///
     pub fn devicePixelRatioF(self: QSlider) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7606,7 +7631,7 @@ pub const QSlider = extern struct {
     /// ` self: QSlider `
     ///
     pub fn colorCount(self: QSlider) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7622,7 +7647,7 @@ pub const QSlider = extern struct {
     /// ` self: QSlider `
     ///
     pub fn depth(self: QSlider) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10926,7 +10951,7 @@ pub const QSlider = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qslider.html#public-types)
 pub const enums = struct {
-    pub const TickPosition = enum(i32) {
+    pub const TickPosition = enum {
         pub const NoTicks: i32 = 0;
         pub const TicksAbove: i32 = 1;
         pub const TicksLeft: i32 = 1;

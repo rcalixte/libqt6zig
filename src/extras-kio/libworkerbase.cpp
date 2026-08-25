@@ -570,9 +570,8 @@ void KIO__WorkerBase_SuperAppConnectionMade(KIO__WorkerBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnAppConnectionMade(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_AppConnectionMade_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_AppConnectionMade_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -592,9 +591,8 @@ void KIO__WorkerBase_SuperSetHost(KIO__WorkerBase* self, const libqt_string host
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnSetHost(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_SetHost_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_SetHost_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -611,9 +609,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperOpenConnection(KIO__WorkerBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnOpenConnection(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_OpenConnection_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_OpenConnection_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -630,9 +627,8 @@ void KIO__WorkerBase_SuperCloseConnection(KIO__WorkerBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnCloseConnection(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_CloseConnection_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_CloseConnection_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -649,9 +645,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperGet(KIO__WorkerBase* self, const QUrl* u
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnGet(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Get_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Get_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -668,9 +663,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperOpen(KIO__WorkerBase* self, const QUrl* 
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnOpen(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Open_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Open_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -687,9 +681,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperRead(KIO__WorkerBase* self, unsigned lon
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnRead(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Read_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Read_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -707,9 +700,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperWrite(KIO__WorkerBase* self, const libqt
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnWrite(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Write_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Write_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -726,9 +718,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperSeek(KIO__WorkerBase* self, unsigned lon
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnSeek(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Seek_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Seek_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -745,9 +736,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperTruncate(KIO__WorkerBase* self, unsigned
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnTruncate(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Truncate_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Truncate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -764,9 +754,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperClose(KIO__WorkerBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnClose(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Close_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Close_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -783,9 +772,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperPut(KIO__WorkerBase* self, const QUrl* u
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnPut(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Put_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Put_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -802,9 +790,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperStat(KIO__WorkerBase* self, const QUrl* 
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnStat(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Stat_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Stat_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -821,9 +808,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperMimetype(KIO__WorkerBase* self, const QU
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnMimetype(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Mimetype_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Mimetype_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -840,9 +826,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperListDir(KIO__WorkerBase* self, const QUr
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnListDir(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_ListDir_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_ListDir_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -859,9 +844,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperMkdir(KIO__WorkerBase* self, const QUrl*
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnMkdir(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Mkdir_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Mkdir_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -878,9 +862,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperRename(KIO__WorkerBase* self, const QUrl
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnRename(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Rename_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Rename_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -898,9 +881,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperSymlink(KIO__WorkerBase* self, const lib
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnSymlink(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Symlink_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Symlink_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -917,9 +899,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperChmod(KIO__WorkerBase* self, const QUrl*
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnChmod(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Chmod_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Chmod_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -938,9 +919,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperChown(KIO__WorkerBase* self, const QUrl*
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnChown(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Chown_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Chown_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -957,9 +937,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperSetModificationTime(KIO__WorkerBase* sel
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnSetModificationTime(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_SetModificationTime_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_SetModificationTime_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -976,9 +955,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperCopy(KIO__WorkerBase* self, const QUrl* 
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnCopy(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Copy_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Copy_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -995,9 +973,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperDel(KIO__WorkerBase* self, const QUrl* u
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnDel(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Del_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Del_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1015,9 +992,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperSpecial(KIO__WorkerBase* self, const lib
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnSpecial(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_Special_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_Special_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1034,9 +1010,8 @@ KIO__WorkerResult* KIO__WorkerBase_SuperFileSystemFreeSpace(KIO__WorkerBase* sel
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnFileSystemFreeSpace(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_FileSystemFreeSpace_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_FileSystemFreeSpace_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1053,9 +1028,8 @@ void KIO__WorkerBase_SuperWorkerStatus2(KIO__WorkerBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnWorkerStatus2(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_WorkerStatus2_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_WorkerStatus2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1072,9 +1046,8 @@ void KIO__WorkerBase_SuperReparseConfiguration(KIO__WorkerBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__WorkerBase_OnReparseConfiguration(KIO__WorkerBase* self, intptr_t slot) {
     auto* vkioworkerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase) {
+    if (vkioworkerbase && vkioworkerbase->isVirtualKIOWorkerBase)
         vkioworkerbase->setKIO__WorkerBase_ReparseConfiguration_Callback(reinterpret_cast<VirtualKIOWorkerBase::KIO__WorkerBase_ReparseConfiguration_Callback>(slot));
-    }
 }
 
 void KIO__WorkerBase_Delete(KIO__WorkerBase* self) {

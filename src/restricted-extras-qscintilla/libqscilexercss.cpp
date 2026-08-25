@@ -144,9 +144,8 @@ QMetaObject* QsciLexerCSS_SuperMetaObject(const QsciLexerCSS* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnMetaObject(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -163,9 +162,8 @@ void* QsciLexerCSS_SuperMetacast(QsciLexerCSS* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnMetacast(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_Metacast_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -182,9 +180,8 @@ int QsciLexerCSS_SuperMetacall(QsciLexerCSS* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnMetacall(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_Metacall_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -201,9 +198,8 @@ void QsciLexerCSS_SuperSetFoldComments(QsciLexerCSS* self, bool fold) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnSetFoldComments(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_SetFoldComments_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_SetFoldComments_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -220,9 +216,8 @@ void QsciLexerCSS_SuperSetFoldCompact(QsciLexerCSS* self, bool fold) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnSetFoldCompact(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_SetFoldCompact_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -249,9 +244,8 @@ int QsciLexerCSS_SuperLexerId(const QsciLexerCSS* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnLexerId(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_LexerId_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_LexerId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -278,9 +272,8 @@ const char* QsciLexerCSS_SuperAutoCompletionFillups(const QsciLexerCSS* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnAutoCompletionFillups(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_AutoCompletionFillups_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -375,9 +368,8 @@ libqt_list /* of libqt_string */ QsciLexerCSS_SuperAutoCompletionWordSeparators(
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnAutoCompletionWordSeparators(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_AutoCompletionWordSeparators_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_AutoCompletionWordSeparators_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -404,9 +396,8 @@ int QsciLexerCSS_SuperBlockLookback(const QsciLexerCSS* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnBlockLookback(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_BlockLookback_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -433,9 +424,8 @@ const char* QsciLexerCSS_SuperBlockStartKeyword(const QsciLexerCSS* self, int* s
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnBlockStartKeyword(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_BlockStartKeyword_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -462,9 +452,8 @@ int QsciLexerCSS_SuperBraceStyle(const QsciLexerCSS* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnBraceStyle(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_BraceStyle_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_BraceStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -491,9 +480,8 @@ bool QsciLexerCSS_SuperCaseSensitive(const QsciLexerCSS* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnCaseSensitive(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_CaseSensitive_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -520,9 +508,8 @@ QColor* QsciLexerCSS_SuperColor(const QsciLexerCSS* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnColor(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_Color_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -549,9 +536,8 @@ bool QsciLexerCSS_SuperEolFill(const QsciLexerCSS* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnEolFill(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_EolFill_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_EolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -578,9 +564,8 @@ QFont* QsciLexerCSS_SuperFont(const QsciLexerCSS* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnFont(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_Font_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_Font_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -607,9 +592,8 @@ int QsciLexerCSS_SuperIndentationGuideView(const QsciLexerCSS* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnIndentationGuideView(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_IndentationGuideView_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -636,9 +620,8 @@ int QsciLexerCSS_SuperDefaultStyle(const QsciLexerCSS* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnDefaultStyle(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_DefaultStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -665,9 +648,8 @@ QColor* QsciLexerCSS_SuperPaper(const QsciLexerCSS* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnPaper(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_Paper_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_Paper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -694,9 +676,8 @@ QColor* QsciLexerCSS_SuperDefaultColor2(const QsciLexerCSS* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnDefaultColor2(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_DefaultColor2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -723,9 +704,8 @@ bool QsciLexerCSS_SuperDefaultEolFill(const QsciLexerCSS* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnDefaultEolFill(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_DefaultEolFill_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_DefaultEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -752,9 +732,8 @@ QFont* QsciLexerCSS_SuperDefaultFont2(const QsciLexerCSS* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnDefaultFont2(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_DefaultFont2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -781,9 +760,8 @@ QColor* QsciLexerCSS_SuperDefaultPaper2(const QsciLexerCSS* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnDefaultPaper2(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_DefaultPaper2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -810,9 +788,8 @@ void QsciLexerCSS_SuperSetEditor(QsciLexerCSS* self, QsciScintilla* editor) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnSetEditor(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_SetEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -839,9 +816,8 @@ int QsciLexerCSS_SuperStyleBitsNeeded(const QsciLexerCSS* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnStyleBitsNeeded(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_StyleBitsNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -868,9 +844,8 @@ void QsciLexerCSS_SuperSetAutoIndentStyle(QsciLexerCSS* self, int autoindentstyl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnSetAutoIndentStyle(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_SetAutoIndentStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -897,9 +872,8 @@ void QsciLexerCSS_SuperSetColor(QsciLexerCSS* self, const QColor* c, int style) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnSetColor(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_SetColor_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_SetColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -926,9 +900,8 @@ void QsciLexerCSS_SuperSetEolFill(QsciLexerCSS* self, bool eoffill, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnSetEolFill(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_SetEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -955,9 +928,8 @@ void QsciLexerCSS_SuperSetFont(QsciLexerCSS* self, const QFont* f, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnSetFont(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_SetFont_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_SetFont_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -984,9 +956,8 @@ void QsciLexerCSS_SuperSetPaper(QsciLexerCSS* self, const QColor* c, int style) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnSetPaper(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_SetPaper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1015,9 +986,8 @@ bool QsciLexerCSS_SuperReadProperties(QsciLexerCSS* self, QSettings* qs, const l
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnReadProperties(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_ReadProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1046,9 +1016,8 @@ bool QsciLexerCSS_SuperWriteProperties(const QsciLexerCSS* self, QSettings* qs, 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnWriteProperties(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_WriteProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1075,9 +1044,8 @@ bool QsciLexerCSS_SuperEvent(QsciLexerCSS* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnEvent(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_Event_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1104,9 +1072,8 @@ bool QsciLexerCSS_SuperEventFilter(QsciLexerCSS* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnEventFilter(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1133,9 +1100,8 @@ void QsciLexerCSS_SuperTimerEvent(QsciLexerCSS* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnTimerEvent(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1162,9 +1128,8 @@ void QsciLexerCSS_SuperChildEvent(QsciLexerCSS* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnChildEvent(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1191,9 +1156,8 @@ void QsciLexerCSS_SuperCustomEvent(QsciLexerCSS* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnCustomEvent(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1220,9 +1184,8 @@ void QsciLexerCSS_SuperConnectNotify(QsciLexerCSS* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnConnectNotify(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1249,9 +1212,8 @@ void QsciLexerCSS_SuperDisconnectNotify(QsciLexerCSS* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnDisconnectNotify(QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1300,9 +1262,8 @@ libqt_string QsciLexerCSS_SuperTextAsBytes(const QsciLexerCSS* self, const libqt
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnTextAsBytes(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_TextAsBytes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1361,9 +1322,8 @@ libqt_string QsciLexerCSS_SuperBytesAsText(const QsciLexerCSS* self, const char*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnBytesAsText(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_BytesAsText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1390,9 +1350,8 @@ QObject* QsciLexerCSS_SuperSender(const QsciLexerCSS* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnSender(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_Sender_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1419,9 +1378,8 @@ int QsciLexerCSS_SuperSenderSignalIndex(const QsciLexerCSS* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnSenderSignalIndex(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1448,9 +1406,8 @@ int QsciLexerCSS_SuperReceivers(const QsciLexerCSS* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnReceivers(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_Receivers_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1477,9 +1434,8 @@ bool QsciLexerCSS_SuperIsSignalConnected(const QsciLexerCSS* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCSS_OnIsSignalConnected(const QsciLexerCSS* self, intptr_t slot) {
     auto* vqscilexercss = const_cast<VirtualQsciLexerCSS*>(dynamic_cast<const VirtualQsciLexerCSS*>(self));
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
+    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS)
         vqscilexercss->setQsciLexerCSS_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerCSS::QsciLexerCSS_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QsciLexerCSS_Delete(QsciLexerCSS* self) {

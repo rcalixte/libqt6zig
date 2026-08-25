@@ -1544,7 +1544,7 @@ pub const QWebEngineWebAuthPinRequest = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#public-types)
 pub const enums = struct {
-    pub const WebAuthUxState = enum(i32) {
+    pub const WebAuthUxState = enum {
         pub const NotStarted: i32 = 0;
         pub const SelectAccount: i32 = 1;
         pub const CollectPin: i32 = 2;
@@ -1554,13 +1554,13 @@ pub const enums = struct {
         pub const Completed: i32 = 6;
     };
 
-    pub const PinEntryReason = enum(i32) {
+    pub const PinEntryReason = enum {
         pub const Set: i32 = 0;
         pub const Change: i32 = 1;
         pub const Challenge: i32 = 2;
     };
 
-    pub const PinEntryError = enum(i32) {
+    pub const PinEntryError = enum {
         pub const NoError: i32 = 0;
         pub const InternalUvLocked: i32 = 1;
         pub const WrongPin: i32 = 2;
@@ -1569,7 +1569,7 @@ pub const enums = struct {
         pub const SameAsCurrentPin: i32 = 5;
     };
 
-    pub const RequestFailureReason = enum(i32) {
+    pub const RequestFailureReason = enum {
         pub const Timeout: i32 = 0;
         pub const KeyNotRegistered: i32 = 1;
         pub const KeyAlreadyRegistered: i32 = 2;

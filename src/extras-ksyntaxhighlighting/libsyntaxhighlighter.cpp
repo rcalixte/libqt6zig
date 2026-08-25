@@ -33,6 +33,14 @@ KSyntaxHighlighting__SyntaxHighlighter* KSyntaxHighlighting__SyntaxHighlighter_n
     return new VirtualKSyntaxHighlightingSyntaxHighlighter(parent);
 }
 
+KSyntaxHighlighting__AbstractHighlighter* KSyntaxHighlighting__SyntaxHighlighter_AsKSyntaxHighlighting__AbstractHighlighter(KSyntaxHighlighting__SyntaxHighlighter* self) {
+    return static_cast<KSyntaxHighlighting::AbstractHighlighter*>(self);
+}
+
+KSyntaxHighlighting__SyntaxHighlighter* KSyntaxHighlighting__SyntaxHighlighter_FromKSyntaxHighlighting__AbstractHighlighter(KSyntaxHighlighting::AbstractHighlighter* _ksyntaxhighlighting__abstracthighlighter) {
+    return dynamic_cast<KSyntaxHighlighting::SyntaxHighlighter*>(static_cast<KSyntaxHighlighting::AbstractHighlighter*>(_ksyntaxhighlighting__abstracthighlighter));
+}
+
 QMetaObject* KSyntaxHighlighting__SyntaxHighlighter_MetaObject(const KSyntaxHighlighting__SyntaxHighlighter* self) {
     return (QMetaObject*)self->metaObject();
 }
@@ -97,9 +105,8 @@ QMetaObject* KSyntaxHighlighting__SyntaxHighlighter_SuperMetaObject(const KSynta
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnMetaObject(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_MetaObject_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -116,9 +123,8 @@ void* KSyntaxHighlighting__SyntaxHighlighter_SuperMetacast(KSyntaxHighlighting__
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnMetacast(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_Metacast_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -135,9 +141,8 @@ int KSyntaxHighlighting__SyntaxHighlighter_SuperMetacall(KSyntaxHighlighting__Sy
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnMetacall(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_Metacall_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -154,9 +159,8 @@ void KSyntaxHighlighting__SyntaxHighlighter_SuperSetDefinition(KSyntaxHighlighti
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnSetDefinition(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_SetDefinition_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_SetDefinition_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -173,9 +177,8 @@ void KSyntaxHighlighting__SyntaxHighlighter_SuperSetTheme(KSyntaxHighlighting__S
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnSetTheme(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_SetTheme_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_SetTheme_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -193,9 +196,8 @@ void KSyntaxHighlighting__SyntaxHighlighter_SuperHighlightBlock(KSyntaxHighlight
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnHighlightBlock(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_HighlightBlock_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_HighlightBlock_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -212,9 +214,8 @@ void KSyntaxHighlighting__SyntaxHighlighter_SuperApplyFormat(KSyntaxHighlighting
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnApplyFormat(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_ApplyFormat_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_ApplyFormat_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -231,9 +232,8 @@ void KSyntaxHighlighting__SyntaxHighlighter_SuperApplyFolding(KSyntaxHighlightin
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnApplyFolding(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_ApplyFolding_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_ApplyFolding_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -260,9 +260,8 @@ bool KSyntaxHighlighting__SyntaxHighlighter_SuperEvent(KSyntaxHighlighting__Synt
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnEvent(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_Event_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -289,9 +288,8 @@ bool KSyntaxHighlighting__SyntaxHighlighter_SuperEventFilter(KSyntaxHighlighting
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnEventFilter(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_EventFilter_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -318,9 +316,8 @@ void KSyntaxHighlighting__SyntaxHighlighter_SuperTimerEvent(KSyntaxHighlighting_
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnTimerEvent(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_TimerEvent_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -347,9 +344,8 @@ void KSyntaxHighlighting__SyntaxHighlighter_SuperChildEvent(KSyntaxHighlighting_
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnChildEvent(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_ChildEvent_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -376,9 +372,8 @@ void KSyntaxHighlighting__SyntaxHighlighter_SuperCustomEvent(KSyntaxHighlighting
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnCustomEvent(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_CustomEvent_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -405,9 +400,8 @@ void KSyntaxHighlighting__SyntaxHighlighter_SuperConnectNotify(KSyntaxHighlighti
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnConnectNotify(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_ConnectNotify_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -434,9 +428,8 @@ void KSyntaxHighlighting__SyntaxHighlighter_SuperDisconnectNotify(KSyntaxHighlig
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnDisconnectNotify(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_DisconnectNotify_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -463,9 +456,8 @@ void KSyntaxHighlighting__SyntaxHighlighter_SuperSetFormat(KSyntaxHighlighting__
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnSetFormat(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_SetFormat_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_SetFormat_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -490,9 +482,8 @@ QTextCharFormat* KSyntaxHighlighting__SyntaxHighlighter_SuperFormat(const KSynta
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnFormat(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_Format_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_Format_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -519,9 +510,8 @@ int KSyntaxHighlighting__SyntaxHighlighter_SuperPreviousBlockState(const KSyntax
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnPreviousBlockState(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_PreviousBlockState_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_PreviousBlockState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -548,9 +538,8 @@ int KSyntaxHighlighting__SyntaxHighlighter_SuperCurrentBlockState(const KSyntaxH
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnCurrentBlockState(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_CurrentBlockState_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_CurrentBlockState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -577,9 +566,8 @@ void KSyntaxHighlighting__SyntaxHighlighter_SuperSetCurrentBlockState(KSyntaxHig
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnSetCurrentBlockState(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_SetCurrentBlockState_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_SetCurrentBlockState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -606,9 +594,8 @@ void KSyntaxHighlighting__SyntaxHighlighter_SuperSetCurrentBlockUserData(KSyntax
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnSetCurrentBlockUserData(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_SetCurrentBlockUserData_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_SetCurrentBlockUserData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -635,9 +622,8 @@ QTextBlockUserData* KSyntaxHighlighting__SyntaxHighlighter_SuperCurrentBlockUser
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnCurrentBlockUserData(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_CurrentBlockUserData_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_CurrentBlockUserData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -662,9 +648,8 @@ QTextBlock* KSyntaxHighlighting__SyntaxHighlighter_SuperCurrentBlock(const KSynt
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnCurrentBlock(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_CurrentBlock_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_CurrentBlock_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -691,9 +676,8 @@ QObject* KSyntaxHighlighting__SyntaxHighlighter_SuperSender(const KSyntaxHighlig
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnSender(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_Sender_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -720,9 +704,8 @@ int KSyntaxHighlighting__SyntaxHighlighter_SuperSenderSignalIndex(const KSyntaxH
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnSenderSignalIndex(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -749,9 +732,8 @@ int KSyntaxHighlighting__SyntaxHighlighter_SuperReceivers(const KSyntaxHighlight
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnReceivers(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_Receivers_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -778,9 +760,8 @@ bool KSyntaxHighlighting__SyntaxHighlighter_SuperIsSignalConnected(const KSyntax
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnIsSignalConnected(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -807,9 +788,8 @@ KSyntaxHighlighting__State* KSyntaxHighlighting__SyntaxHighlighter_SuperHighligh
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__SyntaxHighlighter_OnHighlightLine(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
     auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter)
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_HighlightLine_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_HighlightLine_Callback>(slot));
-    }
 }
 
 void KSyntaxHighlighting__SyntaxHighlighter_Delete(KSyntaxHighlighting__SyntaxHighlighter* self) {

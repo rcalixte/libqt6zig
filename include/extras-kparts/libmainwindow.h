@@ -75,6 +75,8 @@ typedef struct QWidget QWidget;
 KParts__MainWindow* KParts__MainWindow_new(QWidget* parent);
 KParts__MainWindow* KParts__MainWindow_new2();
 KParts__MainWindow* KParts__MainWindow_new3(QWidget* parent, int f);
+KParts__PartBase* KParts__MainWindow_AsKParts__PartBase(KParts__MainWindow* self);
+KParts__MainWindow* KParts__MainWindow_FromKParts__PartBase(KParts__PartBase* _kparts__partbase);
 QMetaObject* KParts__MainWindow_MetaObject(const KParts__MainWindow* self);
 void* KParts__MainWindow_Metacast(KParts__MainWindow* self, const char* param1);
 int KParts__MainWindow_Metacall(KParts__MainWindow* self, int param1, int param2, void** param3);

@@ -98,9 +98,8 @@ QMetaObject* QDBusServer_SuperMetaObject(const QDBusServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnMetaObject(const QDBusServer* self, intptr_t slot) {
     auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
         vqdbusserver->setQDBusServer_MetaObject_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -117,9 +116,8 @@ void* QDBusServer_SuperMetacast(QDBusServer* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnMetacast(QDBusServer* self, intptr_t slot) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
         vqdbusserver->setQDBusServer_Metacast_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -136,9 +134,8 @@ int QDBusServer_SuperMetacall(QDBusServer* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnMetacall(QDBusServer* self, intptr_t slot) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
         vqdbusserver->setQDBusServer_Metacall_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -165,9 +162,8 @@ bool QDBusServer_SuperEvent(QDBusServer* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnEvent(QDBusServer* self, intptr_t slot) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
         vqdbusserver->setQDBusServer_Event_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -194,9 +190,8 @@ bool QDBusServer_SuperEventFilter(QDBusServer* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnEventFilter(QDBusServer* self, intptr_t slot) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
         vqdbusserver->setQDBusServer_EventFilter_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -223,9 +218,8 @@ void QDBusServer_SuperTimerEvent(QDBusServer* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnTimerEvent(QDBusServer* self, intptr_t slot) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
         vqdbusserver->setQDBusServer_TimerEvent_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -252,9 +246,8 @@ void QDBusServer_SuperChildEvent(QDBusServer* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnChildEvent(QDBusServer* self, intptr_t slot) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
         vqdbusserver->setQDBusServer_ChildEvent_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -281,9 +274,8 @@ void QDBusServer_SuperCustomEvent(QDBusServer* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnCustomEvent(QDBusServer* self, intptr_t slot) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
         vqdbusserver->setQDBusServer_CustomEvent_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -310,9 +302,8 @@ void QDBusServer_SuperConnectNotify(QDBusServer* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnConnectNotify(QDBusServer* self, intptr_t slot) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
         vqdbusserver->setQDBusServer_ConnectNotify_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +330,8 @@ void QDBusServer_SuperDisconnectNotify(QDBusServer* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnDisconnectNotify(QDBusServer* self, intptr_t slot) {
     auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
         vqdbusserver->setQDBusServer_DisconnectNotify_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +358,8 @@ QObject* QDBusServer_SuperSender(const QDBusServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnSender(const QDBusServer* self, intptr_t slot) {
     auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
         vqdbusserver->setQDBusServer_Sender_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +386,8 @@ int QDBusServer_SuperSenderSignalIndex(const QDBusServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnSenderSignalIndex(const QDBusServer* self, intptr_t slot) {
     auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
         vqdbusserver->setQDBusServer_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +414,8 @@ int QDBusServer_SuperReceivers(const QDBusServer* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnReceivers(const QDBusServer* self, intptr_t slot) {
     auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
         vqdbusserver->setQDBusServer_Receivers_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +442,8 @@ bool QDBusServer_SuperIsSignalConnected(const QDBusServer* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QDBusServer_OnIsSignalConnected(const QDBusServer* self, intptr_t slot) {
     auto* vqdbusserver = const_cast<VirtualQDBusServer*>(dynamic_cast<const VirtualQDBusServer*>(self));
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
+    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer)
         vqdbusserver->setQDBusServer_IsSignalConnected_Callback(reinterpret_cast<VirtualQDBusServer::QDBusServer_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QDBusServer_Delete(QDBusServer* self) {

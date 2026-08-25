@@ -2517,12 +2517,12 @@ pub const QState = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qstate.html#public-types)
 pub const enums = struct {
-    pub const ChildMode = enum(i32) {
+    pub const ChildMode = enum {
         pub const ExclusiveStates: i32 = 0;
         pub const ParallelStates: i32 = 1;
     };
 
-    pub const RestorePolicy = enum(i32) {
+    pub const RestorePolicy = enum {
         pub const DontRestoreProperties: i32 = 0;
         pub const RestoreProperties: i32 = 1;
     };

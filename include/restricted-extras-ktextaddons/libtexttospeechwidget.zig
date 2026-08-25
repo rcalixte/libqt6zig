@@ -507,6 +507,31 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
         return _ret;
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
+    ///
+    pub fn asQPaintDevice(self: TextEditTextToSpeech__TextToSpeechWidget) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a TextEditTextToSpeech__TextToSpeechWidget object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) TextEditTextToSpeech__TextToSpeechWidget {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return @bitCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr)));
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6491,7 +6516,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
     pub fn paintingActive(self: TextEditTextToSpeech__TextToSpeechWidget) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6507,7 +6532,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
     pub fn widthMM(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6523,7 +6548,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
     pub fn heightMM(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6539,7 +6564,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
     pub fn logicalDpiX(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6555,7 +6580,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
     pub fn logicalDpiY(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6571,7 +6596,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
     pub fn physicalDpiX(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6587,7 +6612,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
     pub fn physicalDpiY(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -6603,7 +6628,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
     pub fn devicePixelRatio(self: TextEditTextToSpeech__TextToSpeechWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -6619,7 +6644,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
     pub fn devicePixelRatioF(self: TextEditTextToSpeech__TextToSpeechWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -6635,7 +6660,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
     pub fn colorCount(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -6651,7 +6676,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
     /// ` self: TextEditTextToSpeech__TextToSpeechWidget `
     ///
     pub fn depth(self: TextEditTextToSpeech__TextToSpeechWidget) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10196,7 +10221,7 @@ pub const TextEditTextToSpeech__TextToSpeechWidget = extern struct {
 };
 
 pub const enums = struct {
-    pub const State = enum(i32) {
+    pub const State = enum {
         pub const Stop: i32 = 0;
         pub const Play: i32 = 1;
         pub const Pause: i32 = 2;

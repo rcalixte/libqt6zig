@@ -1919,6 +1919,31 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
         qtc.QComboBox_SetItemData3(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr), @bitCast(role));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
+    ///
+    pub fn asQPaintDevice(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a TextAutoCorrectionWidgets__AutoCorrectionLanguage object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) TextAutoCorrectionWidgets__AutoCorrectionLanguage {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return @bitCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr)));
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -7903,7 +7928,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
     ///
     pub fn paintingActive(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -7919,7 +7944,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
     ///
     pub fn widthMM(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -7935,7 +7960,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
     ///
     pub fn heightMM(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -7951,7 +7976,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
     ///
     pub fn logicalDpiX(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7967,7 +7992,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
     ///
     pub fn logicalDpiY(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7983,7 +8008,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
     ///
     pub fn physicalDpiX(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7999,7 +8024,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
     ///
     pub fn physicalDpiY(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -8015,7 +8040,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
     ///
     pub fn devicePixelRatio(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -8031,7 +8056,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
     ///
     pub fn devicePixelRatioF(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -8047,7 +8072,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
     ///
     pub fn colorCount(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -8063,7 +8088,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionLanguage `
     ///
     pub fn depth(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

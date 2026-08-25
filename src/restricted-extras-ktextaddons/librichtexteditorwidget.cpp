@@ -159,9 +159,8 @@ QMetaObject* TextCustomEditor__RichTextEditorWidget_SuperMetaObject(const TextCu
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnMetaObject(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_MetaObject_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -178,9 +177,8 @@ void* TextCustomEditor__RichTextEditorWidget_SuperMetacast(TextCustomEditor__Ric
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnMetacast(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_Metacast_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -197,9 +195,8 @@ int TextCustomEditor__RichTextEditorWidget_SuperMetacall(TextCustomEditor__RichT
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnMetacall(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_Metacall_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -226,9 +223,8 @@ int TextCustomEditor__RichTextEditorWidget_SuperDevType(const TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnDevType(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_DevType_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -255,9 +251,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperSetVisible(TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnSetVisible(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_SetVisible_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -284,9 +279,8 @@ QSize* TextCustomEditor__RichTextEditorWidget_SuperSizeHint(const TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnSizeHint(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_SizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -313,9 +307,8 @@ QSize* TextCustomEditor__RichTextEditorWidget_SuperMinimumSizeHint(const TextCus
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnMinimumSizeHint(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -342,9 +335,8 @@ int TextCustomEditor__RichTextEditorWidget_SuperHeightForWidth(const TextCustomE
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnHeightForWidth(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_HeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -371,9 +363,8 @@ bool TextCustomEditor__RichTextEditorWidget_SuperHasHeightForWidth(const TextCus
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnHasHeightForWidth(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -400,9 +391,8 @@ QPaintEngine* TextCustomEditor__RichTextEditorWidget_SuperPaintEngine(const Text
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnPaintEngine(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_PaintEngine_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -429,9 +419,8 @@ bool TextCustomEditor__RichTextEditorWidget_SuperEvent(TextCustomEditor__RichTex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_Event_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -458,9 +447,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperMousePressEvent(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnMousePressEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_MousePressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -487,9 +475,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperMouseReleaseEvent(TextCustomEdi
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnMouseReleaseEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -516,9 +503,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperMouseDoubleClickEvent(TextCusto
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnMouseDoubleClickEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -545,9 +531,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperMouseMoveEvent(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnMouseMoveEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -574,9 +559,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperWheelEvent(TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnWheelEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_WheelEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -603,9 +587,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperKeyPressEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnKeyPressEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -632,9 +615,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperKeyReleaseEvent(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnKeyReleaseEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -661,9 +643,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperFocusInEvent(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnFocusInEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_FocusInEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -690,9 +671,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperFocusOutEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnFocusOutEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -719,9 +699,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperEnterEvent(TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnEnterEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_EnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -748,9 +727,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperLeaveEvent(TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnLeaveEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_LeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -777,9 +755,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperPaintEvent(TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnPaintEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_PaintEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -806,9 +783,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperMoveEvent(TextCustomEditor__Ric
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnMoveEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_MoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -835,9 +811,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperResizeEvent(TextCustomEditor__R
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnResizeEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_ResizeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -864,9 +839,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperCloseEvent(TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnCloseEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_CloseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -893,9 +867,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperContextMenuEvent(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnContextMenuEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -922,9 +895,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperTabletEvent(TextCustomEditor__R
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnTabletEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_TabletEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -951,9 +923,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperActionEvent(TextCustomEditor__R
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnActionEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_ActionEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -980,9 +951,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperDragEnterEvent(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnDragEnterEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1009,9 +979,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperDragMoveEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnDragMoveEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1038,9 +1007,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperDragLeaveEvent(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnDragLeaveEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1067,9 +1035,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperDropEvent(TextCustomEditor__Ric
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnDropEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_DropEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1096,9 +1063,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperShowEvent(TextCustomEditor__Ric
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnShowEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_ShowEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1125,9 +1091,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperHideEvent(TextCustomEditor__Ric
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnHideEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_HideEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1156,9 +1121,8 @@ bool TextCustomEditor__RichTextEditorWidget_SuperNativeEvent(TextCustomEditor__R
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnNativeEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_NativeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1185,9 +1149,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperChangeEvent(TextCustomEditor__R
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnChangeEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_ChangeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1214,9 +1177,8 @@ int TextCustomEditor__RichTextEditorWidget_SuperMetric(const TextCustomEditor__R
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnMetric(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_Metric_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1243,9 +1205,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperInitPainter(const TextCustomEdi
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnInitPainter(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_InitPainter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1272,9 +1233,8 @@ QPaintDevice* TextCustomEditor__RichTextEditorWidget_SuperRedirected(const TextC
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnRedirected(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_Redirected_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1301,9 +1261,8 @@ QPainter* TextCustomEditor__RichTextEditorWidget_SuperSharedPainter(const TextCu
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnSharedPainter(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_SharedPainter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1330,9 +1289,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperInputMethodEvent(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnInputMethodEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1359,9 +1317,8 @@ QVariant* TextCustomEditor__RichTextEditorWidget_SuperInputMethodQuery(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnInputMethodQuery(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1388,9 +1345,8 @@ bool TextCustomEditor__RichTextEditorWidget_SuperFocusNextPrevChild(TextCustomEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnFocusNextPrevChild(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1417,9 +1373,8 @@ bool TextCustomEditor__RichTextEditorWidget_SuperEventFilter(TextCustomEditor__R
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnEventFilter(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_EventFilter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1446,9 +1401,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperTimerEvent(TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnTimerEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_TimerEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1475,9 +1429,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperChildEvent(TextCustomEditor__Ri
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnChildEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_ChildEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1504,9 +1457,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperCustomEvent(TextCustomEditor__R
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnCustomEvent(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_CustomEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1533,9 +1485,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperConnectNotify(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnConnectNotify(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_ConnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1562,9 +1513,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperDisconnectNotify(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnDisconnectNotify(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1591,9 +1541,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperUpdateMicroFocus(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnUpdateMicroFocus(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1620,9 +1569,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperCreate(TextCustomEditor__RichTe
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnCreate(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_Create_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1649,9 +1597,8 @@ void TextCustomEditor__RichTextEditorWidget_SuperDestroy(TextCustomEditor__RichT
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnDestroy(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_Destroy_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1678,9 +1625,8 @@ bool TextCustomEditor__RichTextEditorWidget_SuperFocusNextChild(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnFocusNextChild(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_FocusNextChild_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1707,9 +1653,8 @@ bool TextCustomEditor__RichTextEditorWidget_SuperFocusPreviousChild(TextCustomEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnFocusPreviousChild(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1736,9 +1681,8 @@ QObject* TextCustomEditor__RichTextEditorWidget_SuperSender(const TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnSender(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_Sender_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1765,9 +1709,8 @@ int TextCustomEditor__RichTextEditorWidget_SuperSenderSignalIndex(const TextCust
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnSenderSignalIndex(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1794,9 +1737,8 @@ int TextCustomEditor__RichTextEditorWidget_SuperReceivers(const TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnReceivers(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_Receivers_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1823,9 +1765,8 @@ bool TextCustomEditor__RichTextEditorWidget_SuperIsSignalConnected(const TextCus
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnIsSignalConnected(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1852,9 +1793,8 @@ double TextCustomEditor__RichTextEditorWidget_SuperGetDecodedMetricF(const TextC
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextEditorWidget_OnGetDecodedMetricF(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot) {
     auto* vtextcustomeditorrichtexteditorwidget = const_cast<VirtualTextCustomEditorRichTextEditorWidget*>(dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self));
-    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
+    if (vtextcustomeditorrichtexteditorwidget && vtextcustomeditorrichtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget)
         vtextcustomeditorrichtexteditorwidget->setTextCustomEditor__RichTextEditorWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextEditorWidget::TextCustomEditor__RichTextEditorWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextCustomEditor__RichTextEditorWidget_Delete(TextCustomEditor__RichTextEditorWidget* self) {

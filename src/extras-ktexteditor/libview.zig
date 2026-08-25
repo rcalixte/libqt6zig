@@ -83,6 +83,27 @@ pub const KTextEditor__View = extern struct {
     pub const _is_QPaintDevice = {};
     pub const _is_KXMLGUIClient = {};
 
+    /// Upcasts to a KXMLGUIClient object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTextEditor__View `
+    ///
+    pub fn asKXMLGUIClient(self: KTextEditor__View) KXMLGUIClient {
+        return .{ .ptr = qtc.KTextEditor__View_AsKXMLGUIClient(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a KTextEditor__View object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _kxmlguiclient: KXMLGUIClient `
+    ///
+    pub fn fromKXMLGUIClient(_kxmlguiclient: anytype) KTextEditor__View {
+        comptime _ = @TypeOf(_kxmlguiclient)._is_KXMLGUIClient;
+        return @bitCast(qtc.KTextEditor__View_FromKXMLGUIClient(@ptrCast(_kxmlguiclient.ptr)));
+    }
+
     /// ### DEPRECATED: Use `metaObject` instead
     ///
     pub const MetaObject = metaObject;
@@ -2149,6 +2170,31 @@ pub const KTextEditor__View = extern struct {
     ///
     pub fn lastDisplayedLine1(self: KTextEditor__View, lineType: i32) i32 {
         return qtc.KTextEditor__View_LastDisplayedLine1(@ptrCast(self.ptr), @bitCast(lineType));
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTextEditor__View `
+    ///
+    pub fn asQPaintDevice(self: KTextEditor__View) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KTextEditor__View object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KTextEditor__View {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return @bitCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr)));
     }
 
     /// ### DEPRECATED: Use `devType` instead
@@ -8291,7 +8337,7 @@ pub const KTextEditor__View = extern struct {
     /// ` self: KTextEditor__View `
     ///
     pub fn paintingActive(self: KTextEditor__View) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -8307,7 +8353,7 @@ pub const KTextEditor__View = extern struct {
     /// ` self: KTextEditor__View `
     ///
     pub fn widthMM(self: KTextEditor__View) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -8323,7 +8369,7 @@ pub const KTextEditor__View = extern struct {
     /// ` self: KTextEditor__View `
     ///
     pub fn heightMM(self: KTextEditor__View) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -8339,7 +8385,7 @@ pub const KTextEditor__View = extern struct {
     /// ` self: KTextEditor__View `
     ///
     pub fn logicalDpiX(self: KTextEditor__View) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -8355,7 +8401,7 @@ pub const KTextEditor__View = extern struct {
     /// ` self: KTextEditor__View `
     ///
     pub fn logicalDpiY(self: KTextEditor__View) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -8371,7 +8417,7 @@ pub const KTextEditor__View = extern struct {
     /// ` self: KTextEditor__View `
     ///
     pub fn physicalDpiX(self: KTextEditor__View) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -8387,7 +8433,7 @@ pub const KTextEditor__View = extern struct {
     /// ` self: KTextEditor__View `
     ///
     pub fn physicalDpiY(self: KTextEditor__View) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -8403,7 +8449,7 @@ pub const KTextEditor__View = extern struct {
     /// ` self: KTextEditor__View `
     ///
     pub fn devicePixelRatio(self: KTextEditor__View) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -8419,7 +8465,7 @@ pub const KTextEditor__View = extern struct {
     /// ` self: KTextEditor__View `
     ///
     pub fn devicePixelRatioF(self: KTextEditor__View) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -8435,7 +8481,7 @@ pub const KTextEditor__View = extern struct {
     /// ` self: KTextEditor__View `
     ///
     pub fn colorCount(self: KTextEditor__View) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -8451,7 +8497,7 @@ pub const KTextEditor__View = extern struct {
     /// ` self: KTextEditor__View `
     ///
     pub fn depth(self: KTextEditor__View) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -9164,12 +9210,12 @@ pub const KTextEditor__View = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/view.html#public-types)
 pub const enums = struct {
-    pub const InputMode = enum(i32) {
+    pub const InputMode = enum {
         pub const NormalInputMode: i32 = 0;
         pub const ViInputMode: i32 = 1;
     };
 
-    pub const ViewMode = enum(i32) {
+    pub const ViewMode = enum {
         pub const NormalModeInsert: i32 = 0;
         pub const NormalModeOverwrite: i32 = 1;
         pub const ViModeNormal: i32 = 10;
@@ -9180,7 +9226,7 @@ pub const enums = struct {
         pub const ViModeReplace: i32 = 15;
     };
 
-    pub const LineType = enum(i32) {
+    pub const LineType = enum {
         pub const RealLine: i32 = 0;
         pub const VisibleLine: i32 = 1;
     };

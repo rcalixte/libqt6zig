@@ -166,9 +166,8 @@ QMetaObject* KShortcutsDialog_SuperMetaObject(const KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMetaObject(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_MetaObject_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -185,9 +184,8 @@ void* KShortcutsDialog_SuperMetacast(KShortcutsDialog* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMetacast(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_Metacast_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -204,9 +202,8 @@ int KShortcutsDialog_SuperMetacall(KShortcutsDialog* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMetacall(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_Metacall_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -223,9 +220,8 @@ QSize* KShortcutsDialog_SuperSizeHint(const KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnSizeHint(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_SizeHint_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -242,9 +238,8 @@ void KShortcutsDialog_SuperAccept(KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnAccept(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_Accept_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +266,8 @@ void KShortcutsDialog_SuperSetVisible(KShortcutsDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnSetVisible(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_SetVisible_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +294,8 @@ QSize* KShortcutsDialog_SuperMinimumSizeHint(const KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMinimumSizeHint(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +322,8 @@ void KShortcutsDialog_SuperOpen(KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnOpen(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_Open_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +350,8 @@ int KShortcutsDialog_SuperExec(KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnExec(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_Exec_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +378,8 @@ void KShortcutsDialog_SuperDone(KShortcutsDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnDone(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_Done_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +406,8 @@ void KShortcutsDialog_SuperReject(KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnReject(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_Reject_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +434,8 @@ void KShortcutsDialog_SuperKeyPressEvent(KShortcutsDialog* self, QKeyEvent* para
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnKeyPressEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +462,8 @@ void KShortcutsDialog_SuperCloseEvent(KShortcutsDialog* self, QCloseEvent* param
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnCloseEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_CloseEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +490,8 @@ void KShortcutsDialog_SuperShowEvent(KShortcutsDialog* self, QShowEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnShowEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_ShowEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +518,8 @@ void KShortcutsDialog_SuperResizeEvent(KShortcutsDialog* self, QResizeEvent* par
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnResizeEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +546,8 @@ void KShortcutsDialog_SuperContextMenuEvent(KShortcutsDialog* self, QContextMenu
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnContextMenuEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +574,8 @@ bool KShortcutsDialog_SuperEventFilter(KShortcutsDialog* self, QObject* param1, 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnEventFilter(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_EventFilter_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -619,9 +602,8 @@ int KShortcutsDialog_SuperDevType(const KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnDevType(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_DevType_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -648,9 +630,8 @@ int KShortcutsDialog_SuperHeightForWidth(const KShortcutsDialog* self, int param
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnHeightForWidth(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -677,9 +658,8 @@ bool KShortcutsDialog_SuperHasHeightForWidth(const KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnHasHeightForWidth(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +686,8 @@ QPaintEngine* KShortcutsDialog_SuperPaintEngine(const KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnPaintEngine(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_PaintEngine_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -735,9 +714,8 @@ bool KShortcutsDialog_SuperEvent(KShortcutsDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_Event_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -764,9 +742,8 @@ void KShortcutsDialog_SuperMousePressEvent(KShortcutsDialog* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMousePressEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -793,9 +770,8 @@ void KShortcutsDialog_SuperMouseReleaseEvent(KShortcutsDialog* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMouseReleaseEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -822,9 +798,8 @@ void KShortcutsDialog_SuperMouseDoubleClickEvent(KShortcutsDialog* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMouseDoubleClickEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -851,9 +826,8 @@ void KShortcutsDialog_SuperMouseMoveEvent(KShortcutsDialog* self, QMouseEvent* e
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMouseMoveEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -880,9 +854,8 @@ void KShortcutsDialog_SuperWheelEvent(KShortcutsDialog* self, QWheelEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnWheelEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_WheelEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -909,9 +882,8 @@ void KShortcutsDialog_SuperKeyReleaseEvent(KShortcutsDialog* self, QKeyEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnKeyReleaseEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -938,9 +910,8 @@ void KShortcutsDialog_SuperFocusInEvent(KShortcutsDialog* self, QFocusEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnFocusInEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -967,9 +938,8 @@ void KShortcutsDialog_SuperFocusOutEvent(KShortcutsDialog* self, QFocusEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnFocusOutEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -996,9 +966,8 @@ void KShortcutsDialog_SuperEnterEvent(KShortcutsDialog* self, QEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnEnterEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_EnterEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1025,9 +994,8 @@ void KShortcutsDialog_SuperLeaveEvent(KShortcutsDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnLeaveEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1054,9 +1022,8 @@ void KShortcutsDialog_SuperPaintEvent(KShortcutsDialog* self, QPaintEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnPaintEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_PaintEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1083,9 +1050,8 @@ void KShortcutsDialog_SuperMoveEvent(KShortcutsDialog* self, QMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMoveEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_MoveEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1112,9 +1078,8 @@ void KShortcutsDialog_SuperTabletEvent(KShortcutsDialog* self, QTabletEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnTabletEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_TabletEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1141,9 +1106,8 @@ void KShortcutsDialog_SuperActionEvent(KShortcutsDialog* self, QActionEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnActionEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_ActionEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1170,9 +1134,8 @@ void KShortcutsDialog_SuperDragEnterEvent(KShortcutsDialog* self, QDragEnterEven
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnDragEnterEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1199,9 +1162,8 @@ void KShortcutsDialog_SuperDragMoveEvent(KShortcutsDialog* self, QDragMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnDragMoveEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1228,9 +1190,8 @@ void KShortcutsDialog_SuperDragLeaveEvent(KShortcutsDialog* self, QDragLeaveEven
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnDragLeaveEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1257,9 +1218,8 @@ void KShortcutsDialog_SuperDropEvent(KShortcutsDialog* self, QDropEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnDropEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_DropEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1286,9 +1246,8 @@ void KShortcutsDialog_SuperHideEvent(KShortcutsDialog* self, QHideEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnHideEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_HideEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1317,9 +1276,8 @@ bool KShortcutsDialog_SuperNativeEvent(KShortcutsDialog* self, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnNativeEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_NativeEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1346,9 +1304,8 @@ void KShortcutsDialog_SuperChangeEvent(KShortcutsDialog* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnChangeEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1375,9 +1332,8 @@ int KShortcutsDialog_SuperMetric(const KShortcutsDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnMetric(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_Metric_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1404,9 +1360,8 @@ void KShortcutsDialog_SuperInitPainter(const KShortcutsDialog* self, QPainter* p
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnInitPainter(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_InitPainter_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1433,9 +1388,8 @@ QPaintDevice* KShortcutsDialog_SuperRedirected(const KShortcutsDialog* self, QPo
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnRedirected(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_Redirected_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1462,9 +1416,8 @@ QPainter* KShortcutsDialog_SuperSharedPainter(const KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnSharedPainter(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_SharedPainter_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1491,9 +1444,8 @@ void KShortcutsDialog_SuperInputMethodEvent(KShortcutsDialog* self, QInputMethod
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnInputMethodEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1520,9 +1472,8 @@ QVariant* KShortcutsDialog_SuperInputMethodQuery(const KShortcutsDialog* self, i
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnInputMethodQuery(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1549,9 +1500,8 @@ bool KShortcutsDialog_SuperFocusNextPrevChild(KShortcutsDialog* self, bool next)
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnFocusNextPrevChild(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1578,9 +1528,8 @@ void KShortcutsDialog_SuperTimerEvent(KShortcutsDialog* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnTimerEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_TimerEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1607,9 +1556,8 @@ void KShortcutsDialog_SuperChildEvent(KShortcutsDialog* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnChildEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_ChildEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1636,9 +1584,8 @@ void KShortcutsDialog_SuperCustomEvent(KShortcutsDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnCustomEvent(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_CustomEvent_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1665,9 +1612,8 @@ void KShortcutsDialog_SuperConnectNotify(KShortcutsDialog* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnConnectNotify(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1694,9 +1640,8 @@ void KShortcutsDialog_SuperDisconnectNotify(KShortcutsDialog* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnDisconnectNotify(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1723,9 +1668,8 @@ void KShortcutsDialog_SuperAdjustPosition(KShortcutsDialog* self, QWidget* param
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnAdjustPosition(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1752,9 +1696,8 @@ void KShortcutsDialog_SuperUpdateMicroFocus(KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnUpdateMicroFocus(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1781,9 +1724,8 @@ void KShortcutsDialog_SuperCreate(KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnCreate(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_Create_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1810,9 +1752,8 @@ void KShortcutsDialog_SuperDestroy(KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnDestroy(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_Destroy_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1839,9 +1780,8 @@ bool KShortcutsDialog_SuperFocusNextChild(KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnFocusNextChild(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1868,9 +1808,8 @@ bool KShortcutsDialog_SuperFocusPreviousChild(KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnFocusPreviousChild(KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1897,9 +1836,8 @@ QObject* KShortcutsDialog_SuperSender(const KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnSender(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_Sender_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1926,9 +1864,8 @@ int KShortcutsDialog_SuperSenderSignalIndex(const KShortcutsDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnSenderSignalIndex(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1955,9 +1892,8 @@ int KShortcutsDialog_SuperReceivers(const KShortcutsDialog* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnReceivers(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_Receivers_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1984,9 +1920,8 @@ bool KShortcutsDialog_SuperIsSignalConnected(const KShortcutsDialog* self, const
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnIsSignalConnected(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2013,9 +1948,8 @@ double KShortcutsDialog_SuperGetDecodedMetricF(const KShortcutsDialog* self, int
 // Auxiliary method to allow providing re-implementation
 void KShortcutsDialog_OnGetDecodedMetricF(const KShortcutsDialog* self, intptr_t slot) {
     auto* vkshortcutsdialog = const_cast<VirtualKShortcutsDialog*>(dynamic_cast<const VirtualKShortcutsDialog*>(self));
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
+    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog)
         vkshortcutsdialog->setKShortcutsDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKShortcutsDialog::KShortcutsDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KShortcutsDialog_Delete(KShortcutsDialog* self) {

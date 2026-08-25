@@ -2260,7 +2260,7 @@ pub const QHttpMultiPart = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpmultipart.html#public-types)
 pub const enums = struct {
-    pub const ContentType = enum(i32) {
+    pub const ContentType = enum {
         pub const MixedType: i32 = 0;
         pub const RelatedType: i32 = 1;
         pub const FormDataType: i32 = 2;

@@ -164,9 +164,8 @@ QMetaObject* KXYSelector_SuperMetaObject(const KXYSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMetaObject(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_MetaObject_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -183,9 +182,8 @@ void* KXYSelector_SuperMetacast(KXYSelector* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMetacast(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_Metacast_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -202,9 +200,8 @@ int KXYSelector_SuperMetacall(KXYSelector* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMetacall(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_Metacall_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -221,9 +218,8 @@ QSize* KXYSelector_SuperMinimumSizeHint(const KXYSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMinimumSizeHint(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_MinimumSizeHint_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -240,9 +236,8 @@ void KXYSelector_SuperDrawContents(KXYSelector* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnDrawContents(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_DrawContents_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DrawContents_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -259,9 +254,8 @@ void KXYSelector_SuperDrawMarker(KXYSelector* self, QPainter* p, int xp, int yp)
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnDrawMarker(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_DrawMarker_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DrawMarker_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -278,9 +272,8 @@ void KXYSelector_SuperPaintEvent(KXYSelector* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnPaintEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_PaintEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -297,9 +290,8 @@ void KXYSelector_SuperMousePressEvent(KXYSelector* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMousePressEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_MousePressEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -316,9 +308,8 @@ void KXYSelector_SuperMouseMoveEvent(KXYSelector* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMouseMoveEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_MouseMoveEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -335,9 +326,8 @@ void KXYSelector_SuperWheelEvent(KXYSelector* self, QWheelEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnWheelEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_WheelEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -364,9 +354,8 @@ int KXYSelector_SuperDevType(const KXYSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnDevType(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_DevType_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -393,9 +382,8 @@ void KXYSelector_SuperSetVisible(KXYSelector* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnSetVisible(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_SetVisible_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -422,9 +410,8 @@ QSize* KXYSelector_SuperSizeHint(const KXYSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnSizeHint(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_SizeHint_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -451,9 +438,8 @@ int KXYSelector_SuperHeightForWidth(const KXYSelector* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnHeightForWidth(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_HeightForWidth_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -480,9 +466,8 @@ bool KXYSelector_SuperHasHeightForWidth(const KXYSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnHasHeightForWidth(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_HasHeightForWidth_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -509,9 +494,8 @@ QPaintEngine* KXYSelector_SuperPaintEngine(const KXYSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnPaintEngine(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_PaintEngine_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -538,9 +522,8 @@ bool KXYSelector_SuperEvent(KXYSelector* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_Event_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -567,9 +550,8 @@ void KXYSelector_SuperMouseReleaseEvent(KXYSelector* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMouseReleaseEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -596,9 +578,8 @@ void KXYSelector_SuperMouseDoubleClickEvent(KXYSelector* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMouseDoubleClickEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -625,9 +606,8 @@ void KXYSelector_SuperKeyPressEvent(KXYSelector* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnKeyPressEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_KeyPressEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -654,9 +634,8 @@ void KXYSelector_SuperKeyReleaseEvent(KXYSelector* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnKeyReleaseEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -683,9 +662,8 @@ void KXYSelector_SuperFocusInEvent(KXYSelector* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnFocusInEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_FocusInEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -712,9 +690,8 @@ void KXYSelector_SuperFocusOutEvent(KXYSelector* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnFocusOutEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_FocusOutEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -741,9 +718,8 @@ void KXYSelector_SuperEnterEvent(KXYSelector* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnEnterEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_EnterEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -770,9 +746,8 @@ void KXYSelector_SuperLeaveEvent(KXYSelector* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnLeaveEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_LeaveEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -799,9 +774,8 @@ void KXYSelector_SuperMoveEvent(KXYSelector* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMoveEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_MoveEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -828,9 +802,8 @@ void KXYSelector_SuperResizeEvent(KXYSelector* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnResizeEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_ResizeEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -857,9 +830,8 @@ void KXYSelector_SuperCloseEvent(KXYSelector* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnCloseEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_CloseEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -886,9 +858,8 @@ void KXYSelector_SuperContextMenuEvent(KXYSelector* self, QContextMenuEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnContextMenuEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_ContextMenuEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -915,9 +886,8 @@ void KXYSelector_SuperTabletEvent(KXYSelector* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnTabletEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_TabletEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -944,9 +914,8 @@ void KXYSelector_SuperActionEvent(KXYSelector* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnActionEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_ActionEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -973,9 +942,8 @@ void KXYSelector_SuperDragEnterEvent(KXYSelector* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnDragEnterEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_DragEnterEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1002,9 +970,8 @@ void KXYSelector_SuperDragMoveEvent(KXYSelector* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnDragMoveEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_DragMoveEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1031,9 +998,8 @@ void KXYSelector_SuperDragLeaveEvent(KXYSelector* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnDragLeaveEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_DragLeaveEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1060,9 +1026,8 @@ void KXYSelector_SuperDropEvent(KXYSelector* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnDropEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_DropEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1089,9 +1054,8 @@ void KXYSelector_SuperShowEvent(KXYSelector* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnShowEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_ShowEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1118,9 +1082,8 @@ void KXYSelector_SuperHideEvent(KXYSelector* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnHideEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_HideEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1149,9 +1112,8 @@ bool KXYSelector_SuperNativeEvent(KXYSelector* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnNativeEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_NativeEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1178,9 +1140,8 @@ void KXYSelector_SuperChangeEvent(KXYSelector* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnChangeEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_ChangeEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1207,9 +1168,8 @@ int KXYSelector_SuperMetric(const KXYSelector* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnMetric(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_Metric_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1236,9 +1196,8 @@ void KXYSelector_SuperInitPainter(const KXYSelector* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnInitPainter(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_InitPainter_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1265,9 +1224,8 @@ QPaintDevice* KXYSelector_SuperRedirected(const KXYSelector* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnRedirected(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_Redirected_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1294,9 +1252,8 @@ QPainter* KXYSelector_SuperSharedPainter(const KXYSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnSharedPainter(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_SharedPainter_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1323,9 +1280,8 @@ void KXYSelector_SuperInputMethodEvent(KXYSelector* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnInputMethodEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_InputMethodEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1352,9 +1308,8 @@ QVariant* KXYSelector_SuperInputMethodQuery(const KXYSelector* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnInputMethodQuery(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_InputMethodQuery_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1381,9 +1336,8 @@ bool KXYSelector_SuperFocusNextPrevChild(KXYSelector* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnFocusNextPrevChild(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1410,9 +1364,8 @@ bool KXYSelector_SuperEventFilter(KXYSelector* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnEventFilter(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_EventFilter_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1439,9 +1392,8 @@ void KXYSelector_SuperTimerEvent(KXYSelector* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnTimerEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_TimerEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1468,9 +1420,8 @@ void KXYSelector_SuperChildEvent(KXYSelector* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnChildEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_ChildEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1497,9 +1448,8 @@ void KXYSelector_SuperCustomEvent(KXYSelector* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnCustomEvent(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_CustomEvent_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1526,9 +1476,8 @@ void KXYSelector_SuperConnectNotify(KXYSelector* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnConnectNotify(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_ConnectNotify_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1555,9 +1504,8 @@ void KXYSelector_SuperDisconnectNotify(KXYSelector* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnDisconnectNotify(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_DisconnectNotify_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1584,9 +1532,8 @@ void KXYSelector_SuperValuesFromPosition(const KXYSelector* self, int x, int y, 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnValuesFromPosition(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_ValuesFromPosition_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_ValuesFromPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1613,9 +1560,8 @@ void KXYSelector_SuperUpdateMicroFocus(KXYSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnUpdateMicroFocus(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1642,9 +1588,8 @@ void KXYSelector_SuperCreate(KXYSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnCreate(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_Create_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1671,9 +1616,8 @@ void KXYSelector_SuperDestroy(KXYSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnDestroy(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_Destroy_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1700,9 +1644,8 @@ bool KXYSelector_SuperFocusNextChild(KXYSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnFocusNextChild(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_FocusNextChild_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1729,9 +1672,8 @@ bool KXYSelector_SuperFocusPreviousChild(KXYSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnFocusPreviousChild(KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_FocusPreviousChild_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1758,9 +1700,8 @@ QObject* KXYSelector_SuperSender(const KXYSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnSender(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_Sender_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1787,9 +1728,8 @@ int KXYSelector_SuperSenderSignalIndex(const KXYSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnSenderSignalIndex(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_SenderSignalIndex_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1816,9 +1756,8 @@ int KXYSelector_SuperReceivers(const KXYSelector* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnReceivers(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_Receivers_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1845,9 +1784,8 @@ bool KXYSelector_SuperIsSignalConnected(const KXYSelector* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnIsSignalConnected(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_IsSignalConnected_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1874,9 +1812,8 @@ double KXYSelector_SuperGetDecodedMetricF(const KXYSelector* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void KXYSelector_OnGetDecodedMetricF(const KXYSelector* self, intptr_t slot) {
     auto* vkxyselector = const_cast<VirtualKXYSelector*>(dynamic_cast<const VirtualKXYSelector*>(self));
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
+    if (vkxyselector && vkxyselector->isVirtualKXYSelector)
         vkxyselector->setKXYSelector_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKXYSelector::KXYSelector_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KXYSelector_Delete(KXYSelector* self) {

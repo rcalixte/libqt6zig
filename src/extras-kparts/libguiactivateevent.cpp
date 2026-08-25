@@ -40,9 +40,8 @@ void KParts__GUIActivateEvent_SuperSetAccepted(KParts__GUIActivateEvent* self, b
 // Auxiliary method to allow providing re-implementation
 void KParts__GUIActivateEvent_OnSetAccepted(KParts__GUIActivateEvent* self, intptr_t slot) {
     auto* vkpartsguiactivateevent = dynamic_cast<VirtualKPartsGUIActivateEvent*>(self);
-    if (vkpartsguiactivateevent && vkpartsguiactivateevent->isVirtualKPartsGUIActivateEvent) {
+    if (vkpartsguiactivateevent && vkpartsguiactivateevent->isVirtualKPartsGUIActivateEvent)
         vkpartsguiactivateevent->setKParts__GUIActivateEvent_SetAccepted_Callback(reinterpret_cast<VirtualKPartsGUIActivateEvent::KParts__GUIActivateEvent_SetAccepted_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -69,9 +68,8 @@ QEvent* KParts__GUIActivateEvent_SuperClone(const KParts__GUIActivateEvent* self
 // Auxiliary method to allow providing re-implementation
 void KParts__GUIActivateEvent_OnClone(const KParts__GUIActivateEvent* self, intptr_t slot) {
     auto* vkpartsguiactivateevent = const_cast<VirtualKPartsGUIActivateEvent*>(dynamic_cast<const VirtualKPartsGUIActivateEvent*>(self));
-    if (vkpartsguiactivateevent && vkpartsguiactivateevent->isVirtualKPartsGUIActivateEvent) {
+    if (vkpartsguiactivateevent && vkpartsguiactivateevent->isVirtualKPartsGUIActivateEvent)
         vkpartsguiactivateevent->setKParts__GUIActivateEvent_Clone_Callback(reinterpret_cast<VirtualKPartsGUIActivateEvent::KParts__GUIActivateEvent_Clone_Callback>(slot));
-    }
 }
 
 void KParts__GUIActivateEvent_Delete(KParts__GUIActivateEvent* self) {

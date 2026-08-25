@@ -410,9 +410,8 @@ QMetaObject* TextCustomEditor__PlainTextEditor_SuperMetaObject(const TextCustomE
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnMetaObject(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_MetaObject_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -429,9 +428,8 @@ void* TextCustomEditor__PlainTextEditor_SuperMetacast(TextCustomEditor__PlainTex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnMetacast(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_Metacast_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -448,9 +446,8 @@ int TextCustomEditor__PlainTextEditor_SuperMetacall(TextCustomEditor__PlainTextE
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnMetacall(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_Metacall_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -467,9 +464,8 @@ void TextCustomEditor__PlainTextEditor_SuperSetReadOnly(TextCustomEditor__PlainT
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnSetReadOnly(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_SetReadOnly_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_SetReadOnly_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -486,9 +482,8 @@ void TextCustomEditor__PlainTextEditor_SuperCreateHighlighter(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnCreateHighlighter(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_CreateHighlighter_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_CreateHighlighter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -505,9 +500,8 @@ void TextCustomEditor__PlainTextEditor_SuperAddExtraMenuEntry(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnAddExtraMenuEntry(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_AddExtraMenuEntry_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_AddExtraMenuEntry_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -524,9 +518,8 @@ void TextCustomEditor__PlainTextEditor_SuperContextMenuEvent(TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnContextMenuEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -543,9 +536,8 @@ bool TextCustomEditor__PlainTextEditor_SuperEvent(TextCustomEditor__PlainTextEdi
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_Event_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -562,9 +554,8 @@ void TextCustomEditor__PlainTextEditor_SuperKeyPressEvent(TextCustomEditor__Plai
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnKeyPressEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_KeyPressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -581,9 +572,8 @@ void TextCustomEditor__PlainTextEditor_SuperWheelEvent(TextCustomEditor__PlainTe
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnWheelEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_WheelEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_WheelEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -600,9 +590,8 @@ Sonnet__SpellCheckDecorator* TextCustomEditor__PlainTextEditor_SuperCreateSpellC
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnCreateSpellCheckDecorator(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_CreateSpellCheckDecorator_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_CreateSpellCheckDecorator_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -619,9 +608,8 @@ void TextCustomEditor__PlainTextEditor_SuperFocusInEvent(TextCustomEditor__Plain
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnFocusInEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_FocusInEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -638,9 +626,8 @@ void TextCustomEditor__PlainTextEditor_SuperUpdateHighLighter(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnUpdateHighLighter(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_UpdateHighLighter_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_UpdateHighLighter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -657,9 +644,8 @@ void TextCustomEditor__PlainTextEditor_SuperClearDecorator(TextCustomEditor__Pla
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnClearDecorator(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_ClearDecorator_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_ClearDecorator_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -686,9 +672,8 @@ QVariant* TextCustomEditor__PlainTextEditor_SuperLoadResource(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnLoadResource(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_LoadResource_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_LoadResource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -715,9 +700,8 @@ QVariant* TextCustomEditor__PlainTextEditor_SuperInputMethodQuery(const TextCust
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnInputMethodQuery(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_InputMethodQuery_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -744,9 +728,8 @@ void TextCustomEditor__PlainTextEditor_SuperTimerEvent(TextCustomEditor__PlainTe
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnTimerEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_TimerEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -773,9 +756,8 @@ void TextCustomEditor__PlainTextEditor_SuperKeyReleaseEvent(TextCustomEditor__Pl
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnKeyReleaseEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -802,9 +784,8 @@ void TextCustomEditor__PlainTextEditor_SuperResizeEvent(TextCustomEditor__PlainT
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnResizeEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_ResizeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -831,9 +812,8 @@ void TextCustomEditor__PlainTextEditor_SuperPaintEvent(TextCustomEditor__PlainTe
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnPaintEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_PaintEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -860,9 +840,8 @@ void TextCustomEditor__PlainTextEditor_SuperMousePressEvent(TextCustomEditor__Pl
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnMousePressEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_MousePressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -889,9 +868,8 @@ void TextCustomEditor__PlainTextEditor_SuperMouseMoveEvent(TextCustomEditor__Pla
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnMouseMoveEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -918,9 +896,8 @@ void TextCustomEditor__PlainTextEditor_SuperMouseReleaseEvent(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnMouseReleaseEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -947,9 +924,8 @@ void TextCustomEditor__PlainTextEditor_SuperMouseDoubleClickEvent(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnMouseDoubleClickEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -976,9 +952,8 @@ bool TextCustomEditor__PlainTextEditor_SuperFocusNextPrevChild(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnFocusNextPrevChild(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1005,9 +980,8 @@ void TextCustomEditor__PlainTextEditor_SuperDragEnterEvent(TextCustomEditor__Pla
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnDragEnterEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_DragEnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1034,9 +1008,8 @@ void TextCustomEditor__PlainTextEditor_SuperDragLeaveEvent(TextCustomEditor__Pla
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnDragLeaveEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1063,9 +1036,8 @@ void TextCustomEditor__PlainTextEditor_SuperDragMoveEvent(TextCustomEditor__Plai
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnDragMoveEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_DragMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1092,9 +1064,8 @@ void TextCustomEditor__PlainTextEditor_SuperDropEvent(TextCustomEditor__PlainTex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnDropEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_DropEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1121,9 +1092,8 @@ void TextCustomEditor__PlainTextEditor_SuperFocusOutEvent(TextCustomEditor__Plai
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnFocusOutEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_FocusOutEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1150,9 +1120,8 @@ void TextCustomEditor__PlainTextEditor_SuperShowEvent(TextCustomEditor__PlainTex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnShowEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_ShowEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1179,9 +1148,8 @@ void TextCustomEditor__PlainTextEditor_SuperChangeEvent(TextCustomEditor__PlainT
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnChangeEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_ChangeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1208,9 +1176,8 @@ QMimeData* TextCustomEditor__PlainTextEditor_SuperCreateMimeDataFromSelection(co
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnCreateMimeDataFromSelection(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_CreateMimeDataFromSelection_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_CreateMimeDataFromSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1237,9 +1204,8 @@ bool TextCustomEditor__PlainTextEditor_SuperCanInsertFromMimeData(const TextCust
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnCanInsertFromMimeData(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_CanInsertFromMimeData_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_CanInsertFromMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1266,9 +1232,8 @@ void TextCustomEditor__PlainTextEditor_SuperInsertFromMimeData(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnInsertFromMimeData(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_InsertFromMimeData_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_InsertFromMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1295,9 +1260,8 @@ void TextCustomEditor__PlainTextEditor_SuperInputMethodEvent(TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnInputMethodEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_InputMethodEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1324,9 +1288,8 @@ void TextCustomEditor__PlainTextEditor_SuperScrollContentsBy(TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnScrollContentsBy(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_ScrollContentsBy_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1353,9 +1316,8 @@ void TextCustomEditor__PlainTextEditor_SuperDoSetTextCursor(TextCustomEditor__Pl
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnDoSetTextCursor(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_DoSetTextCursor_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_DoSetTextCursor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1382,9 +1344,8 @@ QSize* TextCustomEditor__PlainTextEditor_SuperMinimumSizeHint(const TextCustomEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnMinimumSizeHint(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1411,9 +1372,8 @@ QSize* TextCustomEditor__PlainTextEditor_SuperSizeHint(const TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnSizeHint(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_SizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1440,9 +1400,8 @@ void TextCustomEditor__PlainTextEditor_SuperSetupViewport(TextCustomEditor__Plai
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnSetupViewport(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_SetupViewport_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1469,9 +1428,8 @@ bool TextCustomEditor__PlainTextEditor_SuperEventFilter(TextCustomEditor__PlainT
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnEventFilter(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_EventFilter_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1498,9 +1456,8 @@ bool TextCustomEditor__PlainTextEditor_SuperViewportEvent(TextCustomEditor__Plai
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnViewportEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_ViewportEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1525,9 +1482,8 @@ QSize* TextCustomEditor__PlainTextEditor_SuperViewportSizeHint(const TextCustomE
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnViewportSizeHint(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_ViewportSizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1554,9 +1510,8 @@ void TextCustomEditor__PlainTextEditor_SuperInitStyleOption(const TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnInitStyleOption(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_InitStyleOption_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1583,9 +1538,8 @@ int TextCustomEditor__PlainTextEditor_SuperDevType(const TextCustomEditor__Plain
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnDevType(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_DevType_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1612,9 +1566,8 @@ void TextCustomEditor__PlainTextEditor_SuperSetVisible(TextCustomEditor__PlainTe
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnSetVisible(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_SetVisible_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1641,9 +1594,8 @@ int TextCustomEditor__PlainTextEditor_SuperHeightForWidth(const TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnHeightForWidth(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_HeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1670,9 +1622,8 @@ bool TextCustomEditor__PlainTextEditor_SuperHasHeightForWidth(const TextCustomEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnHasHeightForWidth(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1699,9 +1650,8 @@ QPaintEngine* TextCustomEditor__PlainTextEditor_SuperPaintEngine(const TextCusto
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnPaintEngine(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_PaintEngine_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1728,9 +1678,8 @@ void TextCustomEditor__PlainTextEditor_SuperEnterEvent(TextCustomEditor__PlainTe
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnEnterEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_EnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1757,9 +1706,8 @@ void TextCustomEditor__PlainTextEditor_SuperLeaveEvent(TextCustomEditor__PlainTe
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnLeaveEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_LeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1786,9 +1734,8 @@ void TextCustomEditor__PlainTextEditor_SuperMoveEvent(TextCustomEditor__PlainTex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnMoveEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_MoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1815,9 +1762,8 @@ void TextCustomEditor__PlainTextEditor_SuperCloseEvent(TextCustomEditor__PlainTe
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnCloseEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_CloseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1844,9 +1790,8 @@ void TextCustomEditor__PlainTextEditor_SuperTabletEvent(TextCustomEditor__PlainT
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnTabletEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_TabletEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1873,9 +1818,8 @@ void TextCustomEditor__PlainTextEditor_SuperActionEvent(TextCustomEditor__PlainT
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnActionEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_ActionEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1902,9 +1846,8 @@ void TextCustomEditor__PlainTextEditor_SuperHideEvent(TextCustomEditor__PlainTex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnHideEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_HideEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1933,9 +1876,8 @@ bool TextCustomEditor__PlainTextEditor_SuperNativeEvent(TextCustomEditor__PlainT
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnNativeEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_NativeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1962,9 +1904,8 @@ int TextCustomEditor__PlainTextEditor_SuperMetric(const TextCustomEditor__PlainT
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnMetric(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_Metric_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1991,9 +1932,8 @@ void TextCustomEditor__PlainTextEditor_SuperInitPainter(const TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnInitPainter(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_InitPainter_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2020,9 +1960,8 @@ QPaintDevice* TextCustomEditor__PlainTextEditor_SuperRedirected(const TextCustom
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnRedirected(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_Redirected_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2049,9 +1988,8 @@ QPainter* TextCustomEditor__PlainTextEditor_SuperSharedPainter(const TextCustomE
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnSharedPainter(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_SharedPainter_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2078,9 +2016,8 @@ void TextCustomEditor__PlainTextEditor_SuperChildEvent(TextCustomEditor__PlainTe
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnChildEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_ChildEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2107,9 +2044,8 @@ void TextCustomEditor__PlainTextEditor_SuperCustomEvent(TextCustomEditor__PlainT
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnCustomEvent(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_CustomEvent_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2136,9 +2072,8 @@ void TextCustomEditor__PlainTextEditor_SuperConnectNotify(TextCustomEditor__Plai
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnConnectNotify(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_ConnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2165,9 +2100,8 @@ void TextCustomEditor__PlainTextEditor_SuperDisconnectNotify(TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnDisconnectNotify(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_DisconnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2194,9 +2128,8 @@ bool TextCustomEditor__PlainTextEditor_SuperOverrideShortcut(TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnOverrideShortcut(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_OverrideShortcut_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_OverrideShortcut_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2223,9 +2156,8 @@ bool TextCustomEditor__PlainTextEditor_SuperHandleShortcut(TextCustomEditor__Pla
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnHandleShortcut(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_HandleShortcut_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_HandleShortcut_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2252,9 +2184,8 @@ void TextCustomEditor__PlainTextEditor_SuperSetHighlighter(TextCustomEditor__Pla
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnSetHighlighter(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_SetHighlighter_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_SetHighlighter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2279,9 +2210,8 @@ QTextBlock* TextCustomEditor__PlainTextEditor_SuperFirstVisibleBlock(const TextC
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnFirstVisibleBlock(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_FirstVisibleBlock_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_FirstVisibleBlock_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2306,9 +2236,8 @@ QPointF* TextCustomEditor__PlainTextEditor_SuperContentOffset(const TextCustomEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnContentOffset(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_ContentOffset_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_ContentOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2333,9 +2262,8 @@ QRectF* TextCustomEditor__PlainTextEditor_SuperBlockBoundingRect(const TextCusto
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnBlockBoundingRect(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_BlockBoundingRect_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_BlockBoundingRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2360,9 +2288,8 @@ QRectF* TextCustomEditor__PlainTextEditor_SuperBlockBoundingGeometry(const TextC
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnBlockBoundingGeometry(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_BlockBoundingGeometry_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_BlockBoundingGeometry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2387,9 +2314,8 @@ QAbstractTextDocumentLayout__PaintContext* TextCustomEditor__PlainTextEditor_Sup
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnGetPaintContext(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_GetPaintContext_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_GetPaintContext_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2416,9 +2342,8 @@ void TextCustomEditor__PlainTextEditor_SuperZoomInF(TextCustomEditor__PlainTextE
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnZoomInF(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_ZoomInF_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_ZoomInF_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2445,9 +2370,8 @@ void TextCustomEditor__PlainTextEditor_SuperSetViewportMargins(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnSetViewportMargins(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_SetViewportMargins_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2472,9 +2396,8 @@ QMargins* TextCustomEditor__PlainTextEditor_SuperViewportMargins(const TextCusto
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnViewportMargins(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_ViewportMargins_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2501,9 +2424,8 @@ void TextCustomEditor__PlainTextEditor_SuperDrawFrame(TextCustomEditor__PlainTex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnDrawFrame(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_DrawFrame_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2530,9 +2452,8 @@ void TextCustomEditor__PlainTextEditor_SuperUpdateMicroFocus(TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnUpdateMicroFocus(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2559,9 +2480,8 @@ void TextCustomEditor__PlainTextEditor_SuperCreate(TextCustomEditor__PlainTextEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnCreate(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_Create_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2588,9 +2508,8 @@ void TextCustomEditor__PlainTextEditor_SuperDestroy(TextCustomEditor__PlainTextE
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnDestroy(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_Destroy_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2617,9 +2536,8 @@ bool TextCustomEditor__PlainTextEditor_SuperFocusNextChild(TextCustomEditor__Pla
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnFocusNextChild(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_FocusNextChild_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2646,9 +2564,8 @@ bool TextCustomEditor__PlainTextEditor_SuperFocusPreviousChild(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnFocusPreviousChild(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2675,9 +2592,8 @@ QObject* TextCustomEditor__PlainTextEditor_SuperSender(const TextCustomEditor__P
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnSender(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_Sender_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2704,9 +2620,8 @@ int TextCustomEditor__PlainTextEditor_SuperSenderSignalIndex(const TextCustomEdi
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnSenderSignalIndex(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2733,9 +2648,8 @@ int TextCustomEditor__PlainTextEditor_SuperReceivers(const TextCustomEditor__Pla
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnReceivers(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_Receivers_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2762,9 +2676,8 @@ bool TextCustomEditor__PlainTextEditor_SuperIsSignalConnected(const TextCustomEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnIsSignalConnected(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_IsSignalConnected_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2791,9 +2704,8 @@ double TextCustomEditor__PlainTextEditor_SuperGetDecodedMetricF(const TextCustom
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__PlainTextEditor_OnGetDecodedMetricF(const TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     auto* vtextcustomeditorplaintexteditor = const_cast<VirtualTextCustomEditorPlainTextEditor*>(dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self));
-    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
+    if (vtextcustomeditorplaintexteditor && vtextcustomeditorplaintexteditor->isVirtualTextCustomEditorPlainTextEditor)
         vtextcustomeditorplaintexteditor->setTextCustomEditor__PlainTextEditor_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextEditor::TextCustomEditor__PlainTextEditor_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextCustomEditor__PlainTextEditor_Delete(TextCustomEditor__PlainTextEditor* self) {

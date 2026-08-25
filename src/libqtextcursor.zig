@@ -1419,12 +1419,12 @@ pub const QTextCursor = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#public-types)
 pub const enums = struct {
-    pub const MoveMode = enum(i32) {
+    pub const MoveMode = enum {
         pub const MoveAnchor: i32 = 0;
         pub const KeepAnchor: i32 = 1;
     };
 
-    pub const MoveOperation = enum(i32) {
+    pub const MoveOperation = enum {
         pub const NoMove: i32 = 0;
         pub const Start: i32 = 1;
         pub const Up: i32 = 2;
@@ -1452,7 +1452,7 @@ pub const enums = struct {
         pub const PreviousRow: i32 = 24;
     };
 
-    pub const SelectionType = enum(i32) {
+    pub const SelectionType = enum {
         pub const WordUnderCursor: i32 = 0;
         pub const LineUnderCursor: i32 = 1;
         pub const BlockUnderCursor: i32 = 2;

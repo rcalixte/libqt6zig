@@ -1703,6 +1703,31 @@ pub const KPlotWidget = extern struct {
         qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPlotWidget `
+    ///
+    pub fn asQPaintDevice(self: KPlotWidget) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KPlotWidget object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KPlotWidget {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -7687,7 +7712,7 @@ pub const KPlotWidget = extern struct {
     /// ` self: KPlotWidget `
     ///
     pub fn paintingActive(self: KPlotWidget) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -7703,7 +7728,7 @@ pub const KPlotWidget = extern struct {
     /// ` self: KPlotWidget `
     ///
     pub fn widthMM(self: KPlotWidget) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -7719,7 +7744,7 @@ pub const KPlotWidget = extern struct {
     /// ` self: KPlotWidget `
     ///
     pub fn heightMM(self: KPlotWidget) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -7735,7 +7760,7 @@ pub const KPlotWidget = extern struct {
     /// ` self: KPlotWidget `
     ///
     pub fn logicalDpiX(self: KPlotWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7751,7 +7776,7 @@ pub const KPlotWidget = extern struct {
     /// ` self: KPlotWidget `
     ///
     pub fn logicalDpiY(self: KPlotWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7767,7 +7792,7 @@ pub const KPlotWidget = extern struct {
     /// ` self: KPlotWidget `
     ///
     pub fn physicalDpiX(self: KPlotWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7783,7 +7808,7 @@ pub const KPlotWidget = extern struct {
     /// ` self: KPlotWidget `
     ///
     pub fn physicalDpiY(self: KPlotWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7799,7 +7824,7 @@ pub const KPlotWidget = extern struct {
     /// ` self: KPlotWidget `
     ///
     pub fn devicePixelRatio(self: KPlotWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7815,7 +7840,7 @@ pub const KPlotWidget = extern struct {
     /// ` self: KPlotWidget `
     ///
     pub fn devicePixelRatioF(self: KPlotWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7831,7 +7856,7 @@ pub const KPlotWidget = extern struct {
     /// ` self: KPlotWidget `
     ///
     pub fn colorCount(self: KPlotWidget) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7847,7 +7872,7 @@ pub const KPlotWidget = extern struct {
     /// ` self: KPlotWidget `
     ///
     pub fn depth(self: KPlotWidget) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -11215,7 +11240,7 @@ pub const KPlotWidget = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#public-types)
 pub const enums = struct {
-    pub const Axis = enum(i32) {
+    pub const Axis = enum {
         pub const LeftAxis: i32 = 0;
         pub const BottomAxis: i32 = 1;
         pub const RightAxis: i32 = 2;

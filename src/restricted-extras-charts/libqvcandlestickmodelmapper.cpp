@@ -182,9 +182,8 @@ QMetaObject* QVCandlestickModelMapper_SuperMetaObject(const QVCandlestickModelMa
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnMetaObject(const QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -201,9 +200,8 @@ void* QVCandlestickModelMapper_SuperMetacast(QVCandlestickModelMapper* self, con
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnMetacast(QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Metacast_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -220,9 +218,8 @@ int QVCandlestickModelMapper_SuperMetacall(QVCandlestickModelMapper* self, int p
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnMetacall(QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Metacall_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -239,9 +236,8 @@ int QVCandlestickModelMapper_SuperOrientation(const QVCandlestickModelMapper* se
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnOrientation(const QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Orientation_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_Orientation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -268,9 +264,8 @@ bool QVCandlestickModelMapper_SuperEvent(QVCandlestickModelMapper* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnEvent(QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Event_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -297,9 +292,8 @@ bool QVCandlestickModelMapper_SuperEventFilter(QVCandlestickModelMapper* self, Q
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnEventFilter(QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_EventFilter_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -326,9 +320,8 @@ void QVCandlestickModelMapper_SuperTimerEvent(QVCandlestickModelMapper* self, QT
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnTimerEvent(QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_TimerEvent_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -355,9 +348,8 @@ void QVCandlestickModelMapper_SuperChildEvent(QVCandlestickModelMapper* self, QC
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnChildEvent(QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_ChildEvent_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -384,9 +376,8 @@ void QVCandlestickModelMapper_SuperCustomEvent(QVCandlestickModelMapper* self, Q
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnCustomEvent(QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_CustomEvent_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -413,9 +404,8 @@ void QVCandlestickModelMapper_SuperConnectNotify(QVCandlestickModelMapper* self,
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnConnectNotify(QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_ConnectNotify_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -442,9 +432,8 @@ void QVCandlestickModelMapper_SuperDisconnectNotify(QVCandlestickModelMapper* se
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnDisconnectNotify(QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_DisconnectNotify_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -471,9 +460,8 @@ void QVCandlestickModelMapper_SuperSetTimestamp(QVCandlestickModelMapper* self, 
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnSetTimestamp(QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_SetTimestamp_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_SetTimestamp_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -500,9 +488,8 @@ int QVCandlestickModelMapper_SuperTimestamp(const QVCandlestickModelMapper* self
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnTimestamp(const QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Timestamp_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_Timestamp_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -529,9 +516,8 @@ void QVCandlestickModelMapper_SuperSetOpen(QVCandlestickModelMapper* self, int o
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnSetOpen(QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_SetOpen_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_SetOpen_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -558,9 +544,8 @@ int QVCandlestickModelMapper_SuperOpen(const QVCandlestickModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnOpen(const QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Open_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -587,9 +572,8 @@ void QVCandlestickModelMapper_SuperSetHigh(QVCandlestickModelMapper* self, int h
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnSetHigh(QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_SetHigh_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_SetHigh_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -616,9 +600,8 @@ int QVCandlestickModelMapper_SuperHigh(const QVCandlestickModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnHigh(const QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_High_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_High_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -645,9 +628,8 @@ void QVCandlestickModelMapper_SuperSetLow(QVCandlestickModelMapper* self, int lo
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnSetLow(QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_SetLow_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_SetLow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -674,9 +656,8 @@ int QVCandlestickModelMapper_SuperLow(const QVCandlestickModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnLow(const QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Low_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_Low_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -703,9 +684,8 @@ void QVCandlestickModelMapper_SuperSetClose(QVCandlestickModelMapper* self, int 
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnSetClose(QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_SetClose_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_SetClose_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -732,9 +712,8 @@ int QVCandlestickModelMapper_SuperClose(const QVCandlestickModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnClose(const QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Close_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_Close_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -761,9 +740,8 @@ void QVCandlestickModelMapper_SuperSetFirstSetSection(QVCandlestickModelMapper* 
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnSetFirstSetSection(QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_SetFirstSetSection_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_SetFirstSetSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -790,9 +768,8 @@ int QVCandlestickModelMapper_SuperFirstSetSection(const QVCandlestickModelMapper
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnFirstSetSection(const QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_FirstSetSection_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_FirstSetSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -819,9 +796,8 @@ void QVCandlestickModelMapper_SuperSetLastSetSection(QVCandlestickModelMapper* s
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnSetLastSetSection(QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = dynamic_cast<VirtualQVCandlestickModelMapper*>(self);
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_SetLastSetSection_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_SetLastSetSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -848,9 +824,8 @@ int QVCandlestickModelMapper_SuperLastSetSection(const QVCandlestickModelMapper*
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnLastSetSection(const QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_LastSetSection_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_LastSetSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -877,9 +852,8 @@ QObject* QVCandlestickModelMapper_SuperSender(const QVCandlestickModelMapper* se
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnSender(const QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Sender_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -906,9 +880,8 @@ int QVCandlestickModelMapper_SuperSenderSignalIndex(const QVCandlestickModelMapp
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnSenderSignalIndex(const QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_SenderSignalIndex_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -935,9 +908,8 @@ int QVCandlestickModelMapper_SuperReceivers(const QVCandlestickModelMapper* self
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnReceivers(const QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_Receivers_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -964,9 +936,8 @@ bool QVCandlestickModelMapper_SuperIsSignalConnected(const QVCandlestickModelMap
 // Auxiliary method to allow providing re-implementation
 void QVCandlestickModelMapper_OnIsSignalConnected(const QVCandlestickModelMapper* self, intptr_t slot) {
     auto* vqvcandlestickmodelmapper = const_cast<VirtualQVCandlestickModelMapper*>(dynamic_cast<const VirtualQVCandlestickModelMapper*>(self));
-    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper) {
+    if (vqvcandlestickmodelmapper && vqvcandlestickmodelmapper->isVirtualQVCandlestickModelMapper)
         vqvcandlestickmodelmapper->setQVCandlestickModelMapper_IsSignalConnected_Callback(reinterpret_cast<VirtualQVCandlestickModelMapper::QVCandlestickModelMapper_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QVCandlestickModelMapper_Delete(QVCandlestickModelMapper* self) {

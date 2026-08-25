@@ -35,9 +35,8 @@ bool TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_SuperImport(TextAut
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_OnImport(TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* self, intptr_t slot) {
     auto* vtextautocorrectioncoreimportlibreofficeautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportLibreOfficeAutocorrection*>(self);
-    if (vtextautocorrectioncoreimportlibreofficeautocorrection && vtextautocorrectioncoreimportlibreofficeautocorrection->isVirtualTextAutoCorrectionCoreImportLibreOfficeAutocorrection) {
+    if (vtextautocorrectioncoreimportlibreofficeautocorrection && vtextautocorrectioncoreimportlibreofficeautocorrection->isVirtualTextAutoCorrectionCoreImportLibreOfficeAutocorrection)
         vtextautocorrectioncoreimportlibreofficeautocorrection->setTextAutoCorrectionCore__ImportLibreOfficeAutocorrection_Import_Callback(reinterpret_cast<VirtualTextAutoCorrectionCoreImportLibreOfficeAutocorrection::TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_Import_Callback>(slot));
-    }
 }
 
 void TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_Delete(TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* self) {

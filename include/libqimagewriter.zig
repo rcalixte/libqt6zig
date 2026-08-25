@@ -717,7 +717,7 @@ pub const QImageWriter = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qimagewriter.html#public-types)
 pub const enums = struct {
-    pub const ImageWriterError = enum(i32) {
+    pub const ImageWriterError = enum {
         pub const UnknownError: i32 = 0;
         pub const DeviceError: i32 = 1;
         pub const UnsupportedFormatError: i32 = 2;

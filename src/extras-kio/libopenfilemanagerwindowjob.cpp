@@ -89,9 +89,8 @@ QMetaObject* KIO__OpenFileManagerWindowJob_SuperMetaObject(const KIO__OpenFileMa
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnMetaObject(const KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_MetaObject_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -108,9 +107,8 @@ void* KIO__OpenFileManagerWindowJob_SuperMetacast(KIO__OpenFileManagerWindowJob*
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnMetacast(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_Metacast_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -127,9 +125,8 @@ int KIO__OpenFileManagerWindowJob_SuperMetacall(KIO__OpenFileManagerWindowJob* s
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnMetacall(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_Metacall_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -146,9 +143,8 @@ void KIO__OpenFileManagerWindowJob_SuperStart(KIO__OpenFileManagerWindowJob* sel
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnStart(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_Start_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_Start_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -175,9 +171,8 @@ bool KIO__OpenFileManagerWindowJob_SuperDoKill(KIO__OpenFileManagerWindowJob* se
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnDoKill(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_DoKill_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_DoKill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -204,9 +199,8 @@ bool KIO__OpenFileManagerWindowJob_SuperDoSuspend(KIO__OpenFileManagerWindowJob*
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnDoSuspend(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_DoSuspend_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_DoSuspend_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -233,9 +227,8 @@ bool KIO__OpenFileManagerWindowJob_SuperDoResume(KIO__OpenFileManagerWindowJob* 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnDoResume(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_DoResume_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_DoResume_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -294,9 +287,8 @@ libqt_string KIO__OpenFileManagerWindowJob_SuperErrorString(const KIO__OpenFileM
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnErrorString(const KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_ErrorString_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_ErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -323,9 +315,8 @@ bool KIO__OpenFileManagerWindowJob_SuperEvent(KIO__OpenFileManagerWindowJob* sel
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnEvent(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_Event_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -352,9 +343,8 @@ bool KIO__OpenFileManagerWindowJob_SuperEventFilter(KIO__OpenFileManagerWindowJo
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnEventFilter(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_EventFilter_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -381,9 +371,8 @@ void KIO__OpenFileManagerWindowJob_SuperTimerEvent(KIO__OpenFileManagerWindowJob
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnTimerEvent(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_TimerEvent_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -410,9 +399,8 @@ void KIO__OpenFileManagerWindowJob_SuperChildEvent(KIO__OpenFileManagerWindowJob
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnChildEvent(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_ChildEvent_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -439,9 +427,8 @@ void KIO__OpenFileManagerWindowJob_SuperCustomEvent(KIO__OpenFileManagerWindowJo
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnCustomEvent(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_CustomEvent_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -468,9 +455,8 @@ void KIO__OpenFileManagerWindowJob_SuperConnectNotify(KIO__OpenFileManagerWindow
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnConnectNotify(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_ConnectNotify_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -497,9 +483,8 @@ void KIO__OpenFileManagerWindowJob_SuperDisconnectNotify(KIO__OpenFileManagerWin
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnDisconnectNotify(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -526,9 +511,8 @@ void KIO__OpenFileManagerWindowJob_SuperSetCapabilities(KIO__OpenFileManagerWind
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnSetCapabilities(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_SetCapabilities_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_SetCapabilities_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -555,9 +539,8 @@ bool KIO__OpenFileManagerWindowJob_SuperIsFinished(const KIO__OpenFileManagerWin
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnIsFinished(const KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_IsFinished_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_IsFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -584,9 +567,8 @@ void KIO__OpenFileManagerWindowJob_SuperSetError(KIO__OpenFileManagerWindowJob* 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnSetError(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_SetError_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -615,9 +597,8 @@ void KIO__OpenFileManagerWindowJob_SuperSetErrorText(KIO__OpenFileManagerWindowJ
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnSetErrorText(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_SetErrorText_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_SetErrorText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -644,9 +625,8 @@ void KIO__OpenFileManagerWindowJob_SuperSetProcessedAmount(KIO__OpenFileManagerW
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnSetProcessedAmount(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_SetProcessedAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -673,9 +653,8 @@ void KIO__OpenFileManagerWindowJob_SuperSetTotalAmount(KIO__OpenFileManagerWindo
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnSetTotalAmount(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_SetTotalAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -702,9 +681,8 @@ void KIO__OpenFileManagerWindowJob_SuperSetProgressUnit(KIO__OpenFileManagerWind
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnSetProgressUnit(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_SetProgressUnit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -731,9 +709,8 @@ void KIO__OpenFileManagerWindowJob_SuperSetPercent(KIO__OpenFileManagerWindowJob
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnSetPercent(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_SetPercent_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_SetPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -760,9 +737,8 @@ void KIO__OpenFileManagerWindowJob_SuperEmitResult(KIO__OpenFileManagerWindowJob
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnEmitResult(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_EmitResult_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_EmitResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -789,9 +765,8 @@ void KIO__OpenFileManagerWindowJob_SuperEmitPercent(KIO__OpenFileManagerWindowJo
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnEmitPercent(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_EmitPercent_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_EmitPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -818,9 +793,8 @@ void KIO__OpenFileManagerWindowJob_SuperEmitSpeed(KIO__OpenFileManagerWindowJob*
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnEmitSpeed(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_EmitSpeed_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_EmitSpeed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -847,9 +821,8 @@ void KIO__OpenFileManagerWindowJob_SuperStartElapsedTimer(KIO__OpenFileManagerWi
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnStartElapsedTimer(KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_StartElapsedTimer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -876,9 +849,8 @@ QObject* KIO__OpenFileManagerWindowJob_SuperSender(const KIO__OpenFileManagerWin
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnSender(const KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_Sender_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -905,9 +877,8 @@ int KIO__OpenFileManagerWindowJob_SuperSenderSignalIndex(const KIO__OpenFileMana
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnSenderSignalIndex(const KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -934,9 +905,8 @@ int KIO__OpenFileManagerWindowJob_SuperReceivers(const KIO__OpenFileManagerWindo
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnReceivers(const KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_Receivers_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -963,9 +933,8 @@ bool KIO__OpenFileManagerWindowJob_SuperIsSignalConnected(const KIO__OpenFileMan
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenFileManagerWindowJob_OnIsSignalConnected(const KIO__OpenFileManagerWindowJob* self, intptr_t slot) {
     auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
-    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
+    if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob)
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOOpenFileManagerWindowJob::KIO__OpenFileManagerWindowJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KIO__OpenFileManagerWindowJob_Delete(KIO__OpenFileManagerWindowJob* self) {

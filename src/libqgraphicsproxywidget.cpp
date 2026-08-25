@@ -311,9 +311,8 @@ QMetaObject* QGraphicsProxyWidget_SuperMetaObject(const QGraphicsProxyWidget* se
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnMetaObject(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -330,9 +329,8 @@ void* QGraphicsProxyWidget_SuperMetacast(QGraphicsProxyWidget* self, const char*
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnMetacast(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Metacast_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -349,9 +347,8 @@ int QGraphicsProxyWidget_SuperMetacall(QGraphicsProxyWidget* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnMetacall(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Metacall_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -368,9 +365,8 @@ void QGraphicsProxyWidget_SuperSetGeometry(QGraphicsProxyWidget* self, const QRe
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnSetGeometry(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SetGeometry_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_SetGeometry_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -387,9 +383,8 @@ void QGraphicsProxyWidget_SuperPaint(QGraphicsProxyWidget* self, QPainter* paint
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnPaint(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Paint_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_Paint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -406,9 +401,8 @@ int QGraphicsProxyWidget_SuperType(const QGraphicsProxyWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnType(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Type_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_Type_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -424,9 +418,8 @@ QVariant* QGraphicsProxyWidget_SuperItemChange(QGraphicsProxyWidget* self, int c
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnItemChange(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_ItemChange_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_ItemChange_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -443,9 +436,8 @@ bool QGraphicsProxyWidget_SuperEvent(QGraphicsProxyWidget* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Event_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -462,9 +454,8 @@ bool QGraphicsProxyWidget_SuperEventFilter(QGraphicsProxyWidget* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnEventFilter(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_EventFilter_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -481,9 +472,8 @@ void QGraphicsProxyWidget_SuperShowEvent(QGraphicsProxyWidget* self, QShowEvent*
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnShowEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_ShowEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -500,9 +490,8 @@ void QGraphicsProxyWidget_SuperHideEvent(QGraphicsProxyWidget* self, QHideEvent*
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnHideEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_HideEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -519,9 +508,8 @@ void QGraphicsProxyWidget_SuperContextMenuEvent(QGraphicsProxyWidget* self, QGra
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnContextMenuEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -538,9 +526,8 @@ void QGraphicsProxyWidget_SuperDragEnterEvent(QGraphicsProxyWidget* self, QGraph
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnDragEnterEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -557,9 +544,8 @@ void QGraphicsProxyWidget_SuperDragLeaveEvent(QGraphicsProxyWidget* self, QGraph
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnDragLeaveEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -576,9 +562,8 @@ void QGraphicsProxyWidget_SuperDragMoveEvent(QGraphicsProxyWidget* self, QGraphi
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnDragMoveEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -595,9 +580,8 @@ void QGraphicsProxyWidget_SuperDropEvent(QGraphicsProxyWidget* self, QGraphicsSc
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnDropEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_DropEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -614,9 +598,8 @@ void QGraphicsProxyWidget_SuperHoverEnterEvent(QGraphicsProxyWidget* self, QGrap
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnHoverEnterEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_HoverEnterEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_HoverEnterEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -633,9 +616,8 @@ void QGraphicsProxyWidget_SuperHoverLeaveEvent(QGraphicsProxyWidget* self, QGrap
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnHoverLeaveEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_HoverLeaveEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_HoverLeaveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -652,9 +634,8 @@ void QGraphicsProxyWidget_SuperHoverMoveEvent(QGraphicsProxyWidget* self, QGraph
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnHoverMoveEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_HoverMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_HoverMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -671,9 +652,8 @@ void QGraphicsProxyWidget_SuperGrabMouseEvent(QGraphicsProxyWidget* self, QEvent
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnGrabMouseEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_GrabMouseEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_GrabMouseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -690,9 +670,8 @@ void QGraphicsProxyWidget_SuperUngrabMouseEvent(QGraphicsProxyWidget* self, QEve
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnUngrabMouseEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_UngrabMouseEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_UngrabMouseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -709,9 +688,8 @@ void QGraphicsProxyWidget_SuperMouseMoveEvent(QGraphicsProxyWidget* self, QGraph
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnMouseMoveEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -728,9 +706,8 @@ void QGraphicsProxyWidget_SuperMousePressEvent(QGraphicsProxyWidget* self, QGrap
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnMousePressEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_MousePressEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -747,9 +724,8 @@ void QGraphicsProxyWidget_SuperMouseReleaseEvent(QGraphicsProxyWidget* self, QGr
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnMouseReleaseEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -766,9 +742,8 @@ void QGraphicsProxyWidget_SuperMouseDoubleClickEvent(QGraphicsProxyWidget* self,
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnMouseDoubleClickEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -785,9 +760,8 @@ void QGraphicsProxyWidget_SuperWheelEvent(QGraphicsProxyWidget* self, QGraphicsS
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnWheelEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_WheelEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -804,9 +778,8 @@ void QGraphicsProxyWidget_SuperKeyPressEvent(QGraphicsProxyWidget* self, QKeyEve
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnKeyPressEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -823,9 +796,8 @@ void QGraphicsProxyWidget_SuperKeyReleaseEvent(QGraphicsProxyWidget* self, QKeyE
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnKeyReleaseEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -842,9 +814,8 @@ void QGraphicsProxyWidget_SuperFocusInEvent(QGraphicsProxyWidget* self, QFocusEv
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnFocusInEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_FocusInEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -861,9 +832,8 @@ void QGraphicsProxyWidget_SuperFocusOutEvent(QGraphicsProxyWidget* self, QFocusE
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnFocusOutEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -880,9 +850,8 @@ bool QGraphicsProxyWidget_SuperFocusNextPrevChild(QGraphicsProxyWidget* self, bo
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnFocusNextPrevChild(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -898,9 +867,8 @@ QVariant* QGraphicsProxyWidget_SuperInputMethodQuery(const QGraphicsProxyWidget*
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnInputMethodQuery(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -917,9 +885,8 @@ void QGraphicsProxyWidget_SuperInputMethodEvent(QGraphicsProxyWidget* self, QInp
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnInputMethodEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -935,9 +902,8 @@ QSizeF* QGraphicsProxyWidget_SuperSizeHint(const QGraphicsProxyWidget* self, int
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnSizeHint(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SizeHint_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -954,9 +920,8 @@ void QGraphicsProxyWidget_SuperResizeEvent(QGraphicsProxyWidget* self, QGraphics
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnResizeEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_ResizeEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -983,9 +948,8 @@ void QGraphicsProxyWidget_SuperGetContentsMargins(const QGraphicsProxyWidget* se
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnGetContentsMargins(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_GetContentsMargins_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_GetContentsMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1012,9 +976,8 @@ void QGraphicsProxyWidget_SuperPaintWindowFrame(QGraphicsProxyWidget* self, QPai
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnPaintWindowFrame(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_PaintWindowFrame_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_PaintWindowFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1041,9 +1004,8 @@ QRectF* QGraphicsProxyWidget_SuperBoundingRect(const QGraphicsProxyWidget* self)
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnBoundingRect(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_BoundingRect_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_BoundingRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1070,9 +1032,8 @@ QPainterPath* QGraphicsProxyWidget_SuperShape(const QGraphicsProxyWidget* self) 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnShape(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Shape_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_Shape_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1099,9 +1060,8 @@ void QGraphicsProxyWidget_SuperInitStyleOption(const QGraphicsProxyWidget* self,
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnInitStyleOption(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_InitStyleOption_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1128,9 +1088,8 @@ void QGraphicsProxyWidget_SuperUpdateGeometry(QGraphicsProxyWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnUpdateGeometry(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_UpdateGeometry_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_UpdateGeometry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1157,9 +1116,8 @@ QVariant* QGraphicsProxyWidget_SuperPropertyChange(QGraphicsProxyWidget* self, c
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnPropertyChange(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_PropertyChange_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_PropertyChange_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1186,9 +1144,8 @@ bool QGraphicsProxyWidget_SuperSceneEvent(QGraphicsProxyWidget* self, QEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnSceneEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SceneEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_SceneEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1215,9 +1172,8 @@ bool QGraphicsProxyWidget_SuperWindowFrameEvent(QGraphicsProxyWidget* self, QEve
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnWindowFrameEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_WindowFrameEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_WindowFrameEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1244,9 +1200,8 @@ int QGraphicsProxyWidget_SuperWindowFrameSectionAt(const QGraphicsProxyWidget* s
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnWindowFrameSectionAt(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_WindowFrameSectionAt_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_WindowFrameSectionAt_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1273,9 +1228,8 @@ void QGraphicsProxyWidget_SuperChangeEvent(QGraphicsProxyWidget* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnChangeEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_ChangeEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1302,9 +1256,8 @@ void QGraphicsProxyWidget_SuperCloseEvent(QGraphicsProxyWidget* self, QCloseEven
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnCloseEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_CloseEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1331,9 +1284,8 @@ void QGraphicsProxyWidget_SuperMoveEvent(QGraphicsProxyWidget* self, QGraphicsSc
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnMoveEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_MoveEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1360,9 +1312,8 @@ void QGraphicsProxyWidget_SuperPolishEvent(QGraphicsProxyWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnPolishEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_PolishEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_PolishEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1389,9 +1340,8 @@ void QGraphicsProxyWidget_SuperGrabKeyboardEvent(QGraphicsProxyWidget* self, QEv
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnGrabKeyboardEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_GrabKeyboardEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_GrabKeyboardEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1418,9 +1368,8 @@ void QGraphicsProxyWidget_SuperUngrabKeyboardEvent(QGraphicsProxyWidget* self, Q
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnUngrabKeyboardEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_UngrabKeyboardEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_UngrabKeyboardEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1447,9 +1396,8 @@ void QGraphicsProxyWidget_SuperTimerEvent(QGraphicsProxyWidget* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnTimerEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_TimerEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1476,9 +1424,8 @@ void QGraphicsProxyWidget_SuperChildEvent(QGraphicsProxyWidget* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnChildEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_ChildEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1505,9 +1452,8 @@ void QGraphicsProxyWidget_SuperCustomEvent(QGraphicsProxyWidget* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnCustomEvent(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_CustomEvent_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1534,9 +1480,8 @@ void QGraphicsProxyWidget_SuperConnectNotify(QGraphicsProxyWidget* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnConnectNotify(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_ConnectNotify_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1563,9 +1508,8 @@ void QGraphicsProxyWidget_SuperDisconnectNotify(QGraphicsProxyWidget* self, cons
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnDisconnectNotify(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1592,9 +1536,8 @@ void QGraphicsProxyWidget_SuperAdvance(QGraphicsProxyWidget* self, int phase) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnAdvance(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Advance_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_Advance_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1621,9 +1564,8 @@ bool QGraphicsProxyWidget_SuperContains(const QGraphicsProxyWidget* self, const 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnContains(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Contains_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_Contains_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1650,9 +1592,8 @@ bool QGraphicsProxyWidget_SuperCollidesWithItem(const QGraphicsProxyWidget* self
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnCollidesWithItem(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_CollidesWithItem_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_CollidesWithItem_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1679,9 +1620,8 @@ bool QGraphicsProxyWidget_SuperCollidesWithPath(const QGraphicsProxyWidget* self
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnCollidesWithPath(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_CollidesWithPath_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_CollidesWithPath_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1708,9 +1648,8 @@ bool QGraphicsProxyWidget_SuperIsObscuredBy(const QGraphicsProxyWidget* self, co
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnIsObscuredBy(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_IsObscuredBy_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_IsObscuredBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1737,9 +1676,8 @@ QPainterPath* QGraphicsProxyWidget_SuperOpaqueArea(const QGraphicsProxyWidget* s
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnOpaqueArea(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_OpaqueArea_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_OpaqueArea_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1766,9 +1704,8 @@ bool QGraphicsProxyWidget_SuperSceneEventFilter(QGraphicsProxyWidget* self, QGra
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnSceneEventFilter(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SceneEventFilter_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_SceneEventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1795,9 +1732,8 @@ bool QGraphicsProxyWidget_SuperSupportsExtension(const QGraphicsProxyWidget* sel
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnSupportsExtension(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SupportsExtension_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_SupportsExtension_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1824,9 +1760,8 @@ void QGraphicsProxyWidget_SuperSetExtension(QGraphicsProxyWidget* self, int exte
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnSetExtension(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SetExtension_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_SetExtension_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1851,9 +1786,8 @@ QVariant* QGraphicsProxyWidget_SuperExtension(const QGraphicsProxyWidget* self, 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnExtension(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Extension_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_Extension_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1880,9 +1814,8 @@ bool QGraphicsProxyWidget_SuperIsEmpty(const QGraphicsProxyWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnIsEmpty(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_IsEmpty_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_IsEmpty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1909,9 +1842,8 @@ QGraphicsProxyWidget* QGraphicsProxyWidget_SuperNewProxyWidget(QGraphicsProxyWid
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnNewProxyWidget(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_NewProxyWidget_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_NewProxyWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1938,9 +1870,8 @@ void QGraphicsProxyWidget_SuperUpdateMicroFocus(QGraphicsProxyWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnUpdateMicroFocus(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1967,9 +1898,8 @@ QObject* QGraphicsProxyWidget_SuperSender(const QGraphicsProxyWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnSender(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Sender_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1996,9 +1926,8 @@ int QGraphicsProxyWidget_SuperSenderSignalIndex(const QGraphicsProxyWidget* self
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnSenderSignalIndex(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2025,9 +1954,8 @@ int QGraphicsProxyWidget_SuperReceivers(const QGraphicsProxyWidget* self, const 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnReceivers(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_Receivers_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2054,9 +1982,8 @@ bool QGraphicsProxyWidget_SuperIsSignalConnected(const QGraphicsProxyWidget* sel
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnIsSignalConnected(const QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = const_cast<VirtualQGraphicsProxyWidget*>(dynamic_cast<const VirtualQGraphicsProxyWidget*>(self));
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2083,9 +2010,8 @@ void QGraphicsProxyWidget_SuperAddToIndex(QGraphicsProxyWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnAddToIndex(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_AddToIndex_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_AddToIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2112,9 +2038,8 @@ void QGraphicsProxyWidget_SuperRemoveFromIndex(QGraphicsProxyWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnRemoveFromIndex(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_RemoveFromIndex_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_RemoveFromIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2141,9 +2066,8 @@ void QGraphicsProxyWidget_SuperPrepareGeometryChange(QGraphicsProxyWidget* self)
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnPrepareGeometryChange(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_PrepareGeometryChange_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_PrepareGeometryChange_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2170,9 +2094,8 @@ void QGraphicsProxyWidget_SuperSetGraphicsItem(QGraphicsProxyWidget* self, QGrap
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnSetGraphicsItem(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SetGraphicsItem_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_SetGraphicsItem_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2199,9 +2122,8 @@ void QGraphicsProxyWidget_SuperSetOwnedByLayout(QGraphicsProxyWidget* self, bool
 // Auxiliary method to allow providing re-implementation
 void QGraphicsProxyWidget_OnSetOwnedByLayout(QGraphicsProxyWidget* self, intptr_t slot) {
     auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
+    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget)
         vqgraphicsproxywidget->setQGraphicsProxyWidget_SetOwnedByLayout_Callback(reinterpret_cast<VirtualQGraphicsProxyWidget::QGraphicsProxyWidget_SetOwnedByLayout_Callback>(slot));
-    }
 }
 
 void QGraphicsProxyWidget_Delete(QGraphicsProxyWidget* self) {

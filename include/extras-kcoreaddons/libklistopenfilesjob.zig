@@ -3691,7 +3691,7 @@ pub const KListOpenFilesJob = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/klistopenfilesjob.html#public-types)
 pub const enums = struct {
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NotSupported: i32 = 101;
         pub const InternalError: i32 = 102;
         pub const DoesNotExist: i32 = 111;

@@ -83,9 +83,8 @@ QMetaObject* TextGrammarCheck__GrammalecteConfigWidget_SuperMetaObject(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMetaObject(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MetaObject_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -102,9 +101,8 @@ void* TextGrammarCheck__GrammalecteConfigWidget_SuperMetacast(TextGrammarCheck__
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMetacast(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Metacast_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -121,9 +119,8 @@ int TextGrammarCheck__GrammalecteConfigWidget_SuperMetacall(TextGrammarCheck__Gr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMetacall(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Metacall_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -150,9 +147,8 @@ int TextGrammarCheck__GrammalecteConfigWidget_SuperDevType(const TextGrammarChec
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnDevType(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DevType_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -179,9 +175,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperSetVisible(TextGrammarCheck_
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnSetVisible(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_SetVisible_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -208,9 +203,8 @@ QSize* TextGrammarCheck__GrammalecteConfigWidget_SuperSizeHint(const TextGrammar
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnSizeHint(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_SizeHint_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -237,9 +231,8 @@ QSize* TextGrammarCheck__GrammalecteConfigWidget_SuperMinimumSizeHint(const Text
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMinimumSizeHint(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -266,9 +259,8 @@ int TextGrammarCheck__GrammalecteConfigWidget_SuperHeightForWidth(const TextGram
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnHeightForWidth(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_HeightForWidth_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -295,9 +287,8 @@ bool TextGrammarCheck__GrammalecteConfigWidget_SuperHasHeightForWidth(const Text
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnHasHeightForWidth(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -324,9 +315,8 @@ QPaintEngine* TextGrammarCheck__GrammalecteConfigWidget_SuperPaintEngine(const T
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnPaintEngine(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_PaintEngine_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -353,9 +343,8 @@ bool TextGrammarCheck__GrammalecteConfigWidget_SuperEvent(TextGrammarCheck__Gram
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Event_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -382,9 +371,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperMousePressEvent(TextGrammarC
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMousePressEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MousePressEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -411,9 +399,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperMouseReleaseEvent(TextGramma
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMouseReleaseEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -440,9 +427,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperMouseDoubleClickEvent(TextGr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMouseDoubleClickEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -469,9 +455,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperMouseMoveEvent(TextGrammarCh
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMouseMoveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -498,9 +483,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperWheelEvent(TextGrammarCheck_
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnWheelEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_WheelEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -527,9 +511,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperKeyPressEvent(TextGrammarChe
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnKeyPressEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -556,9 +539,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperKeyReleaseEvent(TextGrammarC
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnKeyReleaseEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -585,9 +567,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperFocusInEvent(TextGrammarChec
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnFocusInEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_FocusInEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -614,9 +595,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperFocusOutEvent(TextGrammarChe
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnFocusOutEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -643,9 +623,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperEnterEvent(TextGrammarCheck_
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnEnterEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_EnterEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -672,9 +651,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperLeaveEvent(TextGrammarCheck_
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnLeaveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_LeaveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -701,9 +679,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperPaintEvent(TextGrammarCheck_
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnPaintEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_PaintEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -730,9 +707,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperMoveEvent(TextGrammarCheck__
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMoveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_MoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -759,9 +735,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperResizeEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnResizeEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ResizeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -788,9 +763,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperCloseEvent(TextGrammarCheck_
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnCloseEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_CloseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -817,9 +791,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperContextMenuEvent(TextGrammar
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnContextMenuEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -846,9 +819,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperTabletEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnTabletEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_TabletEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -875,9 +847,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperActionEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnActionEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ActionEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -904,9 +875,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperDragEnterEvent(TextGrammarCh
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnDragEnterEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -933,9 +903,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperDragMoveEvent(TextGrammarChe
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnDragMoveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -962,9 +931,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperDragLeaveEvent(TextGrammarCh
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnDragLeaveEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -991,9 +959,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperDropEvent(TextGrammarCheck__
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnDropEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DropEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1020,9 +987,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperShowEvent(TextGrammarCheck__
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnShowEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ShowEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1049,9 +1015,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperHideEvent(TextGrammarCheck__
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnHideEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_HideEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1080,9 +1045,8 @@ bool TextGrammarCheck__GrammalecteConfigWidget_SuperNativeEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnNativeEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_NativeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1109,9 +1073,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperChangeEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnChangeEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ChangeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1138,9 +1101,8 @@ int TextGrammarCheck__GrammalecteConfigWidget_SuperMetric(const TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnMetric(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Metric_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1167,9 +1129,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperInitPainter(const TextGramma
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnInitPainter(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_InitPainter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1196,9 +1157,8 @@ QPaintDevice* TextGrammarCheck__GrammalecteConfigWidget_SuperRedirected(const Te
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnRedirected(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Redirected_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1225,9 +1185,8 @@ QPainter* TextGrammarCheck__GrammalecteConfigWidget_SuperSharedPainter(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnSharedPainter(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_SharedPainter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1254,9 +1213,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperInputMethodEvent(TextGrammar
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnInputMethodEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1283,9 +1241,8 @@ QVariant* TextGrammarCheck__GrammalecteConfigWidget_SuperInputMethodQuery(const 
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnInputMethodQuery(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1312,9 +1269,8 @@ bool TextGrammarCheck__GrammalecteConfigWidget_SuperFocusNextPrevChild(TextGramm
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnFocusNextPrevChild(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1341,9 +1297,8 @@ bool TextGrammarCheck__GrammalecteConfigWidget_SuperEventFilter(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnEventFilter(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_EventFilter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1370,9 +1325,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperTimerEvent(TextGrammarCheck_
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnTimerEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_TimerEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1399,9 +1353,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperChildEvent(TextGrammarCheck_
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnChildEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ChildEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1428,9 +1381,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperCustomEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnCustomEvent(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_CustomEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1457,9 +1409,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperConnectNotify(TextGrammarChe
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnConnectNotify(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_ConnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1486,9 +1437,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperDisconnectNotify(TextGrammar
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnDisconnectNotify(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1515,9 +1465,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperUpdateMicroFocus(TextGrammar
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnUpdateMicroFocus(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1544,9 +1493,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperCreate(TextGrammarCheck__Gra
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnCreate(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Create_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1573,9 +1521,8 @@ void TextGrammarCheck__GrammalecteConfigWidget_SuperDestroy(TextGrammarCheck__Gr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnDestroy(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Destroy_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1602,9 +1549,8 @@ bool TextGrammarCheck__GrammalecteConfigWidget_SuperFocusNextChild(TextGrammarCh
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnFocusNextChild(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_FocusNextChild_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1631,9 +1577,8 @@ bool TextGrammarCheck__GrammalecteConfigWidget_SuperFocusPreviousChild(TextGramm
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnFocusPreviousChild(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1660,9 +1605,8 @@ QObject* TextGrammarCheck__GrammalecteConfigWidget_SuperSender(const TextGrammar
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnSender(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Sender_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1689,9 +1633,8 @@ int TextGrammarCheck__GrammalecteConfigWidget_SuperSenderSignalIndex(const TextG
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnSenderSignalIndex(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1718,9 +1661,8 @@ int TextGrammarCheck__GrammalecteConfigWidget_SuperReceivers(const TextGrammarCh
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnReceivers(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_Receivers_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1747,9 +1689,8 @@ bool TextGrammarCheck__GrammalecteConfigWidget_SuperIsSignalConnected(const Text
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnIsSignalConnected(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1776,9 +1717,8 @@ double TextGrammarCheck__GrammalecteConfigWidget_SuperGetDecodedMetricF(const Te
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammalecteConfigWidget_OnGetDecodedMetricF(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammalecteconfigwidget = const_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self));
-    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
+    if (vtextgrammarcheckgrammalecteconfigwidget && vtextgrammarcheckgrammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget)
         vtextgrammarcheckgrammalecteconfigwidget->setTextGrammarCheck__GrammalecteConfigWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammalecteConfigWidget::TextGrammarCheck__GrammalecteConfigWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextGrammarCheck__GrammalecteConfigWidget_Delete(TextGrammarCheck__GrammalecteConfigWidget* self) {

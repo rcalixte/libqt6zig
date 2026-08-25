@@ -76,9 +76,8 @@ QMetaObject* KIO__FavIconRequestJob_SuperMetaObject(const KIO__FavIconRequestJob
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnMetaObject(const KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_MetaObject_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -95,9 +94,8 @@ void* KIO__FavIconRequestJob_SuperMetacast(KIO__FavIconRequestJob* self, const c
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnMetacast(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_Metacast_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -114,9 +112,8 @@ int KIO__FavIconRequestJob_SuperMetacall(KIO__FavIconRequestJob* self, int param
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnMetacall(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_Metacall_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -133,9 +130,8 @@ void KIO__FavIconRequestJob_SuperStart(KIO__FavIconRequestJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnStart(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_Start_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_Start_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -162,9 +158,8 @@ bool KIO__FavIconRequestJob_SuperAddSubjob(KIO__FavIconRequestJob* self, KJob* j
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnAddSubjob(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_AddSubjob_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_AddSubjob_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -191,9 +186,8 @@ bool KIO__FavIconRequestJob_SuperRemoveSubjob(KIO__FavIconRequestJob* self, KJob
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnRemoveSubjob(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_RemoveSubjob_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_RemoveSubjob_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -222,9 +216,8 @@ void KIO__FavIconRequestJob_SuperSlotInfoMessage(KIO__FavIconRequestJob* self, K
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnSlotInfoMessage(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_SlotInfoMessage_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_SlotInfoMessage_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -251,9 +244,8 @@ bool KIO__FavIconRequestJob_SuperDoKill(KIO__FavIconRequestJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnDoKill(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_DoKill_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_DoKill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -280,9 +272,8 @@ bool KIO__FavIconRequestJob_SuperDoSuspend(KIO__FavIconRequestJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnDoSuspend(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_DoSuspend_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_DoSuspend_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -309,9 +300,8 @@ bool KIO__FavIconRequestJob_SuperDoResume(KIO__FavIconRequestJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnDoResume(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_DoResume_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_DoResume_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -370,9 +360,8 @@ libqt_string KIO__FavIconRequestJob_SuperErrorString(const KIO__FavIconRequestJo
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnErrorString(const KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_ErrorString_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_ErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -399,9 +388,8 @@ bool KIO__FavIconRequestJob_SuperEvent(KIO__FavIconRequestJob* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnEvent(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_Event_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -428,9 +416,8 @@ bool KIO__FavIconRequestJob_SuperEventFilter(KIO__FavIconRequestJob* self, QObje
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnEventFilter(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_EventFilter_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -457,9 +444,8 @@ void KIO__FavIconRequestJob_SuperTimerEvent(KIO__FavIconRequestJob* self, QTimer
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnTimerEvent(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_TimerEvent_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -486,9 +472,8 @@ void KIO__FavIconRequestJob_SuperChildEvent(KIO__FavIconRequestJob* self, QChild
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnChildEvent(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_ChildEvent_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -515,9 +500,8 @@ void KIO__FavIconRequestJob_SuperCustomEvent(KIO__FavIconRequestJob* self, QEven
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnCustomEvent(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_CustomEvent_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -544,9 +528,8 @@ void KIO__FavIconRequestJob_SuperConnectNotify(KIO__FavIconRequestJob* self, con
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnConnectNotify(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_ConnectNotify_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -573,9 +556,8 @@ void KIO__FavIconRequestJob_SuperDisconnectNotify(KIO__FavIconRequestJob* self, 
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnDisconnectNotify(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -602,9 +584,8 @@ bool KIO__FavIconRequestJob_SuperHasSubjobs(const KIO__FavIconRequestJob* self) 
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnHasSubjobs(const KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_HasSubjobs_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_HasSubjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -667,9 +648,8 @@ libqt_list /* of KJob* */ KIO__FavIconRequestJob_SuperSubjobs(const KIO__FavIcon
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnSubjobs(const KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_Subjobs_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_Subjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -696,9 +676,8 @@ void KIO__FavIconRequestJob_SuperClearSubjobs(KIO__FavIconRequestJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnClearSubjobs(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_ClearSubjobs_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_ClearSubjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -725,9 +704,8 @@ void KIO__FavIconRequestJob_SuperSetCapabilities(KIO__FavIconRequestJob* self, i
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnSetCapabilities(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_SetCapabilities_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_SetCapabilities_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -754,9 +732,8 @@ bool KIO__FavIconRequestJob_SuperIsFinished(const KIO__FavIconRequestJob* self) 
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnIsFinished(const KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_IsFinished_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_IsFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -783,9 +760,8 @@ void KIO__FavIconRequestJob_SuperSetError(KIO__FavIconRequestJob* self, int erro
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnSetError(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_SetError_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -814,9 +790,8 @@ void KIO__FavIconRequestJob_SuperSetErrorText(KIO__FavIconRequestJob* self, cons
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnSetErrorText(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_SetErrorText_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_SetErrorText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -843,9 +818,8 @@ void KIO__FavIconRequestJob_SuperSetProcessedAmount(KIO__FavIconRequestJob* self
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnSetProcessedAmount(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_SetProcessedAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -872,9 +846,8 @@ void KIO__FavIconRequestJob_SuperSetTotalAmount(KIO__FavIconRequestJob* self, in
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnSetTotalAmount(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_SetTotalAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -901,9 +874,8 @@ void KIO__FavIconRequestJob_SuperSetProgressUnit(KIO__FavIconRequestJob* self, i
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnSetProgressUnit(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_SetProgressUnit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -930,9 +902,8 @@ void KIO__FavIconRequestJob_SuperSetPercent(KIO__FavIconRequestJob* self, unsign
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnSetPercent(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_SetPercent_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_SetPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -959,9 +930,8 @@ void KIO__FavIconRequestJob_SuperEmitResult(KIO__FavIconRequestJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnEmitResult(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_EmitResult_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_EmitResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -988,9 +958,8 @@ void KIO__FavIconRequestJob_SuperEmitPercent(KIO__FavIconRequestJob* self, unsig
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnEmitPercent(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_EmitPercent_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_EmitPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1017,9 +986,8 @@ void KIO__FavIconRequestJob_SuperEmitSpeed(KIO__FavIconRequestJob* self, unsigne
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnEmitSpeed(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_EmitSpeed_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_EmitSpeed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1046,9 +1014,8 @@ void KIO__FavIconRequestJob_SuperStartElapsedTimer(KIO__FavIconRequestJob* self)
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnStartElapsedTimer(KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_StartElapsedTimer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1075,9 +1042,8 @@ QObject* KIO__FavIconRequestJob_SuperSender(const KIO__FavIconRequestJob* self) 
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnSender(const KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_Sender_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1104,9 +1070,8 @@ int KIO__FavIconRequestJob_SuperSenderSignalIndex(const KIO__FavIconRequestJob* 
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnSenderSignalIndex(const KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1133,9 +1098,8 @@ int KIO__FavIconRequestJob_SuperReceivers(const KIO__FavIconRequestJob* self, co
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnReceivers(const KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_Receivers_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1162,9 +1126,8 @@ bool KIO__FavIconRequestJob_SuperIsSignalConnected(const KIO__FavIconRequestJob*
 // Auxiliary method to allow providing re-implementation
 void KIO__FavIconRequestJob_OnIsSignalConnected(const KIO__FavIconRequestJob* self, intptr_t slot) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
-    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
+    if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob)
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOFavIconRequestJob::KIO__FavIconRequestJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KIO__FavIconRequestJob_Delete(KIO__FavIconRequestJob* self) {

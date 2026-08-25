@@ -66,9 +66,8 @@ QMetaObject* KPluginFactory_SuperMetaObject(const KPluginFactory* self) {
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnMetaObject(const KPluginFactory* self, intptr_t slot) {
     auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
         vkpluginfactory->setKPluginFactory_MetaObject_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -85,9 +84,8 @@ void* KPluginFactory_SuperMetacast(KPluginFactory* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnMetacast(KPluginFactory* self, intptr_t slot) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
         vkpluginfactory->setKPluginFactory_Metacast_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -104,9 +102,8 @@ int KPluginFactory_SuperMetacall(KPluginFactory* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnMetacall(KPluginFactory* self, intptr_t slot) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
         vkpluginfactory->setKPluginFactory_Metacall_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -129,9 +126,8 @@ QObject* KPluginFactory_SuperCreate(KPluginFactory* self, const char* iface, QWi
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnCreate(KPluginFactory* self, intptr_t slot) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
         vkpluginfactory->setKPluginFactory_Create_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -158,9 +154,8 @@ bool KPluginFactory_SuperEvent(KPluginFactory* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnEvent(KPluginFactory* self, intptr_t slot) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
         vkpluginfactory->setKPluginFactory_Event_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -187,9 +182,8 @@ bool KPluginFactory_SuperEventFilter(KPluginFactory* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnEventFilter(KPluginFactory* self, intptr_t slot) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
         vkpluginfactory->setKPluginFactory_EventFilter_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -216,9 +210,8 @@ void KPluginFactory_SuperTimerEvent(KPluginFactory* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnTimerEvent(KPluginFactory* self, intptr_t slot) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
         vkpluginfactory->setKPluginFactory_TimerEvent_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -245,9 +238,8 @@ void KPluginFactory_SuperChildEvent(KPluginFactory* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnChildEvent(KPluginFactory* self, intptr_t slot) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
         vkpluginfactory->setKPluginFactory_ChildEvent_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -274,9 +266,8 @@ void KPluginFactory_SuperCustomEvent(KPluginFactory* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnCustomEvent(KPluginFactory* self, intptr_t slot) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
         vkpluginfactory->setKPluginFactory_CustomEvent_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -303,9 +294,8 @@ void KPluginFactory_SuperConnectNotify(KPluginFactory* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnConnectNotify(KPluginFactory* self, intptr_t slot) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
         vkpluginfactory->setKPluginFactory_ConnectNotify_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -332,9 +322,8 @@ void KPluginFactory_SuperDisconnectNotify(KPluginFactory* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnDisconnectNotify(KPluginFactory* self, intptr_t slot) {
     auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
         vkpluginfactory->setKPluginFactory_DisconnectNotify_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -361,9 +350,8 @@ QObject* KPluginFactory_SuperSender(const KPluginFactory* self) {
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnSender(const KPluginFactory* self, intptr_t slot) {
     auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
         vkpluginfactory->setKPluginFactory_Sender_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -390,9 +378,8 @@ int KPluginFactory_SuperSenderSignalIndex(const KPluginFactory* self) {
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnSenderSignalIndex(const KPluginFactory* self, intptr_t slot) {
     auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
         vkpluginfactory->setKPluginFactory_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -419,9 +406,8 @@ int KPluginFactory_SuperReceivers(const KPluginFactory* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnReceivers(const KPluginFactory* self, intptr_t slot) {
     auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
         vkpluginfactory->setKPluginFactory_Receivers_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -448,9 +434,8 @@ bool KPluginFactory_SuperIsSignalConnected(const KPluginFactory* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KPluginFactory_OnIsSignalConnected(const KPluginFactory* self, intptr_t slot) {
     auto* vkpluginfactory = const_cast<VirtualKPluginFactory*>(dynamic_cast<const VirtualKPluginFactory*>(self));
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
+    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory)
         vkpluginfactory->setKPluginFactory_IsSignalConnected_Callback(reinterpret_cast<VirtualKPluginFactory::KPluginFactory_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KPluginFactory_Delete(KPluginFactory* self) {

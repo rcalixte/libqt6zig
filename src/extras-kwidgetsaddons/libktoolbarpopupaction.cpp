@@ -63,9 +63,8 @@ QMetaObject* KToolBarPopupAction_SuperMetaObject(const KToolBarPopupAction* self
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnMetaObject(const KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = const_cast<VirtualKToolBarPopupAction*>(dynamic_cast<const VirtualKToolBarPopupAction*>(self));
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_MetaObject_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -82,9 +81,8 @@ void* KToolBarPopupAction_SuperMetacast(KToolBarPopupAction* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnMetacast(KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_Metacast_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -101,9 +99,8 @@ int KToolBarPopupAction_SuperMetacall(KToolBarPopupAction* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnMetacall(KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_Metacall_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -120,9 +117,8 @@ QWidget* KToolBarPopupAction_SuperCreateWidget(KToolBarPopupAction* self, QWidge
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnCreateWidget(KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_CreateWidget_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_CreateWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -149,9 +145,8 @@ bool KToolBarPopupAction_SuperEvent(KToolBarPopupAction* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnEvent(KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_Event_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -178,9 +173,8 @@ bool KToolBarPopupAction_SuperEventFilter(KToolBarPopupAction* self, QObject* pa
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnEventFilter(KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_EventFilter_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -207,9 +201,8 @@ void KToolBarPopupAction_SuperDeleteWidget(KToolBarPopupAction* self, QWidget* w
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnDeleteWidget(KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_DeleteWidget_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_DeleteWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -236,9 +229,8 @@ void KToolBarPopupAction_SuperTimerEvent(KToolBarPopupAction* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnTimerEvent(KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_TimerEvent_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -265,9 +257,8 @@ void KToolBarPopupAction_SuperChildEvent(KToolBarPopupAction* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnChildEvent(KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_ChildEvent_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -294,9 +285,8 @@ void KToolBarPopupAction_SuperCustomEvent(KToolBarPopupAction* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnCustomEvent(KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_CustomEvent_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -323,9 +313,8 @@ void KToolBarPopupAction_SuperConnectNotify(KToolBarPopupAction* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnConnectNotify(KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_ConnectNotify_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -352,9 +341,8 @@ void KToolBarPopupAction_SuperDisconnectNotify(KToolBarPopupAction* self, const 
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnDisconnectNotify(KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -417,9 +405,8 @@ libqt_list /* of QWidget* */ KToolBarPopupAction_SuperCreatedWidgets(const KTool
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnCreatedWidgets(const KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = const_cast<VirtualKToolBarPopupAction*>(dynamic_cast<const VirtualKToolBarPopupAction*>(self));
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_CreatedWidgets_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_CreatedWidgets_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -446,9 +433,8 @@ QObject* KToolBarPopupAction_SuperSender(const KToolBarPopupAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnSender(const KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = const_cast<VirtualKToolBarPopupAction*>(dynamic_cast<const VirtualKToolBarPopupAction*>(self));
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_Sender_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -475,9 +461,8 @@ int KToolBarPopupAction_SuperSenderSignalIndex(const KToolBarPopupAction* self) 
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnSenderSignalIndex(const KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = const_cast<VirtualKToolBarPopupAction*>(dynamic_cast<const VirtualKToolBarPopupAction*>(self));
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -504,9 +489,8 @@ int KToolBarPopupAction_SuperReceivers(const KToolBarPopupAction* self, const ch
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnReceivers(const KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = const_cast<VirtualKToolBarPopupAction*>(dynamic_cast<const VirtualKToolBarPopupAction*>(self));
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_Receivers_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -533,9 +517,8 @@ bool KToolBarPopupAction_SuperIsSignalConnected(const KToolBarPopupAction* self,
 // Auxiliary method to allow providing re-implementation
 void KToolBarPopupAction_OnIsSignalConnected(const KToolBarPopupAction* self, intptr_t slot) {
     auto* vktoolbarpopupaction = const_cast<VirtualKToolBarPopupAction*>(dynamic_cast<const VirtualKToolBarPopupAction*>(self));
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
+    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction)
         vktoolbarpopupaction->setKToolBarPopupAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKToolBarPopupAction::KToolBarPopupAction_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KToolBarPopupAction_Delete(KToolBarPopupAction* self) {

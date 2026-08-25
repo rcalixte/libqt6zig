@@ -366,9 +366,8 @@ QMetaObject* QAbstractSpinBox_SuperMetaObject(const QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMetaObject(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_MetaObject_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -385,9 +384,8 @@ void* QAbstractSpinBox_SuperMetacast(QAbstractSpinBox* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMetacast(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_Metacast_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -404,9 +402,8 @@ int QAbstractSpinBox_SuperMetacall(QAbstractSpinBox* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMetacall(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_Metacall_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -423,9 +420,8 @@ QSize* QAbstractSpinBox_SuperSizeHint(const QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnSizeHint(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_SizeHint_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -442,9 +438,8 @@ QSize* QAbstractSpinBox_SuperMinimumSizeHint(const QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMinimumSizeHint(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -461,9 +456,8 @@ bool QAbstractSpinBox_SuperEvent(QAbstractSpinBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_Event_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -480,9 +474,8 @@ QVariant* QAbstractSpinBox_SuperInputMethodQuery(const QAbstractSpinBox* self, i
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnInputMethodQuery(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_InputMethodQuery_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -500,9 +493,8 @@ int QAbstractSpinBox_SuperValidate(const QAbstractSpinBox* self, libqt_string in
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnValidate(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_Validate_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Validate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -520,9 +512,8 @@ void QAbstractSpinBox_SuperFixup(const QAbstractSpinBox* self, libqt_string inpu
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnFixup(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_Fixup_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Fixup_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -539,9 +530,8 @@ void QAbstractSpinBox_SuperStepBy(QAbstractSpinBox* self, int steps) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnStepBy(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_StepBy_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_StepBy_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -558,9 +548,8 @@ void QAbstractSpinBox_SuperClear(QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnClear(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_Clear_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Clear_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -577,9 +566,8 @@ void QAbstractSpinBox_SuperResizeEvent(QAbstractSpinBox* self, QResizeEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnResizeEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_ResizeEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -596,9 +584,8 @@ void QAbstractSpinBox_SuperKeyPressEvent(QAbstractSpinBox* self, QKeyEvent* even
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnKeyPressEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -615,9 +602,8 @@ void QAbstractSpinBox_SuperKeyReleaseEvent(QAbstractSpinBox* self, QKeyEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnKeyReleaseEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -634,9 +620,8 @@ void QAbstractSpinBox_SuperWheelEvent(QAbstractSpinBox* self, QWheelEvent* event
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnWheelEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_WheelEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_WheelEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -653,9 +638,8 @@ void QAbstractSpinBox_SuperFocusInEvent(QAbstractSpinBox* self, QFocusEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnFocusInEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_FocusInEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -672,9 +656,8 @@ void QAbstractSpinBox_SuperFocusOutEvent(QAbstractSpinBox* self, QFocusEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnFocusOutEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_FocusOutEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -691,9 +674,8 @@ void QAbstractSpinBox_SuperContextMenuEvent(QAbstractSpinBox* self, QContextMenu
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnContextMenuEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -710,9 +692,8 @@ void QAbstractSpinBox_SuperChangeEvent(QAbstractSpinBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnChangeEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_ChangeEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -729,9 +710,8 @@ void QAbstractSpinBox_SuperCloseEvent(QAbstractSpinBox* self, QCloseEvent* event
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnCloseEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_CloseEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_CloseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -748,9 +728,8 @@ void QAbstractSpinBox_SuperHideEvent(QAbstractSpinBox* self, QHideEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnHideEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_HideEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_HideEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -767,9 +746,8 @@ void QAbstractSpinBox_SuperMousePressEvent(QAbstractSpinBox* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMousePressEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_MousePressEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -786,9 +764,8 @@ void QAbstractSpinBox_SuperMouseReleaseEvent(QAbstractSpinBox* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMouseReleaseEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -805,9 +782,8 @@ void QAbstractSpinBox_SuperMouseMoveEvent(QAbstractSpinBox* self, QMouseEvent* e
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMouseMoveEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -824,9 +800,8 @@ void QAbstractSpinBox_SuperTimerEvent(QAbstractSpinBox* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnTimerEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_TimerEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_TimerEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -843,9 +818,8 @@ void QAbstractSpinBox_SuperPaintEvent(QAbstractSpinBox* self, QPaintEvent* event
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnPaintEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_PaintEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -862,9 +836,8 @@ void QAbstractSpinBox_SuperShowEvent(QAbstractSpinBox* self, QShowEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnShowEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_ShowEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -881,9 +854,8 @@ void QAbstractSpinBox_SuperInitStyleOption(const QAbstractSpinBox* self, QStyleO
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnInitStyleOption(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_InitStyleOption_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -900,9 +872,8 @@ int QAbstractSpinBox_SuperStepEnabled(const QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnStepEnabled(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_StepEnabled_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_StepEnabled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -929,9 +900,8 @@ int QAbstractSpinBox_SuperDevType(const QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnDevType(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_DevType_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -958,9 +928,8 @@ void QAbstractSpinBox_SuperSetVisible(QAbstractSpinBox* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnSetVisible(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_SetVisible_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -987,9 +956,8 @@ int QAbstractSpinBox_SuperHeightForWidth(const QAbstractSpinBox* self, int param
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnHeightForWidth(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_HeightForWidth_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1016,9 +984,8 @@ bool QAbstractSpinBox_SuperHasHeightForWidth(const QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnHasHeightForWidth(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1045,9 +1012,8 @@ QPaintEngine* QAbstractSpinBox_SuperPaintEngine(const QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnPaintEngine(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_PaintEngine_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1074,9 +1040,8 @@ void QAbstractSpinBox_SuperMouseDoubleClickEvent(QAbstractSpinBox* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMouseDoubleClickEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1103,9 +1068,8 @@ void QAbstractSpinBox_SuperEnterEvent(QAbstractSpinBox* self, QEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnEnterEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_EnterEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1132,9 +1096,8 @@ void QAbstractSpinBox_SuperLeaveEvent(QAbstractSpinBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnLeaveEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_LeaveEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1161,9 +1124,8 @@ void QAbstractSpinBox_SuperMoveEvent(QAbstractSpinBox* self, QMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMoveEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_MoveEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1190,9 +1152,8 @@ void QAbstractSpinBox_SuperTabletEvent(QAbstractSpinBox* self, QTabletEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnTabletEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_TabletEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1219,9 +1180,8 @@ void QAbstractSpinBox_SuperActionEvent(QAbstractSpinBox* self, QActionEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnActionEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_ActionEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1248,9 +1208,8 @@ void QAbstractSpinBox_SuperDragEnterEvent(QAbstractSpinBox* self, QDragEnterEven
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnDragEnterEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_DragEnterEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1277,9 +1236,8 @@ void QAbstractSpinBox_SuperDragMoveEvent(QAbstractSpinBox* self, QDragMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnDragMoveEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_DragMoveEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1306,9 +1264,8 @@ void QAbstractSpinBox_SuperDragLeaveEvent(QAbstractSpinBox* self, QDragLeaveEven
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnDragLeaveEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1335,9 +1292,8 @@ void QAbstractSpinBox_SuperDropEvent(QAbstractSpinBox* self, QDropEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnDropEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_DropEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1366,9 +1322,8 @@ bool QAbstractSpinBox_SuperNativeEvent(QAbstractSpinBox* self, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnNativeEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_NativeEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1395,9 +1350,8 @@ int QAbstractSpinBox_SuperMetric(const QAbstractSpinBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnMetric(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_Metric_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1424,9 +1378,8 @@ void QAbstractSpinBox_SuperInitPainter(const QAbstractSpinBox* self, QPainter* p
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnInitPainter(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_InitPainter_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1453,9 +1406,8 @@ QPaintDevice* QAbstractSpinBox_SuperRedirected(const QAbstractSpinBox* self, QPo
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnRedirected(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_Redirected_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1482,9 +1434,8 @@ QPainter* QAbstractSpinBox_SuperSharedPainter(const QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnSharedPainter(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_SharedPainter_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1511,9 +1462,8 @@ void QAbstractSpinBox_SuperInputMethodEvent(QAbstractSpinBox* self, QInputMethod
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnInputMethodEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_InputMethodEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1540,9 +1490,8 @@ bool QAbstractSpinBox_SuperFocusNextPrevChild(QAbstractSpinBox* self, bool next)
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnFocusNextPrevChild(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1569,9 +1518,8 @@ bool QAbstractSpinBox_SuperEventFilter(QAbstractSpinBox* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnEventFilter(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_EventFilter_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1598,9 +1546,8 @@ void QAbstractSpinBox_SuperChildEvent(QAbstractSpinBox* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnChildEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_ChildEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1627,9 +1574,8 @@ void QAbstractSpinBox_SuperCustomEvent(QAbstractSpinBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnCustomEvent(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_CustomEvent_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1656,9 +1602,8 @@ void QAbstractSpinBox_SuperConnectNotify(QAbstractSpinBox* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnConnectNotify(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_ConnectNotify_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1685,9 +1630,8 @@ void QAbstractSpinBox_SuperDisconnectNotify(QAbstractSpinBox* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnDisconnectNotify(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_DisconnectNotify_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1714,9 +1658,8 @@ QLineEdit* QAbstractSpinBox_SuperLineEdit(const QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnLineEdit(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_LineEdit_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_LineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1743,9 +1686,8 @@ void QAbstractSpinBox_SuperSetLineEdit(QAbstractSpinBox* self, QLineEdit* edit) 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnSetLineEdit(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_SetLineEdit_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_SetLineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1772,9 +1714,8 @@ void QAbstractSpinBox_SuperUpdateMicroFocus(QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnUpdateMicroFocus(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1801,9 +1742,8 @@ void QAbstractSpinBox_SuperCreate(QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnCreate(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_Create_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1830,9 +1770,8 @@ void QAbstractSpinBox_SuperDestroy(QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnDestroy(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_Destroy_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1859,9 +1798,8 @@ bool QAbstractSpinBox_SuperFocusNextChild(QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnFocusNextChild(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_FocusNextChild_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1888,9 +1826,8 @@ bool QAbstractSpinBox_SuperFocusPreviousChild(QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnFocusPreviousChild(QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1917,9 +1854,8 @@ QObject* QAbstractSpinBox_SuperSender(const QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnSender(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_Sender_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1946,9 +1882,8 @@ int QAbstractSpinBox_SuperSenderSignalIndex(const QAbstractSpinBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnSenderSignalIndex(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1975,9 +1910,8 @@ int QAbstractSpinBox_SuperReceivers(const QAbstractSpinBox* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnReceivers(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_Receivers_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2004,9 +1938,8 @@ bool QAbstractSpinBox_SuperIsSignalConnected(const QAbstractSpinBox* self, const
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnIsSignalConnected(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_IsSignalConnected_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2033,9 +1966,8 @@ double QAbstractSpinBox_SuperGetDecodedMetricF(const QAbstractSpinBox* self, int
 // Auxiliary method to allow providing re-implementation
 void QAbstractSpinBox_OnGetDecodedMetricF(const QAbstractSpinBox* self, intptr_t slot) {
     auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox)
         vqabstractspinbox->setQAbstractSpinBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QAbstractSpinBox_Delete(QAbstractSpinBox* self) {

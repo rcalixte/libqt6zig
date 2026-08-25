@@ -165,9 +165,8 @@ QMetaObject* QDateTimeAxis_SuperMetaObject(const QDateTimeAxis* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnMetaObject(const QDateTimeAxis* self, intptr_t slot) {
     auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis)
         vqdatetimeaxis->setQDateTimeAxis_MetaObject_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -184,9 +183,8 @@ void* QDateTimeAxis_SuperMetacast(QDateTimeAxis* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnMetacast(QDateTimeAxis* self, intptr_t slot) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis)
         vqdatetimeaxis->setQDateTimeAxis_Metacast_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -203,9 +201,8 @@ int QDateTimeAxis_SuperMetacall(QDateTimeAxis* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnMetacall(QDateTimeAxis* self, intptr_t slot) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis)
         vqdatetimeaxis->setQDateTimeAxis_Metacall_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -222,9 +219,8 @@ int QDateTimeAxis_SuperType(const QDateTimeAxis* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnType(const QDateTimeAxis* self, intptr_t slot) {
     auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis)
         vqdatetimeaxis->setQDateTimeAxis_Type_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -251,9 +247,8 @@ bool QDateTimeAxis_SuperEvent(QDateTimeAxis* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnEvent(QDateTimeAxis* self, intptr_t slot) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis)
         vqdatetimeaxis->setQDateTimeAxis_Event_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -280,9 +275,8 @@ bool QDateTimeAxis_SuperEventFilter(QDateTimeAxis* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnEventFilter(QDateTimeAxis* self, intptr_t slot) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis)
         vqdatetimeaxis->setQDateTimeAxis_EventFilter_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -309,9 +303,8 @@ void QDateTimeAxis_SuperTimerEvent(QDateTimeAxis* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnTimerEvent(QDateTimeAxis* self, intptr_t slot) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis)
         vqdatetimeaxis->setQDateTimeAxis_TimerEvent_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -338,9 +331,8 @@ void QDateTimeAxis_SuperChildEvent(QDateTimeAxis* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnChildEvent(QDateTimeAxis* self, intptr_t slot) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis)
         vqdatetimeaxis->setQDateTimeAxis_ChildEvent_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -367,9 +359,8 @@ void QDateTimeAxis_SuperCustomEvent(QDateTimeAxis* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnCustomEvent(QDateTimeAxis* self, intptr_t slot) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis)
         vqdatetimeaxis->setQDateTimeAxis_CustomEvent_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -396,9 +387,8 @@ void QDateTimeAxis_SuperConnectNotify(QDateTimeAxis* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnConnectNotify(QDateTimeAxis* self, intptr_t slot) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis)
         vqdatetimeaxis->setQDateTimeAxis_ConnectNotify_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -425,9 +415,8 @@ void QDateTimeAxis_SuperDisconnectNotify(QDateTimeAxis* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnDisconnectNotify(QDateTimeAxis* self, intptr_t slot) {
     auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis)
         vqdatetimeaxis->setQDateTimeAxis_DisconnectNotify_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -454,9 +443,8 @@ QObject* QDateTimeAxis_SuperSender(const QDateTimeAxis* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnSender(const QDateTimeAxis* self, intptr_t slot) {
     auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis)
         vqdatetimeaxis->setQDateTimeAxis_Sender_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -483,9 +471,8 @@ int QDateTimeAxis_SuperSenderSignalIndex(const QDateTimeAxis* self) {
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnSenderSignalIndex(const QDateTimeAxis* self, intptr_t slot) {
     auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis)
         vqdatetimeaxis->setQDateTimeAxis_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -512,9 +499,8 @@ int QDateTimeAxis_SuperReceivers(const QDateTimeAxis* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnReceivers(const QDateTimeAxis* self, intptr_t slot) {
     auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis)
         vqdatetimeaxis->setQDateTimeAxis_Receivers_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -541,9 +527,8 @@ bool QDateTimeAxis_SuperIsSignalConnected(const QDateTimeAxis* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QDateTimeAxis_OnIsSignalConnected(const QDateTimeAxis* self, intptr_t slot) {
     auto* vqdatetimeaxis = const_cast<VirtualQDateTimeAxis*>(dynamic_cast<const VirtualQDateTimeAxis*>(self));
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
+    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis)
         vqdatetimeaxis->setQDateTimeAxis_IsSignalConnected_Callback(reinterpret_cast<VirtualQDateTimeAxis::QDateTimeAxis_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QDateTimeAxis_Delete(QDateTimeAxis* self) {

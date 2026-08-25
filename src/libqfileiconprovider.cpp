@@ -33,9 +33,8 @@ QIcon* QFileIconProvider_SuperIcon(const QFileIconProvider* self, int typeVal) {
 // Auxiliary method to allow providing re-implementation
 void QFileIconProvider_OnIcon(const QFileIconProvider* self, intptr_t slot) {
     auto* vqfileiconprovider = const_cast<VirtualQFileIconProvider*>(dynamic_cast<const VirtualQFileIconProvider*>(self));
-    if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider) {
+    if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider)
         vqfileiconprovider->setQFileIconProvider_Icon_Callback(reinterpret_cast<VirtualQFileIconProvider::QFileIconProvider_Icon_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -52,9 +51,8 @@ QIcon* QFileIconProvider_SuperIcon2(const QFileIconProvider* self, const QFileIn
 // Auxiliary method to allow providing re-implementation
 void QFileIconProvider_OnIcon2(const QFileIconProvider* self, intptr_t slot) {
     auto* vqfileiconprovider = const_cast<VirtualQFileIconProvider*>(dynamic_cast<const VirtualQFileIconProvider*>(self));
-    if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider) {
+    if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider)
         vqfileiconprovider->setQFileIconProvider_Icon2_Callback(reinterpret_cast<VirtualQFileIconProvider::QFileIconProvider_Icon2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -113,9 +111,8 @@ libqt_string QFileIconProvider_SuperType(const QFileIconProvider* self, const QF
 // Auxiliary method to allow providing re-implementation
 void QFileIconProvider_OnType(const QFileIconProvider* self, intptr_t slot) {
     auto* vqfileiconprovider = const_cast<VirtualQFileIconProvider*>(dynamic_cast<const VirtualQFileIconProvider*>(self));
-    if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider) {
+    if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider)
         vqfileiconprovider->setQFileIconProvider_Type_Callback(reinterpret_cast<VirtualQFileIconProvider::QFileIconProvider_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -142,9 +139,8 @@ void QFileIconProvider_SuperSetOptions(QFileIconProvider* self, int options) {
 // Auxiliary method to allow providing re-implementation
 void QFileIconProvider_OnSetOptions(QFileIconProvider* self, intptr_t slot) {
     auto* vqfileiconprovider = dynamic_cast<VirtualQFileIconProvider*>(self);
-    if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider) {
+    if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider)
         vqfileiconprovider->setQFileIconProvider_SetOptions_Callback(reinterpret_cast<VirtualQFileIconProvider::QFileIconProvider_SetOptions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -171,9 +167,8 @@ int QFileIconProvider_SuperOptions(const QFileIconProvider* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileIconProvider_OnOptions(const QFileIconProvider* self, intptr_t slot) {
     auto* vqfileiconprovider = const_cast<VirtualQFileIconProvider*>(dynamic_cast<const VirtualQFileIconProvider*>(self));
-    if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider) {
+    if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider)
         vqfileiconprovider->setQFileIconProvider_Options_Callback(reinterpret_cast<VirtualQFileIconProvider::QFileIconProvider_Options_Callback>(slot));
-    }
 }
 
 void QFileIconProvider_Delete(QFileIconProvider* self) {

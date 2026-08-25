@@ -140,9 +140,8 @@ QMetaObject* QAbstractTransition_SuperMetaObject(const QAbstractTransition* self
 // Auxiliary method to allow providing re-implementation
 void QAbstractTransition_OnMetaObject(const QAbstractTransition* self, intptr_t slot) {
     auto* vqabstracttransition = const_cast<VirtualQAbstractTransition*>(dynamic_cast<const VirtualQAbstractTransition*>(self));
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
+    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition)
         vqabstracttransition->setQAbstractTransition_MetaObject_Callback(reinterpret_cast<VirtualQAbstractTransition::QAbstractTransition_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -159,9 +158,8 @@ void* QAbstractTransition_SuperMetacast(QAbstractTransition* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void QAbstractTransition_OnMetacast(QAbstractTransition* self, intptr_t slot) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
+    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition)
         vqabstracttransition->setQAbstractTransition_Metacast_Callback(reinterpret_cast<VirtualQAbstractTransition::QAbstractTransition_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -178,9 +176,8 @@ int QAbstractTransition_SuperMetacall(QAbstractTransition* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void QAbstractTransition_OnMetacall(QAbstractTransition* self, intptr_t slot) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
+    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition)
         vqabstracttransition->setQAbstractTransition_Metacall_Callback(reinterpret_cast<VirtualQAbstractTransition::QAbstractTransition_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -197,9 +194,8 @@ bool QAbstractTransition_SuperEventTest(QAbstractTransition* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QAbstractTransition_OnEventTest(QAbstractTransition* self, intptr_t slot) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
+    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition)
         vqabstracttransition->setQAbstractTransition_EventTest_Callback(reinterpret_cast<VirtualQAbstractTransition::QAbstractTransition_EventTest_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -216,9 +212,8 @@ void QAbstractTransition_SuperOnTransition(QAbstractTransition* self, QEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QAbstractTransition_OnOnTransition(QAbstractTransition* self, intptr_t slot) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
+    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition)
         vqabstracttransition->setQAbstractTransition_OnTransition_Callback(reinterpret_cast<VirtualQAbstractTransition::QAbstractTransition_OnTransition_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -235,9 +230,8 @@ bool QAbstractTransition_SuperEvent(QAbstractTransition* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractTransition_OnEvent(QAbstractTransition* self, intptr_t slot) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
+    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition)
         vqabstracttransition->setQAbstractTransition_Event_Callback(reinterpret_cast<VirtualQAbstractTransition::QAbstractTransition_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -264,9 +258,8 @@ bool QAbstractTransition_SuperEventFilter(QAbstractTransition* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void QAbstractTransition_OnEventFilter(QAbstractTransition* self, intptr_t slot) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
+    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition)
         vqabstracttransition->setQAbstractTransition_EventFilter_Callback(reinterpret_cast<VirtualQAbstractTransition::QAbstractTransition_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -293,9 +286,8 @@ void QAbstractTransition_SuperTimerEvent(QAbstractTransition* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void QAbstractTransition_OnTimerEvent(QAbstractTransition* self, intptr_t slot) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
+    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition)
         vqabstracttransition->setQAbstractTransition_TimerEvent_Callback(reinterpret_cast<VirtualQAbstractTransition::QAbstractTransition_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -322,9 +314,8 @@ void QAbstractTransition_SuperChildEvent(QAbstractTransition* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void QAbstractTransition_OnChildEvent(QAbstractTransition* self, intptr_t slot) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
+    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition)
         vqabstracttransition->setQAbstractTransition_ChildEvent_Callback(reinterpret_cast<VirtualQAbstractTransition::QAbstractTransition_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -351,9 +342,8 @@ void QAbstractTransition_SuperCustomEvent(QAbstractTransition* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QAbstractTransition_OnCustomEvent(QAbstractTransition* self, intptr_t slot) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
+    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition)
         vqabstracttransition->setQAbstractTransition_CustomEvent_Callback(reinterpret_cast<VirtualQAbstractTransition::QAbstractTransition_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -380,9 +370,8 @@ void QAbstractTransition_SuperConnectNotify(QAbstractTransition* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QAbstractTransition_OnConnectNotify(QAbstractTransition* self, intptr_t slot) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
+    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition)
         vqabstracttransition->setQAbstractTransition_ConnectNotify_Callback(reinterpret_cast<VirtualQAbstractTransition::QAbstractTransition_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -409,9 +398,8 @@ void QAbstractTransition_SuperDisconnectNotify(QAbstractTransition* self, const 
 // Auxiliary method to allow providing re-implementation
 void QAbstractTransition_OnDisconnectNotify(QAbstractTransition* self, intptr_t slot) {
     auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
+    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition)
         vqabstracttransition->setQAbstractTransition_DisconnectNotify_Callback(reinterpret_cast<VirtualQAbstractTransition::QAbstractTransition_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -438,9 +426,8 @@ QObject* QAbstractTransition_SuperSender(const QAbstractTransition* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractTransition_OnSender(const QAbstractTransition* self, intptr_t slot) {
     auto* vqabstracttransition = const_cast<VirtualQAbstractTransition*>(dynamic_cast<const VirtualQAbstractTransition*>(self));
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
+    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition)
         vqabstracttransition->setQAbstractTransition_Sender_Callback(reinterpret_cast<VirtualQAbstractTransition::QAbstractTransition_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -467,9 +454,8 @@ int QAbstractTransition_SuperSenderSignalIndex(const QAbstractTransition* self) 
 // Auxiliary method to allow providing re-implementation
 void QAbstractTransition_OnSenderSignalIndex(const QAbstractTransition* self, intptr_t slot) {
     auto* vqabstracttransition = const_cast<VirtualQAbstractTransition*>(dynamic_cast<const VirtualQAbstractTransition*>(self));
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
+    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition)
         vqabstracttransition->setQAbstractTransition_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAbstractTransition::QAbstractTransition_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -496,9 +482,8 @@ int QAbstractTransition_SuperReceivers(const QAbstractTransition* self, const ch
 // Auxiliary method to allow providing re-implementation
 void QAbstractTransition_OnReceivers(const QAbstractTransition* self, intptr_t slot) {
     auto* vqabstracttransition = const_cast<VirtualQAbstractTransition*>(dynamic_cast<const VirtualQAbstractTransition*>(self));
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
+    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition)
         vqabstracttransition->setQAbstractTransition_Receivers_Callback(reinterpret_cast<VirtualQAbstractTransition::QAbstractTransition_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -525,9 +510,8 @@ bool QAbstractTransition_SuperIsSignalConnected(const QAbstractTransition* self,
 // Auxiliary method to allow providing re-implementation
 void QAbstractTransition_OnIsSignalConnected(const QAbstractTransition* self, intptr_t slot) {
     auto* vqabstracttransition = const_cast<VirtualQAbstractTransition*>(dynamic_cast<const VirtualQAbstractTransition*>(self));
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
+    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition)
         vqabstracttransition->setQAbstractTransition_IsSignalConnected_Callback(reinterpret_cast<VirtualQAbstractTransition::QAbstractTransition_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QAbstractTransition_Connect_Triggered(QAbstractTransition* self, intptr_t slot) {

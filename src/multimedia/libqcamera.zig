@@ -3744,12 +3744,12 @@ pub const QCamera = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#public-types)
 pub const enums = struct {
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const CameraError: i32 = 1;
     };
 
-    pub const FocusMode = enum(i32) {
+    pub const FocusMode = enum {
         pub const FocusModeAuto: i32 = 0;
         pub const FocusModeAutoNear: i32 = 1;
         pub const FocusModeAutoFar: i32 = 2;
@@ -3758,19 +3758,19 @@ pub const enums = struct {
         pub const FocusModeManual: i32 = 5;
     };
 
-    pub const FlashMode = enum(i32) {
+    pub const FlashMode = enum {
         pub const FlashOff: i32 = 0;
         pub const FlashOn: i32 = 1;
         pub const FlashAuto: i32 = 2;
     };
 
-    pub const TorchMode = enum(i32) {
+    pub const TorchMode = enum {
         pub const TorchOff: i32 = 0;
         pub const TorchOn: i32 = 1;
         pub const TorchAuto: i32 = 2;
     };
 
-    pub const ExposureMode = enum(i32) {
+    pub const ExposureMode = enum {
         pub const ExposureAuto: i32 = 0;
         pub const ExposureManual: i32 = 1;
         pub const ExposurePortrait: i32 = 2;
@@ -3790,7 +3790,7 @@ pub const enums = struct {
         pub const ExposureBarcode: i32 = 16;
     };
 
-    pub const WhiteBalanceMode = enum(i32) {
+    pub const WhiteBalanceMode = enum {
         pub const WhiteBalanceAuto: i32 = 0;
         pub const WhiteBalanceManual: i32 = 1;
         pub const WhiteBalanceSunlight: i32 = 2;
@@ -3802,7 +3802,7 @@ pub const enums = struct {
         pub const WhiteBalanceSunset: i32 = 8;
     };
 
-    pub const Feature = enum(i32) {
+    pub const Feature = enum {
         pub const ColorTemperature: i32 = 1;
         pub const ExposureCompensation: i32 = 2;
         pub const IsoSensitivity: i32 = 4;

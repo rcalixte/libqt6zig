@@ -68,9 +68,8 @@ QMetaObject* QsciLexerTekHex_SuperMetaObject(const QsciLexerTekHex* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnMetaObject(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -87,9 +86,8 @@ void* QsciLexerTekHex_SuperMetacast(QsciLexerTekHex* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnMetacast(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_Metacast_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -106,9 +104,8 @@ int QsciLexerTekHex_SuperMetacall(QsciLexerTekHex* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnMetacall(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_Metacall_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -135,9 +132,8 @@ int QsciLexerTekHex_SuperLexerId(const QsciLexerTekHex* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnLexerId(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_LexerId_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_LexerId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -164,9 +160,8 @@ const char* QsciLexerTekHex_SuperAutoCompletionFillups(const QsciLexerTekHex* se
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnAutoCompletionFillups(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_AutoCompletionFillups_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -261,9 +256,8 @@ libqt_list /* of libqt_string */ QsciLexerTekHex_SuperAutoCompletionWordSeparato
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnAutoCompletionWordSeparators(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_AutoCompletionWordSeparators_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_AutoCompletionWordSeparators_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -290,9 +284,8 @@ const char* QsciLexerTekHex_SuperBlockEnd(const QsciLexerTekHex* self, int* styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnBlockEnd(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_BlockEnd_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_BlockEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -319,9 +312,8 @@ int QsciLexerTekHex_SuperBlockLookback(const QsciLexerTekHex* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnBlockLookback(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_BlockLookback_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -348,9 +340,8 @@ const char* QsciLexerTekHex_SuperBlockStart(const QsciLexerTekHex* self, int* st
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnBlockStart(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_BlockStart_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_BlockStart_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -377,9 +368,8 @@ const char* QsciLexerTekHex_SuperBlockStartKeyword(const QsciLexerTekHex* self, 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnBlockStartKeyword(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_BlockStartKeyword_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -406,9 +396,8 @@ int QsciLexerTekHex_SuperBraceStyle(const QsciLexerTekHex* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnBraceStyle(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_BraceStyle_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_BraceStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -435,9 +424,8 @@ bool QsciLexerTekHex_SuperCaseSensitive(const QsciLexerTekHex* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnCaseSensitive(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_CaseSensitive_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -464,9 +452,8 @@ QColor* QsciLexerTekHex_SuperColor(const QsciLexerTekHex* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnColor(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_Color_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -493,9 +480,8 @@ bool QsciLexerTekHex_SuperEolFill(const QsciLexerTekHex* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnEolFill(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_EolFill_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_EolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -522,9 +508,8 @@ QFont* QsciLexerTekHex_SuperFont(const QsciLexerTekHex* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnFont(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_Font_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_Font_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -551,9 +536,8 @@ int QsciLexerTekHex_SuperIndentationGuideView(const QsciLexerTekHex* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnIndentationGuideView(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_IndentationGuideView_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -580,9 +564,8 @@ const char* QsciLexerTekHex_SuperKeywords(const QsciLexerTekHex* self, int set) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnKeywords(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_Keywords_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_Keywords_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -609,9 +592,8 @@ int QsciLexerTekHex_SuperDefaultStyle(const QsciLexerTekHex* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnDefaultStyle(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_DefaultStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -638,9 +620,8 @@ QColor* QsciLexerTekHex_SuperPaper(const QsciLexerTekHex* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnPaper(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_Paper_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_Paper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -667,9 +648,8 @@ QColor* QsciLexerTekHex_SuperDefaultColor2(const QsciLexerTekHex* self, int styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnDefaultColor2(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_DefaultColor2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -696,9 +676,8 @@ bool QsciLexerTekHex_SuperDefaultEolFill(const QsciLexerTekHex* self, int style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnDefaultEolFill(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_DefaultEolFill_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_DefaultEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -725,9 +704,8 @@ QFont* QsciLexerTekHex_SuperDefaultFont2(const QsciLexerTekHex* self, int style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnDefaultFont2(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_DefaultFont2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -754,9 +732,8 @@ QColor* QsciLexerTekHex_SuperDefaultPaper2(const QsciLexerTekHex* self, int styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnDefaultPaper2(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_DefaultPaper2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -783,9 +760,8 @@ void QsciLexerTekHex_SuperSetEditor(QsciLexerTekHex* self, QsciScintilla* editor
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnSetEditor(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_SetEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -812,9 +788,8 @@ void QsciLexerTekHex_SuperRefreshProperties(QsciLexerTekHex* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnRefreshProperties(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_RefreshProperties_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_RefreshProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -841,9 +816,8 @@ int QsciLexerTekHex_SuperStyleBitsNeeded(const QsciLexerTekHex* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnStyleBitsNeeded(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_StyleBitsNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -870,9 +844,8 @@ const char* QsciLexerTekHex_SuperWordCharacters(const QsciLexerTekHex* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnWordCharacters(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_WordCharacters_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -899,9 +872,8 @@ void QsciLexerTekHex_SuperSetAutoIndentStyle(QsciLexerTekHex* self, int autoinde
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnSetAutoIndentStyle(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_SetAutoIndentStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -928,9 +900,8 @@ void QsciLexerTekHex_SuperSetColor(QsciLexerTekHex* self, const QColor* c, int s
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnSetColor(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_SetColor_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_SetColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -957,9 +928,8 @@ void QsciLexerTekHex_SuperSetEolFill(QsciLexerTekHex* self, bool eoffill, int st
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnSetEolFill(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_SetEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -986,9 +956,8 @@ void QsciLexerTekHex_SuperSetFont(QsciLexerTekHex* self, const QFont* f, int sty
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnSetFont(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_SetFont_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_SetFont_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1015,9 +984,8 @@ void QsciLexerTekHex_SuperSetPaper(QsciLexerTekHex* self, const QColor* c, int s
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnSetPaper(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_SetPaper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1046,9 +1014,8 @@ bool QsciLexerTekHex_SuperReadProperties(QsciLexerTekHex* self, QSettings* qs, c
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnReadProperties(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_ReadProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1077,9 +1044,8 @@ bool QsciLexerTekHex_SuperWriteProperties(const QsciLexerTekHex* self, QSettings
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnWriteProperties(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_WriteProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1106,9 +1072,8 @@ bool QsciLexerTekHex_SuperEvent(QsciLexerTekHex* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnEvent(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_Event_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1135,9 +1100,8 @@ bool QsciLexerTekHex_SuperEventFilter(QsciLexerTekHex* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnEventFilter(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1164,9 +1128,8 @@ void QsciLexerTekHex_SuperTimerEvent(QsciLexerTekHex* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnTimerEvent(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1193,9 +1156,8 @@ void QsciLexerTekHex_SuperChildEvent(QsciLexerTekHex* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnChildEvent(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1222,9 +1184,8 @@ void QsciLexerTekHex_SuperCustomEvent(QsciLexerTekHex* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnCustomEvent(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1251,9 +1212,8 @@ void QsciLexerTekHex_SuperConnectNotify(QsciLexerTekHex* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnConnectNotify(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1280,9 +1240,8 @@ void QsciLexerTekHex_SuperDisconnectNotify(QsciLexerTekHex* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnDisconnectNotify(QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = dynamic_cast<VirtualQsciLexerTekHex*>(self);
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1331,9 +1290,8 @@ libqt_string QsciLexerTekHex_SuperTextAsBytes(const QsciLexerTekHex* self, const
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnTextAsBytes(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_TextAsBytes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1392,9 +1350,8 @@ libqt_string QsciLexerTekHex_SuperBytesAsText(const QsciLexerTekHex* self, const
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnBytesAsText(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_BytesAsText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1421,9 +1378,8 @@ QObject* QsciLexerTekHex_SuperSender(const QsciLexerTekHex* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnSender(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_Sender_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1450,9 +1406,8 @@ int QsciLexerTekHex_SuperSenderSignalIndex(const QsciLexerTekHex* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnSenderSignalIndex(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1479,9 +1434,8 @@ int QsciLexerTekHex_SuperReceivers(const QsciLexerTekHex* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnReceivers(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_Receivers_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1508,9 +1462,8 @@ bool QsciLexerTekHex_SuperIsSignalConnected(const QsciLexerTekHex* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QsciLexerTekHex_OnIsSignalConnected(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
-    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
+    if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex)
         vqscilexertekhex->setQsciLexerTekHex_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QsciLexerTekHex_Delete(QsciLexerTekHex* self) {

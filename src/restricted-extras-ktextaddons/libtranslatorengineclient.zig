@@ -2837,7 +2837,7 @@ pub const TextTranslator__TranslatorEngineClient = extern struct {
 };
 
 pub const enums = struct {
-    pub const EngineType = enum(i32) {
+    pub const EngineType = enum {
         pub const Locale: i32 = 0;
         pub const Network: i32 = 1;
     };

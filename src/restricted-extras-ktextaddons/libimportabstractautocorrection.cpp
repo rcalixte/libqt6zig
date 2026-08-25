@@ -167,9 +167,8 @@ bool TextAutoCorrectionCore__ImportAbstractAutocorrection_SuperImport(TextAutoCo
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionCore__ImportAbstractAutocorrection_OnImport(TextAutoCorrectionCore__ImportAbstractAutocorrection* self, intptr_t slot) {
     auto* vtextautocorrectioncoreimportabstractautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportAbstractAutocorrection*>(self);
-    if (vtextautocorrectioncoreimportabstractautocorrection && vtextautocorrectioncoreimportabstractautocorrection->isVirtualTextAutoCorrectionCoreImportAbstractAutocorrection) {
+    if (vtextautocorrectioncoreimportabstractautocorrection && vtextautocorrectioncoreimportabstractautocorrection->isVirtualTextAutoCorrectionCoreImportAbstractAutocorrection)
         vtextautocorrectioncoreimportabstractautocorrection->setTextAutoCorrectionCore__ImportAbstractAutocorrection_Import_Callback(reinterpret_cast<VirtualTextAutoCorrectionCoreImportAbstractAutocorrection::TextAutoCorrectionCore__ImportAbstractAutocorrection_Import_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -196,9 +195,8 @@ void TextAutoCorrectionCore__ImportAbstractAutocorrection_SuperOperatorAssign(Te
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionCore__ImportAbstractAutocorrection_OnOperatorAssign(TextAutoCorrectionCore__ImportAbstractAutocorrection* self, intptr_t slot) {
     auto* vtextautocorrectioncoreimportabstractautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportAbstractAutocorrection*>(self);
-    if (vtextautocorrectioncoreimportabstractautocorrection && vtextautocorrectioncoreimportabstractautocorrection->isVirtualTextAutoCorrectionCoreImportAbstractAutocorrection) {
+    if (vtextautocorrectioncoreimportabstractautocorrection && vtextautocorrectioncoreimportabstractautocorrection->isVirtualTextAutoCorrectionCoreImportAbstractAutocorrection)
         vtextautocorrectioncoreimportabstractautocorrection->setTextAutoCorrectionCore__ImportAbstractAutocorrection_OperatorAssign_Callback(reinterpret_cast<VirtualTextAutoCorrectionCoreImportAbstractAutocorrection::TextAutoCorrectionCore__ImportAbstractAutocorrection_OperatorAssign_Callback>(slot));
-    }
 }
 
 void TextAutoCorrectionCore__ImportAbstractAutocorrection_Delete(TextAutoCorrectionCore__ImportAbstractAutocorrection* self) {

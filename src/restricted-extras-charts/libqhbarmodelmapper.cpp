@@ -161,9 +161,8 @@ QMetaObject* QHBarModelMapper_SuperMetaObject(const QHBarModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnMetaObject(const QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -180,9 +179,8 @@ void* QHBarModelMapper_SuperMetacast(QHBarModelMapper* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnMetacast(QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_Metacast_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -199,9 +197,8 @@ int QHBarModelMapper_SuperMetacall(QHBarModelMapper* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnMetacall(QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_Metacall_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -228,9 +225,8 @@ bool QHBarModelMapper_SuperEvent(QHBarModelMapper* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnEvent(QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_Event_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -257,9 +253,8 @@ bool QHBarModelMapper_SuperEventFilter(QHBarModelMapper* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnEventFilter(QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_EventFilter_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -286,9 +281,8 @@ void QHBarModelMapper_SuperTimerEvent(QHBarModelMapper* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnTimerEvent(QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_TimerEvent_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -315,9 +309,8 @@ void QHBarModelMapper_SuperChildEvent(QHBarModelMapper* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnChildEvent(QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_ChildEvent_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -344,9 +337,8 @@ void QHBarModelMapper_SuperCustomEvent(QHBarModelMapper* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnCustomEvent(QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_CustomEvent_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -373,9 +365,8 @@ void QHBarModelMapper_SuperConnectNotify(QHBarModelMapper* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnConnectNotify(QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_ConnectNotify_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -402,9 +393,8 @@ void QHBarModelMapper_SuperDisconnectNotify(QHBarModelMapper* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnDisconnectNotify(QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_DisconnectNotify_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -431,9 +421,8 @@ int QHBarModelMapper_SuperFirst(const QHBarModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnFirst(const QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_First_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_First_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -460,9 +449,8 @@ void QHBarModelMapper_SuperSetFirst(QHBarModelMapper* self, int first) {
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnSetFirst(QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_SetFirst_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_SetFirst_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -489,9 +477,8 @@ int QHBarModelMapper_SuperCount(const QHBarModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnCount(const QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_Count_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Count_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -518,9 +505,8 @@ void QHBarModelMapper_SuperSetCount(QHBarModelMapper* self, int count) {
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnSetCount(QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_SetCount_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_SetCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -547,9 +533,8 @@ int QHBarModelMapper_SuperFirstBarSetSection(const QHBarModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnFirstBarSetSection(const QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_FirstBarSetSection_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_FirstBarSetSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -576,9 +561,8 @@ void QHBarModelMapper_SuperSetFirstBarSetSection(QHBarModelMapper* self, int fir
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnSetFirstBarSetSection(QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_SetFirstBarSetSection_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_SetFirstBarSetSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -605,9 +589,8 @@ int QHBarModelMapper_SuperLastBarSetSection(const QHBarModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnLastBarSetSection(const QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_LastBarSetSection_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_LastBarSetSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -634,9 +617,8 @@ void QHBarModelMapper_SuperSetLastBarSetSection(QHBarModelMapper* self, int last
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnSetLastBarSetSection(QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_SetLastBarSetSection_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_SetLastBarSetSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -663,9 +645,8 @@ int QHBarModelMapper_SuperOrientation(const QHBarModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnOrientation(const QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_Orientation_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Orientation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -692,9 +673,8 @@ void QHBarModelMapper_SuperSetOrientation(QHBarModelMapper* self, int orientatio
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnSetOrientation(QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_SetOrientation_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_SetOrientation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -721,9 +701,8 @@ QObject* QHBarModelMapper_SuperSender(const QHBarModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnSender(const QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_Sender_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -750,9 +729,8 @@ int QHBarModelMapper_SuperSenderSignalIndex(const QHBarModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnSenderSignalIndex(const QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_SenderSignalIndex_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -779,9 +757,8 @@ int QHBarModelMapper_SuperReceivers(const QHBarModelMapper* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnReceivers(const QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_Receivers_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -808,9 +785,8 @@ bool QHBarModelMapper_SuperIsSignalConnected(const QHBarModelMapper* self, const
 // Auxiliary method to allow providing re-implementation
 void QHBarModelMapper_OnIsSignalConnected(const QHBarModelMapper* self, intptr_t slot) {
     auto* vqhbarmodelmapper = const_cast<VirtualQHBarModelMapper*>(dynamic_cast<const VirtualQHBarModelMapper*>(self));
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
+    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper)
         vqhbarmodelmapper->setQHBarModelMapper_IsSignalConnected_Callback(reinterpret_cast<VirtualQHBarModelMapper::QHBarModelMapper_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QHBarModelMapper_Delete(QHBarModelMapper* self) {

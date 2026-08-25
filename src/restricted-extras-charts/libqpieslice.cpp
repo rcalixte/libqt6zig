@@ -422,9 +422,8 @@ QMetaObject* QPieSlice_SuperMetaObject(const QPieSlice* self) {
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnMetaObject(const QPieSlice* self, intptr_t slot) {
     auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
         vqpieslice->setQPieSlice_MetaObject_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -441,9 +440,8 @@ void* QPieSlice_SuperMetacast(QPieSlice* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnMetacast(QPieSlice* self, intptr_t slot) {
     auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
         vqpieslice->setQPieSlice_Metacast_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -460,9 +458,8 @@ int QPieSlice_SuperMetacall(QPieSlice* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnMetacall(QPieSlice* self, intptr_t slot) {
     auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
         vqpieslice->setQPieSlice_Metacall_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -489,9 +486,8 @@ bool QPieSlice_SuperEvent(QPieSlice* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnEvent(QPieSlice* self, intptr_t slot) {
     auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
         vqpieslice->setQPieSlice_Event_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -518,9 +514,8 @@ bool QPieSlice_SuperEventFilter(QPieSlice* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnEventFilter(QPieSlice* self, intptr_t slot) {
     auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
         vqpieslice->setQPieSlice_EventFilter_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -547,9 +542,8 @@ void QPieSlice_SuperTimerEvent(QPieSlice* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnTimerEvent(QPieSlice* self, intptr_t slot) {
     auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
         vqpieslice->setQPieSlice_TimerEvent_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -576,9 +570,8 @@ void QPieSlice_SuperChildEvent(QPieSlice* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnChildEvent(QPieSlice* self, intptr_t slot) {
     auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
         vqpieslice->setQPieSlice_ChildEvent_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -605,9 +598,8 @@ void QPieSlice_SuperCustomEvent(QPieSlice* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnCustomEvent(QPieSlice* self, intptr_t slot) {
     auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
         vqpieslice->setQPieSlice_CustomEvent_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -634,9 +626,8 @@ void QPieSlice_SuperConnectNotify(QPieSlice* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnConnectNotify(QPieSlice* self, intptr_t slot) {
     auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
         vqpieslice->setQPieSlice_ConnectNotify_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -663,9 +654,8 @@ void QPieSlice_SuperDisconnectNotify(QPieSlice* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnDisconnectNotify(QPieSlice* self, intptr_t slot) {
     auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
         vqpieslice->setQPieSlice_DisconnectNotify_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -692,9 +682,8 @@ QObject* QPieSlice_SuperSender(const QPieSlice* self) {
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnSender(const QPieSlice* self, intptr_t slot) {
     auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
         vqpieslice->setQPieSlice_Sender_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -721,9 +710,8 @@ int QPieSlice_SuperSenderSignalIndex(const QPieSlice* self) {
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnSenderSignalIndex(const QPieSlice* self, intptr_t slot) {
     auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
         vqpieslice->setQPieSlice_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -750,9 +738,8 @@ int QPieSlice_SuperReceivers(const QPieSlice* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnReceivers(const QPieSlice* self, intptr_t slot) {
     auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
         vqpieslice->setQPieSlice_Receivers_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -779,9 +766,8 @@ bool QPieSlice_SuperIsSignalConnected(const QPieSlice* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QPieSlice_OnIsSignalConnected(const QPieSlice* self, intptr_t slot) {
     auto* vqpieslice = const_cast<VirtualQPieSlice*>(dynamic_cast<const VirtualQPieSlice*>(self));
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
+    if (vqpieslice && vqpieslice->isVirtualQPieSlice)
         vqpieslice->setQPieSlice_IsSignalConnected_Callback(reinterpret_cast<VirtualQPieSlice::QPieSlice_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QPieSlice_Delete(QPieSlice* self) {

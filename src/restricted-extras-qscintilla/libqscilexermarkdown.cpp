@@ -80,9 +80,8 @@ QMetaObject* QsciLexerMarkdown_SuperMetaObject(const QsciLexerMarkdown* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnMetaObject(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -99,9 +98,8 @@ void* QsciLexerMarkdown_SuperMetacast(QsciLexerMarkdown* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnMetacast(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_Metacast_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -118,9 +116,8 @@ int QsciLexerMarkdown_SuperMetacall(QsciLexerMarkdown* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnMetacall(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_Metacall_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -147,9 +144,8 @@ int QsciLexerMarkdown_SuperLexerId(const QsciLexerMarkdown* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnLexerId(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_LexerId_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_LexerId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -176,9 +172,8 @@ const char* QsciLexerMarkdown_SuperAutoCompletionFillups(const QsciLexerMarkdown
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnAutoCompletionFillups(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_AutoCompletionFillups_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -273,9 +268,8 @@ libqt_list /* of libqt_string */ QsciLexerMarkdown_SuperAutoCompletionWordSepara
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnAutoCompletionWordSeparators(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_AutoCompletionWordSeparators_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_AutoCompletionWordSeparators_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -302,9 +296,8 @@ const char* QsciLexerMarkdown_SuperBlockEnd(const QsciLexerMarkdown* self, int* 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnBlockEnd(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_BlockEnd_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_BlockEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -331,9 +324,8 @@ int QsciLexerMarkdown_SuperBlockLookback(const QsciLexerMarkdown* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnBlockLookback(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_BlockLookback_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -360,9 +352,8 @@ const char* QsciLexerMarkdown_SuperBlockStart(const QsciLexerMarkdown* self, int
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnBlockStart(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_BlockStart_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_BlockStart_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -389,9 +380,8 @@ const char* QsciLexerMarkdown_SuperBlockStartKeyword(const QsciLexerMarkdown* se
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnBlockStartKeyword(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_BlockStartKeyword_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -418,9 +408,8 @@ int QsciLexerMarkdown_SuperBraceStyle(const QsciLexerMarkdown* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnBraceStyle(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_BraceStyle_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_BraceStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -447,9 +436,8 @@ bool QsciLexerMarkdown_SuperCaseSensitive(const QsciLexerMarkdown* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnCaseSensitive(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_CaseSensitive_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -476,9 +464,8 @@ QColor* QsciLexerMarkdown_SuperColor(const QsciLexerMarkdown* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnColor(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_Color_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -505,9 +492,8 @@ bool QsciLexerMarkdown_SuperEolFill(const QsciLexerMarkdown* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnEolFill(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_EolFill_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_EolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -534,9 +520,8 @@ QFont* QsciLexerMarkdown_SuperFont(const QsciLexerMarkdown* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnFont(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_Font_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_Font_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -563,9 +548,8 @@ int QsciLexerMarkdown_SuperIndentationGuideView(const QsciLexerMarkdown* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnIndentationGuideView(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_IndentationGuideView_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -592,9 +576,8 @@ const char* QsciLexerMarkdown_SuperKeywords(const QsciLexerMarkdown* self, int s
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnKeywords(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_Keywords_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_Keywords_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -621,9 +604,8 @@ int QsciLexerMarkdown_SuperDefaultStyle(const QsciLexerMarkdown* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnDefaultStyle(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_DefaultStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -650,9 +632,8 @@ QColor* QsciLexerMarkdown_SuperPaper(const QsciLexerMarkdown* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnPaper(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_Paper_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_Paper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -679,9 +660,8 @@ QColor* QsciLexerMarkdown_SuperDefaultColor2(const QsciLexerMarkdown* self, int 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnDefaultColor2(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_DefaultColor2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -708,9 +688,8 @@ bool QsciLexerMarkdown_SuperDefaultEolFill(const QsciLexerMarkdown* self, int st
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnDefaultEolFill(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_DefaultEolFill_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_DefaultEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -737,9 +716,8 @@ QFont* QsciLexerMarkdown_SuperDefaultFont2(const QsciLexerMarkdown* self, int st
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnDefaultFont2(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_DefaultFont2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -766,9 +744,8 @@ QColor* QsciLexerMarkdown_SuperDefaultPaper2(const QsciLexerMarkdown* self, int 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnDefaultPaper2(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_DefaultPaper2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -795,9 +772,8 @@ void QsciLexerMarkdown_SuperSetEditor(QsciLexerMarkdown* self, QsciScintilla* ed
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnSetEditor(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_SetEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -824,9 +800,8 @@ void QsciLexerMarkdown_SuperRefreshProperties(QsciLexerMarkdown* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnRefreshProperties(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_RefreshProperties_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_RefreshProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -853,9 +828,8 @@ int QsciLexerMarkdown_SuperStyleBitsNeeded(const QsciLexerMarkdown* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnStyleBitsNeeded(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_StyleBitsNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -882,9 +856,8 @@ const char* QsciLexerMarkdown_SuperWordCharacters(const QsciLexerMarkdown* self)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnWordCharacters(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_WordCharacters_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -911,9 +884,8 @@ void QsciLexerMarkdown_SuperSetAutoIndentStyle(QsciLexerMarkdown* self, int auto
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnSetAutoIndentStyle(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_SetAutoIndentStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -940,9 +912,8 @@ void QsciLexerMarkdown_SuperSetColor(QsciLexerMarkdown* self, const QColor* c, i
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnSetColor(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_SetColor_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_SetColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -969,9 +940,8 @@ void QsciLexerMarkdown_SuperSetEolFill(QsciLexerMarkdown* self, bool eoffill, in
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnSetEolFill(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_SetEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -998,9 +968,8 @@ void QsciLexerMarkdown_SuperSetFont(QsciLexerMarkdown* self, const QFont* f, int
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnSetFont(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_SetFont_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_SetFont_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1027,9 +996,8 @@ void QsciLexerMarkdown_SuperSetPaper(QsciLexerMarkdown* self, const QColor* c, i
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnSetPaper(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_SetPaper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1058,9 +1026,8 @@ bool QsciLexerMarkdown_SuperReadProperties(QsciLexerMarkdown* self, QSettings* q
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnReadProperties(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_ReadProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1089,9 +1056,8 @@ bool QsciLexerMarkdown_SuperWriteProperties(const QsciLexerMarkdown* self, QSett
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnWriteProperties(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_WriteProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1118,9 +1084,8 @@ bool QsciLexerMarkdown_SuperEvent(QsciLexerMarkdown* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnEvent(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_Event_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1147,9 +1112,8 @@ bool QsciLexerMarkdown_SuperEventFilter(QsciLexerMarkdown* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnEventFilter(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1176,9 +1140,8 @@ void QsciLexerMarkdown_SuperTimerEvent(QsciLexerMarkdown* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnTimerEvent(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1205,9 +1168,8 @@ void QsciLexerMarkdown_SuperChildEvent(QsciLexerMarkdown* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnChildEvent(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1234,9 +1196,8 @@ void QsciLexerMarkdown_SuperCustomEvent(QsciLexerMarkdown* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnCustomEvent(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1263,9 +1224,8 @@ void QsciLexerMarkdown_SuperConnectNotify(QsciLexerMarkdown* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnConnectNotify(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1292,9 +1252,8 @@ void QsciLexerMarkdown_SuperDisconnectNotify(QsciLexerMarkdown* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnDisconnectNotify(QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = dynamic_cast<VirtualQsciLexerMarkdown*>(self);
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1343,9 +1302,8 @@ libqt_string QsciLexerMarkdown_SuperTextAsBytes(const QsciLexerMarkdown* self, c
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnTextAsBytes(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_TextAsBytes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1404,9 +1362,8 @@ libqt_string QsciLexerMarkdown_SuperBytesAsText(const QsciLexerMarkdown* self, c
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnBytesAsText(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_BytesAsText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1433,9 +1390,8 @@ QObject* QsciLexerMarkdown_SuperSender(const QsciLexerMarkdown* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnSender(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_Sender_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1462,9 +1418,8 @@ int QsciLexerMarkdown_SuperSenderSignalIndex(const QsciLexerMarkdown* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnSenderSignalIndex(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1491,9 +1446,8 @@ int QsciLexerMarkdown_SuperReceivers(const QsciLexerMarkdown* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnReceivers(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_Receivers_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1520,9 +1474,8 @@ bool QsciLexerMarkdown_SuperIsSignalConnected(const QsciLexerMarkdown* self, con
 // Auxiliary method to allow providing re-implementation
 void QsciLexerMarkdown_OnIsSignalConnected(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
-    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
+    if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown)
         vqscilexermarkdown->setQsciLexerMarkdown_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QsciLexerMarkdown_Delete(QsciLexerMarkdown* self) {

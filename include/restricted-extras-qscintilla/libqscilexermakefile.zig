@@ -4454,7 +4454,7 @@ pub const QsciLexerMakefile = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerMakefile = enum(i32) {
+    pub const QsciLexerMakefile = enum {
         pub const Default: i32 = 0;
         pub const Comment: i32 = 1;
         pub const Preprocessor: i32 = 2;

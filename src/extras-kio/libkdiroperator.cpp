@@ -793,9 +793,8 @@ QMetaObject* KDirOperator_SuperMetaObject(const KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMetaObject(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_MetaObject_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -812,9 +811,8 @@ void* KDirOperator_SuperMetacast(KDirOperator* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMetacast(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_Metacast_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -831,9 +829,8 @@ int KDirOperator_SuperMetacall(KDirOperator* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMetacall(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_Metacall_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -850,9 +847,8 @@ void KDirOperator_SuperSetShowHiddenFiles(KDirOperator* self, bool s) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetShowHiddenFiles(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SetShowHiddenFiles_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetShowHiddenFiles_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -869,9 +865,8 @@ void KDirOperator_SuperSetUrl(KDirOperator* self, const QUrl* url, bool clearfor
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetUrl(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SetUrl_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetUrl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -888,9 +883,8 @@ void KDirOperator_SuperSetMode(KDirOperator* self, int m) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetMode(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SetMode_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetMode_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -907,9 +901,8 @@ void KDirOperator_SuperSetPreviewWidget(KDirOperator* self, KPreviewWidgetBase* 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetPreviewWidget(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SetPreviewWidget_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetPreviewWidget_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -926,9 +919,8 @@ void KDirOperator_SuperSetViewConfig(KDirOperator* self, KConfigGroup* configGro
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetViewConfig(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SetViewConfig_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetViewConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -945,9 +937,8 @@ void KDirOperator_SuperReadConfig(KDirOperator* self, const KConfigGroup* config
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnReadConfig(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_ReadConfig_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -964,9 +955,8 @@ void KDirOperator_SuperWriteConfig(KDirOperator* self, KConfigGroup* configGroup
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnWriteConfig(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_WriteConfig_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_WriteConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -983,9 +973,8 @@ KIO__DeleteJob* KDirOperator_SuperDel(KDirOperator* self, const KFileItemList* i
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnDel(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_Del_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Del_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1002,9 +991,8 @@ void KDirOperator_SuperSetEnableDirHighlighting(KDirOperator* self, bool enable)
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetEnableDirHighlighting(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SetEnableDirHighlighting_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetEnableDirHighlighting_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1021,9 +1009,8 @@ void KDirOperator_SuperSetAcceptDrops(KDirOperator* self, bool b) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetAcceptDrops(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SetAcceptDrops_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetAcceptDrops_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1040,9 +1027,8 @@ void KDirOperator_SuperSetDropOptions(KDirOperator* self, int options) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetDropOptions(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SetDropOptions_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetDropOptions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1059,9 +1045,8 @@ KIO__CopyJob* KDirOperator_SuperTrash(KDirOperator* self, const KFileItemList* i
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnTrash(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_Trash_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Trash_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1078,9 +1063,8 @@ QAbstractItemView* KDirOperator_SuperCreateView(KDirOperator* self, QWidget* par
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnCreateView(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_CreateView_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_CreateView_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1097,9 +1081,8 @@ void KDirOperator_SuperSetDirLister(KDirOperator* self, KDirLister* lister) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetDirLister(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SetDirLister_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetDirLister_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1116,9 +1099,8 @@ void KDirOperator_SuperResizeEvent(KDirOperator* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnResizeEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_ResizeEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1135,9 +1117,8 @@ void KDirOperator_SuperActivatedMenu(KDirOperator* self, const KFileItem* item, 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnActivatedMenu(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_ActivatedMenu_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ActivatedMenu_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1154,9 +1135,8 @@ void KDirOperator_SuperChangeEvent(KDirOperator* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnChangeEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_ChangeEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1173,9 +1153,8 @@ bool KDirOperator_SuperEventFilter(KDirOperator* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnEventFilter(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_EventFilter_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1192,9 +1171,8 @@ void KDirOperator_SuperBack(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnBack(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_Back_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Back_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1211,9 +1189,8 @@ void KDirOperator_SuperForward(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnForward(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_Forward_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Forward_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1230,9 +1207,8 @@ void KDirOperator_SuperHome(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnHome(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_Home_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Home_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1249,9 +1225,8 @@ void KDirOperator_SuperCdUp(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnCdUp(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_CdUp_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_CdUp_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1268,9 +1243,8 @@ void KDirOperator_SuperRereadDir(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnRereadDir(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_RereadDir_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_RereadDir_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1287,9 +1261,8 @@ void KDirOperator_SuperMkdir(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMkdir(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_Mkdir_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Mkdir_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1306,9 +1279,8 @@ void KDirOperator_SuperDeleteSelected(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnDeleteSelected(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_DeleteSelected_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_DeleteSelected_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1325,9 +1297,8 @@ void KDirOperator_SuperTrashSelected(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnTrashSelected(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_TrashSelected_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_TrashSelected_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1344,9 +1315,8 @@ void KDirOperator_SuperSelectDir(KDirOperator* self, const KFileItem* item) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSelectDir(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SelectDir_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SelectDir_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1373,9 +1343,8 @@ int KDirOperator_SuperDevType(const KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnDevType(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_DevType_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1402,9 +1371,8 @@ void KDirOperator_SuperSetVisible(KDirOperator* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetVisible(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SetVisible_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1431,9 +1399,8 @@ QSize* KDirOperator_SuperSizeHint(const KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSizeHint(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SizeHint_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1460,9 +1427,8 @@ QSize* KDirOperator_SuperMinimumSizeHint(const KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMinimumSizeHint(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_MinimumSizeHint_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1489,9 +1455,8 @@ int KDirOperator_SuperHeightForWidth(const KDirOperator* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnHeightForWidth(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_HeightForWidth_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1518,9 +1483,8 @@ bool KDirOperator_SuperHasHeightForWidth(const KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnHasHeightForWidth(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_HasHeightForWidth_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1547,9 +1511,8 @@ QPaintEngine* KDirOperator_SuperPaintEngine(const KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnPaintEngine(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_PaintEngine_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1576,9 +1539,8 @@ bool KDirOperator_SuperEvent(KDirOperator* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_Event_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1605,9 +1567,8 @@ void KDirOperator_SuperMousePressEvent(KDirOperator* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMousePressEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_MousePressEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1634,9 +1595,8 @@ void KDirOperator_SuperMouseReleaseEvent(KDirOperator* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMouseReleaseEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1663,9 +1623,8 @@ void KDirOperator_SuperMouseDoubleClickEvent(KDirOperator* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMouseDoubleClickEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1692,9 +1651,8 @@ void KDirOperator_SuperMouseMoveEvent(KDirOperator* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMouseMoveEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_MouseMoveEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1721,9 +1679,8 @@ void KDirOperator_SuperWheelEvent(KDirOperator* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnWheelEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_WheelEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1750,9 +1707,8 @@ void KDirOperator_SuperKeyPressEvent(KDirOperator* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnKeyPressEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_KeyPressEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1779,9 +1735,8 @@ void KDirOperator_SuperKeyReleaseEvent(KDirOperator* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnKeyReleaseEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1808,9 +1763,8 @@ void KDirOperator_SuperFocusInEvent(KDirOperator* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnFocusInEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_FocusInEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1837,9 +1791,8 @@ void KDirOperator_SuperFocusOutEvent(KDirOperator* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnFocusOutEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_FocusOutEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1866,9 +1819,8 @@ void KDirOperator_SuperEnterEvent(KDirOperator* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnEnterEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_EnterEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1895,9 +1847,8 @@ void KDirOperator_SuperLeaveEvent(KDirOperator* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnLeaveEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_LeaveEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1924,9 +1875,8 @@ void KDirOperator_SuperPaintEvent(KDirOperator* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnPaintEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_PaintEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1953,9 +1903,8 @@ void KDirOperator_SuperMoveEvent(KDirOperator* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMoveEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_MoveEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1982,9 +1931,8 @@ void KDirOperator_SuperCloseEvent(KDirOperator* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnCloseEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_CloseEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2011,9 +1959,8 @@ void KDirOperator_SuperContextMenuEvent(KDirOperator* self, QContextMenuEvent* e
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnContextMenuEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_ContextMenuEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2040,9 +1987,8 @@ void KDirOperator_SuperTabletEvent(KDirOperator* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnTabletEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_TabletEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2069,9 +2015,8 @@ void KDirOperator_SuperActionEvent(KDirOperator* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnActionEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_ActionEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2098,9 +2043,8 @@ void KDirOperator_SuperDragEnterEvent(KDirOperator* self, QDragEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnDragEnterEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_DragEnterEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2127,9 +2071,8 @@ void KDirOperator_SuperDragMoveEvent(KDirOperator* self, QDragMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnDragMoveEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_DragMoveEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2156,9 +2099,8 @@ void KDirOperator_SuperDragLeaveEvent(KDirOperator* self, QDragLeaveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnDragLeaveEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_DragLeaveEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2185,9 +2127,8 @@ void KDirOperator_SuperDropEvent(KDirOperator* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnDropEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_DropEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2214,9 +2155,8 @@ void KDirOperator_SuperShowEvent(KDirOperator* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnShowEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_ShowEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2243,9 +2183,8 @@ void KDirOperator_SuperHideEvent(KDirOperator* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnHideEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_HideEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2274,9 +2213,8 @@ bool KDirOperator_SuperNativeEvent(KDirOperator* self, const libqt_string eventT
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnNativeEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_NativeEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2303,9 +2241,8 @@ int KDirOperator_SuperMetric(const KDirOperator* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnMetric(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_Metric_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2332,9 +2269,8 @@ void KDirOperator_SuperInitPainter(const KDirOperator* self, QPainter* painter) 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnInitPainter(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_InitPainter_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2361,9 +2297,8 @@ QPaintDevice* KDirOperator_SuperRedirected(const KDirOperator* self, QPoint* off
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnRedirected(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_Redirected_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2390,9 +2325,8 @@ QPainter* KDirOperator_SuperSharedPainter(const KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSharedPainter(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SharedPainter_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2419,9 +2353,8 @@ void KDirOperator_SuperInputMethodEvent(KDirOperator* self, QInputMethodEvent* p
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnInputMethodEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_InputMethodEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2448,9 +2381,8 @@ QVariant* KDirOperator_SuperInputMethodQuery(const KDirOperator* self, int param
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnInputMethodQuery(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_InputMethodQuery_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2477,9 +2409,8 @@ bool KDirOperator_SuperFocusNextPrevChild(KDirOperator* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnFocusNextPrevChild(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2506,9 +2437,8 @@ void KDirOperator_SuperTimerEvent(KDirOperator* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnTimerEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_TimerEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2535,9 +2465,8 @@ void KDirOperator_SuperChildEvent(KDirOperator* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnChildEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_ChildEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2564,9 +2493,8 @@ void KDirOperator_SuperCustomEvent(KDirOperator* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnCustomEvent(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_CustomEvent_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2593,9 +2521,8 @@ void KDirOperator_SuperConnectNotify(KDirOperator* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnConnectNotify(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_ConnectNotify_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2622,9 +2549,8 @@ void KDirOperator_SuperDisconnectNotify(KDirOperator* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnDisconnectNotify(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_DisconnectNotify_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2651,9 +2577,8 @@ void KDirOperator_SuperSetupActions(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetupActions(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SetupActions_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetupActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2680,9 +2605,8 @@ void KDirOperator_SuperUpdateSortActions(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnUpdateSortActions(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_UpdateSortActions_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_UpdateSortActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2709,9 +2633,8 @@ void KDirOperator_SuperUpdateViewActions(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnUpdateViewActions(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_UpdateViewActions_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_UpdateViewActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2738,9 +2661,8 @@ void KDirOperator_SuperSetupMenu2(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSetupMenu2(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SetupMenu2_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SetupMenu2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2767,9 +2689,8 @@ void KDirOperator_SuperPrepareCompletionObjects(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnPrepareCompletionObjects(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_PrepareCompletionObjects_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_PrepareCompletionObjects_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2796,9 +2717,8 @@ bool KDirOperator_SuperCheckPreviewSupport(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnCheckPreviewSupport(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_CheckPreviewSupport_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_CheckPreviewSupport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2825,9 +2745,8 @@ void KDirOperator_SuperResetCursor(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnResetCursor(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_ResetCursor_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ResetCursor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2854,9 +2773,8 @@ void KDirOperator_SuperPathChanged(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnPathChanged(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_PathChanged_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_PathChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2883,9 +2801,8 @@ void KDirOperator_SuperSelectFile(KDirOperator* self, const KFileItem* item) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSelectFile(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SelectFile_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SelectFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2912,9 +2829,8 @@ void KDirOperator_SuperHighlightFile(KDirOperator* self, const KFileItem* item) 
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnHighlightFile(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_HighlightFile_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_HighlightFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2941,9 +2857,8 @@ void KDirOperator_SuperSortByName(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSortByName(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SortByName_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SortByName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2970,9 +2885,8 @@ void KDirOperator_SuperSortBySize(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSortBySize(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SortBySize_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SortBySize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2999,9 +2913,8 @@ void KDirOperator_SuperSortByDate(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSortByDate(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SortByDate_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SortByDate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3028,9 +2941,8 @@ void KDirOperator_SuperSortByType(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSortByType(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SortByType_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SortByType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3057,9 +2969,8 @@ void KDirOperator_SuperSortReversed(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSortReversed(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SortReversed_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SortReversed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3086,9 +2997,8 @@ void KDirOperator_SuperToggleDirsFirst(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnToggleDirsFirst(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_ToggleDirsFirst_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ToggleDirsFirst_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3115,9 +3025,8 @@ void KDirOperator_SuperToggleIgnoreCase(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnToggleIgnoreCase(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_ToggleIgnoreCase_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_ToggleIgnoreCase_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3146,9 +3055,8 @@ void KDirOperator_SuperSlotCompletionMatch(KDirOperator* self, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSlotCompletionMatch(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SlotCompletionMatch_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SlotCompletionMatch_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3175,9 +3083,8 @@ void KDirOperator_SuperUpdateMicroFocus(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnUpdateMicroFocus(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3204,9 +3111,8 @@ void KDirOperator_SuperCreate(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnCreate(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_Create_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3233,9 +3139,8 @@ void KDirOperator_SuperDestroy(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnDestroy(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_Destroy_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3262,9 +3167,8 @@ bool KDirOperator_SuperFocusNextChild(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnFocusNextChild(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_FocusNextChild_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3291,9 +3195,8 @@ bool KDirOperator_SuperFocusPreviousChild(KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnFocusPreviousChild(KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_FocusPreviousChild_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3320,9 +3223,8 @@ QObject* KDirOperator_SuperSender(const KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSender(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_Sender_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3349,9 +3251,8 @@ int KDirOperator_SuperSenderSignalIndex(const KDirOperator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnSenderSignalIndex(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3378,9 +3279,8 @@ int KDirOperator_SuperReceivers(const KDirOperator* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnReceivers(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_Receivers_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3407,9 +3307,8 @@ bool KDirOperator_SuperIsSignalConnected(const KDirOperator* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnIsSignalConnected(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_IsSignalConnected_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3436,9 +3335,8 @@ double KDirOperator_SuperGetDecodedMetricF(const KDirOperator* self, int metricA
 // Auxiliary method to allow providing re-implementation
 void KDirOperator_OnGetDecodedMetricF(const KDirOperator* self, intptr_t slot) {
     auto* vkdiroperator = const_cast<VirtualKDirOperator*>(dynamic_cast<const VirtualKDirOperator*>(self));
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
+    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator)
         vkdiroperator->setKDirOperator_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKDirOperator::KDirOperator_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KDirOperator_Delete(KDirOperator* self) {

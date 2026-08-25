@@ -697,7 +697,7 @@ pub const Attica__DownloadDescription = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/attica-downloaddescription.html#public-types)
 pub const enums = struct {
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const FileDownload: i32 = 0;
         pub const LinkDownload: i32 = 1;
         pub const PackageDownload: i32 = 2;

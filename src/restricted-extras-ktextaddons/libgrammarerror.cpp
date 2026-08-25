@@ -173,9 +173,8 @@ void TextGrammarCheck__GrammarError_SuperParse(TextGrammarCheck__GrammarError* s
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarError_OnParse(TextGrammarCheck__GrammarError* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarerror = dynamic_cast<VirtualTextGrammarCheckGrammarError*>(self);
-    if (vtextgrammarcheckgrammarerror && vtextgrammarcheckgrammarerror->isVirtualTextGrammarCheckGrammarError) {
+    if (vtextgrammarcheckgrammarerror && vtextgrammarcheckgrammarerror->isVirtualTextGrammarCheckGrammarError)
         vtextgrammarcheckgrammarerror->setTextGrammarCheck__GrammarError_Parse_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarError::TextGrammarCheck__GrammarError_Parse_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -202,9 +201,8 @@ void TextGrammarCheck__GrammarError_SuperOperatorAssign(TextGrammarCheck__Gramma
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarError_OnOperatorAssign(TextGrammarCheck__GrammarError* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarerror = dynamic_cast<VirtualTextGrammarCheckGrammarError*>(self);
-    if (vtextgrammarcheckgrammarerror && vtextgrammarcheckgrammarerror->isVirtualTextGrammarCheckGrammarError) {
+    if (vtextgrammarcheckgrammarerror && vtextgrammarcheckgrammarerror->isVirtualTextGrammarCheckGrammarError)
         vtextgrammarcheckgrammarerror->setTextGrammarCheck__GrammarError_OperatorAssign_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarError::TextGrammarCheck__GrammarError_OperatorAssign_Callback>(slot));
-    }
 }
 
 void TextGrammarCheck__GrammarError_Delete(TextGrammarCheck__GrammarError* self) {

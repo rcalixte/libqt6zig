@@ -3889,7 +3889,7 @@ pub const Poppler__Document__PdfVersion = extern struct {
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1Document_1_1PdfVersion.html)
 pub const enums = struct {
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const Unknown: i32 = 0;
         pub const Type1: i32 = 1;
         pub const Type1C: i32 = 2;
@@ -3904,40 +3904,40 @@ pub const enums = struct {
         pub const CIDTrueTypeOT: i32 = 11;
     };
 
-    pub const Rotation = enum(i32) {
+    pub const Rotation = enum {
         pub const Rotate0: i32 = 0;
         pub const Rotate90: i32 = 1;
         pub const Rotate180: i32 = 2;
         pub const Rotate270: i32 = 3;
     };
 
-    pub const PageAction = enum(i32) {
+    pub const PageAction = enum {
         pub const Opening: i32 = 0;
         pub const Closing: i32 = 1;
     };
 
-    pub const TextLayout = enum(i32) {
+    pub const TextLayout = enum {
         pub const PhysicalLayout: i32 = 0;
         pub const RawOrderLayout: i32 = 1;
     };
 
-    pub const PainterFlag = enum(i32) {
+    pub const PainterFlag = enum {
         pub const NoPainterFlags: i32 = 0;
         pub const DontSaveAndRestore: i32 = 1;
     };
 
-    pub const SearchDirection = enum(i32) {
+    pub const SearchDirection = enum {
         pub const FromTop: i32 = 0;
         pub const NextResult: i32 = 1;
         pub const PreviousResult: i32 = 2;
     };
 
-    pub const SearchMode = enum(i32) {
+    pub const SearchMode = enum {
         pub const CaseSensitive: i32 = 0;
         pub const CaseInsensitive: i32 = 1;
     };
 
-    pub const SearchFlag = enum(i32) {
+    pub const SearchFlag = enum {
         pub const NoSearchFlags: i32 = 0;
         pub const IgnoreCase: i32 = 1;
         pub const WholeWords: i32 = 2;
@@ -3945,14 +3945,14 @@ pub const enums = struct {
         pub const AcrossLines: i32 = 8;
     };
 
-    pub const Orientation = enum(i32) {
+    pub const Orientation = enum {
         pub const Landscape: i32 = 0;
         pub const Portrait: i32 = 1;
         pub const Seascape: i32 = 2;
         pub const UpsideDown: i32 = 3;
     };
 
-    pub const PageMode = enum(i32) {
+    pub const PageMode = enum {
         pub const UseNone: i32 = 0;
         pub const UseOutlines: i32 = 1;
         pub const UseThumbs: i32 = 2;
@@ -3961,7 +3961,7 @@ pub const enums = struct {
         pub const UseAttach: i32 = 5;
     };
 
-    pub const PageLayout = enum(i32) {
+    pub const PageLayout = enum {
         pub const NoLayout: i32 = 0;
         pub const SinglePage: i32 = 1;
         pub const OneColumn: i32 = 2;
@@ -3971,12 +3971,12 @@ pub const enums = struct {
         pub const TwoPageRight: i32 = 6;
     };
 
-    pub const RenderBackend = enum(i32) {
+    pub const RenderBackend = enum {
         pub const SplashBackend: i32 = 0;
         pub const QPainterBackend: i32 = 1;
     };
 
-    pub const RenderHint = enum(i32) {
+    pub const RenderHint = enum {
         pub const Antialiasing: i32 = 1;
         pub const TextAntialiasing: i32 = 2;
         pub const TextHinting: i32 = 4;
@@ -3988,13 +3988,13 @@ pub const enums = struct {
         pub const HideAnnotations: i32 = 256;
     };
 
-    pub const FormType = enum(i32) {
+    pub const FormType = enum {
         pub const NoForm: i32 = 0;
         pub const AcroForm: i32 = 1;
         pub const XfaForm: i32 = 2;
     };
 
-    pub const DocumentAdditionalActionsType = enum(i32) {
+    pub const DocumentAdditionalActionsType = enum {
         pub const CloseDocument: i32 = 0;
         pub const SaveDocumentStart: i32 = 1;
         pub const SaveDocumentFinish: i32 = 2;
@@ -4002,19 +4002,19 @@ pub const enums = struct {
         pub const PrintDocumentFinish: i32 = 4;
     };
 
-    pub const SoundType = enum(i32) {
+    pub const SoundType = enum {
         pub const External: i32 = 0;
         pub const Embedded: i32 = 1;
     };
 
-    pub const SoundEncoding = enum(i32) {
+    pub const SoundEncoding = enum {
         pub const Raw: i32 = 0;
         pub const Signed: i32 = 1;
         pub const MuLaw: i32 = 2;
         pub const ALaw: i32 = 3;
     };
 
-    pub const PlayMode = enum(i32) {
+    pub const PlayMode = enum {
         pub const PlayOnce: i32 = 0;
         pub const PlayOpen: i32 = 1;
         pub const PlayRepeat: i32 = 2;

@@ -3,6 +3,7 @@ const qtc = @import("qt6c");
 const QBindingStorage = @import("libqt6").QBindingStorage;
 const QEvent = @import("libqt6").QEvent;
 const QHttpHeaders = @import("libqt6").QHttpHeaders;
+const QIODeviceBase = @import("libqt6").QIODeviceBase;
 const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
@@ -940,6 +941,18 @@ pub const QNetworkReply = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkReply.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// Inherited from QIODevice
+    ///
+    /// Upcasts to a QIODeviceBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QNetworkReply `
+    ///
+    pub fn asQIODeviceBase(self: QNetworkReply) QIODeviceBase {
+        return .{ .ptr = qtc.QIODevice_AsQIODeviceBase(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `openMode` instead
@@ -2985,7 +2998,7 @@ pub const QNetworkReply = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#public-types)
 pub const enums = struct {
-    pub const NetworkError = enum(i32) {
+    pub const NetworkError = enum {
         pub const NoError: i32 = 0;
         pub const ConnectionRefusedError: i32 = 1;
         pub const RemoteHostClosedError: i32 = 2;

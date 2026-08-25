@@ -1355,7 +1355,7 @@ pub const QDynamicPropertyChangeEvent = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcoreevent.html#public-types)
 pub const enums = struct {
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const None: i32 = 0;
         pub const Timer: i32 = 1;
         pub const MouseButtonPress: i32 = 2;

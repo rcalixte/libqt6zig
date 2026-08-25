@@ -8576,7 +8576,7 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kcategorizedsortfilterproxymodel.html#public-types)
 pub const enums = struct {
-    pub const AdditionalRoles = enum(i32) {
+    pub const AdditionalRoles = enum {
         pub const CategoryDisplayRole: i32 = 399415562;
         pub const CategorySortRole: i32 = 663060064;
     };

@@ -5740,6 +5740,31 @@ pub const QTreeView = extern struct {
         qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTreeView `
+    ///
+    pub fn asQPaintDevice(self: QTreeView) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QTreeView object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QTreeView {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -11708,7 +11733,7 @@ pub const QTreeView = extern struct {
     /// ` self: QTreeView `
     ///
     pub fn paintingActive(self: QTreeView) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -11724,7 +11749,7 @@ pub const QTreeView = extern struct {
     /// ` self: QTreeView `
     ///
     pub fn widthMM(self: QTreeView) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -11740,7 +11765,7 @@ pub const QTreeView = extern struct {
     /// ` self: QTreeView `
     ///
     pub fn heightMM(self: QTreeView) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -11756,7 +11781,7 @@ pub const QTreeView = extern struct {
     /// ` self: QTreeView `
     ///
     pub fn logicalDpiX(self: QTreeView) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -11772,7 +11797,7 @@ pub const QTreeView = extern struct {
     /// ` self: QTreeView `
     ///
     pub fn logicalDpiY(self: QTreeView) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -11788,7 +11813,7 @@ pub const QTreeView = extern struct {
     /// ` self: QTreeView `
     ///
     pub fn physicalDpiX(self: QTreeView) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -11804,7 +11829,7 @@ pub const QTreeView = extern struct {
     /// ` self: QTreeView `
     ///
     pub fn physicalDpiY(self: QTreeView) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -11820,7 +11845,7 @@ pub const QTreeView = extern struct {
     /// ` self: QTreeView `
     ///
     pub fn devicePixelRatio(self: QTreeView) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -11836,7 +11861,7 @@ pub const QTreeView = extern struct {
     /// ` self: QTreeView `
     ///
     pub fn devicePixelRatioF(self: QTreeView) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -11852,7 +11877,7 @@ pub const QTreeView = extern struct {
     /// ` self: QTreeView `
     ///
     pub fn colorCount(self: QTreeView) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -11868,7 +11893,7 @@ pub const QTreeView = extern struct {
     /// ` self: QTreeView `
     ///
     pub fn depth(self: QTreeView) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

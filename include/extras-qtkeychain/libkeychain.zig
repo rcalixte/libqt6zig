@@ -8501,7 +8501,7 @@ pub const QKeychain = extern struct {
 
 /// ### [Upstream resources](https://github.com/frankosterfeld/qtkeychain)
 pub const enums = struct {
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const EntryNotFound: i32 = 1;
         pub const CouldNotDeleteEntry: i32 = 2;

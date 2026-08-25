@@ -99,9 +99,8 @@ QMetaObject* KNSCore__ProvidersModel_SuperMetaObject(const KNSCore__ProvidersMod
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnMetaObject(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_MetaObject_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -118,9 +117,8 @@ void* KNSCore__ProvidersModel_SuperMetacast(KNSCore__ProvidersModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnMetacast(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_Metacast_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -137,9 +135,8 @@ int KNSCore__ProvidersModel_SuperMetacall(KNSCore__ProvidersModel* self, int par
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnMetacall(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_Metacall_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -194,9 +191,8 @@ libqt_map /* of int to libqt_string */ KNSCore__ProvidersModel_SuperRoleNames(co
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnRoleNames(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_RoleNames_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -213,9 +209,8 @@ QVariant* KNSCore__ProvidersModel_SuperData(const KNSCore__ProvidersModel* self,
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnData(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_Data_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -232,9 +227,8 @@ int KNSCore__ProvidersModel_SuperRowCount(const KNSCore__ProvidersModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnRowCount(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_RowCount_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_RowCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -261,9 +255,8 @@ QModelIndex* KNSCore__ProvidersModel_SuperIndex(const KNSCore__ProvidersModel* s
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnIndex(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_Index_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_Index_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -290,9 +283,8 @@ QModelIndex* KNSCore__ProvidersModel_SuperSibling(const KNSCore__ProvidersModel*
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnSibling(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_Sibling_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -319,9 +311,8 @@ bool KNSCore__ProvidersModel_SuperDropMimeData(KNSCore__ProvidersModel* self, co
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnDropMimeData(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_DropMimeData_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -348,9 +339,8 @@ int KNSCore__ProvidersModel_SuperFlags(const KNSCore__ProvidersModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnFlags(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_Flags_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_Flags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -377,9 +367,8 @@ bool KNSCore__ProvidersModel_SuperSetData(KNSCore__ProvidersModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnSetData(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_SetData_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -406,9 +395,8 @@ QVariant* KNSCore__ProvidersModel_SuperHeaderData(const KNSCore__ProvidersModel*
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnHeaderData(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_HeaderData_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -435,9 +423,8 @@ bool KNSCore__ProvidersModel_SuperSetHeaderData(KNSCore__ProvidersModel* self, i
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnSetHeaderData(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_SetHeaderData_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -520,9 +507,8 @@ libqt_map /* of int to QVariant* */ KNSCore__ProvidersModel_SuperItemData(const 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnItemData(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_ItemData_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +547,8 @@ bool KNSCore__ProvidersModel_SuperSetItemData(KNSCore__ProvidersModel* self, con
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnSetItemData(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_SetItemData_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +575,8 @@ bool KNSCore__ProvidersModel_SuperClearItemData(KNSCore__ProvidersModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnClearItemData(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_ClearItemData_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -687,9 +671,8 @@ libqt_list /* of libqt_string */ KNSCore__ProvidersModel_SuperMimeTypes(const KN
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnMimeTypes(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_MimeTypes_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -728,9 +711,8 @@ QMimeData* KNSCore__ProvidersModel_SuperMimeData(const KNSCore__ProvidersModel* 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnMimeData(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_MimeData_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -757,9 +739,8 @@ bool KNSCore__ProvidersModel_SuperCanDropMimeData(const KNSCore__ProvidersModel*
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnCanDropMimeData(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_CanDropMimeData_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -786,9 +767,8 @@ int KNSCore__ProvidersModel_SuperSupportedDropActions(const KNSCore__ProvidersMo
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnSupportedDropActions(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_SupportedDropActions_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -815,9 +795,8 @@ int KNSCore__ProvidersModel_SuperSupportedDragActions(const KNSCore__ProvidersMo
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnSupportedDragActions(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_SupportedDragActions_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -844,9 +823,8 @@ bool KNSCore__ProvidersModel_SuperInsertRows(KNSCore__ProvidersModel* self, int 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnInsertRows(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_InsertRows_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -873,9 +851,8 @@ bool KNSCore__ProvidersModel_SuperInsertColumns(KNSCore__ProvidersModel* self, i
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnInsertColumns(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_InsertColumns_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -902,9 +879,8 @@ bool KNSCore__ProvidersModel_SuperRemoveRows(KNSCore__ProvidersModel* self, int 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnRemoveRows(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_RemoveRows_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -931,9 +907,8 @@ bool KNSCore__ProvidersModel_SuperRemoveColumns(KNSCore__ProvidersModel* self, i
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnRemoveColumns(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_RemoveColumns_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -960,9 +935,8 @@ bool KNSCore__ProvidersModel_SuperMoveRows(KNSCore__ProvidersModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnMoveRows(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_MoveRows_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -989,9 +963,8 @@ bool KNSCore__ProvidersModel_SuperMoveColumns(KNSCore__ProvidersModel* self, con
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnMoveColumns(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_MoveColumns_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1018,9 +991,8 @@ void KNSCore__ProvidersModel_SuperFetchMore(KNSCore__ProvidersModel* self, const
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnFetchMore(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_FetchMore_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1047,9 +1019,8 @@ bool KNSCore__ProvidersModel_SuperCanFetchMore(const KNSCore__ProvidersModel* se
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnCanFetchMore(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_CanFetchMore_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1076,9 +1047,8 @@ void KNSCore__ProvidersModel_SuperSort(KNSCore__ProvidersModel* self, int column
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnSort(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_Sort_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1105,9 +1075,8 @@ QModelIndex* KNSCore__ProvidersModel_SuperBuddy(const KNSCore__ProvidersModel* s
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnBuddy(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_Buddy_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1170,9 +1139,8 @@ libqt_list /* of QModelIndex* */ KNSCore__ProvidersModel_SuperMatch(const KNSCor
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnMatch(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_Match_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1199,9 +1167,8 @@ QSize* KNSCore__ProvidersModel_SuperSpan(const KNSCore__ProvidersModel* self, co
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnSpan(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_Span_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1228,9 +1195,8 @@ void KNSCore__ProvidersModel_SuperMultiData(const KNSCore__ProvidersModel* self,
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnMultiData(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_MultiData_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1257,9 +1223,8 @@ bool KNSCore__ProvidersModel_SuperSubmit(KNSCore__ProvidersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnSubmit(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_Submit_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1286,9 +1251,8 @@ void KNSCore__ProvidersModel_SuperRevert(KNSCore__ProvidersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnRevert(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_Revert_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1315,9 +1279,8 @@ void KNSCore__ProvidersModel_SuperResetInternalData(KNSCore__ProvidersModel* sel
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnResetInternalData(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_ResetInternalData_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1344,9 +1307,8 @@ bool KNSCore__ProvidersModel_SuperEvent(KNSCore__ProvidersModel* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnEvent(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_Event_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1373,9 +1335,8 @@ bool KNSCore__ProvidersModel_SuperEventFilter(KNSCore__ProvidersModel* self, QOb
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnEventFilter(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_EventFilter_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1402,9 +1363,8 @@ void KNSCore__ProvidersModel_SuperTimerEvent(KNSCore__ProvidersModel* self, QTim
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnTimerEvent(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_TimerEvent_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1431,9 +1391,8 @@ void KNSCore__ProvidersModel_SuperChildEvent(KNSCore__ProvidersModel* self, QChi
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnChildEvent(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_ChildEvent_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1460,9 +1419,8 @@ void KNSCore__ProvidersModel_SuperCustomEvent(KNSCore__ProvidersModel* self, QEv
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnCustomEvent(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_CustomEvent_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1489,9 +1447,8 @@ void KNSCore__ProvidersModel_SuperConnectNotify(KNSCore__ProvidersModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnConnectNotify(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_ConnectNotify_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1518,9 +1475,8 @@ void KNSCore__ProvidersModel_SuperDisconnectNotify(KNSCore__ProvidersModel* self
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnDisconnectNotify(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_DisconnectNotify_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1545,9 +1501,8 @@ QModelIndex* KNSCore__ProvidersModel_SuperCreateIndex(const KNSCore__ProvidersMo
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnCreateIndex(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_CreateIndex_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1586,9 +1541,8 @@ void KNSCore__ProvidersModel_SuperEncodeData(const KNSCore__ProvidersModel* self
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnEncodeData(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_EncodeData_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1615,9 +1569,8 @@ bool KNSCore__ProvidersModel_SuperDecodeData(KNSCore__ProvidersModel* self, int 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnDecodeData(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_DecodeData_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1644,9 +1597,8 @@ void KNSCore__ProvidersModel_SuperBeginInsertRows(KNSCore__ProvidersModel* self,
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnBeginInsertRows(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_BeginInsertRows_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1673,9 +1625,8 @@ void KNSCore__ProvidersModel_SuperEndInsertRows(KNSCore__ProvidersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnEndInsertRows(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_EndInsertRows_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1702,9 +1653,8 @@ void KNSCore__ProvidersModel_SuperBeginRemoveRows(KNSCore__ProvidersModel* self,
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnBeginRemoveRows(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1731,9 +1681,8 @@ void KNSCore__ProvidersModel_SuperEndRemoveRows(KNSCore__ProvidersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnEndRemoveRows(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_EndRemoveRows_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1760,9 +1709,8 @@ bool KNSCore__ProvidersModel_SuperBeginMoveRows(KNSCore__ProvidersModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnBeginMoveRows(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_BeginMoveRows_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1789,9 +1737,8 @@ void KNSCore__ProvidersModel_SuperEndMoveRows(KNSCore__ProvidersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnEndMoveRows(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_EndMoveRows_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1818,9 +1765,8 @@ void KNSCore__ProvidersModel_SuperBeginInsertColumns(KNSCore__ProvidersModel* se
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnBeginInsertColumns(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1847,9 +1793,8 @@ void KNSCore__ProvidersModel_SuperEndInsertColumns(KNSCore__ProvidersModel* self
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnEndInsertColumns(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_EndInsertColumns_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1876,9 +1821,8 @@ void KNSCore__ProvidersModel_SuperBeginRemoveColumns(KNSCore__ProvidersModel* se
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnBeginRemoveColumns(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1905,9 +1849,8 @@ void KNSCore__ProvidersModel_SuperEndRemoveColumns(KNSCore__ProvidersModel* self
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnEndRemoveColumns(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1934,9 +1877,8 @@ bool KNSCore__ProvidersModel_SuperBeginMoveColumns(KNSCore__ProvidersModel* self
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnBeginMoveColumns(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1963,9 +1905,8 @@ void KNSCore__ProvidersModel_SuperEndMoveColumns(KNSCore__ProvidersModel* self) 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnEndMoveColumns(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_EndMoveColumns_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1992,9 +1933,8 @@ void KNSCore__ProvidersModel_SuperBeginResetModel(KNSCore__ProvidersModel* self)
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnBeginResetModel(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_BeginResetModel_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2021,9 +1961,8 @@ void KNSCore__ProvidersModel_SuperEndResetModel(KNSCore__ProvidersModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnEndResetModel(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_EndResetModel_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2050,9 +1989,8 @@ void KNSCore__ProvidersModel_SuperChangePersistentIndex(KNSCore__ProvidersModel*
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnChangePersistentIndex(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2103,9 +2041,8 @@ void KNSCore__ProvidersModel_SuperChangePersistentIndexList(KNSCore__ProvidersMo
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnChangePersistentIndexList(KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2168,9 +2105,8 @@ libqt_list /* of QModelIndex* */ KNSCore__ProvidersModel_SuperPersistentIndexLis
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnPersistentIndexList(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_PersistentIndexList_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2197,9 +2133,8 @@ QObject* KNSCore__ProvidersModel_SuperSender(const KNSCore__ProvidersModel* self
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnSender(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_Sender_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2226,9 +2161,8 @@ int KNSCore__ProvidersModel_SuperSenderSignalIndex(const KNSCore__ProvidersModel
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnSenderSignalIndex(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2255,9 +2189,8 @@ int KNSCore__ProvidersModel_SuperReceivers(const KNSCore__ProvidersModel* self, 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnReceivers(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_Receivers_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2284,9 +2217,8 @@ bool KNSCore__ProvidersModel_SuperIsSignalConnected(const KNSCore__ProvidersMode
 // Auxiliary method to allow providing re-implementation
 void KNSCore__ProvidersModel_OnIsSignalConnected(const KNSCore__ProvidersModel* self, intptr_t slot) {
     auto* vknscoreprovidersmodel = const_cast<VirtualKNSCoreProvidersModel*>(dynamic_cast<const VirtualKNSCoreProvidersModel*>(self));
-    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel) {
+    if (vknscoreprovidersmodel && vknscoreprovidersmodel->isVirtualKNSCoreProvidersModel)
         vknscoreprovidersmodel->setKNSCore__ProvidersModel_IsSignalConnected_Callback(reinterpret_cast<VirtualKNSCoreProvidersModel::KNSCore__ProvidersModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KNSCore__ProvidersModel_Delete(KNSCore__ProvidersModel* self) {

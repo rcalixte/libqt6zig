@@ -124,9 +124,8 @@ QMetaObject* QsciLexerPostScript_SuperMetaObject(const QsciLexerPostScript* self
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnMetaObject(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -143,9 +142,8 @@ void* QsciLexerPostScript_SuperMetacast(QsciLexerPostScript* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnMetacast(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_Metacast_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -162,9 +160,8 @@ int QsciLexerPostScript_SuperMetacall(QsciLexerPostScript* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnMetacall(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_Metacall_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -181,9 +178,8 @@ void QsciLexerPostScript_SuperSetTokenize(QsciLexerPostScript* self, bool tokeni
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnSetTokenize(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_SetTokenize_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetTokenize_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -200,9 +196,8 @@ void QsciLexerPostScript_SuperSetLevel(QsciLexerPostScript* self, int level) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnSetLevel(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_SetLevel_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetLevel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -219,9 +214,8 @@ void QsciLexerPostScript_SuperSetFoldCompact(QsciLexerPostScript* self, bool fol
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnSetFoldCompact(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_SetFoldCompact_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetFoldCompact_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -238,9 +232,8 @@ void QsciLexerPostScript_SuperSetFoldAtElse(QsciLexerPostScript* self, bool fold
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnSetFoldAtElse(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_SetFoldAtElse_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetFoldAtElse_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -267,9 +260,8 @@ int QsciLexerPostScript_SuperLexerId(const QsciLexerPostScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnLexerId(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_LexerId_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_LexerId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -296,9 +288,8 @@ const char* QsciLexerPostScript_SuperAutoCompletionFillups(const QsciLexerPostSc
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnAutoCompletionFillups(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_AutoCompletionFillups_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -393,9 +384,8 @@ libqt_list /* of libqt_string */ QsciLexerPostScript_SuperAutoCompletionWordSepa
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnAutoCompletionWordSeparators(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_AutoCompletionWordSeparators_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_AutoCompletionWordSeparators_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -422,9 +412,8 @@ const char* QsciLexerPostScript_SuperBlockEnd(const QsciLexerPostScript* self, i
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnBlockEnd(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_BlockEnd_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_BlockEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -451,9 +440,8 @@ int QsciLexerPostScript_SuperBlockLookback(const QsciLexerPostScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnBlockLookback(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_BlockLookback_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -480,9 +468,8 @@ const char* QsciLexerPostScript_SuperBlockStart(const QsciLexerPostScript* self,
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnBlockStart(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_BlockStart_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_BlockStart_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -509,9 +496,8 @@ const char* QsciLexerPostScript_SuperBlockStartKeyword(const QsciLexerPostScript
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnBlockStartKeyword(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_BlockStartKeyword_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -538,9 +524,8 @@ bool QsciLexerPostScript_SuperCaseSensitive(const QsciLexerPostScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnCaseSensitive(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_CaseSensitive_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -567,9 +552,8 @@ QColor* QsciLexerPostScript_SuperColor(const QsciLexerPostScript* self, int styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnColor(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_Color_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -596,9 +580,8 @@ bool QsciLexerPostScript_SuperEolFill(const QsciLexerPostScript* self, int style
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnEolFill(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_EolFill_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_EolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -625,9 +608,8 @@ QFont* QsciLexerPostScript_SuperFont(const QsciLexerPostScript* self, int style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnFont(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_Font_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_Font_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -654,9 +636,8 @@ int QsciLexerPostScript_SuperIndentationGuideView(const QsciLexerPostScript* sel
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnIndentationGuideView(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_IndentationGuideView_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -683,9 +664,8 @@ int QsciLexerPostScript_SuperDefaultStyle(const QsciLexerPostScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnDefaultStyle(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_DefaultStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -712,9 +692,8 @@ QColor* QsciLexerPostScript_SuperPaper(const QsciLexerPostScript* self, int styl
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnPaper(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_Paper_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_Paper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -741,9 +720,8 @@ QColor* QsciLexerPostScript_SuperDefaultColor2(const QsciLexerPostScript* self, 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnDefaultColor2(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_DefaultColor2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -770,9 +748,8 @@ bool QsciLexerPostScript_SuperDefaultEolFill(const QsciLexerPostScript* self, in
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnDefaultEolFill(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_DefaultEolFill_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_DefaultEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -799,9 +776,8 @@ QFont* QsciLexerPostScript_SuperDefaultFont2(const QsciLexerPostScript* self, in
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnDefaultFont2(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_DefaultFont2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -828,9 +804,8 @@ QColor* QsciLexerPostScript_SuperDefaultPaper2(const QsciLexerPostScript* self, 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnDefaultPaper2(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_DefaultPaper2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -857,9 +832,8 @@ void QsciLexerPostScript_SuperSetEditor(QsciLexerPostScript* self, QsciScintilla
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnSetEditor(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -886,9 +860,8 @@ int QsciLexerPostScript_SuperStyleBitsNeeded(const QsciLexerPostScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnStyleBitsNeeded(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_StyleBitsNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -915,9 +888,8 @@ const char* QsciLexerPostScript_SuperWordCharacters(const QsciLexerPostScript* s
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnWordCharacters(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_WordCharacters_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -944,9 +916,8 @@ void QsciLexerPostScript_SuperSetAutoIndentStyle(QsciLexerPostScript* self, int 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnSetAutoIndentStyle(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetAutoIndentStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -973,9 +944,8 @@ void QsciLexerPostScript_SuperSetColor(QsciLexerPostScript* self, const QColor* 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnSetColor(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_SetColor_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1002,9 +972,8 @@ void QsciLexerPostScript_SuperSetEolFill(QsciLexerPostScript* self, bool eoffill
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnSetEolFill(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1031,9 +1000,8 @@ void QsciLexerPostScript_SuperSetFont(QsciLexerPostScript* self, const QFont* f,
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnSetFont(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_SetFont_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetFont_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1060,9 +1028,8 @@ void QsciLexerPostScript_SuperSetPaper(QsciLexerPostScript* self, const QColor* 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnSetPaper(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SetPaper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1091,9 +1058,8 @@ bool QsciLexerPostScript_SuperReadProperties(QsciLexerPostScript* self, QSetting
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnReadProperties(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_ReadProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1122,9 +1088,8 @@ bool QsciLexerPostScript_SuperWriteProperties(const QsciLexerPostScript* self, Q
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnWriteProperties(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_WriteProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1151,9 +1116,8 @@ bool QsciLexerPostScript_SuperEvent(QsciLexerPostScript* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnEvent(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_Event_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1180,9 +1144,8 @@ bool QsciLexerPostScript_SuperEventFilter(QsciLexerPostScript* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnEventFilter(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1209,9 +1172,8 @@ void QsciLexerPostScript_SuperTimerEvent(QsciLexerPostScript* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnTimerEvent(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1238,9 +1200,8 @@ void QsciLexerPostScript_SuperChildEvent(QsciLexerPostScript* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnChildEvent(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1267,9 +1228,8 @@ void QsciLexerPostScript_SuperCustomEvent(QsciLexerPostScript* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnCustomEvent(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1296,9 +1256,8 @@ void QsciLexerPostScript_SuperConnectNotify(QsciLexerPostScript* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnConnectNotify(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1325,9 +1284,8 @@ void QsciLexerPostScript_SuperDisconnectNotify(QsciLexerPostScript* self, const 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnDisconnectNotify(QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = dynamic_cast<VirtualQsciLexerPostScript*>(self);
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1376,9 +1334,8 @@ libqt_string QsciLexerPostScript_SuperTextAsBytes(const QsciLexerPostScript* sel
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnTextAsBytes(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_TextAsBytes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1437,9 +1394,8 @@ libqt_string QsciLexerPostScript_SuperBytesAsText(const QsciLexerPostScript* sel
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnBytesAsText(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_BytesAsText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1466,9 +1422,8 @@ QObject* QsciLexerPostScript_SuperSender(const QsciLexerPostScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnSender(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_Sender_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1495,9 +1450,8 @@ int QsciLexerPostScript_SuperSenderSignalIndex(const QsciLexerPostScript* self) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnSenderSignalIndex(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1524,9 +1478,8 @@ int QsciLexerPostScript_SuperReceivers(const QsciLexerPostScript* self, const ch
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnReceivers(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_Receivers_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1553,9 +1506,8 @@ bool QsciLexerPostScript_SuperIsSignalConnected(const QsciLexerPostScript* self,
 // Auxiliary method to allow providing re-implementation
 void QsciLexerPostScript_OnIsSignalConnected(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
-    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
+    if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript)
         vqscilexerpostscript->setQsciLexerPostScript_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QsciLexerPostScript_Delete(QsciLexerPostScript* self) {

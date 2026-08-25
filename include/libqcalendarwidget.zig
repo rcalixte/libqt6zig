@@ -1696,6 +1696,31 @@ pub const QCalendarWidget = extern struct {
         return _ret;
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCalendarWidget `
+    ///
+    pub fn asQPaintDevice(self: QCalendarWidget) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QCalendarWidget object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QCalendarWidget {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -7680,7 +7705,7 @@ pub const QCalendarWidget = extern struct {
     /// ` self: QCalendarWidget `
     ///
     pub fn paintingActive(self: QCalendarWidget) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -7696,7 +7721,7 @@ pub const QCalendarWidget = extern struct {
     /// ` self: QCalendarWidget `
     ///
     pub fn widthMM(self: QCalendarWidget) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -7712,7 +7737,7 @@ pub const QCalendarWidget = extern struct {
     /// ` self: QCalendarWidget `
     ///
     pub fn heightMM(self: QCalendarWidget) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -7728,7 +7753,7 @@ pub const QCalendarWidget = extern struct {
     /// ` self: QCalendarWidget `
     ///
     pub fn logicalDpiX(self: QCalendarWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7744,7 +7769,7 @@ pub const QCalendarWidget = extern struct {
     /// ` self: QCalendarWidget `
     ///
     pub fn logicalDpiY(self: QCalendarWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7760,7 +7785,7 @@ pub const QCalendarWidget = extern struct {
     /// ` self: QCalendarWidget `
     ///
     pub fn physicalDpiX(self: QCalendarWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7776,7 +7801,7 @@ pub const QCalendarWidget = extern struct {
     /// ` self: QCalendarWidget `
     ///
     pub fn physicalDpiY(self: QCalendarWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7792,7 +7817,7 @@ pub const QCalendarWidget = extern struct {
     /// ` self: QCalendarWidget `
     ///
     pub fn devicePixelRatio(self: QCalendarWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7808,7 +7833,7 @@ pub const QCalendarWidget = extern struct {
     /// ` self: QCalendarWidget `
     ///
     pub fn devicePixelRatioF(self: QCalendarWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7824,7 +7849,7 @@ pub const QCalendarWidget = extern struct {
     /// ` self: QCalendarWidget `
     ///
     pub fn colorCount(self: QCalendarWidget) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7840,7 +7865,7 @@ pub const QCalendarWidget = extern struct {
     /// ` self: QCalendarWidget `
     ///
     pub fn depth(self: QCalendarWidget) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10954,19 +10979,19 @@ pub const QCalendarWidget = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendarwidget.html#public-types)
 pub const enums = struct {
-    pub const HorizontalHeaderFormat = enum(i32) {
+    pub const HorizontalHeaderFormat = enum {
         pub const NoHorizontalHeader: i32 = 0;
         pub const SingleLetterDayNames: i32 = 1;
         pub const ShortDayNames: i32 = 2;
         pub const LongDayNames: i32 = 3;
     };
 
-    pub const VerticalHeaderFormat = enum(i32) {
+    pub const VerticalHeaderFormat = enum {
         pub const NoVerticalHeader: i32 = 0;
         pub const ISOWeekNumbers: i32 = 1;
     };
 
-    pub const SelectionMode = enum(i32) {
+    pub const SelectionMode = enum {
         pub const NoSelection: i32 = 0;
         pub const SingleSelection: i32 = 1;
     };

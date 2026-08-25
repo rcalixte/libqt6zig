@@ -3220,19 +3220,19 @@ pub const KStartupInfoData = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kstartupinfo.html#public-types)
 pub const enums = struct {
-    pub const KStartupInfo = enum(i32) {
+    pub const KStartupInfo = enum {
         pub const CleanOnCantDetect: i32 = 1;
         pub const DisableKWinModule: i32 = 2;
         pub const AnnounceSilenceChanges: i32 = 4;
     };
 
-    pub const startup_t = enum(i32) {
+    pub const startup_t = enum {
         pub const NoMatch: i32 = 0;
         pub const Match: i32 = 1;
         pub const CantDetect: i32 = 2;
     };
 
-    pub const TriState = enum(i32) {
+    pub const TriState = enum {
         pub const Yes: i32 = 0;
         pub const No: i32 = 1;
         pub const Unknown: i32 = 2;

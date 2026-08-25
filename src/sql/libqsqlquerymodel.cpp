@@ -170,9 +170,8 @@ QMetaObject* QSqlQueryModel_SuperMetaObject(const QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnMetaObject(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_MetaObject_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -189,9 +188,8 @@ void* QSqlQueryModel_SuperMetacast(QSqlQueryModel* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnMetacast(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_Metacast_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -208,9 +206,8 @@ int QSqlQueryModel_SuperMetacall(QSqlQueryModel* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnMetacall(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_Metacall_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -227,9 +224,8 @@ int QSqlQueryModel_SuperRowCount(const QSqlQueryModel* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnRowCount(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_RowCount_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_RowCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -246,9 +242,8 @@ int QSqlQueryModel_SuperColumnCount(const QSqlQueryModel* self, const QModelInde
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnColumnCount(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_ColumnCount_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_ColumnCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -265,9 +260,8 @@ QVariant* QSqlQueryModel_SuperData(const QSqlQueryModel* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnData(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_Data_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -284,9 +278,8 @@ QVariant* QSqlQueryModel_SuperHeaderData(const QSqlQueryModel* self, int section
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnHeaderData(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_HeaderData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -303,9 +296,8 @@ bool QSqlQueryModel_SuperSetHeaderData(QSqlQueryModel* self, int section, int or
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnSetHeaderData(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_SetHeaderData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -322,9 +314,8 @@ bool QSqlQueryModel_SuperInsertColumns(QSqlQueryModel* self, int column, int cou
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnInsertColumns(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_InsertColumns_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -341,9 +332,8 @@ bool QSqlQueryModel_SuperRemoveColumns(QSqlQueryModel* self, int column, int cou
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnRemoveColumns(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_RemoveColumns_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -360,9 +350,8 @@ void QSqlQueryModel_SuperClear(QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnClear(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_Clear_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Clear_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -379,9 +368,8 @@ void QSqlQueryModel_SuperFetchMore(QSqlQueryModel* self, const QModelIndex* pare
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnFetchMore(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_FetchMore_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -398,9 +386,8 @@ bool QSqlQueryModel_SuperCanFetchMore(const QSqlQueryModel* self, const QModelIn
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnCanFetchMore(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_CanFetchMore_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -455,9 +442,8 @@ libqt_map /* of int to libqt_string */ QSqlQueryModel_SuperRoleNames(const QSqlQ
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnRoleNames(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_RoleNames_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -474,9 +460,8 @@ void QSqlQueryModel_SuperQueryChange(QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnQueryChange(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_QueryChange_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_QueryChange_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -492,9 +477,8 @@ QModelIndex* QSqlQueryModel_SuperIndexInQuery(const QSqlQueryModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnIndexInQuery(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_IndexInQuery_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_IndexInQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -521,9 +505,8 @@ QModelIndex* QSqlQueryModel_SuperIndex(const QSqlQueryModel* self, int row, int 
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnIndex(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_Index_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Index_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -550,9 +533,8 @@ QModelIndex* QSqlQueryModel_SuperSibling(const QSqlQueryModel* self, int row, in
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnSibling(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_Sibling_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -579,9 +561,8 @@ bool QSqlQueryModel_SuperDropMimeData(QSqlQueryModel* self, const QMimeData* dat
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnDropMimeData(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_DropMimeData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -608,9 +589,8 @@ int QSqlQueryModel_SuperFlags(const QSqlQueryModel* self, const QModelIndex* ind
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnFlags(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_Flags_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Flags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -637,9 +617,8 @@ bool QSqlQueryModel_SuperSetData(QSqlQueryModel* self, const QModelIndex* index,
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnSetData(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_SetData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -722,9 +701,8 @@ libqt_map /* of int to QVariant* */ QSqlQueryModel_SuperItemData(const QSqlQuery
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnItemData(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_ItemData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -763,9 +741,8 @@ bool QSqlQueryModel_SuperSetItemData(QSqlQueryModel* self, const QModelIndex* in
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnSetItemData(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_SetItemData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -792,9 +769,8 @@ bool QSqlQueryModel_SuperClearItemData(QSqlQueryModel* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnClearItemData(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_ClearItemData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -889,9 +865,8 @@ libqt_list /* of libqt_string */ QSqlQueryModel_SuperMimeTypes(const QSqlQueryMo
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnMimeTypes(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_MimeTypes_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -930,9 +905,8 @@ QMimeData* QSqlQueryModel_SuperMimeData(const QSqlQueryModel* self, const libqt_
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnMimeData(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_MimeData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -959,9 +933,8 @@ bool QSqlQueryModel_SuperCanDropMimeData(const QSqlQueryModel* self, const QMime
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnCanDropMimeData(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_CanDropMimeData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -988,9 +961,8 @@ int QSqlQueryModel_SuperSupportedDropActions(const QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnSupportedDropActions(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_SupportedDropActions_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1017,9 +989,8 @@ int QSqlQueryModel_SuperSupportedDragActions(const QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnSupportedDragActions(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_SupportedDragActions_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1046,9 +1017,8 @@ bool QSqlQueryModel_SuperInsertRows(QSqlQueryModel* self, int row, int count, co
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnInsertRows(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_InsertRows_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1075,9 +1045,8 @@ bool QSqlQueryModel_SuperRemoveRows(QSqlQueryModel* self, int row, int count, co
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnRemoveRows(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_RemoveRows_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1104,9 +1073,8 @@ bool QSqlQueryModel_SuperMoveRows(QSqlQueryModel* self, const QModelIndex* sourc
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnMoveRows(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_MoveRows_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1133,9 +1101,8 @@ bool QSqlQueryModel_SuperMoveColumns(QSqlQueryModel* self, const QModelIndex* so
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnMoveColumns(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_MoveColumns_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1162,9 +1129,8 @@ void QSqlQueryModel_SuperSort(QSqlQueryModel* self, int column, int order) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnSort(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_Sort_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1191,9 +1157,8 @@ QModelIndex* QSqlQueryModel_SuperBuddy(const QSqlQueryModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnBuddy(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_Buddy_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1256,9 +1221,8 @@ libqt_list /* of QModelIndex* */ QSqlQueryModel_SuperMatch(const QSqlQueryModel*
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnMatch(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_Match_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1285,9 +1249,8 @@ QSize* QSqlQueryModel_SuperSpan(const QSqlQueryModel* self, const QModelIndex* i
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnSpan(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_Span_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1314,9 +1277,8 @@ void QSqlQueryModel_SuperMultiData(const QSqlQueryModel* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnMultiData(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_MultiData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1343,9 +1305,8 @@ bool QSqlQueryModel_SuperSubmit(QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnSubmit(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_Submit_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1372,9 +1333,8 @@ void QSqlQueryModel_SuperRevert(QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnRevert(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_Revert_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1401,9 +1361,8 @@ void QSqlQueryModel_SuperResetInternalData(QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnResetInternalData(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_ResetInternalData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1430,9 +1389,8 @@ bool QSqlQueryModel_SuperEvent(QSqlQueryModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnEvent(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_Event_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1459,9 +1417,8 @@ bool QSqlQueryModel_SuperEventFilter(QSqlQueryModel* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnEventFilter(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_EventFilter_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1488,9 +1445,8 @@ void QSqlQueryModel_SuperTimerEvent(QSqlQueryModel* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnTimerEvent(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_TimerEvent_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1517,9 +1473,8 @@ void QSqlQueryModel_SuperChildEvent(QSqlQueryModel* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnChildEvent(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_ChildEvent_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1546,9 +1501,8 @@ void QSqlQueryModel_SuperCustomEvent(QSqlQueryModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnCustomEvent(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_CustomEvent_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1575,9 +1529,8 @@ void QSqlQueryModel_SuperConnectNotify(QSqlQueryModel* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnConnectNotify(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_ConnectNotify_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1604,9 +1557,8 @@ void QSqlQueryModel_SuperDisconnectNotify(QSqlQueryModel* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnDisconnectNotify(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_DisconnectNotify_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1633,9 +1585,8 @@ void QSqlQueryModel_SuperBeginInsertRows(QSqlQueryModel* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnBeginInsertRows(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_BeginInsertRows_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1662,9 +1613,8 @@ void QSqlQueryModel_SuperEndInsertRows(QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnEndInsertRows(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_EndInsertRows_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1691,9 +1641,8 @@ void QSqlQueryModel_SuperBeginRemoveRows(QSqlQueryModel* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnBeginRemoveRows(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1720,9 +1669,8 @@ void QSqlQueryModel_SuperEndRemoveRows(QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnEndRemoveRows(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_EndRemoveRows_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1749,9 +1697,8 @@ void QSqlQueryModel_SuperBeginInsertColumns(QSqlQueryModel* self, const QModelIn
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnBeginInsertColumns(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1778,9 +1725,8 @@ void QSqlQueryModel_SuperEndInsertColumns(QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnEndInsertColumns(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_EndInsertColumns_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1807,9 +1753,8 @@ void QSqlQueryModel_SuperBeginRemoveColumns(QSqlQueryModel* self, const QModelIn
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnBeginRemoveColumns(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1836,9 +1781,8 @@ void QSqlQueryModel_SuperEndRemoveColumns(QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnEndRemoveColumns(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1865,9 +1809,8 @@ void QSqlQueryModel_SuperBeginResetModel(QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnBeginResetModel(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_BeginResetModel_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1894,9 +1837,8 @@ void QSqlQueryModel_SuperEndResetModel(QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnEndResetModel(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_EndResetModel_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1923,9 +1865,8 @@ void QSqlQueryModel_SuperSetLastError(QSqlQueryModel* self, const QSqlError* err
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnSetLastError(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_SetLastError_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_SetLastError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1950,9 +1891,8 @@ QModelIndex* QSqlQueryModel_SuperCreateIndex(const QSqlQueryModel* self, int row
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnCreateIndex(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_CreateIndex_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1991,9 +1931,8 @@ void QSqlQueryModel_SuperEncodeData(const QSqlQueryModel* self, const libqt_list
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnEncodeData(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_EncodeData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2020,9 +1959,8 @@ bool QSqlQueryModel_SuperDecodeData(QSqlQueryModel* self, int row, int column, c
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnDecodeData(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_DecodeData_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2049,9 +1987,8 @@ bool QSqlQueryModel_SuperBeginMoveRows(QSqlQueryModel* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnBeginMoveRows(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_BeginMoveRows_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2078,9 +2015,8 @@ void QSqlQueryModel_SuperEndMoveRows(QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnEndMoveRows(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_EndMoveRows_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2107,9 +2043,8 @@ bool QSqlQueryModel_SuperBeginMoveColumns(QSqlQueryModel* self, const QModelInde
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnBeginMoveColumns(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2136,9 +2071,8 @@ void QSqlQueryModel_SuperEndMoveColumns(QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnEndMoveColumns(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_EndMoveColumns_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2165,9 +2099,8 @@ void QSqlQueryModel_SuperChangePersistentIndex(QSqlQueryModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnChangePersistentIndex(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2218,9 +2151,8 @@ void QSqlQueryModel_SuperChangePersistentIndexList(QSqlQueryModel* self, const l
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnChangePersistentIndexList(QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2283,9 +2215,8 @@ libqt_list /* of QModelIndex* */ QSqlQueryModel_SuperPersistentIndexList(const Q
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnPersistentIndexList(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_PersistentIndexList_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2312,9 +2243,8 @@ QObject* QSqlQueryModel_SuperSender(const QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnSender(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_Sender_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2341,9 +2271,8 @@ int QSqlQueryModel_SuperSenderSignalIndex(const QSqlQueryModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnSenderSignalIndex(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2370,9 +2299,8 @@ int QSqlQueryModel_SuperReceivers(const QSqlQueryModel* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnReceivers(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_Receivers_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2399,9 +2327,8 @@ bool QSqlQueryModel_SuperIsSignalConnected(const QSqlQueryModel* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QSqlQueryModel_OnIsSignalConnected(const QSqlQueryModel* self, intptr_t slot) {
     auto* vqsqlquerymodel = const_cast<VirtualQSqlQueryModel*>(dynamic_cast<const VirtualQSqlQueryModel*>(self));
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
+    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel)
         vqsqlquerymodel->setQSqlQueryModel_IsSignalConnected_Callback(reinterpret_cast<VirtualQSqlQueryModel::QSqlQueryModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QSqlQueryModel_Delete(QSqlQueryModel* self) {

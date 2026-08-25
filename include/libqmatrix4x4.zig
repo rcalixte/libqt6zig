@@ -1307,7 +1307,7 @@ pub const QMatrix4x4 = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#public-types)
 pub const enums = struct {
-    pub const Flag = enum(i32) {
+    pub const Flag = enum {
         pub const Identity: i32 = 0;
         pub const Translation: i32 = 1;
         pub const Scale: i32 = 2;

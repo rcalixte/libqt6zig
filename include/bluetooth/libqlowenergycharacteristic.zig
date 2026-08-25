@@ -215,7 +215,7 @@ pub const QLowEnergyCharacteristic = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergycharacteristic.html#public-types)
 pub const enums = struct {
-    pub const PropertyType = enum(i32) {
+    pub const PropertyType = enum {
         pub const Unknown: i32 = 0;
         pub const Broadcasting: i32 = 1;
         pub const Read: i32 = 2;

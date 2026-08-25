@@ -4660,7 +4660,7 @@ pub const QsciLexerPostScript = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerPostScript = enum(i32) {
+    pub const QsciLexerPostScript = enum {
         pub const Default: i32 = 0;
         pub const Comment: i32 = 1;
         pub const DSCComment: i32 = 2;

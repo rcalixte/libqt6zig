@@ -752,6 +752,31 @@ pub const QDesignerPropertyEditorInterface = extern struct {
         return _ret;
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDesignerPropertyEditorInterface `
+    ///
+    pub fn asQPaintDevice(self: QDesignerPropertyEditorInterface) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QDesignerPropertyEditorInterface object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QDesignerPropertyEditorInterface {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6736,7 +6761,7 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     /// ` self: QDesignerPropertyEditorInterface `
     ///
     pub fn paintingActive(self: QDesignerPropertyEditorInterface) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6752,7 +6777,7 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     /// ` self: QDesignerPropertyEditorInterface `
     ///
     pub fn widthMM(self: QDesignerPropertyEditorInterface) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6768,7 +6793,7 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     /// ` self: QDesignerPropertyEditorInterface `
     ///
     pub fn heightMM(self: QDesignerPropertyEditorInterface) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6784,7 +6809,7 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     /// ` self: QDesignerPropertyEditorInterface `
     ///
     pub fn logicalDpiX(self: QDesignerPropertyEditorInterface) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6800,7 +6825,7 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     /// ` self: QDesignerPropertyEditorInterface `
     ///
     pub fn logicalDpiY(self: QDesignerPropertyEditorInterface) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6816,7 +6841,7 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     /// ` self: QDesignerPropertyEditorInterface `
     ///
     pub fn physicalDpiX(self: QDesignerPropertyEditorInterface) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6832,7 +6857,7 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     /// ` self: QDesignerPropertyEditorInterface `
     ///
     pub fn physicalDpiY(self: QDesignerPropertyEditorInterface) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -6848,7 +6873,7 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     /// ` self: QDesignerPropertyEditorInterface `
     ///
     pub fn devicePixelRatio(self: QDesignerPropertyEditorInterface) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -6864,7 +6889,7 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     /// ` self: QDesignerPropertyEditorInterface `
     ///
     pub fn devicePixelRatioF(self: QDesignerPropertyEditorInterface) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -6880,7 +6905,7 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     /// ` self: QDesignerPropertyEditorInterface `
     ///
     pub fn colorCount(self: QDesignerPropertyEditorInterface) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -6896,7 +6921,7 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     /// ` self: QDesignerPropertyEditorInterface `
     ///
     pub fn depth(self: QDesignerPropertyEditorInterface) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

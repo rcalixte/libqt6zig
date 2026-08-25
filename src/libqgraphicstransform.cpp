@@ -52,9 +52,8 @@ QMetaObject* QGraphicsTransform_SuperMetaObject(const QGraphicsTransform* self) 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsTransform_OnMetaObject(const QGraphicsTransform* self, intptr_t slot) {
     auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform)
         vqgraphicstransform->setQGraphicsTransform_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -71,9 +70,8 @@ void* QGraphicsTransform_SuperMetacast(QGraphicsTransform* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void QGraphicsTransform_OnMetacast(QGraphicsTransform* self, intptr_t slot) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform)
         vqgraphicstransform->setQGraphicsTransform_Metacast_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -90,9 +88,8 @@ int QGraphicsTransform_SuperMetacall(QGraphicsTransform* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void QGraphicsTransform_OnMetacall(QGraphicsTransform* self, intptr_t slot) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform)
         vqgraphicstransform->setQGraphicsTransform_Metacall_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -109,9 +106,8 @@ void QGraphicsTransform_SuperApplyTo(const QGraphicsTransform* self, QMatrix4x4*
 // Auxiliary method to allow providing re-implementation
 void QGraphicsTransform_OnApplyTo(const QGraphicsTransform* self, intptr_t slot) {
     auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform)
         vqgraphicstransform->setQGraphicsTransform_ApplyTo_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_ApplyTo_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -138,9 +134,8 @@ bool QGraphicsTransform_SuperEvent(QGraphicsTransform* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsTransform_OnEvent(QGraphicsTransform* self, intptr_t slot) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform)
         vqgraphicstransform->setQGraphicsTransform_Event_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -167,9 +162,8 @@ bool QGraphicsTransform_SuperEventFilter(QGraphicsTransform* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void QGraphicsTransform_OnEventFilter(QGraphicsTransform* self, intptr_t slot) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform)
         vqgraphicstransform->setQGraphicsTransform_EventFilter_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -196,9 +190,8 @@ void QGraphicsTransform_SuperTimerEvent(QGraphicsTransform* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void QGraphicsTransform_OnTimerEvent(QGraphicsTransform* self, intptr_t slot) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform)
         vqgraphicstransform->setQGraphicsTransform_TimerEvent_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -225,9 +218,8 @@ void QGraphicsTransform_SuperChildEvent(QGraphicsTransform* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void QGraphicsTransform_OnChildEvent(QGraphicsTransform* self, intptr_t slot) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform)
         vqgraphicstransform->setQGraphicsTransform_ChildEvent_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -254,9 +246,8 @@ void QGraphicsTransform_SuperCustomEvent(QGraphicsTransform* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QGraphicsTransform_OnCustomEvent(QGraphicsTransform* self, intptr_t slot) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform)
         vqgraphicstransform->setQGraphicsTransform_CustomEvent_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -283,9 +274,8 @@ void QGraphicsTransform_SuperConnectNotify(QGraphicsTransform* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QGraphicsTransform_OnConnectNotify(QGraphicsTransform* self, intptr_t slot) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform)
         vqgraphicstransform->setQGraphicsTransform_ConnectNotify_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -312,9 +302,8 @@ void QGraphicsTransform_SuperDisconnectNotify(QGraphicsTransform* self, const QM
 // Auxiliary method to allow providing re-implementation
 void QGraphicsTransform_OnDisconnectNotify(QGraphicsTransform* self, intptr_t slot) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform)
         vqgraphicstransform->setQGraphicsTransform_DisconnectNotify_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -341,9 +330,8 @@ void QGraphicsTransform_SuperUpdate(QGraphicsTransform* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsTransform_OnUpdate(QGraphicsTransform* self, intptr_t slot) {
     auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform)
         vqgraphicstransform->setQGraphicsTransform_Update_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_Update_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -370,9 +358,8 @@ QObject* QGraphicsTransform_SuperSender(const QGraphicsTransform* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsTransform_OnSender(const QGraphicsTransform* self, intptr_t slot) {
     auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform)
         vqgraphicstransform->setQGraphicsTransform_Sender_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -399,9 +386,8 @@ int QGraphicsTransform_SuperSenderSignalIndex(const QGraphicsTransform* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsTransform_OnSenderSignalIndex(const QGraphicsTransform* self, intptr_t slot) {
     auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform)
         vqgraphicstransform->setQGraphicsTransform_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -428,9 +414,8 @@ int QGraphicsTransform_SuperReceivers(const QGraphicsTransform* self, const char
 // Auxiliary method to allow providing re-implementation
 void QGraphicsTransform_OnReceivers(const QGraphicsTransform* self, intptr_t slot) {
     auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform)
         vqgraphicstransform->setQGraphicsTransform_Receivers_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -457,9 +442,8 @@ bool QGraphicsTransform_SuperIsSignalConnected(const QGraphicsTransform* self, c
 // Auxiliary method to allow providing re-implementation
 void QGraphicsTransform_OnIsSignalConnected(const QGraphicsTransform* self, intptr_t slot) {
     auto* vqgraphicstransform = const_cast<VirtualQGraphicsTransform*>(dynamic_cast<const VirtualQGraphicsTransform*>(self));
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
+    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform)
         vqgraphicstransform->setQGraphicsTransform_IsSignalConnected_Callback(reinterpret_cast<VirtualQGraphicsTransform::QGraphicsTransform_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGraphicsTransform_Delete(QGraphicsTransform* self) {
@@ -591,9 +575,8 @@ QMetaObject* QGraphicsScale_SuperMetaObject(const QGraphicsScale* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsScale_OnMetaObject(const QGraphicsScale* self, intptr_t slot) {
     auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale)
         vqgraphicsscale->setQGraphicsScale_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -610,9 +593,8 @@ void* QGraphicsScale_SuperMetacast(QGraphicsScale* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsScale_OnMetacast(QGraphicsScale* self, intptr_t slot) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale)
         vqgraphicsscale->setQGraphicsScale_Metacast_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -629,9 +611,8 @@ int QGraphicsScale_SuperMetacall(QGraphicsScale* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void QGraphicsScale_OnMetacall(QGraphicsScale* self, intptr_t slot) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale)
         vqgraphicsscale->setQGraphicsScale_Metacall_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -648,9 +629,8 @@ void QGraphicsScale_SuperApplyTo(const QGraphicsScale* self, QMatrix4x4* matrix)
 // Auxiliary method to allow providing re-implementation
 void QGraphicsScale_OnApplyTo(const QGraphicsScale* self, intptr_t slot) {
     auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale)
         vqgraphicsscale->setQGraphicsScale_ApplyTo_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_ApplyTo_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -677,9 +657,8 @@ bool QGraphicsScale_SuperEvent(QGraphicsScale* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsScale_OnEvent(QGraphicsScale* self, intptr_t slot) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale)
         vqgraphicsscale->setQGraphicsScale_Event_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +685,8 @@ bool QGraphicsScale_SuperEventFilter(QGraphicsScale* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void QGraphicsScale_OnEventFilter(QGraphicsScale* self, intptr_t slot) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale)
         vqgraphicsscale->setQGraphicsScale_EventFilter_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -735,9 +713,8 @@ void QGraphicsScale_SuperTimerEvent(QGraphicsScale* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsScale_OnTimerEvent(QGraphicsScale* self, intptr_t slot) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale)
         vqgraphicsscale->setQGraphicsScale_TimerEvent_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -764,9 +741,8 @@ void QGraphicsScale_SuperChildEvent(QGraphicsScale* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsScale_OnChildEvent(QGraphicsScale* self, intptr_t slot) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale)
         vqgraphicsscale->setQGraphicsScale_ChildEvent_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -793,9 +769,8 @@ void QGraphicsScale_SuperCustomEvent(QGraphicsScale* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsScale_OnCustomEvent(QGraphicsScale* self, intptr_t slot) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale)
         vqgraphicsscale->setQGraphicsScale_CustomEvent_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -822,9 +797,8 @@ void QGraphicsScale_SuperConnectNotify(QGraphicsScale* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsScale_OnConnectNotify(QGraphicsScale* self, intptr_t slot) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale)
         vqgraphicsscale->setQGraphicsScale_ConnectNotify_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -851,9 +825,8 @@ void QGraphicsScale_SuperDisconnectNotify(QGraphicsScale* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void QGraphicsScale_OnDisconnectNotify(QGraphicsScale* self, intptr_t slot) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale)
         vqgraphicsscale->setQGraphicsScale_DisconnectNotify_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -880,9 +853,8 @@ void QGraphicsScale_SuperUpdate(QGraphicsScale* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsScale_OnUpdate(QGraphicsScale* self, intptr_t slot) {
     auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale)
         vqgraphicsscale->setQGraphicsScale_Update_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_Update_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -909,9 +881,8 @@ QObject* QGraphicsScale_SuperSender(const QGraphicsScale* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsScale_OnSender(const QGraphicsScale* self, intptr_t slot) {
     auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale)
         vqgraphicsscale->setQGraphicsScale_Sender_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -938,9 +909,8 @@ int QGraphicsScale_SuperSenderSignalIndex(const QGraphicsScale* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsScale_OnSenderSignalIndex(const QGraphicsScale* self, intptr_t slot) {
     auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale)
         vqgraphicsscale->setQGraphicsScale_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -967,9 +937,8 @@ int QGraphicsScale_SuperReceivers(const QGraphicsScale* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void QGraphicsScale_OnReceivers(const QGraphicsScale* self, intptr_t slot) {
     auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale)
         vqgraphicsscale->setQGraphicsScale_Receivers_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -996,9 +965,8 @@ bool QGraphicsScale_SuperIsSignalConnected(const QGraphicsScale* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QGraphicsScale_OnIsSignalConnected(const QGraphicsScale* self, intptr_t slot) {
     auto* vqgraphicsscale = const_cast<VirtualQGraphicsScale*>(dynamic_cast<const VirtualQGraphicsScale*>(self));
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
+    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale)
         vqgraphicsscale->setQGraphicsScale_IsSignalConnected_Callback(reinterpret_cast<VirtualQGraphicsScale::QGraphicsScale_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGraphicsScale_Delete(QGraphicsScale* self) {
@@ -1104,9 +1072,8 @@ QMetaObject* QGraphicsRotation_SuperMetaObject(const QGraphicsRotation* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsRotation_OnMetaObject(const QGraphicsRotation* self, intptr_t slot) {
     auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation)
         vqgraphicsrotation->setQGraphicsRotation_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1123,9 +1090,8 @@ void* QGraphicsRotation_SuperMetacast(QGraphicsRotation* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void QGraphicsRotation_OnMetacast(QGraphicsRotation* self, intptr_t slot) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation)
         vqgraphicsrotation->setQGraphicsRotation_Metacast_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1142,9 +1108,8 @@ int QGraphicsRotation_SuperMetacall(QGraphicsRotation* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void QGraphicsRotation_OnMetacall(QGraphicsRotation* self, intptr_t slot) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation)
         vqgraphicsrotation->setQGraphicsRotation_Metacall_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1161,9 +1126,8 @@ void QGraphicsRotation_SuperApplyTo(const QGraphicsRotation* self, QMatrix4x4* m
 // Auxiliary method to allow providing re-implementation
 void QGraphicsRotation_OnApplyTo(const QGraphicsRotation* self, intptr_t slot) {
     auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation)
         vqgraphicsrotation->setQGraphicsRotation_ApplyTo_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_ApplyTo_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1190,9 +1154,8 @@ bool QGraphicsRotation_SuperEvent(QGraphicsRotation* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsRotation_OnEvent(QGraphicsRotation* self, intptr_t slot) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation)
         vqgraphicsrotation->setQGraphicsRotation_Event_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1219,9 +1182,8 @@ bool QGraphicsRotation_SuperEventFilter(QGraphicsRotation* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void QGraphicsRotation_OnEventFilter(QGraphicsRotation* self, intptr_t slot) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation)
         vqgraphicsrotation->setQGraphicsRotation_EventFilter_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1248,9 +1210,8 @@ void QGraphicsRotation_SuperTimerEvent(QGraphicsRotation* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QGraphicsRotation_OnTimerEvent(QGraphicsRotation* self, intptr_t slot) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation)
         vqgraphicsrotation->setQGraphicsRotation_TimerEvent_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1277,9 +1238,8 @@ void QGraphicsRotation_SuperChildEvent(QGraphicsRotation* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QGraphicsRotation_OnChildEvent(QGraphicsRotation* self, intptr_t slot) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation)
         vqgraphicsrotation->setQGraphicsRotation_ChildEvent_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1306,9 +1266,8 @@ void QGraphicsRotation_SuperCustomEvent(QGraphicsRotation* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsRotation_OnCustomEvent(QGraphicsRotation* self, intptr_t slot) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation)
         vqgraphicsrotation->setQGraphicsRotation_CustomEvent_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1335,9 +1294,8 @@ void QGraphicsRotation_SuperConnectNotify(QGraphicsRotation* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QGraphicsRotation_OnConnectNotify(QGraphicsRotation* self, intptr_t slot) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation)
         vqgraphicsrotation->setQGraphicsRotation_ConnectNotify_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1364,9 +1322,8 @@ void QGraphicsRotation_SuperDisconnectNotify(QGraphicsRotation* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void QGraphicsRotation_OnDisconnectNotify(QGraphicsRotation* self, intptr_t slot) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation)
         vqgraphicsrotation->setQGraphicsRotation_DisconnectNotify_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1393,9 +1350,8 @@ void QGraphicsRotation_SuperUpdate(QGraphicsRotation* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsRotation_OnUpdate(QGraphicsRotation* self, intptr_t slot) {
     auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation)
         vqgraphicsrotation->setQGraphicsRotation_Update_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_Update_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1422,9 +1378,8 @@ QObject* QGraphicsRotation_SuperSender(const QGraphicsRotation* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsRotation_OnSender(const QGraphicsRotation* self, intptr_t slot) {
     auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation)
         vqgraphicsrotation->setQGraphicsRotation_Sender_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1451,9 +1406,8 @@ int QGraphicsRotation_SuperSenderSignalIndex(const QGraphicsRotation* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsRotation_OnSenderSignalIndex(const QGraphicsRotation* self, intptr_t slot) {
     auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation)
         vqgraphicsrotation->setQGraphicsRotation_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1480,9 +1434,8 @@ int QGraphicsRotation_SuperReceivers(const QGraphicsRotation* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsRotation_OnReceivers(const QGraphicsRotation* self, intptr_t slot) {
     auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation)
         vqgraphicsrotation->setQGraphicsRotation_Receivers_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1509,9 +1462,8 @@ bool QGraphicsRotation_SuperIsSignalConnected(const QGraphicsRotation* self, con
 // Auxiliary method to allow providing re-implementation
 void QGraphicsRotation_OnIsSignalConnected(const QGraphicsRotation* self, intptr_t slot) {
     auto* vqgraphicsrotation = const_cast<VirtualQGraphicsRotation*>(dynamic_cast<const VirtualQGraphicsRotation*>(self));
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
+    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation)
         vqgraphicsrotation->setQGraphicsRotation_IsSignalConnected_Callback(reinterpret_cast<VirtualQGraphicsRotation::QGraphicsRotation_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGraphicsRotation_Delete(QGraphicsRotation* self) {

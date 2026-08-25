@@ -2,6 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const KConfig = @import("libqt6").KConfig;
 const KConfigGroup = @import("libqt6").KConfigGroup;
+const QSharedData = @import("libqt6").QSharedData;
 const kconfig_enums = @import("libkconfig.zig").enums;
 const kconfigbase_enums = @import("libkconfigbase.zig").enums;
 const qstandardpaths_enums = @import("../libqstandardpaths.zig").enums;
@@ -20,6 +21,16 @@ pub const KSharedConfig = extern struct {
     pub const _is_KConfig = {};
     pub const _is_KConfigBase = {};
     pub const _is_QSharedData = {};
+
+    /// Upcasts to a QSharedData object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSharedConfig `
+    ///
+    pub fn asQSharedData(self: KSharedConfig) QSharedData {
+        return .{ .ptr = qtc.KSharedConfig_AsQSharedData(@ptrCast(self.ptr)) };
+    }
 
     /// ### DEPRECATED: Use `locationType` instead
     ///
@@ -713,5 +724,21 @@ pub const KSharedConfig = extern struct {
             .data = _group.ptr,
         };
         qtc.KConfigBase_DeleteGroup2(@ptrCast(self.ptr), group_str, @bitCast(flags));
+    }
+
+    /// ### DEPRECATED: Use `delete` instead
+    ///
+    pub const Delete = delete;
+
+    /// ### [Upstream resources](https://api.kde.org/ksharedconfig.html#dtor.KSharedConfig)
+    ///
+    /// Delete this object from C++ memory
+    ///
+    /// ## Parameter:
+    ///
+    /// ` self: KSharedConfig `
+    ///
+    pub fn delete(self: KSharedConfig) void {
+        qtc.KSharedConfig_Delete(@ptrCast(self.ptr));
     }
 };

@@ -177,9 +177,8 @@ QMetaObject* QsciLexerCoffeeScript_SuperMetaObject(const QsciLexerCoffeeScript* 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnMetaObject(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -196,9 +195,8 @@ void* QsciLexerCoffeeScript_SuperMetacast(QsciLexerCoffeeScript* self, const cha
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnMetacast(QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_Metacast_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -215,9 +213,8 @@ int QsciLexerCoffeeScript_SuperMetacall(QsciLexerCoffeeScript* self, int param1,
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnMetacall(QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_Metacall_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -244,9 +241,8 @@ int QsciLexerCoffeeScript_SuperLexerId(const QsciLexerCoffeeScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnLexerId(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_LexerId_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_LexerId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -273,9 +269,8 @@ const char* QsciLexerCoffeeScript_SuperAutoCompletionFillups(const QsciLexerCoff
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnAutoCompletionFillups(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_AutoCompletionFillups_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -302,9 +297,8 @@ int QsciLexerCoffeeScript_SuperBlockLookback(const QsciLexerCoffeeScript* self) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnBlockLookback(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_BlockLookback_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -331,9 +325,8 @@ bool QsciLexerCoffeeScript_SuperCaseSensitive(const QsciLexerCoffeeScript* self)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnCaseSensitive(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_CaseSensitive_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -360,9 +353,8 @@ QColor* QsciLexerCoffeeScript_SuperColor(const QsciLexerCoffeeScript* self, int 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnColor(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_Color_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -389,9 +381,8 @@ bool QsciLexerCoffeeScript_SuperEolFill(const QsciLexerCoffeeScript* self, int s
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnEolFill(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_EolFill_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_EolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -418,9 +409,8 @@ QFont* QsciLexerCoffeeScript_SuperFont(const QsciLexerCoffeeScript* self, int st
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnFont(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_Font_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_Font_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -447,9 +437,8 @@ int QsciLexerCoffeeScript_SuperIndentationGuideView(const QsciLexerCoffeeScript*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnIndentationGuideView(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_IndentationGuideView_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -476,9 +465,8 @@ int QsciLexerCoffeeScript_SuperDefaultStyle(const QsciLexerCoffeeScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnDefaultStyle(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_DefaultStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -505,9 +493,8 @@ QColor* QsciLexerCoffeeScript_SuperPaper(const QsciLexerCoffeeScript* self, int 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnPaper(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_Paper_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_Paper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -534,9 +521,8 @@ QColor* QsciLexerCoffeeScript_SuperDefaultColor2(const QsciLexerCoffeeScript* se
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnDefaultColor2(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_DefaultColor2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -563,9 +549,8 @@ QFont* QsciLexerCoffeeScript_SuperDefaultFont2(const QsciLexerCoffeeScript* self
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnDefaultFont2(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_DefaultFont2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -592,9 +577,8 @@ QColor* QsciLexerCoffeeScript_SuperDefaultPaper2(const QsciLexerCoffeeScript* se
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnDefaultPaper2(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_DefaultPaper2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -621,9 +605,8 @@ void QsciLexerCoffeeScript_SuperSetEditor(QsciLexerCoffeeScript* self, QsciScint
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnSetEditor(QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_SetEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -650,9 +633,8 @@ int QsciLexerCoffeeScript_SuperStyleBitsNeeded(const QsciLexerCoffeeScript* self
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnStyleBitsNeeded(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_StyleBitsNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -679,9 +661,8 @@ void QsciLexerCoffeeScript_SuperSetAutoIndentStyle(QsciLexerCoffeeScript* self, 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnSetAutoIndentStyle(QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_SetAutoIndentStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -708,9 +689,8 @@ void QsciLexerCoffeeScript_SuperSetColor(QsciLexerCoffeeScript* self, const QCol
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnSetColor(QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_SetColor_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_SetColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -737,9 +717,8 @@ void QsciLexerCoffeeScript_SuperSetEolFill(QsciLexerCoffeeScript* self, bool eof
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnSetEolFill(QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_SetEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -766,9 +745,8 @@ void QsciLexerCoffeeScript_SuperSetFont(QsciLexerCoffeeScript* self, const QFont
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnSetFont(QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_SetFont_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_SetFont_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -795,9 +773,8 @@ void QsciLexerCoffeeScript_SuperSetPaper(QsciLexerCoffeeScript* self, const QCol
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnSetPaper(QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_SetPaper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -826,9 +803,8 @@ bool QsciLexerCoffeeScript_SuperReadProperties(QsciLexerCoffeeScript* self, QSet
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnReadProperties(QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_ReadProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -857,9 +833,8 @@ bool QsciLexerCoffeeScript_SuperWriteProperties(const QsciLexerCoffeeScript* sel
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnWriteProperties(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_WriteProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -886,9 +861,8 @@ bool QsciLexerCoffeeScript_SuperEvent(QsciLexerCoffeeScript* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnEvent(QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_Event_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -915,9 +889,8 @@ bool QsciLexerCoffeeScript_SuperEventFilter(QsciLexerCoffeeScript* self, QObject
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnEventFilter(QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -944,9 +917,8 @@ void QsciLexerCoffeeScript_SuperTimerEvent(QsciLexerCoffeeScript* self, QTimerEv
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnTimerEvent(QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -973,9 +945,8 @@ void QsciLexerCoffeeScript_SuperChildEvent(QsciLexerCoffeeScript* self, QChildEv
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnChildEvent(QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1002,9 +973,8 @@ void QsciLexerCoffeeScript_SuperCustomEvent(QsciLexerCoffeeScript* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnCustomEvent(QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1031,9 +1001,8 @@ void QsciLexerCoffeeScript_SuperConnectNotify(QsciLexerCoffeeScript* self, const
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnConnectNotify(QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1060,9 +1029,8 @@ void QsciLexerCoffeeScript_SuperDisconnectNotify(QsciLexerCoffeeScript* self, co
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnDisconnectNotify(QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = dynamic_cast<VirtualQsciLexerCoffeeScript*>(self);
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1111,9 +1079,8 @@ libqt_string QsciLexerCoffeeScript_SuperTextAsBytes(const QsciLexerCoffeeScript*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnTextAsBytes(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_TextAsBytes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1172,9 +1139,8 @@ libqt_string QsciLexerCoffeeScript_SuperBytesAsText(const QsciLexerCoffeeScript*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnBytesAsText(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_BytesAsText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1201,9 +1167,8 @@ QObject* QsciLexerCoffeeScript_SuperSender(const QsciLexerCoffeeScript* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnSender(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_Sender_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1230,9 +1195,8 @@ int QsciLexerCoffeeScript_SuperSenderSignalIndex(const QsciLexerCoffeeScript* se
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnSenderSignalIndex(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1259,9 +1223,8 @@ int QsciLexerCoffeeScript_SuperReceivers(const QsciLexerCoffeeScript* self, cons
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnReceivers(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_Receivers_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1288,9 +1251,8 @@ bool QsciLexerCoffeeScript_SuperIsSignalConnected(const QsciLexerCoffeeScript* s
 // Auxiliary method to allow providing re-implementation
 void QsciLexerCoffeeScript_OnIsSignalConnected(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
-    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
+    if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript)
         vqscilexercoffeescript->setQsciLexerCoffeeScript_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QsciLexerCoffeeScript_Delete(QsciLexerCoffeeScript* self) {

@@ -100,9 +100,8 @@ QMetaObject* QSignalTransition_SuperMetaObject(const QSignalTransition* self) {
 // Auxiliary method to allow providing re-implementation
 void QSignalTransition_OnMetaObject(const QSignalTransition* self, intptr_t slot) {
     auto* vqsignaltransition = const_cast<VirtualQSignalTransition*>(dynamic_cast<const VirtualQSignalTransition*>(self));
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
+    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition)
         vqsignaltransition->setQSignalTransition_MetaObject_Callback(reinterpret_cast<VirtualQSignalTransition::QSignalTransition_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -119,9 +118,8 @@ void* QSignalTransition_SuperMetacast(QSignalTransition* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void QSignalTransition_OnMetacast(QSignalTransition* self, intptr_t slot) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
+    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition)
         vqsignaltransition->setQSignalTransition_Metacast_Callback(reinterpret_cast<VirtualQSignalTransition::QSignalTransition_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -138,9 +136,8 @@ int QSignalTransition_SuperMetacall(QSignalTransition* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void QSignalTransition_OnMetacall(QSignalTransition* self, intptr_t slot) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
+    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition)
         vqsignaltransition->setQSignalTransition_Metacall_Callback(reinterpret_cast<VirtualQSignalTransition::QSignalTransition_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -157,9 +154,8 @@ bool QSignalTransition_SuperEventTest(QSignalTransition* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSignalTransition_OnEventTest(QSignalTransition* self, intptr_t slot) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
+    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition)
         vqsignaltransition->setQSignalTransition_EventTest_Callback(reinterpret_cast<VirtualQSignalTransition::QSignalTransition_EventTest_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -176,9 +172,8 @@ void QSignalTransition_SuperOnTransition(QSignalTransition* self, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QSignalTransition_OnOnTransition(QSignalTransition* self, intptr_t slot) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
+    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition)
         vqsignaltransition->setQSignalTransition_OnTransition_Callback(reinterpret_cast<VirtualQSignalTransition::QSignalTransition_OnTransition_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -195,9 +190,8 @@ bool QSignalTransition_SuperEvent(QSignalTransition* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QSignalTransition_OnEvent(QSignalTransition* self, intptr_t slot) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
+    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition)
         vqsignaltransition->setQSignalTransition_Event_Callback(reinterpret_cast<VirtualQSignalTransition::QSignalTransition_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -224,9 +218,8 @@ bool QSignalTransition_SuperEventFilter(QSignalTransition* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void QSignalTransition_OnEventFilter(QSignalTransition* self, intptr_t slot) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
+    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition)
         vqsignaltransition->setQSignalTransition_EventFilter_Callback(reinterpret_cast<VirtualQSignalTransition::QSignalTransition_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -253,9 +246,8 @@ void QSignalTransition_SuperTimerEvent(QSignalTransition* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QSignalTransition_OnTimerEvent(QSignalTransition* self, intptr_t slot) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
+    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition)
         vqsignaltransition->setQSignalTransition_TimerEvent_Callback(reinterpret_cast<VirtualQSignalTransition::QSignalTransition_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -282,9 +274,8 @@ void QSignalTransition_SuperChildEvent(QSignalTransition* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QSignalTransition_OnChildEvent(QSignalTransition* self, intptr_t slot) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
+    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition)
         vqsignaltransition->setQSignalTransition_ChildEvent_Callback(reinterpret_cast<VirtualQSignalTransition::QSignalTransition_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -311,9 +302,8 @@ void QSignalTransition_SuperCustomEvent(QSignalTransition* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QSignalTransition_OnCustomEvent(QSignalTransition* self, intptr_t slot) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
+    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition)
         vqsignaltransition->setQSignalTransition_CustomEvent_Callback(reinterpret_cast<VirtualQSignalTransition::QSignalTransition_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -340,9 +330,8 @@ void QSignalTransition_SuperConnectNotify(QSignalTransition* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QSignalTransition_OnConnectNotify(QSignalTransition* self, intptr_t slot) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
+    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition)
         vqsignaltransition->setQSignalTransition_ConnectNotify_Callback(reinterpret_cast<VirtualQSignalTransition::QSignalTransition_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -369,9 +358,8 @@ void QSignalTransition_SuperDisconnectNotify(QSignalTransition* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void QSignalTransition_OnDisconnectNotify(QSignalTransition* self, intptr_t slot) {
     auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
+    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition)
         vqsignaltransition->setQSignalTransition_DisconnectNotify_Callback(reinterpret_cast<VirtualQSignalTransition::QSignalTransition_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -398,9 +386,8 @@ QObject* QSignalTransition_SuperSender(const QSignalTransition* self) {
 // Auxiliary method to allow providing re-implementation
 void QSignalTransition_OnSender(const QSignalTransition* self, intptr_t slot) {
     auto* vqsignaltransition = const_cast<VirtualQSignalTransition*>(dynamic_cast<const VirtualQSignalTransition*>(self));
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
+    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition)
         vqsignaltransition->setQSignalTransition_Sender_Callback(reinterpret_cast<VirtualQSignalTransition::QSignalTransition_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -427,9 +414,8 @@ int QSignalTransition_SuperSenderSignalIndex(const QSignalTransition* self) {
 // Auxiliary method to allow providing re-implementation
 void QSignalTransition_OnSenderSignalIndex(const QSignalTransition* self, intptr_t slot) {
     auto* vqsignaltransition = const_cast<VirtualQSignalTransition*>(dynamic_cast<const VirtualQSignalTransition*>(self));
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
+    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition)
         vqsignaltransition->setQSignalTransition_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSignalTransition::QSignalTransition_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -456,9 +442,8 @@ int QSignalTransition_SuperReceivers(const QSignalTransition* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void QSignalTransition_OnReceivers(const QSignalTransition* self, intptr_t slot) {
     auto* vqsignaltransition = const_cast<VirtualQSignalTransition*>(dynamic_cast<const VirtualQSignalTransition*>(self));
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
+    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition)
         vqsignaltransition->setQSignalTransition_Receivers_Callback(reinterpret_cast<VirtualQSignalTransition::QSignalTransition_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -485,9 +470,8 @@ bool QSignalTransition_SuperIsSignalConnected(const QSignalTransition* self, con
 // Auxiliary method to allow providing re-implementation
 void QSignalTransition_OnIsSignalConnected(const QSignalTransition* self, intptr_t slot) {
     auto* vqsignaltransition = const_cast<VirtualQSignalTransition*>(dynamic_cast<const VirtualQSignalTransition*>(self));
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
+    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition)
         vqsignaltransition->setQSignalTransition_IsSignalConnected_Callback(reinterpret_cast<VirtualQSignalTransition::QSignalTransition_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QSignalTransition_Connect_SenderObjectChanged(QSignalTransition* self, intptr_t slot) {

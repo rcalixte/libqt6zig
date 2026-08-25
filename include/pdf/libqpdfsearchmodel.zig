@@ -7096,7 +7096,7 @@ pub const QPdfSearchModel = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfsearchmodel.html#public-types)
 pub const enums = struct {
-    pub const Role = enum(i32) {
+    pub const Role = enum {
         pub const Page: i32 = 256;
         pub const IndexOnPage: i32 = 257;
         pub const Location: i32 = 258;

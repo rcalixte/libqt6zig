@@ -31,6 +31,27 @@ pub const Attica__PlatformDependentV3 = extern struct {
     pub const _is_Attica__PlatformDependentV2 = {};
     pub const _is_Attica__PlatformDependent = {};
 
+    /// Upcasts to a Attica::PlatformDependentV2 object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Attica__PlatformDependentV3 `
+    ///
+    pub fn asAttica__PlatformDependentV2(self: Attica__PlatformDependentV3) Attica__PlatformDependentV2 {
+        return .{ .ptr = qtc.Attica__PlatformDependentV3_AsAttica__PlatformDependentV2(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a Attica__PlatformDependentV3 object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _attica__platformdependentv2: Attica__PlatformDependentV2 `
+    ///
+    pub fn fromAttica__PlatformDependentV2(_attica__platformdependentv2: anytype) Attica__PlatformDependentV3 {
+        comptime _ = @TypeOf(_attica__platformdependentv2)._is_Attica__PlatformDependentV2;
+        return @bitCast(qtc.Attica__PlatformDependentV3_FromAttica__PlatformDependentV2(@ptrCast(_attica__platformdependentv2.ptr)));
+    }
+
     /// ### DEPRECATED: Use `metaObject` instead
     ///
     pub const MetaObject = metaObject;

@@ -152,9 +152,8 @@ QMetaObject* QScrollBar_SuperMetaObject(const QScrollBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnMetaObject(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_MetaObject_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -171,9 +170,8 @@ void* QScrollBar_SuperMetacast(QScrollBar* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnMetacast(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_Metacast_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -190,9 +188,8 @@ int QScrollBar_SuperMetacall(QScrollBar* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnMetacall(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_Metacall_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -209,9 +206,8 @@ QSize* QScrollBar_SuperSizeHint(const QScrollBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnSizeHint(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_SizeHint_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -228,9 +224,8 @@ bool QScrollBar_SuperEvent(QScrollBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_Event_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -247,9 +242,8 @@ void QScrollBar_SuperWheelEvent(QScrollBar* self, QWheelEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnWheelEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_WheelEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_WheelEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -266,9 +260,8 @@ void QScrollBar_SuperPaintEvent(QScrollBar* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnPaintEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_PaintEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -285,9 +278,8 @@ void QScrollBar_SuperMousePressEvent(QScrollBar* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnMousePressEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_MousePressEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -304,9 +296,8 @@ void QScrollBar_SuperMouseReleaseEvent(QScrollBar* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnMouseReleaseEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -323,9 +314,8 @@ void QScrollBar_SuperMouseMoveEvent(QScrollBar* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnMouseMoveEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -342,9 +332,8 @@ void QScrollBar_SuperHideEvent(QScrollBar* self, QHideEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnHideEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_HideEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_HideEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -361,9 +350,8 @@ void QScrollBar_SuperSliderChange(QScrollBar* self, int change) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnSliderChange(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_SliderChange_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_SliderChange_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -380,9 +368,8 @@ void QScrollBar_SuperContextMenuEvent(QScrollBar* self, QContextMenuEvent* param
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnContextMenuEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -399,9 +386,8 @@ void QScrollBar_SuperInitStyleOption(const QScrollBar* self, QStyleOptionSlider*
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnInitStyleOption(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_InitStyleOption_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -428,9 +414,8 @@ void QScrollBar_SuperKeyPressEvent(QScrollBar* self, QKeyEvent* ev) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnKeyPressEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_KeyPressEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -457,9 +442,8 @@ void QScrollBar_SuperTimerEvent(QScrollBar* self, QTimerEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnTimerEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_TimerEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -486,9 +470,8 @@ void QScrollBar_SuperChangeEvent(QScrollBar* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnChangeEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_ChangeEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -515,9 +498,8 @@ int QScrollBar_SuperDevType(const QScrollBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnDevType(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_DevType_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -544,9 +526,8 @@ void QScrollBar_SuperSetVisible(QScrollBar* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnSetVisible(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_SetVisible_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -573,9 +554,8 @@ QSize* QScrollBar_SuperMinimumSizeHint(const QScrollBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnMinimumSizeHint(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -602,9 +582,8 @@ int QScrollBar_SuperHeightForWidth(const QScrollBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnHeightForWidth(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_HeightForWidth_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -631,9 +610,8 @@ bool QScrollBar_SuperHasHeightForWidth(const QScrollBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnHasHeightForWidth(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -660,9 +638,8 @@ QPaintEngine* QScrollBar_SuperPaintEngine(const QScrollBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnPaintEngine(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_PaintEngine_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -689,9 +666,8 @@ void QScrollBar_SuperMouseDoubleClickEvent(QScrollBar* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnMouseDoubleClickEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -718,9 +694,8 @@ void QScrollBar_SuperKeyReleaseEvent(QScrollBar* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnKeyReleaseEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -747,9 +722,8 @@ void QScrollBar_SuperFocusInEvent(QScrollBar* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnFocusInEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_FocusInEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -776,9 +750,8 @@ void QScrollBar_SuperFocusOutEvent(QScrollBar* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnFocusOutEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_FocusOutEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -805,9 +778,8 @@ void QScrollBar_SuperEnterEvent(QScrollBar* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnEnterEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_EnterEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -834,9 +806,8 @@ void QScrollBar_SuperLeaveEvent(QScrollBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnLeaveEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_LeaveEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -863,9 +834,8 @@ void QScrollBar_SuperMoveEvent(QScrollBar* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnMoveEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_MoveEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -892,9 +862,8 @@ void QScrollBar_SuperResizeEvent(QScrollBar* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnResizeEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_ResizeEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -921,9 +890,8 @@ void QScrollBar_SuperCloseEvent(QScrollBar* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnCloseEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_CloseEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -950,9 +918,8 @@ void QScrollBar_SuperTabletEvent(QScrollBar* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnTabletEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_TabletEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -979,9 +946,8 @@ void QScrollBar_SuperActionEvent(QScrollBar* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnActionEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_ActionEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1008,9 +974,8 @@ void QScrollBar_SuperDragEnterEvent(QScrollBar* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnDragEnterEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_DragEnterEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1037,9 +1002,8 @@ void QScrollBar_SuperDragMoveEvent(QScrollBar* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnDragMoveEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_DragMoveEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1066,9 +1030,8 @@ void QScrollBar_SuperDragLeaveEvent(QScrollBar* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnDragLeaveEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1095,9 +1058,8 @@ void QScrollBar_SuperDropEvent(QScrollBar* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnDropEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_DropEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1124,9 +1086,8 @@ void QScrollBar_SuperShowEvent(QScrollBar* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnShowEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_ShowEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1155,9 +1116,8 @@ bool QScrollBar_SuperNativeEvent(QScrollBar* self, const libqt_string eventType,
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnNativeEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_NativeEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1184,9 +1144,8 @@ int QScrollBar_SuperMetric(const QScrollBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnMetric(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_Metric_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1213,9 +1172,8 @@ void QScrollBar_SuperInitPainter(const QScrollBar* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnInitPainter(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_InitPainter_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1242,9 +1200,8 @@ QPaintDevice* QScrollBar_SuperRedirected(const QScrollBar* self, QPoint* offset)
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnRedirected(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_Redirected_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1271,9 +1228,8 @@ QPainter* QScrollBar_SuperSharedPainter(const QScrollBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnSharedPainter(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_SharedPainter_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1300,9 +1256,8 @@ void QScrollBar_SuperInputMethodEvent(QScrollBar* self, QInputMethodEvent* param
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnInputMethodEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_InputMethodEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1329,9 +1284,8 @@ QVariant* QScrollBar_SuperInputMethodQuery(const QScrollBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnInputMethodQuery(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_InputMethodQuery_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1358,9 +1312,8 @@ bool QScrollBar_SuperFocusNextPrevChild(QScrollBar* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnFocusNextPrevChild(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1387,9 +1340,8 @@ bool QScrollBar_SuperEventFilter(QScrollBar* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnEventFilter(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_EventFilter_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1416,9 +1368,8 @@ void QScrollBar_SuperChildEvent(QScrollBar* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnChildEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_ChildEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1445,9 +1396,8 @@ void QScrollBar_SuperCustomEvent(QScrollBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnCustomEvent(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_CustomEvent_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1474,9 +1424,8 @@ void QScrollBar_SuperConnectNotify(QScrollBar* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnConnectNotify(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_ConnectNotify_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1503,9 +1452,8 @@ void QScrollBar_SuperDisconnectNotify(QScrollBar* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnDisconnectNotify(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_DisconnectNotify_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1532,9 +1480,8 @@ void QScrollBar_SuperSetRepeatAction(QScrollBar* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnSetRepeatAction(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_SetRepeatAction_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_SetRepeatAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1561,9 +1508,8 @@ int QScrollBar_SuperRepeatAction(const QScrollBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnRepeatAction(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_RepeatAction_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_RepeatAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1590,9 +1536,8 @@ void QScrollBar_SuperUpdateMicroFocus(QScrollBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnUpdateMicroFocus(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1619,9 +1564,8 @@ void QScrollBar_SuperCreate(QScrollBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnCreate(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_Create_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1648,9 +1592,8 @@ void QScrollBar_SuperDestroy(QScrollBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnDestroy(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_Destroy_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1677,9 +1620,8 @@ bool QScrollBar_SuperFocusNextChild(QScrollBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnFocusNextChild(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_FocusNextChild_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1706,9 +1648,8 @@ bool QScrollBar_SuperFocusPreviousChild(QScrollBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnFocusPreviousChild(QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1735,9 +1676,8 @@ QObject* QScrollBar_SuperSender(const QScrollBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnSender(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_Sender_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1764,9 +1704,8 @@ int QScrollBar_SuperSenderSignalIndex(const QScrollBar* self) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnSenderSignalIndex(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1793,9 +1732,8 @@ int QScrollBar_SuperReceivers(const QScrollBar* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnReceivers(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_Receivers_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1822,9 +1760,8 @@ bool QScrollBar_SuperIsSignalConnected(const QScrollBar* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnIsSignalConnected(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_IsSignalConnected_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1851,9 +1788,8 @@ double QScrollBar_SuperGetDecodedMetricF(const QScrollBar* self, int metricA, in
 // Auxiliary method to allow providing re-implementation
 void QScrollBar_OnGetDecodedMetricF(const QScrollBar* self, intptr_t slot) {
     auto* vqscrollbar = const_cast<VirtualQScrollBar*>(dynamic_cast<const VirtualQScrollBar*>(self));
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
+    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar)
         vqscrollbar->setQScrollBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQScrollBar::QScrollBar_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QScrollBar_Delete(QScrollBar* self) {

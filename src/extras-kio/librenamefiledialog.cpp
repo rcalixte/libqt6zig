@@ -111,9 +111,8 @@ QMetaObject* KIO__RenameFileDialog_SuperMetaObject(const KIO__RenameFileDialog* 
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnMetaObject(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_MetaObject_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -130,9 +129,8 @@ void* KIO__RenameFileDialog_SuperMetacast(KIO__RenameFileDialog* self, const cha
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnMetacast(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_Metacast_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -149,9 +147,8 @@ int KIO__RenameFileDialog_SuperMetacall(KIO__RenameFileDialog* self, int param1,
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnMetacall(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_Metacall_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -178,9 +175,8 @@ void KIO__RenameFileDialog_SuperSetVisible(KIO__RenameFileDialog* self, bool vis
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnSetVisible(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_SetVisible_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -207,9 +203,8 @@ QSize* KIO__RenameFileDialog_SuperSizeHint(const KIO__RenameFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnSizeHint(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_SizeHint_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -236,9 +231,8 @@ QSize* KIO__RenameFileDialog_SuperMinimumSizeHint(const KIO__RenameFileDialog* s
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnMinimumSizeHint(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -265,9 +259,8 @@ void KIO__RenameFileDialog_SuperOpen(KIO__RenameFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnOpen(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_Open_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -294,9 +287,8 @@ int KIO__RenameFileDialog_SuperExec(KIO__RenameFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnExec(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_Exec_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -323,9 +315,8 @@ void KIO__RenameFileDialog_SuperDone(KIO__RenameFileDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnDone(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_Done_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -352,9 +343,8 @@ void KIO__RenameFileDialog_SuperAccept(KIO__RenameFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnAccept(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_Accept_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -381,9 +371,8 @@ void KIO__RenameFileDialog_SuperReject(KIO__RenameFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnReject(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_Reject_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -410,9 +399,8 @@ void KIO__RenameFileDialog_SuperKeyPressEvent(KIO__RenameFileDialog* self, QKeyE
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnKeyPressEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -439,9 +427,8 @@ void KIO__RenameFileDialog_SuperCloseEvent(KIO__RenameFileDialog* self, QCloseEv
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnCloseEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_CloseEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -468,9 +455,8 @@ void KIO__RenameFileDialog_SuperShowEvent(KIO__RenameFileDialog* self, QShowEven
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnShowEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_ShowEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -497,9 +483,8 @@ void KIO__RenameFileDialog_SuperResizeEvent(KIO__RenameFileDialog* self, QResize
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnResizeEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -526,9 +511,8 @@ void KIO__RenameFileDialog_SuperContextMenuEvent(KIO__RenameFileDialog* self, QC
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnContextMenuEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -555,9 +539,8 @@ bool KIO__RenameFileDialog_SuperEventFilter(KIO__RenameFileDialog* self, QObject
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnEventFilter(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_EventFilter_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -584,9 +567,8 @@ int KIO__RenameFileDialog_SuperDevType(const KIO__RenameFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnDevType(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_DevType_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -613,9 +595,8 @@ int KIO__RenameFileDialog_SuperHeightForWidth(const KIO__RenameFileDialog* self,
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnHeightForWidth(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -642,9 +623,8 @@ bool KIO__RenameFileDialog_SuperHasHeightForWidth(const KIO__RenameFileDialog* s
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnHasHeightForWidth(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -671,9 +651,8 @@ QPaintEngine* KIO__RenameFileDialog_SuperPaintEngine(const KIO__RenameFileDialog
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnPaintEngine(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_PaintEngine_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -700,9 +679,8 @@ bool KIO__RenameFileDialog_SuperEvent(KIO__RenameFileDialog* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_Event_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -729,9 +707,8 @@ void KIO__RenameFileDialog_SuperMousePressEvent(KIO__RenameFileDialog* self, QMo
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnMousePressEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -758,9 +735,8 @@ void KIO__RenameFileDialog_SuperMouseReleaseEvent(KIO__RenameFileDialog* self, Q
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnMouseReleaseEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -787,9 +763,8 @@ void KIO__RenameFileDialog_SuperMouseDoubleClickEvent(KIO__RenameFileDialog* sel
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnMouseDoubleClickEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -816,9 +791,8 @@ void KIO__RenameFileDialog_SuperMouseMoveEvent(KIO__RenameFileDialog* self, QMou
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnMouseMoveEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -845,9 +819,8 @@ void KIO__RenameFileDialog_SuperWheelEvent(KIO__RenameFileDialog* self, QWheelEv
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnWheelEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_WheelEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -874,9 +847,8 @@ void KIO__RenameFileDialog_SuperKeyReleaseEvent(KIO__RenameFileDialog* self, QKe
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnKeyReleaseEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -903,9 +875,8 @@ void KIO__RenameFileDialog_SuperFocusInEvent(KIO__RenameFileDialog* self, QFocus
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnFocusInEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -932,9 +903,8 @@ void KIO__RenameFileDialog_SuperFocusOutEvent(KIO__RenameFileDialog* self, QFocu
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnFocusOutEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -961,9 +931,8 @@ void KIO__RenameFileDialog_SuperEnterEvent(KIO__RenameFileDialog* self, QEnterEv
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnEnterEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_EnterEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -990,9 +959,8 @@ void KIO__RenameFileDialog_SuperLeaveEvent(KIO__RenameFileDialog* self, QEvent* 
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnLeaveEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1019,9 +987,8 @@ void KIO__RenameFileDialog_SuperPaintEvent(KIO__RenameFileDialog* self, QPaintEv
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnPaintEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_PaintEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1048,9 +1015,8 @@ void KIO__RenameFileDialog_SuperMoveEvent(KIO__RenameFileDialog* self, QMoveEven
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnMoveEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_MoveEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1077,9 +1043,8 @@ void KIO__RenameFileDialog_SuperTabletEvent(KIO__RenameFileDialog* self, QTablet
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnTabletEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_TabletEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1106,9 +1071,8 @@ void KIO__RenameFileDialog_SuperActionEvent(KIO__RenameFileDialog* self, QAction
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnActionEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_ActionEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1135,9 +1099,8 @@ void KIO__RenameFileDialog_SuperDragEnterEvent(KIO__RenameFileDialog* self, QDra
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnDragEnterEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1164,9 +1127,8 @@ void KIO__RenameFileDialog_SuperDragMoveEvent(KIO__RenameFileDialog* self, QDrag
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnDragMoveEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1193,9 +1155,8 @@ void KIO__RenameFileDialog_SuperDragLeaveEvent(KIO__RenameFileDialog* self, QDra
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnDragLeaveEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1222,9 +1183,8 @@ void KIO__RenameFileDialog_SuperDropEvent(KIO__RenameFileDialog* self, QDropEven
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnDropEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_DropEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1251,9 +1211,8 @@ void KIO__RenameFileDialog_SuperHideEvent(KIO__RenameFileDialog* self, QHideEven
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnHideEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_HideEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1282,9 +1241,8 @@ bool KIO__RenameFileDialog_SuperNativeEvent(KIO__RenameFileDialog* self, const l
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnNativeEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_NativeEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1311,9 +1269,8 @@ void KIO__RenameFileDialog_SuperChangeEvent(KIO__RenameFileDialog* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnChangeEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1340,9 +1297,8 @@ int KIO__RenameFileDialog_SuperMetric(const KIO__RenameFileDialog* self, int par
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnMetric(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_Metric_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1369,9 +1325,8 @@ void KIO__RenameFileDialog_SuperInitPainter(const KIO__RenameFileDialog* self, Q
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnInitPainter(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_InitPainter_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1398,9 +1353,8 @@ QPaintDevice* KIO__RenameFileDialog_SuperRedirected(const KIO__RenameFileDialog*
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnRedirected(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_Redirected_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1427,9 +1381,8 @@ QPainter* KIO__RenameFileDialog_SuperSharedPainter(const KIO__RenameFileDialog* 
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnSharedPainter(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_SharedPainter_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1456,9 +1409,8 @@ void KIO__RenameFileDialog_SuperInputMethodEvent(KIO__RenameFileDialog* self, QI
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnInputMethodEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1485,9 +1437,8 @@ QVariant* KIO__RenameFileDialog_SuperInputMethodQuery(const KIO__RenameFileDialo
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnInputMethodQuery(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1514,9 +1465,8 @@ bool KIO__RenameFileDialog_SuperFocusNextPrevChild(KIO__RenameFileDialog* self, 
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnFocusNextPrevChild(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1543,9 +1493,8 @@ void KIO__RenameFileDialog_SuperTimerEvent(KIO__RenameFileDialog* self, QTimerEv
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnTimerEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_TimerEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1572,9 +1521,8 @@ void KIO__RenameFileDialog_SuperChildEvent(KIO__RenameFileDialog* self, QChildEv
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnChildEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_ChildEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1601,9 +1549,8 @@ void KIO__RenameFileDialog_SuperCustomEvent(KIO__RenameFileDialog* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnCustomEvent(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_CustomEvent_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1630,9 +1577,8 @@ void KIO__RenameFileDialog_SuperConnectNotify(KIO__RenameFileDialog* self, const
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnConnectNotify(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1659,9 +1605,8 @@ void KIO__RenameFileDialog_SuperDisconnectNotify(KIO__RenameFileDialog* self, co
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnDisconnectNotify(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1688,9 +1633,8 @@ void KIO__RenameFileDialog_SuperAdjustPosition(KIO__RenameFileDialog* self, QWid
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnAdjustPosition(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1717,9 +1661,8 @@ void KIO__RenameFileDialog_SuperUpdateMicroFocus(KIO__RenameFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnUpdateMicroFocus(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1746,9 +1689,8 @@ void KIO__RenameFileDialog_SuperCreate(KIO__RenameFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnCreate(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_Create_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1775,9 +1717,8 @@ void KIO__RenameFileDialog_SuperDestroy(KIO__RenameFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnDestroy(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_Destroy_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1804,9 +1745,8 @@ bool KIO__RenameFileDialog_SuperFocusNextChild(KIO__RenameFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnFocusNextChild(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1833,9 +1773,8 @@ bool KIO__RenameFileDialog_SuperFocusPreviousChild(KIO__RenameFileDialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnFocusPreviousChild(KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1862,9 +1801,8 @@ QObject* KIO__RenameFileDialog_SuperSender(const KIO__RenameFileDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnSender(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_Sender_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1891,9 +1829,8 @@ int KIO__RenameFileDialog_SuperSenderSignalIndex(const KIO__RenameFileDialog* se
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnSenderSignalIndex(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1920,9 +1857,8 @@ int KIO__RenameFileDialog_SuperReceivers(const KIO__RenameFileDialog* self, cons
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnReceivers(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_Receivers_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1949,9 +1885,8 @@ bool KIO__RenameFileDialog_SuperIsSignalConnected(const KIO__RenameFileDialog* s
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnIsSignalConnected(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1978,9 +1913,8 @@ double KIO__RenameFileDialog_SuperGetDecodedMetricF(const KIO__RenameFileDialog*
 // Auxiliary method to allow providing re-implementation
 void KIO__RenameFileDialog_OnGetDecodedMetricF(const KIO__RenameFileDialog* self, intptr_t slot) {
     auto* vkiorenamefiledialog = const_cast<VirtualKIORenameFileDialog*>(dynamic_cast<const VirtualKIORenameFileDialog*>(self));
-    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog) {
+    if (vkiorenamefiledialog && vkiorenamefiledialog->isVirtualKIORenameFileDialog)
         vkiorenamefiledialog->setKIO__RenameFileDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKIORenameFileDialog::KIO__RenameFileDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KIO__RenameFileDialog_Delete(KIO__RenameFileDialog* self) {

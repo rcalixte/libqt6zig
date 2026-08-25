@@ -3077,7 +3077,7 @@ pub const QMediaRecorder = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediarecorder.html#public-types)
 pub const enums = struct {
-    pub const Quality = enum(i32) {
+    pub const Quality = enum {
         pub const VeryLowQuality: i32 = 0;
         pub const LowQuality: i32 = 1;
         pub const NormalQuality: i32 = 2;
@@ -3085,20 +3085,20 @@ pub const enums = struct {
         pub const VeryHighQuality: i32 = 4;
     };
 
-    pub const EncodingMode = enum(i32) {
+    pub const EncodingMode = enum {
         pub const ConstantQualityEncoding: i32 = 0;
         pub const ConstantBitRateEncoding: i32 = 1;
         pub const AverageBitRateEncoding: i32 = 2;
         pub const TwoPassEncoding: i32 = 3;
     };
 
-    pub const RecorderState = enum(i32) {
+    pub const RecorderState = enum {
         pub const StoppedState: i32 = 0;
         pub const RecordingState: i32 = 1;
         pub const PausedState: i32 = 2;
     };
 
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const ResourceError: i32 = 1;
         pub const FormatError: i32 = 2;

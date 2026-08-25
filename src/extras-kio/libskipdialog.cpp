@@ -69,9 +69,8 @@ QMetaObject* KIO__SkipDialog_SuperMetaObject(const KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnMetaObject(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_MetaObject_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -88,9 +87,8 @@ void* KIO__SkipDialog_SuperMetacast(KIO__SkipDialog* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnMetacast(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_Metacast_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -107,9 +105,8 @@ int KIO__SkipDialog_SuperMetacall(KIO__SkipDialog* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnMetacall(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_Metacall_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -136,9 +133,8 @@ void KIO__SkipDialog_SuperSetVisible(KIO__SkipDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnSetVisible(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_SetVisible_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -165,9 +161,8 @@ QSize* KIO__SkipDialog_SuperSizeHint(const KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnSizeHint(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_SizeHint_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -194,9 +189,8 @@ QSize* KIO__SkipDialog_SuperMinimumSizeHint(const KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnMinimumSizeHint(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -223,9 +217,8 @@ void KIO__SkipDialog_SuperOpen(KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnOpen(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_Open_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -252,9 +245,8 @@ int KIO__SkipDialog_SuperExec(KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnExec(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_Exec_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -281,9 +273,8 @@ void KIO__SkipDialog_SuperDone(KIO__SkipDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnDone(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_Done_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -310,9 +301,8 @@ void KIO__SkipDialog_SuperAccept(KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnAccept(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_Accept_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +329,8 @@ void KIO__SkipDialog_SuperReject(KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnReject(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_Reject_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +357,8 @@ void KIO__SkipDialog_SuperKeyPressEvent(KIO__SkipDialog* self, QKeyEvent* param1
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnKeyPressEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +385,8 @@ void KIO__SkipDialog_SuperCloseEvent(KIO__SkipDialog* self, QCloseEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnCloseEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_CloseEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +413,8 @@ void KIO__SkipDialog_SuperShowEvent(KIO__SkipDialog* self, QShowEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnShowEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_ShowEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +441,8 @@ void KIO__SkipDialog_SuperResizeEvent(KIO__SkipDialog* self, QResizeEvent* param
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnResizeEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -484,9 +469,8 @@ void KIO__SkipDialog_SuperContextMenuEvent(KIO__SkipDialog* self, QContextMenuEv
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnContextMenuEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -513,9 +497,8 @@ bool KIO__SkipDialog_SuperEventFilter(KIO__SkipDialog* self, QObject* param1, QE
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnEventFilter(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_EventFilter_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -542,9 +525,8 @@ int KIO__SkipDialog_SuperDevType(const KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnDevType(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_DevType_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -571,9 +553,8 @@ int KIO__SkipDialog_SuperHeightForWidth(const KIO__SkipDialog* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnHeightForWidth(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -600,9 +581,8 @@ bool KIO__SkipDialog_SuperHasHeightForWidth(const KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnHasHeightForWidth(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -629,9 +609,8 @@ QPaintEngine* KIO__SkipDialog_SuperPaintEngine(const KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnPaintEngine(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_PaintEngine_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -658,9 +637,8 @@ bool KIO__SkipDialog_SuperEvent(KIO__SkipDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_Event_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -687,9 +665,8 @@ void KIO__SkipDialog_SuperMousePressEvent(KIO__SkipDialog* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnMousePressEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -716,9 +693,8 @@ void KIO__SkipDialog_SuperMouseReleaseEvent(KIO__SkipDialog* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnMouseReleaseEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -745,9 +721,8 @@ void KIO__SkipDialog_SuperMouseDoubleClickEvent(KIO__SkipDialog* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnMouseDoubleClickEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -774,9 +749,8 @@ void KIO__SkipDialog_SuperMouseMoveEvent(KIO__SkipDialog* self, QMouseEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnMouseMoveEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -803,9 +777,8 @@ void KIO__SkipDialog_SuperWheelEvent(KIO__SkipDialog* self, QWheelEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnWheelEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_WheelEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -832,9 +805,8 @@ void KIO__SkipDialog_SuperKeyReleaseEvent(KIO__SkipDialog* self, QKeyEvent* even
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnKeyReleaseEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -861,9 +833,8 @@ void KIO__SkipDialog_SuperFocusInEvent(KIO__SkipDialog* self, QFocusEvent* event
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnFocusInEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -890,9 +861,8 @@ void KIO__SkipDialog_SuperFocusOutEvent(KIO__SkipDialog* self, QFocusEvent* even
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnFocusOutEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -919,9 +889,8 @@ void KIO__SkipDialog_SuperEnterEvent(KIO__SkipDialog* self, QEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnEnterEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_EnterEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -948,9 +917,8 @@ void KIO__SkipDialog_SuperLeaveEvent(KIO__SkipDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnLeaveEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -977,9 +945,8 @@ void KIO__SkipDialog_SuperPaintEvent(KIO__SkipDialog* self, QPaintEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnPaintEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_PaintEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1006,9 +973,8 @@ void KIO__SkipDialog_SuperMoveEvent(KIO__SkipDialog* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnMoveEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_MoveEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1035,9 +1001,8 @@ void KIO__SkipDialog_SuperTabletEvent(KIO__SkipDialog* self, QTabletEvent* event
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnTabletEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_TabletEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1064,9 +1029,8 @@ void KIO__SkipDialog_SuperActionEvent(KIO__SkipDialog* self, QActionEvent* event
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnActionEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_ActionEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1093,9 +1057,8 @@ void KIO__SkipDialog_SuperDragEnterEvent(KIO__SkipDialog* self, QDragEnterEvent*
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnDragEnterEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1122,9 +1085,8 @@ void KIO__SkipDialog_SuperDragMoveEvent(KIO__SkipDialog* self, QDragMoveEvent* e
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnDragMoveEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1151,9 +1113,8 @@ void KIO__SkipDialog_SuperDragLeaveEvent(KIO__SkipDialog* self, QDragLeaveEvent*
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnDragLeaveEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1180,9 +1141,8 @@ void KIO__SkipDialog_SuperDropEvent(KIO__SkipDialog* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnDropEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_DropEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1209,9 +1169,8 @@ void KIO__SkipDialog_SuperHideEvent(KIO__SkipDialog* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnHideEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_HideEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1240,9 +1199,8 @@ bool KIO__SkipDialog_SuperNativeEvent(KIO__SkipDialog* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnNativeEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_NativeEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1269,9 +1227,8 @@ void KIO__SkipDialog_SuperChangeEvent(KIO__SkipDialog* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnChangeEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1298,9 +1255,8 @@ int KIO__SkipDialog_SuperMetric(const KIO__SkipDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnMetric(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_Metric_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1327,9 +1283,8 @@ void KIO__SkipDialog_SuperInitPainter(const KIO__SkipDialog* self, QPainter* pai
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnInitPainter(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_InitPainter_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1356,9 +1311,8 @@ QPaintDevice* KIO__SkipDialog_SuperRedirected(const KIO__SkipDialog* self, QPoin
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnRedirected(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_Redirected_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1385,9 +1339,8 @@ QPainter* KIO__SkipDialog_SuperSharedPainter(const KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnSharedPainter(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_SharedPainter_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1414,9 +1367,8 @@ void KIO__SkipDialog_SuperInputMethodEvent(KIO__SkipDialog* self, QInputMethodEv
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnInputMethodEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1443,9 +1395,8 @@ QVariant* KIO__SkipDialog_SuperInputMethodQuery(const KIO__SkipDialog* self, int
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnInputMethodQuery(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1472,9 +1423,8 @@ bool KIO__SkipDialog_SuperFocusNextPrevChild(KIO__SkipDialog* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnFocusNextPrevChild(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1501,9 +1451,8 @@ void KIO__SkipDialog_SuperTimerEvent(KIO__SkipDialog* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnTimerEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_TimerEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1530,9 +1479,8 @@ void KIO__SkipDialog_SuperChildEvent(KIO__SkipDialog* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnChildEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_ChildEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1559,9 +1507,8 @@ void KIO__SkipDialog_SuperCustomEvent(KIO__SkipDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnCustomEvent(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_CustomEvent_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1588,9 +1535,8 @@ void KIO__SkipDialog_SuperConnectNotify(KIO__SkipDialog* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnConnectNotify(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1617,9 +1563,8 @@ void KIO__SkipDialog_SuperDisconnectNotify(KIO__SkipDialog* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnDisconnectNotify(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1646,9 +1591,8 @@ void KIO__SkipDialog_SuperAdjustPosition(KIO__SkipDialog* self, QWidget* param1)
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnAdjustPosition(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1675,9 +1619,8 @@ void KIO__SkipDialog_SuperUpdateMicroFocus(KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnUpdateMicroFocus(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1704,9 +1647,8 @@ void KIO__SkipDialog_SuperCreate(KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnCreate(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_Create_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1733,9 +1675,8 @@ void KIO__SkipDialog_SuperDestroy(KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnDestroy(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_Destroy_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1762,9 +1703,8 @@ bool KIO__SkipDialog_SuperFocusNextChild(KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnFocusNextChild(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1791,9 +1731,8 @@ bool KIO__SkipDialog_SuperFocusPreviousChild(KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnFocusPreviousChild(KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = dynamic_cast<VirtualKIOSkipDialog*>(self);
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1820,9 +1759,8 @@ QObject* KIO__SkipDialog_SuperSender(const KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnSender(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_Sender_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1849,9 +1787,8 @@ int KIO__SkipDialog_SuperSenderSignalIndex(const KIO__SkipDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnSenderSignalIndex(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1878,9 +1815,8 @@ int KIO__SkipDialog_SuperReceivers(const KIO__SkipDialog* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnReceivers(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_Receivers_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1907,9 +1843,8 @@ bool KIO__SkipDialog_SuperIsSignalConnected(const KIO__SkipDialog* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnIsSignalConnected(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1936,9 +1871,8 @@ double KIO__SkipDialog_SuperGetDecodedMetricF(const KIO__SkipDialog* self, int m
 // Auxiliary method to allow providing re-implementation
 void KIO__SkipDialog_OnGetDecodedMetricF(const KIO__SkipDialog* self, intptr_t slot) {
     auto* vkioskipdialog = const_cast<VirtualKIOSkipDialog*>(dynamic_cast<const VirtualKIOSkipDialog*>(self));
-    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog) {
+    if (vkioskipdialog && vkioskipdialog->isVirtualKIOSkipDialog)
         vkioskipdialog->setKIO__SkipDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKIOSkipDialog::KIO__SkipDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KIO__SkipDialog_Delete(KIO__SkipDialog* self) {

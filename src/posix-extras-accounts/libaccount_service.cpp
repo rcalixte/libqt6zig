@@ -233,9 +233,8 @@ QMetaObject* Accounts__AccountService_SuperMetaObject(const Accounts__AccountSer
 // Auxiliary method to allow providing re-implementation
 void Accounts__AccountService_OnMetaObject(const Accounts__AccountService* self, intptr_t slot) {
     auto* vaccountsaccountservice = const_cast<VirtualAccountsAccountService*>(dynamic_cast<const VirtualAccountsAccountService*>(self));
-    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService) {
+    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService)
         vaccountsaccountservice->setAccounts__AccountService_MetaObject_Callback(reinterpret_cast<VirtualAccountsAccountService::Accounts__AccountService_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -252,9 +251,8 @@ void* Accounts__AccountService_SuperMetacast(Accounts__AccountService* self, con
 // Auxiliary method to allow providing re-implementation
 void Accounts__AccountService_OnMetacast(Accounts__AccountService* self, intptr_t slot) {
     auto* vaccountsaccountservice = dynamic_cast<VirtualAccountsAccountService*>(self);
-    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService) {
+    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService)
         vaccountsaccountservice->setAccounts__AccountService_Metacast_Callback(reinterpret_cast<VirtualAccountsAccountService::Accounts__AccountService_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -271,9 +269,8 @@ int Accounts__AccountService_SuperMetacall(Accounts__AccountService* self, int p
 // Auxiliary method to allow providing re-implementation
 void Accounts__AccountService_OnMetacall(Accounts__AccountService* self, intptr_t slot) {
     auto* vaccountsaccountservice = dynamic_cast<VirtualAccountsAccountService*>(self);
-    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService) {
+    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService)
         vaccountsaccountservice->setAccounts__AccountService_Metacall_Callback(reinterpret_cast<VirtualAccountsAccountService::Accounts__AccountService_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +297,8 @@ bool Accounts__AccountService_SuperEvent(Accounts__AccountService* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void Accounts__AccountService_OnEvent(Accounts__AccountService* self, intptr_t slot) {
     auto* vaccountsaccountservice = dynamic_cast<VirtualAccountsAccountService*>(self);
-    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService) {
+    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService)
         vaccountsaccountservice->setAccounts__AccountService_Event_Callback(reinterpret_cast<VirtualAccountsAccountService::Accounts__AccountService_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +325,8 @@ bool Accounts__AccountService_SuperEventFilter(Accounts__AccountService* self, Q
 // Auxiliary method to allow providing re-implementation
 void Accounts__AccountService_OnEventFilter(Accounts__AccountService* self, intptr_t slot) {
     auto* vaccountsaccountservice = dynamic_cast<VirtualAccountsAccountService*>(self);
-    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService) {
+    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService)
         vaccountsaccountservice->setAccounts__AccountService_EventFilter_Callback(reinterpret_cast<VirtualAccountsAccountService::Accounts__AccountService_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +353,8 @@ void Accounts__AccountService_SuperTimerEvent(Accounts__AccountService* self, QT
 // Auxiliary method to allow providing re-implementation
 void Accounts__AccountService_OnTimerEvent(Accounts__AccountService* self, intptr_t slot) {
     auto* vaccountsaccountservice = dynamic_cast<VirtualAccountsAccountService*>(self);
-    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService) {
+    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService)
         vaccountsaccountservice->setAccounts__AccountService_TimerEvent_Callback(reinterpret_cast<VirtualAccountsAccountService::Accounts__AccountService_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +381,8 @@ void Accounts__AccountService_SuperChildEvent(Accounts__AccountService* self, QC
 // Auxiliary method to allow providing re-implementation
 void Accounts__AccountService_OnChildEvent(Accounts__AccountService* self, intptr_t slot) {
     auto* vaccountsaccountservice = dynamic_cast<VirtualAccountsAccountService*>(self);
-    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService) {
+    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService)
         vaccountsaccountservice->setAccounts__AccountService_ChildEvent_Callback(reinterpret_cast<VirtualAccountsAccountService::Accounts__AccountService_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +409,8 @@ void Accounts__AccountService_SuperCustomEvent(Accounts__AccountService* self, Q
 // Auxiliary method to allow providing re-implementation
 void Accounts__AccountService_OnCustomEvent(Accounts__AccountService* self, intptr_t slot) {
     auto* vaccountsaccountservice = dynamic_cast<VirtualAccountsAccountService*>(self);
-    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService) {
+    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService)
         vaccountsaccountservice->setAccounts__AccountService_CustomEvent_Callback(reinterpret_cast<VirtualAccountsAccountService::Accounts__AccountService_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +437,8 @@ void Accounts__AccountService_SuperConnectNotify(Accounts__AccountService* self,
 // Auxiliary method to allow providing re-implementation
 void Accounts__AccountService_OnConnectNotify(Accounts__AccountService* self, intptr_t slot) {
     auto* vaccountsaccountservice = dynamic_cast<VirtualAccountsAccountService*>(self);
-    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService) {
+    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService)
         vaccountsaccountservice->setAccounts__AccountService_ConnectNotify_Callback(reinterpret_cast<VirtualAccountsAccountService::Accounts__AccountService_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +465,8 @@ void Accounts__AccountService_SuperDisconnectNotify(Accounts__AccountService* se
 // Auxiliary method to allow providing re-implementation
 void Accounts__AccountService_OnDisconnectNotify(Accounts__AccountService* self, intptr_t slot) {
     auto* vaccountsaccountservice = dynamic_cast<VirtualAccountsAccountService*>(self);
-    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService) {
+    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService)
         vaccountsaccountservice->setAccounts__AccountService_DisconnectNotify_Callback(reinterpret_cast<VirtualAccountsAccountService::Accounts__AccountService_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +493,8 @@ QObject* Accounts__AccountService_SuperSender(const Accounts__AccountService* se
 // Auxiliary method to allow providing re-implementation
 void Accounts__AccountService_OnSender(const Accounts__AccountService* self, intptr_t slot) {
     auto* vaccountsaccountservice = const_cast<VirtualAccountsAccountService*>(dynamic_cast<const VirtualAccountsAccountService*>(self));
-    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService) {
+    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService)
         vaccountsaccountservice->setAccounts__AccountService_Sender_Callback(reinterpret_cast<VirtualAccountsAccountService::Accounts__AccountService_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +521,8 @@ int Accounts__AccountService_SuperSenderSignalIndex(const Accounts__AccountServi
 // Auxiliary method to allow providing re-implementation
 void Accounts__AccountService_OnSenderSignalIndex(const Accounts__AccountService* self, intptr_t slot) {
     auto* vaccountsaccountservice = const_cast<VirtualAccountsAccountService*>(dynamic_cast<const VirtualAccountsAccountService*>(self));
-    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService) {
+    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService)
         vaccountsaccountservice->setAccounts__AccountService_SenderSignalIndex_Callback(reinterpret_cast<VirtualAccountsAccountService::Accounts__AccountService_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +549,8 @@ int Accounts__AccountService_SuperReceivers(const Accounts__AccountService* self
 // Auxiliary method to allow providing re-implementation
 void Accounts__AccountService_OnReceivers(const Accounts__AccountService* self, intptr_t slot) {
     auto* vaccountsaccountservice = const_cast<VirtualAccountsAccountService*>(dynamic_cast<const VirtualAccountsAccountService*>(self));
-    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService) {
+    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService)
         vaccountsaccountservice->setAccounts__AccountService_Receivers_Callback(reinterpret_cast<VirtualAccountsAccountService::Accounts__AccountService_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +577,8 @@ bool Accounts__AccountService_SuperIsSignalConnected(const Accounts__AccountServ
 // Auxiliary method to allow providing re-implementation
 void Accounts__AccountService_OnIsSignalConnected(const Accounts__AccountService* self, intptr_t slot) {
     auto* vaccountsaccountservice = const_cast<VirtualAccountsAccountService*>(dynamic_cast<const VirtualAccountsAccountService*>(self));
-    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService) {
+    if (vaccountsaccountservice && vaccountsaccountservice->isVirtualAccountsAccountService)
         vaccountsaccountservice->setAccounts__AccountService_IsSignalConnected_Callback(reinterpret_cast<VirtualAccountsAccountService::Accounts__AccountService_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void Accounts__AccountService_Delete(Accounts__AccountService* self) {

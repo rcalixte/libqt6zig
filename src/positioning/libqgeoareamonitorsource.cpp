@@ -212,9 +212,8 @@ QMetaObject* QGeoAreaMonitorSource_SuperMetaObject(const QGeoAreaMonitorSource* 
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnMetaObject(const QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = const_cast<VirtualQGeoAreaMonitorSource*>(dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self));
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_MetaObject_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -231,9 +230,8 @@ void* QGeoAreaMonitorSource_SuperMetacast(QGeoAreaMonitorSource* self, const cha
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnMetacast(QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_Metacast_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -250,9 +248,8 @@ int QGeoAreaMonitorSource_SuperMetacall(QGeoAreaMonitorSource* self, int param1,
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnMetacall(QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_Metacall_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -269,9 +266,8 @@ void QGeoAreaMonitorSource_SuperSetPositionInfoSource(QGeoAreaMonitorSource* sel
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnSetPositionInfoSource(QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_SetPositionInfoSource_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_SetPositionInfoSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -288,9 +284,8 @@ QGeoPositionInfoSource* QGeoAreaMonitorSource_SuperPositionInfoSource(const QGeo
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnPositionInfoSource(const QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = const_cast<VirtualQGeoAreaMonitorSource*>(dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self));
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_PositionInfoSource_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_PositionInfoSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -307,9 +302,8 @@ int QGeoAreaMonitorSource_SuperError(const QGeoAreaMonitorSource* self) {
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnError(const QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = const_cast<VirtualQGeoAreaMonitorSource*>(dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self));
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_Error_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_Error_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -326,9 +320,8 @@ int QGeoAreaMonitorSource_SuperSupportedAreaMonitorFeatures(const QGeoAreaMonito
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnSupportedAreaMonitorFeatures(const QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = const_cast<VirtualQGeoAreaMonitorSource*>(dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self));
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_SupportedAreaMonitorFeatures_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_SupportedAreaMonitorFeatures_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -345,9 +338,8 @@ bool QGeoAreaMonitorSource_SuperStartMonitoring(QGeoAreaMonitorSource* self, con
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnStartMonitoring(QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_StartMonitoring_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_StartMonitoring_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -364,9 +356,8 @@ bool QGeoAreaMonitorSource_SuperStopMonitoring(QGeoAreaMonitorSource* self, cons
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnStopMonitoring(QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_StopMonitoring_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_StopMonitoring_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -383,9 +374,8 @@ bool QGeoAreaMonitorSource_SuperRequestUpdate(QGeoAreaMonitorSource* self, const
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnRequestUpdate(QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_RequestUpdate_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_RequestUpdate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -420,9 +410,8 @@ libqt_list /* of QGeoAreaMonitorInfo* */ QGeoAreaMonitorSource_SuperActiveMonito
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnActiveMonitors(const QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = const_cast<VirtualQGeoAreaMonitorSource*>(dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self));
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_ActiveMonitors_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_ActiveMonitors_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -457,9 +446,8 @@ libqt_list /* of QGeoAreaMonitorInfo* */ QGeoAreaMonitorSource_SuperActiveMonito
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnActiveMonitors2(const QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = const_cast<VirtualQGeoAreaMonitorSource*>(dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self));
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_ActiveMonitors2_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_ActiveMonitors2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -477,9 +465,8 @@ bool QGeoAreaMonitorSource_SuperSetBackendProperty(QGeoAreaMonitorSource* self, 
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnSetBackendProperty(QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_SetBackendProperty_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_SetBackendProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -497,9 +484,8 @@ QVariant* QGeoAreaMonitorSource_SuperBackendProperty(const QGeoAreaMonitorSource
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnBackendProperty(const QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = const_cast<VirtualQGeoAreaMonitorSource*>(dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self));
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_BackendProperty_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_BackendProperty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -526,9 +512,8 @@ bool QGeoAreaMonitorSource_SuperEvent(QGeoAreaMonitorSource* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnEvent(QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_Event_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -555,9 +540,8 @@ bool QGeoAreaMonitorSource_SuperEventFilter(QGeoAreaMonitorSource* self, QObject
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnEventFilter(QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_EventFilter_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -584,9 +568,8 @@ void QGeoAreaMonitorSource_SuperTimerEvent(QGeoAreaMonitorSource* self, QTimerEv
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnTimerEvent(QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_TimerEvent_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -613,9 +596,8 @@ void QGeoAreaMonitorSource_SuperChildEvent(QGeoAreaMonitorSource* self, QChildEv
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnChildEvent(QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_ChildEvent_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -642,9 +624,8 @@ void QGeoAreaMonitorSource_SuperCustomEvent(QGeoAreaMonitorSource* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnCustomEvent(QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_CustomEvent_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -671,9 +652,8 @@ void QGeoAreaMonitorSource_SuperConnectNotify(QGeoAreaMonitorSource* self, const
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnConnectNotify(QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_ConnectNotify_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -700,9 +680,8 @@ void QGeoAreaMonitorSource_SuperDisconnectNotify(QGeoAreaMonitorSource* self, co
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnDisconnectNotify(QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_DisconnectNotify_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -729,9 +708,8 @@ QObject* QGeoAreaMonitorSource_SuperSender(const QGeoAreaMonitorSource* self) {
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnSender(const QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = const_cast<VirtualQGeoAreaMonitorSource*>(dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self));
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_Sender_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -758,9 +736,8 @@ int QGeoAreaMonitorSource_SuperSenderSignalIndex(const QGeoAreaMonitorSource* se
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnSenderSignalIndex(const QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = const_cast<VirtualQGeoAreaMonitorSource*>(dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self));
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -787,9 +764,8 @@ int QGeoAreaMonitorSource_SuperReceivers(const QGeoAreaMonitorSource* self, cons
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnReceivers(const QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = const_cast<VirtualQGeoAreaMonitorSource*>(dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self));
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_Receivers_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -816,9 +792,8 @@ bool QGeoAreaMonitorSource_SuperIsSignalConnected(const QGeoAreaMonitorSource* s
 // Auxiliary method to allow providing re-implementation
 void QGeoAreaMonitorSource_OnIsSignalConnected(const QGeoAreaMonitorSource* self, intptr_t slot) {
     auto* vqgeoareamonitorsource = const_cast<VirtualQGeoAreaMonitorSource*>(dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self));
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
+    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource)
         vqgeoareamonitorsource->setQGeoAreaMonitorSource_IsSignalConnected_Callback(reinterpret_cast<VirtualQGeoAreaMonitorSource::QGeoAreaMonitorSource_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGeoAreaMonitorSource_Delete(QGeoAreaMonitorSource* self) {

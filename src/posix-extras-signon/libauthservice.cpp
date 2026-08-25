@@ -194,9 +194,8 @@ QMetaObject* SignOn__AuthService_SuperMetaObject(const SignOn__AuthService* self
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnMetaObject(const SignOn__AuthService* self, intptr_t slot) {
     auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
         vsignonauthservice->setSignOn__AuthService_MetaObject_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -213,9 +212,8 @@ void* SignOn__AuthService_SuperMetacast(SignOn__AuthService* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnMetacast(SignOn__AuthService* self, intptr_t slot) {
     auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
         vsignonauthservice->setSignOn__AuthService_Metacast_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -232,9 +230,8 @@ int SignOn__AuthService_SuperMetacall(SignOn__AuthService* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnMetacall(SignOn__AuthService* self, intptr_t slot) {
     auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
         vsignonauthservice->setSignOn__AuthService_Metacall_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -261,9 +258,8 @@ bool SignOn__AuthService_SuperEvent(SignOn__AuthService* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnEvent(SignOn__AuthService* self, intptr_t slot) {
     auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
         vsignonauthservice->setSignOn__AuthService_Event_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -290,9 +286,8 @@ bool SignOn__AuthService_SuperEventFilter(SignOn__AuthService* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnEventFilter(SignOn__AuthService* self, intptr_t slot) {
     auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
         vsignonauthservice->setSignOn__AuthService_EventFilter_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -319,9 +314,8 @@ void SignOn__AuthService_SuperTimerEvent(SignOn__AuthService* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnTimerEvent(SignOn__AuthService* self, intptr_t slot) {
     auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
         vsignonauthservice->setSignOn__AuthService_TimerEvent_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -348,9 +342,8 @@ void SignOn__AuthService_SuperChildEvent(SignOn__AuthService* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnChildEvent(SignOn__AuthService* self, intptr_t slot) {
     auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
         vsignonauthservice->setSignOn__AuthService_ChildEvent_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -377,9 +370,8 @@ void SignOn__AuthService_SuperCustomEvent(SignOn__AuthService* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnCustomEvent(SignOn__AuthService* self, intptr_t slot) {
     auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
         vsignonauthservice->setSignOn__AuthService_CustomEvent_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -406,9 +398,8 @@ void SignOn__AuthService_SuperConnectNotify(SignOn__AuthService* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnConnectNotify(SignOn__AuthService* self, intptr_t slot) {
     auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
         vsignonauthservice->setSignOn__AuthService_ConnectNotify_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -435,9 +426,8 @@ void SignOn__AuthService_SuperDisconnectNotify(SignOn__AuthService* self, const 
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnDisconnectNotify(SignOn__AuthService* self, intptr_t slot) {
     auto* vsignonauthservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
         vsignonauthservice->setSignOn__AuthService_DisconnectNotify_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -464,9 +454,8 @@ QObject* SignOn__AuthService_SuperSender(const SignOn__AuthService* self) {
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnSender(const SignOn__AuthService* self, intptr_t slot) {
     auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
         vsignonauthservice->setSignOn__AuthService_Sender_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -493,9 +482,8 @@ int SignOn__AuthService_SuperSenderSignalIndex(const SignOn__AuthService* self) 
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnSenderSignalIndex(const SignOn__AuthService* self, intptr_t slot) {
     auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
         vsignonauthservice->setSignOn__AuthService_SenderSignalIndex_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -522,9 +510,8 @@ int SignOn__AuthService_SuperReceivers(const SignOn__AuthService* self, const ch
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnReceivers(const SignOn__AuthService* self, intptr_t slot) {
     auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
         vsignonauthservice->setSignOn__AuthService_Receivers_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -551,9 +538,8 @@ bool SignOn__AuthService_SuperIsSignalConnected(const SignOn__AuthService* self,
 // Auxiliary method to allow providing re-implementation
 void SignOn__AuthService_OnIsSignalConnected(const SignOn__AuthService* self, intptr_t slot) {
     auto* vsignonauthservice = const_cast<VirtualSignOnAuthService*>(dynamic_cast<const VirtualSignOnAuthService*>(self));
-    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService) {
+    if (vsignonauthservice && vsignonauthservice->isVirtualSignOnAuthService)
         vsignonauthservice->setSignOn__AuthService_IsSignalConnected_Callback(reinterpret_cast<VirtualSignOnAuthService::SignOn__AuthService_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void SignOn__AuthService_Delete(SignOn__AuthService* self) {

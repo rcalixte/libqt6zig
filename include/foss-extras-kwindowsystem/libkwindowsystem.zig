@@ -1391,7 +1391,7 @@ pub const KWindowSystem = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kwindowsystem.html#public-types)
 pub const enums = struct {
-    pub const Platform = enum(i32) {
+    pub const Platform = enum {
         pub const Unknown: i32 = 0;
         pub const X11: i32 = 1;
         pub const Wayland: i32 = 2;

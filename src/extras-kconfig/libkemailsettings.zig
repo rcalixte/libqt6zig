@@ -247,7 +247,7 @@ pub const KEMailSettings = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kemailsettings.html#public-types)
 pub const enums = struct {
-    pub const Setting = enum(i32) {
+    pub const Setting = enum {
         pub const ClientProgram: i32 = 0;
         pub const ClientTerminal: i32 = 1;
         pub const RealName: i32 = 2;

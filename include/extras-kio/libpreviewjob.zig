@@ -4954,7 +4954,7 @@ pub const KIO = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-previewjob.html#public-types)
 pub const enums = struct {
-    pub const ScaleType = enum(i32) {
+    pub const ScaleType = enum {
         pub const Unscaled: i32 = 0;
         pub const Scaled: i32 = 1;
         pub const ScaledAndCached: i32 = 2;

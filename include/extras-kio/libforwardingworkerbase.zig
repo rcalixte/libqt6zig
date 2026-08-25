@@ -4,6 +4,7 @@ const KConfigGroup = @import("libqt6").KConfigGroup;
 const KIO__AuthInfo = @import("libqt6").KIO__AuthInfo;
 const KIO__MetaData = @import("libqt6").KIO__MetaData;
 const KIO__UDSEntry = @import("libqt6").KIO__UDSEntry;
+const KIO__WorkerBase = @import("libqt6").KIO__WorkerBase;
 const KIO__WorkerResult = @import("libqt6").KIO__WorkerResult;
 const KRemoteEncoding = @import("libqt6").KRemoteEncoding;
 const QBindingStorage = @import("libqt6").QBindingStorage;
@@ -69,6 +70,27 @@ pub const KIO__ForwardingWorkerBase = extern struct {
             .data = appSocket.ptr,
         };
         return .{ .ptr = qtc.KIO__ForwardingWorkerBase_new(protocol_str, poolSocket_str, appSocket_str) };
+    }
+
+    /// Upcasts to a KIO::WorkerBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KIO__ForwardingWorkerBase `
+    ///
+    pub fn asKIO__WorkerBase(self: KIO__ForwardingWorkerBase) KIO__WorkerBase {
+        return .{ .ptr = qtc.KIO__ForwardingWorkerBase_AsKIO__WorkerBase(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a KIO__ForwardingWorkerBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _kio__workerbase: KIO__WorkerBase `
+    ///
+    pub fn fromKIO__WorkerBase(_kio__workerbase: anytype) KIO__ForwardingWorkerBase {
+        comptime _ = @TypeOf(_kio__workerbase)._is_KIO__WorkerBase;
+        return @bitCast(qtc.KIO__ForwardingWorkerBase_FromKIO__WorkerBase(@ptrCast(_kio__workerbase.ptr)));
     }
 
     /// ### DEPRECATED: Use `metaObject` instead
@@ -5390,7 +5412,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-forwardingworkerbase.html#public-types)
 pub const enums = struct {
-    pub const UDSEntryCreationMode = enum(i32) {
+    pub const UDSEntryCreationMode = enum {
         pub const UDSEntryCreationInStat: i32 = 0;
         pub const UDSEntryCreationInListDir: i32 = 1;
     };

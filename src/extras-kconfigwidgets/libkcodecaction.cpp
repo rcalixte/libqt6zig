@@ -125,9 +125,8 @@ QMetaObject* KCodecAction_SuperMetaObject(const KCodecAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnMetaObject(const KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = const_cast<VirtualKCodecAction*>(dynamic_cast<const VirtualKCodecAction*>(self));
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_MetaObject_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -144,9 +143,8 @@ void* KCodecAction_SuperMetacast(KCodecAction* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnMetacast(KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_Metacast_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -163,9 +161,8 @@ int KCodecAction_SuperMetacall(KCodecAction* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnMetacall(KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_Metacall_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -182,9 +179,8 @@ void KCodecAction_SuperSlotActionTriggered(KCodecAction* self, QAction* param1) 
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnSlotActionTriggered(KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_SlotActionTriggered_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_SlotActionTriggered_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -211,9 +207,8 @@ QAction* KCodecAction_SuperRemoveAction(KCodecAction* self, QAction* action) {
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnRemoveAction(KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_RemoveAction_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_RemoveAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -240,9 +235,8 @@ void KCodecAction_SuperInsertAction(KCodecAction* self, QAction* before, QAction
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnInsertAction(KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_InsertAction_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_InsertAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -269,9 +263,8 @@ QWidget* KCodecAction_SuperCreateWidget(KCodecAction* self, QWidget* parent) {
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnCreateWidget(KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_CreateWidget_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_CreateWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -298,9 +291,8 @@ void KCodecAction_SuperDeleteWidget(KCodecAction* self, QWidget* widget) {
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnDeleteWidget(KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_DeleteWidget_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_DeleteWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -327,9 +319,8 @@ bool KCodecAction_SuperEvent(KCodecAction* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnEvent(KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_Event_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -356,9 +347,8 @@ bool KCodecAction_SuperEventFilter(KCodecAction* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnEventFilter(KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_EventFilter_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -385,9 +375,8 @@ void KCodecAction_SuperTimerEvent(KCodecAction* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnTimerEvent(KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_TimerEvent_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -414,9 +403,8 @@ void KCodecAction_SuperChildEvent(KCodecAction* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnChildEvent(KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_ChildEvent_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -443,9 +431,8 @@ void KCodecAction_SuperCustomEvent(KCodecAction* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnCustomEvent(KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_CustomEvent_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -472,9 +459,8 @@ void KCodecAction_SuperConnectNotify(KCodecAction* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnConnectNotify(KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_ConnectNotify_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -501,9 +487,8 @@ void KCodecAction_SuperDisconnectNotify(KCodecAction* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnDisconnectNotify(KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -530,9 +515,8 @@ void KCodecAction_SuperSlotToggled(KCodecAction* self, bool param1) {
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnSlotToggled(KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_SlotToggled_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_SlotToggled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -595,9 +579,8 @@ libqt_list /* of QWidget* */ KCodecAction_SuperCreatedWidgets(const KCodecAction
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnCreatedWidgets(const KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = const_cast<VirtualKCodecAction*>(dynamic_cast<const VirtualKCodecAction*>(self));
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_CreatedWidgets_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_CreatedWidgets_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -624,9 +607,8 @@ QObject* KCodecAction_SuperSender(const KCodecAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnSender(const KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = const_cast<VirtualKCodecAction*>(dynamic_cast<const VirtualKCodecAction*>(self));
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_Sender_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -653,9 +635,8 @@ int KCodecAction_SuperSenderSignalIndex(const KCodecAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnSenderSignalIndex(const KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = const_cast<VirtualKCodecAction*>(dynamic_cast<const VirtualKCodecAction*>(self));
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -682,9 +663,8 @@ int KCodecAction_SuperReceivers(const KCodecAction* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnReceivers(const KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = const_cast<VirtualKCodecAction*>(dynamic_cast<const VirtualKCodecAction*>(self));
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_Receivers_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -711,9 +691,8 @@ bool KCodecAction_SuperIsSignalConnected(const KCodecAction* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KCodecAction_OnIsSignalConnected(const KCodecAction* self, intptr_t slot) {
     auto* vkcodecaction = const_cast<VirtualKCodecAction*>(dynamic_cast<const VirtualKCodecAction*>(self));
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
+    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction)
         vkcodecaction->setKCodecAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKCodecAction::KCodecAction_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KCodecAction_Delete(KCodecAction* self) {

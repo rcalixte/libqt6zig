@@ -1322,18 +1322,18 @@ pub const QTimeZone__OffsetData = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone.html#public-types)
 pub const enums = struct {
-    pub const Initialization = enum(i32) {
+    pub const Initialization = enum {
         pub const LocalTime: i32 = 0;
         pub const UTC: i32 = 1;
     };
 
-    pub const TimeType = enum(i32) {
+    pub const TimeType = enum {
         pub const StandardTime: i32 = 0;
         pub const DaylightTime: i32 = 1;
         pub const GenericTime: i32 = 2;
     };
 
-    pub const NameType = enum(i32) {
+    pub const NameType = enum {
         pub const DefaultName: i32 = 0;
         pub const LongName: i32 = 1;
         pub const ShortName: i32 = 2;

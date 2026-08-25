@@ -859,6 +859,31 @@ pub const KUrlComboBox = extern struct {
         qtc.KUrlComboBox_RemoveUrl2(@ptrCast(self.ptr), @ptrCast(url.ptr), checkDefaultURLs);
     }
 
+    /// Inherited from KComboBox
+    ///
+    /// Upcasts to a KCompletionBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUrlComboBox `
+    ///
+    pub fn asKCompletionBase(self: KUrlComboBox) KCompletionBase {
+        return .{ .ptr = qtc.KComboBox_AsKCompletionBase(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from KComboBox
+    ///
+    /// Downcasts to a KUrlComboBox object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _kcompletionbase: KCompletionBase `
+    ///
+    pub fn fromKCompletionBase(_kcompletionbase: anytype) KUrlComboBox {
+        comptime _ = @TypeOf(_kcompletionbase)._is_KCompletionBase;
+        return .{ .ptr = @ptrCast(qtc.KComboBox_FromKCompletionBase(@ptrCast(_kcompletionbase.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `setEditUrl` instead
     ///
     pub const SetEditUrl = setEditUrl;
@@ -3137,6 +3162,31 @@ pub const KUrlComboBox = extern struct {
     pub fn setItemData3(self: KUrlComboBox, index: i32, value: anytype, role: i32) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QComboBox_SetItemData3(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr), @bitCast(role));
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KUrlComboBox `
+    ///
+    pub fn asQPaintDevice(self: KUrlComboBox) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KUrlComboBox object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KUrlComboBox {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
     }
 
     /// ### DEPRECATED: Use `winId` instead
@@ -9123,7 +9173,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn paintingActive(self: KUrlComboBox) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -9139,7 +9189,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn widthMM(self: KUrlComboBox) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -9155,7 +9205,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn heightMM(self: KUrlComboBox) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -9171,7 +9221,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn logicalDpiX(self: KUrlComboBox) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -9187,7 +9237,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn logicalDpiY(self: KUrlComboBox) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -9203,7 +9253,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn physicalDpiX(self: KUrlComboBox) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -9219,7 +9269,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn physicalDpiY(self: KUrlComboBox) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -9235,7 +9285,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn devicePixelRatio(self: KUrlComboBox) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -9251,7 +9301,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn devicePixelRatioF(self: KUrlComboBox) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -9267,7 +9317,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn colorCount(self: KUrlComboBox) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -9283,7 +9333,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn depth(self: KUrlComboBox) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -9329,7 +9379,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn completionObject(self: KUrlComboBox) KCompletion {
-        return .{ .ptr = qtc.KCompletionBase_CompletionObject(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.KCompletionBase_CompletionObject(@ptrCast(self.asKCompletionBase().ptr)) };
     }
 
     /// ### DEPRECATED: Use `isCompletionObjectAutoDeleted` instead
@@ -9345,7 +9395,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn isCompletionObjectAutoDeleted(self: KUrlComboBox) bool {
-        return qtc.KCompletionBase_IsCompletionObjectAutoDeleted(@ptrCast(self.ptr));
+        return qtc.KCompletionBase_IsCompletionObjectAutoDeleted(@ptrCast(self.asKCompletionBase().ptr));
     }
 
     /// ### DEPRECATED: Use `setAutoDeleteCompletionObject` instead
@@ -9363,7 +9413,7 @@ pub const KUrlComboBox = extern struct {
     /// ` autoDelete: bool `
     ///
     pub fn setAutoDeleteCompletionObject(self: KUrlComboBox, autoDelete: bool) void {
-        qtc.KCompletionBase_SetAutoDeleteCompletionObject(@ptrCast(self.ptr), autoDelete);
+        qtc.KCompletionBase_SetAutoDeleteCompletionObject(@ptrCast(self.asKCompletionBase().ptr), autoDelete);
     }
 
     /// ### DEPRECATED: Use `setEnableSignals` instead
@@ -9381,7 +9431,7 @@ pub const KUrlComboBox = extern struct {
     /// ` enable: bool `
     ///
     pub fn setEnableSignals(self: KUrlComboBox, enable: bool) void {
-        qtc.KCompletionBase_SetEnableSignals(@ptrCast(self.ptr), enable);
+        qtc.KCompletionBase_SetEnableSignals(@ptrCast(self.asKCompletionBase().ptr), enable);
     }
 
     /// ### DEPRECATED: Use `handleSignals` instead
@@ -9397,7 +9447,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn handleSignals(self: KUrlComboBox) bool {
-        return qtc.KCompletionBase_HandleSignals(@ptrCast(self.ptr));
+        return qtc.KCompletionBase_HandleSignals(@ptrCast(self.asKCompletionBase().ptr));
     }
 
     /// ### DEPRECATED: Use `emitSignals` instead
@@ -9413,7 +9463,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn emitSignals(self: KUrlComboBox) bool {
-        return qtc.KCompletionBase_EmitSignals(@ptrCast(self.ptr));
+        return qtc.KCompletionBase_EmitSignals(@ptrCast(self.asKCompletionBase().ptr));
     }
 
     /// ### DEPRECATED: Use `setEmitSignals` instead
@@ -9431,7 +9481,7 @@ pub const KUrlComboBox = extern struct {
     /// ` emitRotationSignals: bool `
     ///
     pub fn setEmitSignals(self: KUrlComboBox, emitRotationSignals: bool) void {
-        qtc.KCompletionBase_SetEmitSignals(@ptrCast(self.ptr), emitRotationSignals);
+        qtc.KCompletionBase_SetEmitSignals(@ptrCast(self.asKCompletionBase().ptr), emitRotationSignals);
     }
 
     /// ### DEPRECATED: Use `completionMode` instead
@@ -9451,7 +9501,7 @@ pub const KUrlComboBox = extern struct {
     /// ` kcompletion_enums.CompletionMode `
     ///
     pub fn completionMode(self: KUrlComboBox) i32 {
-        return qtc.KCompletionBase_CompletionMode(@ptrCast(self.ptr));
+        return qtc.KCompletionBase_CompletionMode(@ptrCast(self.asKCompletionBase().ptr));
     }
 
     /// ### DEPRECATED: Use `setKeyBinding` instead
@@ -9475,7 +9525,7 @@ pub const KUrlComboBox = extern struct {
             .len = key.len,
             .data = @ptrCast(key.ptr),
         };
-        return qtc.KCompletionBase_SetKeyBinding(@ptrCast(self.ptr), @bitCast(item), key_list);
+        return qtc.KCompletionBase_SetKeyBinding(@ptrCast(self.asKCompletionBase().ptr), @bitCast(item), key_list);
     }
 
     /// ### DEPRECATED: Use `keyBinding` instead
@@ -9495,7 +9545,7 @@ pub const KUrlComboBox = extern struct {
     /// ` item: kcompletionbase_enums.KeyBindingType `
     ///
     pub fn keyBinding(self: KUrlComboBox, allocator: std.mem.Allocator, item: i32) []QKeySequence {
-        const _arr: qtc.libqt_list = qtc.KCompletionBase_KeyBinding(@ptrCast(self.ptr), @bitCast(item));
+        const _arr: qtc.libqt_list = qtc.KCompletionBase_KeyBinding(@ptrCast(self.asKCompletionBase().ptr), @bitCast(item));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KUrlComboBox.keyBinding: Memory allocation failed");
         const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
@@ -9517,7 +9567,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn useGlobalKeyBindings(self: KUrlComboBox) void {
-        qtc.KCompletionBase_UseGlobalKeyBindings(@ptrCast(self.ptr));
+        qtc.KCompletionBase_UseGlobalKeyBindings(@ptrCast(self.asKCompletionBase().ptr));
     }
 
     /// ### DEPRECATED: Use `compObj` instead
@@ -9533,7 +9583,7 @@ pub const KUrlComboBox = extern struct {
     /// ` self: KUrlComboBox `
     ///
     pub fn compObj(self: KUrlComboBox) KCompletion {
-        return .{ .ptr = qtc.KCompletionBase_CompObj(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.KCompletionBase_CompObj(@ptrCast(self.asKCompletionBase().ptr)) };
     }
 
     /// ### DEPRECATED: Use `completionObject1` instead
@@ -9551,7 +9601,7 @@ pub const KUrlComboBox = extern struct {
     /// ` _handleSignals: bool `
     ///
     pub fn completionObject1(self: KUrlComboBox, _handleSignals: bool) KCompletion {
-        return .{ .ptr = qtc.KCompletionBase_CompletionObject1(@ptrCast(self.ptr), _handleSignals) };
+        return .{ .ptr = qtc.KCompletionBase_CompletionObject1(@ptrCast(self.asKCompletionBase().ptr), _handleSignals) };
     }
 
     /// ### DEPRECATED: Use `setAutoCompletion` instead
@@ -14053,13 +14103,13 @@ pub const KUrlComboBox = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kurlcombobox.html#public-types)
 pub const enums = struct {
-    pub const Mode = enum(i32) {
+    pub const Mode = enum {
         pub const Files: i32 = -1;
         pub const Directories: i32 = 1;
         pub const Both: i32 = 0;
     };
 
-    pub const OverLoadResolving = enum(i32) {
+    pub const OverLoadResolving = enum {
         pub const RemoveTop: i32 = 0;
         pub const RemoveBottom: i32 = 1;
     };

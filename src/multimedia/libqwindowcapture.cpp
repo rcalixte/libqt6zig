@@ -161,9 +161,8 @@ QMetaObject* QWindowCapture_SuperMetaObject(const QWindowCapture* self) {
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnMetaObject(const QWindowCapture* self, intptr_t slot) {
     auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
         vqwindowcapture->setQWindowCapture_MetaObject_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -180,9 +179,8 @@ void* QWindowCapture_SuperMetacast(QWindowCapture* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnMetacast(QWindowCapture* self, intptr_t slot) {
     auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
         vqwindowcapture->setQWindowCapture_Metacast_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -199,9 +197,8 @@ int QWindowCapture_SuperMetacall(QWindowCapture* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnMetacall(QWindowCapture* self, intptr_t slot) {
     auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
         vqwindowcapture->setQWindowCapture_Metacall_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -228,9 +225,8 @@ bool QWindowCapture_SuperEvent(QWindowCapture* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnEvent(QWindowCapture* self, intptr_t slot) {
     auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
         vqwindowcapture->setQWindowCapture_Event_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -257,9 +253,8 @@ bool QWindowCapture_SuperEventFilter(QWindowCapture* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnEventFilter(QWindowCapture* self, intptr_t slot) {
     auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
         vqwindowcapture->setQWindowCapture_EventFilter_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -286,9 +281,8 @@ void QWindowCapture_SuperTimerEvent(QWindowCapture* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnTimerEvent(QWindowCapture* self, intptr_t slot) {
     auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
         vqwindowcapture->setQWindowCapture_TimerEvent_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -315,9 +309,8 @@ void QWindowCapture_SuperChildEvent(QWindowCapture* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnChildEvent(QWindowCapture* self, intptr_t slot) {
     auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
         vqwindowcapture->setQWindowCapture_ChildEvent_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -344,9 +337,8 @@ void QWindowCapture_SuperCustomEvent(QWindowCapture* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnCustomEvent(QWindowCapture* self, intptr_t slot) {
     auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
         vqwindowcapture->setQWindowCapture_CustomEvent_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -373,9 +365,8 @@ void QWindowCapture_SuperConnectNotify(QWindowCapture* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnConnectNotify(QWindowCapture* self, intptr_t slot) {
     auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
         vqwindowcapture->setQWindowCapture_ConnectNotify_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -402,9 +393,8 @@ void QWindowCapture_SuperDisconnectNotify(QWindowCapture* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnDisconnectNotify(QWindowCapture* self, intptr_t slot) {
     auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
         vqwindowcapture->setQWindowCapture_DisconnectNotify_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -431,9 +421,8 @@ QObject* QWindowCapture_SuperSender(const QWindowCapture* self) {
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnSender(const QWindowCapture* self, intptr_t slot) {
     auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
         vqwindowcapture->setQWindowCapture_Sender_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -460,9 +449,8 @@ int QWindowCapture_SuperSenderSignalIndex(const QWindowCapture* self) {
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnSenderSignalIndex(const QWindowCapture* self, intptr_t slot) {
     auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
         vqwindowcapture->setQWindowCapture_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -489,9 +477,8 @@ int QWindowCapture_SuperReceivers(const QWindowCapture* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnReceivers(const QWindowCapture* self, intptr_t slot) {
     auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
         vqwindowcapture->setQWindowCapture_Receivers_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -518,9 +505,8 @@ bool QWindowCapture_SuperIsSignalConnected(const QWindowCapture* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QWindowCapture_OnIsSignalConnected(const QWindowCapture* self, intptr_t slot) {
     auto* vqwindowcapture = const_cast<VirtualQWindowCapture*>(dynamic_cast<const VirtualQWindowCapture*>(self));
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
+    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture)
         vqwindowcapture->setQWindowCapture_IsSignalConnected_Callback(reinterpret_cast<VirtualQWindowCapture::QWindowCapture_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QWindowCapture_Delete(QWindowCapture* self) {

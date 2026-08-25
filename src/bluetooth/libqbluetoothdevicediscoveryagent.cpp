@@ -175,9 +175,8 @@ QMetaObject* QBluetoothDeviceDiscoveryAgent_SuperMetaObject(const QBluetoothDevi
 // Auxiliary method to allow providing re-implementation
 void QBluetoothDeviceDiscoveryAgent_OnMetaObject(const QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     auto* vqbluetoothdevicediscoveryagent = const_cast<VirtualQBluetoothDeviceDiscoveryAgent*>(dynamic_cast<const VirtualQBluetoothDeviceDiscoveryAgent*>(self));
-    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent) {
+    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent)
         vqbluetoothdevicediscoveryagent->setQBluetoothDeviceDiscoveryAgent_MetaObject_Callback(reinterpret_cast<VirtualQBluetoothDeviceDiscoveryAgent::QBluetoothDeviceDiscoveryAgent_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -194,9 +193,8 @@ void* QBluetoothDeviceDiscoveryAgent_SuperMetacast(QBluetoothDeviceDiscoveryAgen
 // Auxiliary method to allow providing re-implementation
 void QBluetoothDeviceDiscoveryAgent_OnMetacast(QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     auto* vqbluetoothdevicediscoveryagent = dynamic_cast<VirtualQBluetoothDeviceDiscoveryAgent*>(self);
-    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent) {
+    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent)
         vqbluetoothdevicediscoveryagent->setQBluetoothDeviceDiscoveryAgent_Metacast_Callback(reinterpret_cast<VirtualQBluetoothDeviceDiscoveryAgent::QBluetoothDeviceDiscoveryAgent_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -213,9 +211,8 @@ int QBluetoothDeviceDiscoveryAgent_SuperMetacall(QBluetoothDeviceDiscoveryAgent*
 // Auxiliary method to allow providing re-implementation
 void QBluetoothDeviceDiscoveryAgent_OnMetacall(QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     auto* vqbluetoothdevicediscoveryagent = dynamic_cast<VirtualQBluetoothDeviceDiscoveryAgent*>(self);
-    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent) {
+    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent)
         vqbluetoothdevicediscoveryagent->setQBluetoothDeviceDiscoveryAgent_Metacall_Callback(reinterpret_cast<VirtualQBluetoothDeviceDiscoveryAgent::QBluetoothDeviceDiscoveryAgent_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -242,9 +239,8 @@ bool QBluetoothDeviceDiscoveryAgent_SuperEvent(QBluetoothDeviceDiscoveryAgent* s
 // Auxiliary method to allow providing re-implementation
 void QBluetoothDeviceDiscoveryAgent_OnEvent(QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     auto* vqbluetoothdevicediscoveryagent = dynamic_cast<VirtualQBluetoothDeviceDiscoveryAgent*>(self);
-    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent) {
+    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent)
         vqbluetoothdevicediscoveryagent->setQBluetoothDeviceDiscoveryAgent_Event_Callback(reinterpret_cast<VirtualQBluetoothDeviceDiscoveryAgent::QBluetoothDeviceDiscoveryAgent_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -271,9 +267,8 @@ bool QBluetoothDeviceDiscoveryAgent_SuperEventFilter(QBluetoothDeviceDiscoveryAg
 // Auxiliary method to allow providing re-implementation
 void QBluetoothDeviceDiscoveryAgent_OnEventFilter(QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     auto* vqbluetoothdevicediscoveryagent = dynamic_cast<VirtualQBluetoothDeviceDiscoveryAgent*>(self);
-    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent) {
+    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent)
         vqbluetoothdevicediscoveryagent->setQBluetoothDeviceDiscoveryAgent_EventFilter_Callback(reinterpret_cast<VirtualQBluetoothDeviceDiscoveryAgent::QBluetoothDeviceDiscoveryAgent_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +295,8 @@ void QBluetoothDeviceDiscoveryAgent_SuperTimerEvent(QBluetoothDeviceDiscoveryAge
 // Auxiliary method to allow providing re-implementation
 void QBluetoothDeviceDiscoveryAgent_OnTimerEvent(QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     auto* vqbluetoothdevicediscoveryagent = dynamic_cast<VirtualQBluetoothDeviceDiscoveryAgent*>(self);
-    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent) {
+    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent)
         vqbluetoothdevicediscoveryagent->setQBluetoothDeviceDiscoveryAgent_TimerEvent_Callback(reinterpret_cast<VirtualQBluetoothDeviceDiscoveryAgent::QBluetoothDeviceDiscoveryAgent_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +323,8 @@ void QBluetoothDeviceDiscoveryAgent_SuperChildEvent(QBluetoothDeviceDiscoveryAge
 // Auxiliary method to allow providing re-implementation
 void QBluetoothDeviceDiscoveryAgent_OnChildEvent(QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     auto* vqbluetoothdevicediscoveryagent = dynamic_cast<VirtualQBluetoothDeviceDiscoveryAgent*>(self);
-    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent) {
+    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent)
         vqbluetoothdevicediscoveryagent->setQBluetoothDeviceDiscoveryAgent_ChildEvent_Callback(reinterpret_cast<VirtualQBluetoothDeviceDiscoveryAgent::QBluetoothDeviceDiscoveryAgent_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +351,8 @@ void QBluetoothDeviceDiscoveryAgent_SuperCustomEvent(QBluetoothDeviceDiscoveryAg
 // Auxiliary method to allow providing re-implementation
 void QBluetoothDeviceDiscoveryAgent_OnCustomEvent(QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     auto* vqbluetoothdevicediscoveryagent = dynamic_cast<VirtualQBluetoothDeviceDiscoveryAgent*>(self);
-    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent) {
+    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent)
         vqbluetoothdevicediscoveryagent->setQBluetoothDeviceDiscoveryAgent_CustomEvent_Callback(reinterpret_cast<VirtualQBluetoothDeviceDiscoveryAgent::QBluetoothDeviceDiscoveryAgent_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +379,8 @@ void QBluetoothDeviceDiscoveryAgent_SuperConnectNotify(QBluetoothDeviceDiscovery
 // Auxiliary method to allow providing re-implementation
 void QBluetoothDeviceDiscoveryAgent_OnConnectNotify(QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     auto* vqbluetoothdevicediscoveryagent = dynamic_cast<VirtualQBluetoothDeviceDiscoveryAgent*>(self);
-    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent) {
+    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent)
         vqbluetoothdevicediscoveryagent->setQBluetoothDeviceDiscoveryAgent_ConnectNotify_Callback(reinterpret_cast<VirtualQBluetoothDeviceDiscoveryAgent::QBluetoothDeviceDiscoveryAgent_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +407,8 @@ void QBluetoothDeviceDiscoveryAgent_SuperDisconnectNotify(QBluetoothDeviceDiscov
 // Auxiliary method to allow providing re-implementation
 void QBluetoothDeviceDiscoveryAgent_OnDisconnectNotify(QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     auto* vqbluetoothdevicediscoveryagent = dynamic_cast<VirtualQBluetoothDeviceDiscoveryAgent*>(self);
-    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent) {
+    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent)
         vqbluetoothdevicediscoveryagent->setQBluetoothDeviceDiscoveryAgent_DisconnectNotify_Callback(reinterpret_cast<VirtualQBluetoothDeviceDiscoveryAgent::QBluetoothDeviceDiscoveryAgent_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +435,8 @@ QObject* QBluetoothDeviceDiscoveryAgent_SuperSender(const QBluetoothDeviceDiscov
 // Auxiliary method to allow providing re-implementation
 void QBluetoothDeviceDiscoveryAgent_OnSender(const QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     auto* vqbluetoothdevicediscoveryagent = const_cast<VirtualQBluetoothDeviceDiscoveryAgent*>(dynamic_cast<const VirtualQBluetoothDeviceDiscoveryAgent*>(self));
-    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent) {
+    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent)
         vqbluetoothdevicediscoveryagent->setQBluetoothDeviceDiscoveryAgent_Sender_Callback(reinterpret_cast<VirtualQBluetoothDeviceDiscoveryAgent::QBluetoothDeviceDiscoveryAgent_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +463,8 @@ int QBluetoothDeviceDiscoveryAgent_SuperSenderSignalIndex(const QBluetoothDevice
 // Auxiliary method to allow providing re-implementation
 void QBluetoothDeviceDiscoveryAgent_OnSenderSignalIndex(const QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     auto* vqbluetoothdevicediscoveryagent = const_cast<VirtualQBluetoothDeviceDiscoveryAgent*>(dynamic_cast<const VirtualQBluetoothDeviceDiscoveryAgent*>(self));
-    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent) {
+    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent)
         vqbluetoothdevicediscoveryagent->setQBluetoothDeviceDiscoveryAgent_SenderSignalIndex_Callback(reinterpret_cast<VirtualQBluetoothDeviceDiscoveryAgent::QBluetoothDeviceDiscoveryAgent_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +491,8 @@ int QBluetoothDeviceDiscoveryAgent_SuperReceivers(const QBluetoothDeviceDiscover
 // Auxiliary method to allow providing re-implementation
 void QBluetoothDeviceDiscoveryAgent_OnReceivers(const QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     auto* vqbluetoothdevicediscoveryagent = const_cast<VirtualQBluetoothDeviceDiscoveryAgent*>(dynamic_cast<const VirtualQBluetoothDeviceDiscoveryAgent*>(self));
-    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent) {
+    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent)
         vqbluetoothdevicediscoveryagent->setQBluetoothDeviceDiscoveryAgent_Receivers_Callback(reinterpret_cast<VirtualQBluetoothDeviceDiscoveryAgent::QBluetoothDeviceDiscoveryAgent_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +519,8 @@ bool QBluetoothDeviceDiscoveryAgent_SuperIsSignalConnected(const QBluetoothDevic
 // Auxiliary method to allow providing re-implementation
 void QBluetoothDeviceDiscoveryAgent_OnIsSignalConnected(const QBluetoothDeviceDiscoveryAgent* self, intptr_t slot) {
     auto* vqbluetoothdevicediscoveryagent = const_cast<VirtualQBluetoothDeviceDiscoveryAgent*>(dynamic_cast<const VirtualQBluetoothDeviceDiscoveryAgent*>(self));
-    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent) {
+    if (vqbluetoothdevicediscoveryagent && vqbluetoothdevicediscoveryagent->isVirtualQBluetoothDeviceDiscoveryAgent)
         vqbluetoothdevicediscoveryagent->setQBluetoothDeviceDiscoveryAgent_IsSignalConnected_Callback(reinterpret_cast<VirtualQBluetoothDeviceDiscoveryAgent::QBluetoothDeviceDiscoveryAgent_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QBluetoothDeviceDiscoveryAgent_Delete(QBluetoothDeviceDiscoveryAgent* self) {

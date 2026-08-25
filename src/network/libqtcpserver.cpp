@@ -182,9 +182,8 @@ QMetaObject* QTcpServer_SuperMetaObject(const QTcpServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnMetaObject(const QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_MetaObject_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -201,9 +200,8 @@ void* QTcpServer_SuperMetacast(QTcpServer* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnMetacast(QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_Metacast_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -220,9 +218,8 @@ int QTcpServer_SuperMetacall(QTcpServer* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnMetacall(QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_Metacall_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -239,9 +236,8 @@ bool QTcpServer_SuperHasPendingConnections(const QTcpServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnHasPendingConnections(const QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_HasPendingConnections_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_HasPendingConnections_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -258,9 +254,8 @@ QTcpSocket* QTcpServer_SuperNextPendingConnection(QTcpServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnNextPendingConnection(QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_NextPendingConnection_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_NextPendingConnection_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -277,9 +272,8 @@ void QTcpServer_SuperIncomingConnection(QTcpServer* self, intptr_t handle) {
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnIncomingConnection(QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_IncomingConnection_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_IncomingConnection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -306,9 +300,8 @@ bool QTcpServer_SuperEvent(QTcpServer* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnEvent(QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_Event_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -335,9 +328,8 @@ bool QTcpServer_SuperEventFilter(QTcpServer* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnEventFilter(QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_EventFilter_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -364,9 +356,8 @@ void QTcpServer_SuperTimerEvent(QTcpServer* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnTimerEvent(QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_TimerEvent_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -393,9 +384,8 @@ void QTcpServer_SuperChildEvent(QTcpServer* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnChildEvent(QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_ChildEvent_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -422,9 +412,8 @@ void QTcpServer_SuperCustomEvent(QTcpServer* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnCustomEvent(QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_CustomEvent_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -451,9 +440,8 @@ void QTcpServer_SuperConnectNotify(QTcpServer* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnConnectNotify(QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_ConnectNotify_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -480,9 +468,8 @@ void QTcpServer_SuperDisconnectNotify(QTcpServer* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnDisconnectNotify(QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_DisconnectNotify_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -509,9 +496,8 @@ void QTcpServer_SuperAddPendingConnection(QTcpServer* self, QTcpSocket* socket) 
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnAddPendingConnection(QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_AddPendingConnection_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_AddPendingConnection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -538,9 +524,8 @@ QObject* QTcpServer_SuperSender(const QTcpServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnSender(const QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_Sender_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -567,9 +552,8 @@ int QTcpServer_SuperSenderSignalIndex(const QTcpServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnSenderSignalIndex(const QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -596,9 +580,8 @@ int QTcpServer_SuperReceivers(const QTcpServer* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnReceivers(const QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_Receivers_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -625,9 +608,8 @@ bool QTcpServer_SuperIsSignalConnected(const QTcpServer* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QTcpServer_OnIsSignalConnected(const QTcpServer* self, intptr_t slot) {
     auto* vqtcpserver = const_cast<VirtualQTcpServer*>(dynamic_cast<const VirtualQTcpServer*>(self));
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
+    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer)
         vqtcpserver->setQTcpServer_IsSignalConnected_Callback(reinterpret_cast<VirtualQTcpServer::QTcpServer_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QTcpServer_Connect_PendingConnectionAvailable(QTcpServer* self, intptr_t slot) {

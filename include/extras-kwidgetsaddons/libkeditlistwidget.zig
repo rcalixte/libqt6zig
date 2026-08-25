@@ -977,6 +977,31 @@ pub const KEditListWidget = extern struct {
         qtc.KEditListWidget_InsertItem2(@ptrCast(self.ptr), text_str, @bitCast(index));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KEditListWidget `
+    ///
+    pub fn asQPaintDevice(self: KEditListWidget) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KEditListWidget object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KEditListWidget {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6961,7 +6986,7 @@ pub const KEditListWidget = extern struct {
     /// ` self: KEditListWidget `
     ///
     pub fn paintingActive(self: KEditListWidget) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6977,7 +7002,7 @@ pub const KEditListWidget = extern struct {
     /// ` self: KEditListWidget `
     ///
     pub fn widthMM(self: KEditListWidget) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6993,7 +7018,7 @@ pub const KEditListWidget = extern struct {
     /// ` self: KEditListWidget `
     ///
     pub fn heightMM(self: KEditListWidget) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -7009,7 +7034,7 @@ pub const KEditListWidget = extern struct {
     /// ` self: KEditListWidget `
     ///
     pub fn logicalDpiX(self: KEditListWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7025,7 +7050,7 @@ pub const KEditListWidget = extern struct {
     /// ` self: KEditListWidget `
     ///
     pub fn logicalDpiY(self: KEditListWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7041,7 +7066,7 @@ pub const KEditListWidget = extern struct {
     /// ` self: KEditListWidget `
     ///
     pub fn physicalDpiX(self: KEditListWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7057,7 +7082,7 @@ pub const KEditListWidget = extern struct {
     /// ` self: KEditListWidget `
     ///
     pub fn physicalDpiY(self: KEditListWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7073,7 +7098,7 @@ pub const KEditListWidget = extern struct {
     /// ` self: KEditListWidget `
     ///
     pub fn devicePixelRatio(self: KEditListWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7089,7 +7114,7 @@ pub const KEditListWidget = extern struct {
     /// ` self: KEditListWidget `
     ///
     pub fn devicePixelRatioF(self: KEditListWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7105,7 +7130,7 @@ pub const KEditListWidget = extern struct {
     /// ` self: KEditListWidget `
     ///
     pub fn colorCount(self: KEditListWidget) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7121,7 +7146,7 @@ pub const KEditListWidget = extern struct {
     /// ` self: KEditListWidget `
     ///
     pub fn depth(self: KEditListWidget) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10797,7 +10822,7 @@ pub const KEditListWidget__CustomEditor = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#public-types)
 pub const enums = struct {
-    pub const Button = enum(i32) {
+    pub const Button = enum {
         pub const Add: i32 = 1;
         pub const Remove: i32 = 2;
         pub const UpDown: i32 = 4;

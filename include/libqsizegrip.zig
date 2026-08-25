@@ -909,6 +909,31 @@ pub const QSizeGrip = extern struct {
         return _ret;
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSizeGrip `
+    ///
+    pub fn asQPaintDevice(self: QSizeGrip) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a QSizeGrip object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) QSizeGrip {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6893,7 +6918,7 @@ pub const QSizeGrip = extern struct {
     /// ` self: QSizeGrip `
     ///
     pub fn paintingActive(self: QSizeGrip) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6909,7 +6934,7 @@ pub const QSizeGrip = extern struct {
     /// ` self: QSizeGrip `
     ///
     pub fn widthMM(self: QSizeGrip) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6925,7 +6950,7 @@ pub const QSizeGrip = extern struct {
     /// ` self: QSizeGrip `
     ///
     pub fn heightMM(self: QSizeGrip) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6941,7 +6966,7 @@ pub const QSizeGrip = extern struct {
     /// ` self: QSizeGrip `
     ///
     pub fn logicalDpiX(self: QSizeGrip) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6957,7 +6982,7 @@ pub const QSizeGrip = extern struct {
     /// ` self: QSizeGrip `
     ///
     pub fn logicalDpiY(self: QSizeGrip) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6973,7 +6998,7 @@ pub const QSizeGrip = extern struct {
     /// ` self: QSizeGrip `
     ///
     pub fn physicalDpiX(self: QSizeGrip) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6989,7 +7014,7 @@ pub const QSizeGrip = extern struct {
     /// ` self: QSizeGrip `
     ///
     pub fn physicalDpiY(self: QSizeGrip) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7005,7 +7030,7 @@ pub const QSizeGrip = extern struct {
     /// ` self: QSizeGrip `
     ///
     pub fn devicePixelRatio(self: QSizeGrip) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7021,7 +7046,7 @@ pub const QSizeGrip = extern struct {
     /// ` self: QSizeGrip `
     ///
     pub fn devicePixelRatioF(self: QSizeGrip) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7037,7 +7062,7 @@ pub const QSizeGrip = extern struct {
     /// ` self: QSizeGrip `
     ///
     pub fn colorCount(self: QSizeGrip) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7053,7 +7078,7 @@ pub const QSizeGrip = extern struct {
     /// ` self: QSizeGrip `
     ///
     pub fn depth(self: QSizeGrip) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

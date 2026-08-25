@@ -116,9 +116,8 @@ QMetaObject* QFileSelector_SuperMetaObject(const QFileSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileSelector_OnMetaObject(const QFileSelector* self, intptr_t slot) {
     auto* vqfileselector = const_cast<VirtualQFileSelector*>(dynamic_cast<const VirtualQFileSelector*>(self));
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector)
         vqfileselector->setQFileSelector_MetaObject_Callback(reinterpret_cast<VirtualQFileSelector::QFileSelector_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -135,9 +134,8 @@ void* QFileSelector_SuperMetacast(QFileSelector* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFileSelector_OnMetacast(QFileSelector* self, intptr_t slot) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector)
         vqfileselector->setQFileSelector_Metacast_Callback(reinterpret_cast<VirtualQFileSelector::QFileSelector_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -154,9 +152,8 @@ int QFileSelector_SuperMetacall(QFileSelector* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QFileSelector_OnMetacall(QFileSelector* self, intptr_t slot) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector)
         vqfileselector->setQFileSelector_Metacall_Callback(reinterpret_cast<VirtualQFileSelector::QFileSelector_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -183,9 +180,8 @@ bool QFileSelector_SuperEvent(QFileSelector* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileSelector_OnEvent(QFileSelector* self, intptr_t slot) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector)
         vqfileselector->setQFileSelector_Event_Callback(reinterpret_cast<VirtualQFileSelector::QFileSelector_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -212,9 +208,8 @@ bool QFileSelector_SuperEventFilter(QFileSelector* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QFileSelector_OnEventFilter(QFileSelector* self, intptr_t slot) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector)
         vqfileselector->setQFileSelector_EventFilter_Callback(reinterpret_cast<VirtualQFileSelector::QFileSelector_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -241,9 +236,8 @@ void QFileSelector_SuperTimerEvent(QFileSelector* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileSelector_OnTimerEvent(QFileSelector* self, intptr_t slot) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector)
         vqfileselector->setQFileSelector_TimerEvent_Callback(reinterpret_cast<VirtualQFileSelector::QFileSelector_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -270,9 +264,8 @@ void QFileSelector_SuperChildEvent(QFileSelector* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileSelector_OnChildEvent(QFileSelector* self, intptr_t slot) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector)
         vqfileselector->setQFileSelector_ChildEvent_Callback(reinterpret_cast<VirtualQFileSelector::QFileSelector_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -299,9 +292,8 @@ void QFileSelector_SuperCustomEvent(QFileSelector* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFileSelector_OnCustomEvent(QFileSelector* self, intptr_t slot) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector)
         vqfileselector->setQFileSelector_CustomEvent_Callback(reinterpret_cast<VirtualQFileSelector::QFileSelector_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -328,9 +320,8 @@ void QFileSelector_SuperConnectNotify(QFileSelector* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QFileSelector_OnConnectNotify(QFileSelector* self, intptr_t slot) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector)
         vqfileselector->setQFileSelector_ConnectNotify_Callback(reinterpret_cast<VirtualQFileSelector::QFileSelector_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -357,9 +348,8 @@ void QFileSelector_SuperDisconnectNotify(QFileSelector* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QFileSelector_OnDisconnectNotify(QFileSelector* self, intptr_t slot) {
     auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector)
         vqfileselector->setQFileSelector_DisconnectNotify_Callback(reinterpret_cast<VirtualQFileSelector::QFileSelector_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -386,9 +376,8 @@ QObject* QFileSelector_SuperSender(const QFileSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileSelector_OnSender(const QFileSelector* self, intptr_t slot) {
     auto* vqfileselector = const_cast<VirtualQFileSelector*>(dynamic_cast<const VirtualQFileSelector*>(self));
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector)
         vqfileselector->setQFileSelector_Sender_Callback(reinterpret_cast<VirtualQFileSelector::QFileSelector_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -415,9 +404,8 @@ int QFileSelector_SuperSenderSignalIndex(const QFileSelector* self) {
 // Auxiliary method to allow providing re-implementation
 void QFileSelector_OnSenderSignalIndex(const QFileSelector* self, intptr_t slot) {
     auto* vqfileselector = const_cast<VirtualQFileSelector*>(dynamic_cast<const VirtualQFileSelector*>(self));
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector)
         vqfileselector->setQFileSelector_SenderSignalIndex_Callback(reinterpret_cast<VirtualQFileSelector::QFileSelector_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -444,9 +432,8 @@ int QFileSelector_SuperReceivers(const QFileSelector* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QFileSelector_OnReceivers(const QFileSelector* self, intptr_t slot) {
     auto* vqfileselector = const_cast<VirtualQFileSelector*>(dynamic_cast<const VirtualQFileSelector*>(self));
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector)
         vqfileselector->setQFileSelector_Receivers_Callback(reinterpret_cast<VirtualQFileSelector::QFileSelector_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -473,9 +460,8 @@ bool QFileSelector_SuperIsSignalConnected(const QFileSelector* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QFileSelector_OnIsSignalConnected(const QFileSelector* self, intptr_t slot) {
     auto* vqfileselector = const_cast<VirtualQFileSelector*>(dynamic_cast<const VirtualQFileSelector*>(self));
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
+    if (vqfileselector && vqfileselector->isVirtualQFileSelector)
         vqfileselector->setQFileSelector_IsSignalConnected_Callback(reinterpret_cast<VirtualQFileSelector::QFileSelector_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QFileSelector_Delete(QFileSelector* self) {

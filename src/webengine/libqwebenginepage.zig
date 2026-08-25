@@ -5127,7 +5127,7 @@ pub const QWebEnginePage = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#public-types)
 pub const enums = struct {
-    pub const WebAction = enum(i32) {
+    pub const WebAction = enum {
         pub const NoWebAction: i32 = -1;
         pub const Back: i32 = 0;
         pub const Forward: i32 = 1;
@@ -5179,19 +5179,19 @@ pub const enums = struct {
         pub const WebActionCount: i32 = 47;
     };
 
-    pub const FindFlag = enum(i32) {
+    pub const FindFlag = enum {
         pub const FindBackward: i32 = 1;
         pub const FindCaseSensitively: i32 = 2;
     };
 
-    pub const WebWindowType = enum(i32) {
+    pub const WebWindowType = enum {
         pub const WebBrowserWindow: i32 = 0;
         pub const WebBrowserTab: i32 = 1;
         pub const WebDialog: i32 = 2;
         pub const WebBrowserBackgroundTab: i32 = 3;
     };
 
-    pub const NavigationType = enum(i32) {
+    pub const NavigationType = enum {
         pub const NavigationTypeLinkClicked: i32 = 0;
         pub const NavigationTypeTyped: i32 = 1;
         pub const NavigationTypeFormSubmitted: i32 = 2;
@@ -5201,33 +5201,33 @@ pub const enums = struct {
         pub const NavigationTypeRedirect: i32 = 6;
     };
 
-    pub const Feature = enum(i32) {
+    pub const Feature = enum {
         pub const Notifications: i32 = 0;
         pub const Geolocation: i32 = 1;
         pub const MediaAudioCapture: i32 = 2;
     };
 
-    pub const FileSelectionMode = enum(i32) {
+    pub const FileSelectionMode = enum {
         pub const FileSelectOpen: i32 = 0;
         pub const FileSelectOpenMultiple: i32 = 1;
         pub const FileSelectUploadFolder: i32 = 2;
         pub const FileSelectSave: i32 = 3;
     };
 
-    pub const JavaScriptConsoleMessageLevel = enum(i32) {
+    pub const JavaScriptConsoleMessageLevel = enum {
         pub const InfoMessageLevel: i32 = 0;
         pub const WarningMessageLevel: i32 = 1;
         pub const ErrorMessageLevel: i32 = 2;
     };
 
-    pub const RenderProcessTerminationStatus = enum(i32) {
+    pub const RenderProcessTerminationStatus = enum {
         pub const NormalTerminationStatus: i32 = 0;
         pub const AbnormalTerminationStatus: i32 = 1;
         pub const CrashedTerminationStatus: i32 = 2;
         pub const KilledTerminationStatus: i32 = 3;
     };
 
-    pub const LifecycleState = enum(i32) {
+    pub const LifecycleState = enum {
         pub const Active: i32 = 0;
         pub const Frozen: i32 = 1;
         pub const Discarded: i32 = 2;

@@ -60,9 +60,8 @@ QMetaObject* QBarLegendMarker_SuperMetaObject(const QBarLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QBarLegendMarker_OnMetaObject(const QBarLegendMarker* self, intptr_t slot) {
     auto* vqbarlegendmarker = const_cast<VirtualQBarLegendMarker*>(dynamic_cast<const VirtualQBarLegendMarker*>(self));
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
+    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker)
         vqbarlegendmarker->setQBarLegendMarker_MetaObject_Callback(reinterpret_cast<VirtualQBarLegendMarker::QBarLegendMarker_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -79,9 +78,8 @@ void* QBarLegendMarker_SuperMetacast(QBarLegendMarker* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void QBarLegendMarker_OnMetacast(QBarLegendMarker* self, intptr_t slot) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
+    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker)
         vqbarlegendmarker->setQBarLegendMarker_Metacast_Callback(reinterpret_cast<VirtualQBarLegendMarker::QBarLegendMarker_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -98,9 +96,8 @@ int QBarLegendMarker_SuperMetacall(QBarLegendMarker* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void QBarLegendMarker_OnMetacall(QBarLegendMarker* self, intptr_t slot) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
+    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker)
         vqbarlegendmarker->setQBarLegendMarker_Metacall_Callback(reinterpret_cast<VirtualQBarLegendMarker::QBarLegendMarker_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -117,9 +114,8 @@ int QBarLegendMarker_SuperType(QBarLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QBarLegendMarker_OnType(QBarLegendMarker* self, intptr_t slot) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
+    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker)
         vqbarlegendmarker->setQBarLegendMarker_Type_Callback(reinterpret_cast<VirtualQBarLegendMarker::QBarLegendMarker_Type_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -136,9 +132,8 @@ QAbstractBarSeries* QBarLegendMarker_SuperSeries(QBarLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QBarLegendMarker_OnSeries(QBarLegendMarker* self, intptr_t slot) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
+    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker)
         vqbarlegendmarker->setQBarLegendMarker_Series_Callback(reinterpret_cast<VirtualQBarLegendMarker::QBarLegendMarker_Series_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -165,9 +160,8 @@ bool QBarLegendMarker_SuperEvent(QBarLegendMarker* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBarLegendMarker_OnEvent(QBarLegendMarker* self, intptr_t slot) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
+    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker)
         vqbarlegendmarker->setQBarLegendMarker_Event_Callback(reinterpret_cast<VirtualQBarLegendMarker::QBarLegendMarker_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -194,9 +188,8 @@ bool QBarLegendMarker_SuperEventFilter(QBarLegendMarker* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void QBarLegendMarker_OnEventFilter(QBarLegendMarker* self, intptr_t slot) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
+    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker)
         vqbarlegendmarker->setQBarLegendMarker_EventFilter_Callback(reinterpret_cast<VirtualQBarLegendMarker::QBarLegendMarker_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -223,9 +216,8 @@ void QBarLegendMarker_SuperTimerEvent(QBarLegendMarker* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void QBarLegendMarker_OnTimerEvent(QBarLegendMarker* self, intptr_t slot) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
+    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker)
         vqbarlegendmarker->setQBarLegendMarker_TimerEvent_Callback(reinterpret_cast<VirtualQBarLegendMarker::QBarLegendMarker_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -252,9 +244,8 @@ void QBarLegendMarker_SuperChildEvent(QBarLegendMarker* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void QBarLegendMarker_OnChildEvent(QBarLegendMarker* self, intptr_t slot) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
+    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker)
         vqbarlegendmarker->setQBarLegendMarker_ChildEvent_Callback(reinterpret_cast<VirtualQBarLegendMarker::QBarLegendMarker_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -281,9 +272,8 @@ void QBarLegendMarker_SuperCustomEvent(QBarLegendMarker* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QBarLegendMarker_OnCustomEvent(QBarLegendMarker* self, intptr_t slot) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
+    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker)
         vqbarlegendmarker->setQBarLegendMarker_CustomEvent_Callback(reinterpret_cast<VirtualQBarLegendMarker::QBarLegendMarker_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -310,9 +300,8 @@ void QBarLegendMarker_SuperConnectNotify(QBarLegendMarker* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QBarLegendMarker_OnConnectNotify(QBarLegendMarker* self, intptr_t slot) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
+    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker)
         vqbarlegendmarker->setQBarLegendMarker_ConnectNotify_Callback(reinterpret_cast<VirtualQBarLegendMarker::QBarLegendMarker_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +328,8 @@ void QBarLegendMarker_SuperDisconnectNotify(QBarLegendMarker* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void QBarLegendMarker_OnDisconnectNotify(QBarLegendMarker* self, intptr_t slot) {
     auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
+    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker)
         vqbarlegendmarker->setQBarLegendMarker_DisconnectNotify_Callback(reinterpret_cast<VirtualQBarLegendMarker::QBarLegendMarker_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +356,8 @@ QObject* QBarLegendMarker_SuperSender(const QBarLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QBarLegendMarker_OnSender(const QBarLegendMarker* self, intptr_t slot) {
     auto* vqbarlegendmarker = const_cast<VirtualQBarLegendMarker*>(dynamic_cast<const VirtualQBarLegendMarker*>(self));
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
+    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker)
         vqbarlegendmarker->setQBarLegendMarker_Sender_Callback(reinterpret_cast<VirtualQBarLegendMarker::QBarLegendMarker_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +384,8 @@ int QBarLegendMarker_SuperSenderSignalIndex(const QBarLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QBarLegendMarker_OnSenderSignalIndex(const QBarLegendMarker* self, intptr_t slot) {
     auto* vqbarlegendmarker = const_cast<VirtualQBarLegendMarker*>(dynamic_cast<const VirtualQBarLegendMarker*>(self));
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
+    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker)
         vqbarlegendmarker->setQBarLegendMarker_SenderSignalIndex_Callback(reinterpret_cast<VirtualQBarLegendMarker::QBarLegendMarker_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +412,8 @@ int QBarLegendMarker_SuperReceivers(const QBarLegendMarker* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void QBarLegendMarker_OnReceivers(const QBarLegendMarker* self, intptr_t slot) {
     auto* vqbarlegendmarker = const_cast<VirtualQBarLegendMarker*>(dynamic_cast<const VirtualQBarLegendMarker*>(self));
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
+    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker)
         vqbarlegendmarker->setQBarLegendMarker_Receivers_Callback(reinterpret_cast<VirtualQBarLegendMarker::QBarLegendMarker_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +440,8 @@ bool QBarLegendMarker_SuperIsSignalConnected(const QBarLegendMarker* self, const
 // Auxiliary method to allow providing re-implementation
 void QBarLegendMarker_OnIsSignalConnected(const QBarLegendMarker* self, intptr_t slot) {
     auto* vqbarlegendmarker = const_cast<VirtualQBarLegendMarker*>(dynamic_cast<const VirtualQBarLegendMarker*>(self));
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
+    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker)
         vqbarlegendmarker->setQBarLegendMarker_IsSignalConnected_Callback(reinterpret_cast<VirtualQBarLegendMarker::QBarLegendMarker_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QBarLegendMarker_Delete(QBarLegendMarker* self) {

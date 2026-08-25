@@ -93,9 +93,8 @@ QMetaObject* QEventTransition_SuperMetaObject(const QEventTransition* self) {
 // Auxiliary method to allow providing re-implementation
 void QEventTransition_OnMetaObject(const QEventTransition* self, intptr_t slot) {
     auto* vqeventtransition = const_cast<VirtualQEventTransition*>(dynamic_cast<const VirtualQEventTransition*>(self));
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
+    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition)
         vqeventtransition->setQEventTransition_MetaObject_Callback(reinterpret_cast<VirtualQEventTransition::QEventTransition_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -112,9 +111,8 @@ void* QEventTransition_SuperMetacast(QEventTransition* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void QEventTransition_OnMetacast(QEventTransition* self, intptr_t slot) {
     auto* vqeventtransition = dynamic_cast<VirtualQEventTransition*>(self);
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
+    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition)
         vqeventtransition->setQEventTransition_Metacast_Callback(reinterpret_cast<VirtualQEventTransition::QEventTransition_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -131,9 +129,8 @@ int QEventTransition_SuperMetacall(QEventTransition* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void QEventTransition_OnMetacall(QEventTransition* self, intptr_t slot) {
     auto* vqeventtransition = dynamic_cast<VirtualQEventTransition*>(self);
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
+    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition)
         vqeventtransition->setQEventTransition_Metacall_Callback(reinterpret_cast<VirtualQEventTransition::QEventTransition_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -150,9 +147,8 @@ bool QEventTransition_SuperEventTest(QEventTransition* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QEventTransition_OnEventTest(QEventTransition* self, intptr_t slot) {
     auto* vqeventtransition = dynamic_cast<VirtualQEventTransition*>(self);
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
+    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition)
         vqeventtransition->setQEventTransition_EventTest_Callback(reinterpret_cast<VirtualQEventTransition::QEventTransition_EventTest_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -169,9 +165,8 @@ void QEventTransition_SuperOnTransition(QEventTransition* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QEventTransition_OnOnTransition(QEventTransition* self, intptr_t slot) {
     auto* vqeventtransition = dynamic_cast<VirtualQEventTransition*>(self);
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
+    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition)
         vqeventtransition->setQEventTransition_OnTransition_Callback(reinterpret_cast<VirtualQEventTransition::QEventTransition_OnTransition_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -188,9 +183,8 @@ bool QEventTransition_SuperEvent(QEventTransition* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QEventTransition_OnEvent(QEventTransition* self, intptr_t slot) {
     auto* vqeventtransition = dynamic_cast<VirtualQEventTransition*>(self);
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
+    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition)
         vqeventtransition->setQEventTransition_Event_Callback(reinterpret_cast<VirtualQEventTransition::QEventTransition_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -217,9 +211,8 @@ bool QEventTransition_SuperEventFilter(QEventTransition* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void QEventTransition_OnEventFilter(QEventTransition* self, intptr_t slot) {
     auto* vqeventtransition = dynamic_cast<VirtualQEventTransition*>(self);
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
+    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition)
         vqeventtransition->setQEventTransition_EventFilter_Callback(reinterpret_cast<VirtualQEventTransition::QEventTransition_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -246,9 +239,8 @@ void QEventTransition_SuperTimerEvent(QEventTransition* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void QEventTransition_OnTimerEvent(QEventTransition* self, intptr_t slot) {
     auto* vqeventtransition = dynamic_cast<VirtualQEventTransition*>(self);
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
+    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition)
         vqeventtransition->setQEventTransition_TimerEvent_Callback(reinterpret_cast<VirtualQEventTransition::QEventTransition_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -275,9 +267,8 @@ void QEventTransition_SuperChildEvent(QEventTransition* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void QEventTransition_OnChildEvent(QEventTransition* self, intptr_t slot) {
     auto* vqeventtransition = dynamic_cast<VirtualQEventTransition*>(self);
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
+    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition)
         vqeventtransition->setQEventTransition_ChildEvent_Callback(reinterpret_cast<VirtualQEventTransition::QEventTransition_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +295,8 @@ void QEventTransition_SuperCustomEvent(QEventTransition* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QEventTransition_OnCustomEvent(QEventTransition* self, intptr_t slot) {
     auto* vqeventtransition = dynamic_cast<VirtualQEventTransition*>(self);
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
+    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition)
         vqeventtransition->setQEventTransition_CustomEvent_Callback(reinterpret_cast<VirtualQEventTransition::QEventTransition_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +323,8 @@ void QEventTransition_SuperConnectNotify(QEventTransition* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QEventTransition_OnConnectNotify(QEventTransition* self, intptr_t slot) {
     auto* vqeventtransition = dynamic_cast<VirtualQEventTransition*>(self);
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
+    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition)
         vqeventtransition->setQEventTransition_ConnectNotify_Callback(reinterpret_cast<VirtualQEventTransition::QEventTransition_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +351,8 @@ void QEventTransition_SuperDisconnectNotify(QEventTransition* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void QEventTransition_OnDisconnectNotify(QEventTransition* self, intptr_t slot) {
     auto* vqeventtransition = dynamic_cast<VirtualQEventTransition*>(self);
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
+    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition)
         vqeventtransition->setQEventTransition_DisconnectNotify_Callback(reinterpret_cast<VirtualQEventTransition::QEventTransition_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +379,8 @@ QObject* QEventTransition_SuperSender(const QEventTransition* self) {
 // Auxiliary method to allow providing re-implementation
 void QEventTransition_OnSender(const QEventTransition* self, intptr_t slot) {
     auto* vqeventtransition = const_cast<VirtualQEventTransition*>(dynamic_cast<const VirtualQEventTransition*>(self));
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
+    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition)
         vqeventtransition->setQEventTransition_Sender_Callback(reinterpret_cast<VirtualQEventTransition::QEventTransition_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +407,8 @@ int QEventTransition_SuperSenderSignalIndex(const QEventTransition* self) {
 // Auxiliary method to allow providing re-implementation
 void QEventTransition_OnSenderSignalIndex(const QEventTransition* self, intptr_t slot) {
     auto* vqeventtransition = const_cast<VirtualQEventTransition*>(dynamic_cast<const VirtualQEventTransition*>(self));
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
+    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition)
         vqeventtransition->setQEventTransition_SenderSignalIndex_Callback(reinterpret_cast<VirtualQEventTransition::QEventTransition_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +435,8 @@ int QEventTransition_SuperReceivers(const QEventTransition* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void QEventTransition_OnReceivers(const QEventTransition* self, intptr_t slot) {
     auto* vqeventtransition = const_cast<VirtualQEventTransition*>(dynamic_cast<const VirtualQEventTransition*>(self));
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
+    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition)
         vqeventtransition->setQEventTransition_Receivers_Callback(reinterpret_cast<VirtualQEventTransition::QEventTransition_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +463,8 @@ bool QEventTransition_SuperIsSignalConnected(const QEventTransition* self, const
 // Auxiliary method to allow providing re-implementation
 void QEventTransition_OnIsSignalConnected(const QEventTransition* self, intptr_t slot) {
     auto* vqeventtransition = const_cast<VirtualQEventTransition*>(dynamic_cast<const VirtualQEventTransition*>(self));
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
+    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition)
         vqeventtransition->setQEventTransition_IsSignalConnected_Callback(reinterpret_cast<VirtualQEventTransition::QEventTransition_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QEventTransition_Delete(QEventTransition* self) {

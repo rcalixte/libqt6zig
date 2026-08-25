@@ -2447,7 +2447,7 @@ pub const QDataWidgetMapper = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatawidgetmapper.html#public-types)
 pub const enums = struct {
-    pub const SubmitPolicy = enum(i32) {
+    pub const SubmitPolicy = enum {
         pub const AutoSubmit: i32 = 0;
         pub const ManualSubmit: i32 = 1;
     };

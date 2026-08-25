@@ -63,9 +63,8 @@ QMetaObject* QDBusVirtualObject_SuperMetaObject(const QDBusVirtualObject* self) 
 // Auxiliary method to allow providing re-implementation
 void QDBusVirtualObject_OnMetaObject(const QDBusVirtualObject* self, intptr_t slot) {
     auto* vqdbusvirtualobject = const_cast<VirtualQDBusVirtualObject*>(dynamic_cast<const VirtualQDBusVirtualObject*>(self));
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject)
         vqdbusvirtualobject->setQDBusVirtualObject_MetaObject_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -82,9 +81,8 @@ void* QDBusVirtualObject_SuperMetacast(QDBusVirtualObject* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void QDBusVirtualObject_OnMetacast(QDBusVirtualObject* self, intptr_t slot) {
     auto* vqdbusvirtualobject = dynamic_cast<VirtualQDBusVirtualObject*>(self);
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject)
         vqdbusvirtualobject->setQDBusVirtualObject_Metacast_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -101,9 +99,8 @@ int QDBusVirtualObject_SuperMetacall(QDBusVirtualObject* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void QDBusVirtualObject_OnMetacall(QDBusVirtualObject* self, intptr_t slot) {
     auto* vqdbusvirtualobject = dynamic_cast<VirtualQDBusVirtualObject*>(self);
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject)
         vqdbusvirtualobject->setQDBusVirtualObject_Metacall_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -137,9 +134,8 @@ libqt_string QDBusVirtualObject_SuperIntrospect(const QDBusVirtualObject* self, 
 // Auxiliary method to allow providing re-implementation
 void QDBusVirtualObject_OnIntrospect(const QDBusVirtualObject* self, intptr_t slot) {
     auto* vqdbusvirtualobject = const_cast<VirtualQDBusVirtualObject*>(dynamic_cast<const VirtualQDBusVirtualObject*>(self));
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject)
         vqdbusvirtualobject->setQDBusVirtualObject_Introspect_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_Introspect_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -156,9 +152,8 @@ bool QDBusVirtualObject_SuperHandleMessage(QDBusVirtualObject* self, const QDBus
 // Auxiliary method to allow providing re-implementation
 void QDBusVirtualObject_OnHandleMessage(QDBusVirtualObject* self, intptr_t slot) {
     auto* vqdbusvirtualobject = dynamic_cast<VirtualQDBusVirtualObject*>(self);
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject)
         vqdbusvirtualobject->setQDBusVirtualObject_HandleMessage_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_HandleMessage_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -185,9 +180,8 @@ bool QDBusVirtualObject_SuperEvent(QDBusVirtualObject* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDBusVirtualObject_OnEvent(QDBusVirtualObject* self, intptr_t slot) {
     auto* vqdbusvirtualobject = dynamic_cast<VirtualQDBusVirtualObject*>(self);
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject)
         vqdbusvirtualobject->setQDBusVirtualObject_Event_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -214,9 +208,8 @@ bool QDBusVirtualObject_SuperEventFilter(QDBusVirtualObject* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void QDBusVirtualObject_OnEventFilter(QDBusVirtualObject* self, intptr_t slot) {
     auto* vqdbusvirtualobject = dynamic_cast<VirtualQDBusVirtualObject*>(self);
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject)
         vqdbusvirtualobject->setQDBusVirtualObject_EventFilter_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -243,9 +236,8 @@ void QDBusVirtualObject_SuperTimerEvent(QDBusVirtualObject* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void QDBusVirtualObject_OnTimerEvent(QDBusVirtualObject* self, intptr_t slot) {
     auto* vqdbusvirtualobject = dynamic_cast<VirtualQDBusVirtualObject*>(self);
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject)
         vqdbusvirtualobject->setQDBusVirtualObject_TimerEvent_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -272,9 +264,8 @@ void QDBusVirtualObject_SuperChildEvent(QDBusVirtualObject* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void QDBusVirtualObject_OnChildEvent(QDBusVirtualObject* self, intptr_t slot) {
     auto* vqdbusvirtualobject = dynamic_cast<VirtualQDBusVirtualObject*>(self);
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject)
         vqdbusvirtualobject->setQDBusVirtualObject_ChildEvent_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -301,9 +292,8 @@ void QDBusVirtualObject_SuperCustomEvent(QDBusVirtualObject* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QDBusVirtualObject_OnCustomEvent(QDBusVirtualObject* self, intptr_t slot) {
     auto* vqdbusvirtualobject = dynamic_cast<VirtualQDBusVirtualObject*>(self);
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject)
         vqdbusvirtualobject->setQDBusVirtualObject_CustomEvent_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -330,9 +320,8 @@ void QDBusVirtualObject_SuperConnectNotify(QDBusVirtualObject* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QDBusVirtualObject_OnConnectNotify(QDBusVirtualObject* self, intptr_t slot) {
     auto* vqdbusvirtualobject = dynamic_cast<VirtualQDBusVirtualObject*>(self);
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject)
         vqdbusvirtualobject->setQDBusVirtualObject_ConnectNotify_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -359,9 +348,8 @@ void QDBusVirtualObject_SuperDisconnectNotify(QDBusVirtualObject* self, const QM
 // Auxiliary method to allow providing re-implementation
 void QDBusVirtualObject_OnDisconnectNotify(QDBusVirtualObject* self, intptr_t slot) {
     auto* vqdbusvirtualobject = dynamic_cast<VirtualQDBusVirtualObject*>(self);
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject)
         vqdbusvirtualobject->setQDBusVirtualObject_DisconnectNotify_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -388,9 +376,8 @@ QObject* QDBusVirtualObject_SuperSender(const QDBusVirtualObject* self) {
 // Auxiliary method to allow providing re-implementation
 void QDBusVirtualObject_OnSender(const QDBusVirtualObject* self, intptr_t slot) {
     auto* vqdbusvirtualobject = const_cast<VirtualQDBusVirtualObject*>(dynamic_cast<const VirtualQDBusVirtualObject*>(self));
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject)
         vqdbusvirtualobject->setQDBusVirtualObject_Sender_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -417,9 +404,8 @@ int QDBusVirtualObject_SuperSenderSignalIndex(const QDBusVirtualObject* self) {
 // Auxiliary method to allow providing re-implementation
 void QDBusVirtualObject_OnSenderSignalIndex(const QDBusVirtualObject* self, intptr_t slot) {
     auto* vqdbusvirtualobject = const_cast<VirtualQDBusVirtualObject*>(dynamic_cast<const VirtualQDBusVirtualObject*>(self));
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject)
         vqdbusvirtualobject->setQDBusVirtualObject_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -446,9 +432,8 @@ int QDBusVirtualObject_SuperReceivers(const QDBusVirtualObject* self, const char
 // Auxiliary method to allow providing re-implementation
 void QDBusVirtualObject_OnReceivers(const QDBusVirtualObject* self, intptr_t slot) {
     auto* vqdbusvirtualobject = const_cast<VirtualQDBusVirtualObject*>(dynamic_cast<const VirtualQDBusVirtualObject*>(self));
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject)
         vqdbusvirtualobject->setQDBusVirtualObject_Receivers_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -475,9 +460,8 @@ bool QDBusVirtualObject_SuperIsSignalConnected(const QDBusVirtualObject* self, c
 // Auxiliary method to allow providing re-implementation
 void QDBusVirtualObject_OnIsSignalConnected(const QDBusVirtualObject* self, intptr_t slot) {
     auto* vqdbusvirtualobject = const_cast<VirtualQDBusVirtualObject*>(dynamic_cast<const VirtualQDBusVirtualObject*>(self));
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
+    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject)
         vqdbusvirtualobject->setQDBusVirtualObject_IsSignalConnected_Callback(reinterpret_cast<VirtualQDBusVirtualObject::QDBusVirtualObject_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QDBusVirtualObject_Delete(QDBusVirtualObject* self) {

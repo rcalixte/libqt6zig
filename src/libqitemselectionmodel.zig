@@ -3435,7 +3435,7 @@ pub const QItemSelection = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#public-types)
 pub const enums = struct {
-    pub const SelectionFlag = enum(i32) {
+    pub const SelectionFlag = enum {
         pub const NoUpdate: i32 = 0;
         pub const Clear: i32 = 1;
         pub const Select: i32 = 2;

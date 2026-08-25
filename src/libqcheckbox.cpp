@@ -186,9 +186,8 @@ QMetaObject* QCheckBox_SuperMetaObject(const QCheckBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMetaObject(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_MetaObject_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -205,9 +204,8 @@ void* QCheckBox_SuperMetacast(QCheckBox* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMetacast(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_Metacast_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -224,9 +222,8 @@ int QCheckBox_SuperMetacall(QCheckBox* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMetacall(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_Metacall_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -243,9 +240,8 @@ QSize* QCheckBox_SuperSizeHint(const QCheckBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnSizeHint(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_SizeHint_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -262,9 +258,8 @@ QSize* QCheckBox_SuperMinimumSizeHint(const QCheckBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMinimumSizeHint(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -281,9 +276,8 @@ bool QCheckBox_SuperEvent(QCheckBox* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_Event_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -300,9 +294,8 @@ bool QCheckBox_SuperHitButton(const QCheckBox* self, const QPoint* pos) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnHitButton(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_HitButton_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_HitButton_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -319,9 +312,8 @@ void QCheckBox_SuperCheckStateSet(QCheckBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnCheckStateSet(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_CheckStateSet_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_CheckStateSet_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -338,9 +330,8 @@ void QCheckBox_SuperNextCheckState(QCheckBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnNextCheckState(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_NextCheckState_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_NextCheckState_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -357,9 +348,8 @@ void QCheckBox_SuperPaintEvent(QCheckBox* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnPaintEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_PaintEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -376,9 +366,8 @@ void QCheckBox_SuperMouseMoveEvent(QCheckBox* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMouseMoveEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -395,9 +384,8 @@ void QCheckBox_SuperInitStyleOption(const QCheckBox* self, QStyleOptionButton* o
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnInitStyleOption(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_InitStyleOption_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -424,9 +412,8 @@ void QCheckBox_SuperKeyPressEvent(QCheckBox* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnKeyPressEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_KeyPressEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -453,9 +440,8 @@ void QCheckBox_SuperKeyReleaseEvent(QCheckBox* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnKeyReleaseEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -482,9 +468,8 @@ void QCheckBox_SuperMousePressEvent(QCheckBox* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMousePressEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_MousePressEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -511,9 +496,8 @@ void QCheckBox_SuperMouseReleaseEvent(QCheckBox* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMouseReleaseEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -540,9 +524,8 @@ void QCheckBox_SuperFocusInEvent(QCheckBox* self, QFocusEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnFocusInEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_FocusInEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -569,9 +552,8 @@ void QCheckBox_SuperFocusOutEvent(QCheckBox* self, QFocusEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnFocusOutEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_FocusOutEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -598,9 +580,8 @@ void QCheckBox_SuperChangeEvent(QCheckBox* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnChangeEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_ChangeEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -627,9 +608,8 @@ void QCheckBox_SuperTimerEvent(QCheckBox* self, QTimerEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnTimerEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_TimerEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -656,9 +636,8 @@ int QCheckBox_SuperDevType(const QCheckBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnDevType(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_DevType_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -685,9 +664,8 @@ void QCheckBox_SuperSetVisible(QCheckBox* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnSetVisible(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_SetVisible_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -714,9 +692,8 @@ int QCheckBox_SuperHeightForWidth(const QCheckBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnHeightForWidth(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_HeightForWidth_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -743,9 +720,8 @@ bool QCheckBox_SuperHasHeightForWidth(const QCheckBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnHasHeightForWidth(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -772,9 +748,8 @@ QPaintEngine* QCheckBox_SuperPaintEngine(const QCheckBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnPaintEngine(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_PaintEngine_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -801,9 +776,8 @@ void QCheckBox_SuperMouseDoubleClickEvent(QCheckBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMouseDoubleClickEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -830,9 +804,8 @@ void QCheckBox_SuperWheelEvent(QCheckBox* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnWheelEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_WheelEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -859,9 +832,8 @@ void QCheckBox_SuperEnterEvent(QCheckBox* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnEnterEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_EnterEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -888,9 +860,8 @@ void QCheckBox_SuperLeaveEvent(QCheckBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnLeaveEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_LeaveEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -917,9 +888,8 @@ void QCheckBox_SuperMoveEvent(QCheckBox* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMoveEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_MoveEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -946,9 +916,8 @@ void QCheckBox_SuperResizeEvent(QCheckBox* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnResizeEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_ResizeEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -975,9 +944,8 @@ void QCheckBox_SuperCloseEvent(QCheckBox* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnCloseEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_CloseEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1004,9 +972,8 @@ void QCheckBox_SuperContextMenuEvent(QCheckBox* self, QContextMenuEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnContextMenuEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1033,9 +1000,8 @@ void QCheckBox_SuperTabletEvent(QCheckBox* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnTabletEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_TabletEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1062,9 +1028,8 @@ void QCheckBox_SuperActionEvent(QCheckBox* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnActionEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_ActionEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1091,9 +1056,8 @@ void QCheckBox_SuperDragEnterEvent(QCheckBox* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnDragEnterEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_DragEnterEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1120,9 +1084,8 @@ void QCheckBox_SuperDragMoveEvent(QCheckBox* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnDragMoveEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_DragMoveEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1149,9 +1112,8 @@ void QCheckBox_SuperDragLeaveEvent(QCheckBox* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnDragLeaveEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1178,9 +1140,8 @@ void QCheckBox_SuperDropEvent(QCheckBox* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnDropEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_DropEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1207,9 +1168,8 @@ void QCheckBox_SuperShowEvent(QCheckBox* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnShowEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_ShowEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1236,9 +1196,8 @@ void QCheckBox_SuperHideEvent(QCheckBox* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnHideEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_HideEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1267,9 +1226,8 @@ bool QCheckBox_SuperNativeEvent(QCheckBox* self, const libqt_string eventType, v
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnNativeEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_NativeEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1296,9 +1254,8 @@ int QCheckBox_SuperMetric(const QCheckBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnMetric(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_Metric_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1325,9 +1282,8 @@ void QCheckBox_SuperInitPainter(const QCheckBox* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnInitPainter(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_InitPainter_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1354,9 +1310,8 @@ QPaintDevice* QCheckBox_SuperRedirected(const QCheckBox* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnRedirected(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_Redirected_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1383,9 +1338,8 @@ QPainter* QCheckBox_SuperSharedPainter(const QCheckBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnSharedPainter(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_SharedPainter_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1412,9 +1366,8 @@ void QCheckBox_SuperInputMethodEvent(QCheckBox* self, QInputMethodEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnInputMethodEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_InputMethodEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1441,9 +1394,8 @@ QVariant* QCheckBox_SuperInputMethodQuery(const QCheckBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnInputMethodQuery(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_InputMethodQuery_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1470,9 +1422,8 @@ bool QCheckBox_SuperFocusNextPrevChild(QCheckBox* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnFocusNextPrevChild(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1499,9 +1450,8 @@ bool QCheckBox_SuperEventFilter(QCheckBox* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnEventFilter(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_EventFilter_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1528,9 +1478,8 @@ void QCheckBox_SuperChildEvent(QCheckBox* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnChildEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_ChildEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1557,9 +1506,8 @@ void QCheckBox_SuperCustomEvent(QCheckBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnCustomEvent(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_CustomEvent_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1586,9 +1534,8 @@ void QCheckBox_SuperConnectNotify(QCheckBox* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnConnectNotify(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_ConnectNotify_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1615,9 +1562,8 @@ void QCheckBox_SuperDisconnectNotify(QCheckBox* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnDisconnectNotify(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_DisconnectNotify_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1644,9 +1590,8 @@ void QCheckBox_SuperUpdateMicroFocus(QCheckBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnUpdateMicroFocus(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1673,9 +1618,8 @@ void QCheckBox_SuperCreate(QCheckBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnCreate(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_Create_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1702,9 +1646,8 @@ void QCheckBox_SuperDestroy(QCheckBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnDestroy(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_Destroy_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1731,9 +1674,8 @@ bool QCheckBox_SuperFocusNextChild(QCheckBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnFocusNextChild(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_FocusNextChild_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1760,9 +1702,8 @@ bool QCheckBox_SuperFocusPreviousChild(QCheckBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnFocusPreviousChild(QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1789,9 +1730,8 @@ QObject* QCheckBox_SuperSender(const QCheckBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnSender(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_Sender_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1818,9 +1758,8 @@ int QCheckBox_SuperSenderSignalIndex(const QCheckBox* self) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnSenderSignalIndex(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1847,9 +1786,8 @@ int QCheckBox_SuperReceivers(const QCheckBox* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnReceivers(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_Receivers_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1876,9 +1814,8 @@ bool QCheckBox_SuperIsSignalConnected(const QCheckBox* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnIsSignalConnected(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_IsSignalConnected_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1905,9 +1842,8 @@ double QCheckBox_SuperGetDecodedMetricF(const QCheckBox* self, int metricA, int 
 // Auxiliary method to allow providing re-implementation
 void QCheckBox_OnGetDecodedMetricF(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox)
         vqcheckbox->setQCheckBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QCheckBox_Delete(QCheckBox* self) {

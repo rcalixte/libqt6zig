@@ -1526,6 +1526,31 @@ pub const QBoxLayout = extern struct {
         qtc.QBoxLayout_InsertLayout3(@ptrCast(self.ptr), @bitCast(index), @ptrCast(_layout.ptr), @bitCast(_stretch));
     }
 
+    /// Inherited from QLayout
+    ///
+    /// Upcasts to a QLayoutItem object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QBoxLayout `
+    ///
+    pub fn asQLayoutItem(self: QBoxLayout) QLayoutItem {
+        return .{ .ptr = qtc.QLayout_AsQLayoutItem(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QLayout
+    ///
+    /// Downcasts to a QBoxLayout object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qlayoutitem: QLayoutItem `
+    ///
+    pub fn fromQLayoutItem(_qlayoutitem: anytype) QBoxLayout {
+        comptime _ = @TypeOf(_qlayoutitem)._is_QLayoutItem;
+        return .{ .ptr = @ptrCast(qtc.QLayout_FromQLayoutItem(@ptrCast(_qlayoutitem.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `setContentsMargins` instead
     ///
     pub const SetContentsMargins = setContentsMargins;
@@ -3022,7 +3047,7 @@ pub const QBoxLayout = extern struct {
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn alignment(self: QBoxLayout) i32 {
-        return qtc.QLayoutItem_Alignment(@ptrCast(self.ptr));
+        return qtc.QLayoutItem_Alignment(@ptrCast(self.asQLayoutItem().ptr));
     }
 
     /// ### DEPRECATED: Use `geometry` instead
@@ -5313,6 +5338,31 @@ pub const QHBoxLayout = extern struct {
         qtc.QBoxLayout_InsertLayout3(@ptrCast(self.ptr), @bitCast(index), @ptrCast(_layout.ptr), @bitCast(_stretch));
     }
 
+    /// Inherited from QLayout
+    ///
+    /// Upcasts to a QLayoutItem object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QHBoxLayout `
+    ///
+    pub fn asQLayoutItem(self: QHBoxLayout) QLayoutItem {
+        return .{ .ptr = qtc.QLayout_AsQLayoutItem(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QLayout
+    ///
+    /// Downcasts to a QHBoxLayout object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qlayoutitem: QLayoutItem `
+    ///
+    pub fn fromQLayoutItem(_qlayoutitem: anytype) QHBoxLayout {
+        comptime _ = @TypeOf(_qlayoutitem)._is_QLayoutItem;
+        return .{ .ptr = @ptrCast(qtc.QLayout_FromQLayoutItem(@ptrCast(_qlayoutitem.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `setContentsMargins` instead
     ///
     pub const SetContentsMargins = setContentsMargins;
@@ -6809,7 +6859,7 @@ pub const QHBoxLayout = extern struct {
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn alignment(self: QHBoxLayout) i32 {
-        return qtc.QLayoutItem_Alignment(@ptrCast(self.ptr));
+        return qtc.QLayoutItem_Alignment(@ptrCast(self.asQLayoutItem().ptr));
     }
 
     /// ### DEPRECATED: Use `addItem` instead
@@ -9986,6 +10036,31 @@ pub const QVBoxLayout = extern struct {
         qtc.QBoxLayout_InsertLayout3(@ptrCast(self.ptr), @bitCast(index), @ptrCast(_layout.ptr), @bitCast(_stretch));
     }
 
+    /// Inherited from QLayout
+    ///
+    /// Upcasts to a QLayoutItem object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QVBoxLayout `
+    ///
+    pub fn asQLayoutItem(self: QVBoxLayout) QLayoutItem {
+        return .{ .ptr = qtc.QLayout_AsQLayoutItem(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QLayout
+    ///
+    /// Downcasts to a QVBoxLayout object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qlayoutitem: QLayoutItem `
+    ///
+    pub fn fromQLayoutItem(_qlayoutitem: anytype) QVBoxLayout {
+        comptime _ = @TypeOf(_qlayoutitem)._is_QLayoutItem;
+        return .{ .ptr = @ptrCast(qtc.QLayout_FromQLayoutItem(@ptrCast(_qlayoutitem.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `setContentsMargins` instead
     ///
     pub const SetContentsMargins = setContentsMargins;
@@ -11482,7 +11557,7 @@ pub const QVBoxLayout = extern struct {
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
     pub fn alignment(self: QVBoxLayout) i32 {
-        return qtc.QLayoutItem_Alignment(@ptrCast(self.ptr));
+        return qtc.QLayoutItem_Alignment(@ptrCast(self.asQLayoutItem().ptr));
     }
 
     /// ### DEPRECATED: Use `addItem` instead
@@ -13878,7 +13953,7 @@ pub const QVBoxLayout = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxlayout.html#public-types)
 pub const enums = struct {
-    pub const Direction = enum(i32) {
+    pub const Direction = enum {
         pub const LeftToRight: i32 = 0;
         pub const RightToLeft: i32 = 1;
         pub const TopToBottom: i32 = 2;

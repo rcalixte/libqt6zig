@@ -1261,7 +1261,7 @@ pub const Solid__DeviceInterface = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/solid-deviceinterface.html#public-types)
 pub const enums = struct {
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const Unknown: i32 = 0;
         pub const GenericInterface: i32 = 1;
         pub const Processor: i32 = 2;

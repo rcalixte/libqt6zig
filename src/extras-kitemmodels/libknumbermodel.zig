@@ -7097,7 +7097,7 @@ pub const KNumberModel = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/knumbermodel.html#public-types)
 pub const enums = struct {
-    pub const Roles = enum(i32) {
+    pub const Roles = enum {
         pub const DisplayRole: i32 = 0;
         pub const ValueRole: i32 = 256;
     };

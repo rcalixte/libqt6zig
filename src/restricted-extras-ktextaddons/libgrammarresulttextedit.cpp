@@ -161,9 +161,8 @@ QMetaObject* TextGrammarCheck__GrammarResultTextEdit_SuperMetaObject(const TextG
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnMetaObject(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_MetaObject_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -180,9 +179,8 @@ void* TextGrammarCheck__GrammarResultTextEdit_SuperMetacast(TextGrammarCheck__Gr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnMetacast(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_Metacast_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -199,9 +197,8 @@ int TextGrammarCheck__GrammarResultTextEdit_SuperMetacall(TextGrammarCheck__Gram
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnMetacall(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_Metacall_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -218,9 +215,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperContextMenuEvent(TextGrammarCh
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnContextMenuEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -237,9 +233,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperPaintEvent(TextGrammarCheck__G
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnPaintEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_PaintEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -256,9 +251,8 @@ bool TextGrammarCheck__GrammarResultTextEdit_SuperEvent(TextGrammarCheck__Gramma
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_Event_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -285,9 +279,8 @@ QVariant* TextGrammarCheck__GrammarResultTextEdit_SuperLoadResource(TextGrammarC
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnLoadResource(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_LoadResource_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_LoadResource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -314,9 +307,8 @@ QVariant* TextGrammarCheck__GrammarResultTextEdit_SuperInputMethodQuery(const Te
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnInputMethodQuery(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_InputMethodQuery_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -343,9 +335,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperTimerEvent(TextGrammarCheck__G
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnTimerEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_TimerEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +363,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperKeyPressEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnKeyPressEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_KeyPressEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -401,9 +391,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperKeyReleaseEvent(TextGrammarChe
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnKeyReleaseEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -430,9 +419,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperResizeEvent(TextGrammarCheck__
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnResizeEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_ResizeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -459,9 +447,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperMousePressEvent(TextGrammarChe
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnMousePressEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_MousePressEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -488,9 +475,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperMouseMoveEvent(TextGrammarChec
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnMouseMoveEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -517,9 +503,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperMouseReleaseEvent(TextGrammarC
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnMouseReleaseEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -546,9 +531,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperMouseDoubleClickEvent(TextGram
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnMouseDoubleClickEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -575,9 +559,8 @@ bool TextGrammarCheck__GrammarResultTextEdit_SuperFocusNextPrevChild(TextGrammar
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnFocusNextPrevChild(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -604,9 +587,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperDragEnterEvent(TextGrammarChec
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnDragEnterEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_DragEnterEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -633,9 +615,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperDragLeaveEvent(TextGrammarChec
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnDragLeaveEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -662,9 +643,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperDragMoveEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnDragMoveEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_DragMoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -691,9 +671,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperDropEvent(TextGrammarCheck__Gr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnDropEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_DropEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -720,9 +699,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperFocusInEvent(TextGrammarCheck_
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnFocusInEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_FocusInEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -749,9 +727,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperFocusOutEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnFocusOutEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_FocusOutEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -778,9 +755,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperShowEvent(TextGrammarCheck__Gr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnShowEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_ShowEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -807,9 +783,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperChangeEvent(TextGrammarCheck__
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnChangeEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_ChangeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -836,9 +811,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperWheelEvent(TextGrammarCheck__G
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnWheelEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_WheelEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -865,9 +839,8 @@ QMimeData* TextGrammarCheck__GrammarResultTextEdit_SuperCreateMimeDataFromSelect
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnCreateMimeDataFromSelection(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_CreateMimeDataFromSelection_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_CreateMimeDataFromSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -894,9 +867,8 @@ bool TextGrammarCheck__GrammarResultTextEdit_SuperCanInsertFromMimeData(const Te
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnCanInsertFromMimeData(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_CanInsertFromMimeData_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_CanInsertFromMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -923,9 +895,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperInsertFromMimeData(TextGrammar
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnInsertFromMimeData(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_InsertFromMimeData_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_InsertFromMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -952,9 +923,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperInputMethodEvent(TextGrammarCh
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnInputMethodEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_InputMethodEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -981,9 +951,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperScrollContentsBy(TextGrammarCh
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnScrollContentsBy(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_ScrollContentsBy_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1010,9 +979,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperDoSetTextCursor(TextGrammarChe
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnDoSetTextCursor(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_DoSetTextCursor_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_DoSetTextCursor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1039,9 +1007,8 @@ QSize* TextGrammarCheck__GrammarResultTextEdit_SuperMinimumSizeHint(const TextGr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnMinimumSizeHint(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1068,9 +1035,8 @@ QSize* TextGrammarCheck__GrammarResultTextEdit_SuperSizeHint(const TextGrammarCh
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnSizeHint(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_SizeHint_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1097,9 +1063,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperSetupViewport(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnSetupViewport(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_SetupViewport_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1126,9 +1091,8 @@ bool TextGrammarCheck__GrammarResultTextEdit_SuperEventFilter(TextGrammarCheck__
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnEventFilter(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_EventFilter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1155,9 +1119,8 @@ bool TextGrammarCheck__GrammarResultTextEdit_SuperViewportEvent(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnViewportEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_ViewportEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1182,9 +1145,8 @@ QSize* TextGrammarCheck__GrammarResultTextEdit_SuperViewportSizeHint(const TextG
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnViewportSizeHint(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_ViewportSizeHint_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1211,9 +1173,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperInitStyleOption(const TextGram
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnInitStyleOption(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_InitStyleOption_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1240,9 +1201,8 @@ int TextGrammarCheck__GrammarResultTextEdit_SuperDevType(const TextGrammarCheck_
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnDevType(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_DevType_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1269,9 +1229,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperSetVisible(TextGrammarCheck__G
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnSetVisible(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_SetVisible_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1298,9 +1257,8 @@ int TextGrammarCheck__GrammarResultTextEdit_SuperHeightForWidth(const TextGramma
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnHeightForWidth(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_HeightForWidth_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1327,9 +1285,8 @@ bool TextGrammarCheck__GrammarResultTextEdit_SuperHasHeightForWidth(const TextGr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnHasHeightForWidth(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1356,9 +1313,8 @@ QPaintEngine* TextGrammarCheck__GrammarResultTextEdit_SuperPaintEngine(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnPaintEngine(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_PaintEngine_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1385,9 +1341,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperEnterEvent(TextGrammarCheck__G
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnEnterEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_EnterEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1414,9 +1369,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperLeaveEvent(TextGrammarCheck__G
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnLeaveEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_LeaveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1443,9 +1397,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperMoveEvent(TextGrammarCheck__Gr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnMoveEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_MoveEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1472,9 +1425,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperCloseEvent(TextGrammarCheck__G
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnCloseEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_CloseEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1501,9 +1453,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperTabletEvent(TextGrammarCheck__
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnTabletEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_TabletEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1530,9 +1481,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperActionEvent(TextGrammarCheck__
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnActionEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_ActionEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1559,9 +1509,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperHideEvent(TextGrammarCheck__Gr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnHideEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_HideEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1590,9 +1539,8 @@ bool TextGrammarCheck__GrammarResultTextEdit_SuperNativeEvent(TextGrammarCheck__
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnNativeEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_NativeEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1619,9 +1567,8 @@ int TextGrammarCheck__GrammarResultTextEdit_SuperMetric(const TextGrammarCheck__
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnMetric(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_Metric_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1648,9 +1595,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperInitPainter(const TextGrammarC
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnInitPainter(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_InitPainter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1677,9 +1623,8 @@ QPaintDevice* TextGrammarCheck__GrammarResultTextEdit_SuperRedirected(const Text
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnRedirected(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_Redirected_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1706,9 +1651,8 @@ QPainter* TextGrammarCheck__GrammarResultTextEdit_SuperSharedPainter(const TextG
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnSharedPainter(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_SharedPainter_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1735,9 +1679,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperChildEvent(TextGrammarCheck__G
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnChildEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_ChildEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1764,9 +1707,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperCustomEvent(TextGrammarCheck__
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnCustomEvent(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_CustomEvent_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1793,9 +1735,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperConnectNotify(TextGrammarCheck
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnConnectNotify(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_ConnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1822,9 +1763,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperDisconnectNotify(TextGrammarCh
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnDisconnectNotify(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_DisconnectNotify_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1851,9 +1791,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperZoomInF(TextGrammarCheck__Gram
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnZoomInF(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_ZoomInF_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_ZoomInF_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1880,9 +1819,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperSetViewportMargins(TextGrammar
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnSetViewportMargins(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_SetViewportMargins_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1907,9 +1845,8 @@ QMargins* TextGrammarCheck__GrammarResultTextEdit_SuperViewportMargins(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnViewportMargins(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_ViewportMargins_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1936,9 +1873,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperDrawFrame(TextGrammarCheck__Gr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnDrawFrame(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_DrawFrame_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1965,9 +1901,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperUpdateMicroFocus(TextGrammarCh
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnUpdateMicroFocus(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1994,9 +1929,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperCreate(TextGrammarCheck__Gramm
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnCreate(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_Create_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2023,9 +1957,8 @@ void TextGrammarCheck__GrammarResultTextEdit_SuperDestroy(TextGrammarCheck__Gram
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnDestroy(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_Destroy_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2052,9 +1985,8 @@ bool TextGrammarCheck__GrammarResultTextEdit_SuperFocusNextChild(TextGrammarChec
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnFocusNextChild(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_FocusNextChild_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2081,9 +2013,8 @@ bool TextGrammarCheck__GrammarResultTextEdit_SuperFocusPreviousChild(TextGrammar
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnFocusPreviousChild(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2110,9 +2041,8 @@ QObject* TextGrammarCheck__GrammarResultTextEdit_SuperSender(const TextGrammarCh
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnSender(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_Sender_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2139,9 +2069,8 @@ int TextGrammarCheck__GrammarResultTextEdit_SuperSenderSignalIndex(const TextGra
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnSenderSignalIndex(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2168,9 +2097,8 @@ int TextGrammarCheck__GrammarResultTextEdit_SuperReceivers(const TextGrammarChec
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnReceivers(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_Receivers_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2197,9 +2125,8 @@ bool TextGrammarCheck__GrammarResultTextEdit_SuperIsSignalConnected(const TextGr
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnIsSignalConnected(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2226,9 +2153,8 @@ double TextGrammarCheck__GrammarResultTextEdit_SuperGetDecodedMetricF(const Text
 // Auxiliary method to allow providing re-implementation
 void TextGrammarCheck__GrammarResultTextEdit_OnGetDecodedMetricF(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot) {
     auto* vtextgrammarcheckgrammarresulttextedit = const_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self));
-    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
+    if (vtextgrammarcheckgrammarresulttextedit && vtextgrammarcheckgrammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit)
         vtextgrammarcheckgrammarresulttextedit->setTextGrammarCheck__GrammarResultTextEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextGrammarCheckGrammarResultTextEdit::TextGrammarCheck__GrammarResultTextEdit_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextGrammarCheck__GrammarResultTextEdit_Delete(TextGrammarCheck__GrammarResultTextEdit* self) {

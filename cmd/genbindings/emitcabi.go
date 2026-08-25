@@ -564,15 +564,13 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot,
 
 		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" {
 			preamble += "const libqt_string* " + p.ParameterName + "_strarr = static_cast<const libqt_string*>(" + p.ParameterName + ".data);\n"
-			preamble += "for (size_t i = 0; i < " + p.ParameterName + ".len; ++i) {\n"
+			preamble += "for (size_t i = 0; i < " + p.ParameterName + ".len; ++i)\n"
 			preamble += "    " + p.ParameterName + "_set.insert(QString::fromUtf8(" + p.ParameterName + "_strarr[i].data));\n"
-			preamble += "}\n"
 
 		} else if e, ok := KnownEnums[t.ParameterType]; ok {
 			preamble += e.EnumTypeCABI + "* " + p.ParameterName + "_setarr = static_cast<" + e.EnumTypeCABI + "*>(" + p.ParameterName + ".data);\n"
-			preamble += "for (size_t i = 0; i < " + p.ParameterName + ".len; ++i) {\n"
+			preamble += "for (size_t i = 0; i < " + p.ParameterName + ".len; ++i)\n"
 			preamble += "    " + p.ParameterName + "_set.insert(static_cast<" + t.ParameterType + ">(" + p.ParameterName + "_setarr[i]));\n"
-			preamble += "}\n"
 
 		} else {
 			panic("QSet<> argument for " + t.ParameterType + " is not yet implemented")
@@ -2341,6 +2339,17 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 					continue
 				}
 
+				if m.IsAsMethod {
+					ret.WriteString(maybeMacro + returnCabi + " " + methodPrefixName + "_" + mSafeMethodName + "(" + methodPrefixName + "* self) {\n")
+					ret.WriteString("return static_cast<" + m.ReturnType.ParameterType + "*>(self);\n}\n" + maybeEndMacro + "\n")
+					continue
+				}
+				if m.IsFromMethod {
+					ret.WriteString(maybeMacro + returnCabi + " " + methodPrefixName + "_" + mSafeMethodName + "(" + m.Parameters[0].ParameterType + "*" + m.Parameters[0].ParameterName + ") {\n")
+					ret.WriteString("return dynamic_cast<" + m.ReturnType.ParameterType + "*>(static_cast<" + m.Parameters[0].ParameterType + "*>(" + m.Parameters[0].ParameterName + "));\n}\n" + maybeEndMacro + "\n")
+					continue
+				}
+
 				retExpr, _ = emitAssignCppToCabi("\treturn ", m.ReturnType, returnCallTarget)
 
 				if mSafeMethodName == "SetAsDockMenu" {
@@ -2531,8 +2540,8 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 
 			ret.WriteString("void " + methodPrefixName + "_On" + mSafeMethodName + "(" + maybeConst + methodPrefixName + "* self, intptr_t slot) {\n" +
 				"\tauto* " + vVar + " = " + virtualTarget + ";\n" +
-				"\tif (" + vVar + " && " + vVar + "->isVirtual" + strippedPrefix + ") {\n" +
-				vVar + "->set" + callbackName + "(reinterpret_cast<Virtual" + strippedPrefix + "::" + callbackName + ">(slot));\n}\n}\n\n")
+				"\tif (" + vVar + " && " + vVar + "->isVirtual" + strippedPrefix + ")\n" +
+				vVar + "->set" + callbackName + "(reinterpret_cast<Virtual" + strippedPrefix + "::" + callbackName + ">(slot));\n}\n\n")
 		}
 
 		for _, m := range c.PrivateSignals {

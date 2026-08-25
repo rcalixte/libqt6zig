@@ -73,9 +73,8 @@ QMetaObject* KNSWidgets__Action_SuperMetaObject(const KNSWidgets__Action* self) 
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnMetaObject(const KNSWidgets__Action* self, intptr_t slot) {
     auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
         vknswidgetsaction->setKNSWidgets__Action_MetaObject_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -92,9 +91,8 @@ void* KNSWidgets__Action_SuperMetacast(KNSWidgets__Action* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnMetacast(KNSWidgets__Action* self, intptr_t slot) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
         vknswidgetsaction->setKNSWidgets__Action_Metacast_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -111,9 +109,8 @@ int KNSWidgets__Action_SuperMetacall(KNSWidgets__Action* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnMetacall(KNSWidgets__Action* self, intptr_t slot) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
         vknswidgetsaction->setKNSWidgets__Action_Metacall_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -140,9 +137,8 @@ bool KNSWidgets__Action_SuperEvent(KNSWidgets__Action* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnEvent(KNSWidgets__Action* self, intptr_t slot) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
         vknswidgetsaction->setKNSWidgets__Action_Event_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -169,9 +165,8 @@ bool KNSWidgets__Action_SuperEventFilter(KNSWidgets__Action* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnEventFilter(KNSWidgets__Action* self, intptr_t slot) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
         vknswidgetsaction->setKNSWidgets__Action_EventFilter_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -198,9 +193,8 @@ void KNSWidgets__Action_SuperTimerEvent(KNSWidgets__Action* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnTimerEvent(KNSWidgets__Action* self, intptr_t slot) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
         vknswidgetsaction->setKNSWidgets__Action_TimerEvent_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -227,9 +221,8 @@ void KNSWidgets__Action_SuperChildEvent(KNSWidgets__Action* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnChildEvent(KNSWidgets__Action* self, intptr_t slot) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
         vknswidgetsaction->setKNSWidgets__Action_ChildEvent_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -256,9 +249,8 @@ void KNSWidgets__Action_SuperCustomEvent(KNSWidgets__Action* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnCustomEvent(KNSWidgets__Action* self, intptr_t slot) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
         vknswidgetsaction->setKNSWidgets__Action_CustomEvent_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -285,9 +277,8 @@ void KNSWidgets__Action_SuperConnectNotify(KNSWidgets__Action* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnConnectNotify(KNSWidgets__Action* self, intptr_t slot) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
         vknswidgetsaction->setKNSWidgets__Action_ConnectNotify_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -314,9 +305,8 @@ void KNSWidgets__Action_SuperDisconnectNotify(KNSWidgets__Action* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnDisconnectNotify(KNSWidgets__Action* self, intptr_t slot) {
     auto* vknswidgetsaction = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
         vknswidgetsaction->setKNSWidgets__Action_DisconnectNotify_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -343,9 +333,8 @@ QObject* KNSWidgets__Action_SuperSender(const KNSWidgets__Action* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnSender(const KNSWidgets__Action* self, intptr_t slot) {
     auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
         vknswidgetsaction->setKNSWidgets__Action_Sender_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +361,8 @@ int KNSWidgets__Action_SuperSenderSignalIndex(const KNSWidgets__Action* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnSenderSignalIndex(const KNSWidgets__Action* self, intptr_t slot) {
     auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
         vknswidgetsaction->setKNSWidgets__Action_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -401,9 +389,8 @@ int KNSWidgets__Action_SuperReceivers(const KNSWidgets__Action* self, const char
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnReceivers(const KNSWidgets__Action* self, intptr_t slot) {
     auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
         vknswidgetsaction->setKNSWidgets__Action_Receivers_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -430,9 +417,8 @@ bool KNSWidgets__Action_SuperIsSignalConnected(const KNSWidgets__Action* self, c
 // Auxiliary method to allow providing re-implementation
 void KNSWidgets__Action_OnIsSignalConnected(const KNSWidgets__Action* self, intptr_t slot) {
     auto* vknswidgetsaction = const_cast<VirtualKNSWidgetsAction*>(dynamic_cast<const VirtualKNSWidgetsAction*>(self));
-    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction) {
+    if (vknswidgetsaction && vknswidgetsaction->isVirtualKNSWidgetsAction)
         vknswidgetsaction->setKNSWidgets__Action_IsSignalConnected_Callback(reinterpret_cast<VirtualKNSWidgetsAction::KNSWidgets__Action_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KNSWidgets__Action_Delete(KNSWidgets__Action* self) {

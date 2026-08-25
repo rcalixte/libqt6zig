@@ -179,9 +179,8 @@ QMetaObject* KColorButton_SuperMetaObject(const KColorButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMetaObject(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_MetaObject_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -198,9 +197,8 @@ void* KColorButton_SuperMetacast(KColorButton* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMetacast(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_Metacast_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -217,9 +215,8 @@ int KColorButton_SuperMetacall(KColorButton* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMetacall(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_Metacall_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -236,9 +233,8 @@ QSize* KColorButton_SuperSizeHint(const KColorButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnSizeHint(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_SizeHint_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -255,9 +251,8 @@ QSize* KColorButton_SuperMinimumSizeHint(const KColorButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMinimumSizeHint(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -274,9 +269,8 @@ void KColorButton_SuperPaintEvent(KColorButton* self, QPaintEvent* pe) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnPaintEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_PaintEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -293,9 +287,8 @@ void KColorButton_SuperDragEnterEvent(KColorButton* self, QDragEnterEvent* param
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnDragEnterEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_DragEnterEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -312,9 +305,8 @@ void KColorButton_SuperDropEvent(KColorButton* self, QDropEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnDropEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_DropEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_DropEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -331,9 +323,8 @@ void KColorButton_SuperMousePressEvent(KColorButton* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMousePressEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_MousePressEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -350,9 +341,8 @@ void KColorButton_SuperMouseMoveEvent(KColorButton* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMouseMoveEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -369,9 +359,8 @@ void KColorButton_SuperKeyPressEvent(KColorButton* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnKeyPressEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_KeyPressEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -398,9 +387,8 @@ bool KColorButton_SuperEvent(KColorButton* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_Event_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -427,9 +415,8 @@ void KColorButton_SuperFocusInEvent(KColorButton* self, QFocusEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnFocusInEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_FocusInEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -456,9 +443,8 @@ void KColorButton_SuperFocusOutEvent(KColorButton* self, QFocusEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnFocusOutEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_FocusOutEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -485,9 +471,8 @@ void KColorButton_SuperInitStyleOption(const KColorButton* self, QStyleOptionBut
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnInitStyleOption(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_InitStyleOption_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -514,9 +499,8 @@ bool KColorButton_SuperHitButton(const KColorButton* self, const QPoint* pos) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnHitButton(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_HitButton_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_HitButton_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -543,9 +527,8 @@ void KColorButton_SuperCheckStateSet(KColorButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnCheckStateSet(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_CheckStateSet_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_CheckStateSet_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -572,9 +555,8 @@ void KColorButton_SuperNextCheckState(KColorButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnNextCheckState(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_NextCheckState_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_NextCheckState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -601,9 +583,8 @@ void KColorButton_SuperKeyReleaseEvent(KColorButton* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnKeyReleaseEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -630,9 +611,8 @@ void KColorButton_SuperMouseReleaseEvent(KColorButton* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMouseReleaseEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -659,9 +639,8 @@ void KColorButton_SuperChangeEvent(KColorButton* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnChangeEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_ChangeEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -688,9 +667,8 @@ void KColorButton_SuperTimerEvent(KColorButton* self, QTimerEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnTimerEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_TimerEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -717,9 +695,8 @@ int KColorButton_SuperDevType(const KColorButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnDevType(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_DevType_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -746,9 +723,8 @@ void KColorButton_SuperSetVisible(KColorButton* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnSetVisible(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_SetVisible_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -775,9 +751,8 @@ int KColorButton_SuperHeightForWidth(const KColorButton* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnHeightForWidth(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_HeightForWidth_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -804,9 +779,8 @@ bool KColorButton_SuperHasHeightForWidth(const KColorButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnHasHeightForWidth(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_HasHeightForWidth_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -833,9 +807,8 @@ QPaintEngine* KColorButton_SuperPaintEngine(const KColorButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnPaintEngine(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_PaintEngine_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -862,9 +835,8 @@ void KColorButton_SuperMouseDoubleClickEvent(KColorButton* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMouseDoubleClickEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -891,9 +863,8 @@ void KColorButton_SuperWheelEvent(KColorButton* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnWheelEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_WheelEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -920,9 +891,8 @@ void KColorButton_SuperEnterEvent(KColorButton* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnEnterEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_EnterEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -949,9 +919,8 @@ void KColorButton_SuperLeaveEvent(KColorButton* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnLeaveEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_LeaveEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -978,9 +947,8 @@ void KColorButton_SuperMoveEvent(KColorButton* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMoveEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_MoveEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1007,9 +975,8 @@ void KColorButton_SuperResizeEvent(KColorButton* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnResizeEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_ResizeEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1036,9 +1003,8 @@ void KColorButton_SuperCloseEvent(KColorButton* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnCloseEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_CloseEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1065,9 +1031,8 @@ void KColorButton_SuperContextMenuEvent(KColorButton* self, QContextMenuEvent* e
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnContextMenuEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_ContextMenuEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1094,9 +1059,8 @@ void KColorButton_SuperTabletEvent(KColorButton* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnTabletEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_TabletEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1123,9 +1087,8 @@ void KColorButton_SuperActionEvent(KColorButton* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnActionEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_ActionEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1152,9 +1115,8 @@ void KColorButton_SuperDragMoveEvent(KColorButton* self, QDragMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnDragMoveEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_DragMoveEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1181,9 +1143,8 @@ void KColorButton_SuperDragLeaveEvent(KColorButton* self, QDragLeaveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnDragLeaveEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_DragLeaveEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1210,9 +1171,8 @@ void KColorButton_SuperShowEvent(KColorButton* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnShowEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_ShowEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1239,9 +1199,8 @@ void KColorButton_SuperHideEvent(KColorButton* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnHideEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_HideEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1270,9 +1229,8 @@ bool KColorButton_SuperNativeEvent(KColorButton* self, const libqt_string eventT
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnNativeEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_NativeEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1299,9 +1257,8 @@ int KColorButton_SuperMetric(const KColorButton* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnMetric(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_Metric_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1328,9 +1285,8 @@ void KColorButton_SuperInitPainter(const KColorButton* self, QPainter* painter) 
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnInitPainter(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_InitPainter_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1357,9 +1313,8 @@ QPaintDevice* KColorButton_SuperRedirected(const KColorButton* self, QPoint* off
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnRedirected(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_Redirected_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1386,9 +1341,8 @@ QPainter* KColorButton_SuperSharedPainter(const KColorButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnSharedPainter(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_SharedPainter_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1415,9 +1369,8 @@ void KColorButton_SuperInputMethodEvent(KColorButton* self, QInputMethodEvent* p
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnInputMethodEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_InputMethodEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1444,9 +1397,8 @@ QVariant* KColorButton_SuperInputMethodQuery(const KColorButton* self, int param
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnInputMethodQuery(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_InputMethodQuery_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1473,9 +1425,8 @@ bool KColorButton_SuperFocusNextPrevChild(KColorButton* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnFocusNextPrevChild(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1502,9 +1453,8 @@ bool KColorButton_SuperEventFilter(KColorButton* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnEventFilter(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_EventFilter_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1531,9 +1481,8 @@ void KColorButton_SuperChildEvent(KColorButton* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnChildEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_ChildEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1560,9 +1509,8 @@ void KColorButton_SuperCustomEvent(KColorButton* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnCustomEvent(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_CustomEvent_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1589,9 +1537,8 @@ void KColorButton_SuperConnectNotify(KColorButton* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnConnectNotify(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_ConnectNotify_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1618,9 +1565,8 @@ void KColorButton_SuperDisconnectNotify(KColorButton* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnDisconnectNotify(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_DisconnectNotify_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1647,9 +1593,8 @@ void KColorButton_SuperUpdateMicroFocus(KColorButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnUpdateMicroFocus(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1676,9 +1621,8 @@ void KColorButton_SuperCreate(KColorButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnCreate(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_Create_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1705,9 +1649,8 @@ void KColorButton_SuperDestroy(KColorButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnDestroy(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_Destroy_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1734,9 +1677,8 @@ bool KColorButton_SuperFocusNextChild(KColorButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnFocusNextChild(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_FocusNextChild_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1763,9 +1705,8 @@ bool KColorButton_SuperFocusPreviousChild(KColorButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnFocusPreviousChild(KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_FocusPreviousChild_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1792,9 +1733,8 @@ QObject* KColorButton_SuperSender(const KColorButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnSender(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_Sender_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1821,9 +1761,8 @@ int KColorButton_SuperSenderSignalIndex(const KColorButton* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnSenderSignalIndex(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_SenderSignalIndex_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1850,9 +1789,8 @@ int KColorButton_SuperReceivers(const KColorButton* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnReceivers(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_Receivers_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1879,9 +1817,8 @@ bool KColorButton_SuperIsSignalConnected(const KColorButton* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnIsSignalConnected(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_IsSignalConnected_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1908,9 +1845,8 @@ double KColorButton_SuperGetDecodedMetricF(const KColorButton* self, int metricA
 // Auxiliary method to allow providing re-implementation
 void KColorButton_OnGetDecodedMetricF(const KColorButton* self, intptr_t slot) {
     auto* vkcolorbutton = const_cast<VirtualKColorButton*>(dynamic_cast<const VirtualKColorButton*>(self));
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
+    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton)
         vkcolorbutton->setKColorButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKColorButton::KColorButton_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KColorButton_Delete(KColorButton* self) {

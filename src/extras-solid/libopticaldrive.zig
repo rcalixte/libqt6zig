@@ -1619,7 +1619,7 @@ pub const Solid__OpticalDrive = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/solid-opticaldrive.html#public-types)
 pub const enums = struct {
-    pub const MediumType = enum(i32) {
+    pub const MediumType = enum {
         pub const UnknownMediumType: i32 = 0;
         pub const Cdr: i32 = 1;
         pub const Cdrw: i32 = 2;

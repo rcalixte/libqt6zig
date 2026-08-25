@@ -55,9 +55,8 @@ QMetaObject* QXYLegendMarker_SuperMetaObject(const QXYLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnMetaObject(const QXYLegendMarker* self, intptr_t slot) {
     auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
         vqxylegendmarker->setQXYLegendMarker_MetaObject_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -74,9 +73,8 @@ void* QXYLegendMarker_SuperMetacast(QXYLegendMarker* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnMetacast(QXYLegendMarker* self, intptr_t slot) {
     auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
         vqxylegendmarker->setQXYLegendMarker_Metacast_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -93,9 +91,8 @@ int QXYLegendMarker_SuperMetacall(QXYLegendMarker* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnMetacall(QXYLegendMarker* self, intptr_t slot) {
     auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
         vqxylegendmarker->setQXYLegendMarker_Metacall_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -112,9 +109,8 @@ int QXYLegendMarker_SuperType(QXYLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnType(QXYLegendMarker* self, intptr_t slot) {
     auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
         vqxylegendmarker->setQXYLegendMarker_Type_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Type_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -131,9 +127,8 @@ QXYSeries* QXYLegendMarker_SuperSeries(QXYLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnSeries(QXYLegendMarker* self, intptr_t slot) {
     auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
         vqxylegendmarker->setQXYLegendMarker_Series_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Series_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -160,9 +155,8 @@ bool QXYLegendMarker_SuperEvent(QXYLegendMarker* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnEvent(QXYLegendMarker* self, intptr_t slot) {
     auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
         vqxylegendmarker->setQXYLegendMarker_Event_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -189,9 +183,8 @@ bool QXYLegendMarker_SuperEventFilter(QXYLegendMarker* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnEventFilter(QXYLegendMarker* self, intptr_t slot) {
     auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
         vqxylegendmarker->setQXYLegendMarker_EventFilter_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -218,9 +211,8 @@ void QXYLegendMarker_SuperTimerEvent(QXYLegendMarker* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnTimerEvent(QXYLegendMarker* self, intptr_t slot) {
     auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
         vqxylegendmarker->setQXYLegendMarker_TimerEvent_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -247,9 +239,8 @@ void QXYLegendMarker_SuperChildEvent(QXYLegendMarker* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnChildEvent(QXYLegendMarker* self, intptr_t slot) {
     auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
         vqxylegendmarker->setQXYLegendMarker_ChildEvent_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -276,9 +267,8 @@ void QXYLegendMarker_SuperCustomEvent(QXYLegendMarker* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnCustomEvent(QXYLegendMarker* self, intptr_t slot) {
     auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
         vqxylegendmarker->setQXYLegendMarker_CustomEvent_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -305,9 +295,8 @@ void QXYLegendMarker_SuperConnectNotify(QXYLegendMarker* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnConnectNotify(QXYLegendMarker* self, intptr_t slot) {
     auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
         vqxylegendmarker->setQXYLegendMarker_ConnectNotify_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -334,9 +323,8 @@ void QXYLegendMarker_SuperDisconnectNotify(QXYLegendMarker* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnDisconnectNotify(QXYLegendMarker* self, intptr_t slot) {
     auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
         vqxylegendmarker->setQXYLegendMarker_DisconnectNotify_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -363,9 +351,8 @@ QObject* QXYLegendMarker_SuperSender(const QXYLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnSender(const QXYLegendMarker* self, intptr_t slot) {
     auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
         vqxylegendmarker->setQXYLegendMarker_Sender_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -392,9 +379,8 @@ int QXYLegendMarker_SuperSenderSignalIndex(const QXYLegendMarker* self) {
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnSenderSignalIndex(const QXYLegendMarker* self, intptr_t slot) {
     auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
         vqxylegendmarker->setQXYLegendMarker_SenderSignalIndex_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -421,9 +407,8 @@ int QXYLegendMarker_SuperReceivers(const QXYLegendMarker* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnReceivers(const QXYLegendMarker* self, intptr_t slot) {
     auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
         vqxylegendmarker->setQXYLegendMarker_Receivers_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -450,9 +435,8 @@ bool QXYLegendMarker_SuperIsSignalConnected(const QXYLegendMarker* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QXYLegendMarker_OnIsSignalConnected(const QXYLegendMarker* self, intptr_t slot) {
     auto* vqxylegendmarker = const_cast<VirtualQXYLegendMarker*>(dynamic_cast<const VirtualQXYLegendMarker*>(self));
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
+    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker)
         vqxylegendmarker->setQXYLegendMarker_IsSignalConnected_Callback(reinterpret_cast<VirtualQXYLegendMarker::QXYLegendMarker_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QXYLegendMarker_Delete(QXYLegendMarker* self) {

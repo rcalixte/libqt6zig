@@ -69,9 +69,8 @@ QMetaObject* KIO__NameFinderJob_SuperMetaObject(const KIO__NameFinderJob* self) 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnMetaObject(const KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_MetaObject_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -88,9 +87,8 @@ void* KIO__NameFinderJob_SuperMetacast(KIO__NameFinderJob* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnMetacast(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_Metacast_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -107,9 +105,8 @@ int KIO__NameFinderJob_SuperMetacall(KIO__NameFinderJob* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnMetacall(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_Metacall_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -126,9 +123,8 @@ void KIO__NameFinderJob_SuperStart(KIO__NameFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnStart(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_Start_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Start_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -155,9 +151,8 @@ bool KIO__NameFinderJob_SuperAddSubjob(KIO__NameFinderJob* self, KJob* job) {
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnAddSubjob(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_AddSubjob_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_AddSubjob_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -184,9 +179,8 @@ bool KIO__NameFinderJob_SuperRemoveSubjob(KIO__NameFinderJob* self, KJob* job) {
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnRemoveSubjob(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_RemoveSubjob_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_RemoveSubjob_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -213,9 +207,8 @@ void KIO__NameFinderJob_SuperSlotResult(KIO__NameFinderJob* self, KJob* job) {
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnSlotResult(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_SlotResult_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SlotResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -244,9 +237,8 @@ void KIO__NameFinderJob_SuperSlotInfoMessage(KIO__NameFinderJob* self, KJob* job
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnSlotInfoMessage(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_SlotInfoMessage_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SlotInfoMessage_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -273,9 +265,8 @@ bool KIO__NameFinderJob_SuperDoKill(KIO__NameFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnDoKill(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_DoKill_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_DoKill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -302,9 +293,8 @@ bool KIO__NameFinderJob_SuperDoSuspend(KIO__NameFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnDoSuspend(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_DoSuspend_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_DoSuspend_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -331,9 +321,8 @@ bool KIO__NameFinderJob_SuperDoResume(KIO__NameFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnDoResume(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_DoResume_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_DoResume_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -392,9 +381,8 @@ libqt_string KIO__NameFinderJob_SuperErrorString(const KIO__NameFinderJob* self)
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnErrorString(const KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_ErrorString_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_ErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -421,9 +409,8 @@ bool KIO__NameFinderJob_SuperEvent(KIO__NameFinderJob* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnEvent(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_Event_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -450,9 +437,8 @@ bool KIO__NameFinderJob_SuperEventFilter(KIO__NameFinderJob* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnEventFilter(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_EventFilter_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -479,9 +465,8 @@ void KIO__NameFinderJob_SuperTimerEvent(KIO__NameFinderJob* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnTimerEvent(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_TimerEvent_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -508,9 +493,8 @@ void KIO__NameFinderJob_SuperChildEvent(KIO__NameFinderJob* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnChildEvent(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_ChildEvent_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -537,9 +521,8 @@ void KIO__NameFinderJob_SuperCustomEvent(KIO__NameFinderJob* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnCustomEvent(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_CustomEvent_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -566,9 +549,8 @@ void KIO__NameFinderJob_SuperConnectNotify(KIO__NameFinderJob* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnConnectNotify(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_ConnectNotify_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -595,9 +577,8 @@ void KIO__NameFinderJob_SuperDisconnectNotify(KIO__NameFinderJob* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnDisconnectNotify(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -624,9 +605,8 @@ bool KIO__NameFinderJob_SuperHasSubjobs(const KIO__NameFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnHasSubjobs(const KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_HasSubjobs_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_HasSubjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -689,9 +669,8 @@ libqt_list /* of KJob* */ KIO__NameFinderJob_SuperSubjobs(const KIO__NameFinderJ
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnSubjobs(const KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_Subjobs_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Subjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -718,9 +697,8 @@ void KIO__NameFinderJob_SuperClearSubjobs(KIO__NameFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnClearSubjobs(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_ClearSubjobs_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_ClearSubjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -747,9 +725,8 @@ void KIO__NameFinderJob_SuperSetCapabilities(KIO__NameFinderJob* self, int capab
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnSetCapabilities(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_SetCapabilities_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SetCapabilities_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -776,9 +753,8 @@ bool KIO__NameFinderJob_SuperIsFinished(const KIO__NameFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnIsFinished(const KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_IsFinished_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_IsFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -805,9 +781,8 @@ void KIO__NameFinderJob_SuperSetError(KIO__NameFinderJob* self, int errorCode) {
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnSetError(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_SetError_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -836,9 +811,8 @@ void KIO__NameFinderJob_SuperSetErrorText(KIO__NameFinderJob* self, const libqt_
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnSetErrorText(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_SetErrorText_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SetErrorText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -865,9 +839,8 @@ void KIO__NameFinderJob_SuperSetProcessedAmount(KIO__NameFinderJob* self, int un
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnSetProcessedAmount(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SetProcessedAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -894,9 +867,8 @@ void KIO__NameFinderJob_SuperSetTotalAmount(KIO__NameFinderJob* self, int unit, 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnSetTotalAmount(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SetTotalAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -923,9 +895,8 @@ void KIO__NameFinderJob_SuperSetProgressUnit(KIO__NameFinderJob* self, int unit)
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnSetProgressUnit(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SetProgressUnit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -952,9 +923,8 @@ void KIO__NameFinderJob_SuperSetPercent(KIO__NameFinderJob* self, unsigned long 
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnSetPercent(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_SetPercent_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SetPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -981,9 +951,8 @@ void KIO__NameFinderJob_SuperEmitResult(KIO__NameFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnEmitResult(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_EmitResult_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_EmitResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1010,9 +979,8 @@ void KIO__NameFinderJob_SuperEmitPercent(KIO__NameFinderJob* self, unsigned long
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnEmitPercent(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_EmitPercent_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_EmitPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1039,9 +1007,8 @@ void KIO__NameFinderJob_SuperEmitSpeed(KIO__NameFinderJob* self, unsigned long s
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnEmitSpeed(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_EmitSpeed_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_EmitSpeed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1068,9 +1035,8 @@ void KIO__NameFinderJob_SuperStartElapsedTimer(KIO__NameFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnStartElapsedTimer(KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_StartElapsedTimer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1097,9 +1063,8 @@ QObject* KIO__NameFinderJob_SuperSender(const KIO__NameFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnSender(const KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_Sender_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1126,9 +1091,8 @@ int KIO__NameFinderJob_SuperSenderSignalIndex(const KIO__NameFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnSenderSignalIndex(const KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1155,9 +1119,8 @@ int KIO__NameFinderJob_SuperReceivers(const KIO__NameFinderJob* self, const char
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnReceivers(const KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_Receivers_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1184,9 +1147,8 @@ bool KIO__NameFinderJob_SuperIsSignalConnected(const KIO__NameFinderJob* self, c
 // Auxiliary method to allow providing re-implementation
 void KIO__NameFinderJob_OnIsSignalConnected(const KIO__NameFinderJob* self, intptr_t slot) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
-    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
+    if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob)
         vkionamefinderjob->setKIO__NameFinderJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKIONameFinderJob::KIO__NameFinderJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KIO__NameFinderJob_Delete(KIO__NameFinderJob* self) {

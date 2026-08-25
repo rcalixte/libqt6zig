@@ -3,6 +3,7 @@ const qtc = @import("qt6c");
 const QBindingStorage = @import("libqt6").QBindingStorage;
 const QChildEvent = @import("libqt6").QChildEvent;
 const QEvent = @import("libqt6").QEvent;
+const QIODeviceBase = @import("libqt6").QIODeviceBase;
 const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
@@ -50,6 +51,16 @@ pub const QIODevice = extern struct {
     pub fn new2(_parent: anytype) QIODevice {
         comptime _ = @TypeOf(_parent)._is_QObject;
         return .{ .ptr = qtc.QIODevice_new2(@ptrCast(_parent.ptr)) };
+    }
+
+    /// Upcasts to a QIODeviceBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QIODevice `
+    ///
+    pub fn asQIODeviceBase(self: QIODevice) QIODeviceBase {
+        return .{ .ptr = qtc.QIODevice_AsQIODeviceBase(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `metaObject` instead

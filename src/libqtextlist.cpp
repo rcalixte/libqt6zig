@@ -90,9 +90,8 @@ QMetaObject* QTextList_SuperMetaObject(const QTextList* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnMetaObject(const QTextList* self, intptr_t slot) {
     auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_MetaObject_Callback(reinterpret_cast<VirtualQTextList::QTextList_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -109,9 +108,8 @@ void* QTextList_SuperMetacast(QTextList* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnMetacast(QTextList* self, intptr_t slot) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_Metacast_Callback(reinterpret_cast<VirtualQTextList::QTextList_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -128,9 +126,8 @@ int QTextList_SuperMetacall(QTextList* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnMetacall(QTextList* self, intptr_t slot) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_Metacall_Callback(reinterpret_cast<VirtualQTextList::QTextList_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -157,9 +154,8 @@ void QTextList_SuperBlockInserted(QTextList* self, const QTextBlock* block) {
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnBlockInserted(QTextList* self, intptr_t slot) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_BlockInserted_Callback(reinterpret_cast<VirtualQTextList::QTextList_BlockInserted_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -186,9 +182,8 @@ void QTextList_SuperBlockRemoved(QTextList* self, const QTextBlock* block) {
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnBlockRemoved(QTextList* self, intptr_t slot) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_BlockRemoved_Callback(reinterpret_cast<VirtualQTextList::QTextList_BlockRemoved_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -215,9 +210,8 @@ void QTextList_SuperBlockFormatChanged(QTextList* self, const QTextBlock* block)
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnBlockFormatChanged(QTextList* self, intptr_t slot) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_BlockFormatChanged_Callback(reinterpret_cast<VirtualQTextList::QTextList_BlockFormatChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -244,9 +238,8 @@ bool QTextList_SuperEvent(QTextList* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnEvent(QTextList* self, intptr_t slot) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_Event_Callback(reinterpret_cast<VirtualQTextList::QTextList_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -273,9 +266,8 @@ bool QTextList_SuperEventFilter(QTextList* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnEventFilter(QTextList* self, intptr_t slot) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_EventFilter_Callback(reinterpret_cast<VirtualQTextList::QTextList_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -302,9 +294,8 @@ void QTextList_SuperTimerEvent(QTextList* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnTimerEvent(QTextList* self, intptr_t slot) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_TimerEvent_Callback(reinterpret_cast<VirtualQTextList::QTextList_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -331,9 +322,8 @@ void QTextList_SuperChildEvent(QTextList* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnChildEvent(QTextList* self, intptr_t slot) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_ChildEvent_Callback(reinterpret_cast<VirtualQTextList::QTextList_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -360,9 +350,8 @@ void QTextList_SuperCustomEvent(QTextList* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnCustomEvent(QTextList* self, intptr_t slot) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_CustomEvent_Callback(reinterpret_cast<VirtualQTextList::QTextList_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -389,9 +378,8 @@ void QTextList_SuperConnectNotify(QTextList* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnConnectNotify(QTextList* self, intptr_t slot) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_ConnectNotify_Callback(reinterpret_cast<VirtualQTextList::QTextList_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -418,9 +406,8 @@ void QTextList_SuperDisconnectNotify(QTextList* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnDisconnectNotify(QTextList* self, intptr_t slot) {
     auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_DisconnectNotify_Callback(reinterpret_cast<VirtualQTextList::QTextList_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -483,9 +470,8 @@ libqt_list /* of QTextBlock* */ QTextList_SuperBlockList(const QTextList* self) 
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnBlockList(const QTextList* self, intptr_t slot) {
     auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_BlockList_Callback(reinterpret_cast<VirtualQTextList::QTextList_BlockList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -512,9 +498,8 @@ QObject* QTextList_SuperSender(const QTextList* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnSender(const QTextList* self, intptr_t slot) {
     auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_Sender_Callback(reinterpret_cast<VirtualQTextList::QTextList_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -541,9 +526,8 @@ int QTextList_SuperSenderSignalIndex(const QTextList* self) {
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnSenderSignalIndex(const QTextList* self, intptr_t slot) {
     auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTextList::QTextList_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -570,9 +554,8 @@ int QTextList_SuperReceivers(const QTextList* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnReceivers(const QTextList* self, intptr_t slot) {
     auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_Receivers_Callback(reinterpret_cast<VirtualQTextList::QTextList_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -599,9 +582,8 @@ bool QTextList_SuperIsSignalConnected(const QTextList* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QTextList_OnIsSignalConnected(const QTextList* self, intptr_t slot) {
     auto* vqtextlist = const_cast<VirtualQTextList*>(dynamic_cast<const VirtualQTextList*>(self));
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
+    if (vqtextlist && vqtextlist->isVirtualQTextList)
         vqtextlist->setQTextList_IsSignalConnected_Callback(reinterpret_cast<VirtualQTextList::QTextList_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QTextList_Delete(QTextList* self) {

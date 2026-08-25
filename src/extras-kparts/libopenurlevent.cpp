@@ -55,9 +55,8 @@ void KParts__OpenUrlEvent_SuperSetAccepted(KParts__OpenUrlEvent* self, bool acce
 // Auxiliary method to allow providing re-implementation
 void KParts__OpenUrlEvent_OnSetAccepted(KParts__OpenUrlEvent* self, intptr_t slot) {
     auto* vkpartsopenurlevent = dynamic_cast<VirtualKPartsOpenUrlEvent*>(self);
-    if (vkpartsopenurlevent && vkpartsopenurlevent->isVirtualKPartsOpenUrlEvent) {
+    if (vkpartsopenurlevent && vkpartsopenurlevent->isVirtualKPartsOpenUrlEvent)
         vkpartsopenurlevent->setKParts__OpenUrlEvent_SetAccepted_Callback(reinterpret_cast<VirtualKPartsOpenUrlEvent::KParts__OpenUrlEvent_SetAccepted_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -84,9 +83,8 @@ QEvent* KParts__OpenUrlEvent_SuperClone(const KParts__OpenUrlEvent* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__OpenUrlEvent_OnClone(const KParts__OpenUrlEvent* self, intptr_t slot) {
     auto* vkpartsopenurlevent = const_cast<VirtualKPartsOpenUrlEvent*>(dynamic_cast<const VirtualKPartsOpenUrlEvent*>(self));
-    if (vkpartsopenurlevent && vkpartsopenurlevent->isVirtualKPartsOpenUrlEvent) {
+    if (vkpartsopenurlevent && vkpartsopenurlevent->isVirtualKPartsOpenUrlEvent)
         vkpartsopenurlevent->setKParts__OpenUrlEvent_Clone_Callback(reinterpret_cast<VirtualKPartsOpenUrlEvent::KParts__OpenUrlEvent_Clone_Callback>(slot));
-    }
 }
 
 void KParts__OpenUrlEvent_Delete(KParts__OpenUrlEvent* self) {

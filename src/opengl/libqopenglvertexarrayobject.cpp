@@ -69,9 +69,8 @@ QMetaObject* QOpenGLVertexArrayObject_SuperMetaObject(const QOpenGLVertexArrayOb
 // Auxiliary method to allow providing re-implementation
 void QOpenGLVertexArrayObject_OnMetaObject(const QOpenGLVertexArrayObject* self, intptr_t slot) {
     auto* vqopenglvertexarrayobject = const_cast<VirtualQOpenGLVertexArrayObject*>(dynamic_cast<const VirtualQOpenGLVertexArrayObject*>(self));
-    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject)
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_MetaObject_Callback(reinterpret_cast<VirtualQOpenGLVertexArrayObject::QOpenGLVertexArrayObject_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -88,9 +87,8 @@ void* QOpenGLVertexArrayObject_SuperMetacast(QOpenGLVertexArrayObject* self, con
 // Auxiliary method to allow providing re-implementation
 void QOpenGLVertexArrayObject_OnMetacast(QOpenGLVertexArrayObject* self, intptr_t slot) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
-    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject)
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_Metacast_Callback(reinterpret_cast<VirtualQOpenGLVertexArrayObject::QOpenGLVertexArrayObject_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -107,9 +105,8 @@ int QOpenGLVertexArrayObject_SuperMetacall(QOpenGLVertexArrayObject* self, int p
 // Auxiliary method to allow providing re-implementation
 void QOpenGLVertexArrayObject_OnMetacall(QOpenGLVertexArrayObject* self, intptr_t slot) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
-    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject)
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_Metacall_Callback(reinterpret_cast<VirtualQOpenGLVertexArrayObject::QOpenGLVertexArrayObject_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -136,9 +133,8 @@ bool QOpenGLVertexArrayObject_SuperEvent(QOpenGLVertexArrayObject* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QOpenGLVertexArrayObject_OnEvent(QOpenGLVertexArrayObject* self, intptr_t slot) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
-    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject)
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_Event_Callback(reinterpret_cast<VirtualQOpenGLVertexArrayObject::QOpenGLVertexArrayObject_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -165,9 +161,8 @@ bool QOpenGLVertexArrayObject_SuperEventFilter(QOpenGLVertexArrayObject* self, Q
 // Auxiliary method to allow providing re-implementation
 void QOpenGLVertexArrayObject_OnEventFilter(QOpenGLVertexArrayObject* self, intptr_t slot) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
-    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject)
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_EventFilter_Callback(reinterpret_cast<VirtualQOpenGLVertexArrayObject::QOpenGLVertexArrayObject_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -194,9 +189,8 @@ void QOpenGLVertexArrayObject_SuperTimerEvent(QOpenGLVertexArrayObject* self, QT
 // Auxiliary method to allow providing re-implementation
 void QOpenGLVertexArrayObject_OnTimerEvent(QOpenGLVertexArrayObject* self, intptr_t slot) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
-    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject)
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_TimerEvent_Callback(reinterpret_cast<VirtualQOpenGLVertexArrayObject::QOpenGLVertexArrayObject_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -223,9 +217,8 @@ void QOpenGLVertexArrayObject_SuperChildEvent(QOpenGLVertexArrayObject* self, QC
 // Auxiliary method to allow providing re-implementation
 void QOpenGLVertexArrayObject_OnChildEvent(QOpenGLVertexArrayObject* self, intptr_t slot) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
-    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject)
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_ChildEvent_Callback(reinterpret_cast<VirtualQOpenGLVertexArrayObject::QOpenGLVertexArrayObject_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -252,9 +245,8 @@ void QOpenGLVertexArrayObject_SuperCustomEvent(QOpenGLVertexArrayObject* self, Q
 // Auxiliary method to allow providing re-implementation
 void QOpenGLVertexArrayObject_OnCustomEvent(QOpenGLVertexArrayObject* self, intptr_t slot) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
-    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject)
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_CustomEvent_Callback(reinterpret_cast<VirtualQOpenGLVertexArrayObject::QOpenGLVertexArrayObject_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -281,9 +273,8 @@ void QOpenGLVertexArrayObject_SuperConnectNotify(QOpenGLVertexArrayObject* self,
 // Auxiliary method to allow providing re-implementation
 void QOpenGLVertexArrayObject_OnConnectNotify(QOpenGLVertexArrayObject* self, intptr_t slot) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
-    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject)
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_ConnectNotify_Callback(reinterpret_cast<VirtualQOpenGLVertexArrayObject::QOpenGLVertexArrayObject_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -310,9 +301,8 @@ void QOpenGLVertexArrayObject_SuperDisconnectNotify(QOpenGLVertexArrayObject* se
 // Auxiliary method to allow providing re-implementation
 void QOpenGLVertexArrayObject_OnDisconnectNotify(QOpenGLVertexArrayObject* self, intptr_t slot) {
     auto* vqopenglvertexarrayobject = dynamic_cast<VirtualQOpenGLVertexArrayObject*>(self);
-    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject)
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_DisconnectNotify_Callback(reinterpret_cast<VirtualQOpenGLVertexArrayObject::QOpenGLVertexArrayObject_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +329,8 @@ QObject* QOpenGLVertexArrayObject_SuperSender(const QOpenGLVertexArrayObject* se
 // Auxiliary method to allow providing re-implementation
 void QOpenGLVertexArrayObject_OnSender(const QOpenGLVertexArrayObject* self, intptr_t slot) {
     auto* vqopenglvertexarrayobject = const_cast<VirtualQOpenGLVertexArrayObject*>(dynamic_cast<const VirtualQOpenGLVertexArrayObject*>(self));
-    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject)
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_Sender_Callback(reinterpret_cast<VirtualQOpenGLVertexArrayObject::QOpenGLVertexArrayObject_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +357,8 @@ int QOpenGLVertexArrayObject_SuperSenderSignalIndex(const QOpenGLVertexArrayObje
 // Auxiliary method to allow providing re-implementation
 void QOpenGLVertexArrayObject_OnSenderSignalIndex(const QOpenGLVertexArrayObject* self, intptr_t slot) {
     auto* vqopenglvertexarrayobject = const_cast<VirtualQOpenGLVertexArrayObject*>(dynamic_cast<const VirtualQOpenGLVertexArrayObject*>(self));
-    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject)
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_SenderSignalIndex_Callback(reinterpret_cast<VirtualQOpenGLVertexArrayObject::QOpenGLVertexArrayObject_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +385,8 @@ int QOpenGLVertexArrayObject_SuperReceivers(const QOpenGLVertexArrayObject* self
 // Auxiliary method to allow providing re-implementation
 void QOpenGLVertexArrayObject_OnReceivers(const QOpenGLVertexArrayObject* self, intptr_t slot) {
     auto* vqopenglvertexarrayobject = const_cast<VirtualQOpenGLVertexArrayObject*>(dynamic_cast<const VirtualQOpenGLVertexArrayObject*>(self));
-    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject)
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_Receivers_Callback(reinterpret_cast<VirtualQOpenGLVertexArrayObject::QOpenGLVertexArrayObject_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +413,8 @@ bool QOpenGLVertexArrayObject_SuperIsSignalConnected(const QOpenGLVertexArrayObj
 // Auxiliary method to allow providing re-implementation
 void QOpenGLVertexArrayObject_OnIsSignalConnected(const QOpenGLVertexArrayObject* self, intptr_t slot) {
     auto* vqopenglvertexarrayobject = const_cast<VirtualQOpenGLVertexArrayObject*>(dynamic_cast<const VirtualQOpenGLVertexArrayObject*>(self));
-    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject) {
+    if (vqopenglvertexarrayobject && vqopenglvertexarrayobject->isVirtualQOpenGLVertexArrayObject)
         vqopenglvertexarrayobject->setQOpenGLVertexArrayObject_IsSignalConnected_Callback(reinterpret_cast<VirtualQOpenGLVertexArrayObject::QOpenGLVertexArrayObject_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QOpenGLVertexArrayObject_Delete(QOpenGLVertexArrayObject* self) {

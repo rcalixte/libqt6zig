@@ -116,9 +116,8 @@ QMetaObject* TextTranslator__TranslatorConfigureLanguageListWidget_SuperMetaObje
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnMetaObject(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_MetaObject_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -135,9 +134,8 @@ void* TextTranslator__TranslatorConfigureLanguageListWidget_SuperMetacast(TextTr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnMetacast(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_Metacast_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -154,9 +152,8 @@ int TextTranslator__TranslatorConfigureLanguageListWidget_SuperMetacall(TextTran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnMetacall(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_Metacall_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -183,9 +180,8 @@ int TextTranslator__TranslatorConfigureLanguageListWidget_SuperDevType(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnDevType(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_DevType_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -212,9 +208,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperSetVisible(TextT
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnSetVisible(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_SetVisible_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -241,9 +236,8 @@ QSize* TextTranslator__TranslatorConfigureLanguageListWidget_SuperSizeHint(const
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnSizeHint(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_SizeHint_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -270,9 +264,8 @@ QSize* TextTranslator__TranslatorConfigureLanguageListWidget_SuperMinimumSizeHin
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnMinimumSizeHint(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -299,9 +292,8 @@ int TextTranslator__TranslatorConfigureLanguageListWidget_SuperHeightForWidth(co
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnHeightForWidth(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_HeightForWidth_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -328,9 +320,8 @@ bool TextTranslator__TranslatorConfigureLanguageListWidget_SuperHasHeightForWidt
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnHasHeightForWidth(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -357,9 +348,8 @@ QPaintEngine* TextTranslator__TranslatorConfigureLanguageListWidget_SuperPaintEn
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnPaintEngine(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_PaintEngine_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -386,9 +376,8 @@ bool TextTranslator__TranslatorConfigureLanguageListWidget_SuperEvent(TextTransl
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_Event_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -415,9 +404,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperMousePressEvent(
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnMousePressEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_MousePressEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -444,9 +432,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperMouseReleaseEven
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnMouseReleaseEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -473,9 +460,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperMouseDoubleClick
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnMouseDoubleClickEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -502,9 +488,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperMouseMoveEvent(T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnMouseMoveEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -531,9 +516,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperWheelEvent(TextT
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnWheelEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_WheelEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -560,9 +544,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperKeyPressEvent(Te
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnKeyPressEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -589,9 +572,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperKeyReleaseEvent(
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnKeyReleaseEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -618,9 +600,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperFocusInEvent(Tex
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnFocusInEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_FocusInEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -647,9 +628,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperFocusOutEvent(Te
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnFocusOutEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -676,9 +656,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperEnterEvent(TextT
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnEnterEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_EnterEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -705,9 +684,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperLeaveEvent(TextT
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnLeaveEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_LeaveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -734,9 +712,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperPaintEvent(TextT
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnPaintEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_PaintEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -763,9 +740,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperMoveEvent(TextTr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnMoveEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_MoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -792,9 +768,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperResizeEvent(Text
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnResizeEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_ResizeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -821,9 +796,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperCloseEvent(TextT
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnCloseEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_CloseEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -850,9 +824,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperContextMenuEvent
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnContextMenuEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -879,9 +852,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperTabletEvent(Text
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnTabletEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_TabletEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -908,9 +880,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperActionEvent(Text
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnActionEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_ActionEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -937,9 +908,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperDragEnterEvent(T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnDragEnterEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -966,9 +936,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperDragMoveEvent(Te
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnDragMoveEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -995,9 +964,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperDragLeaveEvent(T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnDragLeaveEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1024,9 +992,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperDropEvent(TextTr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnDropEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_DropEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1053,9 +1020,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperShowEvent(TextTr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnShowEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_ShowEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1082,9 +1048,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperHideEvent(TextTr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnHideEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_HideEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1113,9 +1078,8 @@ bool TextTranslator__TranslatorConfigureLanguageListWidget_SuperNativeEvent(Text
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnNativeEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_NativeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1142,9 +1106,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperChangeEvent(Text
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnChangeEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_ChangeEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1171,9 +1134,8 @@ int TextTranslator__TranslatorConfigureLanguageListWidget_SuperMetric(const Text
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnMetric(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_Metric_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1200,9 +1162,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperInitPainter(cons
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnInitPainter(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_InitPainter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1229,9 +1190,8 @@ QPaintDevice* TextTranslator__TranslatorConfigureLanguageListWidget_SuperRedirec
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnRedirected(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_Redirected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1258,9 +1218,8 @@ QPainter* TextTranslator__TranslatorConfigureLanguageListWidget_SuperSharedPaint
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnSharedPainter(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_SharedPainter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1287,9 +1246,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperInputMethodEvent
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnInputMethodEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1316,9 +1274,8 @@ QVariant* TextTranslator__TranslatorConfigureLanguageListWidget_SuperInputMethod
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnInputMethodQuery(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1345,9 +1302,8 @@ bool TextTranslator__TranslatorConfigureLanguageListWidget_SuperFocusNextPrevChi
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnFocusNextPrevChild(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1374,9 +1330,8 @@ bool TextTranslator__TranslatorConfigureLanguageListWidget_SuperEventFilter(Text
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnEventFilter(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_EventFilter_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1403,9 +1358,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperTimerEvent(TextT
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnTimerEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_TimerEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1432,9 +1386,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperChildEvent(TextT
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnChildEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_ChildEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1461,9 +1414,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperCustomEvent(Text
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnCustomEvent(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_CustomEvent_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1490,9 +1442,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperConnectNotify(Te
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnConnectNotify(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_ConnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1519,9 +1470,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperDisconnectNotify
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnDisconnectNotify(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1548,9 +1498,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperUpdateMicroFocus
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnUpdateMicroFocus(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1577,9 +1526,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperCreate(TextTrans
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnCreate(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_Create_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1606,9 +1554,8 @@ void TextTranslator__TranslatorConfigureLanguageListWidget_SuperDestroy(TextTran
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnDestroy(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_Destroy_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1635,9 +1582,8 @@ bool TextTranslator__TranslatorConfigureLanguageListWidget_SuperFocusNextChild(T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnFocusNextChild(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_FocusNextChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1664,9 +1610,8 @@ bool TextTranslator__TranslatorConfigureLanguageListWidget_SuperFocusPreviousChi
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnFocusPreviousChild(TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1693,9 +1638,8 @@ QObject* TextTranslator__TranslatorConfigureLanguageListWidget_SuperSender(const
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnSender(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_Sender_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1722,9 +1666,8 @@ int TextTranslator__TranslatorConfigureLanguageListWidget_SuperSenderSignalIndex
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnSenderSignalIndex(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1751,9 +1694,8 @@ int TextTranslator__TranslatorConfigureLanguageListWidget_SuperReceivers(const T
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnReceivers(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_Receivers_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1780,9 +1722,8 @@ bool TextTranslator__TranslatorConfigureLanguageListWidget_SuperIsSignalConnecte
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnIsSignalConnected(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1809,9 +1750,8 @@ double TextTranslator__TranslatorConfigureLanguageListWidget_SuperGetDecodedMetr
 // Auxiliary method to allow providing re-implementation
 void TextTranslator__TranslatorConfigureLanguageListWidget_OnGetDecodedMetricF(const TextTranslator__TranslatorConfigureLanguageListWidget* self, intptr_t slot) {
     auto* vtexttranslatortranslatorconfigurelanguagelistwidget = const_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self));
-    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
+    if (vtexttranslatortranslatorconfigurelanguagelistwidget && vtexttranslatortranslatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget)
         vtexttranslatortranslatorconfigurelanguagelistwidget->setTextTranslator__TranslatorConfigureLanguageListWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget::TextTranslator__TranslatorConfigureLanguageListWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextTranslator__TranslatorConfigureLanguageListWidget_Delete(TextTranslator__TranslatorConfigureLanguageListWidget* self) {

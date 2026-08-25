@@ -86,9 +86,8 @@ QMetaObject* QSocketNotifier_SuperMetaObject(const QSocketNotifier* self) {
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnMetaObject(const QSocketNotifier* self, intptr_t slot) {
     auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier)
         vqsocketnotifier->setQSocketNotifier_MetaObject_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -105,9 +104,8 @@ void* QSocketNotifier_SuperMetacast(QSocketNotifier* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnMetacast(QSocketNotifier* self, intptr_t slot) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier)
         vqsocketnotifier->setQSocketNotifier_Metacast_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -124,9 +122,8 @@ int QSocketNotifier_SuperMetacall(QSocketNotifier* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnMetacall(QSocketNotifier* self, intptr_t slot) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier)
         vqsocketnotifier->setQSocketNotifier_Metacall_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -143,9 +140,8 @@ bool QSocketNotifier_SuperEvent(QSocketNotifier* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnEvent(QSocketNotifier* self, intptr_t slot) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier)
         vqsocketnotifier->setQSocketNotifier_Event_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -172,9 +168,8 @@ bool QSocketNotifier_SuperEventFilter(QSocketNotifier* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnEventFilter(QSocketNotifier* self, intptr_t slot) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier)
         vqsocketnotifier->setQSocketNotifier_EventFilter_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -201,9 +196,8 @@ void QSocketNotifier_SuperTimerEvent(QSocketNotifier* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnTimerEvent(QSocketNotifier* self, intptr_t slot) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier)
         vqsocketnotifier->setQSocketNotifier_TimerEvent_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -230,9 +224,8 @@ void QSocketNotifier_SuperChildEvent(QSocketNotifier* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnChildEvent(QSocketNotifier* self, intptr_t slot) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier)
         vqsocketnotifier->setQSocketNotifier_ChildEvent_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -259,9 +252,8 @@ void QSocketNotifier_SuperCustomEvent(QSocketNotifier* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnCustomEvent(QSocketNotifier* self, intptr_t slot) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier)
         vqsocketnotifier->setQSocketNotifier_CustomEvent_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -288,9 +280,8 @@ void QSocketNotifier_SuperConnectNotify(QSocketNotifier* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnConnectNotify(QSocketNotifier* self, intptr_t slot) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier)
         vqsocketnotifier->setQSocketNotifier_ConnectNotify_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -317,9 +308,8 @@ void QSocketNotifier_SuperDisconnectNotify(QSocketNotifier* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnDisconnectNotify(QSocketNotifier* self, intptr_t slot) {
     auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier)
         vqsocketnotifier->setQSocketNotifier_DisconnectNotify_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -346,9 +336,8 @@ QObject* QSocketNotifier_SuperSender(const QSocketNotifier* self) {
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnSender(const QSocketNotifier* self, intptr_t slot) {
     auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier)
         vqsocketnotifier->setQSocketNotifier_Sender_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -375,9 +364,8 @@ int QSocketNotifier_SuperSenderSignalIndex(const QSocketNotifier* self) {
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnSenderSignalIndex(const QSocketNotifier* self, intptr_t slot) {
     auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier)
         vqsocketnotifier->setQSocketNotifier_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -404,9 +392,8 @@ int QSocketNotifier_SuperReceivers(const QSocketNotifier* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnReceivers(const QSocketNotifier* self, intptr_t slot) {
     auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier)
         vqsocketnotifier->setQSocketNotifier_Receivers_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -433,9 +420,8 @@ bool QSocketNotifier_SuperIsSignalConnected(const QSocketNotifier* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QSocketNotifier_OnIsSignalConnected(const QSocketNotifier* self, intptr_t slot) {
     auto* vqsocketnotifier = const_cast<VirtualQSocketNotifier*>(dynamic_cast<const VirtualQSocketNotifier*>(self));
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
+    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier)
         vqsocketnotifier->setQSocketNotifier_IsSignalConnected_Callback(reinterpret_cast<VirtualQSocketNotifier::QSocketNotifier_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QSocketNotifier_Connect_Activated(QSocketNotifier* self, intptr_t slot) {

@@ -142,9 +142,8 @@ QMetaObject* TextAddonsWidgets__SlideContainer_SuperMetaObject(const TextAddonsW
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnMetaObject(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_MetaObject_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -161,9 +160,8 @@ void* TextAddonsWidgets__SlideContainer_SuperMetacast(TextAddonsWidgets__SlideCo
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnMetacast(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_Metacast_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -180,9 +178,8 @@ int TextAddonsWidgets__SlideContainer_SuperMetacall(TextAddonsWidgets__SlideCont
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnMetacall(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_Metacall_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -199,9 +196,8 @@ QSize* TextAddonsWidgets__SlideContainer_SuperSizeHint(const TextAddonsWidgets__
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnSizeHint(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_SizeHint_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -218,9 +214,8 @@ QSize* TextAddonsWidgets__SlideContainer_SuperMinimumSizeHint(const TextAddonsWi
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnMinimumSizeHint(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -237,9 +232,8 @@ void TextAddonsWidgets__SlideContainer_SuperResizeEvent(TextAddonsWidgets__Slide
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnResizeEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_ResizeEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -256,9 +250,8 @@ bool TextAddonsWidgets__SlideContainer_SuperEventFilter(TextAddonsWidgets__Slide
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnEventFilter(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_EventFilter_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -285,9 +278,8 @@ bool TextAddonsWidgets__SlideContainer_SuperEvent(TextAddonsWidgets__SlideContai
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_Event_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -314,9 +306,8 @@ void TextAddonsWidgets__SlideContainer_SuperPaintEvent(TextAddonsWidgets__SlideC
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnPaintEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_PaintEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -343,9 +334,8 @@ void TextAddonsWidgets__SlideContainer_SuperChangeEvent(TextAddonsWidgets__Slide
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnChangeEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_ChangeEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +362,8 @@ void TextAddonsWidgets__SlideContainer_SuperInitStyleOption(const TextAddonsWidg
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnInitStyleOption(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_InitStyleOption_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -401,9 +390,8 @@ int TextAddonsWidgets__SlideContainer_SuperDevType(const TextAddonsWidgets__Slid
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnDevType(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_DevType_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -430,9 +418,8 @@ void TextAddonsWidgets__SlideContainer_SuperSetVisible(TextAddonsWidgets__SlideC
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnSetVisible(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_SetVisible_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -459,9 +446,8 @@ int TextAddonsWidgets__SlideContainer_SuperHeightForWidth(const TextAddonsWidget
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnHeightForWidth(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_HeightForWidth_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -488,9 +474,8 @@ bool TextAddonsWidgets__SlideContainer_SuperHasHeightForWidth(const TextAddonsWi
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnHasHeightForWidth(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -517,9 +502,8 @@ QPaintEngine* TextAddonsWidgets__SlideContainer_SuperPaintEngine(const TextAddon
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnPaintEngine(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_PaintEngine_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -546,9 +530,8 @@ void TextAddonsWidgets__SlideContainer_SuperMousePressEvent(TextAddonsWidgets__S
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnMousePressEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_MousePressEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -575,9 +558,8 @@ void TextAddonsWidgets__SlideContainer_SuperMouseReleaseEvent(TextAddonsWidgets_
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnMouseReleaseEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -604,9 +586,8 @@ void TextAddonsWidgets__SlideContainer_SuperMouseDoubleClickEvent(TextAddonsWidg
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnMouseDoubleClickEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -633,9 +614,8 @@ void TextAddonsWidgets__SlideContainer_SuperMouseMoveEvent(TextAddonsWidgets__Sl
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnMouseMoveEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -662,9 +642,8 @@ void TextAddonsWidgets__SlideContainer_SuperWheelEvent(TextAddonsWidgets__SlideC
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnWheelEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_WheelEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -691,9 +670,8 @@ void TextAddonsWidgets__SlideContainer_SuperKeyPressEvent(TextAddonsWidgets__Sli
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnKeyPressEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_KeyPressEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -720,9 +698,8 @@ void TextAddonsWidgets__SlideContainer_SuperKeyReleaseEvent(TextAddonsWidgets__S
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnKeyReleaseEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -749,9 +726,8 @@ void TextAddonsWidgets__SlideContainer_SuperFocusInEvent(TextAddonsWidgets__Slid
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnFocusInEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_FocusInEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -778,9 +754,8 @@ void TextAddonsWidgets__SlideContainer_SuperFocusOutEvent(TextAddonsWidgets__Sli
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnFocusOutEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_FocusOutEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -807,9 +782,8 @@ void TextAddonsWidgets__SlideContainer_SuperEnterEvent(TextAddonsWidgets__SlideC
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnEnterEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_EnterEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -836,9 +810,8 @@ void TextAddonsWidgets__SlideContainer_SuperLeaveEvent(TextAddonsWidgets__SlideC
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnLeaveEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_LeaveEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -865,9 +838,8 @@ void TextAddonsWidgets__SlideContainer_SuperMoveEvent(TextAddonsWidgets__SlideCo
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnMoveEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_MoveEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -894,9 +866,8 @@ void TextAddonsWidgets__SlideContainer_SuperCloseEvent(TextAddonsWidgets__SlideC
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnCloseEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_CloseEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -923,9 +894,8 @@ void TextAddonsWidgets__SlideContainer_SuperContextMenuEvent(TextAddonsWidgets__
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnContextMenuEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -952,9 +922,8 @@ void TextAddonsWidgets__SlideContainer_SuperTabletEvent(TextAddonsWidgets__Slide
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnTabletEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_TabletEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -981,9 +950,8 @@ void TextAddonsWidgets__SlideContainer_SuperActionEvent(TextAddonsWidgets__Slide
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnActionEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_ActionEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1010,9 +978,8 @@ void TextAddonsWidgets__SlideContainer_SuperDragEnterEvent(TextAddonsWidgets__Sl
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnDragEnterEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_DragEnterEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1039,9 +1006,8 @@ void TextAddonsWidgets__SlideContainer_SuperDragMoveEvent(TextAddonsWidgets__Sli
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnDragMoveEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_DragMoveEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1068,9 +1034,8 @@ void TextAddonsWidgets__SlideContainer_SuperDragLeaveEvent(TextAddonsWidgets__Sl
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnDragLeaveEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1097,9 +1062,8 @@ void TextAddonsWidgets__SlideContainer_SuperDropEvent(TextAddonsWidgets__SlideCo
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnDropEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_DropEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1126,9 +1090,8 @@ void TextAddonsWidgets__SlideContainer_SuperShowEvent(TextAddonsWidgets__SlideCo
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnShowEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_ShowEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1155,9 +1118,8 @@ void TextAddonsWidgets__SlideContainer_SuperHideEvent(TextAddonsWidgets__SlideCo
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnHideEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_HideEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1186,9 +1148,8 @@ bool TextAddonsWidgets__SlideContainer_SuperNativeEvent(TextAddonsWidgets__Slide
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnNativeEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_NativeEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1215,9 +1176,8 @@ int TextAddonsWidgets__SlideContainer_SuperMetric(const TextAddonsWidgets__Slide
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnMetric(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_Metric_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1244,9 +1204,8 @@ void TextAddonsWidgets__SlideContainer_SuperInitPainter(const TextAddonsWidgets_
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnInitPainter(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_InitPainter_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1273,9 +1232,8 @@ QPaintDevice* TextAddonsWidgets__SlideContainer_SuperRedirected(const TextAddons
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnRedirected(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_Redirected_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1302,9 +1260,8 @@ QPainter* TextAddonsWidgets__SlideContainer_SuperSharedPainter(const TextAddonsW
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnSharedPainter(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_SharedPainter_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1331,9 +1288,8 @@ void TextAddonsWidgets__SlideContainer_SuperInputMethodEvent(TextAddonsWidgets__
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnInputMethodEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_InputMethodEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1360,9 +1316,8 @@ QVariant* TextAddonsWidgets__SlideContainer_SuperInputMethodQuery(const TextAddo
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnInputMethodQuery(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_InputMethodQuery_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1389,9 +1344,8 @@ bool TextAddonsWidgets__SlideContainer_SuperFocusNextPrevChild(TextAddonsWidgets
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnFocusNextPrevChild(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1418,9 +1372,8 @@ void TextAddonsWidgets__SlideContainer_SuperTimerEvent(TextAddonsWidgets__SlideC
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnTimerEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_TimerEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1447,9 +1400,8 @@ void TextAddonsWidgets__SlideContainer_SuperChildEvent(TextAddonsWidgets__SlideC
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnChildEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_ChildEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1476,9 +1428,8 @@ void TextAddonsWidgets__SlideContainer_SuperCustomEvent(TextAddonsWidgets__Slide
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnCustomEvent(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_CustomEvent_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1505,9 +1456,8 @@ void TextAddonsWidgets__SlideContainer_SuperConnectNotify(TextAddonsWidgets__Sli
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnConnectNotify(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_ConnectNotify_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1534,9 +1484,8 @@ void TextAddonsWidgets__SlideContainer_SuperDisconnectNotify(TextAddonsWidgets__
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnDisconnectNotify(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_DisconnectNotify_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1563,9 +1512,8 @@ void TextAddonsWidgets__SlideContainer_SuperDrawFrame(TextAddonsWidgets__SlideCo
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnDrawFrame(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_DrawFrame_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1592,9 +1540,8 @@ void TextAddonsWidgets__SlideContainer_SuperUpdateMicroFocus(TextAddonsWidgets__
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnUpdateMicroFocus(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1621,9 +1568,8 @@ void TextAddonsWidgets__SlideContainer_SuperCreate(TextAddonsWidgets__SlideConta
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnCreate(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_Create_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1650,9 +1596,8 @@ void TextAddonsWidgets__SlideContainer_SuperDestroy(TextAddonsWidgets__SlideCont
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnDestroy(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_Destroy_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1679,9 +1624,8 @@ bool TextAddonsWidgets__SlideContainer_SuperFocusNextChild(TextAddonsWidgets__Sl
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnFocusNextChild(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_FocusNextChild_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1708,9 +1652,8 @@ bool TextAddonsWidgets__SlideContainer_SuperFocusPreviousChild(TextAddonsWidgets
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnFocusPreviousChild(TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1737,9 +1680,8 @@ QObject* TextAddonsWidgets__SlideContainer_SuperSender(const TextAddonsWidgets__
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnSender(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_Sender_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1766,9 +1708,8 @@ int TextAddonsWidgets__SlideContainer_SuperSenderSignalIndex(const TextAddonsWid
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnSenderSignalIndex(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1795,9 +1736,8 @@ int TextAddonsWidgets__SlideContainer_SuperReceivers(const TextAddonsWidgets__Sl
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnReceivers(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_Receivers_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1824,9 +1764,8 @@ bool TextAddonsWidgets__SlideContainer_SuperIsSignalConnected(const TextAddonsWi
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnIsSignalConnected(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_IsSignalConnected_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1853,9 +1792,8 @@ double TextAddonsWidgets__SlideContainer_SuperGetDecodedMetricF(const TextAddons
 // Auxiliary method to allow providing re-implementation
 void TextAddonsWidgets__SlideContainer_OnGetDecodedMetricF(const TextAddonsWidgets__SlideContainer* self, intptr_t slot) {
     auto* vtextaddonswidgetsslidecontainer = const_cast<VirtualTextAddonsWidgetsSlideContainer*>(dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self));
-    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
+    if (vtextaddonswidgetsslidecontainer && vtextaddonswidgetsslidecontainer->isVirtualTextAddonsWidgetsSlideContainer)
         vtextaddonswidgetsslidecontainer->setTextAddonsWidgets__SlideContainer_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextAddonsWidgetsSlideContainer::TextAddonsWidgets__SlideContainer_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextAddonsWidgets__SlideContainer_Delete(TextAddonsWidgets__SlideContainer* self) {

@@ -2465,12 +2465,12 @@ pub const QSharedMemory = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsharedmemory.html#public-types)
 pub const enums = struct {
-    pub const AccessMode = enum(i32) {
+    pub const AccessMode = enum {
         pub const ReadOnly: i32 = 0;
         pub const ReadWrite: i32 = 1;
     };
 
-    pub const SharedMemoryError = enum(i32) {
+    pub const SharedMemoryError = enum {
         pub const NoError: i32 = 0;
         pub const PermissionDenied: i32 = 1;
         pub const InvalidSize: i32 = 2;

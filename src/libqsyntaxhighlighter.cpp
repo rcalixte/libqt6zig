@@ -74,9 +74,8 @@ QMetaObject* QSyntaxHighlighter_SuperMetaObject(const QSyntaxHighlighter* self) 
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnMetaObject(const QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_MetaObject_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -93,9 +92,8 @@ void* QSyntaxHighlighter_SuperMetacast(QSyntaxHighlighter* self, const char* par
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnMetacast(QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_Metacast_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -112,9 +110,8 @@ int QSyntaxHighlighter_SuperMetacall(QSyntaxHighlighter* self, int param1, int p
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnMetacall(QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_Metacall_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -132,9 +129,8 @@ void QSyntaxHighlighter_SuperHighlightBlock(QSyntaxHighlighter* self, const libq
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnHighlightBlock(QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_HighlightBlock_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_HighlightBlock_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -161,9 +157,8 @@ bool QSyntaxHighlighter_SuperEvent(QSyntaxHighlighter* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnEvent(QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_Event_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -190,9 +185,8 @@ bool QSyntaxHighlighter_SuperEventFilter(QSyntaxHighlighter* self, QObject* watc
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnEventFilter(QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_EventFilter_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -219,9 +213,8 @@ void QSyntaxHighlighter_SuperTimerEvent(QSyntaxHighlighter* self, QTimerEvent* e
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnTimerEvent(QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_TimerEvent_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -248,9 +241,8 @@ void QSyntaxHighlighter_SuperChildEvent(QSyntaxHighlighter* self, QChildEvent* e
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnChildEvent(QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_ChildEvent_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -277,9 +269,8 @@ void QSyntaxHighlighter_SuperCustomEvent(QSyntaxHighlighter* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnCustomEvent(QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_CustomEvent_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -306,9 +297,8 @@ void QSyntaxHighlighter_SuperConnectNotify(QSyntaxHighlighter* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnConnectNotify(QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_ConnectNotify_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -335,9 +325,8 @@ void QSyntaxHighlighter_SuperDisconnectNotify(QSyntaxHighlighter* self, const QM
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnDisconnectNotify(QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_DisconnectNotify_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -364,9 +353,8 @@ void QSyntaxHighlighter_SuperSetFormat(QSyntaxHighlighter* self, int start, int 
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnSetFormat(QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_SetFormat_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_SetFormat_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -393,9 +381,8 @@ void QSyntaxHighlighter_SuperSetFormat2(QSyntaxHighlighter* self, int start, int
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnSetFormat2(QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_SetFormat2_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_SetFormat2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -422,9 +409,8 @@ void QSyntaxHighlighter_SuperSetFormat3(QSyntaxHighlighter* self, int start, int
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnSetFormat3(QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_SetFormat3_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_SetFormat3_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +435,8 @@ QTextCharFormat* QSyntaxHighlighter_SuperFormat(const QSyntaxHighlighter* self, 
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnFormat(const QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_Format_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_Format_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +463,8 @@ int QSyntaxHighlighter_SuperPreviousBlockState(const QSyntaxHighlighter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnPreviousBlockState(const QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_PreviousBlockState_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_PreviousBlockState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +491,8 @@ int QSyntaxHighlighter_SuperCurrentBlockState(const QSyntaxHighlighter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnCurrentBlockState(const QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_CurrentBlockState_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_CurrentBlockState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +519,8 @@ void QSyntaxHighlighter_SuperSetCurrentBlockState(QSyntaxHighlighter* self, int 
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnSetCurrentBlockState(QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_SetCurrentBlockState_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_SetCurrentBlockState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +547,8 @@ void QSyntaxHighlighter_SuperSetCurrentBlockUserData(QSyntaxHighlighter* self, Q
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnSetCurrentBlockUserData(QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_SetCurrentBlockUserData_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_SetCurrentBlockUserData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +575,8 @@ QTextBlockUserData* QSyntaxHighlighter_SuperCurrentBlockUserData(const QSyntaxHi
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnCurrentBlockUserData(const QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_CurrentBlockUserData_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_CurrentBlockUserData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -621,9 +601,8 @@ QTextBlock* QSyntaxHighlighter_SuperCurrentBlock(const QSyntaxHighlighter* self)
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnCurrentBlock(const QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_CurrentBlock_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_CurrentBlock_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -650,9 +629,8 @@ QObject* QSyntaxHighlighter_SuperSender(const QSyntaxHighlighter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnSender(const QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_Sender_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -679,9 +657,8 @@ int QSyntaxHighlighter_SuperSenderSignalIndex(const QSyntaxHighlighter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnSenderSignalIndex(const QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -708,9 +685,8 @@ int QSyntaxHighlighter_SuperReceivers(const QSyntaxHighlighter* self, const char
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnReceivers(const QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_Receivers_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -737,9 +713,8 @@ bool QSyntaxHighlighter_SuperIsSignalConnected(const QSyntaxHighlighter* self, c
 // Auxiliary method to allow providing re-implementation
 void QSyntaxHighlighter_OnIsSignalConnected(const QSyntaxHighlighter* self, intptr_t slot) {
     auto* vqsyntaxhighlighter = const_cast<VirtualQSyntaxHighlighter*>(dynamic_cast<const VirtualQSyntaxHighlighter*>(self));
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
+    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter)
         vqsyntaxhighlighter->setQSyntaxHighlighter_IsSignalConnected_Callback(reinterpret_cast<VirtualQSyntaxHighlighter::QSyntaxHighlighter_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QSyntaxHighlighter_Delete(QSyntaxHighlighter* self) {

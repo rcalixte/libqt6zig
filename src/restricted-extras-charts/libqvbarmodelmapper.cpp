@@ -161,9 +161,8 @@ QMetaObject* QVBarModelMapper_SuperMetaObject(const QVBarModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnMetaObject(const QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_MetaObject_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -180,9 +179,8 @@ void* QVBarModelMapper_SuperMetacast(QVBarModelMapper* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnMetacast(QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_Metacast_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -199,9 +197,8 @@ int QVBarModelMapper_SuperMetacall(QVBarModelMapper* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnMetacall(QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_Metacall_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -228,9 +225,8 @@ bool QVBarModelMapper_SuperEvent(QVBarModelMapper* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnEvent(QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_Event_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -257,9 +253,8 @@ bool QVBarModelMapper_SuperEventFilter(QVBarModelMapper* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnEventFilter(QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_EventFilter_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -286,9 +281,8 @@ void QVBarModelMapper_SuperTimerEvent(QVBarModelMapper* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnTimerEvent(QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_TimerEvent_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -315,9 +309,8 @@ void QVBarModelMapper_SuperChildEvent(QVBarModelMapper* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnChildEvent(QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_ChildEvent_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -344,9 +337,8 @@ void QVBarModelMapper_SuperCustomEvent(QVBarModelMapper* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnCustomEvent(QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_CustomEvent_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -373,9 +365,8 @@ void QVBarModelMapper_SuperConnectNotify(QVBarModelMapper* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnConnectNotify(QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_ConnectNotify_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -402,9 +393,8 @@ void QVBarModelMapper_SuperDisconnectNotify(QVBarModelMapper* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnDisconnectNotify(QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_DisconnectNotify_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -431,9 +421,8 @@ int QVBarModelMapper_SuperFirst(const QVBarModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnFirst(const QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_First_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_First_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -460,9 +449,8 @@ void QVBarModelMapper_SuperSetFirst(QVBarModelMapper* self, int first) {
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnSetFirst(QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_SetFirst_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_SetFirst_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -489,9 +477,8 @@ int QVBarModelMapper_SuperCount(const QVBarModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnCount(const QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_Count_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_Count_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -518,9 +505,8 @@ void QVBarModelMapper_SuperSetCount(QVBarModelMapper* self, int count) {
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnSetCount(QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_SetCount_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_SetCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -547,9 +533,8 @@ int QVBarModelMapper_SuperFirstBarSetSection(const QVBarModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnFirstBarSetSection(const QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_FirstBarSetSection_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_FirstBarSetSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -576,9 +561,8 @@ void QVBarModelMapper_SuperSetFirstBarSetSection(QVBarModelMapper* self, int fir
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnSetFirstBarSetSection(QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_SetFirstBarSetSection_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_SetFirstBarSetSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -605,9 +589,8 @@ int QVBarModelMapper_SuperLastBarSetSection(const QVBarModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnLastBarSetSection(const QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_LastBarSetSection_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_LastBarSetSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -634,9 +617,8 @@ void QVBarModelMapper_SuperSetLastBarSetSection(QVBarModelMapper* self, int last
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnSetLastBarSetSection(QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_SetLastBarSetSection_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_SetLastBarSetSection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -663,9 +645,8 @@ int QVBarModelMapper_SuperOrientation(const QVBarModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnOrientation(const QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_Orientation_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_Orientation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -692,9 +673,8 @@ void QVBarModelMapper_SuperSetOrientation(QVBarModelMapper* self, int orientatio
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnSetOrientation(QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = dynamic_cast<VirtualQVBarModelMapper*>(self);
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_SetOrientation_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_SetOrientation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -721,9 +701,8 @@ QObject* QVBarModelMapper_SuperSender(const QVBarModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnSender(const QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_Sender_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -750,9 +729,8 @@ int QVBarModelMapper_SuperSenderSignalIndex(const QVBarModelMapper* self) {
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnSenderSignalIndex(const QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_SenderSignalIndex_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -779,9 +757,8 @@ int QVBarModelMapper_SuperReceivers(const QVBarModelMapper* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnReceivers(const QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_Receivers_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -808,9 +785,8 @@ bool QVBarModelMapper_SuperIsSignalConnected(const QVBarModelMapper* self, const
 // Auxiliary method to allow providing re-implementation
 void QVBarModelMapper_OnIsSignalConnected(const QVBarModelMapper* self, intptr_t slot) {
     auto* vqvbarmodelmapper = const_cast<VirtualQVBarModelMapper*>(dynamic_cast<const VirtualQVBarModelMapper*>(self));
-    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper) {
+    if (vqvbarmodelmapper && vqvbarmodelmapper->isVirtualQVBarModelMapper)
         vqvbarmodelmapper->setQVBarModelMapper_IsSignalConnected_Callback(reinterpret_cast<VirtualQVBarModelMapper::QVBarModelMapper_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QVBarModelMapper_Delete(QVBarModelMapper* self) {

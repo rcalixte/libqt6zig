@@ -245,9 +245,8 @@ void KConfigSkeletonItem_SuperReadConfig(KConfigSkeletonItem* self, KConfig* par
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeletonItem_OnReadConfig(KConfigSkeletonItem* self, intptr_t slot) {
     auto* vkconfigskeletonitem = dynamic_cast<VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
+    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem)
         vkconfigskeletonitem->setKConfigSkeletonItem_ReadConfig_Callback(reinterpret_cast<VirtualKConfigSkeletonItem::KConfigSkeletonItem_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -264,9 +263,8 @@ void KConfigSkeletonItem_SuperWriteConfig(KConfigSkeletonItem* self, KConfig* pa
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeletonItem_OnWriteConfig(KConfigSkeletonItem* self, intptr_t slot) {
     auto* vkconfigskeletonitem = dynamic_cast<VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
+    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem)
         vkconfigskeletonitem->setKConfigSkeletonItem_WriteConfig_Callback(reinterpret_cast<VirtualKConfigSkeletonItem::KConfigSkeletonItem_WriteConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -283,9 +281,8 @@ void KConfigSkeletonItem_SuperReadDefault(KConfigSkeletonItem* self, KConfig* pa
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeletonItem_OnReadDefault(KConfigSkeletonItem* self, intptr_t slot) {
     auto* vkconfigskeletonitem = dynamic_cast<VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
+    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem)
         vkconfigskeletonitem->setKConfigSkeletonItem_ReadDefault_Callback(reinterpret_cast<VirtualKConfigSkeletonItem::KConfigSkeletonItem_ReadDefault_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -302,9 +299,8 @@ void KConfigSkeletonItem_SuperSetProperty(KConfigSkeletonItem* self, const QVari
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeletonItem_OnSetProperty(KConfigSkeletonItem* self, intptr_t slot) {
     auto* vkconfigskeletonitem = dynamic_cast<VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
+    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem)
         vkconfigskeletonitem->setKConfigSkeletonItem_SetProperty_Callback(reinterpret_cast<VirtualKConfigSkeletonItem::KConfigSkeletonItem_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -321,9 +317,8 @@ bool KConfigSkeletonItem_SuperIsEqual(const KConfigSkeletonItem* self, const QVa
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeletonItem_OnIsEqual(const KConfigSkeletonItem* self, intptr_t slot) {
     auto* vkconfigskeletonitem = const_cast<VirtualKConfigSkeletonItem*>(dynamic_cast<const VirtualKConfigSkeletonItem*>(self));
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
+    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem)
         vkconfigskeletonitem->setKConfigSkeletonItem_IsEqual_Callback(reinterpret_cast<VirtualKConfigSkeletonItem::KConfigSkeletonItem_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -340,9 +335,8 @@ QVariant* KConfigSkeletonItem_SuperProperty(const KConfigSkeletonItem* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeletonItem_OnProperty(const KConfigSkeletonItem* self, intptr_t slot) {
     auto* vkconfigskeletonitem = const_cast<VirtualKConfigSkeletonItem*>(dynamic_cast<const VirtualKConfigSkeletonItem*>(self));
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
+    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem)
         vkconfigskeletonitem->setKConfigSkeletonItem_Property_Callback(reinterpret_cast<VirtualKConfigSkeletonItem::KConfigSkeletonItem_Property_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -359,9 +353,8 @@ QVariant* KConfigSkeletonItem_SuperMinValue(const KConfigSkeletonItem* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeletonItem_OnMinValue(const KConfigSkeletonItem* self, intptr_t slot) {
     auto* vkconfigskeletonitem = const_cast<VirtualKConfigSkeletonItem*>(dynamic_cast<const VirtualKConfigSkeletonItem*>(self));
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
+    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem)
         vkconfigskeletonitem->setKConfigSkeletonItem_MinValue_Callback(reinterpret_cast<VirtualKConfigSkeletonItem::KConfigSkeletonItem_MinValue_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -378,9 +371,8 @@ QVariant* KConfigSkeletonItem_SuperMaxValue(const KConfigSkeletonItem* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeletonItem_OnMaxValue(const KConfigSkeletonItem* self, intptr_t slot) {
     auto* vkconfigskeletonitem = const_cast<VirtualKConfigSkeletonItem*>(dynamic_cast<const VirtualKConfigSkeletonItem*>(self));
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
+    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem)
         vkconfigskeletonitem->setKConfigSkeletonItem_MaxValue_Callback(reinterpret_cast<VirtualKConfigSkeletonItem::KConfigSkeletonItem_MaxValue_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -397,9 +389,8 @@ void KConfigSkeletonItem_SuperSetDefault(KConfigSkeletonItem* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeletonItem_OnSetDefault(KConfigSkeletonItem* self, intptr_t slot) {
     auto* vkconfigskeletonitem = dynamic_cast<VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
+    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem)
         vkconfigskeletonitem->setKConfigSkeletonItem_SetDefault_Callback(reinterpret_cast<VirtualKConfigSkeletonItem::KConfigSkeletonItem_SetDefault_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -416,9 +407,8 @@ void KConfigSkeletonItem_SuperSwapDefault(KConfigSkeletonItem* self) {
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeletonItem_OnSwapDefault(KConfigSkeletonItem* self, intptr_t slot) {
     auto* vkconfigskeletonitem = dynamic_cast<VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
+    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem)
         vkconfigskeletonitem->setKConfigSkeletonItem_SwapDefault_Callback(reinterpret_cast<VirtualKConfigSkeletonItem::KConfigSkeletonItem_SwapDefault_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +435,8 @@ void KConfigSkeletonItem_SuperReadImmutability(KConfigSkeletonItem* self, const 
 // Auxiliary method to allow providing re-implementation
 void KConfigSkeletonItem_OnReadImmutability(KConfigSkeletonItem* self, intptr_t slot) {
     auto* vkconfigskeletonitem = dynamic_cast<VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
+    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem)
         vkconfigskeletonitem->setKConfigSkeletonItem_ReadImmutability_Callback(reinterpret_cast<VirtualKConfigSkeletonItem::KConfigSkeletonItem_ReadImmutability_Callback>(slot));
-    }
 }
 
 void KConfigSkeletonItem_Delete(KConfigSkeletonItem* self) {
@@ -516,9 +505,8 @@ QVariant* KPropertySkeletonItem_SuperProperty(const KPropertySkeletonItem* self)
 // Auxiliary method to allow providing re-implementation
 void KPropertySkeletonItem_OnProperty(const KPropertySkeletonItem* self, intptr_t slot) {
     auto* vkpropertyskeletonitem = const_cast<VirtualKPropertySkeletonItem*>(dynamic_cast<const VirtualKPropertySkeletonItem*>(self));
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
+    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem)
         vkpropertyskeletonitem->setKPropertySkeletonItem_Property_Callback(reinterpret_cast<VirtualKPropertySkeletonItem::KPropertySkeletonItem_Property_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -535,9 +523,8 @@ void KPropertySkeletonItem_SuperSetProperty(KPropertySkeletonItem* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KPropertySkeletonItem_OnSetProperty(KPropertySkeletonItem* self, intptr_t slot) {
     auto* vkpropertyskeletonitem = dynamic_cast<VirtualKPropertySkeletonItem*>(self);
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
+    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem)
         vkpropertyskeletonitem->setKPropertySkeletonItem_SetProperty_Callback(reinterpret_cast<VirtualKPropertySkeletonItem::KPropertySkeletonItem_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -554,9 +541,8 @@ bool KPropertySkeletonItem_SuperIsEqual(const KPropertySkeletonItem* self, const
 // Auxiliary method to allow providing re-implementation
 void KPropertySkeletonItem_OnIsEqual(const KPropertySkeletonItem* self, intptr_t slot) {
     auto* vkpropertyskeletonitem = const_cast<VirtualKPropertySkeletonItem*>(dynamic_cast<const VirtualKPropertySkeletonItem*>(self));
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
+    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem)
         vkpropertyskeletonitem->setKPropertySkeletonItem_IsEqual_Callback(reinterpret_cast<VirtualKPropertySkeletonItem::KPropertySkeletonItem_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -573,9 +559,8 @@ void KPropertySkeletonItem_SuperReadConfig(KPropertySkeletonItem* self, KConfig*
 // Auxiliary method to allow providing re-implementation
 void KPropertySkeletonItem_OnReadConfig(KPropertySkeletonItem* self, intptr_t slot) {
     auto* vkpropertyskeletonitem = dynamic_cast<VirtualKPropertySkeletonItem*>(self);
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
+    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem)
         vkpropertyskeletonitem->setKPropertySkeletonItem_ReadConfig_Callback(reinterpret_cast<VirtualKPropertySkeletonItem::KPropertySkeletonItem_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -592,9 +577,8 @@ void KPropertySkeletonItem_SuperWriteConfig(KPropertySkeletonItem* self, KConfig
 // Auxiliary method to allow providing re-implementation
 void KPropertySkeletonItem_OnWriteConfig(KPropertySkeletonItem* self, intptr_t slot) {
     auto* vkpropertyskeletonitem = dynamic_cast<VirtualKPropertySkeletonItem*>(self);
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
+    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem)
         vkpropertyskeletonitem->setKPropertySkeletonItem_WriteConfig_Callback(reinterpret_cast<VirtualKPropertySkeletonItem::KPropertySkeletonItem_WriteConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -611,9 +595,8 @@ void KPropertySkeletonItem_SuperReadDefault(KPropertySkeletonItem* self, KConfig
 // Auxiliary method to allow providing re-implementation
 void KPropertySkeletonItem_OnReadDefault(KPropertySkeletonItem* self, intptr_t slot) {
     auto* vkpropertyskeletonitem = dynamic_cast<VirtualKPropertySkeletonItem*>(self);
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
+    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem)
         vkpropertyskeletonitem->setKPropertySkeletonItem_ReadDefault_Callback(reinterpret_cast<VirtualKPropertySkeletonItem::KPropertySkeletonItem_ReadDefault_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -630,9 +613,8 @@ void KPropertySkeletonItem_SuperSetDefault(KPropertySkeletonItem* self) {
 // Auxiliary method to allow providing re-implementation
 void KPropertySkeletonItem_OnSetDefault(KPropertySkeletonItem* self, intptr_t slot) {
     auto* vkpropertyskeletonitem = dynamic_cast<VirtualKPropertySkeletonItem*>(self);
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
+    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem)
         vkpropertyskeletonitem->setKPropertySkeletonItem_SetDefault_Callback(reinterpret_cast<VirtualKPropertySkeletonItem::KPropertySkeletonItem_SetDefault_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -649,9 +631,8 @@ void KPropertySkeletonItem_SuperSwapDefault(KPropertySkeletonItem* self) {
 // Auxiliary method to allow providing re-implementation
 void KPropertySkeletonItem_OnSwapDefault(KPropertySkeletonItem* self, intptr_t slot) {
     auto* vkpropertyskeletonitem = dynamic_cast<VirtualKPropertySkeletonItem*>(self);
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
+    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem)
         vkpropertyskeletonitem->setKPropertySkeletonItem_SwapDefault_Callback(reinterpret_cast<VirtualKPropertySkeletonItem::KPropertySkeletonItem_SwapDefault_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -678,9 +659,8 @@ QVariant* KPropertySkeletonItem_SuperMinValue(const KPropertySkeletonItem* self)
 // Auxiliary method to allow providing re-implementation
 void KPropertySkeletonItem_OnMinValue(const KPropertySkeletonItem* self, intptr_t slot) {
     auto* vkpropertyskeletonitem = const_cast<VirtualKPropertySkeletonItem*>(dynamic_cast<const VirtualKPropertySkeletonItem*>(self));
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
+    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem)
         vkpropertyskeletonitem->setKPropertySkeletonItem_MinValue_Callback(reinterpret_cast<VirtualKPropertySkeletonItem::KPropertySkeletonItem_MinValue_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -707,9 +687,8 @@ QVariant* KPropertySkeletonItem_SuperMaxValue(const KPropertySkeletonItem* self)
 // Auxiliary method to allow providing re-implementation
 void KPropertySkeletonItem_OnMaxValue(const KPropertySkeletonItem* self, intptr_t slot) {
     auto* vkpropertyskeletonitem = const_cast<VirtualKPropertySkeletonItem*>(dynamic_cast<const VirtualKPropertySkeletonItem*>(self));
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
+    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem)
         vkpropertyskeletonitem->setKPropertySkeletonItem_MaxValue_Callback(reinterpret_cast<VirtualKPropertySkeletonItem::KPropertySkeletonItem_MaxValue_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -736,9 +715,8 @@ void KPropertySkeletonItem_SuperReadImmutability(KPropertySkeletonItem* self, co
 // Auxiliary method to allow providing re-implementation
 void KPropertySkeletonItem_OnReadImmutability(KPropertySkeletonItem* self, intptr_t slot) {
     auto* vkpropertyskeletonitem = dynamic_cast<VirtualKPropertySkeletonItem*>(self);
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
+    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem)
         vkpropertyskeletonitem->setKPropertySkeletonItem_ReadImmutability_Callback(reinterpret_cast<VirtualKPropertySkeletonItem::KPropertySkeletonItem_ReadImmutability_Callback>(slot));
-    }
 }
 
 void KPropertySkeletonItem_Delete(KPropertySkeletonItem* self) {
@@ -1364,9 +1342,8 @@ QMetaObject* KCoreConfigSkeleton_SuperMetaObject(const KCoreConfigSkeleton* self
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnMetaObject(const KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = const_cast<VirtualKCoreConfigSkeleton*>(dynamic_cast<const VirtualKCoreConfigSkeleton*>(self));
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_MetaObject_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1383,9 +1360,8 @@ void* KCoreConfigSkeleton_SuperMetacast(KCoreConfigSkeleton* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnMetacast(KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_Metacast_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1402,9 +1378,8 @@ int KCoreConfigSkeleton_SuperMetacall(KCoreConfigSkeleton* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnMetacall(KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_Metacall_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1421,9 +1396,8 @@ void KCoreConfigSkeleton_SuperSetDefaults(KCoreConfigSkeleton* self) {
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnSetDefaults(KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_SetDefaults_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_SetDefaults_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1440,9 +1414,8 @@ bool KCoreConfigSkeleton_SuperUseDefaults(KCoreConfigSkeleton* self, bool b) {
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnUseDefaults(KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_UseDefaults_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_UseDefaults_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1459,9 +1432,8 @@ bool KCoreConfigSkeleton_SuperUsrUseDefaults(KCoreConfigSkeleton* self, bool b) 
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnUsrUseDefaults(KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_UsrUseDefaults_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_UsrUseDefaults_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1478,9 +1450,8 @@ void KCoreConfigSkeleton_SuperUsrSetDefaults(KCoreConfigSkeleton* self) {
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnUsrSetDefaults(KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_UsrSetDefaults_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_UsrSetDefaults_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1497,9 +1468,8 @@ void KCoreConfigSkeleton_SuperUsrRead(KCoreConfigSkeleton* self) {
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnUsrRead(KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_UsrRead_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_UsrRead_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1516,9 +1486,8 @@ bool KCoreConfigSkeleton_SuperUsrSave(KCoreConfigSkeleton* self) {
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnUsrSave(KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_UsrSave_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_UsrSave_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1545,9 +1514,8 @@ bool KCoreConfigSkeleton_SuperEvent(KCoreConfigSkeleton* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnEvent(KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_Event_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1574,9 +1542,8 @@ bool KCoreConfigSkeleton_SuperEventFilter(KCoreConfigSkeleton* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnEventFilter(KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_EventFilter_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1603,9 +1570,8 @@ void KCoreConfigSkeleton_SuperTimerEvent(KCoreConfigSkeleton* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnTimerEvent(KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_TimerEvent_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1632,9 +1598,8 @@ void KCoreConfigSkeleton_SuperChildEvent(KCoreConfigSkeleton* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnChildEvent(KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_ChildEvent_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1661,9 +1626,8 @@ void KCoreConfigSkeleton_SuperCustomEvent(KCoreConfigSkeleton* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnCustomEvent(KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_CustomEvent_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1690,9 +1654,8 @@ void KCoreConfigSkeleton_SuperConnectNotify(KCoreConfigSkeleton* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnConnectNotify(KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_ConnectNotify_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1719,9 +1682,8 @@ void KCoreConfigSkeleton_SuperDisconnectNotify(KCoreConfigSkeleton* self, const 
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnDisconnectNotify(KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_DisconnectNotify_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1748,9 +1710,8 @@ QObject* KCoreConfigSkeleton_SuperSender(const KCoreConfigSkeleton* self) {
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnSender(const KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = const_cast<VirtualKCoreConfigSkeleton*>(dynamic_cast<const VirtualKCoreConfigSkeleton*>(self));
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_Sender_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1777,9 +1738,8 @@ int KCoreConfigSkeleton_SuperSenderSignalIndex(const KCoreConfigSkeleton* self) 
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnSenderSignalIndex(const KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = const_cast<VirtualKCoreConfigSkeleton*>(dynamic_cast<const VirtualKCoreConfigSkeleton*>(self));
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1806,9 +1766,8 @@ int KCoreConfigSkeleton_SuperReceivers(const KCoreConfigSkeleton* self, const ch
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnReceivers(const KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = const_cast<VirtualKCoreConfigSkeleton*>(dynamic_cast<const VirtualKCoreConfigSkeleton*>(self));
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_Receivers_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1835,9 +1794,8 @@ bool KCoreConfigSkeleton_SuperIsSignalConnected(const KCoreConfigSkeleton* self,
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton_OnIsSignalConnected(const KCoreConfigSkeleton* self, intptr_t slot) {
     auto* vkcoreconfigskeleton = const_cast<VirtualKCoreConfigSkeleton*>(dynamic_cast<const VirtualKCoreConfigSkeleton*>(self));
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
+    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton)
         vkcoreconfigskeleton->setKCoreConfigSkeleton_IsSignalConnected_Callback(reinterpret_cast<VirtualKCoreConfigSkeleton::KCoreConfigSkeleton_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton_Delete(KCoreConfigSkeleton* self) {
@@ -1901,9 +1859,8 @@ void KCoreConfigSkeleton__ItemString_SuperWriteConfig(KCoreConfigSkeleton__ItemS
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemString_OnWriteConfig(KCoreConfigSkeleton__ItemString* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemstring = dynamic_cast<VirtualKCoreConfigSkeletonItemString*>(self);
-    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString) {
+    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString)
         vkcoreconfigskeletonitemstring->setKCoreConfigSkeleton__ItemString_WriteConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemString::KCoreConfigSkeleton__ItemString_WriteConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1920,9 +1877,8 @@ void KCoreConfigSkeleton__ItemString_SuperReadConfig(KCoreConfigSkeleton__ItemSt
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemString_OnReadConfig(KCoreConfigSkeleton__ItemString* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemstring = dynamic_cast<VirtualKCoreConfigSkeletonItemString*>(self);
-    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString) {
+    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString)
         vkcoreconfigskeletonitemstring->setKCoreConfigSkeleton__ItemString_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemString::KCoreConfigSkeleton__ItemString_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1939,9 +1895,8 @@ void KCoreConfigSkeleton__ItemString_SuperSetProperty(KCoreConfigSkeleton__ItemS
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemString_OnSetProperty(KCoreConfigSkeleton__ItemString* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemstring = dynamic_cast<VirtualKCoreConfigSkeletonItemString*>(self);
-    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString) {
+    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString)
         vkcoreconfigskeletonitemstring->setKCoreConfigSkeleton__ItemString_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemString::KCoreConfigSkeleton__ItemString_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1958,9 +1913,8 @@ bool KCoreConfigSkeleton__ItemString_SuperIsEqual(const KCoreConfigSkeleton__Ite
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemString_OnIsEqual(const KCoreConfigSkeleton__ItemString* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemstring = const_cast<VirtualKCoreConfigSkeletonItemString*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemString*>(self));
-    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString) {
+    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString)
         vkcoreconfigskeletonitemstring->setKCoreConfigSkeleton__ItemString_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemString::KCoreConfigSkeleton__ItemString_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1977,9 +1931,8 @@ QVariant* KCoreConfigSkeleton__ItemString_SuperProperty(const KCoreConfigSkeleto
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemString_OnProperty(const KCoreConfigSkeleton__ItemString* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemstring = const_cast<VirtualKCoreConfigSkeletonItemString*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemString*>(self));
-    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString) {
+    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString)
         vkcoreconfigskeletonitemstring->setKCoreConfigSkeleton__ItemString_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemString::KCoreConfigSkeleton__ItemString_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemString_Delete(KCoreConfigSkeleton__ItemString* self) {
@@ -2025,9 +1978,8 @@ void KCoreConfigSkeleton__ItemPassword_SuperWriteConfig(KCoreConfigSkeleton__Ite
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPassword_OnWriteConfig(KCoreConfigSkeleton__ItemPassword* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempassword = dynamic_cast<VirtualKCoreConfigSkeletonItemPassword*>(self);
-    if (vkcoreconfigskeletonitempassword && vkcoreconfigskeletonitempassword->isVirtualKCoreConfigSkeletonItemPassword) {
+    if (vkcoreconfigskeletonitempassword && vkcoreconfigskeletonitempassword->isVirtualKCoreConfigSkeletonItemPassword)
         vkcoreconfigskeletonitempassword->setKCoreConfigSkeleton__ItemPassword_WriteConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPassword::KCoreConfigSkeleton__ItemPassword_WriteConfig_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2054,9 +2006,8 @@ void KCoreConfigSkeleton__ItemPassword_SuperReadConfig(KCoreConfigSkeleton__Item
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPassword_OnReadConfig(KCoreConfigSkeleton__ItemPassword* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempassword = dynamic_cast<VirtualKCoreConfigSkeletonItemPassword*>(self);
-    if (vkcoreconfigskeletonitempassword && vkcoreconfigskeletonitempassword->isVirtualKCoreConfigSkeletonItemPassword) {
+    if (vkcoreconfigskeletonitempassword && vkcoreconfigskeletonitempassword->isVirtualKCoreConfigSkeletonItemPassword)
         vkcoreconfigskeletonitempassword->setKCoreConfigSkeleton__ItemPassword_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPassword::KCoreConfigSkeleton__ItemPassword_ReadConfig_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2083,9 +2034,8 @@ void KCoreConfigSkeleton__ItemPassword_SuperSetProperty(KCoreConfigSkeleton__Ite
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPassword_OnSetProperty(KCoreConfigSkeleton__ItemPassword* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempassword = dynamic_cast<VirtualKCoreConfigSkeletonItemPassword*>(self);
-    if (vkcoreconfigskeletonitempassword && vkcoreconfigskeletonitempassword->isVirtualKCoreConfigSkeletonItemPassword) {
+    if (vkcoreconfigskeletonitempassword && vkcoreconfigskeletonitempassword->isVirtualKCoreConfigSkeletonItemPassword)
         vkcoreconfigskeletonitempassword->setKCoreConfigSkeleton__ItemPassword_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPassword::KCoreConfigSkeleton__ItemPassword_SetProperty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2112,9 +2062,8 @@ bool KCoreConfigSkeleton__ItemPassword_SuperIsEqual(const KCoreConfigSkeleton__I
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPassword_OnIsEqual(const KCoreConfigSkeleton__ItemPassword* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempassword = const_cast<VirtualKCoreConfigSkeletonItemPassword*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPassword*>(self));
-    if (vkcoreconfigskeletonitempassword && vkcoreconfigskeletonitempassword->isVirtualKCoreConfigSkeletonItemPassword) {
+    if (vkcoreconfigskeletonitempassword && vkcoreconfigskeletonitempassword->isVirtualKCoreConfigSkeletonItemPassword)
         vkcoreconfigskeletonitempassword->setKCoreConfigSkeleton__ItemPassword_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPassword::KCoreConfigSkeleton__ItemPassword_IsEqual_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2141,9 +2090,8 @@ QVariant* KCoreConfigSkeleton__ItemPassword_SuperProperty(const KCoreConfigSkele
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPassword_OnProperty(const KCoreConfigSkeleton__ItemPassword* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempassword = const_cast<VirtualKCoreConfigSkeletonItemPassword*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPassword*>(self));
-    if (vkcoreconfigskeletonitempassword && vkcoreconfigskeletonitempassword->isVirtualKCoreConfigSkeletonItemPassword) {
+    if (vkcoreconfigskeletonitempassword && vkcoreconfigskeletonitempassword->isVirtualKCoreConfigSkeletonItemPassword)
         vkcoreconfigskeletonitempassword->setKCoreConfigSkeleton__ItemPassword_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPassword::KCoreConfigSkeleton__ItemPassword_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemPassword_Delete(KCoreConfigSkeleton__ItemPassword* self) {
@@ -2189,9 +2137,8 @@ void KCoreConfigSkeleton__ItemPath_SuperWriteConfig(KCoreConfigSkeleton__ItemPat
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPath_OnWriteConfig(KCoreConfigSkeleton__ItemPath* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempath = dynamic_cast<VirtualKCoreConfigSkeletonItemPath*>(self);
-    if (vkcoreconfigskeletonitempath && vkcoreconfigskeletonitempath->isVirtualKCoreConfigSkeletonItemPath) {
+    if (vkcoreconfigskeletonitempath && vkcoreconfigskeletonitempath->isVirtualKCoreConfigSkeletonItemPath)
         vkcoreconfigskeletonitempath->setKCoreConfigSkeleton__ItemPath_WriteConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPath::KCoreConfigSkeleton__ItemPath_WriteConfig_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2218,9 +2165,8 @@ void KCoreConfigSkeleton__ItemPath_SuperReadConfig(KCoreConfigSkeleton__ItemPath
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPath_OnReadConfig(KCoreConfigSkeleton__ItemPath* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempath = dynamic_cast<VirtualKCoreConfigSkeletonItemPath*>(self);
-    if (vkcoreconfigskeletonitempath && vkcoreconfigskeletonitempath->isVirtualKCoreConfigSkeletonItemPath) {
+    if (vkcoreconfigskeletonitempath && vkcoreconfigskeletonitempath->isVirtualKCoreConfigSkeletonItemPath)
         vkcoreconfigskeletonitempath->setKCoreConfigSkeleton__ItemPath_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPath::KCoreConfigSkeleton__ItemPath_ReadConfig_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2247,9 +2193,8 @@ void KCoreConfigSkeleton__ItemPath_SuperSetProperty(KCoreConfigSkeleton__ItemPat
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPath_OnSetProperty(KCoreConfigSkeleton__ItemPath* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempath = dynamic_cast<VirtualKCoreConfigSkeletonItemPath*>(self);
-    if (vkcoreconfigskeletonitempath && vkcoreconfigskeletonitempath->isVirtualKCoreConfigSkeletonItemPath) {
+    if (vkcoreconfigskeletonitempath && vkcoreconfigskeletonitempath->isVirtualKCoreConfigSkeletonItemPath)
         vkcoreconfigskeletonitempath->setKCoreConfigSkeleton__ItemPath_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPath::KCoreConfigSkeleton__ItemPath_SetProperty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2276,9 +2221,8 @@ bool KCoreConfigSkeleton__ItemPath_SuperIsEqual(const KCoreConfigSkeleton__ItemP
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPath_OnIsEqual(const KCoreConfigSkeleton__ItemPath* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempath = const_cast<VirtualKCoreConfigSkeletonItemPath*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPath*>(self));
-    if (vkcoreconfigskeletonitempath && vkcoreconfigskeletonitempath->isVirtualKCoreConfigSkeletonItemPath) {
+    if (vkcoreconfigskeletonitempath && vkcoreconfigskeletonitempath->isVirtualKCoreConfigSkeletonItemPath)
         vkcoreconfigskeletonitempath->setKCoreConfigSkeleton__ItemPath_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPath::KCoreConfigSkeleton__ItemPath_IsEqual_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2305,9 +2249,8 @@ QVariant* KCoreConfigSkeleton__ItemPath_SuperProperty(const KCoreConfigSkeleton_
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPath_OnProperty(const KCoreConfigSkeleton__ItemPath* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempath = const_cast<VirtualKCoreConfigSkeletonItemPath*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPath*>(self));
-    if (vkcoreconfigskeletonitempath && vkcoreconfigskeletonitempath->isVirtualKCoreConfigSkeletonItemPath) {
+    if (vkcoreconfigskeletonitempath && vkcoreconfigskeletonitempath->isVirtualKCoreConfigSkeletonItemPath)
         vkcoreconfigskeletonitempath->setKCoreConfigSkeleton__ItemPath_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPath::KCoreConfigSkeleton__ItemPath_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemPath_Delete(KCoreConfigSkeleton__ItemPath* self) {
@@ -2360,9 +2303,8 @@ void KCoreConfigSkeleton__ItemUrl_SuperWriteConfig(KCoreConfigSkeleton__ItemUrl*
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemUrl_OnWriteConfig(KCoreConfigSkeleton__ItemUrl* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemurl = dynamic_cast<VirtualKCoreConfigSkeletonItemUrl*>(self);
-    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl)
         vkcoreconfigskeletonitemurl->setKCoreConfigSkeleton__ItemUrl_WriteConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrl::KCoreConfigSkeleton__ItemUrl_WriteConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2379,9 +2321,8 @@ void KCoreConfigSkeleton__ItemUrl_SuperReadConfig(KCoreConfigSkeleton__ItemUrl* 
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemUrl_OnReadConfig(KCoreConfigSkeleton__ItemUrl* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemurl = dynamic_cast<VirtualKCoreConfigSkeletonItemUrl*>(self);
-    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl)
         vkcoreconfigskeletonitemurl->setKCoreConfigSkeleton__ItemUrl_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrl::KCoreConfigSkeleton__ItemUrl_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2398,9 +2339,8 @@ void KCoreConfigSkeleton__ItemUrl_SuperSetProperty(KCoreConfigSkeleton__ItemUrl*
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemUrl_OnSetProperty(KCoreConfigSkeleton__ItemUrl* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemurl = dynamic_cast<VirtualKCoreConfigSkeletonItemUrl*>(self);
-    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl)
         vkcoreconfigskeletonitemurl->setKCoreConfigSkeleton__ItemUrl_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrl::KCoreConfigSkeleton__ItemUrl_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2417,9 +2357,8 @@ bool KCoreConfigSkeleton__ItemUrl_SuperIsEqual(const KCoreConfigSkeleton__ItemUr
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemUrl_OnIsEqual(const KCoreConfigSkeleton__ItemUrl* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemurl = const_cast<VirtualKCoreConfigSkeletonItemUrl*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUrl*>(self));
-    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl)
         vkcoreconfigskeletonitemurl->setKCoreConfigSkeleton__ItemUrl_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrl::KCoreConfigSkeleton__ItemUrl_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2436,9 +2375,8 @@ QVariant* KCoreConfigSkeleton__ItemUrl_SuperProperty(const KCoreConfigSkeleton__
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemUrl_OnProperty(const KCoreConfigSkeleton__ItemUrl* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemurl = const_cast<VirtualKCoreConfigSkeletonItemUrl*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUrl*>(self));
-    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl)
         vkcoreconfigskeletonitemurl->setKCoreConfigSkeleton__ItemUrl_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrl::KCoreConfigSkeleton__ItemUrl_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemUrl_Delete(KCoreConfigSkeleton__ItemUrl* self) {
@@ -2487,9 +2425,8 @@ void KCoreConfigSkeleton__ItemProperty_SuperReadConfig(KCoreConfigSkeleton__Item
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemProperty_OnReadConfig(KCoreConfigSkeleton__ItemProperty* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemproperty = dynamic_cast<VirtualKCoreConfigSkeletonItemProperty*>(self);
-    if (vkcoreconfigskeletonitemproperty && vkcoreconfigskeletonitemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
+    if (vkcoreconfigskeletonitemproperty && vkcoreconfigskeletonitemproperty->isVirtualKCoreConfigSkeletonItemProperty)
         vkcoreconfigskeletonitemproperty->setKCoreConfigSkeleton__ItemProperty_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemProperty::KCoreConfigSkeleton__ItemProperty_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2506,9 +2443,8 @@ void KCoreConfigSkeleton__ItemProperty_SuperSetProperty(KCoreConfigSkeleton__Ite
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemProperty_OnSetProperty(KCoreConfigSkeleton__ItemProperty* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemproperty = dynamic_cast<VirtualKCoreConfigSkeletonItemProperty*>(self);
-    if (vkcoreconfigskeletonitemproperty && vkcoreconfigskeletonitemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
+    if (vkcoreconfigskeletonitemproperty && vkcoreconfigskeletonitemproperty->isVirtualKCoreConfigSkeletonItemProperty)
         vkcoreconfigskeletonitemproperty->setKCoreConfigSkeleton__ItemProperty_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemProperty::KCoreConfigSkeleton__ItemProperty_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2525,9 +2461,8 @@ bool KCoreConfigSkeleton__ItemProperty_SuperIsEqual(const KCoreConfigSkeleton__I
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemProperty_OnIsEqual(const KCoreConfigSkeleton__ItemProperty* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemproperty = const_cast<VirtualKCoreConfigSkeletonItemProperty*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemProperty*>(self));
-    if (vkcoreconfigskeletonitemproperty && vkcoreconfigskeletonitemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
+    if (vkcoreconfigskeletonitemproperty && vkcoreconfigskeletonitemproperty->isVirtualKCoreConfigSkeletonItemProperty)
         vkcoreconfigskeletonitemproperty->setKCoreConfigSkeleton__ItemProperty_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemProperty::KCoreConfigSkeleton__ItemProperty_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2544,9 +2479,8 @@ QVariant* KCoreConfigSkeleton__ItemProperty_SuperProperty(const KCoreConfigSkele
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemProperty_OnProperty(const KCoreConfigSkeleton__ItemProperty* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemproperty = const_cast<VirtualKCoreConfigSkeletonItemProperty*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemProperty*>(self));
-    if (vkcoreconfigskeletonitemproperty && vkcoreconfigskeletonitemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
+    if (vkcoreconfigskeletonitemproperty && vkcoreconfigskeletonitemproperty->isVirtualKCoreConfigSkeletonItemProperty)
         vkcoreconfigskeletonitemproperty->setKCoreConfigSkeleton__ItemProperty_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemProperty::KCoreConfigSkeleton__ItemProperty_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemProperty_Delete(KCoreConfigSkeleton__ItemProperty* self) {
@@ -2595,9 +2529,8 @@ void KCoreConfigSkeleton__ItemBool_SuperReadConfig(KCoreConfigSkeleton__ItemBool
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemBool_OnReadConfig(KCoreConfigSkeleton__ItemBool* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitembool = dynamic_cast<VirtualKCoreConfigSkeletonItemBool*>(self);
-    if (vkcoreconfigskeletonitembool && vkcoreconfigskeletonitembool->isVirtualKCoreConfigSkeletonItemBool) {
+    if (vkcoreconfigskeletonitembool && vkcoreconfigskeletonitembool->isVirtualKCoreConfigSkeletonItemBool)
         vkcoreconfigskeletonitembool->setKCoreConfigSkeleton__ItemBool_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemBool::KCoreConfigSkeleton__ItemBool_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2614,9 +2547,8 @@ void KCoreConfigSkeleton__ItemBool_SuperSetProperty(KCoreConfigSkeleton__ItemBoo
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemBool_OnSetProperty(KCoreConfigSkeleton__ItemBool* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitembool = dynamic_cast<VirtualKCoreConfigSkeletonItemBool*>(self);
-    if (vkcoreconfigskeletonitembool && vkcoreconfigskeletonitembool->isVirtualKCoreConfigSkeletonItemBool) {
+    if (vkcoreconfigskeletonitembool && vkcoreconfigskeletonitembool->isVirtualKCoreConfigSkeletonItemBool)
         vkcoreconfigskeletonitembool->setKCoreConfigSkeleton__ItemBool_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemBool::KCoreConfigSkeleton__ItemBool_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2633,9 +2565,8 @@ bool KCoreConfigSkeleton__ItemBool_SuperIsEqual(const KCoreConfigSkeleton__ItemB
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemBool_OnIsEqual(const KCoreConfigSkeleton__ItemBool* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitembool = const_cast<VirtualKCoreConfigSkeletonItemBool*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemBool*>(self));
-    if (vkcoreconfigskeletonitembool && vkcoreconfigskeletonitembool->isVirtualKCoreConfigSkeletonItemBool) {
+    if (vkcoreconfigskeletonitembool && vkcoreconfigskeletonitembool->isVirtualKCoreConfigSkeletonItemBool)
         vkcoreconfigskeletonitembool->setKCoreConfigSkeleton__ItemBool_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemBool::KCoreConfigSkeleton__ItemBool_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2652,9 +2583,8 @@ QVariant* KCoreConfigSkeleton__ItemBool_SuperProperty(const KCoreConfigSkeleton_
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemBool_OnProperty(const KCoreConfigSkeleton__ItemBool* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitembool = const_cast<VirtualKCoreConfigSkeletonItemBool*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemBool*>(self));
-    if (vkcoreconfigskeletonitembool && vkcoreconfigskeletonitembool->isVirtualKCoreConfigSkeletonItemBool) {
+    if (vkcoreconfigskeletonitembool && vkcoreconfigskeletonitembool->isVirtualKCoreConfigSkeletonItemBool)
         vkcoreconfigskeletonitembool->setKCoreConfigSkeleton__ItemBool_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemBool::KCoreConfigSkeleton__ItemBool_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemBool_Delete(KCoreConfigSkeleton__ItemBool* self) {
@@ -2711,9 +2641,8 @@ void KCoreConfigSkeleton__ItemInt_SuperReadConfig(KCoreConfigSkeleton__ItemInt* 
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemInt_OnReadConfig(KCoreConfigSkeleton__ItemInt* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemint = dynamic_cast<VirtualKCoreConfigSkeletonItemInt*>(self);
-    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt)
         vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemInt::KCoreConfigSkeleton__ItemInt_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2730,9 +2659,8 @@ void KCoreConfigSkeleton__ItemInt_SuperSetProperty(KCoreConfigSkeleton__ItemInt*
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemInt_OnSetProperty(KCoreConfigSkeleton__ItemInt* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemint = dynamic_cast<VirtualKCoreConfigSkeletonItemInt*>(self);
-    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt)
         vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemInt::KCoreConfigSkeleton__ItemInt_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2749,9 +2677,8 @@ bool KCoreConfigSkeleton__ItemInt_SuperIsEqual(const KCoreConfigSkeleton__ItemIn
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemInt_OnIsEqual(const KCoreConfigSkeleton__ItemInt* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemint = const_cast<VirtualKCoreConfigSkeletonItemInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self));
-    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt)
         vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemInt::KCoreConfigSkeleton__ItemInt_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2768,9 +2695,8 @@ QVariant* KCoreConfigSkeleton__ItemInt_SuperProperty(const KCoreConfigSkeleton__
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemInt_OnProperty(const KCoreConfigSkeleton__ItemInt* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemint = const_cast<VirtualKCoreConfigSkeletonItemInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self));
-    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt)
         vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemInt::KCoreConfigSkeleton__ItemInt_Property_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2787,9 +2713,8 @@ QVariant* KCoreConfigSkeleton__ItemInt_SuperMinValue(const KCoreConfigSkeleton__
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemInt_OnMinValue(const KCoreConfigSkeleton__ItemInt* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemint = const_cast<VirtualKCoreConfigSkeletonItemInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self));
-    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt)
         vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_MinValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemInt::KCoreConfigSkeleton__ItemInt_MinValue_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2806,9 +2731,8 @@ QVariant* KCoreConfigSkeleton__ItemInt_SuperMaxValue(const KCoreConfigSkeleton__
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemInt_OnMaxValue(const KCoreConfigSkeleton__ItemInt* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemint = const_cast<VirtualKCoreConfigSkeletonItemInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self));
-    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt)
         vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_MaxValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemInt::KCoreConfigSkeleton__ItemInt_MaxValue_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemInt_Delete(KCoreConfigSkeleton__ItemInt* self) {
@@ -2873,9 +2797,8 @@ void KCoreConfigSkeleton__ItemLongLong_SuperReadConfig(KCoreConfigSkeleton__Item
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemLongLong_OnReadConfig(KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemlonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemLongLong*>(self);
-    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong)
         vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemLongLong::KCoreConfigSkeleton__ItemLongLong_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2892,9 +2815,8 @@ void KCoreConfigSkeleton__ItemLongLong_SuperSetProperty(KCoreConfigSkeleton__Ite
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemLongLong_OnSetProperty(KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemlonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemLongLong*>(self);
-    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong)
         vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemLongLong::KCoreConfigSkeleton__ItemLongLong_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2911,9 +2833,8 @@ bool KCoreConfigSkeleton__ItemLongLong_SuperIsEqual(const KCoreConfigSkeleton__I
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemLongLong_OnIsEqual(const KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemlonglong = const_cast<VirtualKCoreConfigSkeletonItemLongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self));
-    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong)
         vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemLongLong::KCoreConfigSkeleton__ItemLongLong_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2930,9 +2851,8 @@ QVariant* KCoreConfigSkeleton__ItemLongLong_SuperProperty(const KCoreConfigSkele
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemLongLong_OnProperty(const KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemlonglong = const_cast<VirtualKCoreConfigSkeletonItemLongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self));
-    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong)
         vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemLongLong::KCoreConfigSkeleton__ItemLongLong_Property_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2949,9 +2869,8 @@ QVariant* KCoreConfigSkeleton__ItemLongLong_SuperMinValue(const KCoreConfigSkele
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemLongLong_OnMinValue(const KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemlonglong = const_cast<VirtualKCoreConfigSkeletonItemLongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self));
-    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong)
         vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_MinValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemLongLong::KCoreConfigSkeleton__ItemLongLong_MinValue_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2968,9 +2887,8 @@ QVariant* KCoreConfigSkeleton__ItemLongLong_SuperMaxValue(const KCoreConfigSkele
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemLongLong_OnMaxValue(const KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemlonglong = const_cast<VirtualKCoreConfigSkeletonItemLongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self));
-    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong)
         vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_MaxValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemLongLong::KCoreConfigSkeleton__ItemLongLong_MaxValue_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemLongLong_Delete(KCoreConfigSkeleton__ItemLongLong* self) {
@@ -3156,9 +3074,8 @@ void KCoreConfigSkeleton__ItemEnum_SuperReadConfig(KCoreConfigSkeleton__ItemEnum
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemEnum_OnReadConfig(KCoreConfigSkeleton__ItemEnum* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemenum = dynamic_cast<VirtualKCoreConfigSkeletonItemEnum*>(self);
-    if (vkcoreconfigskeletonitemenum && vkcoreconfigskeletonitemenum->isVirtualKCoreConfigSkeletonItemEnum) {
+    if (vkcoreconfigskeletonitemenum && vkcoreconfigskeletonitemenum->isVirtualKCoreConfigSkeletonItemEnum)
         vkcoreconfigskeletonitemenum->setKCoreConfigSkeleton__ItemEnum_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemEnum::KCoreConfigSkeleton__ItemEnum_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3175,9 +3092,8 @@ void KCoreConfigSkeleton__ItemEnum_SuperWriteConfig(KCoreConfigSkeleton__ItemEnu
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemEnum_OnWriteConfig(KCoreConfigSkeleton__ItemEnum* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemenum = dynamic_cast<VirtualKCoreConfigSkeletonItemEnum*>(self);
-    if (vkcoreconfigskeletonitemenum && vkcoreconfigskeletonitemenum->isVirtualKCoreConfigSkeletonItemEnum) {
+    if (vkcoreconfigskeletonitemenum && vkcoreconfigskeletonitemenum->isVirtualKCoreConfigSkeletonItemEnum)
         vkcoreconfigskeletonitemenum->setKCoreConfigSkeleton__ItemEnum_WriteConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemEnum::KCoreConfigSkeleton__ItemEnum_WriteConfig_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3204,9 +3120,8 @@ void KCoreConfigSkeleton__ItemEnum_SuperSetProperty(KCoreConfigSkeleton__ItemEnu
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemEnum_OnSetProperty(KCoreConfigSkeleton__ItemEnum* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemenum = dynamic_cast<VirtualKCoreConfigSkeletonItemEnum*>(self);
-    if (vkcoreconfigskeletonitemenum && vkcoreconfigskeletonitemenum->isVirtualKCoreConfigSkeletonItemEnum) {
+    if (vkcoreconfigskeletonitemenum && vkcoreconfigskeletonitemenum->isVirtualKCoreConfigSkeletonItemEnum)
         vkcoreconfigskeletonitemenum->setKCoreConfigSkeleton__ItemEnum_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemEnum::KCoreConfigSkeleton__ItemEnum_SetProperty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3233,9 +3148,8 @@ bool KCoreConfigSkeleton__ItemEnum_SuperIsEqual(const KCoreConfigSkeleton__ItemE
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemEnum_OnIsEqual(const KCoreConfigSkeleton__ItemEnum* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemenum = const_cast<VirtualKCoreConfigSkeletonItemEnum*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemEnum*>(self));
-    if (vkcoreconfigskeletonitemenum && vkcoreconfigskeletonitemenum->isVirtualKCoreConfigSkeletonItemEnum) {
+    if (vkcoreconfigskeletonitemenum && vkcoreconfigskeletonitemenum->isVirtualKCoreConfigSkeletonItemEnum)
         vkcoreconfigskeletonitemenum->setKCoreConfigSkeleton__ItemEnum_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemEnum::KCoreConfigSkeleton__ItemEnum_IsEqual_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3262,9 +3176,8 @@ QVariant* KCoreConfigSkeleton__ItemEnum_SuperProperty(const KCoreConfigSkeleton_
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemEnum_OnProperty(const KCoreConfigSkeleton__ItemEnum* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemenum = const_cast<VirtualKCoreConfigSkeletonItemEnum*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemEnum*>(self));
-    if (vkcoreconfigskeletonitemenum && vkcoreconfigskeletonitemenum->isVirtualKCoreConfigSkeletonItemEnum) {
+    if (vkcoreconfigskeletonitemenum && vkcoreconfigskeletonitemenum->isVirtualKCoreConfigSkeletonItemEnum)
         vkcoreconfigskeletonitemenum->setKCoreConfigSkeleton__ItemEnum_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemEnum::KCoreConfigSkeleton__ItemEnum_Property_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3291,9 +3204,8 @@ QVariant* KCoreConfigSkeleton__ItemEnum_SuperMinValue(const KCoreConfigSkeleton_
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemEnum_OnMinValue(const KCoreConfigSkeleton__ItemEnum* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemenum = const_cast<VirtualKCoreConfigSkeletonItemEnum*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemEnum*>(self));
-    if (vkcoreconfigskeletonitemenum && vkcoreconfigskeletonitemenum->isVirtualKCoreConfigSkeletonItemEnum) {
+    if (vkcoreconfigskeletonitemenum && vkcoreconfigskeletonitemenum->isVirtualKCoreConfigSkeletonItemEnum)
         vkcoreconfigskeletonitemenum->setKCoreConfigSkeleton__ItemEnum_MinValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemEnum::KCoreConfigSkeleton__ItemEnum_MinValue_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3320,9 +3232,8 @@ QVariant* KCoreConfigSkeleton__ItemEnum_SuperMaxValue(const KCoreConfigSkeleton_
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemEnum_OnMaxValue(const KCoreConfigSkeleton__ItemEnum* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemenum = const_cast<VirtualKCoreConfigSkeletonItemEnum*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemEnum*>(self));
-    if (vkcoreconfigskeletonitemenum && vkcoreconfigskeletonitemenum->isVirtualKCoreConfigSkeletonItemEnum) {
+    if (vkcoreconfigskeletonitemenum && vkcoreconfigskeletonitemenum->isVirtualKCoreConfigSkeletonItemEnum)
         vkcoreconfigskeletonitemenum->setKCoreConfigSkeleton__ItemEnum_MaxValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemEnum::KCoreConfigSkeleton__ItemEnum_MaxValue_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemEnum_Delete(KCoreConfigSkeleton__ItemEnum* self) {
@@ -3387,9 +3298,8 @@ void KCoreConfigSkeleton__ItemUInt_SuperReadConfig(KCoreConfigSkeleton__ItemUInt
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemUInt_OnReadConfig(KCoreConfigSkeleton__ItemUInt* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemuint = dynamic_cast<VirtualKCoreConfigSkeletonItemUInt*>(self);
-    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt)
         vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUInt::KCoreConfigSkeleton__ItemUInt_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3406,9 +3316,8 @@ void KCoreConfigSkeleton__ItemUInt_SuperSetProperty(KCoreConfigSkeleton__ItemUIn
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemUInt_OnSetProperty(KCoreConfigSkeleton__ItemUInt* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemuint = dynamic_cast<VirtualKCoreConfigSkeletonItemUInt*>(self);
-    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt)
         vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUInt::KCoreConfigSkeleton__ItemUInt_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3425,9 +3334,8 @@ bool KCoreConfigSkeleton__ItemUInt_SuperIsEqual(const KCoreConfigSkeleton__ItemU
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemUInt_OnIsEqual(const KCoreConfigSkeleton__ItemUInt* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemuint = const_cast<VirtualKCoreConfigSkeletonItemUInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self));
-    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt)
         vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUInt::KCoreConfigSkeleton__ItemUInt_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3444,9 +3352,8 @@ QVariant* KCoreConfigSkeleton__ItemUInt_SuperProperty(const KCoreConfigSkeleton_
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemUInt_OnProperty(const KCoreConfigSkeleton__ItemUInt* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemuint = const_cast<VirtualKCoreConfigSkeletonItemUInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self));
-    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt)
         vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUInt::KCoreConfigSkeleton__ItemUInt_Property_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3463,9 +3370,8 @@ QVariant* KCoreConfigSkeleton__ItemUInt_SuperMinValue(const KCoreConfigSkeleton_
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemUInt_OnMinValue(const KCoreConfigSkeleton__ItemUInt* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemuint = const_cast<VirtualKCoreConfigSkeletonItemUInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self));
-    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt)
         vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_MinValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUInt::KCoreConfigSkeleton__ItemUInt_MinValue_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3482,9 +3388,8 @@ QVariant* KCoreConfigSkeleton__ItemUInt_SuperMaxValue(const KCoreConfigSkeleton_
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemUInt_OnMaxValue(const KCoreConfigSkeleton__ItemUInt* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemuint = const_cast<VirtualKCoreConfigSkeletonItemUInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self));
-    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt)
         vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_MaxValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUInt::KCoreConfigSkeleton__ItemUInt_MaxValue_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemUInt_Delete(KCoreConfigSkeleton__ItemUInt* self) {
@@ -3549,9 +3454,8 @@ void KCoreConfigSkeleton__ItemULongLong_SuperReadConfig(KCoreConfigSkeleton__Ite
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemULongLong_OnReadConfig(KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemulonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemULongLong*>(self);
-    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong)
         vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemULongLong::KCoreConfigSkeleton__ItemULongLong_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3568,9 +3472,8 @@ void KCoreConfigSkeleton__ItemULongLong_SuperSetProperty(KCoreConfigSkeleton__It
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemULongLong_OnSetProperty(KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemulonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemULongLong*>(self);
-    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong)
         vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemULongLong::KCoreConfigSkeleton__ItemULongLong_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3587,9 +3490,8 @@ bool KCoreConfigSkeleton__ItemULongLong_SuperIsEqual(const KCoreConfigSkeleton__
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemULongLong_OnIsEqual(const KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemulonglong = const_cast<VirtualKCoreConfigSkeletonItemULongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self));
-    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong)
         vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemULongLong::KCoreConfigSkeleton__ItemULongLong_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3606,9 +3508,8 @@ QVariant* KCoreConfigSkeleton__ItemULongLong_SuperProperty(const KCoreConfigSkel
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemULongLong_OnProperty(const KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemulonglong = const_cast<VirtualKCoreConfigSkeletonItemULongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self));
-    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong)
         vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemULongLong::KCoreConfigSkeleton__ItemULongLong_Property_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3625,9 +3526,8 @@ QVariant* KCoreConfigSkeleton__ItemULongLong_SuperMinValue(const KCoreConfigSkel
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemULongLong_OnMinValue(const KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemulonglong = const_cast<VirtualKCoreConfigSkeletonItemULongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self));
-    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong)
         vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_MinValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemULongLong::KCoreConfigSkeleton__ItemULongLong_MinValue_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3644,9 +3544,8 @@ QVariant* KCoreConfigSkeleton__ItemULongLong_SuperMaxValue(const KCoreConfigSkel
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemULongLong_OnMaxValue(const KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemulonglong = const_cast<VirtualKCoreConfigSkeletonItemULongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self));
-    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong)
         vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_MaxValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemULongLong::KCoreConfigSkeleton__ItemULongLong_MaxValue_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemULongLong_Delete(KCoreConfigSkeleton__ItemULongLong* self) {
@@ -3711,9 +3610,8 @@ void KCoreConfigSkeleton__ItemDouble_SuperReadConfig(KCoreConfigSkeleton__ItemDo
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemDouble_OnReadConfig(KCoreConfigSkeleton__ItemDouble* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemdouble = dynamic_cast<VirtualKCoreConfigSkeletonItemDouble*>(self);
-    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble)
         vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDouble::KCoreConfigSkeleton__ItemDouble_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3730,9 +3628,8 @@ void KCoreConfigSkeleton__ItemDouble_SuperSetProperty(KCoreConfigSkeleton__ItemD
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemDouble_OnSetProperty(KCoreConfigSkeleton__ItemDouble* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemdouble = dynamic_cast<VirtualKCoreConfigSkeletonItemDouble*>(self);
-    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble)
         vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDouble::KCoreConfigSkeleton__ItemDouble_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3749,9 +3646,8 @@ bool KCoreConfigSkeleton__ItemDouble_SuperIsEqual(const KCoreConfigSkeleton__Ite
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemDouble_OnIsEqual(const KCoreConfigSkeleton__ItemDouble* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemdouble = const_cast<VirtualKCoreConfigSkeletonItemDouble*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self));
-    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble)
         vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDouble::KCoreConfigSkeleton__ItemDouble_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3768,9 +3664,8 @@ QVariant* KCoreConfigSkeleton__ItemDouble_SuperProperty(const KCoreConfigSkeleto
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemDouble_OnProperty(const KCoreConfigSkeleton__ItemDouble* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemdouble = const_cast<VirtualKCoreConfigSkeletonItemDouble*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self));
-    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble)
         vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDouble::KCoreConfigSkeleton__ItemDouble_Property_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3787,9 +3682,8 @@ QVariant* KCoreConfigSkeleton__ItemDouble_SuperMinValue(const KCoreConfigSkeleto
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemDouble_OnMinValue(const KCoreConfigSkeleton__ItemDouble* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemdouble = const_cast<VirtualKCoreConfigSkeletonItemDouble*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self));
-    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble)
         vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_MinValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDouble::KCoreConfigSkeleton__ItemDouble_MinValue_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3806,9 +3700,8 @@ QVariant* KCoreConfigSkeleton__ItemDouble_SuperMaxValue(const KCoreConfigSkeleto
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemDouble_OnMaxValue(const KCoreConfigSkeleton__ItemDouble* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemdouble = const_cast<VirtualKCoreConfigSkeletonItemDouble*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self));
-    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble)
         vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_MaxValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDouble::KCoreConfigSkeleton__ItemDouble_MaxValue_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemDouble_Delete(KCoreConfigSkeleton__ItemDouble* self) {
@@ -3857,9 +3750,8 @@ void KCoreConfigSkeleton__ItemRect_SuperReadConfig(KCoreConfigSkeleton__ItemRect
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemRect_OnReadConfig(KCoreConfigSkeleton__ItemRect* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemrect = dynamic_cast<VirtualKCoreConfigSkeletonItemRect*>(self);
-    if (vkcoreconfigskeletonitemrect && vkcoreconfigskeletonitemrect->isVirtualKCoreConfigSkeletonItemRect) {
+    if (vkcoreconfigskeletonitemrect && vkcoreconfigskeletonitemrect->isVirtualKCoreConfigSkeletonItemRect)
         vkcoreconfigskeletonitemrect->setKCoreConfigSkeleton__ItemRect_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemRect::KCoreConfigSkeleton__ItemRect_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3876,9 +3768,8 @@ void KCoreConfigSkeleton__ItemRect_SuperSetProperty(KCoreConfigSkeleton__ItemRec
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemRect_OnSetProperty(KCoreConfigSkeleton__ItemRect* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemrect = dynamic_cast<VirtualKCoreConfigSkeletonItemRect*>(self);
-    if (vkcoreconfigskeletonitemrect && vkcoreconfigskeletonitemrect->isVirtualKCoreConfigSkeletonItemRect) {
+    if (vkcoreconfigskeletonitemrect && vkcoreconfigskeletonitemrect->isVirtualKCoreConfigSkeletonItemRect)
         vkcoreconfigskeletonitemrect->setKCoreConfigSkeleton__ItemRect_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemRect::KCoreConfigSkeleton__ItemRect_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3895,9 +3786,8 @@ bool KCoreConfigSkeleton__ItemRect_SuperIsEqual(const KCoreConfigSkeleton__ItemR
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemRect_OnIsEqual(const KCoreConfigSkeleton__ItemRect* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemrect = const_cast<VirtualKCoreConfigSkeletonItemRect*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemRect*>(self));
-    if (vkcoreconfigskeletonitemrect && vkcoreconfigskeletonitemrect->isVirtualKCoreConfigSkeletonItemRect) {
+    if (vkcoreconfigskeletonitemrect && vkcoreconfigskeletonitemrect->isVirtualKCoreConfigSkeletonItemRect)
         vkcoreconfigskeletonitemrect->setKCoreConfigSkeleton__ItemRect_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemRect::KCoreConfigSkeleton__ItemRect_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3914,9 +3804,8 @@ QVariant* KCoreConfigSkeleton__ItemRect_SuperProperty(const KCoreConfigSkeleton_
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemRect_OnProperty(const KCoreConfigSkeleton__ItemRect* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemrect = const_cast<VirtualKCoreConfigSkeletonItemRect*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemRect*>(self));
-    if (vkcoreconfigskeletonitemrect && vkcoreconfigskeletonitemrect->isVirtualKCoreConfigSkeletonItemRect) {
+    if (vkcoreconfigskeletonitemrect && vkcoreconfigskeletonitemrect->isVirtualKCoreConfigSkeletonItemRect)
         vkcoreconfigskeletonitemrect->setKCoreConfigSkeleton__ItemRect_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemRect::KCoreConfigSkeleton__ItemRect_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemRect_Delete(KCoreConfigSkeleton__ItemRect* self) {
@@ -3965,9 +3854,8 @@ void KCoreConfigSkeleton__ItemRectF_SuperReadConfig(KCoreConfigSkeleton__ItemRec
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemRectF_OnReadConfig(KCoreConfigSkeleton__ItemRectF* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemrectf = dynamic_cast<VirtualKCoreConfigSkeletonItemRectF*>(self);
-    if (vkcoreconfigskeletonitemrectf && vkcoreconfigskeletonitemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
+    if (vkcoreconfigskeletonitemrectf && vkcoreconfigskeletonitemrectf->isVirtualKCoreConfigSkeletonItemRectF)
         vkcoreconfigskeletonitemrectf->setKCoreConfigSkeleton__ItemRectF_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemRectF::KCoreConfigSkeleton__ItemRectF_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3984,9 +3872,8 @@ void KCoreConfigSkeleton__ItemRectF_SuperSetProperty(KCoreConfigSkeleton__ItemRe
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemRectF_OnSetProperty(KCoreConfigSkeleton__ItemRectF* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemrectf = dynamic_cast<VirtualKCoreConfigSkeletonItemRectF*>(self);
-    if (vkcoreconfigskeletonitemrectf && vkcoreconfigskeletonitemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
+    if (vkcoreconfigskeletonitemrectf && vkcoreconfigskeletonitemrectf->isVirtualKCoreConfigSkeletonItemRectF)
         vkcoreconfigskeletonitemrectf->setKCoreConfigSkeleton__ItemRectF_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemRectF::KCoreConfigSkeleton__ItemRectF_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4003,9 +3890,8 @@ bool KCoreConfigSkeleton__ItemRectF_SuperIsEqual(const KCoreConfigSkeleton__Item
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemRectF_OnIsEqual(const KCoreConfigSkeleton__ItemRectF* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemrectf = const_cast<VirtualKCoreConfigSkeletonItemRectF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemRectF*>(self));
-    if (vkcoreconfigskeletonitemrectf && vkcoreconfigskeletonitemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
+    if (vkcoreconfigskeletonitemrectf && vkcoreconfigskeletonitemrectf->isVirtualKCoreConfigSkeletonItemRectF)
         vkcoreconfigskeletonitemrectf->setKCoreConfigSkeleton__ItemRectF_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemRectF::KCoreConfigSkeleton__ItemRectF_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4022,9 +3908,8 @@ QVariant* KCoreConfigSkeleton__ItemRectF_SuperProperty(const KCoreConfigSkeleton
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemRectF_OnProperty(const KCoreConfigSkeleton__ItemRectF* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemrectf = const_cast<VirtualKCoreConfigSkeletonItemRectF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemRectF*>(self));
-    if (vkcoreconfigskeletonitemrectf && vkcoreconfigskeletonitemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
+    if (vkcoreconfigskeletonitemrectf && vkcoreconfigskeletonitemrectf->isVirtualKCoreConfigSkeletonItemRectF)
         vkcoreconfigskeletonitemrectf->setKCoreConfigSkeleton__ItemRectF_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemRectF::KCoreConfigSkeleton__ItemRectF_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemRectF_Delete(KCoreConfigSkeleton__ItemRectF* self) {
@@ -4073,9 +3958,8 @@ void KCoreConfigSkeleton__ItemPoint_SuperReadConfig(KCoreConfigSkeleton__ItemPoi
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPoint_OnReadConfig(KCoreConfigSkeleton__ItemPoint* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempoint = dynamic_cast<VirtualKCoreConfigSkeletonItemPoint*>(self);
-    if (vkcoreconfigskeletonitempoint && vkcoreconfigskeletonitempoint->isVirtualKCoreConfigSkeletonItemPoint) {
+    if (vkcoreconfigskeletonitempoint && vkcoreconfigskeletonitempoint->isVirtualKCoreConfigSkeletonItemPoint)
         vkcoreconfigskeletonitempoint->setKCoreConfigSkeleton__ItemPoint_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPoint::KCoreConfigSkeleton__ItemPoint_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4092,9 +3976,8 @@ void KCoreConfigSkeleton__ItemPoint_SuperSetProperty(KCoreConfigSkeleton__ItemPo
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPoint_OnSetProperty(KCoreConfigSkeleton__ItemPoint* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempoint = dynamic_cast<VirtualKCoreConfigSkeletonItemPoint*>(self);
-    if (vkcoreconfigskeletonitempoint && vkcoreconfigskeletonitempoint->isVirtualKCoreConfigSkeletonItemPoint) {
+    if (vkcoreconfigskeletonitempoint && vkcoreconfigskeletonitempoint->isVirtualKCoreConfigSkeletonItemPoint)
         vkcoreconfigskeletonitempoint->setKCoreConfigSkeleton__ItemPoint_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPoint::KCoreConfigSkeleton__ItemPoint_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4111,9 +3994,8 @@ bool KCoreConfigSkeleton__ItemPoint_SuperIsEqual(const KCoreConfigSkeleton__Item
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPoint_OnIsEqual(const KCoreConfigSkeleton__ItemPoint* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempoint = const_cast<VirtualKCoreConfigSkeletonItemPoint*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPoint*>(self));
-    if (vkcoreconfigskeletonitempoint && vkcoreconfigskeletonitempoint->isVirtualKCoreConfigSkeletonItemPoint) {
+    if (vkcoreconfigskeletonitempoint && vkcoreconfigskeletonitempoint->isVirtualKCoreConfigSkeletonItemPoint)
         vkcoreconfigskeletonitempoint->setKCoreConfigSkeleton__ItemPoint_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPoint::KCoreConfigSkeleton__ItemPoint_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4130,9 +4012,8 @@ QVariant* KCoreConfigSkeleton__ItemPoint_SuperProperty(const KCoreConfigSkeleton
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPoint_OnProperty(const KCoreConfigSkeleton__ItemPoint* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempoint = const_cast<VirtualKCoreConfigSkeletonItemPoint*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPoint*>(self));
-    if (vkcoreconfigskeletonitempoint && vkcoreconfigskeletonitempoint->isVirtualKCoreConfigSkeletonItemPoint) {
+    if (vkcoreconfigskeletonitempoint && vkcoreconfigskeletonitempoint->isVirtualKCoreConfigSkeletonItemPoint)
         vkcoreconfigskeletonitempoint->setKCoreConfigSkeleton__ItemPoint_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPoint::KCoreConfigSkeleton__ItemPoint_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemPoint_Delete(KCoreConfigSkeleton__ItemPoint* self) {
@@ -4181,9 +4062,8 @@ void KCoreConfigSkeleton__ItemPointF_SuperReadConfig(KCoreConfigSkeleton__ItemPo
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPointF_OnReadConfig(KCoreConfigSkeleton__ItemPointF* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempointf = dynamic_cast<VirtualKCoreConfigSkeletonItemPointF*>(self);
-    if (vkcoreconfigskeletonitempointf && vkcoreconfigskeletonitempointf->isVirtualKCoreConfigSkeletonItemPointF) {
+    if (vkcoreconfigskeletonitempointf && vkcoreconfigskeletonitempointf->isVirtualKCoreConfigSkeletonItemPointF)
         vkcoreconfigskeletonitempointf->setKCoreConfigSkeleton__ItemPointF_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPointF::KCoreConfigSkeleton__ItemPointF_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4200,9 +4080,8 @@ void KCoreConfigSkeleton__ItemPointF_SuperSetProperty(KCoreConfigSkeleton__ItemP
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPointF_OnSetProperty(KCoreConfigSkeleton__ItemPointF* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempointf = dynamic_cast<VirtualKCoreConfigSkeletonItemPointF*>(self);
-    if (vkcoreconfigskeletonitempointf && vkcoreconfigskeletonitempointf->isVirtualKCoreConfigSkeletonItemPointF) {
+    if (vkcoreconfigskeletonitempointf && vkcoreconfigskeletonitempointf->isVirtualKCoreConfigSkeletonItemPointF)
         vkcoreconfigskeletonitempointf->setKCoreConfigSkeleton__ItemPointF_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPointF::KCoreConfigSkeleton__ItemPointF_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4219,9 +4098,8 @@ bool KCoreConfigSkeleton__ItemPointF_SuperIsEqual(const KCoreConfigSkeleton__Ite
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPointF_OnIsEqual(const KCoreConfigSkeleton__ItemPointF* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempointf = const_cast<VirtualKCoreConfigSkeletonItemPointF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPointF*>(self));
-    if (vkcoreconfigskeletonitempointf && vkcoreconfigskeletonitempointf->isVirtualKCoreConfigSkeletonItemPointF) {
+    if (vkcoreconfigskeletonitempointf && vkcoreconfigskeletonitempointf->isVirtualKCoreConfigSkeletonItemPointF)
         vkcoreconfigskeletonitempointf->setKCoreConfigSkeleton__ItemPointF_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPointF::KCoreConfigSkeleton__ItemPointF_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4238,9 +4116,8 @@ QVariant* KCoreConfigSkeleton__ItemPointF_SuperProperty(const KCoreConfigSkeleto
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPointF_OnProperty(const KCoreConfigSkeleton__ItemPointF* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempointf = const_cast<VirtualKCoreConfigSkeletonItemPointF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPointF*>(self));
-    if (vkcoreconfigskeletonitempointf && vkcoreconfigskeletonitempointf->isVirtualKCoreConfigSkeletonItemPointF) {
+    if (vkcoreconfigskeletonitempointf && vkcoreconfigskeletonitempointf->isVirtualKCoreConfigSkeletonItemPointF)
         vkcoreconfigskeletonitempointf->setKCoreConfigSkeleton__ItemPointF_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPointF::KCoreConfigSkeleton__ItemPointF_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemPointF_Delete(KCoreConfigSkeleton__ItemPointF* self) {
@@ -4289,9 +4166,8 @@ void KCoreConfigSkeleton__ItemSize_SuperReadConfig(KCoreConfigSkeleton__ItemSize
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemSize_OnReadConfig(KCoreConfigSkeleton__ItemSize* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemsize = dynamic_cast<VirtualKCoreConfigSkeletonItemSize*>(self);
-    if (vkcoreconfigskeletonitemsize && vkcoreconfigskeletonitemsize->isVirtualKCoreConfigSkeletonItemSize) {
+    if (vkcoreconfigskeletonitemsize && vkcoreconfigskeletonitemsize->isVirtualKCoreConfigSkeletonItemSize)
         vkcoreconfigskeletonitemsize->setKCoreConfigSkeleton__ItemSize_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemSize::KCoreConfigSkeleton__ItemSize_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4308,9 +4184,8 @@ void KCoreConfigSkeleton__ItemSize_SuperSetProperty(KCoreConfigSkeleton__ItemSiz
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemSize_OnSetProperty(KCoreConfigSkeleton__ItemSize* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemsize = dynamic_cast<VirtualKCoreConfigSkeletonItemSize*>(self);
-    if (vkcoreconfigskeletonitemsize && vkcoreconfigskeletonitemsize->isVirtualKCoreConfigSkeletonItemSize) {
+    if (vkcoreconfigskeletonitemsize && vkcoreconfigskeletonitemsize->isVirtualKCoreConfigSkeletonItemSize)
         vkcoreconfigskeletonitemsize->setKCoreConfigSkeleton__ItemSize_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemSize::KCoreConfigSkeleton__ItemSize_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4327,9 +4202,8 @@ bool KCoreConfigSkeleton__ItemSize_SuperIsEqual(const KCoreConfigSkeleton__ItemS
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemSize_OnIsEqual(const KCoreConfigSkeleton__ItemSize* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemsize = const_cast<VirtualKCoreConfigSkeletonItemSize*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemSize*>(self));
-    if (vkcoreconfigskeletonitemsize && vkcoreconfigskeletonitemsize->isVirtualKCoreConfigSkeletonItemSize) {
+    if (vkcoreconfigskeletonitemsize && vkcoreconfigskeletonitemsize->isVirtualKCoreConfigSkeletonItemSize)
         vkcoreconfigskeletonitemsize->setKCoreConfigSkeleton__ItemSize_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemSize::KCoreConfigSkeleton__ItemSize_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4346,9 +4220,8 @@ QVariant* KCoreConfigSkeleton__ItemSize_SuperProperty(const KCoreConfigSkeleton_
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemSize_OnProperty(const KCoreConfigSkeleton__ItemSize* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemsize = const_cast<VirtualKCoreConfigSkeletonItemSize*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemSize*>(self));
-    if (vkcoreconfigskeletonitemsize && vkcoreconfigskeletonitemsize->isVirtualKCoreConfigSkeletonItemSize) {
+    if (vkcoreconfigskeletonitemsize && vkcoreconfigskeletonitemsize->isVirtualKCoreConfigSkeletonItemSize)
         vkcoreconfigskeletonitemsize->setKCoreConfigSkeleton__ItemSize_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemSize::KCoreConfigSkeleton__ItemSize_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemSize_Delete(KCoreConfigSkeleton__ItemSize* self) {
@@ -4397,9 +4270,8 @@ void KCoreConfigSkeleton__ItemSizeF_SuperReadConfig(KCoreConfigSkeleton__ItemSiz
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemSizeF_OnReadConfig(KCoreConfigSkeleton__ItemSizeF* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemsizef = dynamic_cast<VirtualKCoreConfigSkeletonItemSizeF*>(self);
-    if (vkcoreconfigskeletonitemsizef && vkcoreconfigskeletonitemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
+    if (vkcoreconfigskeletonitemsizef && vkcoreconfigskeletonitemsizef->isVirtualKCoreConfigSkeletonItemSizeF)
         vkcoreconfigskeletonitemsizef->setKCoreConfigSkeleton__ItemSizeF_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemSizeF::KCoreConfigSkeleton__ItemSizeF_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4416,9 +4288,8 @@ void KCoreConfigSkeleton__ItemSizeF_SuperSetProperty(KCoreConfigSkeleton__ItemSi
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemSizeF_OnSetProperty(KCoreConfigSkeleton__ItemSizeF* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemsizef = dynamic_cast<VirtualKCoreConfigSkeletonItemSizeF*>(self);
-    if (vkcoreconfigskeletonitemsizef && vkcoreconfigskeletonitemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
+    if (vkcoreconfigskeletonitemsizef && vkcoreconfigskeletonitemsizef->isVirtualKCoreConfigSkeletonItemSizeF)
         vkcoreconfigskeletonitemsizef->setKCoreConfigSkeleton__ItemSizeF_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemSizeF::KCoreConfigSkeleton__ItemSizeF_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4435,9 +4306,8 @@ bool KCoreConfigSkeleton__ItemSizeF_SuperIsEqual(const KCoreConfigSkeleton__Item
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemSizeF_OnIsEqual(const KCoreConfigSkeleton__ItemSizeF* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemsizef = const_cast<VirtualKCoreConfigSkeletonItemSizeF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemSizeF*>(self));
-    if (vkcoreconfigskeletonitemsizef && vkcoreconfigskeletonitemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
+    if (vkcoreconfigskeletonitemsizef && vkcoreconfigskeletonitemsizef->isVirtualKCoreConfigSkeletonItemSizeF)
         vkcoreconfigskeletonitemsizef->setKCoreConfigSkeleton__ItemSizeF_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemSizeF::KCoreConfigSkeleton__ItemSizeF_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4454,9 +4324,8 @@ QVariant* KCoreConfigSkeleton__ItemSizeF_SuperProperty(const KCoreConfigSkeleton
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemSizeF_OnProperty(const KCoreConfigSkeleton__ItemSizeF* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemsizef = const_cast<VirtualKCoreConfigSkeletonItemSizeF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemSizeF*>(self));
-    if (vkcoreconfigskeletonitemsizef && vkcoreconfigskeletonitemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
+    if (vkcoreconfigskeletonitemsizef && vkcoreconfigskeletonitemsizef->isVirtualKCoreConfigSkeletonItemSizeF)
         vkcoreconfigskeletonitemsizef->setKCoreConfigSkeleton__ItemSizeF_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemSizeF::KCoreConfigSkeleton__ItemSizeF_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemSizeF_Delete(KCoreConfigSkeleton__ItemSizeF* self) {
@@ -4505,9 +4374,8 @@ void KCoreConfigSkeleton__ItemDateTime_SuperReadConfig(KCoreConfigSkeleton__Item
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemDateTime_OnReadConfig(KCoreConfigSkeleton__ItemDateTime* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemdatetime = dynamic_cast<VirtualKCoreConfigSkeletonItemDateTime*>(self);
-    if (vkcoreconfigskeletonitemdatetime && vkcoreconfigskeletonitemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
+    if (vkcoreconfigskeletonitemdatetime && vkcoreconfigskeletonitemdatetime->isVirtualKCoreConfigSkeletonItemDateTime)
         vkcoreconfigskeletonitemdatetime->setKCoreConfigSkeleton__ItemDateTime_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDateTime::KCoreConfigSkeleton__ItemDateTime_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4524,9 +4392,8 @@ void KCoreConfigSkeleton__ItemDateTime_SuperSetProperty(KCoreConfigSkeleton__Ite
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemDateTime_OnSetProperty(KCoreConfigSkeleton__ItemDateTime* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemdatetime = dynamic_cast<VirtualKCoreConfigSkeletonItemDateTime*>(self);
-    if (vkcoreconfigskeletonitemdatetime && vkcoreconfigskeletonitemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
+    if (vkcoreconfigskeletonitemdatetime && vkcoreconfigskeletonitemdatetime->isVirtualKCoreConfigSkeletonItemDateTime)
         vkcoreconfigskeletonitemdatetime->setKCoreConfigSkeleton__ItemDateTime_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDateTime::KCoreConfigSkeleton__ItemDateTime_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4543,9 +4410,8 @@ bool KCoreConfigSkeleton__ItemDateTime_SuperIsEqual(const KCoreConfigSkeleton__I
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemDateTime_OnIsEqual(const KCoreConfigSkeleton__ItemDateTime* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemdatetime = const_cast<VirtualKCoreConfigSkeletonItemDateTime*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDateTime*>(self));
-    if (vkcoreconfigskeletonitemdatetime && vkcoreconfigskeletonitemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
+    if (vkcoreconfigskeletonitemdatetime && vkcoreconfigskeletonitemdatetime->isVirtualKCoreConfigSkeletonItemDateTime)
         vkcoreconfigskeletonitemdatetime->setKCoreConfigSkeleton__ItemDateTime_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDateTime::KCoreConfigSkeleton__ItemDateTime_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4562,9 +4428,8 @@ QVariant* KCoreConfigSkeleton__ItemDateTime_SuperProperty(const KCoreConfigSkele
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemDateTime_OnProperty(const KCoreConfigSkeleton__ItemDateTime* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemdatetime = const_cast<VirtualKCoreConfigSkeletonItemDateTime*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDateTime*>(self));
-    if (vkcoreconfigskeletonitemdatetime && vkcoreconfigskeletonitemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
+    if (vkcoreconfigskeletonitemdatetime && vkcoreconfigskeletonitemdatetime->isVirtualKCoreConfigSkeletonItemDateTime)
         vkcoreconfigskeletonitemdatetime->setKCoreConfigSkeleton__ItemDateTime_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDateTime::KCoreConfigSkeleton__ItemDateTime_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemDateTime_Delete(KCoreConfigSkeleton__ItemDateTime* self) {
@@ -4634,9 +4499,8 @@ void KCoreConfigSkeleton__ItemStringList_SuperReadConfig(KCoreConfigSkeleton__It
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemStringList_OnReadConfig(KCoreConfigSkeleton__ItemStringList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemstringlist = dynamic_cast<VirtualKCoreConfigSkeletonItemStringList*>(self);
-    if (vkcoreconfigskeletonitemstringlist && vkcoreconfigskeletonitemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
+    if (vkcoreconfigskeletonitemstringlist && vkcoreconfigskeletonitemstringlist->isVirtualKCoreConfigSkeletonItemStringList)
         vkcoreconfigskeletonitemstringlist->setKCoreConfigSkeleton__ItemStringList_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemStringList::KCoreConfigSkeleton__ItemStringList_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4653,9 +4517,8 @@ void KCoreConfigSkeleton__ItemStringList_SuperSetProperty(KCoreConfigSkeleton__I
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemStringList_OnSetProperty(KCoreConfigSkeleton__ItemStringList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemstringlist = dynamic_cast<VirtualKCoreConfigSkeletonItemStringList*>(self);
-    if (vkcoreconfigskeletonitemstringlist && vkcoreconfigskeletonitemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
+    if (vkcoreconfigskeletonitemstringlist && vkcoreconfigskeletonitemstringlist->isVirtualKCoreConfigSkeletonItemStringList)
         vkcoreconfigskeletonitemstringlist->setKCoreConfigSkeleton__ItemStringList_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemStringList::KCoreConfigSkeleton__ItemStringList_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4672,9 +4535,8 @@ bool KCoreConfigSkeleton__ItemStringList_SuperIsEqual(const KCoreConfigSkeleton_
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemStringList_OnIsEqual(const KCoreConfigSkeleton__ItemStringList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemstringlist = const_cast<VirtualKCoreConfigSkeletonItemStringList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemStringList*>(self));
-    if (vkcoreconfigskeletonitemstringlist && vkcoreconfigskeletonitemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
+    if (vkcoreconfigskeletonitemstringlist && vkcoreconfigskeletonitemstringlist->isVirtualKCoreConfigSkeletonItemStringList)
         vkcoreconfigskeletonitemstringlist->setKCoreConfigSkeleton__ItemStringList_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemStringList::KCoreConfigSkeleton__ItemStringList_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4691,9 +4553,8 @@ QVariant* KCoreConfigSkeleton__ItemStringList_SuperProperty(const KCoreConfigSke
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemStringList_OnProperty(const KCoreConfigSkeleton__ItemStringList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemstringlist = const_cast<VirtualKCoreConfigSkeletonItemStringList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemStringList*>(self));
-    if (vkcoreconfigskeletonitemstringlist && vkcoreconfigskeletonitemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
+    if (vkcoreconfigskeletonitemstringlist && vkcoreconfigskeletonitemstringlist->isVirtualKCoreConfigSkeletonItemStringList)
         vkcoreconfigskeletonitemstringlist->setKCoreConfigSkeleton__ItemStringList_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemStringList::KCoreConfigSkeleton__ItemStringList_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemStringList_Delete(KCoreConfigSkeleton__ItemStringList* self) {
@@ -4755,9 +4616,8 @@ void KCoreConfigSkeleton__ItemPathList_SuperReadConfig(KCoreConfigSkeleton__Item
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPathList_OnReadConfig(KCoreConfigSkeleton__ItemPathList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempathlist = dynamic_cast<VirtualKCoreConfigSkeletonItemPathList*>(self);
-    if (vkcoreconfigskeletonitempathlist && vkcoreconfigskeletonitempathlist->isVirtualKCoreConfigSkeletonItemPathList) {
+    if (vkcoreconfigskeletonitempathlist && vkcoreconfigskeletonitempathlist->isVirtualKCoreConfigSkeletonItemPathList)
         vkcoreconfigskeletonitempathlist->setKCoreConfigSkeleton__ItemPathList_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPathList::KCoreConfigSkeleton__ItemPathList_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4774,9 +4634,8 @@ void KCoreConfigSkeleton__ItemPathList_SuperWriteConfig(KCoreConfigSkeleton__Ite
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPathList_OnWriteConfig(KCoreConfigSkeleton__ItemPathList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempathlist = dynamic_cast<VirtualKCoreConfigSkeletonItemPathList*>(self);
-    if (vkcoreconfigskeletonitempathlist && vkcoreconfigskeletonitempathlist->isVirtualKCoreConfigSkeletonItemPathList) {
+    if (vkcoreconfigskeletonitempathlist && vkcoreconfigskeletonitempathlist->isVirtualKCoreConfigSkeletonItemPathList)
         vkcoreconfigskeletonitempathlist->setKCoreConfigSkeleton__ItemPathList_WriteConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPathList::KCoreConfigSkeleton__ItemPathList_WriteConfig_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4803,9 +4662,8 @@ void KCoreConfigSkeleton__ItemPathList_SuperSetProperty(KCoreConfigSkeleton__Ite
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPathList_OnSetProperty(KCoreConfigSkeleton__ItemPathList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempathlist = dynamic_cast<VirtualKCoreConfigSkeletonItemPathList*>(self);
-    if (vkcoreconfigskeletonitempathlist && vkcoreconfigskeletonitempathlist->isVirtualKCoreConfigSkeletonItemPathList) {
+    if (vkcoreconfigskeletonitempathlist && vkcoreconfigskeletonitempathlist->isVirtualKCoreConfigSkeletonItemPathList)
         vkcoreconfigskeletonitempathlist->setKCoreConfigSkeleton__ItemPathList_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPathList::KCoreConfigSkeleton__ItemPathList_SetProperty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4832,9 +4690,8 @@ bool KCoreConfigSkeleton__ItemPathList_SuperIsEqual(const KCoreConfigSkeleton__I
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPathList_OnIsEqual(const KCoreConfigSkeleton__ItemPathList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempathlist = const_cast<VirtualKCoreConfigSkeletonItemPathList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPathList*>(self));
-    if (vkcoreconfigskeletonitempathlist && vkcoreconfigskeletonitempathlist->isVirtualKCoreConfigSkeletonItemPathList) {
+    if (vkcoreconfigskeletonitempathlist && vkcoreconfigskeletonitempathlist->isVirtualKCoreConfigSkeletonItemPathList)
         vkcoreconfigskeletonitempathlist->setKCoreConfigSkeleton__ItemPathList_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPathList::KCoreConfigSkeleton__ItemPathList_IsEqual_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4861,9 +4718,8 @@ QVariant* KCoreConfigSkeleton__ItemPathList_SuperProperty(const KCoreConfigSkele
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemPathList_OnProperty(const KCoreConfigSkeleton__ItemPathList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitempathlist = const_cast<VirtualKCoreConfigSkeletonItemPathList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPathList*>(self));
-    if (vkcoreconfigskeletonitempathlist && vkcoreconfigskeletonitempathlist->isVirtualKCoreConfigSkeletonItemPathList) {
+    if (vkcoreconfigskeletonitempathlist && vkcoreconfigskeletonitempathlist->isVirtualKCoreConfigSkeletonItemPathList)
         vkcoreconfigskeletonitempathlist->setKCoreConfigSkeleton__ItemPathList_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPathList::KCoreConfigSkeleton__ItemPathList_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemPathList_Delete(KCoreConfigSkeleton__ItemPathList* self) {
@@ -4934,9 +4790,8 @@ void KCoreConfigSkeleton__ItemUrlList_SuperReadConfig(KCoreConfigSkeleton__ItemU
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemUrlList_OnReadConfig(KCoreConfigSkeleton__ItemUrlList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemurllist = dynamic_cast<VirtualKCoreConfigSkeletonItemUrlList*>(self);
-    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList)
         vkcoreconfigskeletonitemurllist->setKCoreConfigSkeleton__ItemUrlList_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrlList::KCoreConfigSkeleton__ItemUrlList_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4953,9 +4808,8 @@ void KCoreConfigSkeleton__ItemUrlList_SuperWriteConfig(KCoreConfigSkeleton__Item
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemUrlList_OnWriteConfig(KCoreConfigSkeleton__ItemUrlList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemurllist = dynamic_cast<VirtualKCoreConfigSkeletonItemUrlList*>(self);
-    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList)
         vkcoreconfigskeletonitemurllist->setKCoreConfigSkeleton__ItemUrlList_WriteConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrlList::KCoreConfigSkeleton__ItemUrlList_WriteConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4972,9 +4826,8 @@ void KCoreConfigSkeleton__ItemUrlList_SuperSetProperty(KCoreConfigSkeleton__Item
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemUrlList_OnSetProperty(KCoreConfigSkeleton__ItemUrlList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemurllist = dynamic_cast<VirtualKCoreConfigSkeletonItemUrlList*>(self);
-    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList)
         vkcoreconfigskeletonitemurllist->setKCoreConfigSkeleton__ItemUrlList_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrlList::KCoreConfigSkeleton__ItemUrlList_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -4991,9 +4844,8 @@ bool KCoreConfigSkeleton__ItemUrlList_SuperIsEqual(const KCoreConfigSkeleton__It
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemUrlList_OnIsEqual(const KCoreConfigSkeleton__ItemUrlList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemurllist = const_cast<VirtualKCoreConfigSkeletonItemUrlList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUrlList*>(self));
-    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList)
         vkcoreconfigskeletonitemurllist->setKCoreConfigSkeleton__ItemUrlList_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrlList::KCoreConfigSkeleton__ItemUrlList_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -5010,9 +4862,8 @@ QVariant* KCoreConfigSkeleton__ItemUrlList_SuperProperty(const KCoreConfigSkelet
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemUrlList_OnProperty(const KCoreConfigSkeleton__ItemUrlList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemurllist = const_cast<VirtualKCoreConfigSkeletonItemUrlList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUrlList*>(self));
-    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList)
         vkcoreconfigskeletonitemurllist->setKCoreConfigSkeleton__ItemUrlList_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrlList::KCoreConfigSkeleton__ItemUrlList_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemUrlList_Delete(KCoreConfigSkeleton__ItemUrlList* self) {
@@ -5079,9 +4930,8 @@ void KCoreConfigSkeleton__ItemIntList_SuperReadConfig(KCoreConfigSkeleton__ItemI
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemIntList_OnReadConfig(KCoreConfigSkeleton__ItemIntList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemintlist = dynamic_cast<VirtualKCoreConfigSkeletonItemIntList*>(self);
-    if (vkcoreconfigskeletonitemintlist && vkcoreconfigskeletonitemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
+    if (vkcoreconfigskeletonitemintlist && vkcoreconfigskeletonitemintlist->isVirtualKCoreConfigSkeletonItemIntList)
         vkcoreconfigskeletonitemintlist->setKCoreConfigSkeleton__ItemIntList_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemIntList::KCoreConfigSkeleton__ItemIntList_ReadConfig_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -5098,9 +4948,8 @@ void KCoreConfigSkeleton__ItemIntList_SuperSetProperty(KCoreConfigSkeleton__Item
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemIntList_OnSetProperty(KCoreConfigSkeleton__ItemIntList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemintlist = dynamic_cast<VirtualKCoreConfigSkeletonItemIntList*>(self);
-    if (vkcoreconfigskeletonitemintlist && vkcoreconfigskeletonitemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
+    if (vkcoreconfigskeletonitemintlist && vkcoreconfigskeletonitemintlist->isVirtualKCoreConfigSkeletonItemIntList)
         vkcoreconfigskeletonitemintlist->setKCoreConfigSkeleton__ItemIntList_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemIntList::KCoreConfigSkeleton__ItemIntList_SetProperty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -5117,9 +4966,8 @@ bool KCoreConfigSkeleton__ItemIntList_SuperIsEqual(const KCoreConfigSkeleton__It
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemIntList_OnIsEqual(const KCoreConfigSkeleton__ItemIntList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemintlist = const_cast<VirtualKCoreConfigSkeletonItemIntList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemIntList*>(self));
-    if (vkcoreconfigskeletonitemintlist && vkcoreconfigskeletonitemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
+    if (vkcoreconfigskeletonitemintlist && vkcoreconfigskeletonitemintlist->isVirtualKCoreConfigSkeletonItemIntList)
         vkcoreconfigskeletonitemintlist->setKCoreConfigSkeleton__ItemIntList_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemIntList::KCoreConfigSkeleton__ItemIntList_IsEqual_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -5136,9 +4984,8 @@ QVariant* KCoreConfigSkeleton__ItemIntList_SuperProperty(const KCoreConfigSkelet
 // Auxiliary method to allow providing re-implementation
 void KCoreConfigSkeleton__ItemIntList_OnProperty(const KCoreConfigSkeleton__ItemIntList* self, intptr_t slot) {
     auto* vkcoreconfigskeletonitemintlist = const_cast<VirtualKCoreConfigSkeletonItemIntList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemIntList*>(self));
-    if (vkcoreconfigskeletonitemintlist && vkcoreconfigskeletonitemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
+    if (vkcoreconfigskeletonitemintlist && vkcoreconfigskeletonitemintlist->isVirtualKCoreConfigSkeletonItemIntList)
         vkcoreconfigskeletonitemintlist->setKCoreConfigSkeleton__ItemIntList_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemIntList::KCoreConfigSkeleton__ItemIntList_Property_Callback>(slot));
-    }
 }
 
 void KCoreConfigSkeleton__ItemIntList_Delete(KCoreConfigSkeleton__ItemIntList* self) {

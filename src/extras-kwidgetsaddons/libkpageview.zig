@@ -724,6 +724,31 @@ pub const KPageView = extern struct {
         return _ret;
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPageView `
+    ///
+    pub fn asQPaintDevice(self: KPageView) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KPageView object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KPageView {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6708,7 +6733,7 @@ pub const KPageView = extern struct {
     /// ` self: KPageView `
     ///
     pub fn paintingActive(self: KPageView) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6724,7 +6749,7 @@ pub const KPageView = extern struct {
     /// ` self: KPageView `
     ///
     pub fn widthMM(self: KPageView) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6740,7 +6765,7 @@ pub const KPageView = extern struct {
     /// ` self: KPageView `
     ///
     pub fn heightMM(self: KPageView) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6756,7 +6781,7 @@ pub const KPageView = extern struct {
     /// ` self: KPageView `
     ///
     pub fn logicalDpiX(self: KPageView) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6772,7 +6797,7 @@ pub const KPageView = extern struct {
     /// ` self: KPageView `
     ///
     pub fn logicalDpiY(self: KPageView) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6788,7 +6813,7 @@ pub const KPageView = extern struct {
     /// ` self: KPageView `
     ///
     pub fn physicalDpiX(self: KPageView) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6804,7 +6829,7 @@ pub const KPageView = extern struct {
     /// ` self: KPageView `
     ///
     pub fn physicalDpiY(self: KPageView) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -6820,7 +6845,7 @@ pub const KPageView = extern struct {
     /// ` self: KPageView `
     ///
     pub fn devicePixelRatio(self: KPageView) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -6836,7 +6861,7 @@ pub const KPageView = extern struct {
     /// ` self: KPageView `
     ///
     pub fn devicePixelRatioF(self: KPageView) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -6852,7 +6877,7 @@ pub const KPageView = extern struct {
     /// ` self: KPageView `
     ///
     pub fn colorCount(self: KPageView) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -6868,7 +6893,7 @@ pub const KPageView = extern struct {
     /// ` self: KPageView `
     ///
     pub fn depth(self: KPageView) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10414,7 +10439,7 @@ pub const KPageView = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kpageview.html#public-types)
 pub const enums = struct {
-    pub const FaceType = enum(i32) {
+    pub const FaceType = enum {
         pub const Auto: i32 = 0;
         pub const Plain: i32 = 1;
         pub const List: i32 = 2;

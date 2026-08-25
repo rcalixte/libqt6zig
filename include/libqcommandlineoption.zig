@@ -556,7 +556,7 @@ pub const QCommandLineOption = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineoption.html#public-types)
 pub const enums = struct {
-    pub const Flag = enum(i32) {
+    pub const Flag = enum {
         pub const HiddenFromHelp: i32 = 1;
         pub const ShortOptionStyle: i32 = 2;
     };

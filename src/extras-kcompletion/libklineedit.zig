@@ -157,6 +157,27 @@ pub const KLineEdit = extern struct {
         return .{ .ptr = qtc.KLineEdit_new4(string_str, @ptrCast(_parent.ptr)) };
     }
 
+    /// Upcasts to a KCompletionBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KLineEdit `
+    ///
+    pub fn asKCompletionBase(self: KLineEdit) KCompletionBase {
+        return .{ .ptr = qtc.KLineEdit_AsKCompletionBase(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a KLineEdit object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _kcompletionbase: KCompletionBase `
+    ///
+    pub fn fromKCompletionBase(_kcompletionbase: anytype) KLineEdit {
+        comptime _ = @TypeOf(_kcompletionbase)._is_KCompletionBase;
+        return .{ .ptr = @ptrCast(qtc.KLineEdit_FromKCompletionBase(@ptrCast(_kcompletionbase.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `metaObject` instead
     ///
     pub const MetaObject = metaObject;
@@ -3526,6 +3547,31 @@ pub const KLineEdit = extern struct {
     ///
     pub fn cursorBackward2(self: KLineEdit, mark: bool, steps: i32) void {
         qtc.QLineEdit_CursorBackward2(@ptrCast(self.ptr), mark, @bitCast(steps));
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KLineEdit `
+    ///
+    pub fn asQPaintDevice(self: KLineEdit) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KLineEdit object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KLineEdit {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
     }
 
     /// ### DEPRECATED: Use `winId` instead
@@ -9471,7 +9517,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn paintingActive(self: KLineEdit) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -9487,7 +9533,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn widthMM(self: KLineEdit) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -9503,7 +9549,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn heightMM(self: KLineEdit) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -9519,7 +9565,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn logicalDpiX(self: KLineEdit) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -9535,7 +9581,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn logicalDpiY(self: KLineEdit) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -9551,7 +9597,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn physicalDpiX(self: KLineEdit) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -9567,7 +9613,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn physicalDpiY(self: KLineEdit) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -9583,7 +9629,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn devicePixelRatio(self: KLineEdit) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -9599,7 +9645,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn devicePixelRatioF(self: KLineEdit) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -9615,7 +9661,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn colorCount(self: KLineEdit) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -9631,7 +9677,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn depth(self: KLineEdit) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -9677,7 +9723,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn completionObject(self: KLineEdit) KCompletion {
-        return .{ .ptr = qtc.KCompletionBase_CompletionObject(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.KCompletionBase_CompletionObject(@ptrCast(self.asKCompletionBase().ptr)) };
     }
 
     /// ### DEPRECATED: Use `isCompletionObjectAutoDeleted` instead
@@ -9693,7 +9739,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn isCompletionObjectAutoDeleted(self: KLineEdit) bool {
-        return qtc.KCompletionBase_IsCompletionObjectAutoDeleted(@ptrCast(self.ptr));
+        return qtc.KCompletionBase_IsCompletionObjectAutoDeleted(@ptrCast(self.asKCompletionBase().ptr));
     }
 
     /// ### DEPRECATED: Use `setAutoDeleteCompletionObject` instead
@@ -9711,7 +9757,7 @@ pub const KLineEdit = extern struct {
     /// ` autoDelete: bool `
     ///
     pub fn setAutoDeleteCompletionObject(self: KLineEdit, autoDelete: bool) void {
-        qtc.KCompletionBase_SetAutoDeleteCompletionObject(@ptrCast(self.ptr), autoDelete);
+        qtc.KCompletionBase_SetAutoDeleteCompletionObject(@ptrCast(self.asKCompletionBase().ptr), autoDelete);
     }
 
     /// ### DEPRECATED: Use `setEnableSignals` instead
@@ -9729,7 +9775,7 @@ pub const KLineEdit = extern struct {
     /// ` enable: bool `
     ///
     pub fn setEnableSignals(self: KLineEdit, enable: bool) void {
-        qtc.KCompletionBase_SetEnableSignals(@ptrCast(self.ptr), enable);
+        qtc.KCompletionBase_SetEnableSignals(@ptrCast(self.asKCompletionBase().ptr), enable);
     }
 
     /// ### DEPRECATED: Use `handleSignals` instead
@@ -9745,7 +9791,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn handleSignals(self: KLineEdit) bool {
-        return qtc.KCompletionBase_HandleSignals(@ptrCast(self.ptr));
+        return qtc.KCompletionBase_HandleSignals(@ptrCast(self.asKCompletionBase().ptr));
     }
 
     /// ### DEPRECATED: Use `emitSignals` instead
@@ -9761,7 +9807,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn emitSignals(self: KLineEdit) bool {
-        return qtc.KCompletionBase_EmitSignals(@ptrCast(self.ptr));
+        return qtc.KCompletionBase_EmitSignals(@ptrCast(self.asKCompletionBase().ptr));
     }
 
     /// ### DEPRECATED: Use `setEmitSignals` instead
@@ -9779,7 +9825,7 @@ pub const KLineEdit = extern struct {
     /// ` emitRotationSignals: bool `
     ///
     pub fn setEmitSignals(self: KLineEdit, emitRotationSignals: bool) void {
-        qtc.KCompletionBase_SetEmitSignals(@ptrCast(self.ptr), emitRotationSignals);
+        qtc.KCompletionBase_SetEmitSignals(@ptrCast(self.asKCompletionBase().ptr), emitRotationSignals);
     }
 
     /// ### DEPRECATED: Use `completionMode` instead
@@ -9799,7 +9845,7 @@ pub const KLineEdit = extern struct {
     /// ` kcompletion_enums.CompletionMode `
     ///
     pub fn completionMode(self: KLineEdit) i32 {
-        return qtc.KCompletionBase_CompletionMode(@ptrCast(self.ptr));
+        return qtc.KCompletionBase_CompletionMode(@ptrCast(self.asKCompletionBase().ptr));
     }
 
     /// ### DEPRECATED: Use `setKeyBinding` instead
@@ -9823,7 +9869,7 @@ pub const KLineEdit = extern struct {
             .len = key.len,
             .data = @ptrCast(key.ptr),
         };
-        return qtc.KCompletionBase_SetKeyBinding(@ptrCast(self.ptr), @bitCast(item), key_list);
+        return qtc.KCompletionBase_SetKeyBinding(@ptrCast(self.asKCompletionBase().ptr), @bitCast(item), key_list);
     }
 
     /// ### DEPRECATED: Use `keyBinding` instead
@@ -9843,7 +9889,7 @@ pub const KLineEdit = extern struct {
     /// ` item: kcompletionbase_enums.KeyBindingType `
     ///
     pub fn keyBinding(self: KLineEdit, allocator: std.mem.Allocator, item: i32) []QKeySequence {
-        const _arr: qtc.libqt_list = qtc.KCompletionBase_KeyBinding(@ptrCast(self.ptr), @bitCast(item));
+        const _arr: qtc.libqt_list = qtc.KCompletionBase_KeyBinding(@ptrCast(self.asKCompletionBase().ptr), @bitCast(item));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KLineEdit.keyBinding: Memory allocation failed");
         const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
@@ -9865,7 +9911,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn useGlobalKeyBindings(self: KLineEdit) void {
-        qtc.KCompletionBase_UseGlobalKeyBindings(@ptrCast(self.ptr));
+        qtc.KCompletionBase_UseGlobalKeyBindings(@ptrCast(self.asKCompletionBase().ptr));
     }
 
     /// ### DEPRECATED: Use `compObj` instead
@@ -9881,7 +9927,7 @@ pub const KLineEdit = extern struct {
     /// ` self: KLineEdit `
     ///
     pub fn compObj(self: KLineEdit) KCompletion {
-        return .{ .ptr = qtc.KCompletionBase_CompObj(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.KCompletionBase_CompObj(@ptrCast(self.asKCompletionBase().ptr)) };
     }
 
     /// ### DEPRECATED: Use `completionObject1` instead
@@ -9899,7 +9945,7 @@ pub const KLineEdit = extern struct {
     /// ` _handleSignals: bool `
     ///
     pub fn completionObject1(self: KLineEdit, _handleSignals: bool) KCompletion {
-        return .{ .ptr = qtc.KCompletionBase_CompletionObject1(@ptrCast(self.ptr), _handleSignals) };
+        return .{ .ptr = qtc.KCompletionBase_CompletionObject1(@ptrCast(self.asKCompletionBase().ptr), _handleSignals) };
     }
 
     /// ### DEPRECATED: Use `sizeHint` instead

@@ -300,9 +300,8 @@ QMetaObject* KMainWindow_SuperMetaObject(const KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnMetaObject(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_MetaObject_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -319,9 +318,8 @@ void* KMainWindow_SuperMetacast(KMainWindow* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnMetacast(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_Metacast_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -338,9 +336,8 @@ int KMainWindow_SuperMetacall(KMainWindow* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnMetacall(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_Metacall_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -357,9 +354,8 @@ void KMainWindow_SuperApplyMainWindowSettings(KMainWindow* self, const KConfigGr
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnApplyMainWindowSettings(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_ApplyMainWindowSettings_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_ApplyMainWindowSettings_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -377,9 +373,8 @@ void KMainWindow_SuperSetCaption(KMainWindow* self, const libqt_string caption) 
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnSetCaption(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_SetCaption_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_SetCaption_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -397,9 +392,8 @@ void KMainWindow_SuperSetCaption2(KMainWindow* self, const libqt_string caption,
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnSetCaption2(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_SetCaption2_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_SetCaption2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -417,9 +411,8 @@ void KMainWindow_SuperSetPlainCaption(KMainWindow* self, const libqt_string capt
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnSetPlainCaption(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_SetPlainCaption_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_SetPlainCaption_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -436,9 +429,8 @@ bool KMainWindow_SuperEvent(KMainWindow* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_Event_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -455,9 +447,8 @@ void KMainWindow_SuperKeyPressEvent(KMainWindow* self, QKeyEvent* keyEvent) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnKeyPressEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_KeyPressEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -474,9 +465,8 @@ void KMainWindow_SuperCloseEvent(KMainWindow* self, QCloseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnCloseEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_CloseEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_CloseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -493,9 +483,8 @@ bool KMainWindow_SuperQueryClose(KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnQueryClose(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_QueryClose_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_QueryClose_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -512,9 +501,8 @@ void KMainWindow_SuperSaveProperties(KMainWindow* self, KConfigGroup* param1) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnSaveProperties(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_SaveProperties_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_SaveProperties_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -531,9 +519,8 @@ void KMainWindow_SuperReadProperties(KMainWindow* self, const KConfigGroup* para
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnReadProperties(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_ReadProperties_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_ReadProperties_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -550,9 +537,8 @@ void KMainWindow_SuperSaveGlobalProperties(KMainWindow* self, KConfig* sessionCo
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnSaveGlobalProperties(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_SaveGlobalProperties_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_SaveGlobalProperties_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -569,9 +555,8 @@ void KMainWindow_SuperReadGlobalProperties(KMainWindow* self, KConfig* sessionCo
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnReadGlobalProperties(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_ReadGlobalProperties_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_ReadGlobalProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -598,9 +583,8 @@ QMenu* KMainWindow_SuperCreatePopupMenu(KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnCreatePopupMenu(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_CreatePopupMenu_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_CreatePopupMenu_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -627,9 +611,8 @@ void KMainWindow_SuperContextMenuEvent(KMainWindow* self, QContextMenuEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnContextMenuEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_ContextMenuEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -656,9 +639,8 @@ int KMainWindow_SuperDevType(const KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnDevType(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_DevType_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -685,9 +667,8 @@ void KMainWindow_SuperSetVisible(KMainWindow* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnSetVisible(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_SetVisible_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -714,9 +695,8 @@ QSize* KMainWindow_SuperSizeHint(const KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnSizeHint(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_SizeHint_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -743,9 +723,8 @@ QSize* KMainWindow_SuperMinimumSizeHint(const KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnMinimumSizeHint(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_MinimumSizeHint_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -772,9 +751,8 @@ int KMainWindow_SuperHeightForWidth(const KMainWindow* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnHeightForWidth(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_HeightForWidth_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -801,9 +779,8 @@ bool KMainWindow_SuperHasHeightForWidth(const KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnHasHeightForWidth(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_HasHeightForWidth_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -830,9 +807,8 @@ QPaintEngine* KMainWindow_SuperPaintEngine(const KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnPaintEngine(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_PaintEngine_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -859,9 +835,8 @@ void KMainWindow_SuperMousePressEvent(KMainWindow* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnMousePressEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_MousePressEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -888,9 +863,8 @@ void KMainWindow_SuperMouseReleaseEvent(KMainWindow* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnMouseReleaseEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -917,9 +891,8 @@ void KMainWindow_SuperMouseDoubleClickEvent(KMainWindow* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnMouseDoubleClickEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -946,9 +919,8 @@ void KMainWindow_SuperMouseMoveEvent(KMainWindow* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnMouseMoveEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_MouseMoveEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -975,9 +947,8 @@ void KMainWindow_SuperWheelEvent(KMainWindow* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnWheelEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_WheelEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1004,9 +975,8 @@ void KMainWindow_SuperKeyReleaseEvent(KMainWindow* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnKeyReleaseEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1033,9 +1003,8 @@ void KMainWindow_SuperFocusInEvent(KMainWindow* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnFocusInEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_FocusInEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1062,9 +1031,8 @@ void KMainWindow_SuperFocusOutEvent(KMainWindow* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnFocusOutEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_FocusOutEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1091,9 +1059,8 @@ void KMainWindow_SuperEnterEvent(KMainWindow* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnEnterEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_EnterEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1120,9 +1087,8 @@ void KMainWindow_SuperLeaveEvent(KMainWindow* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnLeaveEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_LeaveEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1149,9 +1115,8 @@ void KMainWindow_SuperPaintEvent(KMainWindow* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnPaintEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_PaintEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1178,9 +1143,8 @@ void KMainWindow_SuperMoveEvent(KMainWindow* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnMoveEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_MoveEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1207,9 +1171,8 @@ void KMainWindow_SuperResizeEvent(KMainWindow* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnResizeEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_ResizeEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1236,9 +1199,8 @@ void KMainWindow_SuperTabletEvent(KMainWindow* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnTabletEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_TabletEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1265,9 +1227,8 @@ void KMainWindow_SuperActionEvent(KMainWindow* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnActionEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_ActionEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1294,9 +1255,8 @@ void KMainWindow_SuperDragEnterEvent(KMainWindow* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnDragEnterEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_DragEnterEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1323,9 +1283,8 @@ void KMainWindow_SuperDragMoveEvent(KMainWindow* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnDragMoveEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_DragMoveEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1352,9 +1311,8 @@ void KMainWindow_SuperDragLeaveEvent(KMainWindow* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnDragLeaveEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_DragLeaveEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1381,9 +1339,8 @@ void KMainWindow_SuperDropEvent(KMainWindow* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnDropEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_DropEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1410,9 +1367,8 @@ void KMainWindow_SuperShowEvent(KMainWindow* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnShowEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_ShowEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1439,9 +1395,8 @@ void KMainWindow_SuperHideEvent(KMainWindow* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnHideEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_HideEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1470,9 +1425,8 @@ bool KMainWindow_SuperNativeEvent(KMainWindow* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnNativeEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_NativeEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1499,9 +1453,8 @@ void KMainWindow_SuperChangeEvent(KMainWindow* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnChangeEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_ChangeEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1528,9 +1481,8 @@ int KMainWindow_SuperMetric(const KMainWindow* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnMetric(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_Metric_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1557,9 +1509,8 @@ void KMainWindow_SuperInitPainter(const KMainWindow* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnInitPainter(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_InitPainter_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1586,9 +1537,8 @@ QPaintDevice* KMainWindow_SuperRedirected(const KMainWindow* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnRedirected(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_Redirected_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1615,9 +1565,8 @@ QPainter* KMainWindow_SuperSharedPainter(const KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnSharedPainter(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_SharedPainter_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1644,9 +1593,8 @@ void KMainWindow_SuperInputMethodEvent(KMainWindow* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnInputMethodEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_InputMethodEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1673,9 +1621,8 @@ QVariant* KMainWindow_SuperInputMethodQuery(const KMainWindow* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnInputMethodQuery(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_InputMethodQuery_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1702,9 +1649,8 @@ bool KMainWindow_SuperFocusNextPrevChild(KMainWindow* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnFocusNextPrevChild(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1731,9 +1677,8 @@ bool KMainWindow_SuperEventFilter(KMainWindow* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnEventFilter(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_EventFilter_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1760,9 +1705,8 @@ void KMainWindow_SuperTimerEvent(KMainWindow* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnTimerEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_TimerEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1789,9 +1733,8 @@ void KMainWindow_SuperChildEvent(KMainWindow* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnChildEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_ChildEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1818,9 +1761,8 @@ void KMainWindow_SuperCustomEvent(KMainWindow* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnCustomEvent(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_CustomEvent_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1847,9 +1789,8 @@ void KMainWindow_SuperConnectNotify(KMainWindow* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnConnectNotify(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_ConnectNotify_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1876,9 +1817,8 @@ void KMainWindow_SuperDisconnectNotify(KMainWindow* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnDisconnectNotify(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_DisconnectNotify_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1905,9 +1845,8 @@ void KMainWindow_SuperSavePropertiesInternal(KMainWindow* self, KConfig* param1,
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnSavePropertiesInternal(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_SavePropertiesInternal_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_SavePropertiesInternal_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1934,9 +1873,8 @@ bool KMainWindow_SuperReadPropertiesInternal(KMainWindow* self, KConfig* param1,
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnReadPropertiesInternal(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_ReadPropertiesInternal_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_ReadPropertiesInternal_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1963,9 +1901,8 @@ bool KMainWindow_SuperSettingsDirty(const KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnSettingsDirty(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_SettingsDirty_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_SettingsDirty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1992,9 +1929,8 @@ void KMainWindow_SuperSaveAutoSaveSettings(KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnSaveAutoSaveSettings(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_SaveAutoSaveSettings_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_SaveAutoSaveSettings_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2021,9 +1957,8 @@ void KMainWindow_SuperUpdateMicroFocus(KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnUpdateMicroFocus(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2050,9 +1985,8 @@ void KMainWindow_SuperCreate(KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnCreate(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_Create_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2079,9 +2013,8 @@ void KMainWindow_SuperDestroy(KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnDestroy(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_Destroy_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2108,9 +2041,8 @@ bool KMainWindow_SuperFocusNextChild(KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnFocusNextChild(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_FocusNextChild_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2137,9 +2069,8 @@ bool KMainWindow_SuperFocusPreviousChild(KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnFocusPreviousChild(KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_FocusPreviousChild_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2166,9 +2097,8 @@ QObject* KMainWindow_SuperSender(const KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnSender(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_Sender_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2195,9 +2125,8 @@ int KMainWindow_SuperSenderSignalIndex(const KMainWindow* self) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnSenderSignalIndex(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_SenderSignalIndex_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2224,9 +2153,8 @@ int KMainWindow_SuperReceivers(const KMainWindow* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnReceivers(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_Receivers_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2253,9 +2181,8 @@ bool KMainWindow_SuperIsSignalConnected(const KMainWindow* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnIsSignalConnected(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_IsSignalConnected_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2282,9 +2209,8 @@ double KMainWindow_SuperGetDecodedMetricF(const KMainWindow* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void KMainWindow_OnGetDecodedMetricF(const KMainWindow* self, intptr_t slot) {
     auto* vkmainwindow = const_cast<VirtualKMainWindow*>(dynamic_cast<const VirtualKMainWindow*>(self));
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
+    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow)
         vkmainwindow->setKMainWindow_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKMainWindow::KMainWindow_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KMainWindow_Delete(KMainWindow* self) {

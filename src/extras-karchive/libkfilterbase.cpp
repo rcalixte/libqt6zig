@@ -107,9 +107,8 @@ bool KFilterBase_SuperInit(KFilterBase* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KFilterBase_OnInit(KFilterBase* self, intptr_t slot) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
+    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase)
         vkfilterbase->setKFilterBase_Init_Callback(reinterpret_cast<VirtualKFilterBase::KFilterBase_Init_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -126,9 +125,8 @@ int KFilterBase_SuperMode(const KFilterBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilterBase_OnMode(const KFilterBase* self, intptr_t slot) {
     auto* vkfilterbase = const_cast<VirtualKFilterBase*>(dynamic_cast<const VirtualKFilterBase*>(self));
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
+    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase)
         vkfilterbase->setKFilterBase_Mode_Callback(reinterpret_cast<VirtualKFilterBase::KFilterBase_Mode_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -145,9 +143,8 @@ bool KFilterBase_SuperTerminate(KFilterBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilterBase_OnTerminate(KFilterBase* self, intptr_t slot) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
+    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase)
         vkfilterbase->setKFilterBase_Terminate_Callback(reinterpret_cast<VirtualKFilterBase::KFilterBase_Terminate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -164,9 +161,8 @@ void KFilterBase_SuperReset(KFilterBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilterBase_OnReset(KFilterBase* self, intptr_t slot) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
+    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase)
         vkfilterbase->setKFilterBase_Reset_Callback(reinterpret_cast<VirtualKFilterBase::KFilterBase_Reset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -183,9 +179,8 @@ bool KFilterBase_SuperReadHeader(KFilterBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilterBase_OnReadHeader(KFilterBase* self, intptr_t slot) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
+    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase)
         vkfilterbase->setKFilterBase_ReadHeader_Callback(reinterpret_cast<VirtualKFilterBase::KFilterBase_ReadHeader_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -203,9 +198,8 @@ bool KFilterBase_SuperWriteHeader(KFilterBase* self, const libqt_string filename
 // Auxiliary method to allow providing re-implementation
 void KFilterBase_OnWriteHeader(KFilterBase* self, intptr_t slot) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
+    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase)
         vkfilterbase->setKFilterBase_WriteHeader_Callback(reinterpret_cast<VirtualKFilterBase::KFilterBase_WriteHeader_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -222,9 +216,8 @@ void KFilterBase_SuperSetOutBuffer(KFilterBase* self, char* data, unsigned int m
 // Auxiliary method to allow providing re-implementation
 void KFilterBase_OnSetOutBuffer(KFilterBase* self, intptr_t slot) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
+    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase)
         vkfilterbase->setKFilterBase_SetOutBuffer_Callback(reinterpret_cast<VirtualKFilterBase::KFilterBase_SetOutBuffer_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -241,9 +234,8 @@ void KFilterBase_SuperSetInBuffer(KFilterBase* self, const char* data, unsigned 
 // Auxiliary method to allow providing re-implementation
 void KFilterBase_OnSetInBuffer(KFilterBase* self, intptr_t slot) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
+    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase)
         vkfilterbase->setKFilterBase_SetInBuffer_Callback(reinterpret_cast<VirtualKFilterBase::KFilterBase_SetInBuffer_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -260,9 +252,8 @@ bool KFilterBase_SuperInBufferEmpty(const KFilterBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilterBase_OnInBufferEmpty(const KFilterBase* self, intptr_t slot) {
     auto* vkfilterbase = const_cast<VirtualKFilterBase*>(dynamic_cast<const VirtualKFilterBase*>(self));
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
+    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase)
         vkfilterbase->setKFilterBase_InBufferEmpty_Callback(reinterpret_cast<VirtualKFilterBase::KFilterBase_InBufferEmpty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -279,9 +270,8 @@ int KFilterBase_SuperInBufferAvailable(const KFilterBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilterBase_OnInBufferAvailable(const KFilterBase* self, intptr_t slot) {
     auto* vkfilterbase = const_cast<VirtualKFilterBase*>(dynamic_cast<const VirtualKFilterBase*>(self));
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
+    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase)
         vkfilterbase->setKFilterBase_InBufferAvailable_Callback(reinterpret_cast<VirtualKFilterBase::KFilterBase_InBufferAvailable_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -298,9 +288,8 @@ bool KFilterBase_SuperOutBufferFull(const KFilterBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilterBase_OnOutBufferFull(const KFilterBase* self, intptr_t slot) {
     auto* vkfilterbase = const_cast<VirtualKFilterBase*>(dynamic_cast<const VirtualKFilterBase*>(self));
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
+    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase)
         vkfilterbase->setKFilterBase_OutBufferFull_Callback(reinterpret_cast<VirtualKFilterBase::KFilterBase_OutBufferFull_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -317,9 +306,8 @@ int KFilterBase_SuperOutBufferAvailable(const KFilterBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilterBase_OnOutBufferAvailable(const KFilterBase* self, intptr_t slot) {
     auto* vkfilterbase = const_cast<VirtualKFilterBase*>(dynamic_cast<const VirtualKFilterBase*>(self));
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
+    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase)
         vkfilterbase->setKFilterBase_OutBufferAvailable_Callback(reinterpret_cast<VirtualKFilterBase::KFilterBase_OutBufferAvailable_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -336,9 +324,8 @@ int KFilterBase_SuperUncompress(KFilterBase* self) {
 // Auxiliary method to allow providing re-implementation
 void KFilterBase_OnUncompress(KFilterBase* self, intptr_t slot) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
+    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase)
         vkfilterbase->setKFilterBase_Uncompress_Callback(reinterpret_cast<VirtualKFilterBase::KFilterBase_Uncompress_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -355,9 +342,8 @@ int KFilterBase_SuperCompress(KFilterBase* self, bool finish) {
 // Auxiliary method to allow providing re-implementation
 void KFilterBase_OnCompress(KFilterBase* self, intptr_t slot) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
+    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase)
         vkfilterbase->setKFilterBase_Compress_Callback(reinterpret_cast<VirtualKFilterBase::KFilterBase_Compress_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -374,9 +360,8 @@ void KFilterBase_SuperVirtualHook(KFilterBase* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void KFilterBase_OnVirtualHook(KFilterBase* self, intptr_t slot) {
     auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
+    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase)
         vkfilterbase->setKFilterBase_VirtualHook_Callback(reinterpret_cast<VirtualKFilterBase::KFilterBase_VirtualHook_Callback>(slot));
-    }
 }
 
 void KFilterBase_Delete(KFilterBase* self) {

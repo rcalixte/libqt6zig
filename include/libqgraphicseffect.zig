@@ -13365,20 +13365,20 @@ pub const QGraphicsOpacityEffect = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicseffect.html#public-types)
 pub const enums = struct {
-    pub const ChangeFlag = enum(i32) {
+    pub const ChangeFlag = enum {
         pub const SourceAttached: i32 = 1;
         pub const SourceDetached: i32 = 2;
         pub const SourceBoundingRectChanged: i32 = 4;
         pub const SourceInvalidated: i32 = 8;
     };
 
-    pub const PixmapPadMode = enum(i32) {
+    pub const PixmapPadMode = enum {
         pub const NoPad: i32 = 0;
         pub const PadToTransparentBorder: i32 = 1;
         pub const PadToEffectiveBoundingRect: i32 = 2;
     };
 
-    pub const BlurHint = enum(i32) {
+    pub const BlurHint = enum {
         pub const PerformanceHint: i32 = 0;
         pub const QualityHint: i32 = 1;
         pub const AnimationHint: i32 = 2;

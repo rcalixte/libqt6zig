@@ -136,9 +136,8 @@ QMetaObject* KShortcutsEditor_SuperMetaObject(const KShortcutsEditor* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnMetaObject(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_MetaObject_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -155,9 +154,8 @@ void* KShortcutsEditor_SuperMetacast(KShortcutsEditor* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnMetacast(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_Metacast_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -174,9 +172,8 @@ int KShortcutsEditor_SuperMetacall(KShortcutsEditor* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnMetacall(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_Metacall_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -203,9 +200,8 @@ int KShortcutsEditor_SuperDevType(const KShortcutsEditor* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnDevType(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_DevType_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -232,9 +228,8 @@ void KShortcutsEditor_SuperSetVisible(KShortcutsEditor* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnSetVisible(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_SetVisible_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -261,9 +256,8 @@ QSize* KShortcutsEditor_SuperSizeHint(const KShortcutsEditor* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnSizeHint(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_SizeHint_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -290,9 +284,8 @@ QSize* KShortcutsEditor_SuperMinimumSizeHint(const KShortcutsEditor* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnMinimumSizeHint(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_MinimumSizeHint_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -319,9 +312,8 @@ int KShortcutsEditor_SuperHeightForWidth(const KShortcutsEditor* self, int param
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnHeightForWidth(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_HeightForWidth_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -348,9 +340,8 @@ bool KShortcutsEditor_SuperHasHeightForWidth(const KShortcutsEditor* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnHasHeightForWidth(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_HasHeightForWidth_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -377,9 +368,8 @@ QPaintEngine* KShortcutsEditor_SuperPaintEngine(const KShortcutsEditor* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnPaintEngine(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_PaintEngine_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -406,9 +396,8 @@ bool KShortcutsEditor_SuperEvent(KShortcutsEditor* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_Event_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -435,9 +424,8 @@ void KShortcutsEditor_SuperMousePressEvent(KShortcutsEditor* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnMousePressEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_MousePressEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -464,9 +452,8 @@ void KShortcutsEditor_SuperMouseReleaseEvent(KShortcutsEditor* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnMouseReleaseEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -493,9 +480,8 @@ void KShortcutsEditor_SuperMouseDoubleClickEvent(KShortcutsEditor* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnMouseDoubleClickEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -522,9 +508,8 @@ void KShortcutsEditor_SuperMouseMoveEvent(KShortcutsEditor* self, QMouseEvent* e
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnMouseMoveEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_MouseMoveEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -551,9 +536,8 @@ void KShortcutsEditor_SuperWheelEvent(KShortcutsEditor* self, QWheelEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnWheelEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_WheelEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -580,9 +564,8 @@ void KShortcutsEditor_SuperKeyPressEvent(KShortcutsEditor* self, QKeyEvent* even
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnKeyPressEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_KeyPressEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -609,9 +592,8 @@ void KShortcutsEditor_SuperKeyReleaseEvent(KShortcutsEditor* self, QKeyEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnKeyReleaseEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -638,9 +620,8 @@ void KShortcutsEditor_SuperFocusInEvent(KShortcutsEditor* self, QFocusEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnFocusInEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_FocusInEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -667,9 +648,8 @@ void KShortcutsEditor_SuperFocusOutEvent(KShortcutsEditor* self, QFocusEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnFocusOutEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_FocusOutEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -696,9 +676,8 @@ void KShortcutsEditor_SuperEnterEvent(KShortcutsEditor* self, QEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnEnterEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_EnterEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -725,9 +704,8 @@ void KShortcutsEditor_SuperLeaveEvent(KShortcutsEditor* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnLeaveEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_LeaveEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -754,9 +732,8 @@ void KShortcutsEditor_SuperPaintEvent(KShortcutsEditor* self, QPaintEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnPaintEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_PaintEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -783,9 +760,8 @@ void KShortcutsEditor_SuperMoveEvent(KShortcutsEditor* self, QMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnMoveEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_MoveEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -812,9 +788,8 @@ void KShortcutsEditor_SuperResizeEvent(KShortcutsEditor* self, QResizeEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnResizeEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_ResizeEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -841,9 +816,8 @@ void KShortcutsEditor_SuperCloseEvent(KShortcutsEditor* self, QCloseEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnCloseEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_CloseEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -870,9 +844,8 @@ void KShortcutsEditor_SuperContextMenuEvent(KShortcutsEditor* self, QContextMenu
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnContextMenuEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_ContextMenuEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -899,9 +872,8 @@ void KShortcutsEditor_SuperTabletEvent(KShortcutsEditor* self, QTabletEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnTabletEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_TabletEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -928,9 +900,8 @@ void KShortcutsEditor_SuperActionEvent(KShortcutsEditor* self, QActionEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnActionEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_ActionEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -957,9 +928,8 @@ void KShortcutsEditor_SuperDragEnterEvent(KShortcutsEditor* self, QDragEnterEven
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnDragEnterEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_DragEnterEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -986,9 +956,8 @@ void KShortcutsEditor_SuperDragMoveEvent(KShortcutsEditor* self, QDragMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnDragMoveEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_DragMoveEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1015,9 +984,8 @@ void KShortcutsEditor_SuperDragLeaveEvent(KShortcutsEditor* self, QDragLeaveEven
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnDragLeaveEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_DragLeaveEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1044,9 +1012,8 @@ void KShortcutsEditor_SuperDropEvent(KShortcutsEditor* self, QDropEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnDropEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_DropEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1073,9 +1040,8 @@ void KShortcutsEditor_SuperShowEvent(KShortcutsEditor* self, QShowEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnShowEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_ShowEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1102,9 +1068,8 @@ void KShortcutsEditor_SuperHideEvent(KShortcutsEditor* self, QHideEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnHideEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_HideEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1133,9 +1098,8 @@ bool KShortcutsEditor_SuperNativeEvent(KShortcutsEditor* self, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnNativeEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_NativeEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1162,9 +1126,8 @@ void KShortcutsEditor_SuperChangeEvent(KShortcutsEditor* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnChangeEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_ChangeEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1191,9 +1154,8 @@ int KShortcutsEditor_SuperMetric(const KShortcutsEditor* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnMetric(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_Metric_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1220,9 +1182,8 @@ void KShortcutsEditor_SuperInitPainter(const KShortcutsEditor* self, QPainter* p
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnInitPainter(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_InitPainter_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1249,9 +1210,8 @@ QPaintDevice* KShortcutsEditor_SuperRedirected(const KShortcutsEditor* self, QPo
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnRedirected(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_Redirected_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1278,9 +1238,8 @@ QPainter* KShortcutsEditor_SuperSharedPainter(const KShortcutsEditor* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnSharedPainter(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_SharedPainter_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1307,9 +1266,8 @@ void KShortcutsEditor_SuperInputMethodEvent(KShortcutsEditor* self, QInputMethod
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnInputMethodEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_InputMethodEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1336,9 +1294,8 @@ QVariant* KShortcutsEditor_SuperInputMethodQuery(const KShortcutsEditor* self, i
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnInputMethodQuery(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_InputMethodQuery_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1365,9 +1322,8 @@ bool KShortcutsEditor_SuperFocusNextPrevChild(KShortcutsEditor* self, bool next)
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnFocusNextPrevChild(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1394,9 +1350,8 @@ bool KShortcutsEditor_SuperEventFilter(KShortcutsEditor* self, QObject* watched,
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnEventFilter(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_EventFilter_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1423,9 +1378,8 @@ void KShortcutsEditor_SuperTimerEvent(KShortcutsEditor* self, QTimerEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnTimerEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_TimerEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1452,9 +1406,8 @@ void KShortcutsEditor_SuperChildEvent(KShortcutsEditor* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnChildEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_ChildEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1481,9 +1434,8 @@ void KShortcutsEditor_SuperCustomEvent(KShortcutsEditor* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnCustomEvent(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_CustomEvent_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1510,9 +1462,8 @@ void KShortcutsEditor_SuperConnectNotify(KShortcutsEditor* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnConnectNotify(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_ConnectNotify_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1539,9 +1490,8 @@ void KShortcutsEditor_SuperDisconnectNotify(KShortcutsEditor* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnDisconnectNotify(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_DisconnectNotify_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1568,9 +1518,8 @@ void KShortcutsEditor_SuperUpdateMicroFocus(KShortcutsEditor* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnUpdateMicroFocus(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1597,9 +1546,8 @@ void KShortcutsEditor_SuperCreate(KShortcutsEditor* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnCreate(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_Create_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1626,9 +1574,8 @@ void KShortcutsEditor_SuperDestroy(KShortcutsEditor* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnDestroy(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_Destroy_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1655,9 +1602,8 @@ bool KShortcutsEditor_SuperFocusNextChild(KShortcutsEditor* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnFocusNextChild(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_FocusNextChild_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1684,9 +1630,8 @@ bool KShortcutsEditor_SuperFocusPreviousChild(KShortcutsEditor* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnFocusPreviousChild(KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_FocusPreviousChild_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1713,9 +1658,8 @@ QObject* KShortcutsEditor_SuperSender(const KShortcutsEditor* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnSender(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_Sender_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1742,9 +1686,8 @@ int KShortcutsEditor_SuperSenderSignalIndex(const KShortcutsEditor* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnSenderSignalIndex(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_SenderSignalIndex_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1771,9 +1714,8 @@ int KShortcutsEditor_SuperReceivers(const KShortcutsEditor* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnReceivers(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_Receivers_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1800,9 +1742,8 @@ bool KShortcutsEditor_SuperIsSignalConnected(const KShortcutsEditor* self, const
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnIsSignalConnected(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_IsSignalConnected_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1829,9 +1770,8 @@ double KShortcutsEditor_SuperGetDecodedMetricF(const KShortcutsEditor* self, int
 // Auxiliary method to allow providing re-implementation
 void KShortcutsEditor_OnGetDecodedMetricF(const KShortcutsEditor* self, intptr_t slot) {
     auto* vkshortcutseditor = const_cast<VirtualKShortcutsEditor*>(dynamic_cast<const VirtualKShortcutsEditor*>(self));
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
+    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor)
         vkshortcutseditor->setKShortcutsEditor_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKShortcutsEditor::KShortcutsEditor_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KShortcutsEditor_Delete(KShortcutsEditor* self) {

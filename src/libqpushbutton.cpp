@@ -197,9 +197,8 @@ QMetaObject* QPushButton_SuperMetaObject(const QPushButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnMetaObject(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_MetaObject_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -216,9 +215,8 @@ void* QPushButton_SuperMetacast(QPushButton* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnMetacast(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_Metacast_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -235,9 +233,8 @@ int QPushButton_SuperMetacall(QPushButton* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnMetacall(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_Metacall_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -254,9 +251,8 @@ QSize* QPushButton_SuperSizeHint(const QPushButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnSizeHint(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_SizeHint_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -273,9 +269,8 @@ QSize* QPushButton_SuperMinimumSizeHint(const QPushButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnMinimumSizeHint(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_MinimumSizeHint_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -292,9 +287,8 @@ bool QPushButton_SuperEvent(QPushButton* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_Event_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -311,9 +305,8 @@ void QPushButton_SuperPaintEvent(QPushButton* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnPaintEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_PaintEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -330,9 +323,8 @@ void QPushButton_SuperKeyPressEvent(QPushButton* self, QKeyEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnKeyPressEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_KeyPressEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -349,9 +341,8 @@ void QPushButton_SuperFocusInEvent(QPushButton* self, QFocusEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnFocusInEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_FocusInEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -368,9 +359,8 @@ void QPushButton_SuperFocusOutEvent(QPushButton* self, QFocusEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnFocusOutEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_FocusOutEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -387,9 +377,8 @@ void QPushButton_SuperMouseMoveEvent(QPushButton* self, QMouseEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnMouseMoveEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_MouseMoveEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -406,9 +395,8 @@ void QPushButton_SuperInitStyleOption(const QPushButton* self, QStyleOptionButto
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnInitStyleOption(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_InitStyleOption_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -425,9 +413,8 @@ bool QPushButton_SuperHitButton(const QPushButton* self, const QPoint* pos) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnHitButton(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_HitButton_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_HitButton_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -454,9 +441,8 @@ void QPushButton_SuperCheckStateSet(QPushButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnCheckStateSet(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_CheckStateSet_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_CheckStateSet_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -483,9 +469,8 @@ void QPushButton_SuperNextCheckState(QPushButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnNextCheckState(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_NextCheckState_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_NextCheckState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -512,9 +497,8 @@ void QPushButton_SuperKeyReleaseEvent(QPushButton* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnKeyReleaseEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -541,9 +525,8 @@ void QPushButton_SuperMousePressEvent(QPushButton* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnMousePressEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_MousePressEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -570,9 +553,8 @@ void QPushButton_SuperMouseReleaseEvent(QPushButton* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnMouseReleaseEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -599,9 +581,8 @@ void QPushButton_SuperChangeEvent(QPushButton* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnChangeEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_ChangeEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -628,9 +609,8 @@ void QPushButton_SuperTimerEvent(QPushButton* self, QTimerEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnTimerEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_TimerEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -657,9 +637,8 @@ int QPushButton_SuperDevType(const QPushButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnDevType(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_DevType_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -686,9 +665,8 @@ void QPushButton_SuperSetVisible(QPushButton* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnSetVisible(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_SetVisible_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -715,9 +693,8 @@ int QPushButton_SuperHeightForWidth(const QPushButton* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnHeightForWidth(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_HeightForWidth_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -744,9 +721,8 @@ bool QPushButton_SuperHasHeightForWidth(const QPushButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnHasHeightForWidth(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_HasHeightForWidth_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -773,9 +749,8 @@ QPaintEngine* QPushButton_SuperPaintEngine(const QPushButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnPaintEngine(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_PaintEngine_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -802,9 +777,8 @@ void QPushButton_SuperMouseDoubleClickEvent(QPushButton* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnMouseDoubleClickEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -831,9 +805,8 @@ void QPushButton_SuperWheelEvent(QPushButton* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnWheelEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_WheelEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -860,9 +833,8 @@ void QPushButton_SuperEnterEvent(QPushButton* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnEnterEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_EnterEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -889,9 +861,8 @@ void QPushButton_SuperLeaveEvent(QPushButton* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnLeaveEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_LeaveEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -918,9 +889,8 @@ void QPushButton_SuperMoveEvent(QPushButton* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnMoveEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_MoveEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -947,9 +917,8 @@ void QPushButton_SuperResizeEvent(QPushButton* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnResizeEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_ResizeEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -976,9 +945,8 @@ void QPushButton_SuperCloseEvent(QPushButton* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnCloseEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_CloseEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1005,9 +973,8 @@ void QPushButton_SuperContextMenuEvent(QPushButton* self, QContextMenuEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnContextMenuEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_ContextMenuEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1034,9 +1001,8 @@ void QPushButton_SuperTabletEvent(QPushButton* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnTabletEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_TabletEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1063,9 +1029,8 @@ void QPushButton_SuperActionEvent(QPushButton* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnActionEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_ActionEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1092,9 +1057,8 @@ void QPushButton_SuperDragEnterEvent(QPushButton* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnDragEnterEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_DragEnterEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1121,9 +1085,8 @@ void QPushButton_SuperDragMoveEvent(QPushButton* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnDragMoveEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_DragMoveEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1150,9 +1113,8 @@ void QPushButton_SuperDragLeaveEvent(QPushButton* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnDragLeaveEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_DragLeaveEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1179,9 +1141,8 @@ void QPushButton_SuperDropEvent(QPushButton* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnDropEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_DropEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1208,9 +1169,8 @@ void QPushButton_SuperShowEvent(QPushButton* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnShowEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_ShowEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1237,9 +1197,8 @@ void QPushButton_SuperHideEvent(QPushButton* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnHideEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_HideEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1268,9 +1227,8 @@ bool QPushButton_SuperNativeEvent(QPushButton* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnNativeEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_NativeEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1297,9 +1255,8 @@ int QPushButton_SuperMetric(const QPushButton* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnMetric(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_Metric_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1326,9 +1283,8 @@ void QPushButton_SuperInitPainter(const QPushButton* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnInitPainter(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_InitPainter_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1355,9 +1311,8 @@ QPaintDevice* QPushButton_SuperRedirected(const QPushButton* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnRedirected(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_Redirected_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1384,9 +1339,8 @@ QPainter* QPushButton_SuperSharedPainter(const QPushButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnSharedPainter(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_SharedPainter_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1413,9 +1367,8 @@ void QPushButton_SuperInputMethodEvent(QPushButton* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnInputMethodEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_InputMethodEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1442,9 +1395,8 @@ QVariant* QPushButton_SuperInputMethodQuery(const QPushButton* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnInputMethodQuery(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_InputMethodQuery_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1471,9 +1423,8 @@ bool QPushButton_SuperFocusNextPrevChild(QPushButton* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnFocusNextPrevChild(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1500,9 +1451,8 @@ bool QPushButton_SuperEventFilter(QPushButton* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnEventFilter(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_EventFilter_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1529,9 +1479,8 @@ void QPushButton_SuperChildEvent(QPushButton* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnChildEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_ChildEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1558,9 +1507,8 @@ void QPushButton_SuperCustomEvent(QPushButton* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnCustomEvent(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_CustomEvent_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1587,9 +1535,8 @@ void QPushButton_SuperConnectNotify(QPushButton* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnConnectNotify(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_ConnectNotify_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1616,9 +1563,8 @@ void QPushButton_SuperDisconnectNotify(QPushButton* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnDisconnectNotify(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_DisconnectNotify_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1645,9 +1591,8 @@ void QPushButton_SuperUpdateMicroFocus(QPushButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnUpdateMicroFocus(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1674,9 +1619,8 @@ void QPushButton_SuperCreate(QPushButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnCreate(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_Create_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1703,9 +1647,8 @@ void QPushButton_SuperDestroy(QPushButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnDestroy(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_Destroy_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1732,9 +1675,8 @@ bool QPushButton_SuperFocusNextChild(QPushButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnFocusNextChild(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_FocusNextChild_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1761,9 +1703,8 @@ bool QPushButton_SuperFocusPreviousChild(QPushButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnFocusPreviousChild(QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_FocusPreviousChild_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1790,9 +1731,8 @@ QObject* QPushButton_SuperSender(const QPushButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnSender(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_Sender_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1819,9 +1759,8 @@ int QPushButton_SuperSenderSignalIndex(const QPushButton* self) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnSenderSignalIndex(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1848,9 +1787,8 @@ int QPushButton_SuperReceivers(const QPushButton* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnReceivers(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_Receivers_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1877,9 +1815,8 @@ bool QPushButton_SuperIsSignalConnected(const QPushButton* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnIsSignalConnected(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_IsSignalConnected_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1906,9 +1843,8 @@ double QPushButton_SuperGetDecodedMetricF(const QPushButton* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void QPushButton_OnGetDecodedMetricF(const QPushButton* self, intptr_t slot) {
     auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton)
         vqpushbutton->setQPushButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QPushButton_Delete(QPushButton* self) {

@@ -3152,7 +3152,7 @@ pub const KFileItemDelegate = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kfileitemdelegate.html#public-types)
 pub const enums = struct {
-    pub const Information = enum(i32) {
+    pub const Information = enum {
         pub const NoInformation: i32 = 0;
         pub const Size: i32 = 1;
         pub const Permissions: i32 = 2;

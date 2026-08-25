@@ -162,9 +162,8 @@ QMetaObject* KLed_SuperMetaObject(const KLed* self) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMetaObject(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_MetaObject_Callback(reinterpret_cast<VirtualKLed::KLed_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -181,9 +180,8 @@ void* KLed_SuperMetacast(KLed* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMetacast(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_Metacast_Callback(reinterpret_cast<VirtualKLed::KLed_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -200,9 +198,8 @@ int KLed_SuperMetacall(KLed* self, int param1, int param2, void** param3) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMetacall(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_Metacall_Callback(reinterpret_cast<VirtualKLed::KLed_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -219,9 +216,8 @@ QSize* KLed_SuperSizeHint(const KLed* self) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnSizeHint(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_SizeHint_Callback(reinterpret_cast<VirtualKLed::KLed_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -238,9 +234,8 @@ QSize* KLed_SuperMinimumSizeHint(const KLed* self) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMinimumSizeHint(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_MinimumSizeHint_Callback(reinterpret_cast<VirtualKLed::KLed_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -257,9 +252,8 @@ void KLed_SuperPaintEvent(KLed* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnPaintEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_PaintEvent_Callback(reinterpret_cast<VirtualKLed::KLed_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -276,9 +270,8 @@ void KLed_SuperResizeEvent(KLed* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnResizeEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_ResizeEvent_Callback(reinterpret_cast<VirtualKLed::KLed_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -305,9 +298,8 @@ int KLed_SuperDevType(const KLed* self) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnDevType(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_DevType_Callback(reinterpret_cast<VirtualKLed::KLed_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -334,9 +326,8 @@ void KLed_SuperSetVisible(KLed* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnSetVisible(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_SetVisible_Callback(reinterpret_cast<VirtualKLed::KLed_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -363,9 +354,8 @@ int KLed_SuperHeightForWidth(const KLed* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnHeightForWidth(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_HeightForWidth_Callback(reinterpret_cast<VirtualKLed::KLed_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -392,9 +382,8 @@ bool KLed_SuperHasHeightForWidth(const KLed* self) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnHasHeightForWidth(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_HasHeightForWidth_Callback(reinterpret_cast<VirtualKLed::KLed_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -421,9 +410,8 @@ QPaintEngine* KLed_SuperPaintEngine(const KLed* self) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnPaintEngine(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_PaintEngine_Callback(reinterpret_cast<VirtualKLed::KLed_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -450,9 +438,8 @@ bool KLed_SuperEvent(KLed* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_Event_Callback(reinterpret_cast<VirtualKLed::KLed_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -479,9 +466,8 @@ void KLed_SuperMousePressEvent(KLed* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMousePressEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_MousePressEvent_Callback(reinterpret_cast<VirtualKLed::KLed_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -508,9 +494,8 @@ void KLed_SuperMouseReleaseEvent(KLed* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMouseReleaseEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKLed::KLed_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -537,9 +522,8 @@ void KLed_SuperMouseDoubleClickEvent(KLed* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMouseDoubleClickEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKLed::KLed_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -566,9 +550,8 @@ void KLed_SuperMouseMoveEvent(KLed* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMouseMoveEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_MouseMoveEvent_Callback(reinterpret_cast<VirtualKLed::KLed_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -595,9 +578,8 @@ void KLed_SuperWheelEvent(KLed* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnWheelEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_WheelEvent_Callback(reinterpret_cast<VirtualKLed::KLed_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -624,9 +606,8 @@ void KLed_SuperKeyPressEvent(KLed* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnKeyPressEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_KeyPressEvent_Callback(reinterpret_cast<VirtualKLed::KLed_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -653,9 +634,8 @@ void KLed_SuperKeyReleaseEvent(KLed* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnKeyReleaseEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKLed::KLed_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -682,9 +662,8 @@ void KLed_SuperFocusInEvent(KLed* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnFocusInEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_FocusInEvent_Callback(reinterpret_cast<VirtualKLed::KLed_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -711,9 +690,8 @@ void KLed_SuperFocusOutEvent(KLed* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnFocusOutEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_FocusOutEvent_Callback(reinterpret_cast<VirtualKLed::KLed_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -740,9 +718,8 @@ void KLed_SuperEnterEvent(KLed* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnEnterEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_EnterEvent_Callback(reinterpret_cast<VirtualKLed::KLed_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -769,9 +746,8 @@ void KLed_SuperLeaveEvent(KLed* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnLeaveEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_LeaveEvent_Callback(reinterpret_cast<VirtualKLed::KLed_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -798,9 +774,8 @@ void KLed_SuperMoveEvent(KLed* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMoveEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_MoveEvent_Callback(reinterpret_cast<VirtualKLed::KLed_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -827,9 +802,8 @@ void KLed_SuperCloseEvent(KLed* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnCloseEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_CloseEvent_Callback(reinterpret_cast<VirtualKLed::KLed_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -856,9 +830,8 @@ void KLed_SuperContextMenuEvent(KLed* self, QContextMenuEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnContextMenuEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_ContextMenuEvent_Callback(reinterpret_cast<VirtualKLed::KLed_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -885,9 +858,8 @@ void KLed_SuperTabletEvent(KLed* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnTabletEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_TabletEvent_Callback(reinterpret_cast<VirtualKLed::KLed_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -914,9 +886,8 @@ void KLed_SuperActionEvent(KLed* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnActionEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_ActionEvent_Callback(reinterpret_cast<VirtualKLed::KLed_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -943,9 +914,8 @@ void KLed_SuperDragEnterEvent(KLed* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnDragEnterEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_DragEnterEvent_Callback(reinterpret_cast<VirtualKLed::KLed_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -972,9 +942,8 @@ void KLed_SuperDragMoveEvent(KLed* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnDragMoveEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_DragMoveEvent_Callback(reinterpret_cast<VirtualKLed::KLed_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1001,9 +970,8 @@ void KLed_SuperDragLeaveEvent(KLed* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnDragLeaveEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_DragLeaveEvent_Callback(reinterpret_cast<VirtualKLed::KLed_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1030,9 +998,8 @@ void KLed_SuperDropEvent(KLed* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnDropEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_DropEvent_Callback(reinterpret_cast<VirtualKLed::KLed_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1059,9 +1026,8 @@ void KLed_SuperShowEvent(KLed* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnShowEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_ShowEvent_Callback(reinterpret_cast<VirtualKLed::KLed_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1088,9 +1054,8 @@ void KLed_SuperHideEvent(KLed* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnHideEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_HideEvent_Callback(reinterpret_cast<VirtualKLed::KLed_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1119,9 +1084,8 @@ bool KLed_SuperNativeEvent(KLed* self, const libqt_string eventType, void* messa
 // Auxiliary method to allow providing re-implementation
 void KLed_OnNativeEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_NativeEvent_Callback(reinterpret_cast<VirtualKLed::KLed_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1148,9 +1112,8 @@ void KLed_SuperChangeEvent(KLed* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnChangeEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_ChangeEvent_Callback(reinterpret_cast<VirtualKLed::KLed_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1177,9 +1140,8 @@ int KLed_SuperMetric(const KLed* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnMetric(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_Metric_Callback(reinterpret_cast<VirtualKLed::KLed_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1206,9 +1168,8 @@ void KLed_SuperInitPainter(const KLed* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnInitPainter(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_InitPainter_Callback(reinterpret_cast<VirtualKLed::KLed_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1235,9 +1196,8 @@ QPaintDevice* KLed_SuperRedirected(const KLed* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnRedirected(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_Redirected_Callback(reinterpret_cast<VirtualKLed::KLed_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1264,9 +1224,8 @@ QPainter* KLed_SuperSharedPainter(const KLed* self) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnSharedPainter(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_SharedPainter_Callback(reinterpret_cast<VirtualKLed::KLed_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1293,9 +1252,8 @@ void KLed_SuperInputMethodEvent(KLed* self, QInputMethodEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnInputMethodEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_InputMethodEvent_Callback(reinterpret_cast<VirtualKLed::KLed_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1322,9 +1280,8 @@ QVariant* KLed_SuperInputMethodQuery(const KLed* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnInputMethodQuery(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_InputMethodQuery_Callback(reinterpret_cast<VirtualKLed::KLed_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1351,9 +1308,8 @@ bool KLed_SuperFocusNextPrevChild(KLed* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnFocusNextPrevChild(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKLed::KLed_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1380,9 +1336,8 @@ bool KLed_SuperEventFilter(KLed* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnEventFilter(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_EventFilter_Callback(reinterpret_cast<VirtualKLed::KLed_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1409,9 +1364,8 @@ void KLed_SuperTimerEvent(KLed* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnTimerEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_TimerEvent_Callback(reinterpret_cast<VirtualKLed::KLed_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1438,9 +1392,8 @@ void KLed_SuperChildEvent(KLed* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnChildEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_ChildEvent_Callback(reinterpret_cast<VirtualKLed::KLed_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1467,9 +1420,8 @@ void KLed_SuperCustomEvent(KLed* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnCustomEvent(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_CustomEvent_Callback(reinterpret_cast<VirtualKLed::KLed_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1496,9 +1448,8 @@ void KLed_SuperConnectNotify(KLed* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnConnectNotify(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_ConnectNotify_Callback(reinterpret_cast<VirtualKLed::KLed_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1525,9 +1476,8 @@ void KLed_SuperDisconnectNotify(KLed* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnDisconnectNotify(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_DisconnectNotify_Callback(reinterpret_cast<VirtualKLed::KLed_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1554,9 +1504,8 @@ void KLed_SuperUpdateMicroFocus(KLed* self) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnUpdateMicroFocus(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKLed::KLed_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1583,9 +1532,8 @@ void KLed_SuperCreate(KLed* self) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnCreate(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_Create_Callback(reinterpret_cast<VirtualKLed::KLed_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1612,9 +1560,8 @@ void KLed_SuperDestroy(KLed* self) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnDestroy(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_Destroy_Callback(reinterpret_cast<VirtualKLed::KLed_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1641,9 +1588,8 @@ bool KLed_SuperFocusNextChild(KLed* self) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnFocusNextChild(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_FocusNextChild_Callback(reinterpret_cast<VirtualKLed::KLed_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1670,9 +1616,8 @@ bool KLed_SuperFocusPreviousChild(KLed* self) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnFocusPreviousChild(KLed* self, intptr_t slot) {
     auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_FocusPreviousChild_Callback(reinterpret_cast<VirtualKLed::KLed_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1699,9 +1644,8 @@ QObject* KLed_SuperSender(const KLed* self) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnSender(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_Sender_Callback(reinterpret_cast<VirtualKLed::KLed_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1728,9 +1672,8 @@ int KLed_SuperSenderSignalIndex(const KLed* self) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnSenderSignalIndex(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_SenderSignalIndex_Callback(reinterpret_cast<VirtualKLed::KLed_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1757,9 +1700,8 @@ int KLed_SuperReceivers(const KLed* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnReceivers(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_Receivers_Callback(reinterpret_cast<VirtualKLed::KLed_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1786,9 +1728,8 @@ bool KLed_SuperIsSignalConnected(const KLed* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnIsSignalConnected(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_IsSignalConnected_Callback(reinterpret_cast<VirtualKLed::KLed_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1815,9 +1756,8 @@ double KLed_SuperGetDecodedMetricF(const KLed* self, int metricA, int metricB) {
 // Auxiliary method to allow providing re-implementation
 void KLed_OnGetDecodedMetricF(const KLed* self, intptr_t slot) {
     auto* vkled = const_cast<VirtualKLed*>(dynamic_cast<const VirtualKLed*>(self));
-    if (vkled && vkled->isVirtualKLed) {
+    if (vkled && vkled->isVirtualKLed)
         vkled->setKLed_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKLed::KLed_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KLed_Delete(KLed* self) {

@@ -55,9 +55,8 @@ QMetaObject* KEmailValidator_SuperMetaObject(const KEmailValidator* self) {
 // Auxiliary method to allow providing re-implementation
 void KEmailValidator_OnMetaObject(const KEmailValidator* self, intptr_t slot) {
     auto* vkemailvalidator = const_cast<VirtualKEmailValidator*>(dynamic_cast<const VirtualKEmailValidator*>(self));
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator)
         vkemailvalidator->setKEmailValidator_MetaObject_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -74,9 +73,8 @@ void* KEmailValidator_SuperMetacast(KEmailValidator* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KEmailValidator_OnMetacast(KEmailValidator* self, intptr_t slot) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator)
         vkemailvalidator->setKEmailValidator_Metacast_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -93,9 +91,8 @@ int KEmailValidator_SuperMetacall(KEmailValidator* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KEmailValidator_OnMetacall(KEmailValidator* self, intptr_t slot) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator)
         vkemailvalidator->setKEmailValidator_Metacall_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -113,9 +110,8 @@ int KEmailValidator_SuperValidate(const KEmailValidator* self, libqt_string str,
 // Auxiliary method to allow providing re-implementation
 void KEmailValidator_OnValidate(const KEmailValidator* self, intptr_t slot) {
     auto* vkemailvalidator = const_cast<VirtualKEmailValidator*>(dynamic_cast<const VirtualKEmailValidator*>(self));
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator)
         vkemailvalidator->setKEmailValidator_Validate_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_Validate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -133,9 +129,8 @@ void KEmailValidator_SuperFixup(const KEmailValidator* self, libqt_string str) {
 // Auxiliary method to allow providing re-implementation
 void KEmailValidator_OnFixup(const KEmailValidator* self, intptr_t slot) {
     auto* vkemailvalidator = const_cast<VirtualKEmailValidator*>(dynamic_cast<const VirtualKEmailValidator*>(self));
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator)
         vkemailvalidator->setKEmailValidator_Fixup_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_Fixup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -162,9 +157,8 @@ bool KEmailValidator_SuperEvent(KEmailValidator* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEmailValidator_OnEvent(KEmailValidator* self, intptr_t slot) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator)
         vkemailvalidator->setKEmailValidator_Event_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -191,9 +185,8 @@ bool KEmailValidator_SuperEventFilter(KEmailValidator* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void KEmailValidator_OnEventFilter(KEmailValidator* self, intptr_t slot) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator)
         vkemailvalidator->setKEmailValidator_EventFilter_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -220,9 +213,8 @@ void KEmailValidator_SuperTimerEvent(KEmailValidator* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KEmailValidator_OnTimerEvent(KEmailValidator* self, intptr_t slot) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator)
         vkemailvalidator->setKEmailValidator_TimerEvent_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -249,9 +241,8 @@ void KEmailValidator_SuperChildEvent(KEmailValidator* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KEmailValidator_OnChildEvent(KEmailValidator* self, intptr_t slot) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator)
         vkemailvalidator->setKEmailValidator_ChildEvent_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -278,9 +269,8 @@ void KEmailValidator_SuperCustomEvent(KEmailValidator* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KEmailValidator_OnCustomEvent(KEmailValidator* self, intptr_t slot) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator)
         vkemailvalidator->setKEmailValidator_CustomEvent_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -307,9 +297,8 @@ void KEmailValidator_SuperConnectNotify(KEmailValidator* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KEmailValidator_OnConnectNotify(KEmailValidator* self, intptr_t slot) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator)
         vkemailvalidator->setKEmailValidator_ConnectNotify_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -336,9 +325,8 @@ void KEmailValidator_SuperDisconnectNotify(KEmailValidator* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KEmailValidator_OnDisconnectNotify(KEmailValidator* self, intptr_t slot) {
     auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator)
         vkemailvalidator->setKEmailValidator_DisconnectNotify_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -365,9 +353,8 @@ QObject* KEmailValidator_SuperSender(const KEmailValidator* self) {
 // Auxiliary method to allow providing re-implementation
 void KEmailValidator_OnSender(const KEmailValidator* self, intptr_t slot) {
     auto* vkemailvalidator = const_cast<VirtualKEmailValidator*>(dynamic_cast<const VirtualKEmailValidator*>(self));
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator)
         vkemailvalidator->setKEmailValidator_Sender_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -394,9 +381,8 @@ int KEmailValidator_SuperSenderSignalIndex(const KEmailValidator* self) {
 // Auxiliary method to allow providing re-implementation
 void KEmailValidator_OnSenderSignalIndex(const KEmailValidator* self, intptr_t slot) {
     auto* vkemailvalidator = const_cast<VirtualKEmailValidator*>(dynamic_cast<const VirtualKEmailValidator*>(self));
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator)
         vkemailvalidator->setKEmailValidator_SenderSignalIndex_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -423,9 +409,8 @@ int KEmailValidator_SuperReceivers(const KEmailValidator* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KEmailValidator_OnReceivers(const KEmailValidator* self, intptr_t slot) {
     auto* vkemailvalidator = const_cast<VirtualKEmailValidator*>(dynamic_cast<const VirtualKEmailValidator*>(self));
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator)
         vkemailvalidator->setKEmailValidator_Receivers_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -452,9 +437,8 @@ bool KEmailValidator_SuperIsSignalConnected(const KEmailValidator* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KEmailValidator_OnIsSignalConnected(const KEmailValidator* self, intptr_t slot) {
     auto* vkemailvalidator = const_cast<VirtualKEmailValidator*>(dynamic_cast<const VirtualKEmailValidator*>(self));
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
+    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator)
         vkemailvalidator->setKEmailValidator_IsSignalConnected_Callback(reinterpret_cast<VirtualKEmailValidator::KEmailValidator_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KEmailValidator_Delete(KEmailValidator* self) {

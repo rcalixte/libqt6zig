@@ -53,6 +53,27 @@ pub const QExtensionManager = extern struct {
         return .{ .ptr = qtc.QExtensionManager_new2(@ptrCast(_parent.ptr)) };
     }
 
+    /// Upcasts to a QAbstractExtensionManager object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QExtensionManager `
+    ///
+    pub fn asQAbstractExtensionManager(self: QExtensionManager) QAbstractExtensionManager {
+        return .{ .ptr = qtc.QExtensionManager_AsQAbstractExtensionManager(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a QExtensionManager object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qabstractextensionmanager: QAbstractExtensionManager `
+    ///
+    pub fn fromQAbstractExtensionManager(_qabstractextensionmanager: anytype) QExtensionManager {
+        comptime _ = @TypeOf(_qabstractextensionmanager)._is_QAbstractExtensionManager;
+        return .{ .ptr = @ptrCast(qtc.QExtensionManager_FromQAbstractExtensionManager(@ptrCast(_qabstractextensionmanager.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `metaObject` instead
     ///
     pub const MetaObject = metaObject;
@@ -1453,7 +1474,7 @@ pub const QExtensionManager = extern struct {
     ///
     pub fn operatorAssign(self: QExtensionManager, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAbstractExtensionManager;
-        qtc.QAbstractExtensionManager_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        qtc.QAbstractExtensionManager_OperatorAssign(@ptrCast(self.asQAbstractExtensionManager().ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `event` instead

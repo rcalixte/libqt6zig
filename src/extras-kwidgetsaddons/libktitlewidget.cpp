@@ -195,9 +195,8 @@ QMetaObject* KTitleWidget_SuperMetaObject(const KTitleWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMetaObject(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_MetaObject_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -214,9 +213,8 @@ void* KTitleWidget_SuperMetacast(KTitleWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMetacast(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_Metacast_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -233,9 +231,8 @@ int KTitleWidget_SuperMetacall(KTitleWidget* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMetacall(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_Metacall_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -252,9 +249,8 @@ void KTitleWidget_SuperChangeEvent(KTitleWidget* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnChangeEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -271,9 +267,8 @@ void KTitleWidget_SuperShowEvent(KTitleWidget* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnShowEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_ShowEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -290,9 +285,8 @@ bool KTitleWidget_SuperEventFilter(KTitleWidget* self, QObject* object, QEvent* 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnEventFilter(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_EventFilter_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -319,9 +313,8 @@ int KTitleWidget_SuperDevType(const KTitleWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnDevType(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_DevType_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -348,9 +341,8 @@ void KTitleWidget_SuperSetVisible(KTitleWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnSetVisible(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_SetVisible_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -377,9 +369,8 @@ QSize* KTitleWidget_SuperSizeHint(const KTitleWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnSizeHint(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_SizeHint_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -406,9 +397,8 @@ QSize* KTitleWidget_SuperMinimumSizeHint(const KTitleWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMinimumSizeHint(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -435,9 +425,8 @@ int KTitleWidget_SuperHeightForWidth(const KTitleWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnHeightForWidth(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -464,9 +453,8 @@ bool KTitleWidget_SuperHasHeightForWidth(const KTitleWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnHasHeightForWidth(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -493,9 +481,8 @@ QPaintEngine* KTitleWidget_SuperPaintEngine(const KTitleWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnPaintEngine(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_PaintEngine_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -522,9 +509,8 @@ bool KTitleWidget_SuperEvent(KTitleWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_Event_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -551,9 +537,8 @@ void KTitleWidget_SuperMousePressEvent(KTitleWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMousePressEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -580,9 +565,8 @@ void KTitleWidget_SuperMouseReleaseEvent(KTitleWidget* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMouseReleaseEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -609,9 +593,8 @@ void KTitleWidget_SuperMouseDoubleClickEvent(KTitleWidget* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMouseDoubleClickEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -638,9 +621,8 @@ void KTitleWidget_SuperMouseMoveEvent(KTitleWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMouseMoveEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -667,9 +649,8 @@ void KTitleWidget_SuperWheelEvent(KTitleWidget* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnWheelEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_WheelEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -696,9 +677,8 @@ void KTitleWidget_SuperKeyPressEvent(KTitleWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnKeyPressEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -725,9 +705,8 @@ void KTitleWidget_SuperKeyReleaseEvent(KTitleWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnKeyReleaseEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -754,9 +733,8 @@ void KTitleWidget_SuperFocusInEvent(KTitleWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnFocusInEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -783,9 +761,8 @@ void KTitleWidget_SuperFocusOutEvent(KTitleWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnFocusOutEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -812,9 +789,8 @@ void KTitleWidget_SuperEnterEvent(KTitleWidget* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnEnterEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_EnterEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -841,9 +817,8 @@ void KTitleWidget_SuperLeaveEvent(KTitleWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnLeaveEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -870,9 +845,8 @@ void KTitleWidget_SuperPaintEvent(KTitleWidget* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnPaintEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_PaintEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -899,9 +873,8 @@ void KTitleWidget_SuperMoveEvent(KTitleWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMoveEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_MoveEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -928,9 +901,8 @@ void KTitleWidget_SuperResizeEvent(KTitleWidget* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnResizeEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -957,9 +929,8 @@ void KTitleWidget_SuperCloseEvent(KTitleWidget* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnCloseEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_CloseEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -986,9 +957,8 @@ void KTitleWidget_SuperContextMenuEvent(KTitleWidget* self, QContextMenuEvent* e
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnContextMenuEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1015,9 +985,8 @@ void KTitleWidget_SuperTabletEvent(KTitleWidget* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnTabletEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_TabletEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1044,9 +1013,8 @@ void KTitleWidget_SuperActionEvent(KTitleWidget* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnActionEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_ActionEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1073,9 +1041,8 @@ void KTitleWidget_SuperDragEnterEvent(KTitleWidget* self, QDragEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnDragEnterEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1102,9 +1069,8 @@ void KTitleWidget_SuperDragMoveEvent(KTitleWidget* self, QDragMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnDragMoveEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1131,9 +1097,8 @@ void KTitleWidget_SuperDragLeaveEvent(KTitleWidget* self, QDragLeaveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnDragLeaveEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1160,9 +1125,8 @@ void KTitleWidget_SuperDropEvent(KTitleWidget* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnDropEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_DropEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1189,9 +1153,8 @@ void KTitleWidget_SuperHideEvent(KTitleWidget* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnHideEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_HideEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1220,9 +1183,8 @@ bool KTitleWidget_SuperNativeEvent(KTitleWidget* self, const libqt_string eventT
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnNativeEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_NativeEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1249,9 +1211,8 @@ int KTitleWidget_SuperMetric(const KTitleWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnMetric(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_Metric_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1278,9 +1239,8 @@ void KTitleWidget_SuperInitPainter(const KTitleWidget* self, QPainter* painter) 
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnInitPainter(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_InitPainter_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1307,9 +1267,8 @@ QPaintDevice* KTitleWidget_SuperRedirected(const KTitleWidget* self, QPoint* off
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnRedirected(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_Redirected_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1336,9 +1295,8 @@ QPainter* KTitleWidget_SuperSharedPainter(const KTitleWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnSharedPainter(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_SharedPainter_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1365,9 +1323,8 @@ void KTitleWidget_SuperInputMethodEvent(KTitleWidget* self, QInputMethodEvent* p
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnInputMethodEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1394,9 +1351,8 @@ QVariant* KTitleWidget_SuperInputMethodQuery(const KTitleWidget* self, int param
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnInputMethodQuery(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1423,9 +1379,8 @@ bool KTitleWidget_SuperFocusNextPrevChild(KTitleWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnFocusNextPrevChild(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1452,9 +1407,8 @@ void KTitleWidget_SuperTimerEvent(KTitleWidget* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnTimerEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_TimerEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1481,9 +1435,8 @@ void KTitleWidget_SuperChildEvent(KTitleWidget* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnChildEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_ChildEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1510,9 +1463,8 @@ void KTitleWidget_SuperCustomEvent(KTitleWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnCustomEvent(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_CustomEvent_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1539,9 +1491,8 @@ void KTitleWidget_SuperConnectNotify(KTitleWidget* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnConnectNotify(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1568,9 +1519,8 @@ void KTitleWidget_SuperDisconnectNotify(KTitleWidget* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnDisconnectNotify(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1597,9 +1547,8 @@ void KTitleWidget_SuperUpdateMicroFocus(KTitleWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnUpdateMicroFocus(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1626,9 +1575,8 @@ void KTitleWidget_SuperCreate(KTitleWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnCreate(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_Create_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1655,9 +1603,8 @@ void KTitleWidget_SuperDestroy(KTitleWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnDestroy(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_Destroy_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1684,9 +1631,8 @@ bool KTitleWidget_SuperFocusNextChild(KTitleWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnFocusNextChild(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1713,9 +1659,8 @@ bool KTitleWidget_SuperFocusPreviousChild(KTitleWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnFocusPreviousChild(KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1742,9 +1687,8 @@ QObject* KTitleWidget_SuperSender(const KTitleWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnSender(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_Sender_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1771,9 +1715,8 @@ int KTitleWidget_SuperSenderSignalIndex(const KTitleWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnSenderSignalIndex(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1800,9 +1743,8 @@ int KTitleWidget_SuperReceivers(const KTitleWidget* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnReceivers(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_Receivers_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1829,9 +1771,8 @@ bool KTitleWidget_SuperIsSignalConnected(const KTitleWidget* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnIsSignalConnected(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1858,9 +1799,8 @@ double KTitleWidget_SuperGetDecodedMetricF(const KTitleWidget* self, int metricA
 // Auxiliary method to allow providing re-implementation
 void KTitleWidget_OnGetDecodedMetricF(const KTitleWidget* self, intptr_t slot) {
     auto* vktitlewidget = const_cast<VirtualKTitleWidget*>(dynamic_cast<const VirtualKTitleWidget*>(self));
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
+    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget)
         vktitlewidget->setKTitleWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKTitleWidget::KTitleWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KTitleWidget_Delete(KTitleWidget* self) {

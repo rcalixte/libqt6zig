@@ -2710,7 +2710,7 @@ pub const QPointingDevice = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointingdevice.html#public-types)
 pub const enums = struct {
-    pub const PointerType = enum(i32) {
+    pub const PointerType = enum {
         pub const Unknown: i32 = 0;
         pub const Generic: i32 = 1;
         pub const Finger: i32 = 2;
@@ -2720,7 +2720,7 @@ pub const enums = struct {
         pub const AllPointerTypes: i32 = 32767;
     };
 
-    pub const GrabTransition = enum(i32) {
+    pub const GrabTransition = enum {
         pub const GrabPassive: i32 = 1;
         pub const UngrabPassive: i32 = 2;
         pub const CancelGrabPassive: i32 = 3;

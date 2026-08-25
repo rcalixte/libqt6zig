@@ -2792,7 +2792,7 @@ pub const KFind = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kfind.html#public-types)
 pub const enums = struct {
-    pub const Options = enum(i32) {
+    pub const Options = enum {
         pub const WholeWordsOnly: i32 = 1;
         pub const FromCursor: i32 = 2;
         pub const SelectedText: i32 = 4;
@@ -2803,7 +2803,7 @@ pub const enums = struct {
         pub const MinimumUserOption: i32 = 65536;
     };
 
-    pub const Result = enum(i32) {
+    pub const Result = enum {
         pub const NoMatch: i32 = 0;
         pub const Match: i32 = 1;
     };

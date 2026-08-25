@@ -130,9 +130,8 @@ QMetaObject* KCategoryDrawer_SuperMetaObject(const KCategoryDrawer* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnMetaObject(const KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_MetaObject_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -149,9 +148,8 @@ void* KCategoryDrawer_SuperMetacast(KCategoryDrawer* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnMetacast(KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_Metacast_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -168,9 +166,8 @@ int KCategoryDrawer_SuperMetacall(KCategoryDrawer* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnMetacall(KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_Metacall_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -187,9 +184,8 @@ void KCategoryDrawer_SuperDrawCategory(const KCategoryDrawer* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnDrawCategory(const KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_DrawCategory_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_DrawCategory_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -206,9 +202,8 @@ int KCategoryDrawer_SuperCategoryHeight(const KCategoryDrawer* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnCategoryHeight(const KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_CategoryHeight_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_CategoryHeight_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -225,9 +220,8 @@ int KCategoryDrawer_SuperLeftMargin(const KCategoryDrawer* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnLeftMargin(const KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_LeftMargin_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_LeftMargin_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -244,9 +238,8 @@ int KCategoryDrawer_SuperRightMargin(const KCategoryDrawer* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnRightMargin(const KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_RightMargin_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_RightMargin_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -263,9 +256,8 @@ void KCategoryDrawer_SuperMouseButtonPressed(KCategoryDrawer* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnMouseButtonPressed(KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_MouseButtonPressed_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_MouseButtonPressed_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -282,9 +274,8 @@ void KCategoryDrawer_SuperMouseButtonReleased(KCategoryDrawer* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnMouseButtonReleased(KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_MouseButtonReleased_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_MouseButtonReleased_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -301,9 +292,8 @@ void KCategoryDrawer_SuperMouseMoved(KCategoryDrawer* self, const QModelIndex* i
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnMouseMoved(KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_MouseMoved_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_MouseMoved_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -320,9 +310,8 @@ void KCategoryDrawer_SuperMouseButtonDoubleClicked(KCategoryDrawer* self, const 
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnMouseButtonDoubleClicked(KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_MouseButtonDoubleClicked_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_MouseButtonDoubleClicked_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -339,9 +328,8 @@ void KCategoryDrawer_SuperMouseLeft(KCategoryDrawer* self, const QModelIndex* in
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnMouseLeft(KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_MouseLeft_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_MouseLeft_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +356,8 @@ bool KCategoryDrawer_SuperEvent(KCategoryDrawer* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnEvent(KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_Event_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +384,8 @@ bool KCategoryDrawer_SuperEventFilter(KCategoryDrawer* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnEventFilter(KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_EventFilter_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +412,8 @@ void KCategoryDrawer_SuperTimerEvent(KCategoryDrawer* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnTimerEvent(KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_TimerEvent_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +440,8 @@ void KCategoryDrawer_SuperChildEvent(KCategoryDrawer* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnChildEvent(KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_ChildEvent_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -484,9 +468,8 @@ void KCategoryDrawer_SuperCustomEvent(KCategoryDrawer* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnCustomEvent(KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_CustomEvent_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -513,9 +496,8 @@ void KCategoryDrawer_SuperConnectNotify(KCategoryDrawer* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnConnectNotify(KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_ConnectNotify_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -542,9 +524,8 @@ void KCategoryDrawer_SuperDisconnectNotify(KCategoryDrawer* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnDisconnectNotify(KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_DisconnectNotify_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -571,9 +552,8 @@ QObject* KCategoryDrawer_SuperSender(const KCategoryDrawer* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnSender(const KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_Sender_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -600,9 +580,8 @@ int KCategoryDrawer_SuperSenderSignalIndex(const KCategoryDrawer* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnSenderSignalIndex(const KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -629,9 +608,8 @@ int KCategoryDrawer_SuperReceivers(const KCategoryDrawer* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnReceivers(const KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_Receivers_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -658,9 +636,8 @@ bool KCategoryDrawer_SuperIsSignalConnected(const KCategoryDrawer* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KCategoryDrawer_OnIsSignalConnected(const KCategoryDrawer* self, intptr_t slot) {
     auto* vkcategorydrawer = const_cast<VirtualKCategoryDrawer*>(dynamic_cast<const VirtualKCategoryDrawer*>(self));
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
+    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer)
         vkcategorydrawer->setKCategoryDrawer_IsSignalConnected_Callback(reinterpret_cast<VirtualKCategoryDrawer::KCategoryDrawer_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KCategoryDrawer_Delete(KCategoryDrawer* self) {

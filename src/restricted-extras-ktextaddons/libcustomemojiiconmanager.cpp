@@ -52,9 +52,8 @@ QIcon* TextEmoticonsCore__CustomEmojiIconManager_SuperGenerateIcon(TextEmoticons
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__CustomEmojiIconManager_OnGenerateIcon(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot) {
     auto* vtextemoticonscorecustomemojiiconmanager = dynamic_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self);
-    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
+    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager)
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_GenerateIcon_Callback(reinterpret_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager::TextEmoticonsCore__CustomEmojiIconManager_GenerateIcon_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -88,9 +87,8 @@ libqt_string TextEmoticonsCore__CustomEmojiIconManager_SuperFileName(TextEmotico
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__CustomEmojiIconManager_OnFileName(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot) {
     auto* vtextemoticonscorecustomemojiiconmanager = dynamic_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self);
-    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
+    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager)
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_FileName_Callback(reinterpret_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager::TextEmoticonsCore__CustomEmojiIconManager_FileName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -117,9 +115,8 @@ QMetaObject* TextEmoticonsCore__CustomEmojiIconManager_SuperMetaObject(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__CustomEmojiIconManager_OnMetaObject(const TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot) {
     auto* vtextemoticonscorecustomemojiiconmanager = const_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(dynamic_cast<const VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self));
-    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
+    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager)
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_MetaObject_Callback(reinterpret_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager::TextEmoticonsCore__CustomEmojiIconManager_MetaObject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -146,9 +143,8 @@ void* TextEmoticonsCore__CustomEmojiIconManager_SuperMetacast(TextEmoticonsCore_
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__CustomEmojiIconManager_OnMetacast(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot) {
     auto* vtextemoticonscorecustomemojiiconmanager = dynamic_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self);
-    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
+    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager)
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_Metacast_Callback(reinterpret_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager::TextEmoticonsCore__CustomEmojiIconManager_Metacast_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -175,9 +171,8 @@ int TextEmoticonsCore__CustomEmojiIconManager_SuperMetacall(TextEmoticonsCore__C
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__CustomEmojiIconManager_OnMetacall(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot) {
     auto* vtextemoticonscorecustomemojiiconmanager = dynamic_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self);
-    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
+    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager)
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_Metacall_Callback(reinterpret_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager::TextEmoticonsCore__CustomEmojiIconManager_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -204,9 +199,8 @@ bool TextEmoticonsCore__CustomEmojiIconManager_SuperEvent(TextEmoticonsCore__Cus
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__CustomEmojiIconManager_OnEvent(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot) {
     auto* vtextemoticonscorecustomemojiiconmanager = dynamic_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self);
-    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
+    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager)
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_Event_Callback(reinterpret_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager::TextEmoticonsCore__CustomEmojiIconManager_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -233,9 +227,8 @@ bool TextEmoticonsCore__CustomEmojiIconManager_SuperEventFilter(TextEmoticonsCor
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__CustomEmojiIconManager_OnEventFilter(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot) {
     auto* vtextemoticonscorecustomemojiiconmanager = dynamic_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self);
-    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
+    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager)
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_EventFilter_Callback(reinterpret_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager::TextEmoticonsCore__CustomEmojiIconManager_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -262,9 +255,8 @@ void TextEmoticonsCore__CustomEmojiIconManager_SuperTimerEvent(TextEmoticonsCore
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__CustomEmojiIconManager_OnTimerEvent(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot) {
     auto* vtextemoticonscorecustomemojiiconmanager = dynamic_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self);
-    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
+    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager)
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_TimerEvent_Callback(reinterpret_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager::TextEmoticonsCore__CustomEmojiIconManager_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -291,9 +283,8 @@ void TextEmoticonsCore__CustomEmojiIconManager_SuperChildEvent(TextEmoticonsCore
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__CustomEmojiIconManager_OnChildEvent(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot) {
     auto* vtextemoticonscorecustomemojiiconmanager = dynamic_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self);
-    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
+    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager)
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_ChildEvent_Callback(reinterpret_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager::TextEmoticonsCore__CustomEmojiIconManager_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -320,9 +311,8 @@ void TextEmoticonsCore__CustomEmojiIconManager_SuperCustomEvent(TextEmoticonsCor
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__CustomEmojiIconManager_OnCustomEvent(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot) {
     auto* vtextemoticonscorecustomemojiiconmanager = dynamic_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self);
-    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
+    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager)
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_CustomEvent_Callback(reinterpret_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager::TextEmoticonsCore__CustomEmojiIconManager_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -349,9 +339,8 @@ void TextEmoticonsCore__CustomEmojiIconManager_SuperConnectNotify(TextEmoticonsC
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__CustomEmojiIconManager_OnConnectNotify(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot) {
     auto* vtextemoticonscorecustomemojiiconmanager = dynamic_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self);
-    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
+    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager)
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_ConnectNotify_Callback(reinterpret_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager::TextEmoticonsCore__CustomEmojiIconManager_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -378,9 +367,8 @@ void TextEmoticonsCore__CustomEmojiIconManager_SuperDisconnectNotify(TextEmotico
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__CustomEmojiIconManager_OnDisconnectNotify(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot) {
     auto* vtextemoticonscorecustomemojiiconmanager = dynamic_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self);
-    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
+    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager)
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_DisconnectNotify_Callback(reinterpret_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager::TextEmoticonsCore__CustomEmojiIconManager_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -407,9 +395,8 @@ QObject* TextEmoticonsCore__CustomEmojiIconManager_SuperSender(const TextEmotico
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__CustomEmojiIconManager_OnSender(const TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot) {
     auto* vtextemoticonscorecustomemojiiconmanager = const_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(dynamic_cast<const VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self));
-    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
+    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager)
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_Sender_Callback(reinterpret_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager::TextEmoticonsCore__CustomEmojiIconManager_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -436,9 +423,8 @@ int TextEmoticonsCore__CustomEmojiIconManager_SuperSenderSignalIndex(const TextE
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__CustomEmojiIconManager_OnSenderSignalIndex(const TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot) {
     auto* vtextemoticonscorecustomemojiiconmanager = const_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(dynamic_cast<const VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self));
-    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
+    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager)
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager::TextEmoticonsCore__CustomEmojiIconManager_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -465,9 +451,8 @@ int TextEmoticonsCore__CustomEmojiIconManager_SuperReceivers(const TextEmoticons
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__CustomEmojiIconManager_OnReceivers(const TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot) {
     auto* vtextemoticonscorecustomemojiiconmanager = const_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(dynamic_cast<const VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self));
-    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
+    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager)
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_Receivers_Callback(reinterpret_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager::TextEmoticonsCore__CustomEmojiIconManager_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -494,9 +479,8 @@ bool TextEmoticonsCore__CustomEmojiIconManager_SuperIsSignalConnected(const Text
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__CustomEmojiIconManager_OnIsSignalConnected(const TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot) {
     auto* vtextemoticonscorecustomemojiiconmanager = const_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(dynamic_cast<const VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self));
-    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
+    if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager)
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_IsSignalConnected_Callback(reinterpret_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager::TextEmoticonsCore__CustomEmojiIconManager_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void TextEmoticonsCore__CustomEmojiIconManager_Delete(TextEmoticonsCore__CustomEmojiIconManager* self) {

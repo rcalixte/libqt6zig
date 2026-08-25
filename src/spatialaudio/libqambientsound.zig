@@ -2240,7 +2240,7 @@ pub const QAmbientSound = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qambientsound.html#public-types)
 pub const enums = struct {
-    pub const Loops = enum(i32) {
+    pub const Loops = enum {
         pub const Infinite: i32 = -1;
         pub const Once: i32 = 1;
     };

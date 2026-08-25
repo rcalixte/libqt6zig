@@ -3649,7 +3649,7 @@ pub const KSvg__FrameSvg = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/ksvg-framesvg.html#public-types)
 pub const enums = struct {
-    pub const EnabledBorder = enum(i32) {
+    pub const EnabledBorder = enum {
         pub const NoBorder: i32 = 0;
         pub const TopBorder: i32 = 1;
         pub const BottomBorder: i32 = 2;
@@ -3658,7 +3658,7 @@ pub const enums = struct {
         pub const AllBorders: i32 = 15;
     };
 
-    pub const LocationPrefix = enum(i32) {
+    pub const LocationPrefix = enum {
         pub const Floating: i32 = 0;
         pub const TopEdge: i32 = 1;
         pub const BottomEdge: i32 = 2;
@@ -3666,7 +3666,7 @@ pub const enums = struct {
         pub const RightEdge: i32 = 4;
     };
 
-    pub const MarginEdge = enum(i32) {
+    pub const MarginEdge = enum {
         pub const TopMargin: i32 = 0;
         pub const BottomMargin: i32 = 1;
         pub const LeftMargin: i32 = 2;

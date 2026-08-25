@@ -221,9 +221,8 @@ QMetaObject* KCharSelect_SuperMetaObject(const KCharSelect* self) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMetaObject(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_MetaObject_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -240,9 +239,8 @@ void* KCharSelect_SuperMetacast(KCharSelect* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMetacast(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_Metacast_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -259,9 +257,8 @@ int KCharSelect_SuperMetacall(KCharSelect* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMetacall(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_Metacall_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -278,9 +275,8 @@ QSize* KCharSelect_SuperSizeHint(const KCharSelect* self) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnSizeHint(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_SizeHint_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -307,9 +303,8 @@ int KCharSelect_SuperDevType(const KCharSelect* self) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnDevType(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_DevType_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -336,9 +331,8 @@ void KCharSelect_SuperSetVisible(KCharSelect* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnSetVisible(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_SetVisible_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -365,9 +359,8 @@ QSize* KCharSelect_SuperMinimumSizeHint(const KCharSelect* self) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMinimumSizeHint(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_MinimumSizeHint_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -394,9 +387,8 @@ int KCharSelect_SuperHeightForWidth(const KCharSelect* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnHeightForWidth(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_HeightForWidth_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -423,9 +415,8 @@ bool KCharSelect_SuperHasHeightForWidth(const KCharSelect* self) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnHasHeightForWidth(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_HasHeightForWidth_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -452,9 +443,8 @@ QPaintEngine* KCharSelect_SuperPaintEngine(const KCharSelect* self) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnPaintEngine(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_PaintEngine_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -481,9 +471,8 @@ bool KCharSelect_SuperEvent(KCharSelect* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_Event_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -510,9 +499,8 @@ void KCharSelect_SuperMousePressEvent(KCharSelect* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMousePressEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_MousePressEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -539,9 +527,8 @@ void KCharSelect_SuperMouseReleaseEvent(KCharSelect* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMouseReleaseEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -568,9 +555,8 @@ void KCharSelect_SuperMouseDoubleClickEvent(KCharSelect* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMouseDoubleClickEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -597,9 +583,8 @@ void KCharSelect_SuperMouseMoveEvent(KCharSelect* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMouseMoveEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_MouseMoveEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -626,9 +611,8 @@ void KCharSelect_SuperWheelEvent(KCharSelect* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnWheelEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_WheelEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -655,9 +639,8 @@ void KCharSelect_SuperKeyPressEvent(KCharSelect* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnKeyPressEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_KeyPressEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -684,9 +667,8 @@ void KCharSelect_SuperKeyReleaseEvent(KCharSelect* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnKeyReleaseEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -713,9 +695,8 @@ void KCharSelect_SuperFocusInEvent(KCharSelect* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnFocusInEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_FocusInEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -742,9 +723,8 @@ void KCharSelect_SuperFocusOutEvent(KCharSelect* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnFocusOutEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_FocusOutEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -771,9 +751,8 @@ void KCharSelect_SuperEnterEvent(KCharSelect* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnEnterEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_EnterEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -800,9 +779,8 @@ void KCharSelect_SuperLeaveEvent(KCharSelect* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnLeaveEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_LeaveEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -829,9 +807,8 @@ void KCharSelect_SuperPaintEvent(KCharSelect* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnPaintEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_PaintEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -858,9 +835,8 @@ void KCharSelect_SuperMoveEvent(KCharSelect* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMoveEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_MoveEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -887,9 +863,8 @@ void KCharSelect_SuperResizeEvent(KCharSelect* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnResizeEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_ResizeEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -916,9 +891,8 @@ void KCharSelect_SuperCloseEvent(KCharSelect* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnCloseEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_CloseEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -945,9 +919,8 @@ void KCharSelect_SuperContextMenuEvent(KCharSelect* self, QContextMenuEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnContextMenuEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_ContextMenuEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -974,9 +947,8 @@ void KCharSelect_SuperTabletEvent(KCharSelect* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnTabletEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_TabletEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1003,9 +975,8 @@ void KCharSelect_SuperActionEvent(KCharSelect* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnActionEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_ActionEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1032,9 +1003,8 @@ void KCharSelect_SuperDragEnterEvent(KCharSelect* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnDragEnterEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_DragEnterEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1061,9 +1031,8 @@ void KCharSelect_SuperDragMoveEvent(KCharSelect* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnDragMoveEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_DragMoveEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1090,9 +1059,8 @@ void KCharSelect_SuperDragLeaveEvent(KCharSelect* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnDragLeaveEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_DragLeaveEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1119,9 +1087,8 @@ void KCharSelect_SuperDropEvent(KCharSelect* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnDropEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_DropEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1148,9 +1115,8 @@ void KCharSelect_SuperShowEvent(KCharSelect* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnShowEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_ShowEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1177,9 +1143,8 @@ void KCharSelect_SuperHideEvent(KCharSelect* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnHideEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_HideEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1208,9 +1173,8 @@ bool KCharSelect_SuperNativeEvent(KCharSelect* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnNativeEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_NativeEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1237,9 +1201,8 @@ void KCharSelect_SuperChangeEvent(KCharSelect* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnChangeEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_ChangeEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1266,9 +1229,8 @@ int KCharSelect_SuperMetric(const KCharSelect* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnMetric(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_Metric_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1295,9 +1257,8 @@ void KCharSelect_SuperInitPainter(const KCharSelect* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnInitPainter(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_InitPainter_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1324,9 +1285,8 @@ QPaintDevice* KCharSelect_SuperRedirected(const KCharSelect* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnRedirected(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_Redirected_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1353,9 +1313,8 @@ QPainter* KCharSelect_SuperSharedPainter(const KCharSelect* self) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnSharedPainter(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_SharedPainter_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1382,9 +1341,8 @@ void KCharSelect_SuperInputMethodEvent(KCharSelect* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnInputMethodEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_InputMethodEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1411,9 +1369,8 @@ QVariant* KCharSelect_SuperInputMethodQuery(const KCharSelect* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnInputMethodQuery(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_InputMethodQuery_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1440,9 +1397,8 @@ bool KCharSelect_SuperFocusNextPrevChild(KCharSelect* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnFocusNextPrevChild(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1469,9 +1425,8 @@ bool KCharSelect_SuperEventFilter(KCharSelect* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnEventFilter(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_EventFilter_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1498,9 +1453,8 @@ void KCharSelect_SuperTimerEvent(KCharSelect* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnTimerEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_TimerEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1527,9 +1481,8 @@ void KCharSelect_SuperChildEvent(KCharSelect* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnChildEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_ChildEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1556,9 +1509,8 @@ void KCharSelect_SuperCustomEvent(KCharSelect* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnCustomEvent(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_CustomEvent_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1585,9 +1537,8 @@ void KCharSelect_SuperConnectNotify(KCharSelect* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnConnectNotify(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_ConnectNotify_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1614,9 +1565,8 @@ void KCharSelect_SuperDisconnectNotify(KCharSelect* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnDisconnectNotify(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_DisconnectNotify_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1643,9 +1593,8 @@ void KCharSelect_SuperUpdateMicroFocus(KCharSelect* self) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnUpdateMicroFocus(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1672,9 +1621,8 @@ void KCharSelect_SuperCreate(KCharSelect* self) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnCreate(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_Create_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1701,9 +1649,8 @@ void KCharSelect_SuperDestroy(KCharSelect* self) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnDestroy(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_Destroy_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1730,9 +1677,8 @@ bool KCharSelect_SuperFocusNextChild(KCharSelect* self) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnFocusNextChild(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_FocusNextChild_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1759,9 +1705,8 @@ bool KCharSelect_SuperFocusPreviousChild(KCharSelect* self) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnFocusPreviousChild(KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_FocusPreviousChild_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1788,9 +1733,8 @@ QObject* KCharSelect_SuperSender(const KCharSelect* self) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnSender(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_Sender_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1817,9 +1761,8 @@ int KCharSelect_SuperSenderSignalIndex(const KCharSelect* self) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnSenderSignalIndex(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1846,9 +1789,8 @@ int KCharSelect_SuperReceivers(const KCharSelect* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnReceivers(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_Receivers_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1875,9 +1817,8 @@ bool KCharSelect_SuperIsSignalConnected(const KCharSelect* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnIsSignalConnected(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_IsSignalConnected_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1904,9 +1845,8 @@ double KCharSelect_SuperGetDecodedMetricF(const KCharSelect* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void KCharSelect_OnGetDecodedMetricF(const KCharSelect* self, intptr_t slot) {
     auto* vkcharselect = const_cast<VirtualKCharSelect*>(dynamic_cast<const VirtualKCharSelect*>(self));
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
+    if (vkcharselect && vkcharselect->isVirtualKCharSelect)
         vkcharselect->setKCharSelect_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKCharSelect::KCharSelect_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KCharSelect_Delete(KCharSelect* self) {

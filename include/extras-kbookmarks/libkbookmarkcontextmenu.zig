@@ -1899,6 +1899,31 @@ pub const KBookmarkContextMenu = extern struct {
         return .{ .ptr = qtc.QMenu_Exec4(actions_list, @ptrCast(_pos.ptr), @ptrCast(at.ptr), @ptrCast(_parent.ptr)) };
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KBookmarkContextMenu `
+    ///
+    pub fn asQPaintDevice(self: KBookmarkContextMenu) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KBookmarkContextMenu object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KBookmarkContextMenu {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -7861,7 +7886,7 @@ pub const KBookmarkContextMenu = extern struct {
     /// ` self: KBookmarkContextMenu `
     ///
     pub fn paintingActive(self: KBookmarkContextMenu) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -7877,7 +7902,7 @@ pub const KBookmarkContextMenu = extern struct {
     /// ` self: KBookmarkContextMenu `
     ///
     pub fn widthMM(self: KBookmarkContextMenu) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -7893,7 +7918,7 @@ pub const KBookmarkContextMenu = extern struct {
     /// ` self: KBookmarkContextMenu `
     ///
     pub fn heightMM(self: KBookmarkContextMenu) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -7909,7 +7934,7 @@ pub const KBookmarkContextMenu = extern struct {
     /// ` self: KBookmarkContextMenu `
     ///
     pub fn logicalDpiX(self: KBookmarkContextMenu) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7925,7 +7950,7 @@ pub const KBookmarkContextMenu = extern struct {
     /// ` self: KBookmarkContextMenu `
     ///
     pub fn logicalDpiY(self: KBookmarkContextMenu) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7941,7 +7966,7 @@ pub const KBookmarkContextMenu = extern struct {
     /// ` self: KBookmarkContextMenu `
     ///
     pub fn physicalDpiX(self: KBookmarkContextMenu) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7957,7 +7982,7 @@ pub const KBookmarkContextMenu = extern struct {
     /// ` self: KBookmarkContextMenu `
     ///
     pub fn physicalDpiY(self: KBookmarkContextMenu) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7973,7 +7998,7 @@ pub const KBookmarkContextMenu = extern struct {
     /// ` self: KBookmarkContextMenu `
     ///
     pub fn devicePixelRatio(self: KBookmarkContextMenu) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7989,7 +8014,7 @@ pub const KBookmarkContextMenu = extern struct {
     /// ` self: KBookmarkContextMenu `
     ///
     pub fn devicePixelRatioF(self: KBookmarkContextMenu) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -8005,7 +8030,7 @@ pub const KBookmarkContextMenu = extern struct {
     /// ` self: KBookmarkContextMenu `
     ///
     pub fn colorCount(self: KBookmarkContextMenu) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -8021,7 +8046,7 @@ pub const KBookmarkContextMenu = extern struct {
     /// ` self: KBookmarkContextMenu `
     ///
     pub fn depth(self: KBookmarkContextMenu) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

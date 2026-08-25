@@ -140,9 +140,8 @@ QMetaObject* TextEmoticonsCore__EmojiProxyModel_SuperMetaObject(const TextEmotic
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnMetaObject(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_MetaObject_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -159,9 +158,8 @@ void* TextEmoticonsCore__EmojiProxyModel_SuperMetacast(TextEmoticonsCore__EmojiP
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnMetacast(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_Metacast_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -178,9 +176,8 @@ int TextEmoticonsCore__EmojiProxyModel_SuperMetacall(TextEmoticonsCore__EmojiPro
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnMetacall(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_Metacall_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -197,9 +194,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperFilterAcceptsRow(const TextEmoticon
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnFilterAcceptsRow(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_FilterAcceptsRow_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_FilterAcceptsRow_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -216,9 +212,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperLessThan(const TextEmoticonsCore__E
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnLessThan(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_LessThan_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_LessThan_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -245,9 +240,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperSetSourceModel(TextEmoticonsCore__E
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnSetSourceModel(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_SetSourceModel_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_SetSourceModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -274,9 +268,8 @@ QModelIndex* TextEmoticonsCore__EmojiProxyModel_SuperMapToSource(const TextEmoti
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnMapToSource(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_MapToSource_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_MapToSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -303,9 +296,8 @@ QModelIndex* TextEmoticonsCore__EmojiProxyModel_SuperMapFromSource(const TextEmo
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnMapFromSource(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_MapFromSource_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_MapFromSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -332,9 +324,8 @@ QItemSelection* TextEmoticonsCore__EmojiProxyModel_SuperMapSelectionToSource(con
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnMapSelectionToSource(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_MapSelectionToSource_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_MapSelectionToSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -361,9 +352,8 @@ QItemSelection* TextEmoticonsCore__EmojiProxyModel_SuperMapSelectionFromSource(c
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnMapSelectionFromSource(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_MapSelectionFromSource_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_MapSelectionFromSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -390,9 +380,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperFilterAcceptsColumn(const TextEmoti
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnFilterAcceptsColumn(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_FilterAcceptsColumn_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_FilterAcceptsColumn_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -419,9 +408,8 @@ QModelIndex* TextEmoticonsCore__EmojiProxyModel_SuperIndex(const TextEmoticonsCo
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnIndex(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_Index_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_Index_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -448,9 +436,8 @@ QModelIndex* TextEmoticonsCore__EmojiProxyModel_SuperParent(const TextEmoticonsC
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnParent(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_Parent_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_Parent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -477,9 +464,8 @@ QModelIndex* TextEmoticonsCore__EmojiProxyModel_SuperSibling(const TextEmoticons
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnSibling(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_Sibling_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -506,9 +492,8 @@ int TextEmoticonsCore__EmojiProxyModel_SuperRowCount(const TextEmoticonsCore__Em
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnRowCount(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_RowCount_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_RowCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -535,9 +520,8 @@ int TextEmoticonsCore__EmojiProxyModel_SuperColumnCount(const TextEmoticonsCore_
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnColumnCount(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_ColumnCount_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_ColumnCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -564,9 +548,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperHasChildren(const TextEmoticonsCore
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnHasChildren(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_HasChildren_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_HasChildren_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -593,9 +576,8 @@ QVariant* TextEmoticonsCore__EmojiProxyModel_SuperData(const TextEmoticonsCore__
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnData(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_Data_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_Data_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -622,9 +604,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperSetData(TextEmoticonsCore__EmojiPro
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnSetData(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_SetData_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -651,9 +632,8 @@ QVariant* TextEmoticonsCore__EmojiProxyModel_SuperHeaderData(const TextEmoticons
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnHeaderData(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_HeaderData_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -680,9 +660,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperSetHeaderData(TextEmoticonsCore__Em
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnSetHeaderData(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_SetHeaderData_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -721,9 +700,8 @@ QMimeData* TextEmoticonsCore__EmojiProxyModel_SuperMimeData(const TextEmoticonsC
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnMimeData(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_MimeData_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -750,9 +728,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperDropMimeData(TextEmoticonsCore__Emo
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnDropMimeData(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_DropMimeData_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -779,9 +756,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperInsertRows(TextEmoticonsCore__Emoji
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnInsertRows(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_InsertRows_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -808,9 +784,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperInsertColumns(TextEmoticonsCore__Em
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnInsertColumns(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_InsertColumns_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -837,9 +812,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperRemoveRows(TextEmoticonsCore__Emoji
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnRemoveRows(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_RemoveRows_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -866,9 +840,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperRemoveColumns(TextEmoticonsCore__Em
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnRemoveColumns(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_RemoveColumns_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -895,9 +868,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperFetchMore(TextEmoticonsCore__EmojiP
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnFetchMore(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_FetchMore_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -924,9 +896,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperCanFetchMore(const TextEmoticonsCor
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnCanFetchMore(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_CanFetchMore_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -953,9 +924,8 @@ int TextEmoticonsCore__EmojiProxyModel_SuperFlags(const TextEmoticonsCore__Emoji
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnFlags(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_Flags_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_Flags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -982,9 +952,8 @@ QModelIndex* TextEmoticonsCore__EmojiProxyModel_SuperBuddy(const TextEmoticonsCo
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnBuddy(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_Buddy_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1047,9 +1016,8 @@ libqt_list /* of QModelIndex* */ TextEmoticonsCore__EmojiProxyModel_SuperMatch(c
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnMatch(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_Match_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1076,9 +1044,8 @@ QSize* TextEmoticonsCore__EmojiProxyModel_SuperSpan(const TextEmoticonsCore__Emo
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnSpan(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_Span_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1105,9 +1072,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperSort(TextEmoticonsCore__EmojiProxyM
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnSort(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_Sort_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1202,9 +1168,8 @@ libqt_list /* of libqt_string */ TextEmoticonsCore__EmojiProxyModel_SuperMimeTyp
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnMimeTypes(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_MimeTypes_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1231,9 +1196,8 @@ int TextEmoticonsCore__EmojiProxyModel_SuperSupportedDropActions(const TextEmoti
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnSupportedDropActions(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_SupportedDropActions_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1260,9 +1224,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperSubmit(TextEmoticonsCore__EmojiProx
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnSubmit(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_Submit_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1289,9 +1252,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperRevert(TextEmoticonsCore__EmojiProx
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnRevert(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_Revert_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1374,9 +1336,8 @@ libqt_map /* of int to QVariant* */ TextEmoticonsCore__EmojiProxyModel_SuperItem
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnItemData(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_ItemData_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1415,9 +1376,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperSetItemData(TextEmoticonsCore__Emoj
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnSetItemData(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_SetItemData_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1444,9 +1404,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperClearItemData(TextEmoticonsCore__Em
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnClearItemData(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_ClearItemData_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1473,9 +1432,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperCanDropMimeData(const TextEmoticons
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnCanDropMimeData(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_CanDropMimeData_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1502,9 +1460,8 @@ int TextEmoticonsCore__EmojiProxyModel_SuperSupportedDragActions(const TextEmoti
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnSupportedDragActions(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_SupportedDragActions_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1607,9 +1564,8 @@ libqt_map /* of int to libqt_string */ TextEmoticonsCore__EmojiProxyModel_SuperR
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnRoleNames(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_RoleNames_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1636,9 +1592,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperMoveRows(TextEmoticonsCore__EmojiPr
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnMoveRows(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_MoveRows_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1665,9 +1620,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperMoveColumns(TextEmoticonsCore__Emoj
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnMoveColumns(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_MoveColumns_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1694,9 +1648,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperMultiData(const TextEmoticonsCore__
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnMultiData(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_MultiData_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1723,9 +1676,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperResetInternalData(TextEmoticonsCore
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnResetInternalData(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_ResetInternalData_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1752,9 +1704,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperEvent(TextEmoticonsCore__EmojiProxy
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnEvent(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_Event_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1781,9 +1732,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperEventFilter(TextEmoticonsCore__Emoj
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnEventFilter(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_EventFilter_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1810,9 +1760,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperTimerEvent(TextEmoticonsCore__Emoji
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnTimerEvent(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_TimerEvent_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1839,9 +1788,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperChildEvent(TextEmoticonsCore__Emoji
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnChildEvent(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_ChildEvent_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1868,9 +1816,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperCustomEvent(TextEmoticonsCore__Emoj
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnCustomEvent(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_CustomEvent_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1897,9 +1844,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperConnectNotify(TextEmoticonsCore__Em
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnConnectNotify(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_ConnectNotify_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1926,9 +1872,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperDisconnectNotify(TextEmoticonsCore_
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnDisconnectNotify(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_DisconnectNotify_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1955,9 +1900,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperInvalidateFilter(TextEmoticonsCore_
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnInvalidateFilter(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_InvalidateFilter_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_InvalidateFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1984,9 +1928,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperInvalidateRowsFilter(TextEmoticonsC
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnInvalidateRowsFilter(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_InvalidateRowsFilter_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_InvalidateRowsFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2013,9 +1956,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperInvalidateColumnsFilter(TextEmotico
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnInvalidateColumnsFilter(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_InvalidateColumnsFilter_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_InvalidateColumnsFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2040,9 +1982,8 @@ QModelIndex* TextEmoticonsCore__EmojiProxyModel_SuperCreateSourceIndex(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnCreateSourceIndex(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_CreateSourceIndex_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_CreateSourceIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2067,9 +2008,8 @@ QModelIndex* TextEmoticonsCore__EmojiProxyModel_SuperCreateIndex(const TextEmoti
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnCreateIndex(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_CreateIndex_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2108,9 +2048,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperEncodeData(const TextEmoticonsCore_
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnEncodeData(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_EncodeData_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2137,9 +2076,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperDecodeData(TextEmoticonsCore__Emoji
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnDecodeData(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_DecodeData_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2166,9 +2104,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperBeginInsertRows(TextEmoticonsCore__
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnBeginInsertRows(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_BeginInsertRows_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2195,9 +2132,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperEndInsertRows(TextEmoticonsCore__Em
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnEndInsertRows(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_EndInsertRows_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2224,9 +2160,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperBeginRemoveRows(TextEmoticonsCore__
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnBeginRemoveRows(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2253,9 +2188,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperEndRemoveRows(TextEmoticonsCore__Em
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnEndRemoveRows(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_EndRemoveRows_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2282,9 +2216,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperBeginMoveRows(TextEmoticonsCore__Em
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnBeginMoveRows(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_BeginMoveRows_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2311,9 +2244,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperEndMoveRows(TextEmoticonsCore__Emoj
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnEndMoveRows(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_EndMoveRows_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2340,9 +2272,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperBeginInsertColumns(TextEmoticonsCor
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnBeginInsertColumns(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2369,9 +2300,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperEndInsertColumns(TextEmoticonsCore_
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnEndInsertColumns(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_EndInsertColumns_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2398,9 +2328,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperBeginRemoveColumns(TextEmoticonsCor
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnBeginRemoveColumns(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2427,9 +2356,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperEndRemoveColumns(TextEmoticonsCore_
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnEndRemoveColumns(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2456,9 +2384,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperBeginMoveColumns(TextEmoticonsCore_
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnBeginMoveColumns(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2485,9 +2412,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperEndMoveColumns(TextEmoticonsCore__E
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnEndMoveColumns(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_EndMoveColumns_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2514,9 +2440,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperBeginResetModel(TextEmoticonsCore__
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnBeginResetModel(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_BeginResetModel_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2543,9 +2468,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperEndResetModel(TextEmoticonsCore__Em
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnEndResetModel(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_EndResetModel_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2572,9 +2496,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperChangePersistentIndex(TextEmoticons
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnChangePersistentIndex(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2625,9 +2548,8 @@ void TextEmoticonsCore__EmojiProxyModel_SuperChangePersistentIndexList(TextEmoti
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnChangePersistentIndexList(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2690,9 +2612,8 @@ libqt_list /* of QModelIndex* */ TextEmoticonsCore__EmojiProxyModel_SuperPersist
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnPersistentIndexList(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_PersistentIndexList_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2719,9 +2640,8 @@ QObject* TextEmoticonsCore__EmojiProxyModel_SuperSender(const TextEmoticonsCore_
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnSender(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_Sender_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2748,9 +2668,8 @@ int TextEmoticonsCore__EmojiProxyModel_SuperSenderSignalIndex(const TextEmoticon
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnSenderSignalIndex(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2777,9 +2696,8 @@ int TextEmoticonsCore__EmojiProxyModel_SuperReceivers(const TextEmoticonsCore__E
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnReceivers(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_Receivers_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2806,9 +2724,8 @@ bool TextEmoticonsCore__EmojiProxyModel_SuperIsSignalConnected(const TextEmotico
 // Auxiliary method to allow providing re-implementation
 void TextEmoticonsCore__EmojiProxyModel_OnIsSignalConnected(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot) {
     auto* vtextemoticonscoreemojiproxymodel = const_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self));
-    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
+    if (vtextemoticonscoreemojiproxymodel && vtextemoticonscoreemojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel)
         vtextemoticonscoreemojiproxymodel->setTextEmoticonsCore__EmojiProxyModel_IsSignalConnected_Callback(reinterpret_cast<VirtualTextEmoticonsCoreEmojiProxyModel::TextEmoticonsCore__EmojiProxyModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void TextEmoticonsCore__EmojiProxyModel_Delete(TextEmoticonsCore__EmojiProxyModel* self) {

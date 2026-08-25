@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KIO__JobUiDelegateExtension = @import("libqt6").KIO__JobUiDelegateExtension;
 const KJob = @import("libqt6").KJob;
 const QBindingStorage = @import("libqt6").QBindingStorage;
 const QEvent = @import("libqt6").QEvent;
@@ -29,6 +30,27 @@ pub const KIO__JobUiDelegate = extern struct {
     pub const _is_KJobUiDelegate = {};
     pub const _is_QObject = {};
     pub const _is_KIO__JobUiDelegateExtension = {};
+
+    /// Upcasts to a KIO::JobUiDelegateExtension object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KIO__JobUiDelegate `
+    ///
+    pub fn asKIO__JobUiDelegateExtension(self: KIO__JobUiDelegate) KIO__JobUiDelegateExtension {
+        return .{ .ptr = qtc.KIO__JobUiDelegate_AsKIO__JobUiDelegateExtension(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a KIO__JobUiDelegate object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _kio__jobuidelegateextension: KIO__JobUiDelegateExtension `
+    ///
+    pub fn fromKIO__JobUiDelegateExtension(_kio__jobuidelegateextension: anytype) KIO__JobUiDelegate {
+        comptime _ = @TypeOf(_kio__jobuidelegateextension)._is_KIO__JobUiDelegateExtension;
+        return @bitCast(qtc.KIO__JobUiDelegate_FromKIO__JobUiDelegateExtension(@ptrCast(_kio__jobuidelegateextension.ptr)));
+    }
 
     /// ### DEPRECATED: Use `metaObject` instead
     ///

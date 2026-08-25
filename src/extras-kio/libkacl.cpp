@@ -197,9 +197,8 @@ void KACL_SuperVirtualHook(KACL* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void KACL_OnVirtualHook(KACL* self, intptr_t slot) {
     auto* vkacl = dynamic_cast<VirtualKACL*>(self);
-    if (vkacl && vkacl->isVirtualKACL) {
+    if (vkacl && vkacl->isVirtualKACL)
         vkacl->setKACL_VirtualHook_Callback(reinterpret_cast<VirtualKACL::KACL_VirtualHook_Callback>(slot));
-    }
 }
 
 void KACL_Delete(KACL* self) {

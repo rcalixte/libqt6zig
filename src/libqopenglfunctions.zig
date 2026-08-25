@@ -2816,7 +2816,7 @@ pub const QOpenGLFunctions = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions.html#public-types)
 pub const enums = struct {
-    pub const OpenGLFeature = enum(i32) {
+    pub const OpenGLFeature = enum {
         pub const Multitexture: i32 = 1;
         pub const Shaders: i32 = 2;
         pub const Buffers: i32 = 4;

@@ -161,9 +161,8 @@ QMetaObject* KNSCore__Question_SuperMetaObject(const KNSCore__Question* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Question_OnMetaObject(const KNSCore__Question* self, intptr_t slot) {
     auto* vknscorequestion = const_cast<VirtualKNSCoreQuestion*>(dynamic_cast<const VirtualKNSCoreQuestion*>(self));
-    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion)
         vknscorequestion->setKNSCore__Question_MetaObject_Callback(reinterpret_cast<VirtualKNSCoreQuestion::KNSCore__Question_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -180,9 +179,8 @@ void* KNSCore__Question_SuperMetacast(KNSCore__Question* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Question_OnMetacast(KNSCore__Question* self, intptr_t slot) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
-    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion)
         vknscorequestion->setKNSCore__Question_Metacast_Callback(reinterpret_cast<VirtualKNSCoreQuestion::KNSCore__Question_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -199,9 +197,8 @@ int KNSCore__Question_SuperMetacall(KNSCore__Question* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Question_OnMetacall(KNSCore__Question* self, intptr_t slot) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
-    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion)
         vknscorequestion->setKNSCore__Question_Metacall_Callback(reinterpret_cast<VirtualKNSCoreQuestion::KNSCore__Question_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -228,9 +225,8 @@ bool KNSCore__Question_SuperEvent(KNSCore__Question* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Question_OnEvent(KNSCore__Question* self, intptr_t slot) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
-    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion)
         vknscorequestion->setKNSCore__Question_Event_Callback(reinterpret_cast<VirtualKNSCoreQuestion::KNSCore__Question_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -257,9 +253,8 @@ bool KNSCore__Question_SuperEventFilter(KNSCore__Question* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Question_OnEventFilter(KNSCore__Question* self, intptr_t slot) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
-    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion)
         vknscorequestion->setKNSCore__Question_EventFilter_Callback(reinterpret_cast<VirtualKNSCoreQuestion::KNSCore__Question_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -286,9 +281,8 @@ void KNSCore__Question_SuperTimerEvent(KNSCore__Question* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Question_OnTimerEvent(KNSCore__Question* self, intptr_t slot) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
-    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion)
         vknscorequestion->setKNSCore__Question_TimerEvent_Callback(reinterpret_cast<VirtualKNSCoreQuestion::KNSCore__Question_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -315,9 +309,8 @@ void KNSCore__Question_SuperChildEvent(KNSCore__Question* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Question_OnChildEvent(KNSCore__Question* self, intptr_t slot) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
-    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion)
         vknscorequestion->setKNSCore__Question_ChildEvent_Callback(reinterpret_cast<VirtualKNSCoreQuestion::KNSCore__Question_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -344,9 +337,8 @@ void KNSCore__Question_SuperCustomEvent(KNSCore__Question* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Question_OnCustomEvent(KNSCore__Question* self, intptr_t slot) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
-    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion)
         vknscorequestion->setKNSCore__Question_CustomEvent_Callback(reinterpret_cast<VirtualKNSCoreQuestion::KNSCore__Question_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -373,9 +365,8 @@ void KNSCore__Question_SuperConnectNotify(KNSCore__Question* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Question_OnConnectNotify(KNSCore__Question* self, intptr_t slot) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
-    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion)
         vknscorequestion->setKNSCore__Question_ConnectNotify_Callback(reinterpret_cast<VirtualKNSCoreQuestion::KNSCore__Question_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -402,9 +393,8 @@ void KNSCore__Question_SuperDisconnectNotify(KNSCore__Question* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Question_OnDisconnectNotify(KNSCore__Question* self, intptr_t slot) {
     auto* vknscorequestion = dynamic_cast<VirtualKNSCoreQuestion*>(self);
-    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion)
         vknscorequestion->setKNSCore__Question_DisconnectNotify_Callback(reinterpret_cast<VirtualKNSCoreQuestion::KNSCore__Question_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -431,9 +421,8 @@ QObject* KNSCore__Question_SuperSender(const KNSCore__Question* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Question_OnSender(const KNSCore__Question* self, intptr_t slot) {
     auto* vknscorequestion = const_cast<VirtualKNSCoreQuestion*>(dynamic_cast<const VirtualKNSCoreQuestion*>(self));
-    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion)
         vknscorequestion->setKNSCore__Question_Sender_Callback(reinterpret_cast<VirtualKNSCoreQuestion::KNSCore__Question_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -460,9 +449,8 @@ int KNSCore__Question_SuperSenderSignalIndex(const KNSCore__Question* self) {
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Question_OnSenderSignalIndex(const KNSCore__Question* self, intptr_t slot) {
     auto* vknscorequestion = const_cast<VirtualKNSCoreQuestion*>(dynamic_cast<const VirtualKNSCoreQuestion*>(self));
-    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion)
         vknscorequestion->setKNSCore__Question_SenderSignalIndex_Callback(reinterpret_cast<VirtualKNSCoreQuestion::KNSCore__Question_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -489,9 +477,8 @@ int KNSCore__Question_SuperReceivers(const KNSCore__Question* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Question_OnReceivers(const KNSCore__Question* self, intptr_t slot) {
     auto* vknscorequestion = const_cast<VirtualKNSCoreQuestion*>(dynamic_cast<const VirtualKNSCoreQuestion*>(self));
-    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion)
         vknscorequestion->setKNSCore__Question_Receivers_Callback(reinterpret_cast<VirtualKNSCoreQuestion::KNSCore__Question_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -518,9 +505,8 @@ bool KNSCore__Question_SuperIsSignalConnected(const KNSCore__Question* self, con
 // Auxiliary method to allow providing re-implementation
 void KNSCore__Question_OnIsSignalConnected(const KNSCore__Question* self, intptr_t slot) {
     auto* vknscorequestion = const_cast<VirtualKNSCoreQuestion*>(dynamic_cast<const VirtualKNSCoreQuestion*>(self));
-    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion) {
+    if (vknscorequestion && vknscorequestion->isVirtualKNSCoreQuestion)
         vknscorequestion->setKNSCore__Question_IsSignalConnected_Callback(reinterpret_cast<VirtualKNSCoreQuestion::KNSCore__Question_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KNSCore__Question_Delete(KNSCore__Question* self) {

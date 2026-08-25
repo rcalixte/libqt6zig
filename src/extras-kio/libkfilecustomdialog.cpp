@@ -102,9 +102,8 @@ QMetaObject* KFileCustomDialog_SuperMetaObject(const KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMetaObject(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_MetaObject_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -121,9 +120,8 @@ void* KFileCustomDialog_SuperMetacast(KFileCustomDialog* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMetacast(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_Metacast_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -140,9 +138,8 @@ int KFileCustomDialog_SuperMetacall(KFileCustomDialog* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMetacall(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_Metacall_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -159,9 +156,8 @@ void KFileCustomDialog_SuperAccept(KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnAccept(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_Accept_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -188,9 +184,8 @@ void KFileCustomDialog_SuperSetVisible(KFileCustomDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnSetVisible(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_SetVisible_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -217,9 +212,8 @@ QSize* KFileCustomDialog_SuperSizeHint(const KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnSizeHint(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_SizeHint_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -246,9 +240,8 @@ QSize* KFileCustomDialog_SuperMinimumSizeHint(const KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMinimumSizeHint(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -275,9 +268,8 @@ void KFileCustomDialog_SuperOpen(KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnOpen(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_Open_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +296,8 @@ int KFileCustomDialog_SuperExec(KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnExec(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_Exec_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +324,8 @@ void KFileCustomDialog_SuperDone(KFileCustomDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnDone(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_Done_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +352,8 @@ void KFileCustomDialog_SuperReject(KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnReject(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_Reject_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +380,8 @@ void KFileCustomDialog_SuperKeyPressEvent(KFileCustomDialog* self, QKeyEvent* pa
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnKeyPressEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +408,8 @@ void KFileCustomDialog_SuperCloseEvent(KFileCustomDialog* self, QCloseEvent* par
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnCloseEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_CloseEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +436,8 @@ void KFileCustomDialog_SuperShowEvent(KFileCustomDialog* self, QShowEvent* param
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnShowEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_ShowEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +464,8 @@ void KFileCustomDialog_SuperResizeEvent(KFileCustomDialog* self, QResizeEvent* p
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnResizeEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_ResizeEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +492,8 @@ void KFileCustomDialog_SuperContextMenuEvent(KFileCustomDialog* self, QContextMe
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnContextMenuEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +520,8 @@ bool KFileCustomDialog_SuperEventFilter(KFileCustomDialog* self, QObject* param1
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnEventFilter(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_EventFilter_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +548,8 @@ int KFileCustomDialog_SuperDevType(const KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnDevType(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_DevType_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +576,8 @@ int KFileCustomDialog_SuperHeightForWidth(const KFileCustomDialog* self, int par
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnHeightForWidth(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_HeightForWidth_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -623,9 +604,8 @@ bool KFileCustomDialog_SuperHasHeightForWidth(const KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnHasHeightForWidth(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -652,9 +632,8 @@ QPaintEngine* KFileCustomDialog_SuperPaintEngine(const KFileCustomDialog* self) 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnPaintEngine(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_PaintEngine_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -681,9 +660,8 @@ bool KFileCustomDialog_SuperEvent(KFileCustomDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_Event_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -710,9 +688,8 @@ void KFileCustomDialog_SuperMousePressEvent(KFileCustomDialog* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMousePressEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_MousePressEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -739,9 +716,8 @@ void KFileCustomDialog_SuperMouseReleaseEvent(KFileCustomDialog* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMouseReleaseEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -768,9 +744,8 @@ void KFileCustomDialog_SuperMouseDoubleClickEvent(KFileCustomDialog* self, QMous
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMouseDoubleClickEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -797,9 +772,8 @@ void KFileCustomDialog_SuperMouseMoveEvent(KFileCustomDialog* self, QMouseEvent*
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMouseMoveEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -826,9 +800,8 @@ void KFileCustomDialog_SuperWheelEvent(KFileCustomDialog* self, QWheelEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnWheelEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_WheelEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +828,8 @@ void KFileCustomDialog_SuperKeyReleaseEvent(KFileCustomDialog* self, QKeyEvent* 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnKeyReleaseEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -884,9 +856,8 @@ void KFileCustomDialog_SuperFocusInEvent(KFileCustomDialog* self, QFocusEvent* e
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnFocusInEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_FocusInEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -913,9 +884,8 @@ void KFileCustomDialog_SuperFocusOutEvent(KFileCustomDialog* self, QFocusEvent* 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnFocusOutEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +912,8 @@ void KFileCustomDialog_SuperEnterEvent(KFileCustomDialog* self, QEnterEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnEnterEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_EnterEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +940,8 @@ void KFileCustomDialog_SuperLeaveEvent(KFileCustomDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnLeaveEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_LeaveEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +968,8 @@ void KFileCustomDialog_SuperPaintEvent(KFileCustomDialog* self, QPaintEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnPaintEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_PaintEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +996,8 @@ void KFileCustomDialog_SuperMoveEvent(KFileCustomDialog* self, QMoveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMoveEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_MoveEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1058,9 +1024,8 @@ void KFileCustomDialog_SuperTabletEvent(KFileCustomDialog* self, QTabletEvent* e
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnTabletEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_TabletEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1087,9 +1052,8 @@ void KFileCustomDialog_SuperActionEvent(KFileCustomDialog* self, QActionEvent* e
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnActionEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_ActionEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1116,9 +1080,8 @@ void KFileCustomDialog_SuperDragEnterEvent(KFileCustomDialog* self, QDragEnterEv
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnDragEnterEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1145,9 +1108,8 @@ void KFileCustomDialog_SuperDragMoveEvent(KFileCustomDialog* self, QDragMoveEven
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnDragMoveEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1174,9 +1136,8 @@ void KFileCustomDialog_SuperDragLeaveEvent(KFileCustomDialog* self, QDragLeaveEv
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnDragLeaveEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1203,9 +1164,8 @@ void KFileCustomDialog_SuperDropEvent(KFileCustomDialog* self, QDropEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnDropEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_DropEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1232,9 +1192,8 @@ void KFileCustomDialog_SuperHideEvent(KFileCustomDialog* self, QHideEvent* event
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnHideEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_HideEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1263,9 +1222,8 @@ bool KFileCustomDialog_SuperNativeEvent(KFileCustomDialog* self, const libqt_str
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnNativeEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_NativeEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1292,9 +1250,8 @@ void KFileCustomDialog_SuperChangeEvent(KFileCustomDialog* self, QEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnChangeEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_ChangeEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1321,9 +1278,8 @@ int KFileCustomDialog_SuperMetric(const KFileCustomDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnMetric(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_Metric_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1350,9 +1306,8 @@ void KFileCustomDialog_SuperInitPainter(const KFileCustomDialog* self, QPainter*
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnInitPainter(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_InitPainter_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1379,9 +1334,8 @@ QPaintDevice* KFileCustomDialog_SuperRedirected(const KFileCustomDialog* self, Q
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnRedirected(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_Redirected_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1408,9 +1362,8 @@ QPainter* KFileCustomDialog_SuperSharedPainter(const KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnSharedPainter(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_SharedPainter_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1437,9 +1390,8 @@ void KFileCustomDialog_SuperInputMethodEvent(KFileCustomDialog* self, QInputMeth
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnInputMethodEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1466,9 +1418,8 @@ QVariant* KFileCustomDialog_SuperInputMethodQuery(const KFileCustomDialog* self,
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnInputMethodQuery(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1495,9 +1446,8 @@ bool KFileCustomDialog_SuperFocusNextPrevChild(KFileCustomDialog* self, bool nex
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnFocusNextPrevChild(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1524,9 +1474,8 @@ void KFileCustomDialog_SuperTimerEvent(KFileCustomDialog* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnTimerEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_TimerEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1553,9 +1502,8 @@ void KFileCustomDialog_SuperChildEvent(KFileCustomDialog* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnChildEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_ChildEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1582,9 +1530,8 @@ void KFileCustomDialog_SuperCustomEvent(KFileCustomDialog* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnCustomEvent(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_CustomEvent_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1611,9 +1558,8 @@ void KFileCustomDialog_SuperConnectNotify(KFileCustomDialog* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnConnectNotify(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_ConnectNotify_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1640,9 +1586,8 @@ void KFileCustomDialog_SuperDisconnectNotify(KFileCustomDialog* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnDisconnectNotify(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1669,9 +1614,8 @@ void KFileCustomDialog_SuperAdjustPosition(KFileCustomDialog* self, QWidget* par
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnAdjustPosition(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_AdjustPosition_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1698,9 +1642,8 @@ void KFileCustomDialog_SuperUpdateMicroFocus(KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnUpdateMicroFocus(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1727,9 +1670,8 @@ void KFileCustomDialog_SuperCreate(KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnCreate(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_Create_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1756,9 +1698,8 @@ void KFileCustomDialog_SuperDestroy(KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnDestroy(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_Destroy_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1785,9 +1726,8 @@ bool KFileCustomDialog_SuperFocusNextChild(KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnFocusNextChild(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_FocusNextChild_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1814,9 +1754,8 @@ bool KFileCustomDialog_SuperFocusPreviousChild(KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnFocusPreviousChild(KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1843,9 +1782,8 @@ QObject* KFileCustomDialog_SuperSender(const KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnSender(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_Sender_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1872,9 +1810,8 @@ int KFileCustomDialog_SuperSenderSignalIndex(const KFileCustomDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnSenderSignalIndex(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1901,9 +1838,8 @@ int KFileCustomDialog_SuperReceivers(const KFileCustomDialog* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnReceivers(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_Receivers_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1930,9 +1866,8 @@ bool KFileCustomDialog_SuperIsSignalConnected(const KFileCustomDialog* self, con
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnIsSignalConnected(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1959,9 +1894,8 @@ double KFileCustomDialog_SuperGetDecodedMetricF(const KFileCustomDialog* self, i
 // Auxiliary method to allow providing re-implementation
 void KFileCustomDialog_OnGetDecodedMetricF(const KFileCustomDialog* self, intptr_t slot) {
     auto* vkfilecustomdialog = const_cast<VirtualKFileCustomDialog*>(dynamic_cast<const VirtualKFileCustomDialog*>(self));
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
+    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog)
         vkfilecustomdialog->setKFileCustomDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKFileCustomDialog::KFileCustomDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KFileCustomDialog_Delete(KFileCustomDialog* self) {

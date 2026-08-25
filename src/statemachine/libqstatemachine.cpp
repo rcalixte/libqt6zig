@@ -242,9 +242,8 @@ QMetaObject* QStateMachine_SuperMetaObject(const QStateMachine* self) {
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnMetaObject(const QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = const_cast<VirtualQStateMachine*>(dynamic_cast<const VirtualQStateMachine*>(self));
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_MetaObject_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -261,9 +260,8 @@ void* QStateMachine_SuperMetacast(QStateMachine* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnMetacast(QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_Metacast_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -280,9 +278,8 @@ int QStateMachine_SuperMetacall(QStateMachine* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnMetacall(QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_Metacall_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -299,9 +296,8 @@ bool QStateMachine_SuperEventFilter(QStateMachine* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnEventFilter(QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_EventFilter_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -318,9 +314,8 @@ void QStateMachine_SuperOnEntry(QStateMachine* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnOnEntry(QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_OnEntry_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_OnEntry_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -337,9 +332,8 @@ void QStateMachine_SuperOnExit(QStateMachine* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnOnExit(QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_OnExit_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_OnExit_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -356,9 +350,8 @@ void QStateMachine_SuperBeginSelectTransitions(QStateMachine* self, QEvent* even
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnBeginSelectTransitions(QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_BeginSelectTransitions_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_BeginSelectTransitions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -375,9 +368,8 @@ void QStateMachine_SuperEndSelectTransitions(QStateMachine* self, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnEndSelectTransitions(QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_EndSelectTransitions_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_EndSelectTransitions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -394,9 +386,8 @@ void QStateMachine_SuperBeginMicrostep(QStateMachine* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnBeginMicrostep(QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_BeginMicrostep_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_BeginMicrostep_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -413,9 +404,8 @@ void QStateMachine_SuperEndMicrostep(QStateMachine* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnEndMicrostep(QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_EndMicrostep_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_EndMicrostep_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -432,9 +422,8 @@ bool QStateMachine_SuperEvent(QStateMachine* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnEvent(QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_Event_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -461,9 +450,8 @@ void QStateMachine_SuperTimerEvent(QStateMachine* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnTimerEvent(QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_TimerEvent_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -490,9 +478,8 @@ void QStateMachine_SuperChildEvent(QStateMachine* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnChildEvent(QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_ChildEvent_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -519,9 +506,8 @@ void QStateMachine_SuperCustomEvent(QStateMachine* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnCustomEvent(QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_CustomEvent_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -548,9 +534,8 @@ void QStateMachine_SuperConnectNotify(QStateMachine* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnConnectNotify(QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_ConnectNotify_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -577,9 +562,8 @@ void QStateMachine_SuperDisconnectNotify(QStateMachine* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnDisconnectNotify(QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_DisconnectNotify_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -606,9 +590,8 @@ QObject* QStateMachine_SuperSender(const QStateMachine* self) {
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnSender(const QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = const_cast<VirtualQStateMachine*>(dynamic_cast<const VirtualQStateMachine*>(self));
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_Sender_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -635,9 +618,8 @@ int QStateMachine_SuperSenderSignalIndex(const QStateMachine* self) {
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnSenderSignalIndex(const QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = const_cast<VirtualQStateMachine*>(dynamic_cast<const VirtualQStateMachine*>(self));
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_SenderSignalIndex_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -664,9 +646,8 @@ int QStateMachine_SuperReceivers(const QStateMachine* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnReceivers(const QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = const_cast<VirtualQStateMachine*>(dynamic_cast<const VirtualQStateMachine*>(self));
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_Receivers_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -693,9 +674,8 @@ bool QStateMachine_SuperIsSignalConnected(const QStateMachine* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QStateMachine_OnIsSignalConnected(const QStateMachine* self, intptr_t slot) {
     auto* vqstatemachine = const_cast<VirtualQStateMachine*>(dynamic_cast<const VirtualQStateMachine*>(self));
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
+    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine)
         vqstatemachine->setQStateMachine_IsSignalConnected_Callback(reinterpret_cast<VirtualQStateMachine::QStateMachine_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QStateMachine_Connect_Started(QStateMachine* self, intptr_t slot) {
@@ -775,9 +755,8 @@ void QStateMachine__SignalEvent_SuperSetAccepted(QStateMachine__SignalEvent* sel
 // Auxiliary method to allow providing re-implementation
 void QStateMachine__SignalEvent_OnSetAccepted(QStateMachine__SignalEvent* self, intptr_t slot) {
     auto* vqstatemachinesignalevent = dynamic_cast<VirtualQStateMachineSignalEvent*>(self);
-    if (vqstatemachinesignalevent && vqstatemachinesignalevent->isVirtualQStateMachineSignalEvent) {
+    if (vqstatemachinesignalevent && vqstatemachinesignalevent->isVirtualQStateMachineSignalEvent)
         vqstatemachinesignalevent->setQStateMachine__SignalEvent_SetAccepted_Callback(reinterpret_cast<VirtualQStateMachineSignalEvent::QStateMachine__SignalEvent_SetAccepted_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -804,9 +783,8 @@ QEvent* QStateMachine__SignalEvent_SuperClone(const QStateMachine__SignalEvent* 
 // Auxiliary method to allow providing re-implementation
 void QStateMachine__SignalEvent_OnClone(const QStateMachine__SignalEvent* self, intptr_t slot) {
     auto* vqstatemachinesignalevent = const_cast<VirtualQStateMachineSignalEvent*>(dynamic_cast<const VirtualQStateMachineSignalEvent*>(self));
-    if (vqstatemachinesignalevent && vqstatemachinesignalevent->isVirtualQStateMachineSignalEvent) {
+    if (vqstatemachinesignalevent && vqstatemachinesignalevent->isVirtualQStateMachineSignalEvent)
         vqstatemachinesignalevent->setQStateMachine__SignalEvent_Clone_Callback(reinterpret_cast<VirtualQStateMachineSignalEvent::QStateMachine__SignalEvent_Clone_Callback>(slot));
-    }
 }
 
 void QStateMachine__SignalEvent_Delete(QStateMachine__SignalEvent* self) {
@@ -853,9 +831,8 @@ void QStateMachine__WrappedEvent_SuperSetAccepted(QStateMachine__WrappedEvent* s
 // Auxiliary method to allow providing re-implementation
 void QStateMachine__WrappedEvent_OnSetAccepted(QStateMachine__WrappedEvent* self, intptr_t slot) {
     auto* vqstatemachinewrappedevent = dynamic_cast<VirtualQStateMachineWrappedEvent*>(self);
-    if (vqstatemachinewrappedevent && vqstatemachinewrappedevent->isVirtualQStateMachineWrappedEvent) {
+    if (vqstatemachinewrappedevent && vqstatemachinewrappedevent->isVirtualQStateMachineWrappedEvent)
         vqstatemachinewrappedevent->setQStateMachine__WrappedEvent_SetAccepted_Callback(reinterpret_cast<VirtualQStateMachineWrappedEvent::QStateMachine__WrappedEvent_SetAccepted_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -882,9 +859,8 @@ QEvent* QStateMachine__WrappedEvent_SuperClone(const QStateMachine__WrappedEvent
 // Auxiliary method to allow providing re-implementation
 void QStateMachine__WrappedEvent_OnClone(const QStateMachine__WrappedEvent* self, intptr_t slot) {
     auto* vqstatemachinewrappedevent = const_cast<VirtualQStateMachineWrappedEvent*>(dynamic_cast<const VirtualQStateMachineWrappedEvent*>(self));
-    if (vqstatemachinewrappedevent && vqstatemachinewrappedevent->isVirtualQStateMachineWrappedEvent) {
+    if (vqstatemachinewrappedevent && vqstatemachinewrappedevent->isVirtualQStateMachineWrappedEvent)
         vqstatemachinewrappedevent->setQStateMachine__WrappedEvent_Clone_Callback(reinterpret_cast<VirtualQStateMachineWrappedEvent::QStateMachine__WrappedEvent_Clone_Callback>(slot));
-    }
 }
 
 void QStateMachine__WrappedEvent_Delete(QStateMachine__WrappedEvent* self) {

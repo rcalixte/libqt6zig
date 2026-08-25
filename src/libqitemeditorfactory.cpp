@@ -74,9 +74,8 @@ QWidget* QItemEditorFactory_SuperCreateEditor(const QItemEditorFactory* self, in
 // Auxiliary method to allow providing re-implementation
 void QItemEditorFactory_OnCreateEditor(const QItemEditorFactory* self, intptr_t slot) {
     auto* vqitemeditorfactory = const_cast<VirtualQItemEditorFactory*>(dynamic_cast<const VirtualQItemEditorFactory*>(self));
-    if (vqitemeditorfactory && vqitemeditorfactory->isVirtualQItemEditorFactory) {
+    if (vqitemeditorfactory && vqitemeditorfactory->isVirtualQItemEditorFactory)
         vqitemeditorfactory->setQItemEditorFactory_CreateEditor_Callback(reinterpret_cast<VirtualQItemEditorFactory::QItemEditorFactory_CreateEditor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -103,9 +102,8 @@ libqt_string QItemEditorFactory_SuperValuePropertyName(const QItemEditorFactory*
 // Auxiliary method to allow providing re-implementation
 void QItemEditorFactory_OnValuePropertyName(const QItemEditorFactory* self, intptr_t slot) {
     auto* vqitemeditorfactory = const_cast<VirtualQItemEditorFactory*>(dynamic_cast<const VirtualQItemEditorFactory*>(self));
-    if (vqitemeditorfactory && vqitemeditorfactory->isVirtualQItemEditorFactory) {
+    if (vqitemeditorfactory && vqitemeditorfactory->isVirtualQItemEditorFactory)
         vqitemeditorfactory->setQItemEditorFactory_ValuePropertyName_Callback(reinterpret_cast<VirtualQItemEditorFactory::QItemEditorFactory_ValuePropertyName_Callback>(slot));
-    }
 }
 
 void QItemEditorFactory_Delete(QItemEditorFactory* self) {

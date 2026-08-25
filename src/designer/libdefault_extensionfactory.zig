@@ -53,6 +53,27 @@ pub const QExtensionFactory = extern struct {
         return .{ .ptr = qtc.QExtensionFactory_new2(@ptrCast(_parent.ptr)) };
     }
 
+    /// Upcasts to a QAbstractExtensionFactory object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QExtensionFactory `
+    ///
+    pub fn asQAbstractExtensionFactory(self: QExtensionFactory) QAbstractExtensionFactory {
+        return .{ .ptr = qtc.QExtensionFactory_AsQAbstractExtensionFactory(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a QExtensionFactory object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qabstractextensionfactory: QAbstractExtensionFactory `
+    ///
+    pub fn fromQAbstractExtensionFactory(_qabstractextensionfactory: anytype) QExtensionFactory {
+        comptime _ = @TypeOf(_qabstractextensionfactory)._is_QAbstractExtensionFactory;
+        return .{ .ptr = @ptrCast(qtc.QExtensionFactory_FromQAbstractExtensionFactory(@ptrCast(_qabstractextensionfactory.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `metaObject` instead
     ///
     pub const MetaObject = metaObject;
@@ -1407,7 +1428,7 @@ pub const QExtensionFactory = extern struct {
     ///
     pub fn operatorAssign(self: QExtensionFactory, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAbstractExtensionFactory;
-        qtc.QAbstractExtensionFactory_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        qtc.QAbstractExtensionFactory_OperatorAssign(@ptrCast(self.asQAbstractExtensionFactory().ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `event` instead

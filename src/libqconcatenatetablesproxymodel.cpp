@@ -187,9 +187,8 @@ QMetaObject* QConcatenateTablesProxyModel_SuperMetaObject(const QConcatenateTabl
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnMetaObject(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_MetaObject_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -206,9 +205,8 @@ void* QConcatenateTablesProxyModel_SuperMetacast(QConcatenateTablesProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnMetacast(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Metacast_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -225,9 +223,8 @@ int QConcatenateTablesProxyModel_SuperMetacall(QConcatenateTablesProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnMetacall(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Metacall_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -244,9 +241,8 @@ QVariant* QConcatenateTablesProxyModel_SuperData(const QConcatenateTablesProxyMo
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnData(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Data_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -263,9 +259,8 @@ bool QConcatenateTablesProxyModel_SuperSetData(QConcatenateTablesProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnSetData(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_SetData_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_SetData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -310,9 +305,8 @@ libqt_map /* of int to QVariant* */ QConcatenateTablesProxyModel_SuperItemData(c
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnItemData(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_ItemData_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_ItemData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -335,9 +329,8 @@ bool QConcatenateTablesProxyModel_SuperSetItemData(QConcatenateTablesProxyModel*
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnSetItemData(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_SetItemData_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -354,9 +347,8 @@ int QConcatenateTablesProxyModel_SuperFlags(const QConcatenateTablesProxyModel* 
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnFlags(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Flags_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Flags_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -373,9 +365,8 @@ QModelIndex* QConcatenateTablesProxyModel_SuperIndex(const QConcatenateTablesPro
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnIndex(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Index_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Index_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -392,9 +383,8 @@ QModelIndex* QConcatenateTablesProxyModel_SuperParent(const QConcatenateTablesPr
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnParent(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Parent_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Parent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -411,9 +401,8 @@ int QConcatenateTablesProxyModel_SuperRowCount(const QConcatenateTablesProxyMode
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnRowCount(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_RowCount_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_RowCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -430,9 +419,8 @@ QVariant* QConcatenateTablesProxyModel_SuperHeaderData(const QConcatenateTablesP
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnHeaderData(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_HeaderData_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -449,9 +437,8 @@ int QConcatenateTablesProxyModel_SuperColumnCount(const QConcatenateTablesProxyM
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnColumnCount(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_ColumnCount_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_ColumnCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -502,9 +489,8 @@ libqt_list /* of libqt_string */ QConcatenateTablesProxyModel_SuperMimeTypes(con
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnMimeTypes(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_MimeTypes_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -527,9 +513,8 @@ QMimeData* QConcatenateTablesProxyModel_SuperMimeData(const QConcatenateTablesPr
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnMimeData(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_MimeData_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_MimeData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -546,9 +531,8 @@ bool QConcatenateTablesProxyModel_SuperCanDropMimeData(const QConcatenateTablesP
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnCanDropMimeData(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_CanDropMimeData_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -565,9 +549,8 @@ bool QConcatenateTablesProxyModel_SuperDropMimeData(QConcatenateTablesProxyModel
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnDropMimeData(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_DropMimeData_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -584,9 +567,8 @@ QSize* QConcatenateTablesProxyModel_SuperSpan(const QConcatenateTablesProxyModel
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnSpan(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Span_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -613,9 +595,8 @@ QModelIndex* QConcatenateTablesProxyModel_SuperSibling(const QConcatenateTablesP
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnSibling(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Sibling_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -642,9 +623,8 @@ bool QConcatenateTablesProxyModel_SuperHasChildren(const QConcatenateTablesProxy
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnHasChildren(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_HasChildren_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_HasChildren_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -671,9 +651,8 @@ bool QConcatenateTablesProxyModel_SuperSetHeaderData(QConcatenateTablesProxyMode
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnSetHeaderData(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_SetHeaderData_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -700,9 +679,8 @@ bool QConcatenateTablesProxyModel_SuperClearItemData(QConcatenateTablesProxyMode
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnClearItemData(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_ClearItemData_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -729,9 +707,8 @@ int QConcatenateTablesProxyModel_SuperSupportedDropActions(const QConcatenateTab
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnSupportedDropActions(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_SupportedDropActions_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -758,9 +735,8 @@ int QConcatenateTablesProxyModel_SuperSupportedDragActions(const QConcatenateTab
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnSupportedDragActions(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_SupportedDragActions_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -787,9 +763,8 @@ bool QConcatenateTablesProxyModel_SuperInsertRows(QConcatenateTablesProxyModel* 
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnInsertRows(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_InsertRows_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -816,9 +791,8 @@ bool QConcatenateTablesProxyModel_SuperInsertColumns(QConcatenateTablesProxyMode
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnInsertColumns(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_InsertColumns_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -845,9 +819,8 @@ bool QConcatenateTablesProxyModel_SuperRemoveRows(QConcatenateTablesProxyModel* 
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnRemoveRows(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_RemoveRows_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -874,9 +847,8 @@ bool QConcatenateTablesProxyModel_SuperRemoveColumns(QConcatenateTablesProxyMode
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnRemoveColumns(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_RemoveColumns_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -903,9 +875,8 @@ bool QConcatenateTablesProxyModel_SuperMoveRows(QConcatenateTablesProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnMoveRows(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_MoveRows_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -932,9 +903,8 @@ bool QConcatenateTablesProxyModel_SuperMoveColumns(QConcatenateTablesProxyModel*
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnMoveColumns(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_MoveColumns_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -961,9 +931,8 @@ void QConcatenateTablesProxyModel_SuperFetchMore(QConcatenateTablesProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnFetchMore(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_FetchMore_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -990,9 +959,8 @@ bool QConcatenateTablesProxyModel_SuperCanFetchMore(const QConcatenateTablesProx
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnCanFetchMore(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_CanFetchMore_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1019,9 +987,8 @@ void QConcatenateTablesProxyModel_SuperSort(QConcatenateTablesProxyModel* self, 
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnSort(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Sort_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1048,9 +1015,8 @@ QModelIndex* QConcatenateTablesProxyModel_SuperBuddy(const QConcatenateTablesPro
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnBuddy(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Buddy_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1113,9 +1079,8 @@ libqt_list /* of QModelIndex* */ QConcatenateTablesProxyModel_SuperMatch(const Q
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnMatch(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Match_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1218,9 +1183,8 @@ libqt_map /* of int to libqt_string */ QConcatenateTablesProxyModel_SuperRoleNam
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnRoleNames(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_RoleNames_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1247,9 +1211,8 @@ void QConcatenateTablesProxyModel_SuperMultiData(const QConcatenateTablesProxyMo
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnMultiData(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_MultiData_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1276,9 +1239,8 @@ bool QConcatenateTablesProxyModel_SuperSubmit(QConcatenateTablesProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnSubmit(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Submit_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1305,9 +1267,8 @@ void QConcatenateTablesProxyModel_SuperRevert(QConcatenateTablesProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnRevert(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Revert_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1334,9 +1295,8 @@ void QConcatenateTablesProxyModel_SuperResetInternalData(QConcatenateTablesProxy
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnResetInternalData(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_ResetInternalData_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1363,9 +1323,8 @@ bool QConcatenateTablesProxyModel_SuperEvent(QConcatenateTablesProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnEvent(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Event_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1392,9 +1351,8 @@ bool QConcatenateTablesProxyModel_SuperEventFilter(QConcatenateTablesProxyModel*
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnEventFilter(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EventFilter_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1421,9 +1379,8 @@ void QConcatenateTablesProxyModel_SuperTimerEvent(QConcatenateTablesProxyModel* 
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnTimerEvent(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_TimerEvent_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1450,9 +1407,8 @@ void QConcatenateTablesProxyModel_SuperChildEvent(QConcatenateTablesProxyModel* 
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnChildEvent(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_ChildEvent_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1479,9 +1435,8 @@ void QConcatenateTablesProxyModel_SuperCustomEvent(QConcatenateTablesProxyModel*
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnCustomEvent(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_CustomEvent_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1508,9 +1463,8 @@ void QConcatenateTablesProxyModel_SuperConnectNotify(QConcatenateTablesProxyMode
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnConnectNotify(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_ConnectNotify_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1537,9 +1491,8 @@ void QConcatenateTablesProxyModel_SuperDisconnectNotify(QConcatenateTablesProxyM
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnDisconnectNotify(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_DisconnectNotify_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1564,9 +1517,8 @@ QModelIndex* QConcatenateTablesProxyModel_SuperCreateIndex(const QConcatenateTab
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnCreateIndex(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_CreateIndex_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1605,9 +1557,8 @@ void QConcatenateTablesProxyModel_SuperEncodeData(const QConcatenateTablesProxyM
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnEncodeData(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EncodeData_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1634,9 +1585,8 @@ bool QConcatenateTablesProxyModel_SuperDecodeData(QConcatenateTablesProxyModel* 
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnDecodeData(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_DecodeData_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1663,9 +1613,8 @@ void QConcatenateTablesProxyModel_SuperBeginInsertRows(QConcatenateTablesProxyMo
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnBeginInsertRows(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_BeginInsertRows_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1692,9 +1641,8 @@ void QConcatenateTablesProxyModel_SuperEndInsertRows(QConcatenateTablesProxyMode
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnEndInsertRows(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EndInsertRows_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1721,9 +1669,8 @@ void QConcatenateTablesProxyModel_SuperBeginRemoveRows(QConcatenateTablesProxyMo
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnBeginRemoveRows(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1750,9 +1697,8 @@ void QConcatenateTablesProxyModel_SuperEndRemoveRows(QConcatenateTablesProxyMode
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnEndRemoveRows(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EndRemoveRows_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1779,9 +1725,8 @@ bool QConcatenateTablesProxyModel_SuperBeginMoveRows(QConcatenateTablesProxyMode
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnBeginMoveRows(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_BeginMoveRows_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1808,9 +1753,8 @@ void QConcatenateTablesProxyModel_SuperEndMoveRows(QConcatenateTablesProxyModel*
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnEndMoveRows(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EndMoveRows_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1837,9 +1781,8 @@ void QConcatenateTablesProxyModel_SuperBeginInsertColumns(QConcatenateTablesProx
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnBeginInsertColumns(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1866,9 +1809,8 @@ void QConcatenateTablesProxyModel_SuperEndInsertColumns(QConcatenateTablesProxyM
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnEndInsertColumns(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EndInsertColumns_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1895,9 +1837,8 @@ void QConcatenateTablesProxyModel_SuperBeginRemoveColumns(QConcatenateTablesProx
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnBeginRemoveColumns(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1924,9 +1865,8 @@ void QConcatenateTablesProxyModel_SuperEndRemoveColumns(QConcatenateTablesProxyM
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnEndRemoveColumns(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1953,9 +1893,8 @@ bool QConcatenateTablesProxyModel_SuperBeginMoveColumns(QConcatenateTablesProxyM
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnBeginMoveColumns(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1982,9 +1921,8 @@ void QConcatenateTablesProxyModel_SuperEndMoveColumns(QConcatenateTablesProxyMod
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnEndMoveColumns(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EndMoveColumns_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2011,9 +1949,8 @@ void QConcatenateTablesProxyModel_SuperBeginResetModel(QConcatenateTablesProxyMo
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnBeginResetModel(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_BeginResetModel_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2040,9 +1977,8 @@ void QConcatenateTablesProxyModel_SuperEndResetModel(QConcatenateTablesProxyMode
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnEndResetModel(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_EndResetModel_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2069,9 +2005,8 @@ void QConcatenateTablesProxyModel_SuperChangePersistentIndex(QConcatenateTablesP
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnChangePersistentIndex(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2122,9 +2057,8 @@ void QConcatenateTablesProxyModel_SuperChangePersistentIndexList(QConcatenateTab
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnChangePersistentIndexList(QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2187,9 +2121,8 @@ libqt_list /* of QModelIndex* */ QConcatenateTablesProxyModel_SuperPersistentInd
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnPersistentIndexList(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_PersistentIndexList_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2216,9 +2149,8 @@ QObject* QConcatenateTablesProxyModel_SuperSender(const QConcatenateTablesProxyM
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnSender(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Sender_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2245,9 +2177,8 @@ int QConcatenateTablesProxyModel_SuperSenderSignalIndex(const QConcatenateTables
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnSenderSignalIndex(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2274,9 +2205,8 @@ int QConcatenateTablesProxyModel_SuperReceivers(const QConcatenateTablesProxyMod
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnReceivers(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Receivers_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2303,9 +2233,8 @@ bool QConcatenateTablesProxyModel_SuperIsSignalConnected(const QConcatenateTable
 // Auxiliary method to allow providing re-implementation
 void QConcatenateTablesProxyModel_OnIsSignalConnected(const QConcatenateTablesProxyModel* self, intptr_t slot) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
+    if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel)
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_IsSignalConnected_Callback(reinterpret_cast<VirtualQConcatenateTablesProxyModel::QConcatenateTablesProxyModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QConcatenateTablesProxyModel_Delete(QConcatenateTablesProxyModel* self) {

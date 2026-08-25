@@ -72,9 +72,8 @@ QMetaObject* Sonnet__SpellCheckDecorator_SuperMetaObject(const Sonnet__SpellChec
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnMetaObject(const Sonnet__SpellCheckDecorator* self, intptr_t slot) {
     auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_MetaObject_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -91,9 +90,8 @@ void* Sonnet__SpellCheckDecorator_SuperMetacast(Sonnet__SpellCheckDecorator* sel
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnMetacast(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Metacast_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -110,9 +108,8 @@ int Sonnet__SpellCheckDecorator_SuperMetacall(Sonnet__SpellCheckDecorator* self,
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnMetacall(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Metacall_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -129,9 +126,8 @@ bool Sonnet__SpellCheckDecorator_SuperEventFilter(Sonnet__SpellCheckDecorator* s
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnEventFilter(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_EventFilter_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -149,9 +145,8 @@ bool Sonnet__SpellCheckDecorator_SuperIsSpellCheckingEnabledForBlock(const Sonne
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnIsSpellCheckingEnabledForBlock(const Sonnet__SpellCheckDecorator* self, intptr_t slot) {
     auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_IsSpellCheckingEnabledForBlock_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_IsSpellCheckingEnabledForBlock_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -178,9 +173,8 @@ bool Sonnet__SpellCheckDecorator_SuperEvent(Sonnet__SpellCheckDecorator* self, Q
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnEvent(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Event_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -207,9 +201,8 @@ void Sonnet__SpellCheckDecorator_SuperTimerEvent(Sonnet__SpellCheckDecorator* se
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnTimerEvent(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_TimerEvent_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -236,9 +229,8 @@ void Sonnet__SpellCheckDecorator_SuperChildEvent(Sonnet__SpellCheckDecorator* se
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnChildEvent(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_ChildEvent_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -265,9 +257,8 @@ void Sonnet__SpellCheckDecorator_SuperCustomEvent(Sonnet__SpellCheckDecorator* s
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnCustomEvent(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_CustomEvent_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -294,9 +285,8 @@ void Sonnet__SpellCheckDecorator_SuperConnectNotify(Sonnet__SpellCheckDecorator*
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnConnectNotify(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_ConnectNotify_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -323,9 +313,8 @@ void Sonnet__SpellCheckDecorator_SuperDisconnectNotify(Sonnet__SpellCheckDecorat
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnDisconnectNotify(Sonnet__SpellCheckDecorator* self, intptr_t slot) {
     auto* vsonnetspellcheckdecorator = dynamic_cast<VirtualSonnetSpellCheckDecorator*>(self);
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_DisconnectNotify_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -352,9 +341,8 @@ QObject* Sonnet__SpellCheckDecorator_SuperSender(const Sonnet__SpellCheckDecorat
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnSender(const Sonnet__SpellCheckDecorator* self, intptr_t slot) {
     auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Sender_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -381,9 +369,8 @@ int Sonnet__SpellCheckDecorator_SuperSenderSignalIndex(const Sonnet__SpellCheckD
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnSenderSignalIndex(const Sonnet__SpellCheckDecorator* self, intptr_t slot) {
     auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_SenderSignalIndex_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -410,9 +397,8 @@ int Sonnet__SpellCheckDecorator_SuperReceivers(const Sonnet__SpellCheckDecorator
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnReceivers(const Sonnet__SpellCheckDecorator* self, intptr_t slot) {
     auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_Receivers_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -439,9 +425,8 @@ bool Sonnet__SpellCheckDecorator_SuperIsSignalConnected(const Sonnet__SpellCheck
 // Auxiliary method to allow providing re-implementation
 void Sonnet__SpellCheckDecorator_OnIsSignalConnected(const Sonnet__SpellCheckDecorator* self, intptr_t slot) {
     auto* vsonnetspellcheckdecorator = const_cast<VirtualSonnetSpellCheckDecorator*>(dynamic_cast<const VirtualSonnetSpellCheckDecorator*>(self));
-    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator) {
+    if (vsonnetspellcheckdecorator && vsonnetspellcheckdecorator->isVirtualSonnetSpellCheckDecorator)
         vsonnetspellcheckdecorator->setSonnet__SpellCheckDecorator_IsSignalConnected_Callback(reinterpret_cast<VirtualSonnetSpellCheckDecorator::Sonnet__SpellCheckDecorator_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void Sonnet__SpellCheckDecorator_Delete(Sonnet__SpellCheckDecorator* self) {

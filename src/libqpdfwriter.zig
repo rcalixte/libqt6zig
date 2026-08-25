@@ -12,6 +12,7 @@ const QObject = @import("libqt6").QObject;
 const QPageLayout = @import("libqt6").QPageLayout;
 const QPageRanges = @import("libqt6").QPageRanges;
 const QPageSize = @import("libqt6").QPageSize;
+const QPagedPaintDevice = @import("libqt6").QPagedPaintDevice;
 const QPaintDevice = @import("libqt6").QPaintDevice;
 const QPaintEngine = @import("libqt6").QPaintEngine;
 const QPainter = @import("libqt6").QPainter;
@@ -73,6 +74,27 @@ pub const QPdfWriter = extern struct {
     pub fn new2(device: anytype) QPdfWriter {
         comptime _ = @TypeOf(device)._is_QIODevice;
         return .{ .ptr = qtc.QPdfWriter_new2(@ptrCast(device.ptr)) };
+    }
+
+    /// Upcasts to a QPagedPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPdfWriter `
+    ///
+    pub fn asQPagedPaintDevice(self: QPdfWriter) QPagedPaintDevice {
+        return .{ .ptr = qtc.QPdfWriter_AsQPagedPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a QPdfWriter object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpagedpaintdevice: QPagedPaintDevice `
+    ///
+    pub fn fromQPagedPaintDevice(_qpagedpaintdevice: anytype) QPdfWriter {
+        comptime _ = @TypeOf(_qpagedpaintdevice)._is_QPagedPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QPdfWriter_FromQPagedPaintDevice(@ptrCast(_qpagedpaintdevice.ptr))) };
     }
 
     /// ### DEPRECATED: Use `metaObject` instead
@@ -1760,7 +1782,7 @@ pub const QPdfWriter = extern struct {
     /// ` self: QPdfWriter `
     ///
     pub fn pageLayout(self: QPdfWriter) QPageLayout {
-        return .{ .ptr = qtc.QPagedPaintDevice_PageLayout(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QPagedPaintDevice_PageLayout(@ptrCast(self.asQPagedPaintDevice().ptr)) };
     }
 
     /// ### DEPRECATED: Use `pageRanges` instead
@@ -1776,7 +1798,7 @@ pub const QPdfWriter = extern struct {
     /// ` self: QPdfWriter `
     ///
     pub fn pageRanges(self: QPdfWriter) QPageRanges {
-        return .{ .ptr = qtc.QPagedPaintDevice_PageRanges(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.QPagedPaintDevice_PageRanges(@ptrCast(self.asQPagedPaintDevice().ptr)) };
     }
 
     /// ### DEPRECATED: Use `paintingActive` instead
@@ -3344,7 +3366,7 @@ pub const QPdfWriter = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#public-types)
 pub const enums = struct {
-    pub const ColorModel = enum(i32) {
+    pub const ColorModel = enum {
         pub const RGB: i32 = 0;
         pub const Grayscale: i32 = 1;
         pub const CMYK: i32 = 2;

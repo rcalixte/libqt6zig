@@ -50,9 +50,8 @@ QMetaObject* QPercentBarSeries_SuperMetaObject(const QPercentBarSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QPercentBarSeries_OnMetaObject(const QPercentBarSeries* self, intptr_t slot) {
     auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries)
         vqpercentbarseries->setQPercentBarSeries_MetaObject_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -69,9 +68,8 @@ void* QPercentBarSeries_SuperMetacast(QPercentBarSeries* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void QPercentBarSeries_OnMetacast(QPercentBarSeries* self, intptr_t slot) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries)
         vqpercentbarseries->setQPercentBarSeries_Metacast_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -88,9 +86,8 @@ int QPercentBarSeries_SuperMetacall(QPercentBarSeries* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void QPercentBarSeries_OnMetacall(QPercentBarSeries* self, intptr_t slot) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries)
         vqpercentbarseries->setQPercentBarSeries_Metacall_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -107,9 +104,8 @@ int QPercentBarSeries_SuperType(const QPercentBarSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QPercentBarSeries_OnType(const QPercentBarSeries* self, intptr_t slot) {
     auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries)
         vqpercentbarseries->setQPercentBarSeries_Type_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_Type_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -136,9 +132,8 @@ bool QPercentBarSeries_SuperEvent(QPercentBarSeries* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QPercentBarSeries_OnEvent(QPercentBarSeries* self, intptr_t slot) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries)
         vqpercentbarseries->setQPercentBarSeries_Event_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -165,9 +160,8 @@ bool QPercentBarSeries_SuperEventFilter(QPercentBarSeries* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void QPercentBarSeries_OnEventFilter(QPercentBarSeries* self, intptr_t slot) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries)
         vqpercentbarseries->setQPercentBarSeries_EventFilter_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -194,9 +188,8 @@ void QPercentBarSeries_SuperTimerEvent(QPercentBarSeries* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QPercentBarSeries_OnTimerEvent(QPercentBarSeries* self, intptr_t slot) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries)
         vqpercentbarseries->setQPercentBarSeries_TimerEvent_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -223,9 +216,8 @@ void QPercentBarSeries_SuperChildEvent(QPercentBarSeries* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QPercentBarSeries_OnChildEvent(QPercentBarSeries* self, intptr_t slot) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries)
         vqpercentbarseries->setQPercentBarSeries_ChildEvent_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -252,9 +244,8 @@ void QPercentBarSeries_SuperCustomEvent(QPercentBarSeries* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QPercentBarSeries_OnCustomEvent(QPercentBarSeries* self, intptr_t slot) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries)
         vqpercentbarseries->setQPercentBarSeries_CustomEvent_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -281,9 +272,8 @@ void QPercentBarSeries_SuperConnectNotify(QPercentBarSeries* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QPercentBarSeries_OnConnectNotify(QPercentBarSeries* self, intptr_t slot) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries)
         vqpercentbarseries->setQPercentBarSeries_ConnectNotify_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -310,9 +300,8 @@ void QPercentBarSeries_SuperDisconnectNotify(QPercentBarSeries* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void QPercentBarSeries_OnDisconnectNotify(QPercentBarSeries* self, intptr_t slot) {
     auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries)
         vqpercentbarseries->setQPercentBarSeries_DisconnectNotify_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +328,8 @@ QObject* QPercentBarSeries_SuperSender(const QPercentBarSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QPercentBarSeries_OnSender(const QPercentBarSeries* self, intptr_t slot) {
     auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries)
         vqpercentbarseries->setQPercentBarSeries_Sender_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +356,8 @@ int QPercentBarSeries_SuperSenderSignalIndex(const QPercentBarSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QPercentBarSeries_OnSenderSignalIndex(const QPercentBarSeries* self, intptr_t slot) {
     auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries)
         vqpercentbarseries->setQPercentBarSeries_SenderSignalIndex_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +384,8 @@ int QPercentBarSeries_SuperReceivers(const QPercentBarSeries* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void QPercentBarSeries_OnReceivers(const QPercentBarSeries* self, intptr_t slot) {
     auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries)
         vqpercentbarseries->setQPercentBarSeries_Receivers_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +412,8 @@ bool QPercentBarSeries_SuperIsSignalConnected(const QPercentBarSeries* self, con
 // Auxiliary method to allow providing re-implementation
 void QPercentBarSeries_OnIsSignalConnected(const QPercentBarSeries* self, intptr_t slot) {
     auto* vqpercentbarseries = const_cast<VirtualQPercentBarSeries*>(dynamic_cast<const VirtualQPercentBarSeries*>(self));
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
+    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries)
         vqpercentbarseries->setQPercentBarSeries_IsSignalConnected_Callback(reinterpret_cast<VirtualQPercentBarSeries::QPercentBarSeries_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QPercentBarSeries_Delete(QPercentBarSeries* self) {

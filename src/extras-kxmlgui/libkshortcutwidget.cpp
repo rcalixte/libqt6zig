@@ -155,9 +155,8 @@ QMetaObject* KShortcutWidget_SuperMetaObject(const KShortcutWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMetaObject(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_MetaObject_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -174,9 +173,8 @@ void* KShortcutWidget_SuperMetacast(KShortcutWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMetacast(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_Metacast_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -193,9 +191,8 @@ int KShortcutWidget_SuperMetacall(KShortcutWidget* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMetacall(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_Metacall_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -222,9 +219,8 @@ int KShortcutWidget_SuperDevType(const KShortcutWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnDevType(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_DevType_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -251,9 +247,8 @@ void KShortcutWidget_SuperSetVisible(KShortcutWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnSetVisible(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_SetVisible_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -280,9 +275,8 @@ QSize* KShortcutWidget_SuperSizeHint(const KShortcutWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnSizeHint(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_SizeHint_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -309,9 +303,8 @@ QSize* KShortcutWidget_SuperMinimumSizeHint(const KShortcutWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMinimumSizeHint(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -338,9 +331,8 @@ int KShortcutWidget_SuperHeightForWidth(const KShortcutWidget* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnHeightForWidth(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -367,9 +359,8 @@ bool KShortcutWidget_SuperHasHeightForWidth(const KShortcutWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnHasHeightForWidth(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -396,9 +387,8 @@ QPaintEngine* KShortcutWidget_SuperPaintEngine(const KShortcutWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnPaintEngine(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_PaintEngine_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -425,9 +415,8 @@ bool KShortcutWidget_SuperEvent(KShortcutWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_Event_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -454,9 +443,8 @@ void KShortcutWidget_SuperMousePressEvent(KShortcutWidget* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMousePressEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -483,9 +471,8 @@ void KShortcutWidget_SuperMouseReleaseEvent(KShortcutWidget* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMouseReleaseEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -512,9 +499,8 @@ void KShortcutWidget_SuperMouseDoubleClickEvent(KShortcutWidget* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMouseDoubleClickEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -541,9 +527,8 @@ void KShortcutWidget_SuperMouseMoveEvent(KShortcutWidget* self, QMouseEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMouseMoveEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -570,9 +555,8 @@ void KShortcutWidget_SuperWheelEvent(KShortcutWidget* self, QWheelEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnWheelEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_WheelEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -599,9 +583,8 @@ void KShortcutWidget_SuperKeyPressEvent(KShortcutWidget* self, QKeyEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnKeyPressEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -628,9 +611,8 @@ void KShortcutWidget_SuperKeyReleaseEvent(KShortcutWidget* self, QKeyEvent* even
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnKeyReleaseEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -657,9 +639,8 @@ void KShortcutWidget_SuperFocusInEvent(KShortcutWidget* self, QFocusEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnFocusInEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -686,9 +667,8 @@ void KShortcutWidget_SuperFocusOutEvent(KShortcutWidget* self, QFocusEvent* even
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnFocusOutEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -715,9 +695,8 @@ void KShortcutWidget_SuperEnterEvent(KShortcutWidget* self, QEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnEnterEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_EnterEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -744,9 +723,8 @@ void KShortcutWidget_SuperLeaveEvent(KShortcutWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnLeaveEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -773,9 +751,8 @@ void KShortcutWidget_SuperPaintEvent(KShortcutWidget* self, QPaintEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnPaintEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_PaintEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -802,9 +779,8 @@ void KShortcutWidget_SuperMoveEvent(KShortcutWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMoveEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_MoveEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -831,9 +807,8 @@ void KShortcutWidget_SuperResizeEvent(KShortcutWidget* self, QResizeEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnResizeEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -860,9 +835,8 @@ void KShortcutWidget_SuperCloseEvent(KShortcutWidget* self, QCloseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnCloseEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_CloseEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -889,9 +863,8 @@ void KShortcutWidget_SuperContextMenuEvent(KShortcutWidget* self, QContextMenuEv
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnContextMenuEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -918,9 +891,8 @@ void KShortcutWidget_SuperTabletEvent(KShortcutWidget* self, QTabletEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnTabletEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_TabletEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -947,9 +919,8 @@ void KShortcutWidget_SuperActionEvent(KShortcutWidget* self, QActionEvent* event
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnActionEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_ActionEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -976,9 +947,8 @@ void KShortcutWidget_SuperDragEnterEvent(KShortcutWidget* self, QDragEnterEvent*
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnDragEnterEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1005,9 +975,8 @@ void KShortcutWidget_SuperDragMoveEvent(KShortcutWidget* self, QDragMoveEvent* e
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnDragMoveEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1034,9 +1003,8 @@ void KShortcutWidget_SuperDragLeaveEvent(KShortcutWidget* self, QDragLeaveEvent*
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnDragLeaveEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1063,9 +1031,8 @@ void KShortcutWidget_SuperDropEvent(KShortcutWidget* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnDropEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_DropEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1092,9 +1059,8 @@ void KShortcutWidget_SuperShowEvent(KShortcutWidget* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnShowEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_ShowEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1121,9 +1087,8 @@ void KShortcutWidget_SuperHideEvent(KShortcutWidget* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnHideEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_HideEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1152,9 +1117,8 @@ bool KShortcutWidget_SuperNativeEvent(KShortcutWidget* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnNativeEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_NativeEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1181,9 +1145,8 @@ void KShortcutWidget_SuperChangeEvent(KShortcutWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnChangeEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1210,9 +1173,8 @@ int KShortcutWidget_SuperMetric(const KShortcutWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnMetric(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_Metric_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1239,9 +1201,8 @@ void KShortcutWidget_SuperInitPainter(const KShortcutWidget* self, QPainter* pai
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnInitPainter(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_InitPainter_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1268,9 +1229,8 @@ QPaintDevice* KShortcutWidget_SuperRedirected(const KShortcutWidget* self, QPoin
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnRedirected(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_Redirected_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1297,9 +1257,8 @@ QPainter* KShortcutWidget_SuperSharedPainter(const KShortcutWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnSharedPainter(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_SharedPainter_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1326,9 +1285,8 @@ void KShortcutWidget_SuperInputMethodEvent(KShortcutWidget* self, QInputMethodEv
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnInputMethodEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1355,9 +1313,8 @@ QVariant* KShortcutWidget_SuperInputMethodQuery(const KShortcutWidget* self, int
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnInputMethodQuery(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1384,9 +1341,8 @@ bool KShortcutWidget_SuperFocusNextPrevChild(KShortcutWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnFocusNextPrevChild(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1413,9 +1369,8 @@ bool KShortcutWidget_SuperEventFilter(KShortcutWidget* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnEventFilter(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_EventFilter_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1442,9 +1397,8 @@ void KShortcutWidget_SuperTimerEvent(KShortcutWidget* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnTimerEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_TimerEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1471,9 +1425,8 @@ void KShortcutWidget_SuperChildEvent(KShortcutWidget* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnChildEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_ChildEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1500,9 +1453,8 @@ void KShortcutWidget_SuperCustomEvent(KShortcutWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnCustomEvent(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_CustomEvent_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1529,9 +1481,8 @@ void KShortcutWidget_SuperConnectNotify(KShortcutWidget* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnConnectNotify(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1558,9 +1509,8 @@ void KShortcutWidget_SuperDisconnectNotify(KShortcutWidget* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnDisconnectNotify(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1587,9 +1537,8 @@ void KShortcutWidget_SuperUpdateMicroFocus(KShortcutWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnUpdateMicroFocus(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1616,9 +1565,8 @@ void KShortcutWidget_SuperCreate(KShortcutWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnCreate(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_Create_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1645,9 +1593,8 @@ void KShortcutWidget_SuperDestroy(KShortcutWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnDestroy(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_Destroy_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1674,9 +1621,8 @@ bool KShortcutWidget_SuperFocusNextChild(KShortcutWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnFocusNextChild(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1703,9 +1649,8 @@ bool KShortcutWidget_SuperFocusPreviousChild(KShortcutWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnFocusPreviousChild(KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = dynamic_cast<VirtualKShortcutWidget*>(self);
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1732,9 +1677,8 @@ QObject* KShortcutWidget_SuperSender(const KShortcutWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnSender(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_Sender_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1761,9 +1705,8 @@ int KShortcutWidget_SuperSenderSignalIndex(const KShortcutWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnSenderSignalIndex(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1790,9 +1733,8 @@ int KShortcutWidget_SuperReceivers(const KShortcutWidget* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnReceivers(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_Receivers_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1819,9 +1761,8 @@ bool KShortcutWidget_SuperIsSignalConnected(const KShortcutWidget* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnIsSignalConnected(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1848,9 +1789,8 @@ double KShortcutWidget_SuperGetDecodedMetricF(const KShortcutWidget* self, int m
 // Auxiliary method to allow providing re-implementation
 void KShortcutWidget_OnGetDecodedMetricF(const KShortcutWidget* self, intptr_t slot) {
     auto* vkshortcutwidget = const_cast<VirtualKShortcutWidget*>(dynamic_cast<const VirtualKShortcutWidget*>(self));
-    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget) {
+    if (vkshortcutwidget && vkshortcutwidget->isVirtualKShortcutWidget)
         vkshortcutwidget->setKShortcutWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKShortcutWidget::KShortcutWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KShortcutWidget_Delete(KShortcutWidget* self) {

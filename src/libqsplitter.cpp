@@ -262,9 +262,8 @@ QMetaObject* QSplitter_SuperMetaObject(const QSplitter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMetaObject(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_MetaObject_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -281,9 +280,8 @@ void* QSplitter_SuperMetacast(QSplitter* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMetacast(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_Metacast_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -300,9 +298,8 @@ int QSplitter_SuperMetacall(QSplitter* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMetacall(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_Metacall_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -319,9 +316,8 @@ QSize* QSplitter_SuperSizeHint(const QSplitter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnSizeHint(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_SizeHint_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -338,9 +334,8 @@ QSize* QSplitter_SuperMinimumSizeHint(const QSplitter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMinimumSizeHint(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_MinimumSizeHint_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -357,9 +352,8 @@ QSplitterHandle* QSplitter_SuperCreateHandle(QSplitter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnCreateHandle(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_CreateHandle_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_CreateHandle_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -376,9 +370,8 @@ void QSplitter_SuperChildEvent(QSplitter* self, QChildEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnChildEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_ChildEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_ChildEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -395,9 +388,8 @@ bool QSplitter_SuperEvent(QSplitter* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_Event_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -414,9 +406,8 @@ void QSplitter_SuperResizeEvent(QSplitter* self, QResizeEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnResizeEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_ResizeEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -433,9 +424,8 @@ void QSplitter_SuperChangeEvent(QSplitter* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnChangeEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_ChangeEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -462,9 +452,8 @@ void QSplitter_SuperPaintEvent(QSplitter* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnPaintEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_PaintEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -491,9 +480,8 @@ void QSplitter_SuperInitStyleOption(const QSplitter* self, QStyleOptionFrame* op
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnInitStyleOption(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_InitStyleOption_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -520,9 +508,8 @@ int QSplitter_SuperDevType(const QSplitter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnDevType(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_DevType_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -549,9 +536,8 @@ void QSplitter_SuperSetVisible(QSplitter* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnSetVisible(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_SetVisible_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -578,9 +564,8 @@ int QSplitter_SuperHeightForWidth(const QSplitter* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnHeightForWidth(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_HeightForWidth_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -607,9 +592,8 @@ bool QSplitter_SuperHasHeightForWidth(const QSplitter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnHasHeightForWidth(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_HasHeightForWidth_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -636,9 +620,8 @@ QPaintEngine* QSplitter_SuperPaintEngine(const QSplitter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnPaintEngine(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_PaintEngine_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -665,9 +648,8 @@ void QSplitter_SuperMousePressEvent(QSplitter* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMousePressEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_MousePressEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -694,9 +676,8 @@ void QSplitter_SuperMouseReleaseEvent(QSplitter* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMouseReleaseEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -723,9 +704,8 @@ void QSplitter_SuperMouseDoubleClickEvent(QSplitter* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMouseDoubleClickEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -752,9 +732,8 @@ void QSplitter_SuperMouseMoveEvent(QSplitter* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMouseMoveEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_MouseMoveEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -781,9 +760,8 @@ void QSplitter_SuperWheelEvent(QSplitter* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnWheelEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_WheelEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -810,9 +788,8 @@ void QSplitter_SuperKeyPressEvent(QSplitter* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnKeyPressEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_KeyPressEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -839,9 +816,8 @@ void QSplitter_SuperKeyReleaseEvent(QSplitter* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnKeyReleaseEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -868,9 +844,8 @@ void QSplitter_SuperFocusInEvent(QSplitter* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnFocusInEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_FocusInEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -897,9 +872,8 @@ void QSplitter_SuperFocusOutEvent(QSplitter* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnFocusOutEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_FocusOutEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -926,9 +900,8 @@ void QSplitter_SuperEnterEvent(QSplitter* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnEnterEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_EnterEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -955,9 +928,8 @@ void QSplitter_SuperLeaveEvent(QSplitter* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnLeaveEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_LeaveEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -984,9 +956,8 @@ void QSplitter_SuperMoveEvent(QSplitter* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMoveEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_MoveEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1013,9 +984,8 @@ void QSplitter_SuperCloseEvent(QSplitter* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnCloseEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_CloseEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1042,9 +1012,8 @@ void QSplitter_SuperContextMenuEvent(QSplitter* self, QContextMenuEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnContextMenuEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_ContextMenuEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1071,9 +1040,8 @@ void QSplitter_SuperTabletEvent(QSplitter* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnTabletEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_TabletEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1100,9 +1068,8 @@ void QSplitter_SuperActionEvent(QSplitter* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnActionEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_ActionEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1129,9 +1096,8 @@ void QSplitter_SuperDragEnterEvent(QSplitter* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnDragEnterEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_DragEnterEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1158,9 +1124,8 @@ void QSplitter_SuperDragMoveEvent(QSplitter* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnDragMoveEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_DragMoveEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1187,9 +1152,8 @@ void QSplitter_SuperDragLeaveEvent(QSplitter* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnDragLeaveEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_DragLeaveEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1216,9 +1180,8 @@ void QSplitter_SuperDropEvent(QSplitter* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnDropEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_DropEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1245,9 +1208,8 @@ void QSplitter_SuperShowEvent(QSplitter* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnShowEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_ShowEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1274,9 +1236,8 @@ void QSplitter_SuperHideEvent(QSplitter* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnHideEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_HideEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1305,9 +1266,8 @@ bool QSplitter_SuperNativeEvent(QSplitter* self, const libqt_string eventType, v
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnNativeEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_NativeEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1334,9 +1294,8 @@ int QSplitter_SuperMetric(const QSplitter* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMetric(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_Metric_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1363,9 +1322,8 @@ void QSplitter_SuperInitPainter(const QSplitter* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnInitPainter(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_InitPainter_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1392,9 +1350,8 @@ QPaintDevice* QSplitter_SuperRedirected(const QSplitter* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnRedirected(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_Redirected_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1421,9 +1378,8 @@ QPainter* QSplitter_SuperSharedPainter(const QSplitter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnSharedPainter(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_SharedPainter_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1450,9 +1406,8 @@ void QSplitter_SuperInputMethodEvent(QSplitter* self, QInputMethodEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnInputMethodEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_InputMethodEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1479,9 +1434,8 @@ QVariant* QSplitter_SuperInputMethodQuery(const QSplitter* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnInputMethodQuery(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_InputMethodQuery_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1508,9 +1462,8 @@ bool QSplitter_SuperFocusNextPrevChild(QSplitter* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnFocusNextPrevChild(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1537,9 +1490,8 @@ bool QSplitter_SuperEventFilter(QSplitter* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnEventFilter(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_EventFilter_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1566,9 +1518,8 @@ void QSplitter_SuperTimerEvent(QSplitter* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnTimerEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_TimerEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1595,9 +1546,8 @@ void QSplitter_SuperCustomEvent(QSplitter* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnCustomEvent(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_CustomEvent_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1624,9 +1574,8 @@ void QSplitter_SuperConnectNotify(QSplitter* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnConnectNotify(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_ConnectNotify_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1653,9 +1602,8 @@ void QSplitter_SuperDisconnectNotify(QSplitter* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnDisconnectNotify(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_DisconnectNotify_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1682,9 +1630,8 @@ void QSplitter_SuperMoveSplitter(QSplitter* self, int pos, int index) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnMoveSplitter(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_MoveSplitter_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_MoveSplitter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1711,9 +1658,8 @@ void QSplitter_SuperSetRubberBand(QSplitter* self, int position) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnSetRubberBand(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_SetRubberBand_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_SetRubberBand_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1740,9 +1686,8 @@ int QSplitter_SuperClosestLegalPosition(QSplitter* self, int param1, int param2)
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnClosestLegalPosition(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_ClosestLegalPosition_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_ClosestLegalPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1769,9 +1714,8 @@ void QSplitter_SuperDrawFrame(QSplitter* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnDrawFrame(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_DrawFrame_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1798,9 +1742,8 @@ void QSplitter_SuperUpdateMicroFocus(QSplitter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnUpdateMicroFocus(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1827,9 +1770,8 @@ void QSplitter_SuperCreate(QSplitter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnCreate(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_Create_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1856,9 +1798,8 @@ void QSplitter_SuperDestroy(QSplitter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnDestroy(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_Destroy_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1885,9 +1826,8 @@ bool QSplitter_SuperFocusNextChild(QSplitter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnFocusNextChild(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_FocusNextChild_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1914,9 +1854,8 @@ bool QSplitter_SuperFocusPreviousChild(QSplitter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnFocusPreviousChild(QSplitter* self, intptr_t slot) {
     auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_FocusPreviousChild_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1943,9 +1882,8 @@ QObject* QSplitter_SuperSender(const QSplitter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnSender(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_Sender_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1972,9 +1910,8 @@ int QSplitter_SuperSenderSignalIndex(const QSplitter* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnSenderSignalIndex(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2001,9 +1938,8 @@ int QSplitter_SuperReceivers(const QSplitter* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnReceivers(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_Receivers_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2030,9 +1966,8 @@ bool QSplitter_SuperIsSignalConnected(const QSplitter* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnIsSignalConnected(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_IsSignalConnected_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2059,9 +1994,8 @@ double QSplitter_SuperGetDecodedMetricF(const QSplitter* self, int metricA, int 
 // Auxiliary method to allow providing re-implementation
 void QSplitter_OnGetDecodedMetricF(const QSplitter* self, intptr_t slot) {
     auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+    if (vqsplitter && vqsplitter->isVirtualQSplitter)
         vqsplitter->setQSplitter_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QSplitter_Delete(QSplitter* self) {
@@ -2161,9 +2095,8 @@ QMetaObject* QSplitterHandle_SuperMetaObject(const QSplitterHandle* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMetaObject(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_MetaObject_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2180,9 +2113,8 @@ void* QSplitterHandle_SuperMetacast(QSplitterHandle* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMetacast(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_Metacast_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2199,9 +2131,8 @@ int QSplitterHandle_SuperMetacall(QSplitterHandle* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMetacall(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_Metacall_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2218,9 +2149,8 @@ QSize* QSplitterHandle_SuperSizeHint(const QSplitterHandle* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnSizeHint(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_SizeHint_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2237,9 +2167,8 @@ void QSplitterHandle_SuperPaintEvent(QSplitterHandle* self, QPaintEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnPaintEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_PaintEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2256,9 +2185,8 @@ void QSplitterHandle_SuperMouseMoveEvent(QSplitterHandle* self, QMouseEvent* par
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMouseMoveEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_MouseMoveEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2275,9 +2203,8 @@ void QSplitterHandle_SuperMousePressEvent(QSplitterHandle* self, QMouseEvent* pa
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMousePressEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_MousePressEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2294,9 +2221,8 @@ void QSplitterHandle_SuperMouseReleaseEvent(QSplitterHandle* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMouseReleaseEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2313,9 +2239,8 @@ void QSplitterHandle_SuperResizeEvent(QSplitterHandle* self, QResizeEvent* param
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnResizeEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_ResizeEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2332,9 +2257,8 @@ bool QSplitterHandle_SuperEvent(QSplitterHandle* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_Event_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2361,9 +2285,8 @@ int QSplitterHandle_SuperDevType(const QSplitterHandle* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnDevType(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_DevType_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2390,9 +2313,8 @@ void QSplitterHandle_SuperSetVisible(QSplitterHandle* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnSetVisible(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_SetVisible_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2419,9 +2341,8 @@ QSize* QSplitterHandle_SuperMinimumSizeHint(const QSplitterHandle* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMinimumSizeHint(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_MinimumSizeHint_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2448,9 +2369,8 @@ int QSplitterHandle_SuperHeightForWidth(const QSplitterHandle* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnHeightForWidth(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_HeightForWidth_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2477,9 +2397,8 @@ bool QSplitterHandle_SuperHasHeightForWidth(const QSplitterHandle* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnHasHeightForWidth(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_HasHeightForWidth_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2506,9 +2425,8 @@ QPaintEngine* QSplitterHandle_SuperPaintEngine(const QSplitterHandle* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnPaintEngine(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_PaintEngine_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2535,9 +2453,8 @@ void QSplitterHandle_SuperMouseDoubleClickEvent(QSplitterHandle* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMouseDoubleClickEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2564,9 +2481,8 @@ void QSplitterHandle_SuperWheelEvent(QSplitterHandle* self, QWheelEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnWheelEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_WheelEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2593,9 +2509,8 @@ void QSplitterHandle_SuperKeyPressEvent(QSplitterHandle* self, QKeyEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnKeyPressEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_KeyPressEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2622,9 +2537,8 @@ void QSplitterHandle_SuperKeyReleaseEvent(QSplitterHandle* self, QKeyEvent* even
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnKeyReleaseEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2651,9 +2565,8 @@ void QSplitterHandle_SuperFocusInEvent(QSplitterHandle* self, QFocusEvent* event
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnFocusInEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_FocusInEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2680,9 +2593,8 @@ void QSplitterHandle_SuperFocusOutEvent(QSplitterHandle* self, QFocusEvent* even
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnFocusOutEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_FocusOutEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2709,9 +2621,8 @@ void QSplitterHandle_SuperEnterEvent(QSplitterHandle* self, QEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnEnterEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_EnterEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2738,9 +2649,8 @@ void QSplitterHandle_SuperLeaveEvent(QSplitterHandle* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnLeaveEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_LeaveEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2767,9 +2677,8 @@ void QSplitterHandle_SuperMoveEvent(QSplitterHandle* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMoveEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_MoveEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2796,9 +2705,8 @@ void QSplitterHandle_SuperCloseEvent(QSplitterHandle* self, QCloseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnCloseEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_CloseEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2825,9 +2733,8 @@ void QSplitterHandle_SuperContextMenuEvent(QSplitterHandle* self, QContextMenuEv
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnContextMenuEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_ContextMenuEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2854,9 +2761,8 @@ void QSplitterHandle_SuperTabletEvent(QSplitterHandle* self, QTabletEvent* event
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnTabletEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_TabletEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2883,9 +2789,8 @@ void QSplitterHandle_SuperActionEvent(QSplitterHandle* self, QActionEvent* event
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnActionEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_ActionEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2912,9 +2817,8 @@ void QSplitterHandle_SuperDragEnterEvent(QSplitterHandle* self, QDragEnterEvent*
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnDragEnterEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_DragEnterEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2941,9 +2845,8 @@ void QSplitterHandle_SuperDragMoveEvent(QSplitterHandle* self, QDragMoveEvent* e
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnDragMoveEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_DragMoveEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2970,9 +2873,8 @@ void QSplitterHandle_SuperDragLeaveEvent(QSplitterHandle* self, QDragLeaveEvent*
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnDragLeaveEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_DragLeaveEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2999,9 +2901,8 @@ void QSplitterHandle_SuperDropEvent(QSplitterHandle* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnDropEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_DropEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3028,9 +2929,8 @@ void QSplitterHandle_SuperShowEvent(QSplitterHandle* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnShowEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_ShowEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3057,9 +2957,8 @@ void QSplitterHandle_SuperHideEvent(QSplitterHandle* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnHideEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_HideEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3088,9 +2987,8 @@ bool QSplitterHandle_SuperNativeEvent(QSplitterHandle* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnNativeEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_NativeEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3117,9 +3015,8 @@ void QSplitterHandle_SuperChangeEvent(QSplitterHandle* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnChangeEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_ChangeEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3146,9 +3043,8 @@ int QSplitterHandle_SuperMetric(const QSplitterHandle* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMetric(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_Metric_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3175,9 +3071,8 @@ void QSplitterHandle_SuperInitPainter(const QSplitterHandle* self, QPainter* pai
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnInitPainter(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_InitPainter_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3204,9 +3099,8 @@ QPaintDevice* QSplitterHandle_SuperRedirected(const QSplitterHandle* self, QPoin
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnRedirected(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_Redirected_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3233,9 +3127,8 @@ QPainter* QSplitterHandle_SuperSharedPainter(const QSplitterHandle* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnSharedPainter(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_SharedPainter_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3262,9 +3155,8 @@ void QSplitterHandle_SuperInputMethodEvent(QSplitterHandle* self, QInputMethodEv
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnInputMethodEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_InputMethodEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3291,9 +3183,8 @@ QVariant* QSplitterHandle_SuperInputMethodQuery(const QSplitterHandle* self, int
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnInputMethodQuery(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_InputMethodQuery_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3320,9 +3211,8 @@ bool QSplitterHandle_SuperFocusNextPrevChild(QSplitterHandle* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnFocusNextPrevChild(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3349,9 +3239,8 @@ bool QSplitterHandle_SuperEventFilter(QSplitterHandle* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnEventFilter(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_EventFilter_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3378,9 +3267,8 @@ void QSplitterHandle_SuperTimerEvent(QSplitterHandle* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnTimerEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_TimerEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3407,9 +3295,8 @@ void QSplitterHandle_SuperChildEvent(QSplitterHandle* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnChildEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_ChildEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3436,9 +3323,8 @@ void QSplitterHandle_SuperCustomEvent(QSplitterHandle* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnCustomEvent(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_CustomEvent_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3465,9 +3351,8 @@ void QSplitterHandle_SuperConnectNotify(QSplitterHandle* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnConnectNotify(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_ConnectNotify_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3494,9 +3379,8 @@ void QSplitterHandle_SuperDisconnectNotify(QSplitterHandle* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnDisconnectNotify(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_DisconnectNotify_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3523,9 +3407,8 @@ void QSplitterHandle_SuperMoveSplitter(QSplitterHandle* self, int p) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnMoveSplitter(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_MoveSplitter_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_MoveSplitter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3552,9 +3435,8 @@ int QSplitterHandle_SuperClosestLegalPosition(QSplitterHandle* self, int p) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnClosestLegalPosition(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_ClosestLegalPosition_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_ClosestLegalPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3581,9 +3463,8 @@ void QSplitterHandle_SuperUpdateMicroFocus(QSplitterHandle* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnUpdateMicroFocus(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3610,9 +3491,8 @@ void QSplitterHandle_SuperCreate(QSplitterHandle* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnCreate(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_Create_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3639,9 +3519,8 @@ void QSplitterHandle_SuperDestroy(QSplitterHandle* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnDestroy(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_Destroy_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3668,9 +3547,8 @@ bool QSplitterHandle_SuperFocusNextChild(QSplitterHandle* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnFocusNextChild(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_FocusNextChild_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3697,9 +3575,8 @@ bool QSplitterHandle_SuperFocusPreviousChild(QSplitterHandle* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnFocusPreviousChild(QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_FocusPreviousChild_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3726,9 +3603,8 @@ QObject* QSplitterHandle_SuperSender(const QSplitterHandle* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnSender(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_Sender_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3755,9 +3631,8 @@ int QSplitterHandle_SuperSenderSignalIndex(const QSplitterHandle* self) {
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnSenderSignalIndex(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3784,9 +3659,8 @@ int QSplitterHandle_SuperReceivers(const QSplitterHandle* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnReceivers(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_Receivers_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3813,9 +3687,8 @@ bool QSplitterHandle_SuperIsSignalConnected(const QSplitterHandle* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnIsSignalConnected(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_IsSignalConnected_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3842,9 +3715,8 @@ double QSplitterHandle_SuperGetDecodedMetricF(const QSplitterHandle* self, int m
 // Auxiliary method to allow providing re-implementation
 void QSplitterHandle_OnGetDecodedMetricF(const QSplitterHandle* self, intptr_t slot) {
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle)
         vqsplitterhandle->setQSplitterHandle_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QSplitterHandle_Delete(QSplitterHandle* self) {

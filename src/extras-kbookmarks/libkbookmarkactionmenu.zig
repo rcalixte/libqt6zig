@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const KBookmark = @import("libqt6").KBookmark;
+const KBookmarkActionInterface = @import("libqt6").KBookmarkActionInterface;
 const QAction = @import("libqt6").QAction;
 const QActionGroup = @import("libqt6").QActionGroup;
 const QBindingStorage = @import("libqt6").QBindingStorage;
@@ -79,6 +80,27 @@ pub const KBookmarkActionMenu = extern struct {
         };
         comptime _ = @TypeOf(_parent)._is_QObject;
         return .{ .ptr = qtc.KBookmarkActionMenu_new2(@ptrCast(bm.ptr), text_str, @ptrCast(_parent.ptr)) };
+    }
+
+    /// Upcasts to a KBookmarkActionInterface object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KBookmarkActionMenu `
+    ///
+    pub fn asKBookmarkActionInterface(self: KBookmarkActionMenu) KBookmarkActionInterface {
+        return .{ .ptr = qtc.KBookmarkActionMenu_AsKBookmarkActionInterface(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a KBookmarkActionMenu object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _kbookmarkactioninterface: KBookmarkActionInterface `
+    ///
+    pub fn fromKBookmarkActionInterface(_kbookmarkactioninterface: anytype) KBookmarkActionMenu {
+        comptime _ = @TypeOf(_kbookmarkactioninterface)._is_KBookmarkActionInterface;
+        return .{ .ptr = @ptrCast(qtc.KBookmarkActionMenu_FromKBookmarkActionInterface(@ptrCast(_kbookmarkactioninterface.ptr))) };
     }
 
     /// ### DEPRECATED: Use `metaObject` instead
@@ -2770,7 +2792,7 @@ pub const KBookmarkActionMenu = extern struct {
     /// ` self: KBookmarkActionMenu `
     ///
     pub fn bookmark(self: KBookmarkActionMenu) KBookmark {
-        return .{ .ptr = qtc.KBookmarkActionInterface_Bookmark(@ptrCast(self.ptr)) };
+        return .{ .ptr = qtc.KBookmarkActionInterface_Bookmark(@ptrCast(self.asKBookmarkActionInterface().ptr)) };
     }
 
     /// ### DEPRECATED: Use `createWidget` instead

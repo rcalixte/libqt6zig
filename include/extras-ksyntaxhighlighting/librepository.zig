@@ -2289,7 +2289,7 @@ pub const KSyntaxHighlighting__Repository = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-repository.html#public-types)
 pub const enums = struct {
-    pub const DefaultTheme = enum(i32) {
+    pub const DefaultTheme = enum {
         pub const LightTheme: i32 = 0;
         pub const DarkTheme: i32 = 1;
     };

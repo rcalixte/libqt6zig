@@ -1749,7 +1749,7 @@ pub const QDir = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdir.html#public-types)
 pub const enums = struct {
-    pub const Filter = enum(i32) {
+    pub const Filter = enum {
         pub const Dirs: i32 = 1;
         pub const Files: i32 = 2;
         pub const Drives: i32 = 4;
@@ -1772,7 +1772,7 @@ pub const enums = struct {
         pub const NoFilter: i32 = -1;
     };
 
-    pub const SortFlag = enum(i32) {
+    pub const SortFlag = enum {
         pub const Name: i32 = 0;
         pub const Time: i32 = 1;
         pub const Size: i32 = 2;

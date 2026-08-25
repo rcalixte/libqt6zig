@@ -2825,14 +2825,14 @@ pub const QGeoAreaMonitorSource = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorsource.html#public-types)
 pub const enums = struct {
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const AccessError: i32 = 0;
         pub const InsufficientPositionInfo: i32 = 1;
         pub const UnknownSourceError: i32 = 2;
         pub const NoError: i32 = 3;
     };
 
-    pub const AreaMonitorFeature = enum(i32) {
+    pub const AreaMonitorFeature = enum {
         pub const PersistentAreaMonitorFeature: i32 = 1;
         pub const AnyAreaMonitorFeature: i32 = -1;
     };

@@ -48,9 +48,8 @@ QMetaObject* KToolBarSpacerAction_SuperMetaObject(const KToolBarSpacerAction* se
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnMetaObject(const KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = const_cast<VirtualKToolBarSpacerAction*>(dynamic_cast<const VirtualKToolBarSpacerAction*>(self));
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_MetaObject_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -67,9 +66,8 @@ void* KToolBarSpacerAction_SuperMetacast(KToolBarSpacerAction* self, const char*
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnMetacast(KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_Metacast_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -86,9 +84,8 @@ int KToolBarSpacerAction_SuperMetacall(KToolBarSpacerAction* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnMetacall(KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_Metacall_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -105,9 +102,8 @@ QWidget* KToolBarSpacerAction_SuperCreateWidget(KToolBarSpacerAction* self, QWid
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnCreateWidget(KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_CreateWidget_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_CreateWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -134,9 +130,8 @@ bool KToolBarSpacerAction_SuperEvent(KToolBarSpacerAction* self, QEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnEvent(KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_Event_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -163,9 +158,8 @@ bool KToolBarSpacerAction_SuperEventFilter(KToolBarSpacerAction* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnEventFilter(KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_EventFilter_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -192,9 +186,8 @@ void KToolBarSpacerAction_SuperDeleteWidget(KToolBarSpacerAction* self, QWidget*
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnDeleteWidget(KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_DeleteWidget_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_DeleteWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -221,9 +214,8 @@ void KToolBarSpacerAction_SuperTimerEvent(KToolBarSpacerAction* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnTimerEvent(KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_TimerEvent_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -250,9 +242,8 @@ void KToolBarSpacerAction_SuperChildEvent(KToolBarSpacerAction* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnChildEvent(KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_ChildEvent_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -279,9 +270,8 @@ void KToolBarSpacerAction_SuperCustomEvent(KToolBarSpacerAction* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnCustomEvent(KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_CustomEvent_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -308,9 +298,8 @@ void KToolBarSpacerAction_SuperConnectNotify(KToolBarSpacerAction* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnConnectNotify(KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_ConnectNotify_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -337,9 +326,8 @@ void KToolBarSpacerAction_SuperDisconnectNotify(KToolBarSpacerAction* self, cons
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnDisconnectNotify(KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -402,9 +390,8 @@ libqt_list /* of QWidget* */ KToolBarSpacerAction_SuperCreatedWidgets(const KToo
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnCreatedWidgets(const KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = const_cast<VirtualKToolBarSpacerAction*>(dynamic_cast<const VirtualKToolBarSpacerAction*>(self));
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_CreatedWidgets_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_CreatedWidgets_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -431,9 +418,8 @@ QObject* KToolBarSpacerAction_SuperSender(const KToolBarSpacerAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnSender(const KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = const_cast<VirtualKToolBarSpacerAction*>(dynamic_cast<const VirtualKToolBarSpacerAction*>(self));
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_Sender_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -460,9 +446,8 @@ int KToolBarSpacerAction_SuperSenderSignalIndex(const KToolBarSpacerAction* self
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnSenderSignalIndex(const KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = const_cast<VirtualKToolBarSpacerAction*>(dynamic_cast<const VirtualKToolBarSpacerAction*>(self));
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -489,9 +474,8 @@ int KToolBarSpacerAction_SuperReceivers(const KToolBarSpacerAction* self, const 
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnReceivers(const KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = const_cast<VirtualKToolBarSpacerAction*>(dynamic_cast<const VirtualKToolBarSpacerAction*>(self));
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_Receivers_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -518,9 +502,8 @@ bool KToolBarSpacerAction_SuperIsSignalConnected(const KToolBarSpacerAction* sel
 // Auxiliary method to allow providing re-implementation
 void KToolBarSpacerAction_OnIsSignalConnected(const KToolBarSpacerAction* self, intptr_t slot) {
     auto* vktoolbarspaceraction = const_cast<VirtualKToolBarSpacerAction*>(dynamic_cast<const VirtualKToolBarSpacerAction*>(self));
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
+    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction)
         vktoolbarspaceraction->setKToolBarSpacerAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKToolBarSpacerAction::KToolBarSpacerAction_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KToolBarSpacerAction_Delete(KToolBarSpacerAction* self) {

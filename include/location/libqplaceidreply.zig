@@ -2544,7 +2544,7 @@ pub const QPlaceIdReply = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceidreply.html#public-types)
 pub const enums = struct {
-    pub const OperationType = enum(i32) {
+    pub const OperationType = enum {
         pub const SavePlace: i32 = 0;
         pub const SaveCategory: i32 = 1;
         pub const RemovePlace: i32 = 2;

@@ -79,9 +79,8 @@ QMetaObject* QParallelAnimationGroup_SuperMetaObject(const QParallelAnimationGro
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnMetaObject(const QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_MetaObject_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -98,9 +97,8 @@ void* QParallelAnimationGroup_SuperMetacast(QParallelAnimationGroup* self, const
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnMetacast(QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_Metacast_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -117,9 +115,8 @@ int QParallelAnimationGroup_SuperMetacall(QParallelAnimationGroup* self, int par
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnMetacall(QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_Metacall_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -136,9 +133,8 @@ int QParallelAnimationGroup_SuperDuration(const QParallelAnimationGroup* self) {
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnDuration(const QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_Duration_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Duration_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -155,9 +151,8 @@ bool QParallelAnimationGroup_SuperEvent(QParallelAnimationGroup* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnEvent(QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_Event_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -174,9 +169,8 @@ void QParallelAnimationGroup_SuperUpdateCurrentTime(QParallelAnimationGroup* sel
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnUpdateCurrentTime(QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_UpdateCurrentTime_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_UpdateCurrentTime_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -193,9 +187,8 @@ void QParallelAnimationGroup_SuperUpdateState(QParallelAnimationGroup* self, int
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnUpdateState(QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_UpdateState_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_UpdateState_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -212,9 +205,8 @@ void QParallelAnimationGroup_SuperUpdateDirection(QParallelAnimationGroup* self,
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnUpdateDirection(QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_UpdateDirection_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_UpdateDirection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -241,9 +233,8 @@ bool QParallelAnimationGroup_SuperEventFilter(QParallelAnimationGroup* self, QOb
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnEventFilter(QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_EventFilter_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -270,9 +261,8 @@ void QParallelAnimationGroup_SuperTimerEvent(QParallelAnimationGroup* self, QTim
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnTimerEvent(QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_TimerEvent_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -299,9 +289,8 @@ void QParallelAnimationGroup_SuperChildEvent(QParallelAnimationGroup* self, QChi
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnChildEvent(QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_ChildEvent_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -328,9 +317,8 @@ void QParallelAnimationGroup_SuperCustomEvent(QParallelAnimationGroup* self, QEv
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnCustomEvent(QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_CustomEvent_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -357,9 +345,8 @@ void QParallelAnimationGroup_SuperConnectNotify(QParallelAnimationGroup* self, c
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnConnectNotify(QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_ConnectNotify_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -386,9 +373,8 @@ void QParallelAnimationGroup_SuperDisconnectNotify(QParallelAnimationGroup* self
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnDisconnectNotify(QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_DisconnectNotify_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -415,9 +401,8 @@ QObject* QParallelAnimationGroup_SuperSender(const QParallelAnimationGroup* self
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnSender(const QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_Sender_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -444,9 +429,8 @@ int QParallelAnimationGroup_SuperSenderSignalIndex(const QParallelAnimationGroup
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnSenderSignalIndex(const QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_SenderSignalIndex_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -473,9 +457,8 @@ int QParallelAnimationGroup_SuperReceivers(const QParallelAnimationGroup* self, 
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnReceivers(const QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_Receivers_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -502,9 +485,8 @@ bool QParallelAnimationGroup_SuperIsSignalConnected(const QParallelAnimationGrou
 // Auxiliary method to allow providing re-implementation
 void QParallelAnimationGroup_OnIsSignalConnected(const QParallelAnimationGroup* self, intptr_t slot) {
     auto* vqparallelanimationgroup = const_cast<VirtualQParallelAnimationGroup*>(dynamic_cast<const VirtualQParallelAnimationGroup*>(self));
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
+    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup)
         vqparallelanimationgroup->setQParallelAnimationGroup_IsSignalConnected_Callback(reinterpret_cast<VirtualQParallelAnimationGroup::QParallelAnimationGroup_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QParallelAnimationGroup_Delete(QParallelAnimationGroup* self) {

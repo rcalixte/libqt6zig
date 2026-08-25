@@ -170,9 +170,8 @@ QMetaObject* KMultiTabBar_SuperMetaObject(const KMultiTabBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMetaObject(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_MetaObject_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -189,9 +188,8 @@ void* KMultiTabBar_SuperMetacast(KMultiTabBar* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMetacast(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_Metacast_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -208,9 +206,8 @@ int KMultiTabBar_SuperMetacall(KMultiTabBar* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMetacall(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_Metacall_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -227,9 +224,8 @@ void KMultiTabBar_SuperFontChange(KMultiTabBar* self, const QFont* param1) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnFontChange(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_FontChange_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FontChange_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -246,9 +242,8 @@ void KMultiTabBar_SuperPaintEvent(KMultiTabBar* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnPaintEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_PaintEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -275,9 +270,8 @@ int KMultiTabBar_SuperDevType(const KMultiTabBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnDevType(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_DevType_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +298,8 @@ void KMultiTabBar_SuperSetVisible(KMultiTabBar* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnSetVisible(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_SetVisible_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +326,8 @@ QSize* KMultiTabBar_SuperSizeHint(const KMultiTabBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnSizeHint(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_SizeHint_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +354,8 @@ QSize* KMultiTabBar_SuperMinimumSizeHint(const KMultiTabBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMinimumSizeHint(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +382,8 @@ int KMultiTabBar_SuperHeightForWidth(const KMultiTabBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnHeightForWidth(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_HeightForWidth_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +410,8 @@ bool KMultiTabBar_SuperHasHeightForWidth(const KMultiTabBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnHasHeightForWidth(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +438,8 @@ QPaintEngine* KMultiTabBar_SuperPaintEngine(const KMultiTabBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnPaintEngine(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_PaintEngine_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +466,8 @@ bool KMultiTabBar_SuperEvent(KMultiTabBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_Event_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -507,9 +494,8 @@ void KMultiTabBar_SuperMousePressEvent(KMultiTabBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMousePressEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_MousePressEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -536,9 +522,8 @@ void KMultiTabBar_SuperMouseReleaseEvent(KMultiTabBar* self, QMouseEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMouseReleaseEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -565,9 +550,8 @@ void KMultiTabBar_SuperMouseDoubleClickEvent(KMultiTabBar* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMouseDoubleClickEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +578,8 @@ void KMultiTabBar_SuperMouseMoveEvent(KMultiTabBar* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMouseMoveEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -623,9 +606,8 @@ void KMultiTabBar_SuperWheelEvent(KMultiTabBar* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnWheelEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_WheelEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -652,9 +634,8 @@ void KMultiTabBar_SuperKeyPressEvent(KMultiTabBar* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnKeyPressEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_KeyPressEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -681,9 +662,8 @@ void KMultiTabBar_SuperKeyReleaseEvent(KMultiTabBar* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnKeyReleaseEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -710,9 +690,8 @@ void KMultiTabBar_SuperFocusInEvent(KMultiTabBar* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnFocusInEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_FocusInEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -739,9 +718,8 @@ void KMultiTabBar_SuperFocusOutEvent(KMultiTabBar* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnFocusOutEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_FocusOutEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -768,9 +746,8 @@ void KMultiTabBar_SuperEnterEvent(KMultiTabBar* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnEnterEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_EnterEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -797,9 +774,8 @@ void KMultiTabBar_SuperLeaveEvent(KMultiTabBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnLeaveEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_LeaveEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -826,9 +802,8 @@ void KMultiTabBar_SuperMoveEvent(KMultiTabBar* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMoveEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_MoveEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +830,8 @@ void KMultiTabBar_SuperResizeEvent(KMultiTabBar* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnResizeEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_ResizeEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -884,9 +858,8 @@ void KMultiTabBar_SuperCloseEvent(KMultiTabBar* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnCloseEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_CloseEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -913,9 +886,8 @@ void KMultiTabBar_SuperContextMenuEvent(KMultiTabBar* self, QContextMenuEvent* e
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnContextMenuEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +914,8 @@ void KMultiTabBar_SuperTabletEvent(KMultiTabBar* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnTabletEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_TabletEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +942,8 @@ void KMultiTabBar_SuperActionEvent(KMultiTabBar* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnActionEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_ActionEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +970,8 @@ void KMultiTabBar_SuperDragEnterEvent(KMultiTabBar* self, QDragEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnDragEnterEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_DragEnterEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +998,8 @@ void KMultiTabBar_SuperDragMoveEvent(KMultiTabBar* self, QDragMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnDragMoveEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_DragMoveEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1058,9 +1026,8 @@ void KMultiTabBar_SuperDragLeaveEvent(KMultiTabBar* self, QDragLeaveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnDragLeaveEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1087,9 +1054,8 @@ void KMultiTabBar_SuperDropEvent(KMultiTabBar* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnDropEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_DropEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1116,9 +1082,8 @@ void KMultiTabBar_SuperShowEvent(KMultiTabBar* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnShowEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_ShowEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1145,9 +1110,8 @@ void KMultiTabBar_SuperHideEvent(KMultiTabBar* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnHideEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_HideEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1176,9 +1140,8 @@ bool KMultiTabBar_SuperNativeEvent(KMultiTabBar* self, const libqt_string eventT
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnNativeEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_NativeEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1205,9 +1168,8 @@ void KMultiTabBar_SuperChangeEvent(KMultiTabBar* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnChangeEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_ChangeEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1234,9 +1196,8 @@ int KMultiTabBar_SuperMetric(const KMultiTabBar* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnMetric(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_Metric_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1263,9 +1224,8 @@ void KMultiTabBar_SuperInitPainter(const KMultiTabBar* self, QPainter* painter) 
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnInitPainter(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_InitPainter_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1292,9 +1252,8 @@ QPaintDevice* KMultiTabBar_SuperRedirected(const KMultiTabBar* self, QPoint* off
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnRedirected(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_Redirected_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1321,9 +1280,8 @@ QPainter* KMultiTabBar_SuperSharedPainter(const KMultiTabBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnSharedPainter(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_SharedPainter_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1350,9 +1308,8 @@ void KMultiTabBar_SuperInputMethodEvent(KMultiTabBar* self, QInputMethodEvent* p
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnInputMethodEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_InputMethodEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1379,9 +1336,8 @@ QVariant* KMultiTabBar_SuperInputMethodQuery(const KMultiTabBar* self, int param
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnInputMethodQuery(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_InputMethodQuery_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1408,9 +1364,8 @@ bool KMultiTabBar_SuperFocusNextPrevChild(KMultiTabBar* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnFocusNextPrevChild(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1437,9 +1392,8 @@ bool KMultiTabBar_SuperEventFilter(KMultiTabBar* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnEventFilter(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_EventFilter_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1466,9 +1420,8 @@ void KMultiTabBar_SuperTimerEvent(KMultiTabBar* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnTimerEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_TimerEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1495,9 +1448,8 @@ void KMultiTabBar_SuperChildEvent(KMultiTabBar* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnChildEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_ChildEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1524,9 +1476,8 @@ void KMultiTabBar_SuperCustomEvent(KMultiTabBar* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnCustomEvent(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_CustomEvent_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1553,9 +1504,8 @@ void KMultiTabBar_SuperConnectNotify(KMultiTabBar* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnConnectNotify(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_ConnectNotify_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1582,9 +1532,8 @@ void KMultiTabBar_SuperDisconnectNotify(KMultiTabBar* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnDisconnectNotify(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_DisconnectNotify_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1611,9 +1560,8 @@ void KMultiTabBar_SuperUpdateSeparator(KMultiTabBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnUpdateSeparator(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_UpdateSeparator_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_UpdateSeparator_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1640,9 +1588,8 @@ void KMultiTabBar_SuperUpdateMicroFocus(KMultiTabBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnUpdateMicroFocus(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1669,9 +1616,8 @@ void KMultiTabBar_SuperCreate(KMultiTabBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnCreate(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_Create_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1698,9 +1644,8 @@ void KMultiTabBar_SuperDestroy(KMultiTabBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnDestroy(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_Destroy_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1727,9 +1672,8 @@ bool KMultiTabBar_SuperFocusNextChild(KMultiTabBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnFocusNextChild(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_FocusNextChild_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1756,9 +1700,8 @@ bool KMultiTabBar_SuperFocusPreviousChild(KMultiTabBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnFocusPreviousChild(KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1785,9 +1728,8 @@ QObject* KMultiTabBar_SuperSender(const KMultiTabBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnSender(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_Sender_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1814,9 +1756,8 @@ int KMultiTabBar_SuperSenderSignalIndex(const KMultiTabBar* self) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnSenderSignalIndex(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1843,9 +1784,8 @@ int KMultiTabBar_SuperReceivers(const KMultiTabBar* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnReceivers(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_Receivers_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1872,9 +1812,8 @@ bool KMultiTabBar_SuperIsSignalConnected(const KMultiTabBar* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnIsSignalConnected(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_IsSignalConnected_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1901,9 +1840,8 @@ double KMultiTabBar_SuperGetDecodedMetricF(const KMultiTabBar* self, int metricA
 // Auxiliary method to allow providing re-implementation
 void KMultiTabBar_OnGetDecodedMetricF(const KMultiTabBar* self, intptr_t slot) {
     auto* vkmultitabbar = const_cast<VirtualKMultiTabBar*>(dynamic_cast<const VirtualKMultiTabBar*>(self));
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
+    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar)
         vkmultitabbar->setKMultiTabBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKMultiTabBar::KMultiTabBar_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KMultiTabBar_Delete(KMultiTabBar* self) {

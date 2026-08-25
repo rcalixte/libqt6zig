@@ -20,6 +20,10 @@ QIODevice* QIODevice_new2(QObject* parent) {
     return new VirtualQIODevice(parent);
 }
 
+QIODeviceBase* QIODevice_AsQIODeviceBase(QIODevice* self) {
+    return static_cast<QIODeviceBase*>(self);
+}
+
 QMetaObject* QIODevice_MetaObject(const QIODevice* self) {
     return (QMetaObject*)self->metaObject();
 }
@@ -362,9 +366,8 @@ QMetaObject* QIODevice_SuperMetaObject(const QIODevice* self) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnMetaObject(const QIODevice* self, intptr_t slot) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_MetaObject_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -381,9 +384,8 @@ void* QIODevice_SuperMetacast(QIODevice* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnMetacast(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_Metacast_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -400,9 +402,8 @@ int QIODevice_SuperMetacall(QIODevice* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnMetacall(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_Metacall_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -419,9 +420,8 @@ bool QIODevice_SuperIsSequential(const QIODevice* self) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnIsSequential(const QIODevice* self, intptr_t slot) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_IsSequential_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_IsSequential_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -438,9 +438,8 @@ bool QIODevice_SuperOpen(QIODevice* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnOpen(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_Open_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_Open_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -457,9 +456,8 @@ void QIODevice_SuperClose(QIODevice* self) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnClose(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_Close_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_Close_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -476,9 +474,8 @@ long long QIODevice_SuperPos(const QIODevice* self) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnPos(const QIODevice* self, intptr_t slot) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_Pos_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_Pos_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -495,9 +492,8 @@ long long QIODevice_SuperSize(const QIODevice* self) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnSize(const QIODevice* self, intptr_t slot) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_Size_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_Size_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -514,9 +510,8 @@ bool QIODevice_SuperSeek(QIODevice* self, long long pos) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnSeek(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_Seek_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_Seek_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -533,9 +528,8 @@ bool QIODevice_SuperAtEnd(const QIODevice* self) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnAtEnd(const QIODevice* self, intptr_t slot) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_AtEnd_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_AtEnd_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -552,9 +546,8 @@ bool QIODevice_SuperReset(QIODevice* self) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnReset(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_Reset_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_Reset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -571,9 +564,8 @@ long long QIODevice_SuperBytesAvailable(const QIODevice* self) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnBytesAvailable(const QIODevice* self, intptr_t slot) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_BytesAvailable_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_BytesAvailable_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -590,9 +582,8 @@ long long QIODevice_SuperBytesToWrite(const QIODevice* self) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnBytesToWrite(const QIODevice* self, intptr_t slot) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_BytesToWrite_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_BytesToWrite_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -609,9 +600,8 @@ bool QIODevice_SuperCanReadLine(const QIODevice* self) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnCanReadLine(const QIODevice* self, intptr_t slot) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_CanReadLine_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_CanReadLine_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -628,9 +618,8 @@ bool QIODevice_SuperWaitForReadyRead(QIODevice* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnWaitForReadyRead(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_WaitForReadyRead_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_WaitForReadyRead_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -647,9 +636,8 @@ bool QIODevice_SuperWaitForBytesWritten(QIODevice* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnWaitForBytesWritten(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_WaitForBytesWritten_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_WaitForBytesWritten_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -666,9 +654,8 @@ long long QIODevice_SuperReadData(QIODevice* self, char* data, long long maxlen)
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnReadData(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_ReadData_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_ReadData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -685,9 +672,8 @@ long long QIODevice_SuperReadLineData(QIODevice* self, char* data, long long max
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnReadLineData(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_ReadLineData_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_ReadLineData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -704,9 +690,8 @@ long long QIODevice_SuperSkipData(QIODevice* self, long long maxSize) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnSkipData(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_SkipData_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_SkipData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -723,9 +708,8 @@ long long QIODevice_SuperWriteData(QIODevice* self, const char* data, long long 
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnWriteData(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_WriteData_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_WriteData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -752,9 +736,8 @@ bool QIODevice_SuperEvent(QIODevice* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnEvent(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_Event_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -781,9 +764,8 @@ bool QIODevice_SuperEventFilter(QIODevice* self, QObject* watched, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnEventFilter(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_EventFilter_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -810,9 +792,8 @@ void QIODevice_SuperTimerEvent(QIODevice* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnTimerEvent(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_TimerEvent_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -839,9 +820,8 @@ void QIODevice_SuperChildEvent(QIODevice* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnChildEvent(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_ChildEvent_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -868,9 +848,8 @@ void QIODevice_SuperCustomEvent(QIODevice* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnCustomEvent(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_CustomEvent_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -897,9 +876,8 @@ void QIODevice_SuperConnectNotify(QIODevice* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnConnectNotify(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_ConnectNotify_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -926,9 +904,8 @@ void QIODevice_SuperDisconnectNotify(QIODevice* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnDisconnectNotify(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_DisconnectNotify_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -955,9 +932,8 @@ void QIODevice_SuperSetOpenMode(QIODevice* self, int openMode) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnSetOpenMode(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_SetOpenMode_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_SetOpenMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -986,9 +962,8 @@ void QIODevice_SuperSetErrorString(QIODevice* self, const libqt_string errorStri
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnSetErrorString(QIODevice* self, intptr_t slot) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_SetErrorString_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1015,9 +990,8 @@ QObject* QIODevice_SuperSender(const QIODevice* self) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnSender(const QIODevice* self, intptr_t slot) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_Sender_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1044,9 +1018,8 @@ int QIODevice_SuperSenderSignalIndex(const QIODevice* self) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnSenderSignalIndex(const QIODevice* self, intptr_t slot) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_SenderSignalIndex_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1073,9 +1046,8 @@ int QIODevice_SuperReceivers(const QIODevice* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnReceivers(const QIODevice* self, intptr_t slot) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_Receivers_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1102,9 +1074,8 @@ bool QIODevice_SuperIsSignalConnected(const QIODevice* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QIODevice_OnIsSignalConnected(const QIODevice* self, intptr_t slot) {
     auto* vqiodevice = const_cast<VirtualQIODevice*>(dynamic_cast<const VirtualQIODevice*>(self));
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
+    if (vqiodevice && vqiodevice->isVirtualQIODevice)
         vqiodevice->setQIODevice_IsSignalConnected_Callback(reinterpret_cast<VirtualQIODevice::QIODevice_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QIODevice_Delete(QIODevice* self) {

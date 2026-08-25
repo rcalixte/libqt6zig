@@ -587,6 +587,31 @@ pub const KShortcutsEditor = extern struct {
         qtc.KShortcutsEditor_AddCollection2(@ptrCast(self.ptr), @ptrCast(param1.ptr), title_str);
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KShortcutsEditor `
+    ///
+    pub fn asQPaintDevice(self: KShortcutsEditor) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KShortcutsEditor object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KShortcutsEditor {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6571,7 +6596,7 @@ pub const KShortcutsEditor = extern struct {
     /// ` self: KShortcutsEditor `
     ///
     pub fn paintingActive(self: KShortcutsEditor) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6587,7 +6612,7 @@ pub const KShortcutsEditor = extern struct {
     /// ` self: KShortcutsEditor `
     ///
     pub fn widthMM(self: KShortcutsEditor) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6603,7 +6628,7 @@ pub const KShortcutsEditor = extern struct {
     /// ` self: KShortcutsEditor `
     ///
     pub fn heightMM(self: KShortcutsEditor) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6619,7 +6644,7 @@ pub const KShortcutsEditor = extern struct {
     /// ` self: KShortcutsEditor `
     ///
     pub fn logicalDpiX(self: KShortcutsEditor) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6635,7 +6660,7 @@ pub const KShortcutsEditor = extern struct {
     /// ` self: KShortcutsEditor `
     ///
     pub fn logicalDpiY(self: KShortcutsEditor) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6651,7 +6676,7 @@ pub const KShortcutsEditor = extern struct {
     /// ` self: KShortcutsEditor `
     ///
     pub fn physicalDpiX(self: KShortcutsEditor) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6667,7 +6692,7 @@ pub const KShortcutsEditor = extern struct {
     /// ` self: KShortcutsEditor `
     ///
     pub fn physicalDpiY(self: KShortcutsEditor) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -6683,7 +6708,7 @@ pub const KShortcutsEditor = extern struct {
     /// ` self: KShortcutsEditor `
     ///
     pub fn devicePixelRatio(self: KShortcutsEditor) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -6699,7 +6724,7 @@ pub const KShortcutsEditor = extern struct {
     /// ` self: KShortcutsEditor `
     ///
     pub fn devicePixelRatioF(self: KShortcutsEditor) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -6715,7 +6740,7 @@ pub const KShortcutsEditor = extern struct {
     /// ` self: KShortcutsEditor `
     ///
     pub fn colorCount(self: KShortcutsEditor) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -6731,7 +6756,7 @@ pub const KShortcutsEditor = extern struct {
     /// ` self: KShortcutsEditor `
     ///
     pub fn depth(self: KShortcutsEditor) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10277,7 +10302,7 @@ pub const KShortcutsEditor = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kshortcutseditor.html#public-types)
 pub const enums = struct {
-    pub const ActionType = enum(i32) {
+    pub const ActionType = enum {
         pub const WidgetAction: i32 = 0;
         pub const WindowAction: i32 = 1;
         pub const ApplicationAction: i32 = 2;
@@ -10285,7 +10310,7 @@ pub const enums = struct {
         pub const AllActions: i32 = -1;
     };
 
-    pub const LetterShortcuts = enum(i32) {
+    pub const LetterShortcuts = enum {
         pub const LetterShortcutsDisallowed: i32 = 0;
         pub const LetterShortcutsAllowed: i32 = 1;
     };

@@ -1057,6 +1057,31 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
         return _ret;
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: kImageAnnotator__KImageAnnotator `
+    ///
+    pub fn asQPaintDevice(self: kImageAnnotator__KImageAnnotator) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a kImageAnnotator__KImageAnnotator object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) kImageAnnotator__KImageAnnotator {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return @bitCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr)));
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -7041,7 +7066,7 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     /// ` self: kImageAnnotator__KImageAnnotator `
     ///
     pub fn paintingActive(self: kImageAnnotator__KImageAnnotator) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -7057,7 +7082,7 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     /// ` self: kImageAnnotator__KImageAnnotator `
     ///
     pub fn widthMM(self: kImageAnnotator__KImageAnnotator) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -7073,7 +7098,7 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     /// ` self: kImageAnnotator__KImageAnnotator `
     ///
     pub fn heightMM(self: kImageAnnotator__KImageAnnotator) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -7089,7 +7114,7 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     /// ` self: kImageAnnotator__KImageAnnotator `
     ///
     pub fn logicalDpiX(self: kImageAnnotator__KImageAnnotator) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -7105,7 +7130,7 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     /// ` self: kImageAnnotator__KImageAnnotator `
     ///
     pub fn logicalDpiY(self: kImageAnnotator__KImageAnnotator) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -7121,7 +7146,7 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     /// ` self: kImageAnnotator__KImageAnnotator `
     ///
     pub fn physicalDpiX(self: kImageAnnotator__KImageAnnotator) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -7137,7 +7162,7 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     /// ` self: kImageAnnotator__KImageAnnotator `
     ///
     pub fn physicalDpiY(self: kImageAnnotator__KImageAnnotator) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -7153,7 +7178,7 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     /// ` self: kImageAnnotator__KImageAnnotator `
     ///
     pub fn devicePixelRatio(self: kImageAnnotator__KImageAnnotator) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -7169,7 +7194,7 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     /// ` self: kImageAnnotator__KImageAnnotator `
     ///
     pub fn devicePixelRatioF(self: kImageAnnotator__KImageAnnotator) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -7185,7 +7210,7 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     /// ` self: kImageAnnotator__KImageAnnotator `
     ///
     pub fn colorCount(self: kImageAnnotator__KImageAnnotator) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -7201,7 +7226,7 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     /// ` self: kImageAnnotator__KImageAnnotator `
     ///
     pub fn depth(self: kImageAnnotator__KImageAnnotator) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead

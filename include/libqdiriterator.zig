@@ -374,7 +374,7 @@ pub const QDirIterator = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdiriterator.html#public-types)
 pub const enums = struct {
-    pub const IteratorFlag = enum(i32) {
+    pub const IteratorFlag = enum {
         pub const NoIteratorFlags: i32 = 0;
         pub const FollowSymlinks: i32 = 1;
         pub const Subdirectories: i32 = 2;

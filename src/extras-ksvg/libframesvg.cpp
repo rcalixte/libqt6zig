@@ -198,9 +198,8 @@ QMetaObject* KSvg__FrameSvg_SuperMetaObject(const KSvg__FrameSvg* self) {
 // Auxiliary method to allow providing re-implementation
 void KSvg__FrameSvg_OnMetaObject(const KSvg__FrameSvg* self, intptr_t slot) {
     auto* vksvgframesvg = const_cast<VirtualKSvgFrameSvg*>(dynamic_cast<const VirtualKSvgFrameSvg*>(self));
-    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg)
         vksvgframesvg->setKSvg__FrameSvg_MetaObject_Callback(reinterpret_cast<VirtualKSvgFrameSvg::KSvg__FrameSvg_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -217,9 +216,8 @@ void* KSvg__FrameSvg_SuperMetacast(KSvg__FrameSvg* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KSvg__FrameSvg_OnMetacast(KSvg__FrameSvg* self, intptr_t slot) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
-    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg)
         vksvgframesvg->setKSvg__FrameSvg_Metacast_Callback(reinterpret_cast<VirtualKSvgFrameSvg::KSvg__FrameSvg_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -236,9 +234,8 @@ int KSvg__FrameSvg_SuperMetacall(KSvg__FrameSvg* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void KSvg__FrameSvg_OnMetacall(KSvg__FrameSvg* self, intptr_t slot) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
-    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg)
         vksvgframesvg->setKSvg__FrameSvg_Metacall_Callback(reinterpret_cast<VirtualKSvgFrameSvg::KSvg__FrameSvg_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -256,9 +253,8 @@ void KSvg__FrameSvg_SuperSetImagePath(KSvg__FrameSvg* self, const libqt_string p
 // Auxiliary method to allow providing re-implementation
 void KSvg__FrameSvg_OnSetImagePath(KSvg__FrameSvg* self, intptr_t slot) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
-    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg)
         vksvgframesvg->setKSvg__FrameSvg_SetImagePath_Callback(reinterpret_cast<VirtualKSvgFrameSvg::KSvg__FrameSvg_SetImagePath_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -285,9 +281,8 @@ bool KSvg__FrameSvg_SuperEvent(KSvg__FrameSvg* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSvg__FrameSvg_OnEvent(KSvg__FrameSvg* self, intptr_t slot) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
-    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg)
         vksvgframesvg->setKSvg__FrameSvg_Event_Callback(reinterpret_cast<VirtualKSvgFrameSvg::KSvg__FrameSvg_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -314,9 +309,8 @@ void KSvg__FrameSvg_SuperTimerEvent(KSvg__FrameSvg* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSvg__FrameSvg_OnTimerEvent(KSvg__FrameSvg* self, intptr_t slot) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
-    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg)
         vksvgframesvg->setKSvg__FrameSvg_TimerEvent_Callback(reinterpret_cast<VirtualKSvgFrameSvg::KSvg__FrameSvg_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -343,9 +337,8 @@ void KSvg__FrameSvg_SuperChildEvent(KSvg__FrameSvg* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSvg__FrameSvg_OnChildEvent(KSvg__FrameSvg* self, intptr_t slot) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
-    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg)
         vksvgframesvg->setKSvg__FrameSvg_ChildEvent_Callback(reinterpret_cast<VirtualKSvgFrameSvg::KSvg__FrameSvg_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +365,8 @@ void KSvg__FrameSvg_SuperCustomEvent(KSvg__FrameSvg* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KSvg__FrameSvg_OnCustomEvent(KSvg__FrameSvg* self, intptr_t slot) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
-    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg)
         vksvgframesvg->setKSvg__FrameSvg_CustomEvent_Callback(reinterpret_cast<VirtualKSvgFrameSvg::KSvg__FrameSvg_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -401,9 +393,8 @@ void KSvg__FrameSvg_SuperConnectNotify(KSvg__FrameSvg* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KSvg__FrameSvg_OnConnectNotify(KSvg__FrameSvg* self, intptr_t slot) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
-    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg)
         vksvgframesvg->setKSvg__FrameSvg_ConnectNotify_Callback(reinterpret_cast<VirtualKSvgFrameSvg::KSvg__FrameSvg_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -430,9 +421,8 @@ void KSvg__FrameSvg_SuperDisconnectNotify(KSvg__FrameSvg* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void KSvg__FrameSvg_OnDisconnectNotify(KSvg__FrameSvg* self, intptr_t slot) {
     auto* vksvgframesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
-    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg)
         vksvgframesvg->setKSvg__FrameSvg_DisconnectNotify_Callback(reinterpret_cast<VirtualKSvgFrameSvg::KSvg__FrameSvg_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -459,9 +449,8 @@ QObject* KSvg__FrameSvg_SuperSender(const KSvg__FrameSvg* self) {
 // Auxiliary method to allow providing re-implementation
 void KSvg__FrameSvg_OnSender(const KSvg__FrameSvg* self, intptr_t slot) {
     auto* vksvgframesvg = const_cast<VirtualKSvgFrameSvg*>(dynamic_cast<const VirtualKSvgFrameSvg*>(self));
-    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg)
         vksvgframesvg->setKSvg__FrameSvg_Sender_Callback(reinterpret_cast<VirtualKSvgFrameSvg::KSvg__FrameSvg_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -488,9 +477,8 @@ int KSvg__FrameSvg_SuperSenderSignalIndex(const KSvg__FrameSvg* self) {
 // Auxiliary method to allow providing re-implementation
 void KSvg__FrameSvg_OnSenderSignalIndex(const KSvg__FrameSvg* self, intptr_t slot) {
     auto* vksvgframesvg = const_cast<VirtualKSvgFrameSvg*>(dynamic_cast<const VirtualKSvgFrameSvg*>(self));
-    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg)
         vksvgframesvg->setKSvg__FrameSvg_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSvgFrameSvg::KSvg__FrameSvg_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -517,9 +505,8 @@ int KSvg__FrameSvg_SuperReceivers(const KSvg__FrameSvg* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void KSvg__FrameSvg_OnReceivers(const KSvg__FrameSvg* self, intptr_t slot) {
     auto* vksvgframesvg = const_cast<VirtualKSvgFrameSvg*>(dynamic_cast<const VirtualKSvgFrameSvg*>(self));
-    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg)
         vksvgframesvg->setKSvg__FrameSvg_Receivers_Callback(reinterpret_cast<VirtualKSvgFrameSvg::KSvg__FrameSvg_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -546,9 +533,8 @@ bool KSvg__FrameSvg_SuperIsSignalConnected(const KSvg__FrameSvg* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KSvg__FrameSvg_OnIsSignalConnected(const KSvg__FrameSvg* self, intptr_t slot) {
     auto* vksvgframesvg = const_cast<VirtualKSvgFrameSvg*>(dynamic_cast<const VirtualKSvgFrameSvg*>(self));
-    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg) {
+    if (vksvgframesvg && vksvgframesvg->isVirtualKSvgFrameSvg)
         vksvgframesvg->setKSvg__FrameSvg_IsSignalConnected_Callback(reinterpret_cast<VirtualKSvgFrameSvg::KSvg__FrameSvg_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KSvg__FrameSvg_Delete(KSvg__FrameSvg* self) {

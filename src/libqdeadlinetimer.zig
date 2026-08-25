@@ -593,7 +593,7 @@ pub const QDeadlineTimer = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdeadlinetimer.html#public-types)
 pub const enums = struct {
-    pub const ForeverConstant = enum(i32) {
+    pub const ForeverConstant = enum {
         pub const Forever: i32 = 0;
     };
 };

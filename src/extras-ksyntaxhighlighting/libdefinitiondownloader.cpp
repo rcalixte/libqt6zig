@@ -81,9 +81,8 @@ QMetaObject* KSyntaxHighlighting__DefinitionDownloader_SuperMetaObject(const KSy
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__DefinitionDownloader_OnMetaObject(const KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
     auto* vksyntaxhighlightingdefinitiondownloader = const_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(dynamic_cast<const VirtualKSyntaxHighlightingDefinitionDownloader*>(self));
-    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader)
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_MetaObject_Callback(reinterpret_cast<VirtualKSyntaxHighlightingDefinitionDownloader::KSyntaxHighlighting__DefinitionDownloader_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -100,9 +99,8 @@ void* KSyntaxHighlighting__DefinitionDownloader_SuperMetacast(KSyntaxHighlightin
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__DefinitionDownloader_OnMetacast(KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
-    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader)
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_Metacast_Callback(reinterpret_cast<VirtualKSyntaxHighlightingDefinitionDownloader::KSyntaxHighlighting__DefinitionDownloader_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -119,9 +117,8 @@ int KSyntaxHighlighting__DefinitionDownloader_SuperMetacall(KSyntaxHighlighting_
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__DefinitionDownloader_OnMetacall(KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
-    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader)
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_Metacall_Callback(reinterpret_cast<VirtualKSyntaxHighlightingDefinitionDownloader::KSyntaxHighlighting__DefinitionDownloader_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -148,9 +145,8 @@ bool KSyntaxHighlighting__DefinitionDownloader_SuperEvent(KSyntaxHighlighting__D
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__DefinitionDownloader_OnEvent(KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
-    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader)
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_Event_Callback(reinterpret_cast<VirtualKSyntaxHighlightingDefinitionDownloader::KSyntaxHighlighting__DefinitionDownloader_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -177,9 +173,8 @@ bool KSyntaxHighlighting__DefinitionDownloader_SuperEventFilter(KSyntaxHighlight
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__DefinitionDownloader_OnEventFilter(KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
-    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader)
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_EventFilter_Callback(reinterpret_cast<VirtualKSyntaxHighlightingDefinitionDownloader::KSyntaxHighlighting__DefinitionDownloader_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -206,9 +201,8 @@ void KSyntaxHighlighting__DefinitionDownloader_SuperTimerEvent(KSyntaxHighlighti
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__DefinitionDownloader_OnTimerEvent(KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
-    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader)
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_TimerEvent_Callback(reinterpret_cast<VirtualKSyntaxHighlightingDefinitionDownloader::KSyntaxHighlighting__DefinitionDownloader_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -235,9 +229,8 @@ void KSyntaxHighlighting__DefinitionDownloader_SuperChildEvent(KSyntaxHighlighti
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__DefinitionDownloader_OnChildEvent(KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
-    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader)
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_ChildEvent_Callback(reinterpret_cast<VirtualKSyntaxHighlightingDefinitionDownloader::KSyntaxHighlighting__DefinitionDownloader_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -264,9 +257,8 @@ void KSyntaxHighlighting__DefinitionDownloader_SuperCustomEvent(KSyntaxHighlight
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__DefinitionDownloader_OnCustomEvent(KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
-    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader)
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_CustomEvent_Callback(reinterpret_cast<VirtualKSyntaxHighlightingDefinitionDownloader::KSyntaxHighlighting__DefinitionDownloader_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -293,9 +285,8 @@ void KSyntaxHighlighting__DefinitionDownloader_SuperConnectNotify(KSyntaxHighlig
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__DefinitionDownloader_OnConnectNotify(KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
-    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader)
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_ConnectNotify_Callback(reinterpret_cast<VirtualKSyntaxHighlightingDefinitionDownloader::KSyntaxHighlighting__DefinitionDownloader_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -322,9 +313,8 @@ void KSyntaxHighlighting__DefinitionDownloader_SuperDisconnectNotify(KSyntaxHigh
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__DefinitionDownloader_OnDisconnectNotify(KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
     auto* vksyntaxhighlightingdefinitiondownloader = dynamic_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(self);
-    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader)
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_DisconnectNotify_Callback(reinterpret_cast<VirtualKSyntaxHighlightingDefinitionDownloader::KSyntaxHighlighting__DefinitionDownloader_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -351,9 +341,8 @@ QObject* KSyntaxHighlighting__DefinitionDownloader_SuperSender(const KSyntaxHigh
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__DefinitionDownloader_OnSender(const KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
     auto* vksyntaxhighlightingdefinitiondownloader = const_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(dynamic_cast<const VirtualKSyntaxHighlightingDefinitionDownloader*>(self));
-    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader)
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_Sender_Callback(reinterpret_cast<VirtualKSyntaxHighlightingDefinitionDownloader::KSyntaxHighlighting__DefinitionDownloader_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -380,9 +369,8 @@ int KSyntaxHighlighting__DefinitionDownloader_SuperSenderSignalIndex(const KSynt
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__DefinitionDownloader_OnSenderSignalIndex(const KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
     auto* vksyntaxhighlightingdefinitiondownloader = const_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(dynamic_cast<const VirtualKSyntaxHighlightingDefinitionDownloader*>(self));
-    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader)
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_SenderSignalIndex_Callback(reinterpret_cast<VirtualKSyntaxHighlightingDefinitionDownloader::KSyntaxHighlighting__DefinitionDownloader_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -409,9 +397,8 @@ int KSyntaxHighlighting__DefinitionDownloader_SuperReceivers(const KSyntaxHighli
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__DefinitionDownloader_OnReceivers(const KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
     auto* vksyntaxhighlightingdefinitiondownloader = const_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(dynamic_cast<const VirtualKSyntaxHighlightingDefinitionDownloader*>(self));
-    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader)
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_Receivers_Callback(reinterpret_cast<VirtualKSyntaxHighlightingDefinitionDownloader::KSyntaxHighlighting__DefinitionDownloader_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -438,9 +425,8 @@ bool KSyntaxHighlighting__DefinitionDownloader_SuperIsSignalConnected(const KSyn
 // Auxiliary method to allow providing re-implementation
 void KSyntaxHighlighting__DefinitionDownloader_OnIsSignalConnected(const KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
     auto* vksyntaxhighlightingdefinitiondownloader = const_cast<VirtualKSyntaxHighlightingDefinitionDownloader*>(dynamic_cast<const VirtualKSyntaxHighlightingDefinitionDownloader*>(self));
-    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader) {
+    if (vksyntaxhighlightingdefinitiondownloader && vksyntaxhighlightingdefinitiondownloader->isVirtualKSyntaxHighlightingDefinitionDownloader)
         vksyntaxhighlightingdefinitiondownloader->setKSyntaxHighlighting__DefinitionDownloader_IsSignalConnected_Callback(reinterpret_cast<VirtualKSyntaxHighlightingDefinitionDownloader::KSyntaxHighlighting__DefinitionDownloader_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KSyntaxHighlighting__DefinitionDownloader_Delete(KSyntaxHighlighting__DefinitionDownloader* self) {

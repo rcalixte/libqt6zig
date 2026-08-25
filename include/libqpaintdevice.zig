@@ -268,7 +268,7 @@ pub const QPaintDevice = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#public-types)
 pub const enums = struct {
-    pub const PaintDeviceMetric = enum(i32) {
+    pub const PaintDeviceMetric = enum {
         pub const PdmWidth: i32 = 1;
         pub const PdmHeight: i32 = 2;
         pub const PdmWidthMM: i32 = 3;

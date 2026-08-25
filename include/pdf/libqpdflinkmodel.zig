@@ -6978,7 +6978,7 @@ pub const QPdfLinkModel = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdflinkmodel.html#public-types)
 pub const enums = struct {
-    pub const Role = enum(i32) {
+    pub const Role = enum {
         pub const Link: i32 = 256;
         pub const Rectangle: i32 = 257;
         pub const Url: i32 = 258;

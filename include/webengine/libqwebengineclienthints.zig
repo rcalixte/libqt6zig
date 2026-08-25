@@ -1606,7 +1606,7 @@ pub const QWebEngineClientHints = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#public-types)
 pub const enums = struct {
-    pub const QmlIsUncreatable = enum(i32) {
+    pub const QmlIsUncreatable = enum {
         pub const Yes: i32 = 1;
     };
 };

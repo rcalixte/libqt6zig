@@ -552,7 +552,7 @@ pub const QMessageLogger = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlogging.html#public-types)
 pub const enums = struct {
-    pub const QtMsgType = enum(i32) {
+    pub const QtMsgType = enum {
         pub const QtDebugMsg: i32 = 0;
         pub const QtWarningMsg: i32 = 1;
         pub const QtCriticalMsg: i32 = 2;

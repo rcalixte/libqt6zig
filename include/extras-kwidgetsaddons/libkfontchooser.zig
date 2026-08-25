@@ -720,6 +720,31 @@ pub const KFontChooser = extern struct {
         qtc.KFontChooser_SetFont2(@ptrCast(self.ptr), @ptrCast(_font.ptr), onlyFixed);
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KFontChooser `
+    ///
+    pub fn asQPaintDevice(self: KFontChooser) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KFontChooser object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KFontChooser {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6669,7 +6694,7 @@ pub const KFontChooser = extern struct {
     /// ` self: KFontChooser `
     ///
     pub fn paintingActive(self: KFontChooser) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6685,7 +6710,7 @@ pub const KFontChooser = extern struct {
     /// ` self: KFontChooser `
     ///
     pub fn widthMM(self: KFontChooser) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6701,7 +6726,7 @@ pub const KFontChooser = extern struct {
     /// ` self: KFontChooser `
     ///
     pub fn heightMM(self: KFontChooser) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6717,7 +6742,7 @@ pub const KFontChooser = extern struct {
     /// ` self: KFontChooser `
     ///
     pub fn logicalDpiX(self: KFontChooser) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6733,7 +6758,7 @@ pub const KFontChooser = extern struct {
     /// ` self: KFontChooser `
     ///
     pub fn logicalDpiY(self: KFontChooser) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6749,7 +6774,7 @@ pub const KFontChooser = extern struct {
     /// ` self: KFontChooser `
     ///
     pub fn physicalDpiX(self: KFontChooser) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6765,7 +6790,7 @@ pub const KFontChooser = extern struct {
     /// ` self: KFontChooser `
     ///
     pub fn physicalDpiY(self: KFontChooser) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -6781,7 +6806,7 @@ pub const KFontChooser = extern struct {
     /// ` self: KFontChooser `
     ///
     pub fn devicePixelRatio(self: KFontChooser) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -6797,7 +6822,7 @@ pub const KFontChooser = extern struct {
     /// ` self: KFontChooser `
     ///
     pub fn devicePixelRatioF(self: KFontChooser) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -6813,7 +6838,7 @@ pub const KFontChooser = extern struct {
     /// ` self: KFontChooser `
     ///
     pub fn colorCount(self: KFontChooser) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -6829,7 +6854,7 @@ pub const KFontChooser = extern struct {
     /// ` self: KFontChooser `
     ///
     pub fn depth(self: KFontChooser) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10317,13 +10342,13 @@ pub const KFontChooser = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kfontchooser.html#public-types)
 pub const enums = struct {
-    pub const FontColumn = enum(i32) {
+    pub const FontColumn = enum {
         pub const FamilyList: i32 = 1;
         pub const StyleList: i32 = 2;
         pub const SizeList: i32 = 4;
     };
 
-    pub const FontDiff = enum(i32) {
+    pub const FontDiff = enum {
         pub const NoFontDiffFlags: i32 = 0;
         pub const FontDiffFamily: i32 = 1;
         pub const FontDiffStyle: i32 = 2;
@@ -10331,14 +10356,14 @@ pub const enums = struct {
         pub const AllFontDiffs: i32 = 7;
     };
 
-    pub const DisplayFlag = enum(i32) {
+    pub const DisplayFlag = enum {
         pub const NoDisplayFlags: i32 = 0;
         pub const FixedFontsOnly: i32 = 1;
         pub const DisplayFrame: i32 = 2;
         pub const ShowDifferences: i32 = 4;
     };
 
-    pub const FontListCriteria = enum(i32) {
+    pub const FontListCriteria = enum {
         pub const FixedWidthFonts: i32 = 1;
         pub const ScalableFonts: i32 = 2;
         pub const SmoothScalableFonts: i32 = 4;

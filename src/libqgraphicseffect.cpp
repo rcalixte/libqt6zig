@@ -101,9 +101,8 @@ QMetaObject* QGraphicsEffect_SuperMetaObject(const QGraphicsEffect* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnMetaObject(const QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -120,9 +119,8 @@ void* QGraphicsEffect_SuperMetacast(QGraphicsEffect* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnMetacast(QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_Metacast_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -139,9 +137,8 @@ int QGraphicsEffect_SuperMetacall(QGraphicsEffect* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnMetacall(QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_Metacall_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -158,9 +155,8 @@ QRectF* QGraphicsEffect_SuperBoundingRectFor(const QGraphicsEffect* self, const 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnBoundingRectFor(const QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_BoundingRectFor_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_BoundingRectFor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -177,9 +173,8 @@ void QGraphicsEffect_SuperDraw(QGraphicsEffect* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnDraw(QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_Draw_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_Draw_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -196,9 +191,8 @@ void QGraphicsEffect_SuperSourceChanged(QGraphicsEffect* self, int flags) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnSourceChanged(QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_SourceChanged_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_SourceChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -225,9 +219,8 @@ bool QGraphicsEffect_SuperEvent(QGraphicsEffect* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnEvent(QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_Event_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -254,9 +247,8 @@ bool QGraphicsEffect_SuperEventFilter(QGraphicsEffect* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnEventFilter(QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_EventFilter_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -283,9 +275,8 @@ void QGraphicsEffect_SuperTimerEvent(QGraphicsEffect* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnTimerEvent(QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_TimerEvent_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -312,9 +303,8 @@ void QGraphicsEffect_SuperChildEvent(QGraphicsEffect* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnChildEvent(QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_ChildEvent_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -341,9 +331,8 @@ void QGraphicsEffect_SuperCustomEvent(QGraphicsEffect* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnCustomEvent(QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_CustomEvent_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -370,9 +359,8 @@ void QGraphicsEffect_SuperConnectNotify(QGraphicsEffect* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnConnectNotify(QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_ConnectNotify_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -399,9 +387,8 @@ void QGraphicsEffect_SuperDisconnectNotify(QGraphicsEffect* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnDisconnectNotify(QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_DisconnectNotify_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -428,9 +415,8 @@ void QGraphicsEffect_SuperUpdateBoundingRect(QGraphicsEffect* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnUpdateBoundingRect(QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_UpdateBoundingRect_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_UpdateBoundingRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -457,9 +443,8 @@ bool QGraphicsEffect_SuperSourceIsPixmap(const QGraphicsEffect* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnSourceIsPixmap(const QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_SourceIsPixmap_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_SourceIsPixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -484,9 +469,8 @@ QRectF* QGraphicsEffect_SuperSourceBoundingRect(const QGraphicsEffect* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnSourceBoundingRect(const QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_SourceBoundingRect_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_SourceBoundingRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -513,9 +497,8 @@ void QGraphicsEffect_SuperDrawSource(QGraphicsEffect* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnDrawSource(QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_DrawSource_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_DrawSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -540,9 +523,8 @@ QPixmap* QGraphicsEffect_SuperSourcePixmap(const QGraphicsEffect* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnSourcePixmap(const QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_SourcePixmap_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_SourcePixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -567,9 +549,8 @@ QRectF* QGraphicsEffect_SuperSourceBoundingRect1(const QGraphicsEffect* self, in
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnSourceBoundingRect1(const QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_SourceBoundingRect1_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_SourceBoundingRect1_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -594,9 +575,8 @@ QPixmap* QGraphicsEffect_SuperSourcePixmap1(const QGraphicsEffect* self, int sys
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnSourcePixmap1(const QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_SourcePixmap1_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_SourcePixmap1_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -621,9 +601,8 @@ QPixmap* QGraphicsEffect_SuperSourcePixmap2(const QGraphicsEffect* self, int sys
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnSourcePixmap2(const QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_SourcePixmap2_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_SourcePixmap2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -648,9 +627,8 @@ QPixmap* QGraphicsEffect_SuperSourcePixmap3(const QGraphicsEffect* self, int sys
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnSourcePixmap3(const QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_SourcePixmap3_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_SourcePixmap3_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -677,9 +655,8 @@ QObject* QGraphicsEffect_SuperSender(const QGraphicsEffect* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnSender(const QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_Sender_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +683,8 @@ int QGraphicsEffect_SuperSenderSignalIndex(const QGraphicsEffect* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnSenderSignalIndex(const QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -735,9 +711,8 @@ int QGraphicsEffect_SuperReceivers(const QGraphicsEffect* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnReceivers(const QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_Receivers_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -764,9 +739,8 @@ bool QGraphicsEffect_SuperIsSignalConnected(const QGraphicsEffect* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QGraphicsEffect_OnIsSignalConnected(const QGraphicsEffect* self, intptr_t slot) {
     auto* vqgraphicseffect = const_cast<VirtualQGraphicsEffect*>(dynamic_cast<const VirtualQGraphicsEffect*>(self));
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
+    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect)
         vqgraphicseffect->setQGraphicsEffect_IsSignalConnected_Callback(reinterpret_cast<VirtualQGraphicsEffect::QGraphicsEffect_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGraphicsEffect_Delete(QGraphicsEffect* self) {
@@ -856,9 +830,8 @@ QMetaObject* QGraphicsColorizeEffect_SuperMetaObject(const QGraphicsColorizeEffe
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnMetaObject(const QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = const_cast<VirtualQGraphicsColorizeEffect*>(dynamic_cast<const VirtualQGraphicsColorizeEffect*>(self));
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -875,9 +848,8 @@ void* QGraphicsColorizeEffect_SuperMetacast(QGraphicsColorizeEffect* self, const
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnMetacast(QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_Metacast_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -894,9 +866,8 @@ int QGraphicsColorizeEffect_SuperMetacall(QGraphicsColorizeEffect* self, int par
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnMetacall(QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_Metacall_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -913,9 +884,8 @@ void QGraphicsColorizeEffect_SuperDraw(QGraphicsColorizeEffect* self, QPainter* 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnDraw(QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_Draw_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_Draw_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +912,8 @@ QRectF* QGraphicsColorizeEffect_SuperBoundingRectFor(const QGraphicsColorizeEffe
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnBoundingRectFor(const QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = const_cast<VirtualQGraphicsColorizeEffect*>(dynamic_cast<const VirtualQGraphicsColorizeEffect*>(self));
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_BoundingRectFor_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_BoundingRectFor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +940,8 @@ void QGraphicsColorizeEffect_SuperSourceChanged(QGraphicsColorizeEffect* self, i
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnSourceChanged(QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_SourceChanged_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_SourceChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +968,8 @@ bool QGraphicsColorizeEffect_SuperEvent(QGraphicsColorizeEffect* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnEvent(QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_Event_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +996,8 @@ bool QGraphicsColorizeEffect_SuperEventFilter(QGraphicsColorizeEffect* self, QOb
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnEventFilter(QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_EventFilter_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1058,9 +1024,8 @@ void QGraphicsColorizeEffect_SuperTimerEvent(QGraphicsColorizeEffect* self, QTim
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnTimerEvent(QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_TimerEvent_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1087,9 +1052,8 @@ void QGraphicsColorizeEffect_SuperChildEvent(QGraphicsColorizeEffect* self, QChi
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnChildEvent(QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_ChildEvent_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1116,9 +1080,8 @@ void QGraphicsColorizeEffect_SuperCustomEvent(QGraphicsColorizeEffect* self, QEv
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnCustomEvent(QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_CustomEvent_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1145,9 +1108,8 @@ void QGraphicsColorizeEffect_SuperConnectNotify(QGraphicsColorizeEffect* self, c
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnConnectNotify(QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_ConnectNotify_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1174,9 +1136,8 @@ void QGraphicsColorizeEffect_SuperDisconnectNotify(QGraphicsColorizeEffect* self
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnDisconnectNotify(QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_DisconnectNotify_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1203,9 +1164,8 @@ void QGraphicsColorizeEffect_SuperUpdateBoundingRect(QGraphicsColorizeEffect* se
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnUpdateBoundingRect(QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_UpdateBoundingRect_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_UpdateBoundingRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1232,9 +1192,8 @@ bool QGraphicsColorizeEffect_SuperSourceIsPixmap(const QGraphicsColorizeEffect* 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnSourceIsPixmap(const QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = const_cast<VirtualQGraphicsColorizeEffect*>(dynamic_cast<const VirtualQGraphicsColorizeEffect*>(self));
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_SourceIsPixmap_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_SourceIsPixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1259,9 +1218,8 @@ QRectF* QGraphicsColorizeEffect_SuperSourceBoundingRect(const QGraphicsColorizeE
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnSourceBoundingRect(const QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = const_cast<VirtualQGraphicsColorizeEffect*>(dynamic_cast<const VirtualQGraphicsColorizeEffect*>(self));
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_SourceBoundingRect_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_SourceBoundingRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1288,9 +1246,8 @@ void QGraphicsColorizeEffect_SuperDrawSource(QGraphicsColorizeEffect* self, QPai
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnDrawSource(QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_DrawSource_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_DrawSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1315,9 +1272,8 @@ QPixmap* QGraphicsColorizeEffect_SuperSourcePixmap(const QGraphicsColorizeEffect
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnSourcePixmap(const QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = const_cast<VirtualQGraphicsColorizeEffect*>(dynamic_cast<const VirtualQGraphicsColorizeEffect*>(self));
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_SourcePixmap_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_SourcePixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1344,9 +1300,8 @@ QObject* QGraphicsColorizeEffect_SuperSender(const QGraphicsColorizeEffect* self
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnSender(const QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = const_cast<VirtualQGraphicsColorizeEffect*>(dynamic_cast<const VirtualQGraphicsColorizeEffect*>(self));
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_Sender_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1373,9 +1328,8 @@ int QGraphicsColorizeEffect_SuperSenderSignalIndex(const QGraphicsColorizeEffect
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnSenderSignalIndex(const QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = const_cast<VirtualQGraphicsColorizeEffect*>(dynamic_cast<const VirtualQGraphicsColorizeEffect*>(self));
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1402,9 +1356,8 @@ int QGraphicsColorizeEffect_SuperReceivers(const QGraphicsColorizeEffect* self, 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnReceivers(const QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = const_cast<VirtualQGraphicsColorizeEffect*>(dynamic_cast<const VirtualQGraphicsColorizeEffect*>(self));
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_Receivers_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1431,9 +1384,8 @@ bool QGraphicsColorizeEffect_SuperIsSignalConnected(const QGraphicsColorizeEffec
 // Auxiliary method to allow providing re-implementation
 void QGraphicsColorizeEffect_OnIsSignalConnected(const QGraphicsColorizeEffect* self, intptr_t slot) {
     auto* vqgraphicscolorizeeffect = const_cast<VirtualQGraphicsColorizeEffect*>(dynamic_cast<const VirtualQGraphicsColorizeEffect*>(self));
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
+    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect)
         vqgraphicscolorizeeffect->setQGraphicsColorizeEffect_IsSignalConnected_Callback(reinterpret_cast<VirtualQGraphicsColorizeEffect::QGraphicsColorizeEffect_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGraphicsColorizeEffect_Delete(QGraphicsColorizeEffect* self) {
@@ -1525,9 +1477,8 @@ QMetaObject* QGraphicsBlurEffect_SuperMetaObject(const QGraphicsBlurEffect* self
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnMetaObject(const QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = const_cast<VirtualQGraphicsBlurEffect*>(dynamic_cast<const VirtualQGraphicsBlurEffect*>(self));
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1544,9 +1495,8 @@ void* QGraphicsBlurEffect_SuperMetacast(QGraphicsBlurEffect* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnMetacast(QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_Metacast_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1563,9 +1513,8 @@ int QGraphicsBlurEffect_SuperMetacall(QGraphicsBlurEffect* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnMetacall(QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_Metacall_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1582,9 +1531,8 @@ QRectF* QGraphicsBlurEffect_SuperBoundingRectFor(const QGraphicsBlurEffect* self
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnBoundingRectFor(const QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = const_cast<VirtualQGraphicsBlurEffect*>(dynamic_cast<const VirtualQGraphicsBlurEffect*>(self));
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_BoundingRectFor_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_BoundingRectFor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1601,9 +1549,8 @@ void QGraphicsBlurEffect_SuperDraw(QGraphicsBlurEffect* self, QPainter* painter)
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnDraw(QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_Draw_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_Draw_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1630,9 +1577,8 @@ void QGraphicsBlurEffect_SuperSourceChanged(QGraphicsBlurEffect* self, int flags
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnSourceChanged(QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_SourceChanged_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_SourceChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1659,9 +1605,8 @@ bool QGraphicsBlurEffect_SuperEvent(QGraphicsBlurEffect* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnEvent(QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_Event_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1688,9 +1633,8 @@ bool QGraphicsBlurEffect_SuperEventFilter(QGraphicsBlurEffect* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnEventFilter(QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_EventFilter_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1717,9 +1661,8 @@ void QGraphicsBlurEffect_SuperTimerEvent(QGraphicsBlurEffect* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnTimerEvent(QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_TimerEvent_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1746,9 +1689,8 @@ void QGraphicsBlurEffect_SuperChildEvent(QGraphicsBlurEffect* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnChildEvent(QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_ChildEvent_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1775,9 +1717,8 @@ void QGraphicsBlurEffect_SuperCustomEvent(QGraphicsBlurEffect* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnCustomEvent(QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_CustomEvent_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1804,9 +1745,8 @@ void QGraphicsBlurEffect_SuperConnectNotify(QGraphicsBlurEffect* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnConnectNotify(QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_ConnectNotify_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1833,9 +1773,8 @@ void QGraphicsBlurEffect_SuperDisconnectNotify(QGraphicsBlurEffect* self, const 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnDisconnectNotify(QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_DisconnectNotify_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1862,9 +1801,8 @@ void QGraphicsBlurEffect_SuperUpdateBoundingRect(QGraphicsBlurEffect* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnUpdateBoundingRect(QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_UpdateBoundingRect_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_UpdateBoundingRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1891,9 +1829,8 @@ bool QGraphicsBlurEffect_SuperSourceIsPixmap(const QGraphicsBlurEffect* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnSourceIsPixmap(const QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = const_cast<VirtualQGraphicsBlurEffect*>(dynamic_cast<const VirtualQGraphicsBlurEffect*>(self));
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_SourceIsPixmap_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_SourceIsPixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1918,9 +1855,8 @@ QRectF* QGraphicsBlurEffect_SuperSourceBoundingRect(const QGraphicsBlurEffect* s
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnSourceBoundingRect(const QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = const_cast<VirtualQGraphicsBlurEffect*>(dynamic_cast<const VirtualQGraphicsBlurEffect*>(self));
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_SourceBoundingRect_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_SourceBoundingRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1947,9 +1883,8 @@ void QGraphicsBlurEffect_SuperDrawSource(QGraphicsBlurEffect* self, QPainter* pa
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnDrawSource(QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_DrawSource_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_DrawSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1974,9 +1909,8 @@ QPixmap* QGraphicsBlurEffect_SuperSourcePixmap(const QGraphicsBlurEffect* self) 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnSourcePixmap(const QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = const_cast<VirtualQGraphicsBlurEffect*>(dynamic_cast<const VirtualQGraphicsBlurEffect*>(self));
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_SourcePixmap_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_SourcePixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2003,9 +1937,8 @@ QObject* QGraphicsBlurEffect_SuperSender(const QGraphicsBlurEffect* self) {
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnSender(const QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = const_cast<VirtualQGraphicsBlurEffect*>(dynamic_cast<const VirtualQGraphicsBlurEffect*>(self));
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_Sender_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2032,9 +1965,8 @@ int QGraphicsBlurEffect_SuperSenderSignalIndex(const QGraphicsBlurEffect* self) 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnSenderSignalIndex(const QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = const_cast<VirtualQGraphicsBlurEffect*>(dynamic_cast<const VirtualQGraphicsBlurEffect*>(self));
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2061,9 +1993,8 @@ int QGraphicsBlurEffect_SuperReceivers(const QGraphicsBlurEffect* self, const ch
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnReceivers(const QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = const_cast<VirtualQGraphicsBlurEffect*>(dynamic_cast<const VirtualQGraphicsBlurEffect*>(self));
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_Receivers_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2090,9 +2021,8 @@ bool QGraphicsBlurEffect_SuperIsSignalConnected(const QGraphicsBlurEffect* self,
 // Auxiliary method to allow providing re-implementation
 void QGraphicsBlurEffect_OnIsSignalConnected(const QGraphicsBlurEffect* self, intptr_t slot) {
     auto* vqgraphicsblureffect = const_cast<VirtualQGraphicsBlurEffect*>(dynamic_cast<const VirtualQGraphicsBlurEffect*>(self));
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
+    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect)
         vqgraphicsblureffect->setQGraphicsBlurEffect_IsSignalConnected_Callback(reinterpret_cast<VirtualQGraphicsBlurEffect::QGraphicsBlurEffect_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGraphicsBlurEffect_Delete(QGraphicsBlurEffect* self) {
@@ -2232,9 +2162,8 @@ QMetaObject* QGraphicsDropShadowEffect_SuperMetaObject(const QGraphicsDropShadow
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnMetaObject(const QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = const_cast<VirtualQGraphicsDropShadowEffect*>(dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self));
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2251,9 +2180,8 @@ void* QGraphicsDropShadowEffect_SuperMetacast(QGraphicsDropShadowEffect* self, c
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnMetacast(QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_Metacast_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2270,9 +2198,8 @@ int QGraphicsDropShadowEffect_SuperMetacall(QGraphicsDropShadowEffect* self, int
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnMetacall(QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_Metacall_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2289,9 +2216,8 @@ QRectF* QGraphicsDropShadowEffect_SuperBoundingRectFor(const QGraphicsDropShadow
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnBoundingRectFor(const QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = const_cast<VirtualQGraphicsDropShadowEffect*>(dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self));
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_BoundingRectFor_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_BoundingRectFor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2308,9 +2234,8 @@ void QGraphicsDropShadowEffect_SuperDraw(QGraphicsDropShadowEffect* self, QPaint
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnDraw(QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_Draw_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_Draw_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2337,9 +2262,8 @@ void QGraphicsDropShadowEffect_SuperSourceChanged(QGraphicsDropShadowEffect* sel
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnSourceChanged(QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_SourceChanged_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_SourceChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2366,9 +2290,8 @@ bool QGraphicsDropShadowEffect_SuperEvent(QGraphicsDropShadowEffect* self, QEven
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnEvent(QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_Event_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2395,9 +2318,8 @@ bool QGraphicsDropShadowEffect_SuperEventFilter(QGraphicsDropShadowEffect* self,
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnEventFilter(QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_EventFilter_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2424,9 +2346,8 @@ void QGraphicsDropShadowEffect_SuperTimerEvent(QGraphicsDropShadowEffect* self, 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnTimerEvent(QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_TimerEvent_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2453,9 +2374,8 @@ void QGraphicsDropShadowEffect_SuperChildEvent(QGraphicsDropShadowEffect* self, 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnChildEvent(QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_ChildEvent_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2482,9 +2402,8 @@ void QGraphicsDropShadowEffect_SuperCustomEvent(QGraphicsDropShadowEffect* self,
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnCustomEvent(QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_CustomEvent_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2511,9 +2430,8 @@ void QGraphicsDropShadowEffect_SuperConnectNotify(QGraphicsDropShadowEffect* sel
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnConnectNotify(QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_ConnectNotify_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2540,9 +2458,8 @@ void QGraphicsDropShadowEffect_SuperDisconnectNotify(QGraphicsDropShadowEffect* 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnDisconnectNotify(QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_DisconnectNotify_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2569,9 +2486,8 @@ void QGraphicsDropShadowEffect_SuperUpdateBoundingRect(QGraphicsDropShadowEffect
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnUpdateBoundingRect(QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_UpdateBoundingRect_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_UpdateBoundingRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2598,9 +2514,8 @@ bool QGraphicsDropShadowEffect_SuperSourceIsPixmap(const QGraphicsDropShadowEffe
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnSourceIsPixmap(const QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = const_cast<VirtualQGraphicsDropShadowEffect*>(dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self));
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_SourceIsPixmap_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_SourceIsPixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2625,9 +2540,8 @@ QRectF* QGraphicsDropShadowEffect_SuperSourceBoundingRect(const QGraphicsDropSha
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnSourceBoundingRect(const QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = const_cast<VirtualQGraphicsDropShadowEffect*>(dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self));
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_SourceBoundingRect_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_SourceBoundingRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2654,9 +2568,8 @@ void QGraphicsDropShadowEffect_SuperDrawSource(QGraphicsDropShadowEffect* self, 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnDrawSource(QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_DrawSource_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_DrawSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2681,9 +2594,8 @@ QPixmap* QGraphicsDropShadowEffect_SuperSourcePixmap(const QGraphicsDropShadowEf
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnSourcePixmap(const QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = const_cast<VirtualQGraphicsDropShadowEffect*>(dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self));
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_SourcePixmap_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_SourcePixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2710,9 +2622,8 @@ QObject* QGraphicsDropShadowEffect_SuperSender(const QGraphicsDropShadowEffect* 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnSender(const QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = const_cast<VirtualQGraphicsDropShadowEffect*>(dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self));
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_Sender_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2739,9 +2650,8 @@ int QGraphicsDropShadowEffect_SuperSenderSignalIndex(const QGraphicsDropShadowEf
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnSenderSignalIndex(const QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = const_cast<VirtualQGraphicsDropShadowEffect*>(dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self));
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2768,9 +2678,8 @@ int QGraphicsDropShadowEffect_SuperReceivers(const QGraphicsDropShadowEffect* se
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnReceivers(const QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = const_cast<VirtualQGraphicsDropShadowEffect*>(dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self));
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_Receivers_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2797,9 +2706,8 @@ bool QGraphicsDropShadowEffect_SuperIsSignalConnected(const QGraphicsDropShadowE
 // Auxiliary method to allow providing re-implementation
 void QGraphicsDropShadowEffect_OnIsSignalConnected(const QGraphicsDropShadowEffect* self, intptr_t slot) {
     auto* vqgraphicsdropshadoweffect = const_cast<VirtualQGraphicsDropShadowEffect*>(dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self));
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
+    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect)
         vqgraphicsdropshadoweffect->setQGraphicsDropShadowEffect_IsSignalConnected_Callback(reinterpret_cast<VirtualQGraphicsDropShadowEffect::QGraphicsDropShadowEffect_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGraphicsDropShadowEffect_Delete(QGraphicsDropShadowEffect* self) {
@@ -2889,9 +2797,8 @@ QMetaObject* QGraphicsOpacityEffect_SuperMetaObject(const QGraphicsOpacityEffect
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnMetaObject(const QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = const_cast<VirtualQGraphicsOpacityEffect*>(dynamic_cast<const VirtualQGraphicsOpacityEffect*>(self));
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_MetaObject_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2908,9 +2815,8 @@ void* QGraphicsOpacityEffect_SuperMetacast(QGraphicsOpacityEffect* self, const c
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnMetacast(QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_Metacast_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2927,9 +2833,8 @@ int QGraphicsOpacityEffect_SuperMetacall(QGraphicsOpacityEffect* self, int param
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnMetacall(QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_Metacall_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2946,9 +2851,8 @@ void QGraphicsOpacityEffect_SuperDraw(QGraphicsOpacityEffect* self, QPainter* pa
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnDraw(QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_Draw_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_Draw_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2975,9 +2879,8 @@ QRectF* QGraphicsOpacityEffect_SuperBoundingRectFor(const QGraphicsOpacityEffect
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnBoundingRectFor(const QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = const_cast<VirtualQGraphicsOpacityEffect*>(dynamic_cast<const VirtualQGraphicsOpacityEffect*>(self));
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_BoundingRectFor_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_BoundingRectFor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3004,9 +2907,8 @@ void QGraphicsOpacityEffect_SuperSourceChanged(QGraphicsOpacityEffect* self, int
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnSourceChanged(QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_SourceChanged_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_SourceChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3033,9 +2935,8 @@ bool QGraphicsOpacityEffect_SuperEvent(QGraphicsOpacityEffect* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnEvent(QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_Event_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3062,9 +2963,8 @@ bool QGraphicsOpacityEffect_SuperEventFilter(QGraphicsOpacityEffect* self, QObje
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnEventFilter(QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_EventFilter_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3091,9 +2991,8 @@ void QGraphicsOpacityEffect_SuperTimerEvent(QGraphicsOpacityEffect* self, QTimer
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnTimerEvent(QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_TimerEvent_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3120,9 +3019,8 @@ void QGraphicsOpacityEffect_SuperChildEvent(QGraphicsOpacityEffect* self, QChild
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnChildEvent(QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_ChildEvent_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3149,9 +3047,8 @@ void QGraphicsOpacityEffect_SuperCustomEvent(QGraphicsOpacityEffect* self, QEven
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnCustomEvent(QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_CustomEvent_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3178,9 +3075,8 @@ void QGraphicsOpacityEffect_SuperConnectNotify(QGraphicsOpacityEffect* self, con
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnConnectNotify(QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_ConnectNotify_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3207,9 +3103,8 @@ void QGraphicsOpacityEffect_SuperDisconnectNotify(QGraphicsOpacityEffect* self, 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnDisconnectNotify(QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_DisconnectNotify_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3236,9 +3131,8 @@ void QGraphicsOpacityEffect_SuperUpdateBoundingRect(QGraphicsOpacityEffect* self
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnUpdateBoundingRect(QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_UpdateBoundingRect_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_UpdateBoundingRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3265,9 +3159,8 @@ bool QGraphicsOpacityEffect_SuperSourceIsPixmap(const QGraphicsOpacityEffect* se
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnSourceIsPixmap(const QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = const_cast<VirtualQGraphicsOpacityEffect*>(dynamic_cast<const VirtualQGraphicsOpacityEffect*>(self));
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_SourceIsPixmap_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_SourceIsPixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3292,9 +3185,8 @@ QRectF* QGraphicsOpacityEffect_SuperSourceBoundingRect(const QGraphicsOpacityEff
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnSourceBoundingRect(const QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = const_cast<VirtualQGraphicsOpacityEffect*>(dynamic_cast<const VirtualQGraphicsOpacityEffect*>(self));
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_SourceBoundingRect_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_SourceBoundingRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3321,9 +3213,8 @@ void QGraphicsOpacityEffect_SuperDrawSource(QGraphicsOpacityEffect* self, QPaint
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnDrawSource(QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_DrawSource_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_DrawSource_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3348,9 +3239,8 @@ QPixmap* QGraphicsOpacityEffect_SuperSourcePixmap(const QGraphicsOpacityEffect* 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnSourcePixmap(const QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = const_cast<VirtualQGraphicsOpacityEffect*>(dynamic_cast<const VirtualQGraphicsOpacityEffect*>(self));
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_SourcePixmap_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_SourcePixmap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3377,9 +3267,8 @@ QObject* QGraphicsOpacityEffect_SuperSender(const QGraphicsOpacityEffect* self) 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnSender(const QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = const_cast<VirtualQGraphicsOpacityEffect*>(dynamic_cast<const VirtualQGraphicsOpacityEffect*>(self));
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_Sender_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3406,9 +3295,8 @@ int QGraphicsOpacityEffect_SuperSenderSignalIndex(const QGraphicsOpacityEffect* 
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnSenderSignalIndex(const QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = const_cast<VirtualQGraphicsOpacityEffect*>(dynamic_cast<const VirtualQGraphicsOpacityEffect*>(self));
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3435,9 +3323,8 @@ int QGraphicsOpacityEffect_SuperReceivers(const QGraphicsOpacityEffect* self, co
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnReceivers(const QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = const_cast<VirtualQGraphicsOpacityEffect*>(dynamic_cast<const VirtualQGraphicsOpacityEffect*>(self));
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_Receivers_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3464,9 +3351,8 @@ bool QGraphicsOpacityEffect_SuperIsSignalConnected(const QGraphicsOpacityEffect*
 // Auxiliary method to allow providing re-implementation
 void QGraphicsOpacityEffect_OnIsSignalConnected(const QGraphicsOpacityEffect* self, intptr_t slot) {
     auto* vqgraphicsopacityeffect = const_cast<VirtualQGraphicsOpacityEffect*>(dynamic_cast<const VirtualQGraphicsOpacityEffect*>(self));
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
+    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect)
         vqgraphicsopacityeffect->setQGraphicsOpacityEffect_IsSignalConnected_Callback(reinterpret_cast<VirtualQGraphicsOpacityEffect::QGraphicsOpacityEffect_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGraphicsOpacityEffect_Delete(QGraphicsOpacityEffect* self) {

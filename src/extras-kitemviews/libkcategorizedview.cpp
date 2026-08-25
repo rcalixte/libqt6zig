@@ -346,9 +346,8 @@ QMetaObject* KCategorizedView_SuperMetaObject(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnMetaObject(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_MetaObject_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -365,9 +364,8 @@ void* KCategorizedView_SuperMetacast(KCategorizedView* self, const char* param1)
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnMetacast(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_Metacast_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -384,9 +382,8 @@ int KCategorizedView_SuperMetacall(KCategorizedView* self, int param1, int param
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnMetacall(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_Metacall_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -403,9 +400,8 @@ void KCategorizedView_SuperSetModel(KCategorizedView* self, QAbstractItemModel* 
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSetModel(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SetModel_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SetModel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -422,9 +418,8 @@ QRect* KCategorizedView_SuperVisualRect(const KCategorizedView* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnVisualRect(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_VisualRect_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_VisualRect_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -441,9 +436,8 @@ QModelIndex* KCategorizedView_SuperIndexAt(const KCategorizedView* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnIndexAt(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_IndexAt_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_IndexAt_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -460,9 +454,8 @@ void KCategorizedView_SuperReset(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnReset(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_Reset_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_Reset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -479,9 +472,8 @@ void KCategorizedView_SuperPaintEvent(KCategorizedView* self, QPaintEvent* event
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnPaintEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_PaintEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -498,9 +490,8 @@ void KCategorizedView_SuperResizeEvent(KCategorizedView* self, QResizeEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnResizeEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ResizeEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -517,9 +508,8 @@ void KCategorizedView_SuperSetSelection(KCategorizedView* self, const QRect* rec
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSetSelection(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SetSelection_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SetSelection_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -536,9 +526,8 @@ void KCategorizedView_SuperMouseMoveEvent(KCategorizedView* self, QMouseEvent* e
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnMouseMoveEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_MouseMoveEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -555,9 +544,8 @@ void KCategorizedView_SuperMousePressEvent(KCategorizedView* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnMousePressEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_MousePressEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -574,9 +562,8 @@ void KCategorizedView_SuperMouseReleaseEvent(KCategorizedView* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnMouseReleaseEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -593,9 +580,8 @@ void KCategorizedView_SuperLeaveEvent(KCategorizedView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnLeaveEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_LeaveEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -612,9 +598,8 @@ void KCategorizedView_SuperStartDrag(KCategorizedView* self, int supportedAction
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnStartDrag(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_StartDrag_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_StartDrag_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -631,9 +616,8 @@ void KCategorizedView_SuperDragMoveEvent(KCategorizedView* self, QDragMoveEvent*
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnDragMoveEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_DragMoveEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -650,9 +634,8 @@ void KCategorizedView_SuperDragEnterEvent(KCategorizedView* self, QDragEnterEven
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnDragEnterEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_DragEnterEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -669,9 +652,8 @@ void KCategorizedView_SuperDragLeaveEvent(KCategorizedView* self, QDragLeaveEven
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnDragLeaveEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_DragLeaveEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -688,9 +670,8 @@ void KCategorizedView_SuperDropEvent(KCategorizedView* self, QDropEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnDropEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_DropEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DropEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -706,9 +687,8 @@ QModelIndex* KCategorizedView_SuperMoveCursor(KCategorizedView* self, int cursor
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnMoveCursor(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_MoveCursor_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MoveCursor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -725,9 +705,8 @@ void KCategorizedView_SuperRowsAboutToBeRemoved(KCategorizedView* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnRowsAboutToBeRemoved(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_RowsAboutToBeRemoved_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -744,9 +723,8 @@ void KCategorizedView_SuperUpdateGeometries(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnUpdateGeometries(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_UpdateGeometries_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_UpdateGeometries_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -763,9 +741,8 @@ void KCategorizedView_SuperCurrentChanged(KCategorizedView* self, const QModelIn
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnCurrentChanged(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_CurrentChanged_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_CurrentChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -788,9 +765,8 @@ void KCategorizedView_SuperDataChanged(KCategorizedView* self, const QModelIndex
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnDataChanged(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_DataChanged_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DataChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -807,9 +783,8 @@ void KCategorizedView_SuperRowsInserted(KCategorizedView* self, const QModelInde
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnRowsInserted(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_RowsInserted_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_RowsInserted_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -826,9 +801,8 @@ void KCategorizedView_SuperSlotLayoutChanged(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSlotLayoutChanged(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SlotLayoutChanged_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SlotLayoutChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +829,8 @@ void KCategorizedView_SuperScrollTo(KCategorizedView* self, const QModelIndex* i
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnScrollTo(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ScrollTo_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ScrollTo_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -884,9 +857,8 @@ void KCategorizedView_SuperDoItemsLayout(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnDoItemsLayout(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_DoItemsLayout_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DoItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -913,9 +885,8 @@ void KCategorizedView_SuperSetRootIndex(KCategorizedView* self, const QModelInde
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSetRootIndex(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SetRootIndex_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SetRootIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +913,8 @@ bool KCategorizedView_SuperEvent(KCategorizedView* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_Event_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +941,8 @@ void KCategorizedView_SuperScrollContentsBy(KCategorizedView* self, int dx, int 
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnScrollContentsBy(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ScrollContentsBy_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +969,8 @@ void KCategorizedView_SuperWheelEvent(KCategorizedView* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnWheelEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_WheelEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +997,8 @@ void KCategorizedView_SuperTimerEvent(KCategorizedView* self, QTimerEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnTimerEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_TimerEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1058,9 +1025,8 @@ void KCategorizedView_SuperInitViewItemOption(const KCategorizedView* self, QSty
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnInitViewItemOption(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_InitViewItemOption_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_InitViewItemOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1087,9 +1053,8 @@ int KCategorizedView_SuperHorizontalOffset(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnHorizontalOffset(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_HorizontalOffset_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_HorizontalOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1116,9 +1081,8 @@ int KCategorizedView_SuperVerticalOffset(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnVerticalOffset(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_VerticalOffset_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_VerticalOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1143,9 +1107,8 @@ QRegion* KCategorizedView_SuperVisualRegionForSelection(const KCategorizedView* 
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnVisualRegionForSelection(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_VisualRegionForSelection_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_VisualRegionForSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1208,9 +1171,8 @@ libqt_list /* of QModelIndex* */ KCategorizedView_SuperSelectedIndexes(const KCa
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSelectedIndexes(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SelectedIndexes_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SelectedIndexes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1237,9 +1199,8 @@ bool KCategorizedView_SuperIsIndexHidden(const KCategorizedView* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnIsIndexHidden(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_IsIndexHidden_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_IsIndexHidden_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1266,9 +1227,8 @@ void KCategorizedView_SuperSelectionChanged(KCategorizedView* self, const QItemS
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSelectionChanged(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SelectionChanged_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SelectionChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1293,9 +1253,8 @@ QSize* KCategorizedView_SuperViewportSizeHint(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnViewportSizeHint(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ViewportSizeHint_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1322,9 +1281,8 @@ void KCategorizedView_SuperSetSelectionModel(KCategorizedView* self, QItemSelect
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSetSelectionModel(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SetSelectionModel_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SetSelectionModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1353,9 +1311,8 @@ void KCategorizedView_SuperKeyboardSearch(KCategorizedView* self, const libqt_st
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnKeyboardSearch(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_KeyboardSearch_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_KeyboardSearch_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1382,9 +1339,8 @@ int KCategorizedView_SuperSizeHintForRow(const KCategorizedView* self, int row) 
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSizeHintForRow(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SizeHintForRow_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SizeHintForRow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1411,9 +1367,8 @@ int KCategorizedView_SuperSizeHintForColumn(const KCategorizedView* self, int co
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSizeHintForColumn(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SizeHintForColumn_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SizeHintForColumn_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1440,9 +1395,8 @@ QAbstractItemDelegate* KCategorizedView_SuperItemDelegateForIndex(const KCategor
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnItemDelegateForIndex(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ItemDelegateForIndex_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ItemDelegateForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1469,9 +1423,8 @@ QVariant* KCategorizedView_SuperInputMethodQuery(const KCategorizedView* self, i
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnInputMethodQuery(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_InputMethodQuery_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1498,9 +1451,8 @@ void KCategorizedView_SuperSelectAll(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSelectAll(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SelectAll_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SelectAll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1527,9 +1479,8 @@ void KCategorizedView_SuperUpdateEditorData(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnUpdateEditorData(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_UpdateEditorData_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_UpdateEditorData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1556,9 +1507,8 @@ void KCategorizedView_SuperUpdateEditorGeometries(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnUpdateEditorGeometries(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_UpdateEditorGeometries_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_UpdateEditorGeometries_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1585,9 +1535,8 @@ void KCategorizedView_SuperVerticalScrollbarAction(KCategorizedView* self, int a
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnVerticalScrollbarAction(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_VerticalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1614,9 +1563,8 @@ void KCategorizedView_SuperHorizontalScrollbarAction(KCategorizedView* self, int
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnHorizontalScrollbarAction(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_HorizontalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1643,9 +1591,8 @@ void KCategorizedView_SuperVerticalScrollbarValueChanged(KCategorizedView* self,
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnVerticalScrollbarValueChanged(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_VerticalScrollbarValueChanged_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_VerticalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1672,9 +1619,8 @@ void KCategorizedView_SuperHorizontalScrollbarValueChanged(KCategorizedView* sel
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnHorizontalScrollbarValueChanged(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_HorizontalScrollbarValueChanged_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_HorizontalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1701,9 +1647,8 @@ void KCategorizedView_SuperCloseEditor(KCategorizedView* self, QWidget* editor, 
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnCloseEditor(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_CloseEditor_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_CloseEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1730,9 +1675,8 @@ void KCategorizedView_SuperCommitData(KCategorizedView* self, QWidget* editor) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnCommitData(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_CommitData_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_CommitData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1759,9 +1703,8 @@ void KCategorizedView_SuperEditorDestroyed(KCategorizedView* self, QObject* edit
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnEditorDestroyed(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_EditorDestroyed_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_EditorDestroyed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1788,9 +1731,8 @@ bool KCategorizedView_SuperEdit2(KCategorizedView* self, const QModelIndex* inde
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnEdit2(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_Edit2_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_Edit2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1817,9 +1759,8 @@ int KCategorizedView_SuperSelectionCommand(const KCategorizedView* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSelectionCommand(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SelectionCommand_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SelectionCommand_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1846,9 +1787,8 @@ bool KCategorizedView_SuperFocusNextPrevChild(KCategorizedView* self, bool next)
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnFocusNextPrevChild(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1875,9 +1815,8 @@ bool KCategorizedView_SuperViewportEvent(KCategorizedView* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnViewportEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ViewportEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1904,9 +1843,8 @@ void KCategorizedView_SuperMouseDoubleClickEvent(KCategorizedView* self, QMouseE
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnMouseDoubleClickEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1933,9 +1871,8 @@ void KCategorizedView_SuperFocusInEvent(KCategorizedView* self, QFocusEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnFocusInEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_FocusInEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1962,9 +1899,8 @@ void KCategorizedView_SuperFocusOutEvent(KCategorizedView* self, QFocusEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnFocusOutEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_FocusOutEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1991,9 +1927,8 @@ void KCategorizedView_SuperKeyPressEvent(KCategorizedView* self, QKeyEvent* even
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnKeyPressEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_KeyPressEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2020,9 +1955,8 @@ void KCategorizedView_SuperInputMethodEvent(KCategorizedView* self, QInputMethod
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnInputMethodEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_InputMethodEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2049,9 +1983,8 @@ bool KCategorizedView_SuperEventFilter(KCategorizedView* self, QObject* object, 
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnEventFilter(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_EventFilter_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2078,9 +2011,8 @@ QSize* KCategorizedView_SuperMinimumSizeHint(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnMinimumSizeHint(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_MinimumSizeHint_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2107,9 +2039,8 @@ QSize* KCategorizedView_SuperSizeHint(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSizeHint(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SizeHint_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2136,9 +2067,8 @@ void KCategorizedView_SuperSetupViewport(KCategorizedView* self, QWidget* viewpo
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSetupViewport(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SetupViewport_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2165,9 +2095,8 @@ void KCategorizedView_SuperContextMenuEvent(KCategorizedView* self, QContextMenu
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnContextMenuEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ContextMenuEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2194,9 +2123,8 @@ void KCategorizedView_SuperChangeEvent(KCategorizedView* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnChangeEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ChangeEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2223,9 +2151,8 @@ void KCategorizedView_SuperInitStyleOption(const KCategorizedView* self, QStyleO
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnInitStyleOption(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_InitStyleOption_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2252,9 +2179,8 @@ int KCategorizedView_SuperDevType(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnDevType(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_DevType_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2281,9 +2207,8 @@ void KCategorizedView_SuperSetVisible(KCategorizedView* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSetVisible(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SetVisible_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2310,9 +2235,8 @@ int KCategorizedView_SuperHeightForWidth(const KCategorizedView* self, int param
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnHeightForWidth(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_HeightForWidth_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2339,9 +2263,8 @@ bool KCategorizedView_SuperHasHeightForWidth(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnHasHeightForWidth(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_HasHeightForWidth_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2368,9 +2291,8 @@ QPaintEngine* KCategorizedView_SuperPaintEngine(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnPaintEngine(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_PaintEngine_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2397,9 +2319,8 @@ void KCategorizedView_SuperKeyReleaseEvent(KCategorizedView* self, QKeyEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnKeyReleaseEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2426,9 +2347,8 @@ void KCategorizedView_SuperEnterEvent(KCategorizedView* self, QEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnEnterEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_EnterEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2455,9 +2375,8 @@ void KCategorizedView_SuperMoveEvent(KCategorizedView* self, QMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnMoveEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_MoveEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2484,9 +2403,8 @@ void KCategorizedView_SuperCloseEvent(KCategorizedView* self, QCloseEvent* event
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnCloseEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_CloseEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2513,9 +2431,8 @@ void KCategorizedView_SuperTabletEvent(KCategorizedView* self, QTabletEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnTabletEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_TabletEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2542,9 +2459,8 @@ void KCategorizedView_SuperActionEvent(KCategorizedView* self, QActionEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnActionEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ActionEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2571,9 +2487,8 @@ void KCategorizedView_SuperShowEvent(KCategorizedView* self, QShowEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnShowEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ShowEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2600,9 +2515,8 @@ void KCategorizedView_SuperHideEvent(KCategorizedView* self, QHideEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnHideEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_HideEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2631,9 +2545,8 @@ bool KCategorizedView_SuperNativeEvent(KCategorizedView* self, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnNativeEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_NativeEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2660,9 +2573,8 @@ int KCategorizedView_SuperMetric(const KCategorizedView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnMetric(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_Metric_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2689,9 +2601,8 @@ void KCategorizedView_SuperInitPainter(const KCategorizedView* self, QPainter* p
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnInitPainter(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_InitPainter_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2718,9 +2629,8 @@ QPaintDevice* KCategorizedView_SuperRedirected(const KCategorizedView* self, QPo
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnRedirected(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_Redirected_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2747,9 +2657,8 @@ QPainter* KCategorizedView_SuperSharedPainter(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSharedPainter(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SharedPainter_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2776,9 +2685,8 @@ void KCategorizedView_SuperChildEvent(KCategorizedView* self, QChildEvent* event
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnChildEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ChildEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2805,9 +2713,8 @@ void KCategorizedView_SuperCustomEvent(KCategorizedView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnCustomEvent(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_CustomEvent_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2834,9 +2741,8 @@ void KCategorizedView_SuperConnectNotify(KCategorizedView* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnConnectNotify(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ConnectNotify_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2863,9 +2769,8 @@ void KCategorizedView_SuperDisconnectNotify(KCategorizedView* self, const QMetaM
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnDisconnectNotify(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_DisconnectNotify_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2892,9 +2797,8 @@ void KCategorizedView_SuperResizeContents(KCategorizedView* self, int width, int
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnResizeContents(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ResizeContents_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ResizeContents_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2919,9 +2823,8 @@ QSize* KCategorizedView_SuperContentsSize(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnContentsSize(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ContentsSize_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ContentsSize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2946,9 +2849,8 @@ QRect* KCategorizedView_SuperRectForIndex(const KCategorizedView* self, const QM
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnRectForIndex(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_RectForIndex_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_RectForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2975,9 +2877,8 @@ void KCategorizedView_SuperSetPositionForIndex(KCategorizedView* self, const QPo
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSetPositionForIndex(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SetPositionForIndex_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SetPositionForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3004,9 +2905,8 @@ int KCategorizedView_SuperState(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnState(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_State_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_State_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3033,9 +2933,8 @@ void KCategorizedView_SuperSetState(KCategorizedView* self, int state) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSetState(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SetState_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SetState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3062,9 +2961,8 @@ void KCategorizedView_SuperScheduleDelayedItemsLayout(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnScheduleDelayedItemsLayout(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ScheduleDelayedItemsLayout_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ScheduleDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3091,9 +2989,8 @@ void KCategorizedView_SuperExecuteDelayedItemsLayout(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnExecuteDelayedItemsLayout(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ExecuteDelayedItemsLayout_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ExecuteDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3120,9 +3017,8 @@ void KCategorizedView_SuperSetDirtyRegion(KCategorizedView* self, const QRegion*
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSetDirtyRegion(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SetDirtyRegion_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SetDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3149,9 +3045,8 @@ void KCategorizedView_SuperScrollDirtyRegion(KCategorizedView* self, int dx, int
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnScrollDirtyRegion(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ScrollDirtyRegion_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ScrollDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3176,9 +3071,8 @@ QPoint* KCategorizedView_SuperDirtyRegionOffset(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnDirtyRegionOffset(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_DirtyRegionOffset_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DirtyRegionOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3205,9 +3099,8 @@ void KCategorizedView_SuperStartAutoScroll(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnStartAutoScroll(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_StartAutoScroll_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_StartAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3234,9 +3127,8 @@ void KCategorizedView_SuperStopAutoScroll(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnStopAutoScroll(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_StopAutoScroll_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_StopAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3263,9 +3155,8 @@ void KCategorizedView_SuperDoAutoScroll(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnDoAutoScroll(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_DoAutoScroll_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DoAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3292,9 +3183,8 @@ int KCategorizedView_SuperDropIndicatorPosition(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnDropIndicatorPosition(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_DropIndicatorPosition_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DropIndicatorPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3321,9 +3211,8 @@ void KCategorizedView_SuperSetViewportMargins(KCategorizedView* self, int left, 
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSetViewportMargins(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SetViewportMargins_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3348,9 +3237,8 @@ QMargins* KCategorizedView_SuperViewportMargins(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnViewportMargins(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_ViewportMargins_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3377,9 +3265,8 @@ void KCategorizedView_SuperDrawFrame(KCategorizedView* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnDrawFrame(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_DrawFrame_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3406,9 +3293,8 @@ void KCategorizedView_SuperUpdateMicroFocus(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnUpdateMicroFocus(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3435,9 +3321,8 @@ void KCategorizedView_SuperCreate(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnCreate(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_Create_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3464,9 +3349,8 @@ void KCategorizedView_SuperDestroy(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnDestroy(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_Destroy_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3493,9 +3377,8 @@ bool KCategorizedView_SuperFocusNextChild(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnFocusNextChild(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_FocusNextChild_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3522,9 +3405,8 @@ bool KCategorizedView_SuperFocusPreviousChild(KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnFocusPreviousChild(KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_FocusPreviousChild_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3551,9 +3433,8 @@ QObject* KCategorizedView_SuperSender(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSender(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_Sender_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3580,9 +3461,8 @@ int KCategorizedView_SuperSenderSignalIndex(const KCategorizedView* self) {
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnSenderSignalIndex(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3609,9 +3489,8 @@ int KCategorizedView_SuperReceivers(const KCategorizedView* self, const char* si
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnReceivers(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_Receivers_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3638,9 +3517,8 @@ bool KCategorizedView_SuperIsSignalConnected(const KCategorizedView* self, const
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnIsSignalConnected(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_IsSignalConnected_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3667,9 +3545,8 @@ double KCategorizedView_SuperGetDecodedMetricF(const KCategorizedView* self, int
 // Auxiliary method to allow providing re-implementation
 void KCategorizedView_OnGetDecodedMetricF(const KCategorizedView* self, intptr_t slot) {
     auto* vkcategorizedview = const_cast<VirtualKCategorizedView*>(dynamic_cast<const VirtualKCategorizedView*>(self));
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
+    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView)
         vkcategorizedview->setKCategorizedView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKCategorizedView::KCategorizedView_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KCategorizedView_Delete(KCategorizedView* self) {

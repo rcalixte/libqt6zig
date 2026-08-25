@@ -591,7 +591,7 @@ pub const QGlyphRun = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qglyphrun.html#public-types)
 pub const enums = struct {
-    pub const GlyphRunFlag = enum(i32) {
+    pub const GlyphRunFlag = enum {
         pub const Overline: i32 = 1;
         pub const Underline: i32 = 2;
         pub const StrikeOut: i32 = 4;

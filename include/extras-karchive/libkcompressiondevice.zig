@@ -5,6 +5,7 @@ const QBindingStorage = @import("libqt6").QBindingStorage;
 const QChildEvent = @import("libqt6").QChildEvent;
 const QEvent = @import("libqt6").QEvent;
 const QIODevice = @import("libqt6").QIODevice;
+const QIODeviceBase = @import("libqt6").QIODeviceBase;
 const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
@@ -780,6 +781,18 @@ pub const KCompressionDevice = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KCompressionDevice.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// Inherited from QIODevice
+    ///
+    /// Upcasts to a QIODeviceBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KCompressionDevice `
+    ///
+    pub fn asQIODeviceBase(self: KCompressionDevice) QIODeviceBase {
+        return .{ .ptr = qtc.QIODevice_AsQIODeviceBase(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `openMode` instead
@@ -4042,7 +4055,7 @@ pub const KCompressionDevice = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kcompressiondevice.html#public-types)
 pub const enums = struct {
-    pub const CompressionType = enum(i32) {
+    pub const CompressionType = enum {
         pub const GZip: i32 = 0;
         pub const BZip2: i32 = 1;
         pub const Xz: i32 = 2;

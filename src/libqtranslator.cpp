@@ -146,9 +146,8 @@ QMetaObject* QTranslator_SuperMetaObject(const QTranslator* self) {
 // Auxiliary method to allow providing re-implementation
 void QTranslator_OnMetaObject(const QTranslator* self, intptr_t slot) {
     auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+    if (vqtranslator && vqtranslator->isVirtualQTranslator)
         vqtranslator->setQTranslator_MetaObject_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -165,9 +164,8 @@ void* QTranslator_SuperMetacast(QTranslator* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QTranslator_OnMetacast(QTranslator* self, intptr_t slot) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+    if (vqtranslator && vqtranslator->isVirtualQTranslator)
         vqtranslator->setQTranslator_Metacast_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -184,9 +182,8 @@ int QTranslator_SuperMetacall(QTranslator* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QTranslator_OnMetacall(QTranslator* self, intptr_t slot) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+    if (vqtranslator && vqtranslator->isVirtualQTranslator)
         vqtranslator->setQTranslator_Metacall_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -219,9 +216,8 @@ libqt_string QTranslator_SuperTranslate(const QTranslator* self, const char* con
 // Auxiliary method to allow providing re-implementation
 void QTranslator_OnTranslate(const QTranslator* self, intptr_t slot) {
     auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+    if (vqtranslator && vqtranslator->isVirtualQTranslator)
         vqtranslator->setQTranslator_Translate_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_Translate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -238,9 +234,8 @@ bool QTranslator_SuperIsEmpty(const QTranslator* self) {
 // Auxiliary method to allow providing re-implementation
 void QTranslator_OnIsEmpty(const QTranslator* self, intptr_t slot) {
     auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+    if (vqtranslator && vqtranslator->isVirtualQTranslator)
         vqtranslator->setQTranslator_IsEmpty_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_IsEmpty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -267,9 +262,8 @@ bool QTranslator_SuperEvent(QTranslator* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTranslator_OnEvent(QTranslator* self, intptr_t slot) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+    if (vqtranslator && vqtranslator->isVirtualQTranslator)
         vqtranslator->setQTranslator_Event_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -296,9 +290,8 @@ bool QTranslator_SuperEventFilter(QTranslator* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QTranslator_OnEventFilter(QTranslator* self, intptr_t slot) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+    if (vqtranslator && vqtranslator->isVirtualQTranslator)
         vqtranslator->setQTranslator_EventFilter_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -325,9 +318,8 @@ void QTranslator_SuperTimerEvent(QTranslator* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTranslator_OnTimerEvent(QTranslator* self, intptr_t slot) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+    if (vqtranslator && vqtranslator->isVirtualQTranslator)
         vqtranslator->setQTranslator_TimerEvent_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -354,9 +346,8 @@ void QTranslator_SuperChildEvent(QTranslator* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTranslator_OnChildEvent(QTranslator* self, intptr_t slot) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+    if (vqtranslator && vqtranslator->isVirtualQTranslator)
         vqtranslator->setQTranslator_ChildEvent_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -383,9 +374,8 @@ void QTranslator_SuperCustomEvent(QTranslator* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QTranslator_OnCustomEvent(QTranslator* self, intptr_t slot) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+    if (vqtranslator && vqtranslator->isVirtualQTranslator)
         vqtranslator->setQTranslator_CustomEvent_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -412,9 +402,8 @@ void QTranslator_SuperConnectNotify(QTranslator* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QTranslator_OnConnectNotify(QTranslator* self, intptr_t slot) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+    if (vqtranslator && vqtranslator->isVirtualQTranslator)
         vqtranslator->setQTranslator_ConnectNotify_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -441,9 +430,8 @@ void QTranslator_SuperDisconnectNotify(QTranslator* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QTranslator_OnDisconnectNotify(QTranslator* self, intptr_t slot) {
     auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+    if (vqtranslator && vqtranslator->isVirtualQTranslator)
         vqtranslator->setQTranslator_DisconnectNotify_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -470,9 +458,8 @@ QObject* QTranslator_SuperSender(const QTranslator* self) {
 // Auxiliary method to allow providing re-implementation
 void QTranslator_OnSender(const QTranslator* self, intptr_t slot) {
     auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+    if (vqtranslator && vqtranslator->isVirtualQTranslator)
         vqtranslator->setQTranslator_Sender_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -499,9 +486,8 @@ int QTranslator_SuperSenderSignalIndex(const QTranslator* self) {
 // Auxiliary method to allow providing re-implementation
 void QTranslator_OnSenderSignalIndex(const QTranslator* self, intptr_t slot) {
     auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+    if (vqtranslator && vqtranslator->isVirtualQTranslator)
         vqtranslator->setQTranslator_SenderSignalIndex_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -528,9 +514,8 @@ int QTranslator_SuperReceivers(const QTranslator* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QTranslator_OnReceivers(const QTranslator* self, intptr_t slot) {
     auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+    if (vqtranslator && vqtranslator->isVirtualQTranslator)
         vqtranslator->setQTranslator_Receivers_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -557,9 +542,8 @@ bool QTranslator_SuperIsSignalConnected(const QTranslator* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QTranslator_OnIsSignalConnected(const QTranslator* self, intptr_t slot) {
     auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
+    if (vqtranslator && vqtranslator->isVirtualQTranslator)
         vqtranslator->setQTranslator_IsSignalConnected_Callback(reinterpret_cast<VirtualQTranslator::QTranslator_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QTranslator_Delete(QTranslator* self) {

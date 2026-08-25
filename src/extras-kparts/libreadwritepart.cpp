@@ -136,9 +136,8 @@ QMetaObject* KParts__ReadWritePart_SuperMetaObject(const KParts__ReadWritePart* 
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnMetaObject(const KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_MetaObject_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -155,9 +154,8 @@ void* KParts__ReadWritePart_SuperMetacast(KParts__ReadWritePart* self, const cha
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnMetacast(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_Metacast_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -174,9 +172,8 @@ int KParts__ReadWritePart_SuperMetacall(KParts__ReadWritePart* self, int param1,
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnMetacall(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_Metacall_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -193,9 +190,8 @@ void KParts__ReadWritePart_SuperSetReadWrite(KParts__ReadWritePart* self, bool r
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSetReadWrite(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_SetReadWrite_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_SetReadWrite_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -212,9 +208,8 @@ bool KParts__ReadWritePart_SuperQueryClose(KParts__ReadWritePart* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnQueryClose(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_QueryClose_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_QueryClose_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -231,9 +226,8 @@ bool KParts__ReadWritePart_SuperCloseUrl(KParts__ReadWritePart* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnCloseUrl(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_CloseUrl_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_CloseUrl_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -250,9 +244,8 @@ bool KParts__ReadWritePart_SuperCloseUrl2(KParts__ReadWritePart* self, bool prom
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnCloseUrl2(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_CloseUrl2_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_CloseUrl2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -269,9 +262,8 @@ bool KParts__ReadWritePart_SuperSaveAs(KParts__ReadWritePart* self, const QUrl* 
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSaveAs(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_SaveAs_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_SaveAs_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -288,9 +280,8 @@ void KParts__ReadWritePart_SuperSetModified(KParts__ReadWritePart* self, bool mo
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSetModified(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_SetModified_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_SetModified_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -307,9 +298,8 @@ bool KParts__ReadWritePart_SuperSave(KParts__ReadWritePart* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSave(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_Save_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_Save_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -326,9 +316,8 @@ bool KParts__ReadWritePart_SuperSaveFile(KParts__ReadWritePart* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSaveFile(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_SaveFile_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_SaveFile_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -345,9 +334,8 @@ bool KParts__ReadWritePart_SuperSaveToUrl(KParts__ReadWritePart* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSaveToUrl(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_SaveToUrl_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_SaveToUrl_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -374,9 +362,8 @@ bool KParts__ReadWritePart_SuperOpenUrl(KParts__ReadWritePart* self, const QUrl*
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnOpenUrl(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_OpenUrl_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_OpenUrl_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -403,9 +390,8 @@ bool KParts__ReadWritePart_SuperOpenFile(KParts__ReadWritePart* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnOpenFile(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_OpenFile_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_OpenFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -432,9 +418,8 @@ void KParts__ReadWritePart_SuperGuiActivateEvent(KParts__ReadWritePart* self, KP
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnGuiActivateEvent(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_GuiActivateEvent_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_GuiActivateEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -461,9 +446,8 @@ QWidget* KParts__ReadWritePart_SuperWidget(KParts__ReadWritePart* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnWidget(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_Widget_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_Widget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -490,9 +474,8 @@ void KParts__ReadWritePart_SuperSetManager(KParts__ReadWritePart* self, KParts__
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSetManager(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_SetManager_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_SetManager_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -519,9 +502,8 @@ KParts__Part* KParts__ReadWritePart_SuperHitTest(KParts__ReadWritePart* self, QW
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnHitTest(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_HitTest_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_HitTest_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -548,9 +530,8 @@ void KParts__ReadWritePart_SuperSetWidget(KParts__ReadWritePart* self, QWidget* 
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSetWidget(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_SetWidget_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_SetWidget_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -577,9 +558,8 @@ void KParts__ReadWritePart_SuperCustomEvent(KParts__ReadWritePart* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnCustomEvent(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_CustomEvent_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -606,9 +586,8 @@ void KParts__ReadWritePart_SuperPartActivateEvent(KParts__ReadWritePart* self, K
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnPartActivateEvent(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_PartActivateEvent_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_PartActivateEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -635,9 +614,8 @@ bool KParts__ReadWritePart_SuperEvent(KParts__ReadWritePart* self, QEvent* event
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnEvent(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_Event_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -664,9 +642,8 @@ bool KParts__ReadWritePart_SuperEventFilter(KParts__ReadWritePart* self, QObject
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnEventFilter(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_EventFilter_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -693,9 +670,8 @@ void KParts__ReadWritePart_SuperTimerEvent(KParts__ReadWritePart* self, QTimerEv
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnTimerEvent(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_TimerEvent_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -722,9 +698,8 @@ void KParts__ReadWritePart_SuperChildEvent(KParts__ReadWritePart* self, QChildEv
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnChildEvent(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_ChildEvent_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -751,9 +726,8 @@ void KParts__ReadWritePart_SuperConnectNotify(KParts__ReadWritePart* self, const
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnConnectNotify(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_ConnectNotify_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -780,9 +754,8 @@ void KParts__ReadWritePart_SuperDisconnectNotify(KParts__ReadWritePart* self, co
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnDisconnectNotify(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_DisconnectNotify_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -809,9 +782,8 @@ QAction* KParts__ReadWritePart_SuperAction2(const KParts__ReadWritePart* self, c
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnAction2(const KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_Action2_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_Action2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -838,9 +810,8 @@ KActionCollection* KParts__ReadWritePart_SuperActionCollection(const KParts__Rea
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnActionCollection(const KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_ActionCollection_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_ActionCollection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -899,9 +870,8 @@ libqt_string KParts__ReadWritePart_SuperComponentName(const KParts__ReadWritePar
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnComponentName(const KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_ComponentName_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_ComponentName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -928,9 +898,8 @@ QDomDocument* KParts__ReadWritePart_SuperDomDocument(const KParts__ReadWritePart
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnDomDocument(const KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_DomDocument_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_DomDocument_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -989,9 +958,8 @@ libqt_string KParts__ReadWritePart_SuperXmlFile(const KParts__ReadWritePart* sel
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnXmlFile(const KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_XmlFile_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_XmlFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1050,9 +1018,8 @@ libqt_string KParts__ReadWritePart_SuperLocalXMLFile(const KParts__ReadWritePart
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnLocalXMLFile(const KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_LocalXMLFile_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_LocalXMLFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1083,9 +1050,8 @@ void KParts__ReadWritePart_SuperSetComponentName(KParts__ReadWritePart* self, co
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSetComponentName(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_SetComponentName_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_SetComponentName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1114,9 +1080,8 @@ void KParts__ReadWritePart_SuperSetXMLFile(KParts__ReadWritePart* self, const li
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSetXMLFile(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_SetXMLFile_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_SetXMLFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1145,9 +1110,8 @@ void KParts__ReadWritePart_SuperSetLocalXMLFile(KParts__ReadWritePart* self, con
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSetLocalXMLFile(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_SetLocalXMLFile_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_SetLocalXMLFile_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1176,9 +1140,8 @@ void KParts__ReadWritePart_SuperSetXML(KParts__ReadWritePart* self, const libqt_
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSetXML(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_SetXML_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_SetXML_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1205,9 +1168,8 @@ void KParts__ReadWritePart_SuperSetDOMDocument(KParts__ReadWritePart* self, cons
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSetDOMDocument(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_SetDOMDocument_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_SetDOMDocument_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1236,9 +1198,8 @@ void KParts__ReadWritePart_SuperStateChanged(KParts__ReadWritePart* self, const 
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnStateChanged(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_StateChanged_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_StateChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1265,9 +1226,8 @@ void KParts__ReadWritePart_SuperAbortLoad(KParts__ReadWritePart* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnAbortLoad(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_AbortLoad_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_AbortLoad_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1294,9 +1254,8 @@ void KParts__ReadWritePart_SuperSetUrl(KParts__ReadWritePart* self, const QUrl* 
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSetUrl(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_SetUrl_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_SetUrl_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1355,9 +1314,8 @@ libqt_string KParts__ReadWritePart_SuperLocalFilePath(const KParts__ReadWritePar
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnLocalFilePath(const KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_LocalFilePath_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_LocalFilePath_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1386,9 +1344,8 @@ void KParts__ReadWritePart_SuperSetLocalFilePath(KParts__ReadWritePart* self, co
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSetLocalFilePath(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_SetLocalFilePath_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_SetLocalFilePath_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1417,9 +1374,8 @@ QWidget* KParts__ReadWritePart_SuperHostContainer(KParts__ReadWritePart* self, c
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnHostContainer(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_HostContainer_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_HostContainer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1446,9 +1402,8 @@ void KParts__ReadWritePart_SuperSlotWidgetDestroyed(KParts__ReadWritePart* self)
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSlotWidgetDestroyed(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_SlotWidgetDestroyed_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_SlotWidgetDestroyed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1475,9 +1430,8 @@ QObject* KParts__ReadWritePart_SuperSender(const KParts__ReadWritePart* self) {
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSender(const KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_Sender_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1504,9 +1458,8 @@ int KParts__ReadWritePart_SuperSenderSignalIndex(const KParts__ReadWritePart* se
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnSenderSignalIndex(const KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1533,9 +1486,8 @@ int KParts__ReadWritePart_SuperReceivers(const KParts__ReadWritePart* self, cons
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnReceivers(const KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_Receivers_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1562,9 +1514,8 @@ bool KParts__ReadWritePart_SuperIsSignalConnected(const KParts__ReadWritePart* s
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnIsSignalConnected(const KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = const_cast<VirtualKPartsReadWritePart*>(dynamic_cast<const VirtualKPartsReadWritePart*>(self));
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_IsSignalConnected_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1623,9 +1574,8 @@ libqt_string KParts__ReadWritePart_SuperStandardsXmlFileLocation(KParts__ReadWri
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnStandardsXmlFileLocation(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_StandardsXmlFileLocation_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_StandardsXmlFileLocation_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1652,9 +1602,8 @@ void KParts__ReadWritePart_SuperLoadStandardsXmlFile(KParts__ReadWritePart* self
 // Auxiliary method to allow providing re-implementation
 void KParts__ReadWritePart_OnLoadStandardsXmlFile(KParts__ReadWritePart* self, intptr_t slot) {
     auto* vkpartsreadwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart) {
+    if (vkpartsreadwritepart && vkpartsreadwritepart->isVirtualKPartsReadWritePart)
         vkpartsreadwritepart->setKParts__ReadWritePart_LoadStandardsXmlFile_Callback(reinterpret_cast<VirtualKPartsReadWritePart::KParts__ReadWritePart_LoadStandardsXmlFile_Callback>(slot));
-    }
 }
 
 void KParts__ReadWritePart_Delete(KParts__ReadWritePart* self) {

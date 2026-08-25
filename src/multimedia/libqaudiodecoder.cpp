@@ -156,9 +156,8 @@ QMetaObject* QAudioDecoder_SuperMetaObject(const QAudioDecoder* self) {
 // Auxiliary method to allow providing re-implementation
 void QAudioDecoder_OnMetaObject(const QAudioDecoder* self, intptr_t slot) {
     auto* vqaudiodecoder = const_cast<VirtualQAudioDecoder*>(dynamic_cast<const VirtualQAudioDecoder*>(self));
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder)
         vqaudiodecoder->setQAudioDecoder_MetaObject_Callback(reinterpret_cast<VirtualQAudioDecoder::QAudioDecoder_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -175,9 +174,8 @@ void* QAudioDecoder_SuperMetacast(QAudioDecoder* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QAudioDecoder_OnMetacast(QAudioDecoder* self, intptr_t slot) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder)
         vqaudiodecoder->setQAudioDecoder_Metacast_Callback(reinterpret_cast<VirtualQAudioDecoder::QAudioDecoder_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -194,9 +192,8 @@ int QAudioDecoder_SuperMetacall(QAudioDecoder* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QAudioDecoder_OnMetacall(QAudioDecoder* self, intptr_t slot) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder)
         vqaudiodecoder->setQAudioDecoder_Metacall_Callback(reinterpret_cast<VirtualQAudioDecoder::QAudioDecoder_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -223,9 +220,8 @@ bool QAudioDecoder_SuperEvent(QAudioDecoder* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioDecoder_OnEvent(QAudioDecoder* self, intptr_t slot) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder)
         vqaudiodecoder->setQAudioDecoder_Event_Callback(reinterpret_cast<VirtualQAudioDecoder::QAudioDecoder_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -252,9 +248,8 @@ bool QAudioDecoder_SuperEventFilter(QAudioDecoder* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QAudioDecoder_OnEventFilter(QAudioDecoder* self, intptr_t slot) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder)
         vqaudiodecoder->setQAudioDecoder_EventFilter_Callback(reinterpret_cast<VirtualQAudioDecoder::QAudioDecoder_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -281,9 +276,8 @@ void QAudioDecoder_SuperTimerEvent(QAudioDecoder* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioDecoder_OnTimerEvent(QAudioDecoder* self, intptr_t slot) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder)
         vqaudiodecoder->setQAudioDecoder_TimerEvent_Callback(reinterpret_cast<VirtualQAudioDecoder::QAudioDecoder_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -310,9 +304,8 @@ void QAudioDecoder_SuperChildEvent(QAudioDecoder* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioDecoder_OnChildEvent(QAudioDecoder* self, intptr_t slot) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder)
         vqaudiodecoder->setQAudioDecoder_ChildEvent_Callback(reinterpret_cast<VirtualQAudioDecoder::QAudioDecoder_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -339,9 +332,8 @@ void QAudioDecoder_SuperCustomEvent(QAudioDecoder* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAudioDecoder_OnCustomEvent(QAudioDecoder* self, intptr_t slot) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder)
         vqaudiodecoder->setQAudioDecoder_CustomEvent_Callback(reinterpret_cast<VirtualQAudioDecoder::QAudioDecoder_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -368,9 +360,8 @@ void QAudioDecoder_SuperConnectNotify(QAudioDecoder* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QAudioDecoder_OnConnectNotify(QAudioDecoder* self, intptr_t slot) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder)
         vqaudiodecoder->setQAudioDecoder_ConnectNotify_Callback(reinterpret_cast<VirtualQAudioDecoder::QAudioDecoder_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +388,8 @@ void QAudioDecoder_SuperDisconnectNotify(QAudioDecoder* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QAudioDecoder_OnDisconnectNotify(QAudioDecoder* self, intptr_t slot) {
     auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder)
         vqaudiodecoder->setQAudioDecoder_DisconnectNotify_Callback(reinterpret_cast<VirtualQAudioDecoder::QAudioDecoder_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +416,8 @@ QObject* QAudioDecoder_SuperSender(const QAudioDecoder* self) {
 // Auxiliary method to allow providing re-implementation
 void QAudioDecoder_OnSender(const QAudioDecoder* self, intptr_t slot) {
     auto* vqaudiodecoder = const_cast<VirtualQAudioDecoder*>(dynamic_cast<const VirtualQAudioDecoder*>(self));
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder)
         vqaudiodecoder->setQAudioDecoder_Sender_Callback(reinterpret_cast<VirtualQAudioDecoder::QAudioDecoder_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +444,8 @@ int QAudioDecoder_SuperSenderSignalIndex(const QAudioDecoder* self) {
 // Auxiliary method to allow providing re-implementation
 void QAudioDecoder_OnSenderSignalIndex(const QAudioDecoder* self, intptr_t slot) {
     auto* vqaudiodecoder = const_cast<VirtualQAudioDecoder*>(dynamic_cast<const VirtualQAudioDecoder*>(self));
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder)
         vqaudiodecoder->setQAudioDecoder_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAudioDecoder::QAudioDecoder_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -484,9 +472,8 @@ int QAudioDecoder_SuperReceivers(const QAudioDecoder* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QAudioDecoder_OnReceivers(const QAudioDecoder* self, intptr_t slot) {
     auto* vqaudiodecoder = const_cast<VirtualQAudioDecoder*>(dynamic_cast<const VirtualQAudioDecoder*>(self));
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder)
         vqaudiodecoder->setQAudioDecoder_Receivers_Callback(reinterpret_cast<VirtualQAudioDecoder::QAudioDecoder_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -513,9 +500,8 @@ bool QAudioDecoder_SuperIsSignalConnected(const QAudioDecoder* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QAudioDecoder_OnIsSignalConnected(const QAudioDecoder* self, intptr_t slot) {
     auto* vqaudiodecoder = const_cast<VirtualQAudioDecoder*>(dynamic_cast<const VirtualQAudioDecoder*>(self));
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
+    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder)
         vqaudiodecoder->setQAudioDecoder_IsSignalConnected_Callback(reinterpret_cast<VirtualQAudioDecoder::QAudioDecoder_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QAudioDecoder_Delete(QAudioDecoder* self) {

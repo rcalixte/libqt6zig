@@ -108,9 +108,8 @@ QMetaObject* KIO__MimeTypeFinderJob_SuperMetaObject(const KIO__MimeTypeFinderJob
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnMetaObject(const KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_MetaObject_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -127,9 +126,8 @@ void* KIO__MimeTypeFinderJob_SuperMetacast(KIO__MimeTypeFinderJob* self, const c
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnMetacast(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_Metacast_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -146,9 +144,8 @@ int KIO__MimeTypeFinderJob_SuperMetacall(KIO__MimeTypeFinderJob* self, int param
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnMetacall(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_Metacall_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -165,9 +162,8 @@ void KIO__MimeTypeFinderJob_SuperStart(KIO__MimeTypeFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnStart(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_Start_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_Start_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -184,9 +180,8 @@ bool KIO__MimeTypeFinderJob_SuperDoKill(KIO__MimeTypeFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnDoKill(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_DoKill_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_DoKill_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -203,9 +198,8 @@ void KIO__MimeTypeFinderJob_SuperSlotResult(KIO__MimeTypeFinderJob* self, KJob* 
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnSlotResult(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SlotResult_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_SlotResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -232,9 +226,8 @@ bool KIO__MimeTypeFinderJob_SuperAddSubjob(KIO__MimeTypeFinderJob* self, KJob* j
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnAddSubjob(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_AddSubjob_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_AddSubjob_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -261,9 +254,8 @@ bool KIO__MimeTypeFinderJob_SuperRemoveSubjob(KIO__MimeTypeFinderJob* self, KJob
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnRemoveSubjob(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_RemoveSubjob_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_RemoveSubjob_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -292,9 +284,8 @@ void KIO__MimeTypeFinderJob_SuperSlotInfoMessage(KIO__MimeTypeFinderJob* self, K
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnSlotInfoMessage(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SlotInfoMessage_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_SlotInfoMessage_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -321,9 +312,8 @@ bool KIO__MimeTypeFinderJob_SuperDoSuspend(KIO__MimeTypeFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnDoSuspend(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_DoSuspend_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_DoSuspend_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -350,9 +340,8 @@ bool KIO__MimeTypeFinderJob_SuperDoResume(KIO__MimeTypeFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnDoResume(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_DoResume_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_DoResume_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -411,9 +400,8 @@ libqt_string KIO__MimeTypeFinderJob_SuperErrorString(const KIO__MimeTypeFinderJo
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnErrorString(const KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_ErrorString_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_ErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -440,9 +428,8 @@ bool KIO__MimeTypeFinderJob_SuperEvent(KIO__MimeTypeFinderJob* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnEvent(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_Event_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -469,9 +456,8 @@ bool KIO__MimeTypeFinderJob_SuperEventFilter(KIO__MimeTypeFinderJob* self, QObje
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnEventFilter(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_EventFilter_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -498,9 +484,8 @@ void KIO__MimeTypeFinderJob_SuperTimerEvent(KIO__MimeTypeFinderJob* self, QTimer
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnTimerEvent(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_TimerEvent_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -527,9 +512,8 @@ void KIO__MimeTypeFinderJob_SuperChildEvent(KIO__MimeTypeFinderJob* self, QChild
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnChildEvent(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_ChildEvent_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -556,9 +540,8 @@ void KIO__MimeTypeFinderJob_SuperCustomEvent(KIO__MimeTypeFinderJob* self, QEven
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnCustomEvent(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_CustomEvent_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -585,9 +568,8 @@ void KIO__MimeTypeFinderJob_SuperConnectNotify(KIO__MimeTypeFinderJob* self, con
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnConnectNotify(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_ConnectNotify_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -614,9 +596,8 @@ void KIO__MimeTypeFinderJob_SuperDisconnectNotify(KIO__MimeTypeFinderJob* self, 
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnDisconnectNotify(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -643,9 +624,8 @@ bool KIO__MimeTypeFinderJob_SuperHasSubjobs(const KIO__MimeTypeFinderJob* self) 
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnHasSubjobs(const KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_HasSubjobs_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_HasSubjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -708,9 +688,8 @@ libqt_list /* of KJob* */ KIO__MimeTypeFinderJob_SuperSubjobs(const KIO__MimeTyp
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnSubjobs(const KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_Subjobs_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_Subjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -737,9 +716,8 @@ void KIO__MimeTypeFinderJob_SuperClearSubjobs(KIO__MimeTypeFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnClearSubjobs(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_ClearSubjobs_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_ClearSubjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -766,9 +744,8 @@ void KIO__MimeTypeFinderJob_SuperSetCapabilities(KIO__MimeTypeFinderJob* self, i
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnSetCapabilities(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SetCapabilities_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_SetCapabilities_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -795,9 +772,8 @@ bool KIO__MimeTypeFinderJob_SuperIsFinished(const KIO__MimeTypeFinderJob* self) 
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnIsFinished(const KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_IsFinished_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_IsFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -824,9 +800,8 @@ void KIO__MimeTypeFinderJob_SuperSetError(KIO__MimeTypeFinderJob* self, int erro
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnSetError(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SetError_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +830,8 @@ void KIO__MimeTypeFinderJob_SuperSetErrorText(KIO__MimeTypeFinderJob* self, cons
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnSetErrorText(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SetErrorText_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_SetErrorText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -884,9 +858,8 @@ void KIO__MimeTypeFinderJob_SuperSetProcessedAmount(KIO__MimeTypeFinderJob* self
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnSetProcessedAmount(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_SetProcessedAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -913,9 +886,8 @@ void KIO__MimeTypeFinderJob_SuperSetTotalAmount(KIO__MimeTypeFinderJob* self, in
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnSetTotalAmount(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_SetTotalAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +914,8 @@ void KIO__MimeTypeFinderJob_SuperSetProgressUnit(KIO__MimeTypeFinderJob* self, i
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnSetProgressUnit(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_SetProgressUnit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +942,8 @@ void KIO__MimeTypeFinderJob_SuperSetPercent(KIO__MimeTypeFinderJob* self, unsign
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnSetPercent(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SetPercent_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_SetPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +970,8 @@ void KIO__MimeTypeFinderJob_SuperEmitResult(KIO__MimeTypeFinderJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnEmitResult(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_EmitResult_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_EmitResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +998,8 @@ void KIO__MimeTypeFinderJob_SuperEmitPercent(KIO__MimeTypeFinderJob* self, unsig
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnEmitPercent(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_EmitPercent_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_EmitPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1058,9 +1026,8 @@ void KIO__MimeTypeFinderJob_SuperEmitSpeed(KIO__MimeTypeFinderJob* self, unsigne
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnEmitSpeed(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_EmitSpeed_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_EmitSpeed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1087,9 +1054,8 @@ void KIO__MimeTypeFinderJob_SuperStartElapsedTimer(KIO__MimeTypeFinderJob* self)
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnStartElapsedTimer(KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_StartElapsedTimer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1116,9 +1082,8 @@ QObject* KIO__MimeTypeFinderJob_SuperSender(const KIO__MimeTypeFinderJob* self) 
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnSender(const KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_Sender_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1145,9 +1110,8 @@ int KIO__MimeTypeFinderJob_SuperSenderSignalIndex(const KIO__MimeTypeFinderJob* 
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnSenderSignalIndex(const KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1174,9 +1138,8 @@ int KIO__MimeTypeFinderJob_SuperReceivers(const KIO__MimeTypeFinderJob* self, co
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnReceivers(const KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_Receivers_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1203,9 +1166,8 @@ bool KIO__MimeTypeFinderJob_SuperIsSignalConnected(const KIO__MimeTypeFinderJob*
 // Auxiliary method to allow providing re-implementation
 void KIO__MimeTypeFinderJob_OnIsSignalConnected(const KIO__MimeTypeFinderJob* self, intptr_t slot) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
-    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
+    if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob)
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOMimeTypeFinderJob::KIO__MimeTypeFinderJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KIO__MimeTypeFinderJob_Delete(KIO__MimeTypeFinderJob* self) {

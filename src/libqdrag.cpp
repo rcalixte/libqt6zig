@@ -131,9 +131,8 @@ QMetaObject* QDrag_SuperMetaObject(const QDrag* self) {
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnMetaObject(const QDrag* self, intptr_t slot) {
     auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag && vqdrag->isVirtualQDrag)
         vqdrag->setQDrag_MetaObject_Callback(reinterpret_cast<VirtualQDrag::QDrag_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -150,9 +149,8 @@ void* QDrag_SuperMetacast(QDrag* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnMetacast(QDrag* self, intptr_t slot) {
     auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag && vqdrag->isVirtualQDrag)
         vqdrag->setQDrag_Metacast_Callback(reinterpret_cast<VirtualQDrag::QDrag_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -169,9 +167,8 @@ int QDrag_SuperMetacall(QDrag* self, int param1, int param2, void** param3) {
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnMetacall(QDrag* self, intptr_t slot) {
     auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag && vqdrag->isVirtualQDrag)
         vqdrag->setQDrag_Metacall_Callback(reinterpret_cast<VirtualQDrag::QDrag_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -198,9 +195,8 @@ bool QDrag_SuperEvent(QDrag* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnEvent(QDrag* self, intptr_t slot) {
     auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag && vqdrag->isVirtualQDrag)
         vqdrag->setQDrag_Event_Callback(reinterpret_cast<VirtualQDrag::QDrag_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -227,9 +223,8 @@ bool QDrag_SuperEventFilter(QDrag* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnEventFilter(QDrag* self, intptr_t slot) {
     auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag && vqdrag->isVirtualQDrag)
         vqdrag->setQDrag_EventFilter_Callback(reinterpret_cast<VirtualQDrag::QDrag_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -256,9 +251,8 @@ void QDrag_SuperTimerEvent(QDrag* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnTimerEvent(QDrag* self, intptr_t slot) {
     auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag && vqdrag->isVirtualQDrag)
         vqdrag->setQDrag_TimerEvent_Callback(reinterpret_cast<VirtualQDrag::QDrag_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -285,9 +279,8 @@ void QDrag_SuperChildEvent(QDrag* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnChildEvent(QDrag* self, intptr_t slot) {
     auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag && vqdrag->isVirtualQDrag)
         vqdrag->setQDrag_ChildEvent_Callback(reinterpret_cast<VirtualQDrag::QDrag_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -314,9 +307,8 @@ void QDrag_SuperCustomEvent(QDrag* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnCustomEvent(QDrag* self, intptr_t slot) {
     auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag && vqdrag->isVirtualQDrag)
         vqdrag->setQDrag_CustomEvent_Callback(reinterpret_cast<VirtualQDrag::QDrag_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -343,9 +335,8 @@ void QDrag_SuperConnectNotify(QDrag* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnConnectNotify(QDrag* self, intptr_t slot) {
     auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag && vqdrag->isVirtualQDrag)
         vqdrag->setQDrag_ConnectNotify_Callback(reinterpret_cast<VirtualQDrag::QDrag_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -372,9 +363,8 @@ void QDrag_SuperDisconnectNotify(QDrag* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnDisconnectNotify(QDrag* self, intptr_t slot) {
     auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag && vqdrag->isVirtualQDrag)
         vqdrag->setQDrag_DisconnectNotify_Callback(reinterpret_cast<VirtualQDrag::QDrag_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -401,9 +391,8 @@ QObject* QDrag_SuperSender(const QDrag* self) {
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnSender(const QDrag* self, intptr_t slot) {
     auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag && vqdrag->isVirtualQDrag)
         vqdrag->setQDrag_Sender_Callback(reinterpret_cast<VirtualQDrag::QDrag_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -430,9 +419,8 @@ int QDrag_SuperSenderSignalIndex(const QDrag* self) {
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnSenderSignalIndex(const QDrag* self, intptr_t slot) {
     auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag && vqdrag->isVirtualQDrag)
         vqdrag->setQDrag_SenderSignalIndex_Callback(reinterpret_cast<VirtualQDrag::QDrag_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -459,9 +447,8 @@ int QDrag_SuperReceivers(const QDrag* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnReceivers(const QDrag* self, intptr_t slot) {
     auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag && vqdrag->isVirtualQDrag)
         vqdrag->setQDrag_Receivers_Callback(reinterpret_cast<VirtualQDrag::QDrag_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -488,9 +475,8 @@ bool QDrag_SuperIsSignalConnected(const QDrag* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void QDrag_OnIsSignalConnected(const QDrag* self, intptr_t slot) {
     auto* vqdrag = const_cast<VirtualQDrag*>(dynamic_cast<const VirtualQDrag*>(self));
-    if (vqdrag && vqdrag->isVirtualQDrag) {
+    if (vqdrag && vqdrag->isVirtualQDrag)
         vqdrag->setQDrag_IsSignalConnected_Callback(reinterpret_cast<VirtualQDrag::QDrag_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QDrag_Delete(QDrag* self) {

@@ -49,9 +49,8 @@ QMetaObject* QWebEngineUrlRequestInterceptor_SuperMetaObject(const QWebEngineUrl
 // Auxiliary method to allow providing re-implementation
 void QWebEngineUrlRequestInterceptor_OnMetaObject(const QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
     auto* vqwebengineurlrequestinterceptor = const_cast<VirtualQWebEngineUrlRequestInterceptor*>(dynamic_cast<const VirtualQWebEngineUrlRequestInterceptor*>(self));
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor)
         vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_MetaObject_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -68,9 +67,8 @@ void* QWebEngineUrlRequestInterceptor_SuperMetacast(QWebEngineUrlRequestIntercep
 // Auxiliary method to allow providing re-implementation
 void QWebEngineUrlRequestInterceptor_OnMetacast(QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
     auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor)
         vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_Metacast_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -87,9 +85,8 @@ int QWebEngineUrlRequestInterceptor_SuperMetacall(QWebEngineUrlRequestIntercepto
 // Auxiliary method to allow providing re-implementation
 void QWebEngineUrlRequestInterceptor_OnMetacall(QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
     auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor)
         vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_Metacall_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -106,9 +103,8 @@ void QWebEngineUrlRequestInterceptor_SuperInterceptRequest(QWebEngineUrlRequestI
 // Auxiliary method to allow providing re-implementation
 void QWebEngineUrlRequestInterceptor_OnInterceptRequest(QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
     auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor)
         vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_InterceptRequest_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_InterceptRequest_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -135,9 +131,8 @@ bool QWebEngineUrlRequestInterceptor_SuperEvent(QWebEngineUrlRequestInterceptor*
 // Auxiliary method to allow providing re-implementation
 void QWebEngineUrlRequestInterceptor_OnEvent(QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
     auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor)
         vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_Event_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -164,9 +159,8 @@ bool QWebEngineUrlRequestInterceptor_SuperEventFilter(QWebEngineUrlRequestInterc
 // Auxiliary method to allow providing re-implementation
 void QWebEngineUrlRequestInterceptor_OnEventFilter(QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
     auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor)
         vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_EventFilter_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -193,9 +187,8 @@ void QWebEngineUrlRequestInterceptor_SuperTimerEvent(QWebEngineUrlRequestInterce
 // Auxiliary method to allow providing re-implementation
 void QWebEngineUrlRequestInterceptor_OnTimerEvent(QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
     auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor)
         vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_TimerEvent_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -222,9 +215,8 @@ void QWebEngineUrlRequestInterceptor_SuperChildEvent(QWebEngineUrlRequestInterce
 // Auxiliary method to allow providing re-implementation
 void QWebEngineUrlRequestInterceptor_OnChildEvent(QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
     auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor)
         vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_ChildEvent_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -251,9 +243,8 @@ void QWebEngineUrlRequestInterceptor_SuperCustomEvent(QWebEngineUrlRequestInterc
 // Auxiliary method to allow providing re-implementation
 void QWebEngineUrlRequestInterceptor_OnCustomEvent(QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
     auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor)
         vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_CustomEvent_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -280,9 +271,8 @@ void QWebEngineUrlRequestInterceptor_SuperConnectNotify(QWebEngineUrlRequestInte
 // Auxiliary method to allow providing re-implementation
 void QWebEngineUrlRequestInterceptor_OnConnectNotify(QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
     auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor)
         vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_ConnectNotify_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -309,9 +299,8 @@ void QWebEngineUrlRequestInterceptor_SuperDisconnectNotify(QWebEngineUrlRequestI
 // Auxiliary method to allow providing re-implementation
 void QWebEngineUrlRequestInterceptor_OnDisconnectNotify(QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
     auto* vqwebengineurlrequestinterceptor = dynamic_cast<VirtualQWebEngineUrlRequestInterceptor*>(self);
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor)
         vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_DisconnectNotify_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -338,9 +327,8 @@ QObject* QWebEngineUrlRequestInterceptor_SuperSender(const QWebEngineUrlRequestI
 // Auxiliary method to allow providing re-implementation
 void QWebEngineUrlRequestInterceptor_OnSender(const QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
     auto* vqwebengineurlrequestinterceptor = const_cast<VirtualQWebEngineUrlRequestInterceptor*>(dynamic_cast<const VirtualQWebEngineUrlRequestInterceptor*>(self));
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor)
         vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_Sender_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -367,9 +355,8 @@ int QWebEngineUrlRequestInterceptor_SuperSenderSignalIndex(const QWebEngineUrlRe
 // Auxiliary method to allow providing re-implementation
 void QWebEngineUrlRequestInterceptor_OnSenderSignalIndex(const QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
     auto* vqwebengineurlrequestinterceptor = const_cast<VirtualQWebEngineUrlRequestInterceptor*>(dynamic_cast<const VirtualQWebEngineUrlRequestInterceptor*>(self));
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor)
         vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -396,9 +383,8 @@ int QWebEngineUrlRequestInterceptor_SuperReceivers(const QWebEngineUrlRequestInt
 // Auxiliary method to allow providing re-implementation
 void QWebEngineUrlRequestInterceptor_OnReceivers(const QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
     auto* vqwebengineurlrequestinterceptor = const_cast<VirtualQWebEngineUrlRequestInterceptor*>(dynamic_cast<const VirtualQWebEngineUrlRequestInterceptor*>(self));
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor)
         vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_Receivers_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -425,9 +411,8 @@ bool QWebEngineUrlRequestInterceptor_SuperIsSignalConnected(const QWebEngineUrlR
 // Auxiliary method to allow providing re-implementation
 void QWebEngineUrlRequestInterceptor_OnIsSignalConnected(const QWebEngineUrlRequestInterceptor* self, intptr_t slot) {
     auto* vqwebengineurlrequestinterceptor = const_cast<VirtualQWebEngineUrlRequestInterceptor*>(dynamic_cast<const VirtualQWebEngineUrlRequestInterceptor*>(self));
-    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor) {
+    if (vqwebengineurlrequestinterceptor && vqwebengineurlrequestinterceptor->isVirtualQWebEngineUrlRequestInterceptor)
         vqwebengineurlrequestinterceptor->setQWebEngineUrlRequestInterceptor_IsSignalConnected_Callback(reinterpret_cast<VirtualQWebEngineUrlRequestInterceptor::QWebEngineUrlRequestInterceptor_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QWebEngineUrlRequestInterceptor_Delete(QWebEngineUrlRequestInterceptor* self) {

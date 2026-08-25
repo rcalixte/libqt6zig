@@ -208,9 +208,8 @@ QMetaObject* KUrlComboBox_SuperMetaObject(const KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnMetaObject(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_MetaObject_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -227,9 +226,8 @@ void* KUrlComboBox_SuperMetacast(KUrlComboBox* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnMetacast(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_Metacast_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -246,9 +244,8 @@ int KUrlComboBox_SuperMetacall(KUrlComboBox* self, int param1, int param2, void*
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnMetacall(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_Metacall_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -265,9 +262,8 @@ void KUrlComboBox_SuperSetCompletionObject(KUrlComboBox* self, KCompletion* comp
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnSetCompletionObject(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_SetCompletionObject_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_SetCompletionObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -284,9 +280,8 @@ void KUrlComboBox_SuperMousePressEvent(KUrlComboBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnMousePressEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_MousePressEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -303,9 +298,8 @@ void KUrlComboBox_SuperMouseMoveEvent(KUrlComboBox* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnMouseMoveEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -332,9 +326,8 @@ void KUrlComboBox_SuperSetAutoCompletion(KUrlComboBox* self, bool autocomplete) 
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnSetAutoCompletion(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_SetAutoCompletion_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_SetAutoCompletion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -361,9 +354,8 @@ void KUrlComboBox_SuperSetLineEdit(KUrlComboBox* self, QLineEdit* lineEdit) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnSetLineEdit(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_SetLineEdit_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_SetLineEdit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -390,9 +382,8 @@ QSize* KUrlComboBox_SuperMinimumSizeHint(const KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnMinimumSizeHint(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -421,9 +412,8 @@ void KUrlComboBox_SuperSetCompletedText(KUrlComboBox* self, const libqt_string c
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnSetCompletedText(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_SetCompletedText_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_SetCompletedText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -464,9 +454,8 @@ void KUrlComboBox_SuperSetCompletedItems(KUrlComboBox* self, const libqt_list /*
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnSetCompletedItems(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_SetCompletedItems_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_SetCompletedItems_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -495,9 +484,8 @@ void KUrlComboBox_SuperMakeCompletion(KUrlComboBox* self, const libqt_string par
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnMakeCompletion(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_MakeCompletion_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_MakeCompletion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -524,9 +512,8 @@ void KUrlComboBox_SuperSetModel(KUrlComboBox* self, QAbstractItemModel* model) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnSetModel(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_SetModel_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_SetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -553,9 +540,8 @@ QSize* KUrlComboBox_SuperSizeHint(const KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnSizeHint(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_SizeHint_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -582,9 +568,8 @@ void KUrlComboBox_SuperShowPopup(KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnShowPopup(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_ShowPopup_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_ShowPopup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -611,9 +596,8 @@ void KUrlComboBox_SuperHidePopup(KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnHidePopup(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_HidePopup_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_HidePopup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -640,9 +624,8 @@ bool KUrlComboBox_SuperEvent(KUrlComboBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_Event_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -669,9 +652,8 @@ QVariant* KUrlComboBox_SuperInputMethodQuery(const KUrlComboBox* self, int param
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnInputMethodQuery(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_InputMethodQuery_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -698,9 +680,8 @@ void KUrlComboBox_SuperFocusInEvent(KUrlComboBox* self, QFocusEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnFocusInEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_FocusInEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -727,9 +708,8 @@ void KUrlComboBox_SuperFocusOutEvent(KUrlComboBox* self, QFocusEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnFocusOutEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_FocusOutEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -756,9 +736,8 @@ void KUrlComboBox_SuperChangeEvent(KUrlComboBox* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnChangeEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_ChangeEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -785,9 +764,8 @@ void KUrlComboBox_SuperResizeEvent(KUrlComboBox* self, QResizeEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnResizeEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_ResizeEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -814,9 +792,8 @@ void KUrlComboBox_SuperPaintEvent(KUrlComboBox* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnPaintEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_PaintEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -843,9 +820,8 @@ void KUrlComboBox_SuperShowEvent(KUrlComboBox* self, QShowEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnShowEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_ShowEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -872,9 +848,8 @@ void KUrlComboBox_SuperHideEvent(KUrlComboBox* self, QHideEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnHideEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_HideEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -901,9 +876,8 @@ void KUrlComboBox_SuperMouseReleaseEvent(KUrlComboBox* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnMouseReleaseEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -930,9 +904,8 @@ void KUrlComboBox_SuperKeyPressEvent(KUrlComboBox* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnKeyPressEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_KeyPressEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -959,9 +932,8 @@ void KUrlComboBox_SuperKeyReleaseEvent(KUrlComboBox* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnKeyReleaseEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -988,9 +960,8 @@ void KUrlComboBox_SuperWheelEvent(KUrlComboBox* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnWheelEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_WheelEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1017,9 +988,8 @@ void KUrlComboBox_SuperContextMenuEvent(KUrlComboBox* self, QContextMenuEvent* e
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnContextMenuEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1046,9 +1016,8 @@ void KUrlComboBox_SuperInputMethodEvent(KUrlComboBox* self, QInputMethodEvent* p
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnInputMethodEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_InputMethodEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1075,9 +1044,8 @@ void KUrlComboBox_SuperInitStyleOption(const KUrlComboBox* self, QStyleOptionCom
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnInitStyleOption(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_InitStyleOption_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1104,9 +1072,8 @@ int KUrlComboBox_SuperDevType(const KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnDevType(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_DevType_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1133,9 +1100,8 @@ void KUrlComboBox_SuperSetVisible(KUrlComboBox* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnSetVisible(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_SetVisible_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1162,9 +1128,8 @@ int KUrlComboBox_SuperHeightForWidth(const KUrlComboBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnHeightForWidth(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_HeightForWidth_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1191,9 +1156,8 @@ bool KUrlComboBox_SuperHasHeightForWidth(const KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnHasHeightForWidth(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1220,9 +1184,8 @@ QPaintEngine* KUrlComboBox_SuperPaintEngine(const KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnPaintEngine(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_PaintEngine_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1249,9 +1212,8 @@ void KUrlComboBox_SuperMouseDoubleClickEvent(KUrlComboBox* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnMouseDoubleClickEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1278,9 +1240,8 @@ void KUrlComboBox_SuperEnterEvent(KUrlComboBox* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnEnterEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_EnterEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1307,9 +1268,8 @@ void KUrlComboBox_SuperLeaveEvent(KUrlComboBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnLeaveEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_LeaveEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1336,9 +1296,8 @@ void KUrlComboBox_SuperMoveEvent(KUrlComboBox* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnMoveEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_MoveEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1365,9 +1324,8 @@ void KUrlComboBox_SuperCloseEvent(KUrlComboBox* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnCloseEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_CloseEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1394,9 +1352,8 @@ void KUrlComboBox_SuperTabletEvent(KUrlComboBox* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnTabletEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_TabletEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1423,9 +1380,8 @@ void KUrlComboBox_SuperActionEvent(KUrlComboBox* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnActionEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_ActionEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1452,9 +1408,8 @@ void KUrlComboBox_SuperDragEnterEvent(KUrlComboBox* self, QDragEnterEvent* event
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnDragEnterEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_DragEnterEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1481,9 +1436,8 @@ void KUrlComboBox_SuperDragMoveEvent(KUrlComboBox* self, QDragMoveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnDragMoveEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_DragMoveEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1510,9 +1464,8 @@ void KUrlComboBox_SuperDragLeaveEvent(KUrlComboBox* self, QDragLeaveEvent* event
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnDragLeaveEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1539,9 +1492,8 @@ void KUrlComboBox_SuperDropEvent(KUrlComboBox* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnDropEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_DropEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1570,9 +1522,8 @@ bool KUrlComboBox_SuperNativeEvent(KUrlComboBox* self, const libqt_string eventT
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnNativeEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_NativeEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1599,9 +1550,8 @@ int KUrlComboBox_SuperMetric(const KUrlComboBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnMetric(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_Metric_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1628,9 +1578,8 @@ void KUrlComboBox_SuperInitPainter(const KUrlComboBox* self, QPainter* painter) 
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnInitPainter(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_InitPainter_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1657,9 +1606,8 @@ QPaintDevice* KUrlComboBox_SuperRedirected(const KUrlComboBox* self, QPoint* off
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnRedirected(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_Redirected_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1686,9 +1634,8 @@ QPainter* KUrlComboBox_SuperSharedPainter(const KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnSharedPainter(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_SharedPainter_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1715,9 +1662,8 @@ bool KUrlComboBox_SuperFocusNextPrevChild(KUrlComboBox* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnFocusNextPrevChild(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1744,9 +1690,8 @@ bool KUrlComboBox_SuperEventFilter(KUrlComboBox* self, QObject* watched, QEvent*
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnEventFilter(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_EventFilter_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1773,9 +1718,8 @@ void KUrlComboBox_SuperTimerEvent(KUrlComboBox* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnTimerEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_TimerEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1802,9 +1746,8 @@ void KUrlComboBox_SuperChildEvent(KUrlComboBox* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnChildEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_ChildEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1831,9 +1774,8 @@ void KUrlComboBox_SuperCustomEvent(KUrlComboBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnCustomEvent(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_CustomEvent_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1860,9 +1802,8 @@ void KUrlComboBox_SuperConnectNotify(KUrlComboBox* self, const QMetaMethod* sign
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnConnectNotify(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_ConnectNotify_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1889,9 +1830,8 @@ void KUrlComboBox_SuperDisconnectNotify(KUrlComboBox* self, const QMetaMethod* s
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnDisconnectNotify(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_DisconnectNotify_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1918,9 +1858,8 @@ void KUrlComboBox_SuperSetHandleSignals(KUrlComboBox* self, bool handle) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnSetHandleSignals(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_SetHandleSignals_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_SetHandleSignals_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1947,9 +1886,8 @@ void KUrlComboBox_SuperSetCompletionMode(KUrlComboBox* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnSetCompletionMode(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_SetCompletionMode_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_SetCompletionMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1976,9 +1914,8 @@ void KUrlComboBox_SuperVirtualHook(KUrlComboBox* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnVirtualHook(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_VirtualHook_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_VirtualHook_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2005,9 +1942,8 @@ void KUrlComboBox_SuperUpdateMicroFocus(KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnUpdateMicroFocus(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2034,9 +1970,8 @@ void KUrlComboBox_SuperCreate(KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnCreate(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_Create_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2063,9 +1998,8 @@ void KUrlComboBox_SuperDestroy(KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnDestroy(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_Destroy_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2092,9 +2026,8 @@ bool KUrlComboBox_SuperFocusNextChild(KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnFocusNextChild(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_FocusNextChild_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2121,9 +2054,8 @@ bool KUrlComboBox_SuperFocusPreviousChild(KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnFocusPreviousChild(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2150,9 +2082,8 @@ QObject* KUrlComboBox_SuperSender(const KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnSender(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_Sender_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2179,9 +2110,8 @@ int KUrlComboBox_SuperSenderSignalIndex(const KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnSenderSignalIndex(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2208,9 +2138,8 @@ int KUrlComboBox_SuperReceivers(const KUrlComboBox* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnReceivers(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_Receivers_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2237,9 +2166,8 @@ bool KUrlComboBox_SuperIsSignalConnected(const KUrlComboBox* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnIsSignalConnected(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_IsSignalConnected_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2266,9 +2194,8 @@ double KUrlComboBox_SuperGetDecodedMetricF(const KUrlComboBox* self, int metricA
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnGetDecodedMetricF(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2387,9 +2314,8 @@ libqt_map /* of int to libqt_list of QKeySequence* */ KUrlComboBox_SuperKeyBindi
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnKeyBindingMap(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_KeyBindingMap_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_KeyBindingMap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2440,9 +2366,8 @@ void KUrlComboBox_SuperSetKeyBindingMap(KUrlComboBox* self, libqt_map /* of int 
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnSetKeyBindingMap(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_SetKeyBindingMap_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_SetKeyBindingMap_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2469,9 +2394,8 @@ void KUrlComboBox_SuperSetDelegate(KUrlComboBox* self, KCompletionBase* delegate
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnSetDelegate(KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_SetDelegate_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_SetDelegate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2498,9 +2422,8 @@ KCompletionBase* KUrlComboBox_SuperDelegate(const KUrlComboBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KUrlComboBox_OnDelegate(const KUrlComboBox* self, intptr_t slot) {
     auto* vkurlcombobox = const_cast<VirtualKUrlComboBox*>(dynamic_cast<const VirtualKUrlComboBox*>(self));
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
+    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox)
         vkurlcombobox->setKUrlComboBox_Delegate_Callback(reinterpret_cast<VirtualKUrlComboBox::KUrlComboBox_Delegate_Callback>(slot));
-    }
 }
 
 void KUrlComboBox_Delete(KUrlComboBox* self) {

@@ -3220,13 +3220,13 @@ pub const KCoreDirLister = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kcoredirlister.html#public-types)
 pub const enums = struct {
-    pub const OpenUrlFlag = enum(i32) {
+    pub const OpenUrlFlag = enum {
         pub const NoFlags: i32 = 0;
         pub const Keep: i32 = 1;
         pub const Reload: i32 = 2;
     };
 
-    pub const WhichItems = enum(i32) {
+    pub const WhichItems = enum {
         pub const AllItems: i32 = 0;
         pub const FilteredItems: i32 = 1;
     };

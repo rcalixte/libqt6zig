@@ -2563,7 +2563,7 @@ pub const KIO = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-dropjob.html#public-types)
 pub const enums = struct {
-    pub const DropJobFlag = enum(i32) {
+    pub const DropJobFlag = enum {
         pub const DropJobDefaultFlags: i32 = 0;
         pub const ShowMenuManually: i32 = 1;
     };

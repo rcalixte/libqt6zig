@@ -764,6 +764,31 @@ pub const KKeySequenceWidget = extern struct {
         qtc.KKeySequenceWidget_SetKeySequence2(@ptrCast(self.ptr), @ptrCast(seq.ptr), @bitCast(val));
     }
 
+    /// Inherited from QWidget
+    ///
+    /// Upcasts to a QPaintDevice object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KKeySequenceWidget `
+    ///
+    pub fn asQPaintDevice(self: KKeySequenceWidget) QPaintDevice {
+        return .{ .ptr = qtc.QWidget_AsQPaintDevice(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QWidget
+    ///
+    /// Downcasts to a KKeySequenceWidget object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _qpaintdevice: QPaintDevice `
+    ///
+    pub fn fromQPaintDevice(_qpaintdevice: anytype) KKeySequenceWidget {
+        comptime _ = @TypeOf(_qpaintdevice)._is_QPaintDevice;
+        return .{ .ptr = @ptrCast(qtc.QWidget_FromQPaintDevice(@ptrCast(_qpaintdevice.ptr))) };
+    }
+
     /// ### DEPRECATED: Use `winId` instead
     ///
     pub const WinId = winId;
@@ -6748,7 +6773,7 @@ pub const KKeySequenceWidget = extern struct {
     /// ` self: KKeySequenceWidget `
     ///
     pub fn paintingActive(self: KKeySequenceWidget) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `widthMM` instead
@@ -6764,7 +6789,7 @@ pub const KKeySequenceWidget = extern struct {
     /// ` self: KKeySequenceWidget `
     ///
     pub fn widthMM(self: KKeySequenceWidget) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `heightMM` instead
@@ -6780,7 +6805,7 @@ pub const KKeySequenceWidget = extern struct {
     /// ` self: KKeySequenceWidget `
     ///
     pub fn heightMM(self: KKeySequenceWidget) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiX` instead
@@ -6796,7 +6821,7 @@ pub const KKeySequenceWidget = extern struct {
     /// ` self: KKeySequenceWidget `
     ///
     pub fn logicalDpiX(self: KKeySequenceWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `logicalDpiY` instead
@@ -6812,7 +6837,7 @@ pub const KKeySequenceWidget = extern struct {
     /// ` self: KKeySequenceWidget `
     ///
     pub fn logicalDpiY(self: KKeySequenceWidget) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiX` instead
@@ -6828,7 +6853,7 @@ pub const KKeySequenceWidget = extern struct {
     /// ` self: KKeySequenceWidget `
     ///
     pub fn physicalDpiX(self: KKeySequenceWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `physicalDpiY` instead
@@ -6844,7 +6869,7 @@ pub const KKeySequenceWidget = extern struct {
     /// ` self: KKeySequenceWidget `
     ///
     pub fn physicalDpiY(self: KKeySequenceWidget) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatio` instead
@@ -6860,7 +6885,7 @@ pub const KKeySequenceWidget = extern struct {
     /// ` self: KKeySequenceWidget `
     ///
     pub fn devicePixelRatio(self: KKeySequenceWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioF` instead
@@ -6876,7 +6901,7 @@ pub const KKeySequenceWidget = extern struct {
     /// ` self: KKeySequenceWidget `
     ///
     pub fn devicePixelRatioF(self: KKeySequenceWidget) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `colorCount` instead
@@ -6892,7 +6917,7 @@ pub const KKeySequenceWidget = extern struct {
     /// ` self: KKeySequenceWidget `
     ///
     pub fn colorCount(self: KKeySequenceWidget) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `depth` instead
@@ -6908,7 +6933,7 @@ pub const KKeySequenceWidget = extern struct {
     /// ` self: KKeySequenceWidget `
     ///
     pub fn depth(self: KKeySequenceWidget) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
+        return qtc.QPaintDevice_Depth(@ptrCast(self.asQPaintDevice().ptr));
     }
 
     /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
@@ -10392,12 +10417,12 @@ pub const KKeySequenceWidget = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kkeysequencewidget.html#public-types)
 pub const enums = struct {
-    pub const Validation = enum(i32) {
+    pub const Validation = enum {
         pub const Validate: i32 = 0;
         pub const NoValidate: i32 = 1;
     };
 
-    pub const ShortcutType = enum(i32) {
+    pub const ShortcutType = enum {
         pub const None: i32 = 0;
         pub const LocalShortcuts: i32 = 1;
         pub const StandardShortcuts: i32 = 2;

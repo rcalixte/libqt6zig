@@ -279,9 +279,8 @@ QMetaObject* kImageAnnotator__KImageAnnotator_SuperMetaObject(const kImageAnnota
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnMetaObject(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_MetaObject_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -298,9 +297,8 @@ void* kImageAnnotator__KImageAnnotator_SuperMetacast(kImageAnnotator__KImageAnno
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnMetacast(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Metacast_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -317,9 +315,8 @@ int kImageAnnotator__KImageAnnotator_SuperMetacall(kImageAnnotator__KImageAnnota
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnMetacall(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Metacall_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -336,9 +333,8 @@ QSize* kImageAnnotator__KImageAnnotator_SuperSizeHint(const kImageAnnotator__KIm
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnSizeHint(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_SizeHint_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -365,9 +361,8 @@ int kImageAnnotator__KImageAnnotator_SuperDevType(const kImageAnnotator__KImageA
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnDevType(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_DevType_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -394,9 +389,8 @@ void kImageAnnotator__KImageAnnotator_SuperSetVisible(kImageAnnotator__KImageAnn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnSetVisible(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_SetVisible_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -423,9 +417,8 @@ QSize* kImageAnnotator__KImageAnnotator_SuperMinimumSizeHint(const kImageAnnotat
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnMinimumSizeHint(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_MinimumSizeHint_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -452,9 +445,8 @@ int kImageAnnotator__KImageAnnotator_SuperHeightForWidth(const kImageAnnotator__
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnHeightForWidth(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_HeightForWidth_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -481,9 +473,8 @@ bool kImageAnnotator__KImageAnnotator_SuperHasHeightForWidth(const kImageAnnotat
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnHasHeightForWidth(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_HasHeightForWidth_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -510,9 +501,8 @@ QPaintEngine* kImageAnnotator__KImageAnnotator_SuperPaintEngine(const kImageAnno
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnPaintEngine(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_PaintEngine_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -539,9 +529,8 @@ bool kImageAnnotator__KImageAnnotator_SuperEvent(kImageAnnotator__KImageAnnotato
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Event_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -568,9 +557,8 @@ void kImageAnnotator__KImageAnnotator_SuperMousePressEvent(kImageAnnotator__KIma
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnMousePressEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_MousePressEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -597,9 +585,8 @@ void kImageAnnotator__KImageAnnotator_SuperMouseReleaseEvent(kImageAnnotator__KI
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnMouseReleaseEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_MouseReleaseEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -626,9 +613,8 @@ void kImageAnnotator__KImageAnnotator_SuperMouseDoubleClickEvent(kImageAnnotator
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnMouseDoubleClickEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -655,9 +641,8 @@ void kImageAnnotator__KImageAnnotator_SuperMouseMoveEvent(kImageAnnotator__KImag
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnMouseMoveEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_MouseMoveEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -684,9 +669,8 @@ void kImageAnnotator__KImageAnnotator_SuperWheelEvent(kImageAnnotator__KImageAnn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnWheelEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_WheelEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -713,9 +697,8 @@ void kImageAnnotator__KImageAnnotator_SuperKeyPressEvent(kImageAnnotator__KImage
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnKeyPressEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_KeyPressEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -742,9 +725,8 @@ void kImageAnnotator__KImageAnnotator_SuperKeyReleaseEvent(kImageAnnotator__KIma
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnKeyReleaseEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_KeyReleaseEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -771,9 +753,8 @@ void kImageAnnotator__KImageAnnotator_SuperFocusInEvent(kImageAnnotator__KImageA
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnFocusInEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_FocusInEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -800,9 +781,8 @@ void kImageAnnotator__KImageAnnotator_SuperFocusOutEvent(kImageAnnotator__KImage
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnFocusOutEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_FocusOutEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -829,9 +809,8 @@ void kImageAnnotator__KImageAnnotator_SuperEnterEvent(kImageAnnotator__KImageAnn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnEnterEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_EnterEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -858,9 +837,8 @@ void kImageAnnotator__KImageAnnotator_SuperLeaveEvent(kImageAnnotator__KImageAnn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnLeaveEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_LeaveEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -887,9 +865,8 @@ void kImageAnnotator__KImageAnnotator_SuperPaintEvent(kImageAnnotator__KImageAnn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnPaintEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_PaintEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -916,9 +893,8 @@ void kImageAnnotator__KImageAnnotator_SuperMoveEvent(kImageAnnotator__KImageAnno
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnMoveEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_MoveEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -945,9 +921,8 @@ void kImageAnnotator__KImageAnnotator_SuperResizeEvent(kImageAnnotator__KImageAn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnResizeEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_ResizeEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -974,9 +949,8 @@ void kImageAnnotator__KImageAnnotator_SuperCloseEvent(kImageAnnotator__KImageAnn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnCloseEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_CloseEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1003,9 +977,8 @@ void kImageAnnotator__KImageAnnotator_SuperContextMenuEvent(kImageAnnotator__KIm
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnContextMenuEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_ContextMenuEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1032,9 +1005,8 @@ void kImageAnnotator__KImageAnnotator_SuperTabletEvent(kImageAnnotator__KImageAn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnTabletEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_TabletEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1061,9 +1033,8 @@ void kImageAnnotator__KImageAnnotator_SuperActionEvent(kImageAnnotator__KImageAn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnActionEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_ActionEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1090,9 +1061,8 @@ void kImageAnnotator__KImageAnnotator_SuperDragEnterEvent(kImageAnnotator__KImag
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnDragEnterEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_DragEnterEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1119,9 +1089,8 @@ void kImageAnnotator__KImageAnnotator_SuperDragMoveEvent(kImageAnnotator__KImage
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnDragMoveEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_DragMoveEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1148,9 +1117,8 @@ void kImageAnnotator__KImageAnnotator_SuperDragLeaveEvent(kImageAnnotator__KImag
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnDragLeaveEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_DragLeaveEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1177,9 +1145,8 @@ void kImageAnnotator__KImageAnnotator_SuperDropEvent(kImageAnnotator__KImageAnno
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnDropEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_DropEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1206,9 +1173,8 @@ void kImageAnnotator__KImageAnnotator_SuperShowEvent(kImageAnnotator__KImageAnno
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnShowEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_ShowEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1235,9 +1201,8 @@ void kImageAnnotator__KImageAnnotator_SuperHideEvent(kImageAnnotator__KImageAnno
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnHideEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_HideEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1266,9 +1231,8 @@ bool kImageAnnotator__KImageAnnotator_SuperNativeEvent(kImageAnnotator__KImageAn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnNativeEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_NativeEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1295,9 +1259,8 @@ void kImageAnnotator__KImageAnnotator_SuperChangeEvent(kImageAnnotator__KImageAn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnChangeEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_ChangeEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1324,9 +1287,8 @@ int kImageAnnotator__KImageAnnotator_SuperMetric(const kImageAnnotator__KImageAn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnMetric(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Metric_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1353,9 +1315,8 @@ void kImageAnnotator__KImageAnnotator_SuperInitPainter(const kImageAnnotator__KI
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnInitPainter(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_InitPainter_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1382,9 +1343,8 @@ QPaintDevice* kImageAnnotator__KImageAnnotator_SuperRedirected(const kImageAnnot
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnRedirected(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Redirected_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1411,9 +1371,8 @@ QPainter* kImageAnnotator__KImageAnnotator_SuperSharedPainter(const kImageAnnota
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnSharedPainter(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_SharedPainter_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1440,9 +1399,8 @@ void kImageAnnotator__KImageAnnotator_SuperInputMethodEvent(kImageAnnotator__KIm
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnInputMethodEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_InputMethodEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1469,9 +1427,8 @@ QVariant* kImageAnnotator__KImageAnnotator_SuperInputMethodQuery(const kImageAnn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnInputMethodQuery(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_InputMethodQuery_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1498,9 +1455,8 @@ bool kImageAnnotator__KImageAnnotator_SuperFocusNextPrevChild(kImageAnnotator__K
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnFocusNextPrevChild(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_FocusNextPrevChild_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1527,9 +1483,8 @@ bool kImageAnnotator__KImageAnnotator_SuperEventFilter(kImageAnnotator__KImageAn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnEventFilter(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_EventFilter_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1556,9 +1511,8 @@ void kImageAnnotator__KImageAnnotator_SuperTimerEvent(kImageAnnotator__KImageAnn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnTimerEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_TimerEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1585,9 +1539,8 @@ void kImageAnnotator__KImageAnnotator_SuperChildEvent(kImageAnnotator__KImageAnn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnChildEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_ChildEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1614,9 +1567,8 @@ void kImageAnnotator__KImageAnnotator_SuperCustomEvent(kImageAnnotator__KImageAn
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnCustomEvent(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_CustomEvent_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1643,9 +1595,8 @@ void kImageAnnotator__KImageAnnotator_SuperConnectNotify(kImageAnnotator__KImage
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnConnectNotify(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_ConnectNotify_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1672,9 +1623,8 @@ void kImageAnnotator__KImageAnnotator_SuperDisconnectNotify(kImageAnnotator__KIm
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnDisconnectNotify(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_DisconnectNotify_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1701,9 +1651,8 @@ void kImageAnnotator__KImageAnnotator_SuperUpdateMicroFocus(kImageAnnotator__KIm
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnUpdateMicroFocus(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_UpdateMicroFocus_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1730,9 +1679,8 @@ void kImageAnnotator__KImageAnnotator_SuperCreate(kImageAnnotator__KImageAnnotat
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnCreate(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Create_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1759,9 +1707,8 @@ void kImageAnnotator__KImageAnnotator_SuperDestroy(kImageAnnotator__KImageAnnota
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnDestroy(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Destroy_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1788,9 +1735,8 @@ bool kImageAnnotator__KImageAnnotator_SuperFocusNextChild(kImageAnnotator__KImag
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnFocusNextChild(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_FocusNextChild_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1817,9 +1763,8 @@ bool kImageAnnotator__KImageAnnotator_SuperFocusPreviousChild(kImageAnnotator__K
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnFocusPreviousChild(kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_FocusPreviousChild_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1846,9 +1791,8 @@ QObject* kImageAnnotator__KImageAnnotator_SuperSender(const kImageAnnotator__KIm
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnSender(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Sender_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1875,9 +1819,8 @@ int kImageAnnotator__KImageAnnotator_SuperSenderSignalIndex(const kImageAnnotato
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnSenderSignalIndex(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_SenderSignalIndex_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1904,9 +1847,8 @@ int kImageAnnotator__KImageAnnotator_SuperReceivers(const kImageAnnotator__KImag
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnReceivers(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_Receivers_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1933,9 +1875,8 @@ bool kImageAnnotator__KImageAnnotator_SuperIsSignalConnected(const kImageAnnotat
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnIsSignalConnected(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_IsSignalConnected_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1962,9 +1903,8 @@ double kImageAnnotator__KImageAnnotator_SuperGetDecodedMetricF(const kImageAnnot
 // Auxiliary method to allow providing re-implementation
 void kImageAnnotator__KImageAnnotator_OnGetDecodedMetricF(const kImageAnnotator__KImageAnnotator* self, intptr_t slot) {
     auto* vkimageannotatorkimageannotator = const_cast<VirtualkImageAnnotatorKImageAnnotator*>(dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self));
-    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
+    if (vkimageannotatorkimageannotator && vkimageannotatorkimageannotator->isVirtualkImageAnnotatorKImageAnnotator)
         vkimageannotatorkimageannotator->setkImageAnnotator__KImageAnnotator_GetDecodedMetricF_Callback(reinterpret_cast<VirtualkImageAnnotatorKImageAnnotator::kImageAnnotator__KImageAnnotator_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void kImageAnnotator__KImageAnnotator_Delete(kImageAnnotator__KImageAnnotator* self) {

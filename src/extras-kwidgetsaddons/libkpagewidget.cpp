@@ -151,9 +151,8 @@ QMetaObject* KPageWidget_SuperMetaObject(const KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnMetaObject(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_MetaObject_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -170,9 +169,8 @@ void* KPageWidget_SuperMetacast(KPageWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnMetacast(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_Metacast_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -189,9 +187,8 @@ int KPageWidget_SuperMetacall(KPageWidget* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnMetacall(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_Metacall_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -218,9 +215,8 @@ QAbstractItemView* KPageWidget_SuperCreateView(KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnCreateView(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_CreateView_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_CreateView_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -247,9 +243,8 @@ bool KPageWidget_SuperShowPageHeader(const KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnShowPageHeader(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_ShowPageHeader_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_ShowPageHeader_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -276,9 +271,8 @@ int KPageWidget_SuperViewPosition(const KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnViewPosition(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_ViewPosition_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_ViewPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -305,9 +299,8 @@ int KPageWidget_SuperDevType(const KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnDevType(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_DevType_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -334,9 +327,8 @@ void KPageWidget_SuperSetVisible(KPageWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnSetVisible(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_SetVisible_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -363,9 +355,8 @@ QSize* KPageWidget_SuperSizeHint(const KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnSizeHint(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_SizeHint_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -392,9 +383,8 @@ QSize* KPageWidget_SuperMinimumSizeHint(const KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnMinimumSizeHint(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -421,9 +411,8 @@ int KPageWidget_SuperHeightForWidth(const KPageWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnHeightForWidth(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -450,9 +439,8 @@ bool KPageWidget_SuperHasHeightForWidth(const KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnHasHeightForWidth(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -479,9 +467,8 @@ QPaintEngine* KPageWidget_SuperPaintEngine(const KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnPaintEngine(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_PaintEngine_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -508,9 +495,8 @@ bool KPageWidget_SuperEvent(KPageWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_Event_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -537,9 +523,8 @@ void KPageWidget_SuperMousePressEvent(KPageWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnMousePressEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -566,9 +551,8 @@ void KPageWidget_SuperMouseReleaseEvent(KPageWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnMouseReleaseEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -595,9 +579,8 @@ void KPageWidget_SuperMouseDoubleClickEvent(KPageWidget* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnMouseDoubleClickEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -624,9 +607,8 @@ void KPageWidget_SuperMouseMoveEvent(KPageWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnMouseMoveEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -653,9 +635,8 @@ void KPageWidget_SuperWheelEvent(KPageWidget* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnWheelEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_WheelEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -682,9 +663,8 @@ void KPageWidget_SuperKeyPressEvent(KPageWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnKeyPressEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -711,9 +691,8 @@ void KPageWidget_SuperKeyReleaseEvent(KPageWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnKeyReleaseEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -740,9 +719,8 @@ void KPageWidget_SuperFocusInEvent(KPageWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnFocusInEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -769,9 +747,8 @@ void KPageWidget_SuperFocusOutEvent(KPageWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnFocusOutEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -798,9 +775,8 @@ void KPageWidget_SuperEnterEvent(KPageWidget* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnEnterEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_EnterEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -827,9 +803,8 @@ void KPageWidget_SuperLeaveEvent(KPageWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnLeaveEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -856,9 +831,8 @@ void KPageWidget_SuperPaintEvent(KPageWidget* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnPaintEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_PaintEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -885,9 +859,8 @@ void KPageWidget_SuperMoveEvent(KPageWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnMoveEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_MoveEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -914,9 +887,8 @@ void KPageWidget_SuperResizeEvent(KPageWidget* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnResizeEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -943,9 +915,8 @@ void KPageWidget_SuperCloseEvent(KPageWidget* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnCloseEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_CloseEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -972,9 +943,8 @@ void KPageWidget_SuperContextMenuEvent(KPageWidget* self, QContextMenuEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnContextMenuEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1001,9 +971,8 @@ void KPageWidget_SuperTabletEvent(KPageWidget* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnTabletEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_TabletEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1030,9 +999,8 @@ void KPageWidget_SuperActionEvent(KPageWidget* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnActionEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_ActionEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1059,9 +1027,8 @@ void KPageWidget_SuperDragEnterEvent(KPageWidget* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnDragEnterEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1088,9 +1055,8 @@ void KPageWidget_SuperDragMoveEvent(KPageWidget* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnDragMoveEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1117,9 +1083,8 @@ void KPageWidget_SuperDragLeaveEvent(KPageWidget* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnDragLeaveEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1146,9 +1111,8 @@ void KPageWidget_SuperDropEvent(KPageWidget* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnDropEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_DropEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1175,9 +1139,8 @@ void KPageWidget_SuperShowEvent(KPageWidget* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnShowEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_ShowEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1204,9 +1167,8 @@ void KPageWidget_SuperHideEvent(KPageWidget* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnHideEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_HideEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1235,9 +1197,8 @@ bool KPageWidget_SuperNativeEvent(KPageWidget* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnNativeEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_NativeEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1264,9 +1225,8 @@ void KPageWidget_SuperChangeEvent(KPageWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnChangeEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1293,9 +1253,8 @@ int KPageWidget_SuperMetric(const KPageWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnMetric(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_Metric_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1322,9 +1281,8 @@ void KPageWidget_SuperInitPainter(const KPageWidget* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnInitPainter(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_InitPainter_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1351,9 +1309,8 @@ QPaintDevice* KPageWidget_SuperRedirected(const KPageWidget* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnRedirected(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_Redirected_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1380,9 +1337,8 @@ QPainter* KPageWidget_SuperSharedPainter(const KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnSharedPainter(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_SharedPainter_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1409,9 +1365,8 @@ void KPageWidget_SuperInputMethodEvent(KPageWidget* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnInputMethodEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1438,9 +1393,8 @@ QVariant* KPageWidget_SuperInputMethodQuery(const KPageWidget* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnInputMethodQuery(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1467,9 +1421,8 @@ bool KPageWidget_SuperFocusNextPrevChild(KPageWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnFocusNextPrevChild(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1496,9 +1449,8 @@ bool KPageWidget_SuperEventFilter(KPageWidget* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnEventFilter(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_EventFilter_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1525,9 +1477,8 @@ void KPageWidget_SuperTimerEvent(KPageWidget* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnTimerEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_TimerEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1554,9 +1505,8 @@ void KPageWidget_SuperChildEvent(KPageWidget* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnChildEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_ChildEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1583,9 +1533,8 @@ void KPageWidget_SuperCustomEvent(KPageWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnCustomEvent(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_CustomEvent_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1612,9 +1561,8 @@ void KPageWidget_SuperConnectNotify(KPageWidget* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnConnectNotify(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1641,9 +1589,8 @@ void KPageWidget_SuperDisconnectNotify(KPageWidget* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnDisconnectNotify(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1670,9 +1617,8 @@ void KPageWidget_SuperUpdateMicroFocus(KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnUpdateMicroFocus(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1699,9 +1645,8 @@ void KPageWidget_SuperCreate(KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnCreate(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_Create_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1728,9 +1673,8 @@ void KPageWidget_SuperDestroy(KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnDestroy(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_Destroy_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1757,9 +1701,8 @@ bool KPageWidget_SuperFocusNextChild(KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnFocusNextChild(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1786,9 +1729,8 @@ bool KPageWidget_SuperFocusPreviousChild(KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnFocusPreviousChild(KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1815,9 +1757,8 @@ QObject* KPageWidget_SuperSender(const KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnSender(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_Sender_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1844,9 +1785,8 @@ int KPageWidget_SuperSenderSignalIndex(const KPageWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnSenderSignalIndex(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1873,9 +1813,8 @@ int KPageWidget_SuperReceivers(const KPageWidget* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnReceivers(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_Receivers_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1902,9 +1841,8 @@ bool KPageWidget_SuperIsSignalConnected(const KPageWidget* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnIsSignalConnected(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1931,9 +1869,8 @@ double KPageWidget_SuperGetDecodedMetricF(const KPageWidget* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void KPageWidget_OnGetDecodedMetricF(const KPageWidget* self, intptr_t slot) {
     auto* vkpagewidget = const_cast<VirtualKPageWidget*>(dynamic_cast<const VirtualKPageWidget*>(self));
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
+    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget)
         vkpagewidget->setKPageWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKPageWidget::KPageWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KPageWidget_Delete(KPageWidget* self) {

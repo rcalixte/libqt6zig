@@ -3092,7 +3092,7 @@ pub const KBreadcrumbSelectionModel = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kbreadcrumbselectionmodel.html#public-types)
 pub const enums = struct {
-    pub const BreadcrumbTarget = enum(i32) {
+    pub const BreadcrumbTarget = enum {
         pub const MakeBreadcrumbSelectionInOther: i32 = 0;
         pub const MakeBreadcrumbSelectionInSelf: i32 = 1;
     };

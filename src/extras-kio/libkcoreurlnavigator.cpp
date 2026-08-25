@@ -122,9 +122,8 @@ QMetaObject* KCoreUrlNavigator_SuperMetaObject(const KCoreUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KCoreUrlNavigator_OnMetaObject(const KCoreUrlNavigator* self, intptr_t slot) {
     auto* vkcoreurlnavigator = const_cast<VirtualKCoreUrlNavigator*>(dynamic_cast<const VirtualKCoreUrlNavigator*>(self));
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator)
         vkcoreurlnavigator->setKCoreUrlNavigator_MetaObject_Callback(reinterpret_cast<VirtualKCoreUrlNavigator::KCoreUrlNavigator_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -141,9 +140,8 @@ void* KCoreUrlNavigator_SuperMetacast(KCoreUrlNavigator* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void KCoreUrlNavigator_OnMetacast(KCoreUrlNavigator* self, intptr_t slot) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator)
         vkcoreurlnavigator->setKCoreUrlNavigator_Metacast_Callback(reinterpret_cast<VirtualKCoreUrlNavigator::KCoreUrlNavigator_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -160,9 +158,8 @@ int KCoreUrlNavigator_SuperMetacall(KCoreUrlNavigator* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void KCoreUrlNavigator_OnMetacall(KCoreUrlNavigator* self, intptr_t slot) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator)
         vkcoreurlnavigator->setKCoreUrlNavigator_Metacall_Callback(reinterpret_cast<VirtualKCoreUrlNavigator::KCoreUrlNavigator_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -189,9 +186,8 @@ bool KCoreUrlNavigator_SuperEvent(KCoreUrlNavigator* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCoreUrlNavigator_OnEvent(KCoreUrlNavigator* self, intptr_t slot) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator)
         vkcoreurlnavigator->setKCoreUrlNavigator_Event_Callback(reinterpret_cast<VirtualKCoreUrlNavigator::KCoreUrlNavigator_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -218,9 +214,8 @@ bool KCoreUrlNavigator_SuperEventFilter(KCoreUrlNavigator* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void KCoreUrlNavigator_OnEventFilter(KCoreUrlNavigator* self, intptr_t slot) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator)
         vkcoreurlnavigator->setKCoreUrlNavigator_EventFilter_Callback(reinterpret_cast<VirtualKCoreUrlNavigator::KCoreUrlNavigator_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -247,9 +242,8 @@ void KCoreUrlNavigator_SuperTimerEvent(KCoreUrlNavigator* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KCoreUrlNavigator_OnTimerEvent(KCoreUrlNavigator* self, intptr_t slot) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator)
         vkcoreurlnavigator->setKCoreUrlNavigator_TimerEvent_Callback(reinterpret_cast<VirtualKCoreUrlNavigator::KCoreUrlNavigator_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -276,9 +270,8 @@ void KCoreUrlNavigator_SuperChildEvent(KCoreUrlNavigator* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KCoreUrlNavigator_OnChildEvent(KCoreUrlNavigator* self, intptr_t slot) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator)
         vkcoreurlnavigator->setKCoreUrlNavigator_ChildEvent_Callback(reinterpret_cast<VirtualKCoreUrlNavigator::KCoreUrlNavigator_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -305,9 +298,8 @@ void KCoreUrlNavigator_SuperCustomEvent(KCoreUrlNavigator* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCoreUrlNavigator_OnCustomEvent(KCoreUrlNavigator* self, intptr_t slot) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator)
         vkcoreurlnavigator->setKCoreUrlNavigator_CustomEvent_Callback(reinterpret_cast<VirtualKCoreUrlNavigator::KCoreUrlNavigator_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -334,9 +326,8 @@ void KCoreUrlNavigator_SuperConnectNotify(KCoreUrlNavigator* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void KCoreUrlNavigator_OnConnectNotify(KCoreUrlNavigator* self, intptr_t slot) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator)
         vkcoreurlnavigator->setKCoreUrlNavigator_ConnectNotify_Callback(reinterpret_cast<VirtualKCoreUrlNavigator::KCoreUrlNavigator_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -363,9 +354,8 @@ void KCoreUrlNavigator_SuperDisconnectNotify(KCoreUrlNavigator* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void KCoreUrlNavigator_OnDisconnectNotify(KCoreUrlNavigator* self, intptr_t slot) {
     auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator)
         vkcoreurlnavigator->setKCoreUrlNavigator_DisconnectNotify_Callback(reinterpret_cast<VirtualKCoreUrlNavigator::KCoreUrlNavigator_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -392,9 +382,8 @@ QObject* KCoreUrlNavigator_SuperSender(const KCoreUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KCoreUrlNavigator_OnSender(const KCoreUrlNavigator* self, intptr_t slot) {
     auto* vkcoreurlnavigator = const_cast<VirtualKCoreUrlNavigator*>(dynamic_cast<const VirtualKCoreUrlNavigator*>(self));
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator)
         vkcoreurlnavigator->setKCoreUrlNavigator_Sender_Callback(reinterpret_cast<VirtualKCoreUrlNavigator::KCoreUrlNavigator_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -421,9 +410,8 @@ int KCoreUrlNavigator_SuperSenderSignalIndex(const KCoreUrlNavigator* self) {
 // Auxiliary method to allow providing re-implementation
 void KCoreUrlNavigator_OnSenderSignalIndex(const KCoreUrlNavigator* self, intptr_t slot) {
     auto* vkcoreurlnavigator = const_cast<VirtualKCoreUrlNavigator*>(dynamic_cast<const VirtualKCoreUrlNavigator*>(self));
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator)
         vkcoreurlnavigator->setKCoreUrlNavigator_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCoreUrlNavigator::KCoreUrlNavigator_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -450,9 +438,8 @@ int KCoreUrlNavigator_SuperReceivers(const KCoreUrlNavigator* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void KCoreUrlNavigator_OnReceivers(const KCoreUrlNavigator* self, intptr_t slot) {
     auto* vkcoreurlnavigator = const_cast<VirtualKCoreUrlNavigator*>(dynamic_cast<const VirtualKCoreUrlNavigator*>(self));
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator)
         vkcoreurlnavigator->setKCoreUrlNavigator_Receivers_Callback(reinterpret_cast<VirtualKCoreUrlNavigator::KCoreUrlNavigator_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -479,9 +466,8 @@ bool KCoreUrlNavigator_SuperIsSignalConnected(const KCoreUrlNavigator* self, con
 // Auxiliary method to allow providing re-implementation
 void KCoreUrlNavigator_OnIsSignalConnected(const KCoreUrlNavigator* self, intptr_t slot) {
     auto* vkcoreurlnavigator = const_cast<VirtualKCoreUrlNavigator*>(dynamic_cast<const VirtualKCoreUrlNavigator*>(self));
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
+    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator)
         vkcoreurlnavigator->setKCoreUrlNavigator_IsSignalConnected_Callback(reinterpret_cast<VirtualKCoreUrlNavigator::KCoreUrlNavigator_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KCoreUrlNavigator_Delete(KCoreUrlNavigator* self) {

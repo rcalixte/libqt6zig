@@ -145,9 +145,8 @@ QMetaObject* QScatterSeries_SuperMetaObject(const QScatterSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnMetaObject(const QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_MetaObject_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -164,9 +163,8 @@ void* QScatterSeries_SuperMetacast(QScatterSeries* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnMetacast(QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_Metacast_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -183,9 +181,8 @@ int QScatterSeries_SuperMetacall(QScatterSeries* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnMetacall(QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_Metacall_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -202,9 +199,8 @@ int QScatterSeries_SuperType(const QScatterSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnType(const QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_Type_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_Type_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -221,9 +217,8 @@ void QScatterSeries_SuperSetPen(QScatterSeries* self, const QPen* pen) {
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnSetPen(QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_SetPen_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_SetPen_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -240,9 +235,8 @@ void QScatterSeries_SuperSetBrush(QScatterSeries* self, const QBrush* brush) {
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnSetBrush(QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_SetBrush_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_SetBrush_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -259,9 +253,8 @@ void QScatterSeries_SuperSetColor(QScatterSeries* self, const QColor* color) {
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnSetColor(QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_SetColor_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_SetColor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -278,9 +271,8 @@ QColor* QScatterSeries_SuperColor(const QScatterSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnColor(const QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_Color_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -307,9 +299,8 @@ bool QScatterSeries_SuperEvent(QScatterSeries* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnEvent(QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_Event_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -336,9 +327,8 @@ bool QScatterSeries_SuperEventFilter(QScatterSeries* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnEventFilter(QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_EventFilter_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -365,9 +355,8 @@ void QScatterSeries_SuperTimerEvent(QScatterSeries* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnTimerEvent(QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_TimerEvent_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -394,9 +383,8 @@ void QScatterSeries_SuperChildEvent(QScatterSeries* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnChildEvent(QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_ChildEvent_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -423,9 +411,8 @@ void QScatterSeries_SuperCustomEvent(QScatterSeries* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnCustomEvent(QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_CustomEvent_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -452,9 +439,8 @@ void QScatterSeries_SuperConnectNotify(QScatterSeries* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnConnectNotify(QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_ConnectNotify_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -481,9 +467,8 @@ void QScatterSeries_SuperDisconnectNotify(QScatterSeries* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnDisconnectNotify(QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_DisconnectNotify_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -510,9 +495,8 @@ QObject* QScatterSeries_SuperSender(const QScatterSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnSender(const QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_Sender_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -539,9 +523,8 @@ int QScatterSeries_SuperSenderSignalIndex(const QScatterSeries* self) {
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnSenderSignalIndex(const QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_SenderSignalIndex_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -568,9 +551,8 @@ int QScatterSeries_SuperReceivers(const QScatterSeries* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnReceivers(const QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_Receivers_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -597,9 +579,8 @@ bool QScatterSeries_SuperIsSignalConnected(const QScatterSeries* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QScatterSeries_OnIsSignalConnected(const QScatterSeries* self, intptr_t slot) {
     auto* vqscatterseries = const_cast<VirtualQScatterSeries*>(dynamic_cast<const VirtualQScatterSeries*>(self));
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
+    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries)
         vqscatterseries->setQScatterSeries_IsSignalConnected_Callback(reinterpret_cast<VirtualQScatterSeries::QScatterSeries_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QScatterSeries_Delete(QScatterSeries* self) {

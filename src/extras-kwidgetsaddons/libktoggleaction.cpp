@@ -64,9 +64,8 @@ QMetaObject* KToggleAction_SuperMetaObject(const KToggleAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KToggleAction_OnMetaObject(const KToggleAction* self, intptr_t slot) {
     auto* vktoggleaction = const_cast<VirtualKToggleAction*>(dynamic_cast<const VirtualKToggleAction*>(self));
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction)
         vktoggleaction->setKToggleAction_MetaObject_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -83,9 +82,8 @@ void* KToggleAction_SuperMetacast(KToggleAction* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToggleAction_OnMetacast(KToggleAction* self, intptr_t slot) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction)
         vktoggleaction->setKToggleAction_Metacast_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -102,9 +100,8 @@ int KToggleAction_SuperMetacall(KToggleAction* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void KToggleAction_OnMetacall(KToggleAction* self, intptr_t slot) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction)
         vktoggleaction->setKToggleAction_Metacall_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -121,9 +118,8 @@ void KToggleAction_SuperSlotToggled(KToggleAction* self, bool checked) {
 // Auxiliary method to allow providing re-implementation
 void KToggleAction_OnSlotToggled(KToggleAction* self, intptr_t slot) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction)
         vktoggleaction->setKToggleAction_SlotToggled_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_SlotToggled_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -150,9 +146,8 @@ bool KToggleAction_SuperEvent(KToggleAction* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KToggleAction_OnEvent(KToggleAction* self, intptr_t slot) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction)
         vktoggleaction->setKToggleAction_Event_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -179,9 +174,8 @@ bool KToggleAction_SuperEventFilter(KToggleAction* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void KToggleAction_OnEventFilter(KToggleAction* self, intptr_t slot) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction)
         vktoggleaction->setKToggleAction_EventFilter_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -208,9 +202,8 @@ void KToggleAction_SuperTimerEvent(KToggleAction* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToggleAction_OnTimerEvent(KToggleAction* self, intptr_t slot) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction)
         vktoggleaction->setKToggleAction_TimerEvent_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -237,9 +230,8 @@ void KToggleAction_SuperChildEvent(KToggleAction* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToggleAction_OnChildEvent(KToggleAction* self, intptr_t slot) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction)
         vktoggleaction->setKToggleAction_ChildEvent_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -266,9 +258,8 @@ void KToggleAction_SuperCustomEvent(KToggleAction* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KToggleAction_OnCustomEvent(KToggleAction* self, intptr_t slot) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction)
         vktoggleaction->setKToggleAction_CustomEvent_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -295,9 +286,8 @@ void KToggleAction_SuperConnectNotify(KToggleAction* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void KToggleAction_OnConnectNotify(KToggleAction* self, intptr_t slot) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction)
         vktoggleaction->setKToggleAction_ConnectNotify_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -324,9 +314,8 @@ void KToggleAction_SuperDisconnectNotify(KToggleAction* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void KToggleAction_OnDisconnectNotify(KToggleAction* self, intptr_t slot) {
     auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction)
         vktoggleaction->setKToggleAction_DisconnectNotify_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -353,9 +342,8 @@ QObject* KToggleAction_SuperSender(const KToggleAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KToggleAction_OnSender(const KToggleAction* self, intptr_t slot) {
     auto* vktoggleaction = const_cast<VirtualKToggleAction*>(dynamic_cast<const VirtualKToggleAction*>(self));
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction)
         vktoggleaction->setKToggleAction_Sender_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -382,9 +370,8 @@ int KToggleAction_SuperSenderSignalIndex(const KToggleAction* self) {
 // Auxiliary method to allow providing re-implementation
 void KToggleAction_OnSenderSignalIndex(const KToggleAction* self, intptr_t slot) {
     auto* vktoggleaction = const_cast<VirtualKToggleAction*>(dynamic_cast<const VirtualKToggleAction*>(self));
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction)
         vktoggleaction->setKToggleAction_SenderSignalIndex_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -411,9 +398,8 @@ int KToggleAction_SuperReceivers(const KToggleAction* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void KToggleAction_OnReceivers(const KToggleAction* self, intptr_t slot) {
     auto* vktoggleaction = const_cast<VirtualKToggleAction*>(dynamic_cast<const VirtualKToggleAction*>(self));
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction)
         vktoggleaction->setKToggleAction_Receivers_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -440,9 +426,8 @@ bool KToggleAction_SuperIsSignalConnected(const KToggleAction* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void KToggleAction_OnIsSignalConnected(const KToggleAction* self, intptr_t slot) {
     auto* vktoggleaction = const_cast<VirtualKToggleAction*>(dynamic_cast<const VirtualKToggleAction*>(self));
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
+    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction)
         vktoggleaction->setKToggleAction_IsSignalConnected_Callback(reinterpret_cast<VirtualKToggleAction::KToggleAction_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KToggleAction_Delete(KToggleAction* self) {

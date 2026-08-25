@@ -3,6 +3,7 @@ const qtc = @import("qt6c");
 const QBindingStorage = @import("libqt6").QBindingStorage;
 const QChildEvent = @import("libqt6").QChildEvent;
 const QEvent = @import("libqt6").QEvent;
+const QIODeviceBase = @import("libqt6").QIODeviceBase;
 const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
@@ -1437,6 +1438,18 @@ pub const QLocalSocket = extern struct {
     ///
     pub fn waitForDisconnected1(self: QLocalSocket, msecs: i32) bool {
         return qtc.QLocalSocket_WaitForDisconnected1(@ptrCast(self.ptr), @bitCast(msecs));
+    }
+
+    /// Inherited from QIODevice
+    ///
+    /// Upcasts to a QIODeviceBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocalSocket `
+    ///
+    pub fn asQIODeviceBase(self: QLocalSocket) QIODeviceBase {
+        return .{ .ptr = qtc.QIODevice_AsQIODeviceBase(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `openMode` instead
@@ -4345,7 +4358,7 @@ pub const QLocalSocket = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocalsocket.html#public-types)
 pub const enums = struct {
-    pub const LocalSocketError = enum(i32) {
+    pub const LocalSocketError = enum {
         pub const ConnectionRefusedError: i32 = 0;
         pub const PeerClosedError: i32 = 1;
         pub const ServerNotFoundError: i32 = 2;
@@ -4359,14 +4372,14 @@ pub const enums = struct {
         pub const OperationError: i32 = 19;
     };
 
-    pub const LocalSocketState = enum(i32) {
+    pub const LocalSocketState = enum {
         pub const UnconnectedState: i32 = 0;
         pub const ConnectingState: i32 = 2;
         pub const ConnectedState: i32 = 3;
         pub const ClosingState: i32 = 6;
     };
 
-    pub const SocketOption = enum(i32) {
+    pub const SocketOption = enum {
         pub const NoOptions: i32 = 0;
         pub const AbstractNamespaceOption: i32 = 1;
     };

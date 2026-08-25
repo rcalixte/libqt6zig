@@ -415,9 +415,8 @@ QMetaObject* KFileWidget_SuperMetaObject(const KFileWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMetaObject(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_MetaObject_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -434,9 +433,8 @@ void* KFileWidget_SuperMetacast(KFileWidget* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMetacast(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_Metacast_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -453,9 +451,8 @@ int KFileWidget_SuperMetacall(KFileWidget* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMetacall(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_Metacall_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -472,9 +469,8 @@ QSize* KFileWidget_SuperSizeHint(const KFileWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnSizeHint(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_SizeHint_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -491,9 +487,8 @@ void KFileWidget_SuperResizeEvent(KFileWidget* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnResizeEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_ResizeEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -510,9 +505,8 @@ void KFileWidget_SuperShowEvent(KFileWidget* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnShowEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_ShowEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_ShowEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -529,9 +523,8 @@ bool KFileWidget_SuperEventFilter(KFileWidget* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnEventFilter(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_EventFilter_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -558,9 +551,8 @@ int KFileWidget_SuperDevType(const KFileWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnDevType(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_DevType_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -587,9 +579,8 @@ void KFileWidget_SuperSetVisible(KFileWidget* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnSetVisible(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_SetVisible_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -616,9 +607,8 @@ QSize* KFileWidget_SuperMinimumSizeHint(const KFileWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMinimumSizeHint(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_MinimumSizeHint_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -645,9 +635,8 @@ int KFileWidget_SuperHeightForWidth(const KFileWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnHeightForWidth(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_HeightForWidth_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -674,9 +663,8 @@ bool KFileWidget_SuperHasHeightForWidth(const KFileWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnHasHeightForWidth(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_HasHeightForWidth_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -703,9 +691,8 @@ QPaintEngine* KFileWidget_SuperPaintEngine(const KFileWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnPaintEngine(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_PaintEngine_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -732,9 +719,8 @@ bool KFileWidget_SuperEvent(KFileWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_Event_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -761,9 +747,8 @@ void KFileWidget_SuperMousePressEvent(KFileWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMousePressEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_MousePressEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -790,9 +775,8 @@ void KFileWidget_SuperMouseReleaseEvent(KFileWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMouseReleaseEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -819,9 +803,8 @@ void KFileWidget_SuperMouseDoubleClickEvent(KFileWidget* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMouseDoubleClickEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -848,9 +831,8 @@ void KFileWidget_SuperMouseMoveEvent(KFileWidget* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMouseMoveEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_MouseMoveEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -877,9 +859,8 @@ void KFileWidget_SuperWheelEvent(KFileWidget* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnWheelEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_WheelEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -906,9 +887,8 @@ void KFileWidget_SuperKeyPressEvent(KFileWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnKeyPressEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_KeyPressEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -935,9 +915,8 @@ void KFileWidget_SuperKeyReleaseEvent(KFileWidget* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnKeyReleaseEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -964,9 +943,8 @@ void KFileWidget_SuperFocusInEvent(KFileWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnFocusInEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_FocusInEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -993,9 +971,8 @@ void KFileWidget_SuperFocusOutEvent(KFileWidget* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnFocusOutEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_FocusOutEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1022,9 +999,8 @@ void KFileWidget_SuperEnterEvent(KFileWidget* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnEnterEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_EnterEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1051,9 +1027,8 @@ void KFileWidget_SuperLeaveEvent(KFileWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnLeaveEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_LeaveEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1080,9 +1055,8 @@ void KFileWidget_SuperPaintEvent(KFileWidget* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnPaintEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_PaintEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1109,9 +1083,8 @@ void KFileWidget_SuperMoveEvent(KFileWidget* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMoveEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_MoveEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1138,9 +1111,8 @@ void KFileWidget_SuperCloseEvent(KFileWidget* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnCloseEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_CloseEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1167,9 +1139,8 @@ void KFileWidget_SuperContextMenuEvent(KFileWidget* self, QContextMenuEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnContextMenuEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_ContextMenuEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1196,9 +1167,8 @@ void KFileWidget_SuperTabletEvent(KFileWidget* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnTabletEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_TabletEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1225,9 +1195,8 @@ void KFileWidget_SuperActionEvent(KFileWidget* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnActionEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_ActionEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1254,9 +1223,8 @@ void KFileWidget_SuperDragEnterEvent(KFileWidget* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnDragEnterEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_DragEnterEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1283,9 +1251,8 @@ void KFileWidget_SuperDragMoveEvent(KFileWidget* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnDragMoveEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_DragMoveEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1312,9 +1279,8 @@ void KFileWidget_SuperDragLeaveEvent(KFileWidget* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnDragLeaveEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_DragLeaveEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1341,9 +1307,8 @@ void KFileWidget_SuperDropEvent(KFileWidget* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnDropEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_DropEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1370,9 +1335,8 @@ void KFileWidget_SuperHideEvent(KFileWidget* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnHideEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_HideEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1401,9 +1365,8 @@ bool KFileWidget_SuperNativeEvent(KFileWidget* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnNativeEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_NativeEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1430,9 +1393,8 @@ void KFileWidget_SuperChangeEvent(KFileWidget* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnChangeEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_ChangeEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1459,9 +1421,8 @@ int KFileWidget_SuperMetric(const KFileWidget* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnMetric(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_Metric_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1488,9 +1449,8 @@ void KFileWidget_SuperInitPainter(const KFileWidget* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnInitPainter(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_InitPainter_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1517,9 +1477,8 @@ QPaintDevice* KFileWidget_SuperRedirected(const KFileWidget* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnRedirected(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_Redirected_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1546,9 +1505,8 @@ QPainter* KFileWidget_SuperSharedPainter(const KFileWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnSharedPainter(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_SharedPainter_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1575,9 +1533,8 @@ void KFileWidget_SuperInputMethodEvent(KFileWidget* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnInputMethodEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_InputMethodEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1604,9 +1561,8 @@ QVariant* KFileWidget_SuperInputMethodQuery(const KFileWidget* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnInputMethodQuery(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_InputMethodQuery_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1633,9 +1589,8 @@ bool KFileWidget_SuperFocusNextPrevChild(KFileWidget* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnFocusNextPrevChild(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1662,9 +1617,8 @@ void KFileWidget_SuperTimerEvent(KFileWidget* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnTimerEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_TimerEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1691,9 +1645,8 @@ void KFileWidget_SuperChildEvent(KFileWidget* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnChildEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_ChildEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1720,9 +1673,8 @@ void KFileWidget_SuperCustomEvent(KFileWidget* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnCustomEvent(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_CustomEvent_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1749,9 +1701,8 @@ void KFileWidget_SuperConnectNotify(KFileWidget* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnConnectNotify(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_ConnectNotify_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1778,9 +1729,8 @@ void KFileWidget_SuperDisconnectNotify(KFileWidget* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnDisconnectNotify(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_DisconnectNotify_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1807,9 +1757,8 @@ void KFileWidget_SuperUpdateMicroFocus(KFileWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnUpdateMicroFocus(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1836,9 +1785,8 @@ void KFileWidget_SuperCreate(KFileWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnCreate(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_Create_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1865,9 +1813,8 @@ void KFileWidget_SuperDestroy(KFileWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnDestroy(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_Destroy_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1894,9 +1841,8 @@ bool KFileWidget_SuperFocusNextChild(KFileWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnFocusNextChild(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_FocusNextChild_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1923,9 +1869,8 @@ bool KFileWidget_SuperFocusPreviousChild(KFileWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnFocusPreviousChild(KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_FocusPreviousChild_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1952,9 +1897,8 @@ QObject* KFileWidget_SuperSender(const KFileWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnSender(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_Sender_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1981,9 +1925,8 @@ int KFileWidget_SuperSenderSignalIndex(const KFileWidget* self) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnSenderSignalIndex(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_SenderSignalIndex_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2010,9 +1953,8 @@ int KFileWidget_SuperReceivers(const KFileWidget* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnReceivers(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_Receivers_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2039,9 +1981,8 @@ bool KFileWidget_SuperIsSignalConnected(const KFileWidget* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnIsSignalConnected(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2068,9 +2009,8 @@ double KFileWidget_SuperGetDecodedMetricF(const KFileWidget* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void KFileWidget_OnGetDecodedMetricF(const KFileWidget* self, intptr_t slot) {
     auto* vkfilewidget = const_cast<VirtualKFileWidget*>(dynamic_cast<const VirtualKFileWidget*>(self));
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
+    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget)
         vkfilewidget->setKFileWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKFileWidget::KFileWidget_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KFileWidget_Delete(KFileWidget* self) {

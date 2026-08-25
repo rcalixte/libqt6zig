@@ -92,9 +92,8 @@ int KMacroExpanderBase_SuperExpandPlainMacro(KMacroExpanderBase* self, const lib
 // Auxiliary method to allow providing re-implementation
 void KMacroExpanderBase_OnExpandPlainMacro(KMacroExpanderBase* self, intptr_t slot) {
     auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self);
-    if (vkmacroexpanderbase && vkmacroexpanderbase->isVirtualKMacroExpanderBase) {
+    if (vkmacroexpanderbase && vkmacroexpanderbase->isVirtualKMacroExpanderBase)
         vkmacroexpanderbase->setKMacroExpanderBase_ExpandPlainMacro_Callback(reinterpret_cast<VirtualKMacroExpanderBase::KMacroExpanderBase_ExpandPlainMacro_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -119,9 +118,8 @@ int KMacroExpanderBase_SuperExpandEscapedMacro(KMacroExpanderBase* self, const l
 // Auxiliary method to allow providing re-implementation
 void KMacroExpanderBase_OnExpandEscapedMacro(KMacroExpanderBase* self, intptr_t slot) {
     auto* vkmacroexpanderbase = dynamic_cast<VirtualKMacroExpanderBase*>(self);
-    if (vkmacroexpanderbase && vkmacroexpanderbase->isVirtualKMacroExpanderBase) {
+    if (vkmacroexpanderbase && vkmacroexpanderbase->isVirtualKMacroExpanderBase)
         vkmacroexpanderbase->setKMacroExpanderBase_ExpandEscapedMacro_Callback(reinterpret_cast<VirtualKMacroExpanderBase::KMacroExpanderBase_ExpandEscapedMacro_Callback>(slot));
-    }
 }
 
 void KMacroExpanderBase_Delete(KMacroExpanderBase* self) {
@@ -206,9 +204,8 @@ int KWordMacroExpander_SuperExpandPlainMacro(KWordMacroExpander* self, const lib
 // Auxiliary method to allow providing re-implementation
 void KWordMacroExpander_OnExpandPlainMacro(KWordMacroExpander* self, intptr_t slot) {
     auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
-    if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander) {
+    if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander)
         vkwordmacroexpander->setKWordMacroExpander_ExpandPlainMacro_Callback(reinterpret_cast<VirtualKWordMacroExpander::KWordMacroExpander_ExpandPlainMacro_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -233,9 +230,8 @@ int KWordMacroExpander_SuperExpandEscapedMacro(KWordMacroExpander* self, const l
 // Auxiliary method to allow providing re-implementation
 void KWordMacroExpander_OnExpandEscapedMacro(KWordMacroExpander* self, intptr_t slot) {
     auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
-    if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander) {
+    if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander)
         vkwordmacroexpander->setKWordMacroExpander_ExpandEscapedMacro_Callback(reinterpret_cast<VirtualKWordMacroExpander::KWordMacroExpander_ExpandEscapedMacro_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -260,9 +256,8 @@ bool KWordMacroExpander_SuperExpandMacro(KWordMacroExpander* self, const libqt_s
 // Auxiliary method to allow providing re-implementation
 void KWordMacroExpander_OnExpandMacro(KWordMacroExpander* self, intptr_t slot) {
     auto* vkwordmacroexpander = dynamic_cast<VirtualKWordMacroExpander*>(self);
-    if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander) {
+    if (vkwordmacroexpander && vkwordmacroexpander->isVirtualKWordMacroExpander)
         vkwordmacroexpander->setKWordMacroExpander_ExpandMacro_Callback(reinterpret_cast<VirtualKWordMacroExpander::KWordMacroExpander_ExpandMacro_Callback>(slot));
-    }
 }
 
 void KWordMacroExpander_Delete(KWordMacroExpander* self) {
@@ -346,9 +341,8 @@ int KCharMacroExpander_SuperExpandPlainMacro(KCharMacroExpander* self, const lib
 // Auxiliary method to allow providing re-implementation
 void KCharMacroExpander_OnExpandPlainMacro(KCharMacroExpander* self, intptr_t slot) {
     auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
-    if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander) {
+    if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander)
         vkcharmacroexpander->setKCharMacroExpander_ExpandPlainMacro_Callback(reinterpret_cast<VirtualKCharMacroExpander::KCharMacroExpander_ExpandPlainMacro_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -373,9 +367,8 @@ int KCharMacroExpander_SuperExpandEscapedMacro(KCharMacroExpander* self, const l
 // Auxiliary method to allow providing re-implementation
 void KCharMacroExpander_OnExpandEscapedMacro(KCharMacroExpander* self, intptr_t slot) {
     auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
-    if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander) {
+    if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander)
         vkcharmacroexpander->setKCharMacroExpander_ExpandEscapedMacro_Callback(reinterpret_cast<VirtualKCharMacroExpander::KCharMacroExpander_ExpandEscapedMacro_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -399,9 +392,8 @@ bool KCharMacroExpander_SuperExpandMacro(KCharMacroExpander* self, QChar* chr, l
 // Auxiliary method to allow providing re-implementation
 void KCharMacroExpander_OnExpandMacro(KCharMacroExpander* self, intptr_t slot) {
     auto* vkcharmacroexpander = dynamic_cast<VirtualKCharMacroExpander*>(self);
-    if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander) {
+    if (vkcharmacroexpander && vkcharmacroexpander->isVirtualKCharMacroExpander)
         vkcharmacroexpander->setKCharMacroExpander_ExpandMacro_Callback(reinterpret_cast<VirtualKCharMacroExpander::KCharMacroExpander_ExpandMacro_Callback>(slot));
-    }
 }
 
 void KCharMacroExpander_Delete(KCharMacroExpander* self) {

@@ -3089,7 +3089,7 @@ pub const KIO = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kio-copyjob.html#public-types)
 pub const enums = struct {
-    pub const CopyMode = enum(i32) {
+    pub const CopyMode = enum {
         pub const Copy: i32 = 0;
         pub const Move: i32 = 1;
         pub const Link: i32 = 2;

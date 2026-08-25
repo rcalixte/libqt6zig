@@ -127,9 +127,8 @@ QMetaObject* KIO__OpenUrlJob_SuperMetaObject(const KIO__OpenUrlJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnMetaObject(const KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_MetaObject_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -146,9 +145,8 @@ void* KIO__OpenUrlJob_SuperMetacast(KIO__OpenUrlJob* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnMetacast(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_Metacast_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -165,9 +163,8 @@ int KIO__OpenUrlJob_SuperMetacall(KIO__OpenUrlJob* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnMetacall(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_Metacall_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -184,9 +181,8 @@ void KIO__OpenUrlJob_SuperStart(KIO__OpenUrlJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnStart(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_Start_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Start_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -203,9 +199,8 @@ bool KIO__OpenUrlJob_SuperDoKill(KIO__OpenUrlJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnDoKill(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_DoKill_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_DoKill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -232,9 +227,8 @@ bool KIO__OpenUrlJob_SuperAddSubjob(KIO__OpenUrlJob* self, KJob* job) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnAddSubjob(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_AddSubjob_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_AddSubjob_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -261,9 +255,8 @@ bool KIO__OpenUrlJob_SuperRemoveSubjob(KIO__OpenUrlJob* self, KJob* job) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnRemoveSubjob(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_RemoveSubjob_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_RemoveSubjob_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -292,9 +285,8 @@ void KIO__OpenUrlJob_SuperSlotInfoMessage(KIO__OpenUrlJob* self, KJob* job, cons
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnSlotInfoMessage(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_SlotInfoMessage_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SlotInfoMessage_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -321,9 +313,8 @@ bool KIO__OpenUrlJob_SuperDoSuspend(KIO__OpenUrlJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnDoSuspend(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_DoSuspend_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_DoSuspend_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -350,9 +341,8 @@ bool KIO__OpenUrlJob_SuperDoResume(KIO__OpenUrlJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnDoResume(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_DoResume_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_DoResume_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -411,9 +401,8 @@ libqt_string KIO__OpenUrlJob_SuperErrorString(const KIO__OpenUrlJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnErrorString(const KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_ErrorString_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_ErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -440,9 +429,8 @@ bool KIO__OpenUrlJob_SuperEvent(KIO__OpenUrlJob* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnEvent(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_Event_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -469,9 +457,8 @@ bool KIO__OpenUrlJob_SuperEventFilter(KIO__OpenUrlJob* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnEventFilter(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_EventFilter_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -498,9 +485,8 @@ void KIO__OpenUrlJob_SuperTimerEvent(KIO__OpenUrlJob* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnTimerEvent(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_TimerEvent_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -527,9 +513,8 @@ void KIO__OpenUrlJob_SuperChildEvent(KIO__OpenUrlJob* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnChildEvent(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_ChildEvent_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -556,9 +541,8 @@ void KIO__OpenUrlJob_SuperCustomEvent(KIO__OpenUrlJob* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnCustomEvent(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_CustomEvent_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -585,9 +569,8 @@ void KIO__OpenUrlJob_SuperConnectNotify(KIO__OpenUrlJob* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnConnectNotify(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_ConnectNotify_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -614,9 +597,8 @@ void KIO__OpenUrlJob_SuperDisconnectNotify(KIO__OpenUrlJob* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnDisconnectNotify(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_DisconnectNotify_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -643,9 +625,8 @@ bool KIO__OpenUrlJob_SuperHasSubjobs(const KIO__OpenUrlJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnHasSubjobs(const KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_HasSubjobs_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_HasSubjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -708,9 +689,8 @@ libqt_list /* of KJob* */ KIO__OpenUrlJob_SuperSubjobs(const KIO__OpenUrlJob* se
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnSubjobs(const KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_Subjobs_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Subjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -737,9 +717,8 @@ void KIO__OpenUrlJob_SuperClearSubjobs(KIO__OpenUrlJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnClearSubjobs(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_ClearSubjobs_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_ClearSubjobs_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -766,9 +745,8 @@ void KIO__OpenUrlJob_SuperSetCapabilities(KIO__OpenUrlJob* self, int capabilitie
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnSetCapabilities(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_SetCapabilities_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SetCapabilities_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -795,9 +773,8 @@ bool KIO__OpenUrlJob_SuperIsFinished(const KIO__OpenUrlJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnIsFinished(const KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_IsFinished_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_IsFinished_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -824,9 +801,8 @@ void KIO__OpenUrlJob_SuperSetError(KIO__OpenUrlJob* self, int errorCode) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnSetError(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_SetError_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SetError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +831,8 @@ void KIO__OpenUrlJob_SuperSetErrorText(KIO__OpenUrlJob* self, const libqt_string
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnSetErrorText(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_SetErrorText_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SetErrorText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -884,9 +859,8 @@ void KIO__OpenUrlJob_SuperSetProcessedAmount(KIO__OpenUrlJob* self, int unit, un
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnSetProcessedAmount(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_SetProcessedAmount_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SetProcessedAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -913,9 +887,8 @@ void KIO__OpenUrlJob_SuperSetTotalAmount(KIO__OpenUrlJob* self, int unit, unsign
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnSetTotalAmount(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_SetTotalAmount_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SetTotalAmount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -942,9 +915,8 @@ void KIO__OpenUrlJob_SuperSetProgressUnit(KIO__OpenUrlJob* self, int unit) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnSetProgressUnit(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_SetProgressUnit_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SetProgressUnit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -971,9 +943,8 @@ void KIO__OpenUrlJob_SuperSetPercent(KIO__OpenUrlJob* self, unsigned long percen
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnSetPercent(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_SetPercent_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SetPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1000,9 +971,8 @@ void KIO__OpenUrlJob_SuperEmitResult(KIO__OpenUrlJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnEmitResult(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_EmitResult_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_EmitResult_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1029,9 +999,8 @@ void KIO__OpenUrlJob_SuperEmitPercent(KIO__OpenUrlJob* self, unsigned long long 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnEmitPercent(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_EmitPercent_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_EmitPercent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1058,9 +1027,8 @@ void KIO__OpenUrlJob_SuperEmitSpeed(KIO__OpenUrlJob* self, unsigned long speed) 
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnEmitSpeed(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_EmitSpeed_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_EmitSpeed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1087,9 +1055,8 @@ void KIO__OpenUrlJob_SuperStartElapsedTimer(KIO__OpenUrlJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnStartElapsedTimer(KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_StartElapsedTimer_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_StartElapsedTimer_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1116,9 +1083,8 @@ QObject* KIO__OpenUrlJob_SuperSender(const KIO__OpenUrlJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnSender(const KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_Sender_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1145,9 +1111,8 @@ int KIO__OpenUrlJob_SuperSenderSignalIndex(const KIO__OpenUrlJob* self) {
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnSenderSignalIndex(const KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_SenderSignalIndex_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1174,9 +1139,8 @@ int KIO__OpenUrlJob_SuperReceivers(const KIO__OpenUrlJob* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnReceivers(const KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_Receivers_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1203,9 +1167,8 @@ bool KIO__OpenUrlJob_SuperIsSignalConnected(const KIO__OpenUrlJob* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KIO__OpenUrlJob_OnIsSignalConnected(const KIO__OpenUrlJob* self, intptr_t slot) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
-    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
+    if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob)
         vkioopenurljob->setKIO__OpenUrlJob_IsSignalConnected_Callback(reinterpret_cast<VirtualKIOOpenUrlJob::KIO__OpenUrlJob_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KIO__OpenUrlJob_Delete(KIO__OpenUrlJob* self) {

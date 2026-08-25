@@ -1498,9 +1498,8 @@ QMetaObject* QsciScintilla_SuperMetaObject(const QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnMetaObject(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_MetaObject_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1517,9 +1516,8 @@ void* QsciScintilla_SuperMetacast(QsciScintilla* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnMetacast(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Metacast_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1536,9 +1534,8 @@ int QsciScintilla_SuperMetacall(QsciScintilla* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnMetacall(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Metacall_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1589,9 +1586,8 @@ libqt_list /* of libqt_string */ QsciScintilla_SuperApiContext(QsciScintilla* se
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnApiContext(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ApiContext_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ApiContext_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1609,9 +1605,8 @@ bool QsciScintilla_SuperFindFirst(QsciScintilla* self, const libqt_string expr, 
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnFindFirst(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_FindFirst_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_FindFirst_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1629,9 +1624,8 @@ bool QsciScintilla_SuperFindFirstInSelection(QsciScintilla* self, const libqt_st
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnFindFirstInSelection(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_FindFirstInSelection_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_FindFirstInSelection_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1648,9 +1642,8 @@ bool QsciScintilla_SuperFindNext(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnFindNext(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_FindNext_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_FindNext_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1667,9 +1660,8 @@ void QsciScintilla_SuperRecolor(QsciScintilla* self, int start, int end) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnRecolor(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Recolor_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Recolor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1687,9 +1679,8 @@ void QsciScintilla_SuperReplace(QsciScintilla* self, const libqt_string replaceS
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnReplace(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Replace_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Replace_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1707,9 +1698,8 @@ void QsciScintilla_SuperAppend(QsciScintilla* self, const libqt_string text) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnAppend(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Append_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Append_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1726,9 +1716,8 @@ void QsciScintilla_SuperAutoCompleteFromAll(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnAutoCompleteFromAll(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_AutoCompleteFromAll_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_AutoCompleteFromAll_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1745,9 +1734,8 @@ void QsciScintilla_SuperAutoCompleteFromAPIs(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnAutoCompleteFromAPIs(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_AutoCompleteFromAPIs_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_AutoCompleteFromAPIs_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1764,9 +1752,8 @@ void QsciScintilla_SuperAutoCompleteFromDocument(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnAutoCompleteFromDocument(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_AutoCompleteFromDocument_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_AutoCompleteFromDocument_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1783,9 +1770,8 @@ void QsciScintilla_SuperCallTip(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnCallTip(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_CallTip_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_CallTip_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1802,9 +1788,8 @@ void QsciScintilla_SuperClear(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnClear(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Clear_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Clear_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1821,9 +1806,8 @@ void QsciScintilla_SuperCopy(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnCopy(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Copy_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Copy_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1840,9 +1824,8 @@ void QsciScintilla_SuperCut(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnCut(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Cut_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Cut_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1859,9 +1842,8 @@ void QsciScintilla_SuperEnsureCursorVisible(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnEnsureCursorVisible(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_EnsureCursorVisible_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_EnsureCursorVisible_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1878,9 +1860,8 @@ void QsciScintilla_SuperEnsureLineVisible(QsciScintilla* self, int line) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnEnsureLineVisible(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_EnsureLineVisible_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_EnsureLineVisible_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1897,9 +1878,8 @@ void QsciScintilla_SuperFoldAll(QsciScintilla* self, bool children) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnFoldAll(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_FoldAll_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_FoldAll_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1916,9 +1896,8 @@ void QsciScintilla_SuperFoldLine(QsciScintilla* self, int line) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnFoldLine(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_FoldLine_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_FoldLine_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1935,9 +1914,8 @@ void QsciScintilla_SuperIndent(QsciScintilla* self, int line) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnIndent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Indent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Indent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1955,9 +1933,8 @@ void QsciScintilla_SuperInsert(QsciScintilla* self, const libqt_string text) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnInsert(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Insert_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Insert_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1975,9 +1952,8 @@ void QsciScintilla_SuperInsertAt(QsciScintilla* self, const libqt_string text, i
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnInsertAt(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_InsertAt_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_InsertAt_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1994,9 +1970,8 @@ void QsciScintilla_SuperMoveToMatchingBrace(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnMoveToMatchingBrace(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_MoveToMatchingBrace_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_MoveToMatchingBrace_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2013,9 +1988,8 @@ void QsciScintilla_SuperPaste(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnPaste(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Paste_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Paste_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2032,9 +2006,8 @@ void QsciScintilla_SuperRedo(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnRedo(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Redo_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Redo_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2051,9 +2024,8 @@ void QsciScintilla_SuperRemoveSelectedText(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnRemoveSelectedText(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_RemoveSelectedText_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_RemoveSelectedText_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2071,9 +2043,8 @@ void QsciScintilla_SuperReplaceSelectedText(QsciScintilla* self, const libqt_str
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnReplaceSelectedText(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ReplaceSelectedText_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ReplaceSelectedText_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2090,9 +2061,8 @@ void QsciScintilla_SuperResetSelectionBackgroundColor(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnResetSelectionBackgroundColor(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ResetSelectionBackgroundColor_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ResetSelectionBackgroundColor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2109,9 +2079,8 @@ void QsciScintilla_SuperResetSelectionForegroundColor(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnResetSelectionForegroundColor(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ResetSelectionForegroundColor_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ResetSelectionForegroundColor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2128,9 +2097,8 @@ void QsciScintilla_SuperSelectAll(QsciScintilla* self, bool select) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSelectAll(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SelectAll_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SelectAll_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2147,9 +2115,8 @@ void QsciScintilla_SuperSelectToMatchingBrace(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSelectToMatchingBrace(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SelectToMatchingBrace_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SelectToMatchingBrace_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2166,9 +2133,8 @@ void QsciScintilla_SuperSetAutoCompletionCaseSensitivity(QsciScintilla* self, bo
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetAutoCompletionCaseSensitivity(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetAutoCompletionCaseSensitivity_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetAutoCompletionCaseSensitivity_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2185,9 +2151,8 @@ void QsciScintilla_SuperSetAutoCompletionReplaceWord(QsciScintilla* self, bool r
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetAutoCompletionReplaceWord(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetAutoCompletionReplaceWord_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetAutoCompletionReplaceWord_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2204,9 +2169,8 @@ void QsciScintilla_SuperSetAutoCompletionShowSingle(QsciScintilla* self, bool si
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetAutoCompletionShowSingle(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetAutoCompletionShowSingle_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetAutoCompletionShowSingle_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2223,9 +2187,8 @@ void QsciScintilla_SuperSetAutoCompletionSource(QsciScintilla* self, int source)
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetAutoCompletionSource(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetAutoCompletionSource_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetAutoCompletionSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2242,9 +2205,8 @@ void QsciScintilla_SuperSetAutoCompletionThreshold(QsciScintilla* self, int thre
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetAutoCompletionThreshold(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetAutoCompletionThreshold_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetAutoCompletionThreshold_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2261,9 +2223,8 @@ void QsciScintilla_SuperSetAutoCompletionUseSingle(QsciScintilla* self, int sing
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetAutoCompletionUseSingle(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetAutoCompletionUseSingle_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetAutoCompletionUseSingle_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2280,9 +2241,8 @@ void QsciScintilla_SuperSetAutoIndent(QsciScintilla* self, bool autoindent) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetAutoIndent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetAutoIndent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetAutoIndent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2299,9 +2259,8 @@ void QsciScintilla_SuperSetBraceMatching(QsciScintilla* self, int bm) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetBraceMatching(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetBraceMatching_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetBraceMatching_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2318,9 +2277,8 @@ void QsciScintilla_SuperSetBackspaceUnindents(QsciScintilla* self, bool unindent
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetBackspaceUnindents(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetBackspaceUnindents_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetBackspaceUnindents_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2337,9 +2295,8 @@ void QsciScintilla_SuperSetCaretForegroundColor(QsciScintilla* self, const QColo
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetCaretForegroundColor(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetCaretForegroundColor_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetCaretForegroundColor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2356,9 +2313,8 @@ void QsciScintilla_SuperSetCaretLineBackgroundColor(QsciScintilla* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetCaretLineBackgroundColor(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetCaretLineBackgroundColor_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetCaretLineBackgroundColor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2375,9 +2331,8 @@ void QsciScintilla_SuperSetCaretLineFrameWidth(QsciScintilla* self, int width) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetCaretLineFrameWidth(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetCaretLineFrameWidth_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetCaretLineFrameWidth_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2394,9 +2349,8 @@ void QsciScintilla_SuperSetCaretLineVisible(QsciScintilla* self, bool enable) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetCaretLineVisible(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetCaretLineVisible_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetCaretLineVisible_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2413,9 +2367,8 @@ void QsciScintilla_SuperSetCaretWidth(QsciScintilla* self, int width) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetCaretWidth(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetCaretWidth_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetCaretWidth_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2432,9 +2385,8 @@ void QsciScintilla_SuperSetColor(QsciScintilla* self, const QColor* c) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetColor(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetColor_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetColor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2451,9 +2403,8 @@ void QsciScintilla_SuperSetCursorPosition(QsciScintilla* self, int line, int ind
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetCursorPosition(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetCursorPosition_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetCursorPosition_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2470,9 +2421,8 @@ void QsciScintilla_SuperSetEolMode(QsciScintilla* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetEolMode(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetEolMode_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetEolMode_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2489,9 +2439,8 @@ void QsciScintilla_SuperSetEolVisibility(QsciScintilla* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetEolVisibility(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetEolVisibility_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetEolVisibility_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2508,9 +2457,8 @@ void QsciScintilla_SuperSetFolding(QsciScintilla* self, int fold, int margin) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetFolding(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetFolding_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetFolding_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2527,9 +2475,8 @@ void QsciScintilla_SuperSetIndentation(QsciScintilla* self, int line, int indent
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetIndentation(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetIndentation_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetIndentation_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2546,9 +2493,8 @@ void QsciScintilla_SuperSetIndentationGuides(QsciScintilla* self, bool enable) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetIndentationGuides(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetIndentationGuides_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetIndentationGuides_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2565,9 +2511,8 @@ void QsciScintilla_SuperSetIndentationGuidesBackgroundColor(QsciScintilla* self,
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetIndentationGuidesBackgroundColor(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetIndentationGuidesBackgroundColor_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetIndentationGuidesBackgroundColor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2584,9 +2529,8 @@ void QsciScintilla_SuperSetIndentationGuidesForegroundColor(QsciScintilla* self,
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetIndentationGuidesForegroundColor(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetIndentationGuidesForegroundColor_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetIndentationGuidesForegroundColor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2603,9 +2547,8 @@ void QsciScintilla_SuperSetIndentationsUseTabs(QsciScintilla* self, bool tabs) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetIndentationsUseTabs(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetIndentationsUseTabs_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetIndentationsUseTabs_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2622,9 +2565,8 @@ void QsciScintilla_SuperSetIndentationWidth(QsciScintilla* self, int width) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetIndentationWidth(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetIndentationWidth_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetIndentationWidth_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2641,9 +2583,8 @@ void QsciScintilla_SuperSetLexer(QsciScintilla* self, QsciLexer* lexer) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetLexer(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetLexer_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetLexer_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2660,9 +2601,8 @@ void QsciScintilla_SuperSetMarginsBackgroundColor(QsciScintilla* self, const QCo
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetMarginsBackgroundColor(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetMarginsBackgroundColor_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetMarginsBackgroundColor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2679,9 +2619,8 @@ void QsciScintilla_SuperSetMarginsFont(QsciScintilla* self, const QFont* f) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetMarginsFont(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetMarginsFont_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetMarginsFont_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2698,9 +2637,8 @@ void QsciScintilla_SuperSetMarginsForegroundColor(QsciScintilla* self, const QCo
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetMarginsForegroundColor(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetMarginsForegroundColor_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetMarginsForegroundColor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2717,9 +2655,8 @@ void QsciScintilla_SuperSetMarginLineNumbers(QsciScintilla* self, int margin, bo
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetMarginLineNumbers(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetMarginLineNumbers_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetMarginLineNumbers_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2736,9 +2673,8 @@ void QsciScintilla_SuperSetMarginMarkerMask(QsciScintilla* self, int margin, int
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetMarginMarkerMask(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetMarginMarkerMask_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetMarginMarkerMask_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2755,9 +2691,8 @@ void QsciScintilla_SuperSetMarginSensitivity(QsciScintilla* self, int margin, bo
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetMarginSensitivity(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetMarginSensitivity_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetMarginSensitivity_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2774,9 +2709,8 @@ void QsciScintilla_SuperSetMarginWidth(QsciScintilla* self, int margin, int widt
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetMarginWidth(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetMarginWidth_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetMarginWidth_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2794,9 +2728,8 @@ void QsciScintilla_SuperSetMarginWidth2(QsciScintilla* self, int margin, const l
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetMarginWidth2(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetMarginWidth2_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetMarginWidth2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2813,9 +2746,8 @@ void QsciScintilla_SuperSetModified(QsciScintilla* self, bool m) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetModified(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetModified_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetModified_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2832,9 +2764,8 @@ void QsciScintilla_SuperSetPaper(QsciScintilla* self, const QColor* c) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetPaper(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetPaper_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetPaper_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2851,9 +2782,8 @@ void QsciScintilla_SuperSetReadOnly(QsciScintilla* self, bool ro) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetReadOnly(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetReadOnly_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetReadOnly_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2870,9 +2800,8 @@ void QsciScintilla_SuperSetSelection(QsciScintilla* self, int lineFrom, int inde
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetSelection(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetSelection_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetSelection_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2889,9 +2818,8 @@ void QsciScintilla_SuperSetSelectionBackgroundColor(QsciScintilla* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetSelectionBackgroundColor(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetSelectionBackgroundColor_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetSelectionBackgroundColor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2908,9 +2836,8 @@ void QsciScintilla_SuperSetSelectionForegroundColor(QsciScintilla* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetSelectionForegroundColor(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetSelectionForegroundColor_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetSelectionForegroundColor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2927,9 +2854,8 @@ void QsciScintilla_SuperSetTabIndents(QsciScintilla* self, bool indent) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetTabIndents(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetTabIndents_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetTabIndents_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2946,9 +2872,8 @@ void QsciScintilla_SuperSetTabWidth(QsciScintilla* self, int width) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetTabWidth(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetTabWidth_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetTabWidth_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2966,9 +2891,8 @@ void QsciScintilla_SuperSetText(QsciScintilla* self, const libqt_string text) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetText(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetText_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetText_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -2985,9 +2909,8 @@ void QsciScintilla_SuperSetUtf8(QsciScintilla* self, bool cp) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetUtf8(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetUtf8_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetUtf8_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3004,9 +2927,8 @@ void QsciScintilla_SuperSetWhitespaceVisibility(QsciScintilla* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetWhitespaceVisibility(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetWhitespaceVisibility_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetWhitespaceVisibility_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3023,9 +2945,8 @@ void QsciScintilla_SuperSetWrapMode(QsciScintilla* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetWrapMode(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetWrapMode_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetWrapMode_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3042,9 +2963,8 @@ void QsciScintilla_SuperUndo(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnUndo(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Undo_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Undo_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3061,9 +2981,8 @@ void QsciScintilla_SuperUnindent(QsciScintilla* self, int line) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnUnindent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Unindent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Unindent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3080,9 +2999,8 @@ void QsciScintilla_SuperZoomIn(QsciScintilla* self, int range) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnZoomIn(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ZoomIn_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ZoomIn_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3099,9 +3017,8 @@ void QsciScintilla_SuperZoomIn2(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnZoomIn2(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ZoomIn2_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ZoomIn2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3118,9 +3035,8 @@ void QsciScintilla_SuperZoomOut(QsciScintilla* self, int range) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnZoomOut(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ZoomOut_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ZoomOut_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3137,9 +3053,8 @@ void QsciScintilla_SuperZoomOut2(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnZoomOut2(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ZoomOut2_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ZoomOut2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3156,9 +3071,8 @@ void QsciScintilla_SuperZoomTo(QsciScintilla* self, int size) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnZoomTo(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ZoomTo_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ZoomTo_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3175,9 +3089,8 @@ bool QsciScintilla_SuperEvent(QsciScintilla* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Event_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3194,9 +3107,8 @@ void QsciScintilla_SuperChangeEvent(QsciScintilla* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnChangeEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ChangeEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3213,9 +3125,8 @@ void QsciScintilla_SuperContextMenuEvent(QsciScintilla* self, QContextMenuEvent*
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnContextMenuEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ContextMenuEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -3232,9 +3143,8 @@ void QsciScintilla_SuperWheelEvent(QsciScintilla* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnWheelEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_WheelEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3261,9 +3171,8 @@ bool QsciScintilla_SuperCanInsertFromMimeData(const QsciScintilla* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnCanInsertFromMimeData(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_CanInsertFromMimeData_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_CanInsertFromMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3310,9 +3219,8 @@ libqt_string QsciScintilla_SuperFromMimeData(const QsciScintilla* self, const QM
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnFromMimeData(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_FromMimeData_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_FromMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3341,9 +3249,8 @@ QMimeData* QsciScintilla_SuperToMimeData(const QsciScintilla* self, const libqt_
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnToMimeData(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ToMimeData_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ToMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3370,9 +3277,8 @@ void QsciScintilla_SuperDragEnterEvent(QsciScintilla* self, QDragEnterEvent* e) 
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnDragEnterEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_DragEnterEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3399,9 +3305,8 @@ void QsciScintilla_SuperDragLeaveEvent(QsciScintilla* self, QDragLeaveEvent* e) 
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnDragLeaveEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_DragLeaveEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3428,9 +3333,8 @@ void QsciScintilla_SuperDragMoveEvent(QsciScintilla* self, QDragMoveEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnDragMoveEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_DragMoveEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3457,9 +3361,8 @@ void QsciScintilla_SuperDropEvent(QsciScintilla* self, QDropEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnDropEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_DropEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3486,9 +3389,8 @@ void QsciScintilla_SuperFocusInEvent(QsciScintilla* self, QFocusEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnFocusInEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_FocusInEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3515,9 +3417,8 @@ void QsciScintilla_SuperFocusOutEvent(QsciScintilla* self, QFocusEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnFocusOutEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_FocusOutEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3544,9 +3445,8 @@ bool QsciScintilla_SuperFocusNextPrevChild(QsciScintilla* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnFocusNextPrevChild(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3573,9 +3473,8 @@ void QsciScintilla_SuperKeyPressEvent(QsciScintilla* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnKeyPressEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_KeyPressEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3602,9 +3501,8 @@ void QsciScintilla_SuperInputMethodEvent(QsciScintilla* self, QInputMethodEvent*
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnInputMethodEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_InputMethodEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3629,9 +3527,8 @@ QVariant* QsciScintilla_SuperInputMethodQuery(const QsciScintilla* self, int que
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnInputMethodQuery(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_InputMethodQuery_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3658,9 +3555,8 @@ void QsciScintilla_SuperMouseDoubleClickEvent(QsciScintilla* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnMouseDoubleClickEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3687,9 +3583,8 @@ void QsciScintilla_SuperMouseMoveEvent(QsciScintilla* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnMouseMoveEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_MouseMoveEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3716,9 +3611,8 @@ void QsciScintilla_SuperMousePressEvent(QsciScintilla* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnMousePressEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_MousePressEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3745,9 +3639,8 @@ void QsciScintilla_SuperMouseReleaseEvent(QsciScintilla* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnMouseReleaseEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3774,9 +3667,8 @@ void QsciScintilla_SuperPaintEvent(QsciScintilla* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnPaintEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_PaintEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3803,9 +3695,8 @@ void QsciScintilla_SuperResizeEvent(QsciScintilla* self, QResizeEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnResizeEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ResizeEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3832,9 +3723,8 @@ void QsciScintilla_SuperScrollContentsBy(QsciScintilla* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnScrollContentsBy(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ScrollContentsBy_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3861,9 +3751,8 @@ QSize* QsciScintilla_SuperMinimumSizeHint(const QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnMinimumSizeHint(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_MinimumSizeHint_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3890,9 +3779,8 @@ QSize* QsciScintilla_SuperSizeHint(const QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSizeHint(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SizeHint_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3919,9 +3807,8 @@ void QsciScintilla_SuperSetupViewport(QsciScintilla* self, QWidget* viewport) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetupViewport(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetupViewport_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3948,9 +3835,8 @@ bool QsciScintilla_SuperEventFilter(QsciScintilla* self, QObject* param1, QEvent
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnEventFilter(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_EventFilter_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3977,9 +3863,8 @@ bool QsciScintilla_SuperViewportEvent(QsciScintilla* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnViewportEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ViewportEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4004,9 +3889,8 @@ QSize* QsciScintilla_SuperViewportSizeHint(const QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnViewportSizeHint(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ViewportSizeHint_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4033,9 +3917,8 @@ void QsciScintilla_SuperInitStyleOption(const QsciScintilla* self, QStyleOptionF
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnInitStyleOption(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_InitStyleOption_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4062,9 +3945,8 @@ int QsciScintilla_SuperDevType(const QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnDevType(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_DevType_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4091,9 +3973,8 @@ void QsciScintilla_SuperSetVisible(QsciScintilla* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetVisible(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetVisible_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4120,9 +4001,8 @@ int QsciScintilla_SuperHeightForWidth(const QsciScintilla* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnHeightForWidth(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_HeightForWidth_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4149,9 +4029,8 @@ bool QsciScintilla_SuperHasHeightForWidth(const QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnHasHeightForWidth(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_HasHeightForWidth_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4178,9 +4057,8 @@ QPaintEngine* QsciScintilla_SuperPaintEngine(const QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnPaintEngine(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_PaintEngine_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4207,9 +4085,8 @@ void QsciScintilla_SuperKeyReleaseEvent(QsciScintilla* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnKeyReleaseEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4236,9 +4113,8 @@ void QsciScintilla_SuperEnterEvent(QsciScintilla* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnEnterEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_EnterEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4265,9 +4141,8 @@ void QsciScintilla_SuperLeaveEvent(QsciScintilla* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnLeaveEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_LeaveEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4294,9 +4169,8 @@ void QsciScintilla_SuperMoveEvent(QsciScintilla* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnMoveEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_MoveEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4323,9 +4197,8 @@ void QsciScintilla_SuperCloseEvent(QsciScintilla* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnCloseEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_CloseEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4352,9 +4225,8 @@ void QsciScintilla_SuperTabletEvent(QsciScintilla* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnTabletEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_TabletEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4381,9 +4253,8 @@ void QsciScintilla_SuperActionEvent(QsciScintilla* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnActionEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ActionEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4410,9 +4281,8 @@ void QsciScintilla_SuperShowEvent(QsciScintilla* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnShowEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ShowEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4439,9 +4309,8 @@ void QsciScintilla_SuperHideEvent(QsciScintilla* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnHideEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_HideEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4470,9 +4339,8 @@ bool QsciScintilla_SuperNativeEvent(QsciScintilla* self, const libqt_string even
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnNativeEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_NativeEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4499,9 +4367,8 @@ int QsciScintilla_SuperMetric(const QsciScintilla* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnMetric(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Metric_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4528,9 +4395,8 @@ void QsciScintilla_SuperInitPainter(const QsciScintilla* self, QPainter* painter
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnInitPainter(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_InitPainter_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4557,9 +4423,8 @@ QPaintDevice* QsciScintilla_SuperRedirected(const QsciScintilla* self, QPoint* o
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnRedirected(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Redirected_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4586,9 +4451,8 @@ QPainter* QsciScintilla_SuperSharedPainter(const QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSharedPainter(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SharedPainter_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4615,9 +4479,8 @@ void QsciScintilla_SuperTimerEvent(QsciScintilla* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnTimerEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_TimerEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4644,9 +4507,8 @@ void QsciScintilla_SuperChildEvent(QsciScintilla* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnChildEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ChildEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4673,9 +4535,8 @@ void QsciScintilla_SuperCustomEvent(QsciScintilla* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnCustomEvent(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_CustomEvent_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4702,9 +4563,8 @@ void QsciScintilla_SuperConnectNotify(QsciScintilla* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnConnectNotify(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ConnectNotify_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4731,9 +4591,8 @@ void QsciScintilla_SuperDisconnectNotify(QsciScintilla* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnDisconnectNotify(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4760,9 +4619,8 @@ void QsciScintilla_SuperSetScrollBars(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetScrollBars(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetScrollBars_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetScrollBars_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4811,9 +4669,8 @@ libqt_string QsciScintilla_SuperTextAsBytes(const QsciScintilla* self, const lib
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnTextAsBytes(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_TextAsBytes_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_TextAsBytes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4872,9 +4729,8 @@ libqt_string QsciScintilla_SuperBytesAsText(const QsciScintilla* self, const cha
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnBytesAsText(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_BytesAsText_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_BytesAsText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4901,9 +4757,8 @@ bool QsciScintilla_SuperContextMenuNeeded(const QsciScintilla* self, int x, int 
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnContextMenuNeeded(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ContextMenuNeeded_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ContextMenuNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4930,9 +4785,8 @@ void QsciScintilla_SuperSetViewportMargins(QsciScintilla* self, int left, int to
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSetViewportMargins(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SetViewportMargins_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4957,9 +4811,8 @@ QMargins* QsciScintilla_SuperViewportMargins(const QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnViewportMargins(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_ViewportMargins_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4986,9 +4839,8 @@ void QsciScintilla_SuperDrawFrame(QsciScintilla* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnDrawFrame(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_DrawFrame_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5015,9 +4867,8 @@ void QsciScintilla_SuperUpdateMicroFocus(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnUpdateMicroFocus(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5044,9 +4895,8 @@ void QsciScintilla_SuperCreate(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnCreate(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Create_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5073,9 +4923,8 @@ void QsciScintilla_SuperDestroy(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnDestroy(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Destroy_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5102,9 +4951,8 @@ bool QsciScintilla_SuperFocusNextChild(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnFocusNextChild(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_FocusNextChild_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5131,9 +4979,8 @@ bool QsciScintilla_SuperFocusPreviousChild(QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnFocusPreviousChild(QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_FocusPreviousChild_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5160,9 +5007,8 @@ QObject* QsciScintilla_SuperSender(const QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSender(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Sender_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5189,9 +5035,8 @@ int QsciScintilla_SuperSenderSignalIndex(const QsciScintilla* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnSenderSignalIndex(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5218,9 +5063,8 @@ int QsciScintilla_SuperReceivers(const QsciScintilla* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnReceivers(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_Receivers_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5247,9 +5091,8 @@ bool QsciScintilla_SuperIsSignalConnected(const QsciScintilla* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnIsSignalConnected(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -5276,9 +5119,8 @@ double QsciScintilla_SuperGetDecodedMetricF(const QsciScintilla* self, int metri
 // Auxiliary method to allow providing re-implementation
 void QsciScintilla_OnGetDecodedMetricF(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla)
         vqsciscintilla->setQsciScintilla_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QsciScintilla_Delete(QsciScintilla* self) {

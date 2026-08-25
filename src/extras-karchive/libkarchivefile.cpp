@@ -86,9 +86,8 @@ libqt_string KArchiveFile_SuperData(const KArchiveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KArchiveFile_OnData(const KArchiveFile* self, intptr_t slot) {
     auto* vkarchivefile = const_cast<VirtualKArchiveFile*>(dynamic_cast<const VirtualKArchiveFile*>(self));
-    if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile) {
+    if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile)
         vkarchivefile->setKArchiveFile_Data_Callback(reinterpret_cast<VirtualKArchiveFile::KArchiveFile_Data_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -105,9 +104,8 @@ QIODevice* KArchiveFile_SuperCreateDevice(const KArchiveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KArchiveFile_OnCreateDevice(const KArchiveFile* self, intptr_t slot) {
     auto* vkarchivefile = const_cast<VirtualKArchiveFile*>(dynamic_cast<const VirtualKArchiveFile*>(self));
-    if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile) {
+    if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile)
         vkarchivefile->setKArchiveFile_CreateDevice_Callback(reinterpret_cast<VirtualKArchiveFile::KArchiveFile_CreateDevice_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -124,9 +122,8 @@ bool KArchiveFile_SuperIsFile(const KArchiveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KArchiveFile_OnIsFile(const KArchiveFile* self, intptr_t slot) {
     auto* vkarchivefile = const_cast<VirtualKArchiveFile*>(dynamic_cast<const VirtualKArchiveFile*>(self));
-    if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile) {
+    if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile)
         vkarchivefile->setKArchiveFile_IsFile_Callback(reinterpret_cast<VirtualKArchiveFile::KArchiveFile_IsFile_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -143,9 +140,8 @@ void KArchiveFile_SuperVirtualHook(KArchiveFile* self, int id, void* data) {
 // Auxiliary method to allow providing re-implementation
 void KArchiveFile_OnVirtualHook(KArchiveFile* self, intptr_t slot) {
     auto* vkarchivefile = dynamic_cast<VirtualKArchiveFile*>(self);
-    if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile) {
+    if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile)
         vkarchivefile->setKArchiveFile_VirtualHook_Callback(reinterpret_cast<VirtualKArchiveFile::KArchiveFile_VirtualHook_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -172,9 +168,8 @@ bool KArchiveFile_SuperIsDirectory(const KArchiveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KArchiveFile_OnIsDirectory(const KArchiveFile* self, intptr_t slot) {
     auto* vkarchivefile = const_cast<VirtualKArchiveFile*>(dynamic_cast<const VirtualKArchiveFile*>(self));
-    if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile) {
+    if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile)
         vkarchivefile->setKArchiveFile_IsDirectory_Callback(reinterpret_cast<VirtualKArchiveFile::KArchiveFile_IsDirectory_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -201,9 +196,8 @@ KArchive* KArchiveFile_SuperArchive(const KArchiveFile* self) {
 // Auxiliary method to allow providing re-implementation
 void KArchiveFile_OnArchive(const KArchiveFile* self, intptr_t slot) {
     auto* vkarchivefile = const_cast<VirtualKArchiveFile*>(dynamic_cast<const VirtualKArchiveFile*>(self));
-    if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile) {
+    if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile)
         vkarchivefile->setKArchiveFile_Archive_Callback(reinterpret_cast<VirtualKArchiveFile::KArchiveFile_Archive_Callback>(slot));
-    }
 }
 
 void KArchiveFile_Delete(KArchiveFile* self) {

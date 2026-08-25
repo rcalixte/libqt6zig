@@ -38,6 +38,8 @@ typedef struct QUrl QUrl;
 #endif
 
 KIO__ForwardingWorkerBase* KIO__ForwardingWorkerBase_new(const libqt_string protocol, const libqt_string poolSocket, const libqt_string appSocket);
+KIO__WorkerBase* KIO__ForwardingWorkerBase_AsKIO__WorkerBase(KIO__ForwardingWorkerBase* self);
+KIO__ForwardingWorkerBase* KIO__ForwardingWorkerBase_FromKIO__WorkerBase(KIO__WorkerBase* _kio__workerbase);
 QMetaObject* KIO__ForwardingWorkerBase_MetaObject(const KIO__ForwardingWorkerBase* self);
 void* KIO__ForwardingWorkerBase_Metacast(KIO__ForwardingWorkerBase* self, const char* param1);
 int KIO__ForwardingWorkerBase_Metacall(KIO__ForwardingWorkerBase* self, int param1, int param2, void** param3);

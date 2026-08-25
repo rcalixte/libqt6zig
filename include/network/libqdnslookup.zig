@@ -3891,7 +3891,7 @@ pub const QDnsLookup = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#public-types)
 pub const enums = struct {
-    pub const CertificateUsage = enum(u8) {
+    pub const CertificateUsage = enum {
         pub const CertificateAuthorityConstrait: u8 = 0;
         pub const ServiceCertificateConstraint: u8 = 1;
         pub const TrustAnchorAssertion: u8 = 2;
@@ -3904,7 +3904,7 @@ pub const enums = struct {
         pub const PrivCert: u8 = 255;
     };
 
-    pub const Selector = enum(u8) {
+    pub const Selector = enum {
         pub const FullCertificate: u8 = 0;
         pub const SubjectPublicKeyInfo: u8 = 1;
         pub const PrivateUse: u8 = 255;
@@ -3913,7 +3913,7 @@ pub const enums = struct {
         pub const PrivSel: u8 = 255;
     };
 
-    pub const MatchingType = enum(u8) {
+    pub const MatchingType = enum {
         pub const Exact: u8 = 0;
         pub const Sha256: u8 = 1;
         pub const Sha512: u8 = 2;
@@ -3921,7 +3921,7 @@ pub const enums = struct {
         pub const PrivMatch: u8 = 255;
     };
 
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const ResolverError: i32 = 1;
         pub const OperationCancelledError: i32 = 2;
@@ -3933,7 +3933,7 @@ pub const enums = struct {
         pub const TimeoutError: i32 = 8;
     };
 
-    pub const Type = enum(i32) {
+    pub const Type = enum {
         pub const A: i32 = 1;
         pub const AAAA: i32 = 28;
         pub const ANY: i32 = 255;
@@ -3946,7 +3946,7 @@ pub const enums = struct {
         pub const TXT: i32 = 16;
     };
 
-    pub const Protocol = enum(u8) {
+    pub const Protocol = enum {
         pub const Standard: u8 = 0;
         pub const DnsOverTls: u8 = 1;
     };

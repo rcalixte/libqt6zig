@@ -3114,7 +3114,7 @@ pub const QCoreApplication = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#public-types)
 pub const enums = struct {
-    pub const QCoreApplication = enum(i32) {
+    pub const QCoreApplication = enum {
         pub const ApplicationFlags: i32 = 395266;
     };
 };

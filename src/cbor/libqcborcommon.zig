@@ -104,7 +104,7 @@ pub const QCborError = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborcommon.html#public-types)
 pub const enums = struct {
-    pub const QCborSimpleType = enum(u8) {
+    pub const QCborSimpleType = enum {
         pub const False: u8 = 20;
         pub const True: u8 = 21;
         pub const Null: u8 = 22;
@@ -113,7 +113,7 @@ pub const enums = struct {
 
     pub const QCborTag = enum(u64) { _ };
 
-    pub const QCborKnownTags = enum(i32) {
+    pub const QCborKnownTags = enum {
         pub const DateTimeString: i32 = 0;
         pub const UnixTime_t: i32 = 1;
         pub const PositiveBignum: i32 = 2;
@@ -141,7 +141,7 @@ pub const enums = struct {
 
     pub const QCborNegativeInteger = enum(u64) { _ };
 
-    pub const Code = enum(i32) {
+    pub const Code = enum {
         pub const UnknownError: i32 = 1;
         pub const AdvancePastEnd: i32 = 3;
         pub const InputOutputError: i32 = 4;

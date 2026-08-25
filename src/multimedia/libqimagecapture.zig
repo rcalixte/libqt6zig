@@ -2712,7 +2712,7 @@ pub const QImageCapture = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qimagecapture.html#public-types)
 pub const enums = struct {
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const NotReadyError: i32 = 1;
         pub const ResourceError: i32 = 2;
@@ -2721,7 +2721,7 @@ pub const enums = struct {
         pub const FormatError: i32 = 5;
     };
 
-    pub const Quality = enum(i32) {
+    pub const Quality = enum {
         pub const VeryLowQuality: i32 = 0;
         pub const LowQuality: i32 = 1;
         pub const NormalQuality: i32 = 2;
@@ -2729,7 +2729,7 @@ pub const enums = struct {
         pub const VeryHighQuality: i32 = 4;
     };
 
-    pub const FileFormat = enum(i32) {
+    pub const FileFormat = enum {
         pub const UnspecifiedFormat: i32 = 0;
         pub const JPEG: i32 = 1;
         pub const PNG: i32 = 2;

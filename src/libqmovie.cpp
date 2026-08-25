@@ -330,9 +330,8 @@ QMetaObject* QMovie_SuperMetaObject(const QMovie* self) {
 // Auxiliary method to allow providing re-implementation
 void QMovie_OnMetaObject(const QMovie* self, intptr_t slot) {
     auto* vqmovie = const_cast<VirtualQMovie*>(dynamic_cast<const VirtualQMovie*>(self));
-    if (vqmovie && vqmovie->isVirtualQMovie) {
+    if (vqmovie && vqmovie->isVirtualQMovie)
         vqmovie->setQMovie_MetaObject_Callback(reinterpret_cast<VirtualQMovie::QMovie_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -349,9 +348,8 @@ void* QMovie_SuperMetacast(QMovie* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QMovie_OnMetacast(QMovie* self, intptr_t slot) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
-    if (vqmovie && vqmovie->isVirtualQMovie) {
+    if (vqmovie && vqmovie->isVirtualQMovie)
         vqmovie->setQMovie_Metacast_Callback(reinterpret_cast<VirtualQMovie::QMovie_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -368,9 +366,8 @@ int QMovie_SuperMetacall(QMovie* self, int param1, int param2, void** param3) {
 // Auxiliary method to allow providing re-implementation
 void QMovie_OnMetacall(QMovie* self, intptr_t slot) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
-    if (vqmovie && vqmovie->isVirtualQMovie) {
+    if (vqmovie && vqmovie->isVirtualQMovie)
         vqmovie->setQMovie_Metacall_Callback(reinterpret_cast<VirtualQMovie::QMovie_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +394,8 @@ bool QMovie_SuperEvent(QMovie* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMovie_OnEvent(QMovie* self, intptr_t slot) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
-    if (vqmovie && vqmovie->isVirtualQMovie) {
+    if (vqmovie && vqmovie->isVirtualQMovie)
         vqmovie->setQMovie_Event_Callback(reinterpret_cast<VirtualQMovie::QMovie_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +422,8 @@ bool QMovie_SuperEventFilter(QMovie* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMovie_OnEventFilter(QMovie* self, intptr_t slot) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
-    if (vqmovie && vqmovie->isVirtualQMovie) {
+    if (vqmovie && vqmovie->isVirtualQMovie)
         vqmovie->setQMovie_EventFilter_Callback(reinterpret_cast<VirtualQMovie::QMovie_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -455,9 +450,8 @@ void QMovie_SuperTimerEvent(QMovie* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMovie_OnTimerEvent(QMovie* self, intptr_t slot) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
-    if (vqmovie && vqmovie->isVirtualQMovie) {
+    if (vqmovie && vqmovie->isVirtualQMovie)
         vqmovie->setQMovie_TimerEvent_Callback(reinterpret_cast<VirtualQMovie::QMovie_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -484,9 +478,8 @@ void QMovie_SuperChildEvent(QMovie* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMovie_OnChildEvent(QMovie* self, intptr_t slot) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
-    if (vqmovie && vqmovie->isVirtualQMovie) {
+    if (vqmovie && vqmovie->isVirtualQMovie)
         vqmovie->setQMovie_ChildEvent_Callback(reinterpret_cast<VirtualQMovie::QMovie_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -513,9 +506,8 @@ void QMovie_SuperCustomEvent(QMovie* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QMovie_OnCustomEvent(QMovie* self, intptr_t slot) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
-    if (vqmovie && vqmovie->isVirtualQMovie) {
+    if (vqmovie && vqmovie->isVirtualQMovie)
         vqmovie->setQMovie_CustomEvent_Callback(reinterpret_cast<VirtualQMovie::QMovie_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -542,9 +534,8 @@ void QMovie_SuperConnectNotify(QMovie* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QMovie_OnConnectNotify(QMovie* self, intptr_t slot) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
-    if (vqmovie && vqmovie->isVirtualQMovie) {
+    if (vqmovie && vqmovie->isVirtualQMovie)
         vqmovie->setQMovie_ConnectNotify_Callback(reinterpret_cast<VirtualQMovie::QMovie_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -571,9 +562,8 @@ void QMovie_SuperDisconnectNotify(QMovie* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QMovie_OnDisconnectNotify(QMovie* self, intptr_t slot) {
     auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
-    if (vqmovie && vqmovie->isVirtualQMovie) {
+    if (vqmovie && vqmovie->isVirtualQMovie)
         vqmovie->setQMovie_DisconnectNotify_Callback(reinterpret_cast<VirtualQMovie::QMovie_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -600,9 +590,8 @@ QObject* QMovie_SuperSender(const QMovie* self) {
 // Auxiliary method to allow providing re-implementation
 void QMovie_OnSender(const QMovie* self, intptr_t slot) {
     auto* vqmovie = const_cast<VirtualQMovie*>(dynamic_cast<const VirtualQMovie*>(self));
-    if (vqmovie && vqmovie->isVirtualQMovie) {
+    if (vqmovie && vqmovie->isVirtualQMovie)
         vqmovie->setQMovie_Sender_Callback(reinterpret_cast<VirtualQMovie::QMovie_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -629,9 +618,8 @@ int QMovie_SuperSenderSignalIndex(const QMovie* self) {
 // Auxiliary method to allow providing re-implementation
 void QMovie_OnSenderSignalIndex(const QMovie* self, intptr_t slot) {
     auto* vqmovie = const_cast<VirtualQMovie*>(dynamic_cast<const VirtualQMovie*>(self));
-    if (vqmovie && vqmovie->isVirtualQMovie) {
+    if (vqmovie && vqmovie->isVirtualQMovie)
         vqmovie->setQMovie_SenderSignalIndex_Callback(reinterpret_cast<VirtualQMovie::QMovie_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -658,9 +646,8 @@ int QMovie_SuperReceivers(const QMovie* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QMovie_OnReceivers(const QMovie* self, intptr_t slot) {
     auto* vqmovie = const_cast<VirtualQMovie*>(dynamic_cast<const VirtualQMovie*>(self));
-    if (vqmovie && vqmovie->isVirtualQMovie) {
+    if (vqmovie && vqmovie->isVirtualQMovie)
         vqmovie->setQMovie_Receivers_Callback(reinterpret_cast<VirtualQMovie::QMovie_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -687,9 +674,8 @@ bool QMovie_SuperIsSignalConnected(const QMovie* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QMovie_OnIsSignalConnected(const QMovie* self, intptr_t slot) {
     auto* vqmovie = const_cast<VirtualQMovie*>(dynamic_cast<const VirtualQMovie*>(self));
-    if (vqmovie && vqmovie->isVirtualQMovie) {
+    if (vqmovie && vqmovie->isVirtualQMovie)
         vqmovie->setQMovie_IsSignalConnected_Callback(reinterpret_cast<VirtualQMovie::QMovie_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QMovie_Delete(QMovie* self) {

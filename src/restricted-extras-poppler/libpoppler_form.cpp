@@ -653,9 +653,8 @@ QMetaObject* Poppler__AsyncObject_SuperMetaObject(const Poppler__AsyncObject* se
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnMetaObject(const Poppler__AsyncObject* self, intptr_t slot) {
     auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
         vpopplerasyncobject->setPoppler__AsyncObject_MetaObject_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -672,9 +671,8 @@ void* Poppler__AsyncObject_SuperMetacast(Poppler__AsyncObject* self, const char*
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnMetacast(Poppler__AsyncObject* self, intptr_t slot) {
     auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
         vpopplerasyncobject->setPoppler__AsyncObject_Metacast_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -691,9 +689,8 @@ int Poppler__AsyncObject_SuperMetacall(Poppler__AsyncObject* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnMetacall(Poppler__AsyncObject* self, intptr_t slot) {
     auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
         vpopplerasyncobject->setPoppler__AsyncObject_Metacall_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -720,9 +717,8 @@ bool Poppler__AsyncObject_SuperEvent(Poppler__AsyncObject* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnEvent(Poppler__AsyncObject* self, intptr_t slot) {
     auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
         vpopplerasyncobject->setPoppler__AsyncObject_Event_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -749,9 +745,8 @@ bool Poppler__AsyncObject_SuperEventFilter(Poppler__AsyncObject* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnEventFilter(Poppler__AsyncObject* self, intptr_t slot) {
     auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
         vpopplerasyncobject->setPoppler__AsyncObject_EventFilter_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -778,9 +773,8 @@ void Poppler__AsyncObject_SuperTimerEvent(Poppler__AsyncObject* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnTimerEvent(Poppler__AsyncObject* self, intptr_t slot) {
     auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
         vpopplerasyncobject->setPoppler__AsyncObject_TimerEvent_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -807,9 +801,8 @@ void Poppler__AsyncObject_SuperChildEvent(Poppler__AsyncObject* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnChildEvent(Poppler__AsyncObject* self, intptr_t slot) {
     auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
         vpopplerasyncobject->setPoppler__AsyncObject_ChildEvent_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -836,9 +829,8 @@ void Poppler__AsyncObject_SuperCustomEvent(Poppler__AsyncObject* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnCustomEvent(Poppler__AsyncObject* self, intptr_t slot) {
     auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
         vpopplerasyncobject->setPoppler__AsyncObject_CustomEvent_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -865,9 +857,8 @@ void Poppler__AsyncObject_SuperConnectNotify(Poppler__AsyncObject* self, const Q
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnConnectNotify(Poppler__AsyncObject* self, intptr_t slot) {
     auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
         vpopplerasyncobject->setPoppler__AsyncObject_ConnectNotify_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -894,9 +885,8 @@ void Poppler__AsyncObject_SuperDisconnectNotify(Poppler__AsyncObject* self, cons
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnDisconnectNotify(Poppler__AsyncObject* self, intptr_t slot) {
     auto* vpopplerasyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
         vpopplerasyncobject->setPoppler__AsyncObject_DisconnectNotify_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -923,9 +913,8 @@ QObject* Poppler__AsyncObject_SuperSender(const Poppler__AsyncObject* self) {
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnSender(const Poppler__AsyncObject* self, intptr_t slot) {
     auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
         vpopplerasyncobject->setPoppler__AsyncObject_Sender_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -952,9 +941,8 @@ int Poppler__AsyncObject_SuperSenderSignalIndex(const Poppler__AsyncObject* self
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnSenderSignalIndex(const Poppler__AsyncObject* self, intptr_t slot) {
     auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
         vpopplerasyncobject->setPoppler__AsyncObject_SenderSignalIndex_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -981,9 +969,8 @@ int Poppler__AsyncObject_SuperReceivers(const Poppler__AsyncObject* self, const 
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnReceivers(const Poppler__AsyncObject* self, intptr_t slot) {
     auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
         vpopplerasyncobject->setPoppler__AsyncObject_Receivers_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1010,9 +997,8 @@ bool Poppler__AsyncObject_SuperIsSignalConnected(const Poppler__AsyncObject* sel
 // Auxiliary method to allow providing re-implementation
 void Poppler__AsyncObject_OnIsSignalConnected(const Poppler__AsyncObject* self, intptr_t slot) {
     auto* vpopplerasyncobject = const_cast<VirtualPopplerAsyncObject*>(dynamic_cast<const VirtualPopplerAsyncObject*>(self));
-    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject) {
+    if (vpopplerasyncobject && vpopplerasyncobject->isVirtualPopplerAsyncObject)
         vpopplerasyncobject->setPoppler__AsyncObject_IsSignalConnected_Callback(reinterpret_cast<VirtualPopplerAsyncObject::Poppler__AsyncObject_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void Poppler__AsyncObject_Delete(Poppler__AsyncObject* self) {

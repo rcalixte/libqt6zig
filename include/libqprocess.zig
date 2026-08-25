@@ -3,6 +3,7 @@ const qtc = @import("qt6c");
 const QBindingStorage = @import("libqt6").QBindingStorage;
 const QChildEvent = @import("libqt6").QChildEvent;
 const QEvent = @import("libqt6").QEvent;
+const QIODeviceBase = @import("libqt6").QIODeviceBase;
 const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
@@ -2448,6 +2449,18 @@ pub const QProcess = extern struct {
     ///
     pub fn onFinished2(self: QProcess, callback: *const fn (QProcess, i32, i32) callconv(.c) void) void {
         qtc.QProcess_Connect_Finished2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QIODevice
+    ///
+    /// Upcasts to a QIODeviceBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QProcess `
+    ///
+    pub fn asQIODeviceBase(self: QProcess) QIODeviceBase {
+        return .{ .ptr = qtc.QIODevice_AsQIODeviceBase(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `openMode` instead
@@ -5825,11 +5838,11 @@ pub const QProcess__UnixProcessParameters = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#public-types)
 pub const enums = struct {
-    pub const Initialization = enum(i32) {
+    pub const Initialization = enum {
         pub const InheritFromParent: i32 = 0;
     };
 
-    pub const ProcessError = enum(i32) {
+    pub const ProcessError = enum {
         pub const FailedToStart: i32 = 0;
         pub const Crashed: i32 = 1;
         pub const Timedout: i32 = 2;
@@ -5838,18 +5851,18 @@ pub const enums = struct {
         pub const UnknownError: i32 = 5;
     };
 
-    pub const ProcessState = enum(i32) {
+    pub const ProcessState = enum {
         pub const NotRunning: i32 = 0;
         pub const Starting: i32 = 1;
         pub const Running: i32 = 2;
     };
 
-    pub const ProcessChannel = enum(i32) {
+    pub const ProcessChannel = enum {
         pub const StandardOutput: i32 = 0;
         pub const StandardError: i32 = 1;
     };
 
-    pub const ProcessChannelMode = enum(i32) {
+    pub const ProcessChannelMode = enum {
         pub const SeparateChannels: i32 = 0;
         pub const MergedChannels: i32 = 1;
         pub const ForwardedChannels: i32 = 2;
@@ -5857,17 +5870,17 @@ pub const enums = struct {
         pub const ForwardedErrorChannel: i32 = 4;
     };
 
-    pub const InputChannelMode = enum(i32) {
+    pub const InputChannelMode = enum {
         pub const ManagedInputChannel: i32 = 0;
         pub const ForwardedInputChannel: i32 = 1;
     };
 
-    pub const ExitStatus = enum(i32) {
+    pub const ExitStatus = enum {
         pub const NormalExit: i32 = 0;
         pub const CrashExit: i32 = 1;
     };
 
-    pub const UnixProcessFlag = enum(u32) {
+    pub const UnixProcessFlag = enum {
         pub const ResetSignalHandlers: u32 = 1;
         pub const IgnoreSigPipe: u32 = 2;
         pub const CloseFileDescriptors: u32 = 16;

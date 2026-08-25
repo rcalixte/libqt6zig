@@ -63,9 +63,8 @@ libqt_string QDesignerOptionsPageInterface_SuperName(const QDesignerOptionsPageI
 // Auxiliary method to allow providing re-implementation
 void QDesignerOptionsPageInterface_OnName(const QDesignerOptionsPageInterface* self, intptr_t slot) {
     auto* vqdesigneroptionspageinterface = const_cast<VirtualQDesignerOptionsPageInterface*>(dynamic_cast<const VirtualQDesignerOptionsPageInterface*>(self));
-    if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface) {
+    if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface)
         vqdesigneroptionspageinterface->setQDesignerOptionsPageInterface_Name_Callback(reinterpret_cast<VirtualQDesignerOptionsPageInterface::QDesignerOptionsPageInterface_Name_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -82,9 +81,8 @@ QWidget* QDesignerOptionsPageInterface_SuperCreatePage(QDesignerOptionsPageInter
 // Auxiliary method to allow providing re-implementation
 void QDesignerOptionsPageInterface_OnCreatePage(QDesignerOptionsPageInterface* self, intptr_t slot) {
     auto* vqdesigneroptionspageinterface = dynamic_cast<VirtualQDesignerOptionsPageInterface*>(self);
-    if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface) {
+    if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface)
         vqdesigneroptionspageinterface->setQDesignerOptionsPageInterface_CreatePage_Callback(reinterpret_cast<VirtualQDesignerOptionsPageInterface::QDesignerOptionsPageInterface_CreatePage_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -101,9 +99,8 @@ void QDesignerOptionsPageInterface_SuperApply(QDesignerOptionsPageInterface* sel
 // Auxiliary method to allow providing re-implementation
 void QDesignerOptionsPageInterface_OnApply(QDesignerOptionsPageInterface* self, intptr_t slot) {
     auto* vqdesigneroptionspageinterface = dynamic_cast<VirtualQDesignerOptionsPageInterface*>(self);
-    if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface) {
+    if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface)
         vqdesigneroptionspageinterface->setQDesignerOptionsPageInterface_Apply_Callback(reinterpret_cast<VirtualQDesignerOptionsPageInterface::QDesignerOptionsPageInterface_Apply_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -120,9 +117,8 @@ void QDesignerOptionsPageInterface_SuperFinish(QDesignerOptionsPageInterface* se
 // Auxiliary method to allow providing re-implementation
 void QDesignerOptionsPageInterface_OnFinish(QDesignerOptionsPageInterface* self, intptr_t slot) {
     auto* vqdesigneroptionspageinterface = dynamic_cast<VirtualQDesignerOptionsPageInterface*>(self);
-    if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface) {
+    if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface)
         vqdesigneroptionspageinterface->setQDesignerOptionsPageInterface_Finish_Callback(reinterpret_cast<VirtualQDesignerOptionsPageInterface::QDesignerOptionsPageInterface_Finish_Callback>(slot));
-    }
 }
 
 void QDesignerOptionsPageInterface_Delete(QDesignerOptionsPageInterface* self) {

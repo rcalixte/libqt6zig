@@ -4411,7 +4411,7 @@ pub const QsciLexerPerl = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerPerl = enum(i32) {
+    pub const QsciLexerPerl = enum {
         pub const Default: i32 = 0;
         pub const Error: i32 = 1;
         pub const Comment: i32 = 2;

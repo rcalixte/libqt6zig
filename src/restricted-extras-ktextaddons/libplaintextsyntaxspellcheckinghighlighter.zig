@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KSyntaxHighlighting__AbstractHighlighter = @import("libqt6").KSyntaxHighlighting__AbstractHighlighter;
 const KSyntaxHighlighting__Definition = @import("libqt6").KSyntaxHighlighting__Definition;
 const KSyntaxHighlighting__FoldingRegion = @import("libqt6").KSyntaxHighlighting__FoldingRegion;
 const KSyntaxHighlighting__Format = @import("libqt6").KSyntaxHighlighting__Format;
@@ -71,6 +72,27 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
         comptime _ = @TypeOf(plainText)._is_TextCustomEditor__PlainTextEditor;
         comptime _ = @TypeOf(misspelledColor)._is_QColor;
         return .{ .ptr = qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_new2(@ptrCast(plainText.ptr), @ptrCast(misspelledColor.ptr)) };
+    }
+
+    /// Upcasts to a KSyntaxHighlighting::AbstractHighlighter object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
+    ///
+    pub fn asKSyntaxHighlighting__AbstractHighlighter(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter) KSyntaxHighlighting__AbstractHighlighter {
+        return .{ .ptr = qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_AsKSyntaxHighlighting__AbstractHighlighter(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _ksyntaxhighlighting__abstracthighlighter: KSyntaxHighlighting__AbstractHighlighter `
+    ///
+    pub fn fromKSyntaxHighlighting__AbstractHighlighter(_ksyntaxhighlighting__abstracthighlighter: anytype) TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter {
+        comptime _ = @TypeOf(_ksyntaxhighlighting__abstracthighlighter)._is_KSyntaxHighlighting__AbstractHighlighter;
+        return @bitCast(qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_FromKSyntaxHighlighting__AbstractHighlighter(@ptrCast(_ksyntaxhighlighting__abstracthighlighter.ptr)));
     }
 
     /// ### DEPRECATED: Use `toggleSpellHighlighting` instead

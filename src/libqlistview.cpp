@@ -473,9 +473,8 @@ QMetaObject* QListView_SuperMetaObject(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnMetaObject(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_MetaObject_Callback(reinterpret_cast<VirtualQListView::QListView_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -492,9 +491,8 @@ void* QListView_SuperMetacast(QListView* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnMetacast(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_Metacast_Callback(reinterpret_cast<VirtualQListView::QListView_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -511,9 +509,8 @@ int QListView_SuperMetacall(QListView* self, int param1, int param2, void** para
 // Auxiliary method to allow providing re-implementation
 void QListView_OnMetacall(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_Metacall_Callback(reinterpret_cast<VirtualQListView::QListView_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -530,9 +527,8 @@ QRect* QListView_SuperVisualRect(const QListView* self, const QModelIndex* index
 // Auxiliary method to allow providing re-implementation
 void QListView_OnVisualRect(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_VisualRect_Callback(reinterpret_cast<VirtualQListView::QListView_VisualRect_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -549,9 +545,8 @@ void QListView_SuperScrollTo(QListView* self, const QModelIndex* index, int hint
 // Auxiliary method to allow providing re-implementation
 void QListView_OnScrollTo(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ScrollTo_Callback(reinterpret_cast<VirtualQListView::QListView_ScrollTo_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -568,9 +563,8 @@ QModelIndex* QListView_SuperIndexAt(const QListView* self, const QPoint* p) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnIndexAt(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_IndexAt_Callback(reinterpret_cast<VirtualQListView::QListView_IndexAt_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -587,9 +581,8 @@ void QListView_SuperDoItemsLayout(QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnDoItemsLayout(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_DoItemsLayout_Callback(reinterpret_cast<VirtualQListView::QListView_DoItemsLayout_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -606,9 +599,8 @@ void QListView_SuperReset(QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnReset(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_Reset_Callback(reinterpret_cast<VirtualQListView::QListView_Reset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -625,9 +617,8 @@ void QListView_SuperSetRootIndex(QListView* self, const QModelIndex* index) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSetRootIndex(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SetRootIndex_Callback(reinterpret_cast<VirtualQListView::QListView_SetRootIndex_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -644,9 +635,8 @@ bool QListView_SuperEvent(QListView* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_Event_Callback(reinterpret_cast<VirtualQListView::QListView_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -663,9 +653,8 @@ void QListView_SuperScrollContentsBy(QListView* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnScrollContentsBy(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ScrollContentsBy_Callback(reinterpret_cast<VirtualQListView::QListView_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -688,9 +677,8 @@ void QListView_SuperDataChanged(QListView* self, const QModelIndex* topLeft, con
 // Auxiliary method to allow providing re-implementation
 void QListView_OnDataChanged(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_DataChanged_Callback(reinterpret_cast<VirtualQListView::QListView_DataChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -707,9 +695,8 @@ void QListView_SuperRowsInserted(QListView* self, const QModelIndex* parent, int
 // Auxiliary method to allow providing re-implementation
 void QListView_OnRowsInserted(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_RowsInserted_Callback(reinterpret_cast<VirtualQListView::QListView_RowsInserted_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -726,9 +713,8 @@ void QListView_SuperRowsAboutToBeRemoved(QListView* self, const QModelIndex* par
 // Auxiliary method to allow providing re-implementation
 void QListView_OnRowsAboutToBeRemoved(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualQListView::QListView_RowsAboutToBeRemoved_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -745,9 +731,8 @@ void QListView_SuperMouseMoveEvent(QListView* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnMouseMoveEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_MouseMoveEvent_Callback(reinterpret_cast<VirtualQListView::QListView_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -764,9 +749,8 @@ void QListView_SuperMouseReleaseEvent(QListView* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnMouseReleaseEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQListView::QListView_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -783,9 +767,8 @@ void QListView_SuperWheelEvent(QListView* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnWheelEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_WheelEvent_Callback(reinterpret_cast<VirtualQListView::QListView_WheelEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -802,9 +785,8 @@ void QListView_SuperTimerEvent(QListView* self, QTimerEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnTimerEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_TimerEvent_Callback(reinterpret_cast<VirtualQListView::QListView_TimerEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -821,9 +803,8 @@ void QListView_SuperResizeEvent(QListView* self, QResizeEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnResizeEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ResizeEvent_Callback(reinterpret_cast<VirtualQListView::QListView_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -840,9 +821,8 @@ void QListView_SuperDragMoveEvent(QListView* self, QDragMoveEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnDragMoveEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_DragMoveEvent_Callback(reinterpret_cast<VirtualQListView::QListView_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -859,9 +839,8 @@ void QListView_SuperDragLeaveEvent(QListView* self, QDragLeaveEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnDragLeaveEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_DragLeaveEvent_Callback(reinterpret_cast<VirtualQListView::QListView_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -878,9 +857,8 @@ void QListView_SuperDropEvent(QListView* self, QDropEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnDropEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_DropEvent_Callback(reinterpret_cast<VirtualQListView::QListView_DropEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -897,9 +875,8 @@ void QListView_SuperStartDrag(QListView* self, int supportedActions) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnStartDrag(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_StartDrag_Callback(reinterpret_cast<VirtualQListView::QListView_StartDrag_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -916,9 +893,8 @@ void QListView_SuperInitViewItemOption(const QListView* self, QStyleOptionViewIt
 // Auxiliary method to allow providing re-implementation
 void QListView_OnInitViewItemOption(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_InitViewItemOption_Callback(reinterpret_cast<VirtualQListView::QListView_InitViewItemOption_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -935,9 +911,8 @@ void QListView_SuperPaintEvent(QListView* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnPaintEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_PaintEvent_Callback(reinterpret_cast<VirtualQListView::QListView_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -954,9 +929,8 @@ int QListView_SuperHorizontalOffset(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnHorizontalOffset(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_HorizontalOffset_Callback(reinterpret_cast<VirtualQListView::QListView_HorizontalOffset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -973,9 +947,8 @@ int QListView_SuperVerticalOffset(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnVerticalOffset(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_VerticalOffset_Callback(reinterpret_cast<VirtualQListView::QListView_VerticalOffset_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -991,9 +964,8 @@ QModelIndex* QListView_SuperMoveCursor(QListView* self, int cursorAction, int mo
 // Auxiliary method to allow providing re-implementation
 void QListView_OnMoveCursor(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_MoveCursor_Callback(reinterpret_cast<VirtualQListView::QListView_MoveCursor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1010,9 +982,8 @@ void QListView_SuperSetSelection(QListView* self, const QRect* rect, int command
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSetSelection(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SetSelection_Callback(reinterpret_cast<VirtualQListView::QListView_SetSelection_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1028,9 +999,8 @@ QRegion* QListView_SuperVisualRegionForSelection(const QListView* self, const QI
 // Auxiliary method to allow providing re-implementation
 void QListView_OnVisualRegionForSelection(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_VisualRegionForSelection_Callback(reinterpret_cast<VirtualQListView::QListView_VisualRegionForSelection_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1065,9 +1035,8 @@ libqt_list /* of QModelIndex* */ QListView_SuperSelectedIndexes(const QListView*
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSelectedIndexes(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SelectedIndexes_Callback(reinterpret_cast<VirtualQListView::QListView_SelectedIndexes_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1084,9 +1053,8 @@ void QListView_SuperUpdateGeometries(QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnUpdateGeometries(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_UpdateGeometries_Callback(reinterpret_cast<VirtualQListView::QListView_UpdateGeometries_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1103,9 +1071,8 @@ bool QListView_SuperIsIndexHidden(const QListView* self, const QModelIndex* inde
 // Auxiliary method to allow providing re-implementation
 void QListView_OnIsIndexHidden(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_IsIndexHidden_Callback(reinterpret_cast<VirtualQListView::QListView_IsIndexHidden_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1122,9 +1089,8 @@ void QListView_SuperSelectionChanged(QListView* self, const QItemSelection* sele
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSelectionChanged(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SelectionChanged_Callback(reinterpret_cast<VirtualQListView::QListView_SelectionChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1141,9 +1107,8 @@ void QListView_SuperCurrentChanged(QListView* self, const QModelIndex* current, 
 // Auxiliary method to allow providing re-implementation
 void QListView_OnCurrentChanged(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_CurrentChanged_Callback(reinterpret_cast<VirtualQListView::QListView_CurrentChanged_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -1159,9 +1124,8 @@ QSize* QListView_SuperViewportSizeHint(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnViewportSizeHint(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ViewportSizeHint_Callback(reinterpret_cast<VirtualQListView::QListView_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1188,9 +1152,8 @@ void QListView_SuperSetModel(QListView* self, QAbstractItemModel* model) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSetModel(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SetModel_Callback(reinterpret_cast<VirtualQListView::QListView_SetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1217,9 +1180,8 @@ void QListView_SuperSetSelectionModel(QListView* self, QItemSelectionModel* sele
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSetSelectionModel(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SetSelectionModel_Callback(reinterpret_cast<VirtualQListView::QListView_SetSelectionModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1248,9 +1210,8 @@ void QListView_SuperKeyboardSearch(QListView* self, const libqt_string search) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnKeyboardSearch(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_KeyboardSearch_Callback(reinterpret_cast<VirtualQListView::QListView_KeyboardSearch_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1277,9 +1238,8 @@ int QListView_SuperSizeHintForRow(const QListView* self, int row) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSizeHintForRow(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SizeHintForRow_Callback(reinterpret_cast<VirtualQListView::QListView_SizeHintForRow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1306,9 +1266,8 @@ int QListView_SuperSizeHintForColumn(const QListView* self, int column) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSizeHintForColumn(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SizeHintForColumn_Callback(reinterpret_cast<VirtualQListView::QListView_SizeHintForColumn_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1335,9 +1294,8 @@ QAbstractItemDelegate* QListView_SuperItemDelegateForIndex(const QListView* self
 // Auxiliary method to allow providing re-implementation
 void QListView_OnItemDelegateForIndex(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ItemDelegateForIndex_Callback(reinterpret_cast<VirtualQListView::QListView_ItemDelegateForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1364,9 +1322,8 @@ QVariant* QListView_SuperInputMethodQuery(const QListView* self, int query) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnInputMethodQuery(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_InputMethodQuery_Callback(reinterpret_cast<VirtualQListView::QListView_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1393,9 +1350,8 @@ void QListView_SuperSelectAll(QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSelectAll(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SelectAll_Callback(reinterpret_cast<VirtualQListView::QListView_SelectAll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1422,9 +1378,8 @@ void QListView_SuperUpdateEditorData(QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnUpdateEditorData(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_UpdateEditorData_Callback(reinterpret_cast<VirtualQListView::QListView_UpdateEditorData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1451,9 +1406,8 @@ void QListView_SuperUpdateEditorGeometries(QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnUpdateEditorGeometries(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_UpdateEditorGeometries_Callback(reinterpret_cast<VirtualQListView::QListView_UpdateEditorGeometries_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1480,9 +1434,8 @@ void QListView_SuperVerticalScrollbarAction(QListView* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnVerticalScrollbarAction(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualQListView::QListView_VerticalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1509,9 +1462,8 @@ void QListView_SuperHorizontalScrollbarAction(QListView* self, int action) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnHorizontalScrollbarAction(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualQListView::QListView_HorizontalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1538,9 +1490,8 @@ void QListView_SuperVerticalScrollbarValueChanged(QListView* self, int value) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnVerticalScrollbarValueChanged(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_VerticalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQListView::QListView_VerticalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1567,9 +1518,8 @@ void QListView_SuperHorizontalScrollbarValueChanged(QListView* self, int value) 
 // Auxiliary method to allow providing re-implementation
 void QListView_OnHorizontalScrollbarValueChanged(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_HorizontalScrollbarValueChanged_Callback(reinterpret_cast<VirtualQListView::QListView_HorizontalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1596,9 +1546,8 @@ void QListView_SuperCloseEditor(QListView* self, QWidget* editor, int hint) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnCloseEditor(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_CloseEditor_Callback(reinterpret_cast<VirtualQListView::QListView_CloseEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1625,9 +1574,8 @@ void QListView_SuperCommitData(QListView* self, QWidget* editor) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnCommitData(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_CommitData_Callback(reinterpret_cast<VirtualQListView::QListView_CommitData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1654,9 +1602,8 @@ void QListView_SuperEditorDestroyed(QListView* self, QObject* editor) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnEditorDestroyed(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_EditorDestroyed_Callback(reinterpret_cast<VirtualQListView::QListView_EditorDestroyed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1683,9 +1630,8 @@ bool QListView_SuperEdit2(QListView* self, const QModelIndex* index, int trigger
 // Auxiliary method to allow providing re-implementation
 void QListView_OnEdit2(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_Edit2_Callback(reinterpret_cast<VirtualQListView::QListView_Edit2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1712,9 +1658,8 @@ int QListView_SuperSelectionCommand(const QListView* self, const QModelIndex* in
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSelectionCommand(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SelectionCommand_Callback(reinterpret_cast<VirtualQListView::QListView_SelectionCommand_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1741,9 +1686,8 @@ bool QListView_SuperFocusNextPrevChild(QListView* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnFocusNextPrevChild(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQListView::QListView_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1770,9 +1714,8 @@ bool QListView_SuperViewportEvent(QListView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnViewportEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ViewportEvent_Callback(reinterpret_cast<VirtualQListView::QListView_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1799,9 +1742,8 @@ void QListView_SuperMousePressEvent(QListView* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnMousePressEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_MousePressEvent_Callback(reinterpret_cast<VirtualQListView::QListView_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1828,9 +1770,8 @@ void QListView_SuperMouseDoubleClickEvent(QListView* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnMouseDoubleClickEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQListView::QListView_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1857,9 +1798,8 @@ void QListView_SuperDragEnterEvent(QListView* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnDragEnterEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_DragEnterEvent_Callback(reinterpret_cast<VirtualQListView::QListView_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1886,9 +1826,8 @@ void QListView_SuperFocusInEvent(QListView* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnFocusInEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_FocusInEvent_Callback(reinterpret_cast<VirtualQListView::QListView_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1915,9 +1854,8 @@ void QListView_SuperFocusOutEvent(QListView* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnFocusOutEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_FocusOutEvent_Callback(reinterpret_cast<VirtualQListView::QListView_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1944,9 +1882,8 @@ void QListView_SuperKeyPressEvent(QListView* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnKeyPressEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_KeyPressEvent_Callback(reinterpret_cast<VirtualQListView::QListView_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1973,9 +1910,8 @@ void QListView_SuperInputMethodEvent(QListView* self, QInputMethodEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QListView_OnInputMethodEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_InputMethodEvent_Callback(reinterpret_cast<VirtualQListView::QListView_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2002,9 +1938,8 @@ bool QListView_SuperEventFilter(QListView* self, QObject* object, QEvent* event)
 // Auxiliary method to allow providing re-implementation
 void QListView_OnEventFilter(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_EventFilter_Callback(reinterpret_cast<VirtualQListView::QListView_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2031,9 +1966,8 @@ QSize* QListView_SuperMinimumSizeHint(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnMinimumSizeHint(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_MinimumSizeHint_Callback(reinterpret_cast<VirtualQListView::QListView_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2060,9 +1994,8 @@ QSize* QListView_SuperSizeHint(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSizeHint(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SizeHint_Callback(reinterpret_cast<VirtualQListView::QListView_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2089,9 +2022,8 @@ void QListView_SuperSetupViewport(QListView* self, QWidget* viewport) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSetupViewport(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SetupViewport_Callback(reinterpret_cast<VirtualQListView::QListView_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2118,9 +2050,8 @@ void QListView_SuperContextMenuEvent(QListView* self, QContextMenuEvent* param1)
 // Auxiliary method to allow providing re-implementation
 void QListView_OnContextMenuEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ContextMenuEvent_Callback(reinterpret_cast<VirtualQListView::QListView_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2147,9 +2078,8 @@ void QListView_SuperChangeEvent(QListView* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnChangeEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ChangeEvent_Callback(reinterpret_cast<VirtualQListView::QListView_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2176,9 +2106,8 @@ void QListView_SuperInitStyleOption(const QListView* self, QStyleOptionFrame* op
 // Auxiliary method to allow providing re-implementation
 void QListView_OnInitStyleOption(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_InitStyleOption_Callback(reinterpret_cast<VirtualQListView::QListView_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2205,9 +2134,8 @@ int QListView_SuperDevType(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnDevType(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_DevType_Callback(reinterpret_cast<VirtualQListView::QListView_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2234,9 +2162,8 @@ void QListView_SuperSetVisible(QListView* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSetVisible(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SetVisible_Callback(reinterpret_cast<VirtualQListView::QListView_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2263,9 +2190,8 @@ int QListView_SuperHeightForWidth(const QListView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnHeightForWidth(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_HeightForWidth_Callback(reinterpret_cast<VirtualQListView::QListView_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2292,9 +2218,8 @@ bool QListView_SuperHasHeightForWidth(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnHasHeightForWidth(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_HasHeightForWidth_Callback(reinterpret_cast<VirtualQListView::QListView_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2321,9 +2246,8 @@ QPaintEngine* QListView_SuperPaintEngine(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnPaintEngine(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_PaintEngine_Callback(reinterpret_cast<VirtualQListView::QListView_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2350,9 +2274,8 @@ void QListView_SuperKeyReleaseEvent(QListView* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnKeyReleaseEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQListView::QListView_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2379,9 +2302,8 @@ void QListView_SuperEnterEvent(QListView* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnEnterEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_EnterEvent_Callback(reinterpret_cast<VirtualQListView::QListView_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2408,9 +2330,8 @@ void QListView_SuperLeaveEvent(QListView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnLeaveEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_LeaveEvent_Callback(reinterpret_cast<VirtualQListView::QListView_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2437,9 +2358,8 @@ void QListView_SuperMoveEvent(QListView* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnMoveEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_MoveEvent_Callback(reinterpret_cast<VirtualQListView::QListView_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2466,9 +2386,8 @@ void QListView_SuperCloseEvent(QListView* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnCloseEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_CloseEvent_Callback(reinterpret_cast<VirtualQListView::QListView_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2495,9 +2414,8 @@ void QListView_SuperTabletEvent(QListView* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnTabletEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_TabletEvent_Callback(reinterpret_cast<VirtualQListView::QListView_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2524,9 +2442,8 @@ void QListView_SuperActionEvent(QListView* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnActionEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ActionEvent_Callback(reinterpret_cast<VirtualQListView::QListView_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2553,9 +2470,8 @@ void QListView_SuperShowEvent(QListView* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnShowEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ShowEvent_Callback(reinterpret_cast<VirtualQListView::QListView_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2582,9 +2498,8 @@ void QListView_SuperHideEvent(QListView* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnHideEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_HideEvent_Callback(reinterpret_cast<VirtualQListView::QListView_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2613,9 +2528,8 @@ bool QListView_SuperNativeEvent(QListView* self, const libqt_string eventType, v
 // Auxiliary method to allow providing re-implementation
 void QListView_OnNativeEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_NativeEvent_Callback(reinterpret_cast<VirtualQListView::QListView_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2642,9 +2556,8 @@ int QListView_SuperMetric(const QListView* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnMetric(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_Metric_Callback(reinterpret_cast<VirtualQListView::QListView_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2671,9 +2584,8 @@ void QListView_SuperInitPainter(const QListView* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnInitPainter(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_InitPainter_Callback(reinterpret_cast<VirtualQListView::QListView_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2700,9 +2612,8 @@ QPaintDevice* QListView_SuperRedirected(const QListView* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnRedirected(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_Redirected_Callback(reinterpret_cast<VirtualQListView::QListView_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2729,9 +2640,8 @@ QPainter* QListView_SuperSharedPainter(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSharedPainter(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SharedPainter_Callback(reinterpret_cast<VirtualQListView::QListView_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2758,9 +2668,8 @@ void QListView_SuperChildEvent(QListView* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnChildEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ChildEvent_Callback(reinterpret_cast<VirtualQListView::QListView_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2787,9 +2696,8 @@ void QListView_SuperCustomEvent(QListView* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnCustomEvent(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_CustomEvent_Callback(reinterpret_cast<VirtualQListView::QListView_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2816,9 +2724,8 @@ void QListView_SuperConnectNotify(QListView* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnConnectNotify(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ConnectNotify_Callback(reinterpret_cast<VirtualQListView::QListView_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2845,9 +2752,8 @@ void QListView_SuperDisconnectNotify(QListView* self, const QMetaMethod* signal)
 // Auxiliary method to allow providing re-implementation
 void QListView_OnDisconnectNotify(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_DisconnectNotify_Callback(reinterpret_cast<VirtualQListView::QListView_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2874,9 +2780,8 @@ void QListView_SuperResizeContents(QListView* self, int width, int height) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnResizeContents(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ResizeContents_Callback(reinterpret_cast<VirtualQListView::QListView_ResizeContents_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2901,9 +2806,8 @@ QSize* QListView_SuperContentsSize(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnContentsSize(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ContentsSize_Callback(reinterpret_cast<VirtualQListView::QListView_ContentsSize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2928,9 +2832,8 @@ QRect* QListView_SuperRectForIndex(const QListView* self, const QModelIndex* ind
 // Auxiliary method to allow providing re-implementation
 void QListView_OnRectForIndex(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_RectForIndex_Callback(reinterpret_cast<VirtualQListView::QListView_RectForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2957,9 +2860,8 @@ void QListView_SuperSetPositionForIndex(QListView* self, const QPoint* position,
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSetPositionForIndex(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SetPositionForIndex_Callback(reinterpret_cast<VirtualQListView::QListView_SetPositionForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2986,9 +2888,8 @@ int QListView_SuperState(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnState(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_State_Callback(reinterpret_cast<VirtualQListView::QListView_State_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3015,9 +2916,8 @@ void QListView_SuperSetState(QListView* self, int state) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSetState(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SetState_Callback(reinterpret_cast<VirtualQListView::QListView_SetState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3044,9 +2944,8 @@ void QListView_SuperScheduleDelayedItemsLayout(QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnScheduleDelayedItemsLayout(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ScheduleDelayedItemsLayout_Callback(reinterpret_cast<VirtualQListView::QListView_ScheduleDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3073,9 +2972,8 @@ void QListView_SuperExecuteDelayedItemsLayout(QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnExecuteDelayedItemsLayout(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ExecuteDelayedItemsLayout_Callback(reinterpret_cast<VirtualQListView::QListView_ExecuteDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3102,9 +3000,8 @@ void QListView_SuperSetDirtyRegion(QListView* self, const QRegion* region) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSetDirtyRegion(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SetDirtyRegion_Callback(reinterpret_cast<VirtualQListView::QListView_SetDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3131,9 +3028,8 @@ void QListView_SuperScrollDirtyRegion(QListView* self, int dx, int dy) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnScrollDirtyRegion(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ScrollDirtyRegion_Callback(reinterpret_cast<VirtualQListView::QListView_ScrollDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3158,9 +3054,8 @@ QPoint* QListView_SuperDirtyRegionOffset(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnDirtyRegionOffset(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_DirtyRegionOffset_Callback(reinterpret_cast<VirtualQListView::QListView_DirtyRegionOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3187,9 +3082,8 @@ void QListView_SuperStartAutoScroll(QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnStartAutoScroll(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_StartAutoScroll_Callback(reinterpret_cast<VirtualQListView::QListView_StartAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3216,9 +3110,8 @@ void QListView_SuperStopAutoScroll(QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnStopAutoScroll(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_StopAutoScroll_Callback(reinterpret_cast<VirtualQListView::QListView_StopAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3245,9 +3138,8 @@ void QListView_SuperDoAutoScroll(QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnDoAutoScroll(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_DoAutoScroll_Callback(reinterpret_cast<VirtualQListView::QListView_DoAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3274,9 +3166,8 @@ int QListView_SuperDropIndicatorPosition(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnDropIndicatorPosition(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_DropIndicatorPosition_Callback(reinterpret_cast<VirtualQListView::QListView_DropIndicatorPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3303,9 +3194,8 @@ void QListView_SuperSetViewportMargins(QListView* self, int left, int top, int r
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSetViewportMargins(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SetViewportMargins_Callback(reinterpret_cast<VirtualQListView::QListView_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3330,9 +3220,8 @@ QMargins* QListView_SuperViewportMargins(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnViewportMargins(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_ViewportMargins_Callback(reinterpret_cast<VirtualQListView::QListView_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3359,9 +3248,8 @@ void QListView_SuperDrawFrame(QListView* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnDrawFrame(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_DrawFrame_Callback(reinterpret_cast<VirtualQListView::QListView_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3388,9 +3276,8 @@ void QListView_SuperUpdateMicroFocus(QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnUpdateMicroFocus(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQListView::QListView_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3417,9 +3304,8 @@ void QListView_SuperCreate(QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnCreate(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_Create_Callback(reinterpret_cast<VirtualQListView::QListView_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3446,9 +3332,8 @@ void QListView_SuperDestroy(QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnDestroy(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_Destroy_Callback(reinterpret_cast<VirtualQListView::QListView_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3475,9 +3360,8 @@ bool QListView_SuperFocusNextChild(QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnFocusNextChild(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_FocusNextChild_Callback(reinterpret_cast<VirtualQListView::QListView_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3504,9 +3388,8 @@ bool QListView_SuperFocusPreviousChild(QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnFocusPreviousChild(QListView* self, intptr_t slot) {
     auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_FocusPreviousChild_Callback(reinterpret_cast<VirtualQListView::QListView_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3533,9 +3416,8 @@ QObject* QListView_SuperSender(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSender(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_Sender_Callback(reinterpret_cast<VirtualQListView::QListView_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3562,9 +3444,8 @@ int QListView_SuperSenderSignalIndex(const QListView* self) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnSenderSignalIndex(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_SenderSignalIndex_Callback(reinterpret_cast<VirtualQListView::QListView_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3591,9 +3472,8 @@ int QListView_SuperReceivers(const QListView* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QListView_OnReceivers(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_Receivers_Callback(reinterpret_cast<VirtualQListView::QListView_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3620,9 +3500,8 @@ bool QListView_SuperIsSignalConnected(const QListView* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void QListView_OnIsSignalConnected(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_IsSignalConnected_Callback(reinterpret_cast<VirtualQListView::QListView_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3649,9 +3528,8 @@ double QListView_SuperGetDecodedMetricF(const QListView* self, int metricA, int 
 // Auxiliary method to allow providing re-implementation
 void QListView_OnGetDecodedMetricF(const QListView* self, intptr_t slot) {
     auto* vqlistview = const_cast<VirtualQListView*>(dynamic_cast<const VirtualQListView*>(self));
-    if (vqlistview && vqlistview->isVirtualQListView) {
+    if (vqlistview && vqlistview->isVirtualQListView)
         vqlistview->setQListView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQListView::QListView_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QListView_Delete(QListView* self) {

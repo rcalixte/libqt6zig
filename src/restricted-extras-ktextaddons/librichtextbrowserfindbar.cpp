@@ -118,9 +118,8 @@ QMetaObject* TextCustomEditor__RichTextBrowserFindBar_SuperMetaObject(const Text
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMetaObject(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MetaObject_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -137,9 +136,8 @@ void* TextCustomEditor__RichTextBrowserFindBar_SuperMetacast(TextCustomEditor__R
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMetacast(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Metacast_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -156,9 +154,8 @@ int TextCustomEditor__RichTextBrowserFindBar_SuperMetacall(TextCustomEditor__Ric
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMetacall(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Metacall_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -175,9 +172,8 @@ bool TextCustomEditor__RichTextBrowserFindBar_SuperViewIsReadOnly(const TextCust
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnViewIsReadOnly(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ViewIsReadOnly_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ViewIsReadOnly_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -194,9 +190,8 @@ bool TextCustomEditor__RichTextBrowserFindBar_SuperDocumentIsEmpty(const TextCus
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnDocumentIsEmpty(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DocumentIsEmpty_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DocumentIsEmpty_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -214,9 +209,8 @@ bool TextCustomEditor__RichTextBrowserFindBar_SuperSearchInDocument(TextCustomEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnSearchInDocument(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SearchInDocument_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SearchInDocument_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -233,9 +227,8 @@ bool TextCustomEditor__RichTextBrowserFindBar_SuperSearchInDocument2(TextCustomE
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnSearchInDocument2(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SearchInDocument2_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SearchInDocument2_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -252,9 +245,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperAutoSearchMoveCursor(TextCust
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnAutoSearchMoveCursor(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_AutoSearchMoveCursor_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_AutoSearchMoveCursor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -271,9 +263,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperSlotSearchText(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnSlotSearchText(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SlotSearchText_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SlotSearchText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -300,9 +291,8 @@ bool TextCustomEditor__RichTextBrowserFindBar_SuperEvent(TextCustomEditor__RichT
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Event_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -329,9 +319,8 @@ int TextCustomEditor__RichTextBrowserFindBar_SuperDevType(const TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnDevType(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DevType_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -358,9 +347,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperSetVisible(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnSetVisible(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SetVisible_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -387,9 +375,8 @@ QSize* TextCustomEditor__RichTextBrowserFindBar_SuperSizeHint(const TextCustomEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnSizeHint(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -416,9 +403,8 @@ QSize* TextCustomEditor__RichTextBrowserFindBar_SuperMinimumSizeHint(const TextC
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMinimumSizeHint(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MinimumSizeHint_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -445,9 +431,8 @@ int TextCustomEditor__RichTextBrowserFindBar_SuperHeightForWidth(const TextCusto
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnHeightForWidth(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_HeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -474,9 +459,8 @@ bool TextCustomEditor__RichTextBrowserFindBar_SuperHasHeightForWidth(const TextC
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnHasHeightForWidth(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_HasHeightForWidth_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -503,9 +487,8 @@ QPaintEngine* TextCustomEditor__RichTextBrowserFindBar_SuperPaintEngine(const Te
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnPaintEngine(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_PaintEngine_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -532,9 +515,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperMousePressEvent(TextCustomEdi
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMousePressEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MousePressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -561,9 +543,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperMouseReleaseEvent(TextCustomE
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMouseReleaseEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MouseReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -590,9 +571,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperMouseDoubleClickEvent(TextCus
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMouseDoubleClickEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -619,9 +599,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperMouseMoveEvent(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMouseMoveEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MouseMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -648,9 +627,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperWheelEvent(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnWheelEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_WheelEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -677,9 +655,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperKeyPressEvent(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnKeyPressEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_KeyPressEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -706,9 +683,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperKeyReleaseEvent(TextCustomEdi
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnKeyReleaseEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_KeyReleaseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -735,9 +711,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperFocusInEvent(TextCustomEditor
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnFocusInEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_FocusInEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -764,9 +739,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperFocusOutEvent(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnFocusOutEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_FocusOutEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -793,9 +767,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperEnterEvent(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnEnterEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_EnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -822,9 +795,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperLeaveEvent(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnLeaveEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_LeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -851,9 +823,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperPaintEvent(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnPaintEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_PaintEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -880,9 +851,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperMoveEvent(TextCustomEditor__R
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMoveEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -909,9 +879,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperResizeEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnResizeEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ResizeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -938,9 +907,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperCloseEvent(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnCloseEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_CloseEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -967,9 +935,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperContextMenuEvent(TextCustomEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnContextMenuEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ContextMenuEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -996,9 +963,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperTabletEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnTabletEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_TabletEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1025,9 +991,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperActionEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnActionEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ActionEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1054,9 +1019,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperDragEnterEvent(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnDragEnterEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DragEnterEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1083,9 +1047,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperDragMoveEvent(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnDragMoveEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DragMoveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1112,9 +1075,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperDragLeaveEvent(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnDragLeaveEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DragLeaveEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1141,9 +1103,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperDropEvent(TextCustomEditor__R
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnDropEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DropEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1170,9 +1131,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperShowEvent(TextCustomEditor__R
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnShowEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ShowEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1199,9 +1159,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperHideEvent(TextCustomEditor__R
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnHideEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_HideEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1230,9 +1189,8 @@ bool TextCustomEditor__RichTextBrowserFindBar_SuperNativeEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnNativeEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_NativeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1259,9 +1217,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperChangeEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnChangeEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ChangeEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1288,9 +1245,8 @@ int TextCustomEditor__RichTextBrowserFindBar_SuperMetric(const TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMetric(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Metric_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1317,9 +1273,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperInitPainter(const TextCustomE
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnInitPainter(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_InitPainter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1346,9 +1301,8 @@ QPaintDevice* TextCustomEditor__RichTextBrowserFindBar_SuperRedirected(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnRedirected(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Redirected_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1375,9 +1329,8 @@ QPainter* TextCustomEditor__RichTextBrowserFindBar_SuperSharedPainter(const Text
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnSharedPainter(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SharedPainter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1404,9 +1357,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperInputMethodEvent(TextCustomEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnInputMethodEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_InputMethodEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1433,9 +1385,8 @@ QVariant* TextCustomEditor__RichTextBrowserFindBar_SuperInputMethodQuery(const T
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnInputMethodQuery(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_InputMethodQuery_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1462,9 +1413,8 @@ bool TextCustomEditor__RichTextBrowserFindBar_SuperFocusNextPrevChild(TextCustom
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnFocusNextPrevChild(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_FocusNextPrevChild_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1491,9 +1441,8 @@ bool TextCustomEditor__RichTextBrowserFindBar_SuperEventFilter(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnEventFilter(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_EventFilter_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1520,9 +1469,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperTimerEvent(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnTimerEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_TimerEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1549,9 +1497,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperChildEvent(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnChildEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ChildEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1578,9 +1525,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperCustomEvent(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnCustomEvent(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_CustomEvent_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1607,9 +1553,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperConnectNotify(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnConnectNotify(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ConnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1636,9 +1581,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperDisconnectNotify(TextCustomEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnDisconnectNotify(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_DisconnectNotify_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1665,9 +1609,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperClearSelections(TextCustomEdi
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnClearSelections(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_ClearSelections_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_ClearSelections_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1694,9 +1637,8 @@ bool TextCustomEditor__RichTextBrowserFindBar_SuperSearchText(TextCustomEditor__
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnSearchText(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SearchText_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SearchText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1723,9 +1665,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperSetFoundMatch(TextCustomEdito
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnSetFoundMatch(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SetFoundMatch_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SetFoundMatch_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1752,9 +1693,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperMessageInfo(TextCustomEditor_
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnMessageInfo(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_MessageInfo_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_MessageInfo_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1781,9 +1721,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperUpdateMicroFocus(TextCustomEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnUpdateMicroFocus(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_UpdateMicroFocus_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1810,9 +1749,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperCreate(TextCustomEditor__Rich
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnCreate(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Create_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1839,9 +1777,8 @@ void TextCustomEditor__RichTextBrowserFindBar_SuperDestroy(TextCustomEditor__Ric
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnDestroy(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Destroy_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1868,9 +1805,8 @@ bool TextCustomEditor__RichTextBrowserFindBar_SuperFocusNextChild(TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnFocusNextChild(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_FocusNextChild_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1897,9 +1833,8 @@ bool TextCustomEditor__RichTextBrowserFindBar_SuperFocusPreviousChild(TextCustom
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnFocusPreviousChild(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = dynamic_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(self);
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_FocusPreviousChild_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1926,9 +1861,8 @@ QObject* TextCustomEditor__RichTextBrowserFindBar_SuperSender(const TextCustomEd
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnSender(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Sender_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1955,9 +1889,8 @@ int TextCustomEditor__RichTextBrowserFindBar_SuperSenderSignalIndex(const TextCu
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnSenderSignalIndex(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_SenderSignalIndex_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1984,9 +1917,8 @@ int TextCustomEditor__RichTextBrowserFindBar_SuperReceivers(const TextCustomEdit
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnReceivers(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_Receivers_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2013,9 +1945,8 @@ bool TextCustomEditor__RichTextBrowserFindBar_SuperIsSignalConnected(const TextC
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnIsSignalConnected(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_IsSignalConnected_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2042,9 +1973,8 @@ double TextCustomEditor__RichTextBrowserFindBar_SuperGetDecodedMetricF(const Tex
 // Auxiliary method to allow providing re-implementation
 void TextCustomEditor__RichTextBrowserFindBar_OnGetDecodedMetricF(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot) {
     auto* vtextcustomeditorrichtextbrowserfindbar = const_cast<VirtualTextCustomEditorRichTextBrowserFindBar*>(dynamic_cast<const VirtualTextCustomEditorRichTextBrowserFindBar*>(self));
-    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar) {
+    if (vtextcustomeditorrichtextbrowserfindbar && vtextcustomeditorrichtextbrowserfindbar->isVirtualTextCustomEditorRichTextBrowserFindBar)
         vtextcustomeditorrichtextbrowserfindbar->setTextCustomEditor__RichTextBrowserFindBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualTextCustomEditorRichTextBrowserFindBar::TextCustomEditor__RichTextBrowserFindBar_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void TextCustomEditor__RichTextBrowserFindBar_Delete(TextCustomEditor__RichTextBrowserFindBar* self) {

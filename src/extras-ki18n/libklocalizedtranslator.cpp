@@ -72,9 +72,8 @@ QMetaObject* KLocalizedTranslator_SuperMetaObject(const KLocalizedTranslator* se
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnMetaObject(const KLocalizedTranslator* self, intptr_t slot) {
     auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
         vklocalizedtranslator->setKLocalizedTranslator_MetaObject_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -91,9 +90,8 @@ void* KLocalizedTranslator_SuperMetacast(KLocalizedTranslator* self, const char*
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnMetacast(KLocalizedTranslator* self, intptr_t slot) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
         vklocalizedtranslator->setKLocalizedTranslator_Metacast_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -110,9 +108,8 @@ int KLocalizedTranslator_SuperMetacall(KLocalizedTranslator* self, int param1, i
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnMetacall(KLocalizedTranslator* self, intptr_t slot) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
         vklocalizedtranslator->setKLocalizedTranslator_Metacall_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -145,9 +142,8 @@ libqt_string KLocalizedTranslator_SuperTranslate(const KLocalizedTranslator* sel
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnTranslate(const KLocalizedTranslator* self, intptr_t slot) {
     auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
         vklocalizedtranslator->setKLocalizedTranslator_Translate_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Translate_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -174,9 +170,8 @@ bool KLocalizedTranslator_SuperIsEmpty(const KLocalizedTranslator* self) {
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnIsEmpty(const KLocalizedTranslator* self, intptr_t slot) {
     auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
         vklocalizedtranslator->setKLocalizedTranslator_IsEmpty_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_IsEmpty_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -203,9 +198,8 @@ bool KLocalizedTranslator_SuperEvent(KLocalizedTranslator* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnEvent(KLocalizedTranslator* self, intptr_t slot) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
         vklocalizedtranslator->setKLocalizedTranslator_Event_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -232,9 +226,8 @@ bool KLocalizedTranslator_SuperEventFilter(KLocalizedTranslator* self, QObject* 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnEventFilter(KLocalizedTranslator* self, intptr_t slot) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
         vklocalizedtranslator->setKLocalizedTranslator_EventFilter_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -261,9 +254,8 @@ void KLocalizedTranslator_SuperTimerEvent(KLocalizedTranslator* self, QTimerEven
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnTimerEvent(KLocalizedTranslator* self, intptr_t slot) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
         vklocalizedtranslator->setKLocalizedTranslator_TimerEvent_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -290,9 +282,8 @@ void KLocalizedTranslator_SuperChildEvent(KLocalizedTranslator* self, QChildEven
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnChildEvent(KLocalizedTranslator* self, intptr_t slot) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
         vklocalizedtranslator->setKLocalizedTranslator_ChildEvent_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -319,9 +310,8 @@ void KLocalizedTranslator_SuperCustomEvent(KLocalizedTranslator* self, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnCustomEvent(KLocalizedTranslator* self, intptr_t slot) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
         vklocalizedtranslator->setKLocalizedTranslator_CustomEvent_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -348,9 +338,8 @@ void KLocalizedTranslator_SuperConnectNotify(KLocalizedTranslator* self, const Q
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnConnectNotify(KLocalizedTranslator* self, intptr_t slot) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
         vklocalizedtranslator->setKLocalizedTranslator_ConnectNotify_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -377,9 +366,8 @@ void KLocalizedTranslator_SuperDisconnectNotify(KLocalizedTranslator* self, cons
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnDisconnectNotify(KLocalizedTranslator* self, intptr_t slot) {
     auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
         vklocalizedtranslator->setKLocalizedTranslator_DisconnectNotify_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -406,9 +394,8 @@ QObject* KLocalizedTranslator_SuperSender(const KLocalizedTranslator* self) {
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnSender(const KLocalizedTranslator* self, intptr_t slot) {
     auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
         vklocalizedtranslator->setKLocalizedTranslator_Sender_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -435,9 +422,8 @@ int KLocalizedTranslator_SuperSenderSignalIndex(const KLocalizedTranslator* self
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnSenderSignalIndex(const KLocalizedTranslator* self, intptr_t slot) {
     auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
         vklocalizedtranslator->setKLocalizedTranslator_SenderSignalIndex_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -464,9 +450,8 @@ int KLocalizedTranslator_SuperReceivers(const KLocalizedTranslator* self, const 
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnReceivers(const KLocalizedTranslator* self, intptr_t slot) {
     auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
         vklocalizedtranslator->setKLocalizedTranslator_Receivers_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -493,9 +478,8 @@ bool KLocalizedTranslator_SuperIsSignalConnected(const KLocalizedTranslator* sel
 // Auxiliary method to allow providing re-implementation
 void KLocalizedTranslator_OnIsSignalConnected(const KLocalizedTranslator* self, intptr_t slot) {
     auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
+    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator)
         vklocalizedtranslator->setKLocalizedTranslator_IsSignalConnected_Callback(reinterpret_cast<VirtualKLocalizedTranslator::KLocalizedTranslator_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KLocalizedTranslator_Delete(KLocalizedTranslator* self) {

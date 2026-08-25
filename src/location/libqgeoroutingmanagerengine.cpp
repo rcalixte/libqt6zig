@@ -177,9 +177,8 @@ QMetaObject* QGeoRoutingManagerEngine_SuperMetaObject(const QGeoRoutingManagerEn
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnMetaObject(const QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_MetaObject_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -196,9 +195,8 @@ void* QGeoRoutingManagerEngine_SuperMetacast(QGeoRoutingManagerEngine* self, con
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnMetacast(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Metacast_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -215,9 +213,8 @@ int QGeoRoutingManagerEngine_SuperMetacall(QGeoRoutingManagerEngine* self, int p
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnMetacall(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Metacall_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -234,9 +231,8 @@ QGeoRouteReply* QGeoRoutingManagerEngine_SuperCalculateRoute(QGeoRoutingManagerE
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnCalculateRoute(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_CalculateRoute_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_CalculateRoute_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -253,9 +249,8 @@ QGeoRouteReply* QGeoRoutingManagerEngine_SuperUpdateRoute(QGeoRoutingManagerEngi
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnUpdateRoute(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_UpdateRoute_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_UpdateRoute_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -282,9 +277,8 @@ bool QGeoRoutingManagerEngine_SuperEvent(QGeoRoutingManagerEngine* self, QEvent*
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnEvent(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Event_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -311,9 +305,8 @@ bool QGeoRoutingManagerEngine_SuperEventFilter(QGeoRoutingManagerEngine* self, Q
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnEventFilter(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_EventFilter_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -340,9 +333,8 @@ void QGeoRoutingManagerEngine_SuperTimerEvent(QGeoRoutingManagerEngine* self, QT
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnTimerEvent(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_TimerEvent_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -369,9 +361,8 @@ void QGeoRoutingManagerEngine_SuperChildEvent(QGeoRoutingManagerEngine* self, QC
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnChildEvent(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_ChildEvent_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -398,9 +389,8 @@ void QGeoRoutingManagerEngine_SuperCustomEvent(QGeoRoutingManagerEngine* self, Q
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnCustomEvent(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_CustomEvent_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -427,9 +417,8 @@ void QGeoRoutingManagerEngine_SuperConnectNotify(QGeoRoutingManagerEngine* self,
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnConnectNotify(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_ConnectNotify_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -456,9 +445,8 @@ void QGeoRoutingManagerEngine_SuperDisconnectNotify(QGeoRoutingManagerEngine* se
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnDisconnectNotify(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_DisconnectNotify_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -485,9 +473,8 @@ void QGeoRoutingManagerEngine_SuperSetSupportedTravelModes(QGeoRoutingManagerEng
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnSetSupportedTravelModes(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedTravelModes_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_SetSupportedTravelModes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -514,9 +501,8 @@ void QGeoRoutingManagerEngine_SuperSetSupportedFeatureTypes(QGeoRoutingManagerEn
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnSetSupportedFeatureTypes(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedFeatureTypes_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_SetSupportedFeatureTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -543,9 +529,8 @@ void QGeoRoutingManagerEngine_SuperSetSupportedFeatureWeights(QGeoRoutingManager
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnSetSupportedFeatureWeights(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedFeatureWeights_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_SetSupportedFeatureWeights_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -572,9 +557,8 @@ void QGeoRoutingManagerEngine_SuperSetSupportedRouteOptimizations(QGeoRoutingMan
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnSetSupportedRouteOptimizations(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedRouteOptimizations_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_SetSupportedRouteOptimizations_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -601,9 +585,8 @@ void QGeoRoutingManagerEngine_SuperSetSupportedSegmentDetails(QGeoRoutingManager
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnSetSupportedSegmentDetails(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedSegmentDetails_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_SetSupportedSegmentDetails_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -630,9 +613,8 @@ void QGeoRoutingManagerEngine_SuperSetSupportedManeuverDetails(QGeoRoutingManage
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnSetSupportedManeuverDetails(QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SetSupportedManeuverDetails_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_SetSupportedManeuverDetails_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -659,9 +641,8 @@ QObject* QGeoRoutingManagerEngine_SuperSender(const QGeoRoutingManagerEngine* se
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnSender(const QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Sender_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -688,9 +669,8 @@ int QGeoRoutingManagerEngine_SuperSenderSignalIndex(const QGeoRoutingManagerEngi
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnSenderSignalIndex(const QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_SenderSignalIndex_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -717,9 +697,8 @@ int QGeoRoutingManagerEngine_SuperReceivers(const QGeoRoutingManagerEngine* self
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnReceivers(const QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_Receivers_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -746,9 +725,8 @@ bool QGeoRoutingManagerEngine_SuperIsSignalConnected(const QGeoRoutingManagerEng
 // Auxiliary method to allow providing re-implementation
 void QGeoRoutingManagerEngine_OnIsSignalConnected(const QGeoRoutingManagerEngine* self, intptr_t slot) {
     auto* vqgeoroutingmanagerengine = const_cast<VirtualQGeoRoutingManagerEngine*>(dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self));
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
+    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine)
         vqgeoroutingmanagerengine->setQGeoRoutingManagerEngine_IsSignalConnected_Callback(reinterpret_cast<VirtualQGeoRoutingManagerEngine::QGeoRoutingManagerEngine_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QGeoRoutingManagerEngine_Delete(QGeoRoutingManagerEngine* self) {

@@ -512,18 +512,18 @@ pub const QPartialOrdering = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcompare.html#public-types)
 pub const enums = struct {
-    pub const Ordering = enum(i8) {
+    pub const Ordering = enum {
         pub const Equal: i8 = 0;
         pub const Equivalent: i8 = 0;
         pub const Less: i8 = -1;
         pub const Greater: i8 = 1;
     };
 
-    pub const Uncomparable = enum(i8) {
+    pub const Uncomparable = enum {
         pub const Unordered: i8 = 2;
     };
 
-    pub const LegacyUncomparable = enum(i8) {
+    pub const LegacyUncomparable = enum {
         pub const Unordered: i8 = -127;
     };
 };

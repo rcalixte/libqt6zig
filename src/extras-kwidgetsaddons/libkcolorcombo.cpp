@@ -150,9 +150,8 @@ QMetaObject* KColorCombo_SuperMetaObject(const KColorCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnMetaObject(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_MetaObject_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -169,9 +168,8 @@ void* KColorCombo_SuperMetacast(KColorCombo* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnMetacast(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_Metacast_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -188,9 +186,8 @@ int KColorCombo_SuperMetacall(KColorCombo* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnMetacall(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_Metacall_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -207,9 +204,8 @@ void KColorCombo_SuperPaintEvent(KColorCombo* self, QPaintEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnPaintEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_PaintEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -236,9 +232,8 @@ void KColorCombo_SuperSetModel(KColorCombo* self, QAbstractItemModel* model) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnSetModel(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_SetModel_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_SetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -265,9 +260,8 @@ QSize* KColorCombo_SuperSizeHint(const KColorCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnSizeHint(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_SizeHint_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_SizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -294,9 +288,8 @@ QSize* KColorCombo_SuperMinimumSizeHint(const KColorCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnMinimumSizeHint(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_MinimumSizeHint_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -323,9 +316,8 @@ void KColorCombo_SuperShowPopup(KColorCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnShowPopup(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_ShowPopup_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_ShowPopup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -352,9 +344,8 @@ void KColorCombo_SuperHidePopup(KColorCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnHidePopup(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_HidePopup_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_HidePopup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -381,9 +372,8 @@ bool KColorCombo_SuperEvent(KColorCombo* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_Event_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -410,9 +400,8 @@ QVariant* KColorCombo_SuperInputMethodQuery(const KColorCombo* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnInputMethodQuery(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_InputMethodQuery_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -439,9 +428,8 @@ void KColorCombo_SuperFocusInEvent(KColorCombo* self, QFocusEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnFocusInEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_FocusInEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -468,9 +456,8 @@ void KColorCombo_SuperFocusOutEvent(KColorCombo* self, QFocusEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnFocusOutEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_FocusOutEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -497,9 +484,8 @@ void KColorCombo_SuperChangeEvent(KColorCombo* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnChangeEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_ChangeEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -526,9 +512,8 @@ void KColorCombo_SuperResizeEvent(KColorCombo* self, QResizeEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnResizeEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_ResizeEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -555,9 +540,8 @@ void KColorCombo_SuperShowEvent(KColorCombo* self, QShowEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnShowEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_ShowEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -584,9 +568,8 @@ void KColorCombo_SuperHideEvent(KColorCombo* self, QHideEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnHideEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_HideEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -613,9 +596,8 @@ void KColorCombo_SuperMousePressEvent(KColorCombo* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnMousePressEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_MousePressEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -642,9 +624,8 @@ void KColorCombo_SuperMouseReleaseEvent(KColorCombo* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnMouseReleaseEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -671,9 +652,8 @@ void KColorCombo_SuperKeyPressEvent(KColorCombo* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnKeyPressEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_KeyPressEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -700,9 +680,8 @@ void KColorCombo_SuperKeyReleaseEvent(KColorCombo* self, QKeyEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnKeyReleaseEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -729,9 +708,8 @@ void KColorCombo_SuperWheelEvent(KColorCombo* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnWheelEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_WheelEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -758,9 +736,8 @@ void KColorCombo_SuperContextMenuEvent(KColorCombo* self, QContextMenuEvent* e) 
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnContextMenuEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_ContextMenuEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -787,9 +764,8 @@ void KColorCombo_SuperInputMethodEvent(KColorCombo* self, QInputMethodEvent* par
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnInputMethodEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_InputMethodEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -816,9 +792,8 @@ void KColorCombo_SuperInitStyleOption(const KColorCombo* self, QStyleOptionCombo
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnInitStyleOption(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_InitStyleOption_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -845,9 +820,8 @@ int KColorCombo_SuperDevType(const KColorCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnDevType(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_DevType_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -874,9 +848,8 @@ void KColorCombo_SuperSetVisible(KColorCombo* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnSetVisible(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_SetVisible_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -903,9 +876,8 @@ int KColorCombo_SuperHeightForWidth(const KColorCombo* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnHeightForWidth(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_HeightForWidth_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -932,9 +904,8 @@ bool KColorCombo_SuperHasHeightForWidth(const KColorCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnHasHeightForWidth(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_HasHeightForWidth_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -961,9 +932,8 @@ QPaintEngine* KColorCombo_SuperPaintEngine(const KColorCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnPaintEngine(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_PaintEngine_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -990,9 +960,8 @@ void KColorCombo_SuperMouseDoubleClickEvent(KColorCombo* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnMouseDoubleClickEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1019,9 +988,8 @@ void KColorCombo_SuperMouseMoveEvent(KColorCombo* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnMouseMoveEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_MouseMoveEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1048,9 +1016,8 @@ void KColorCombo_SuperEnterEvent(KColorCombo* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnEnterEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_EnterEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1077,9 +1044,8 @@ void KColorCombo_SuperLeaveEvent(KColorCombo* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnLeaveEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_LeaveEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1106,9 +1072,8 @@ void KColorCombo_SuperMoveEvent(KColorCombo* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnMoveEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_MoveEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1135,9 +1100,8 @@ void KColorCombo_SuperCloseEvent(KColorCombo* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnCloseEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_CloseEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1164,9 +1128,8 @@ void KColorCombo_SuperTabletEvent(KColorCombo* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnTabletEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_TabletEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1193,9 +1156,8 @@ void KColorCombo_SuperActionEvent(KColorCombo* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnActionEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_ActionEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1222,9 +1184,8 @@ void KColorCombo_SuperDragEnterEvent(KColorCombo* self, QDragEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnDragEnterEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_DragEnterEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1251,9 +1212,8 @@ void KColorCombo_SuperDragMoveEvent(KColorCombo* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnDragMoveEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_DragMoveEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1280,9 +1240,8 @@ void KColorCombo_SuperDragLeaveEvent(KColorCombo* self, QDragLeaveEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnDragLeaveEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_DragLeaveEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1309,9 +1268,8 @@ void KColorCombo_SuperDropEvent(KColorCombo* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnDropEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_DropEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1340,9 +1298,8 @@ bool KColorCombo_SuperNativeEvent(KColorCombo* self, const libqt_string eventTyp
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnNativeEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_NativeEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1369,9 +1326,8 @@ int KColorCombo_SuperMetric(const KColorCombo* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnMetric(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_Metric_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1398,9 +1354,8 @@ void KColorCombo_SuperInitPainter(const KColorCombo* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnInitPainter(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_InitPainter_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1427,9 +1382,8 @@ QPaintDevice* KColorCombo_SuperRedirected(const KColorCombo* self, QPoint* offse
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnRedirected(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_Redirected_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1456,9 +1410,8 @@ QPainter* KColorCombo_SuperSharedPainter(const KColorCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnSharedPainter(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_SharedPainter_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1485,9 +1438,8 @@ bool KColorCombo_SuperFocusNextPrevChild(KColorCombo* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnFocusNextPrevChild(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1514,9 +1466,8 @@ bool KColorCombo_SuperEventFilter(KColorCombo* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnEventFilter(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_EventFilter_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1543,9 +1494,8 @@ void KColorCombo_SuperTimerEvent(KColorCombo* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnTimerEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_TimerEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1572,9 +1522,8 @@ void KColorCombo_SuperChildEvent(KColorCombo* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnChildEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_ChildEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1601,9 +1550,8 @@ void KColorCombo_SuperCustomEvent(KColorCombo* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnCustomEvent(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_CustomEvent_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1630,9 +1578,8 @@ void KColorCombo_SuperConnectNotify(KColorCombo* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnConnectNotify(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_ConnectNotify_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1659,9 +1606,8 @@ void KColorCombo_SuperDisconnectNotify(KColorCombo* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnDisconnectNotify(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_DisconnectNotify_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1688,9 +1634,8 @@ void KColorCombo_SuperUpdateMicroFocus(KColorCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnUpdateMicroFocus(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1717,9 +1662,8 @@ void KColorCombo_SuperCreate(KColorCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnCreate(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_Create_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1746,9 +1690,8 @@ void KColorCombo_SuperDestroy(KColorCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnDestroy(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_Destroy_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1775,9 +1718,8 @@ bool KColorCombo_SuperFocusNextChild(KColorCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnFocusNextChild(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_FocusNextChild_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1804,9 +1746,8 @@ bool KColorCombo_SuperFocusPreviousChild(KColorCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnFocusPreviousChild(KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_FocusPreviousChild_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1833,9 +1774,8 @@ QObject* KColorCombo_SuperSender(const KColorCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnSender(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_Sender_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1862,9 +1802,8 @@ int KColorCombo_SuperSenderSignalIndex(const KColorCombo* self) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnSenderSignalIndex(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_SenderSignalIndex_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1891,9 +1830,8 @@ int KColorCombo_SuperReceivers(const KColorCombo* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnReceivers(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_Receivers_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1920,9 +1858,8 @@ bool KColorCombo_SuperIsSignalConnected(const KColorCombo* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnIsSignalConnected(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_IsSignalConnected_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1949,9 +1886,8 @@ double KColorCombo_SuperGetDecodedMetricF(const KColorCombo* self, int metricA, 
 // Auxiliary method to allow providing re-implementation
 void KColorCombo_OnGetDecodedMetricF(const KColorCombo* self, intptr_t slot) {
     auto* vkcolorcombo = const_cast<VirtualKColorCombo*>(dynamic_cast<const VirtualKColorCombo*>(self));
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
+    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo)
         vkcolorcombo->setKColorCombo_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKColorCombo::KColorCombo_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KColorCombo_Delete(KColorCombo* self) {

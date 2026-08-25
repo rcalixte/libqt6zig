@@ -6843,7 +6843,7 @@ pub const KColorSchemeModel = extern struct {
 
 /// ### [Upstream resources](https://api.kde.org/kcolorschememodel.html#public-types)
 pub const enums = struct {
-    pub const Roles = enum(i32) {
+    pub const Roles = enum {
         pub const NameRole: i32 = 0;
         pub const IconRole: i32 = 1;
         pub const PathRole: i32 = 256;

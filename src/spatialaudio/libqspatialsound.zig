@@ -2849,12 +2849,12 @@ pub const QSpatialSound = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qspatialsound.html#public-types)
 pub const enums = struct {
-    pub const Loops = enum(i32) {
+    pub const Loops = enum {
         pub const Infinite: i32 = -1;
         pub const Once: i32 = 1;
     };
 
-    pub const DistanceModel = enum(i32) {
+    pub const DistanceModel = enum {
         pub const Logarithmic: i32 = 0;
         pub const Linear: i32 = 1;
         pub const ManualAttenuation: i32 = 2;

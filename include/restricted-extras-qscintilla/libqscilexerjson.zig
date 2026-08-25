@@ -4484,7 +4484,7 @@ pub const QsciLexerJSON = extern struct {
 };
 
 pub const enums = struct {
-    pub const QsciLexerJSON = enum(i32) {
+    pub const QsciLexerJSON = enum {
         pub const Default: i32 = 0;
         pub const Number: i32 = 1;
         pub const String: i32 = 2;

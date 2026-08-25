@@ -150,9 +150,8 @@ QMetaObject* QIdentityProxyModel_SuperMetaObject(const QIdentityProxyModel* self
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnMetaObject(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_MetaObject_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -169,9 +168,8 @@ void* QIdentityProxyModel_SuperMetacast(QIdentityProxyModel* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnMetacast(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_Metacast_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -188,9 +186,8 @@ int QIdentityProxyModel_SuperMetacall(QIdentityProxyModel* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnMetacall(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_Metacall_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -207,9 +204,8 @@ int QIdentityProxyModel_SuperColumnCount(const QIdentityProxyModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnColumnCount(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_ColumnCount_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_ColumnCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -226,9 +222,8 @@ QModelIndex* QIdentityProxyModel_SuperIndex(const QIdentityProxyModel* self, int
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnIndex(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_Index_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Index_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -245,9 +240,8 @@ QModelIndex* QIdentityProxyModel_SuperMapFromSource(const QIdentityProxyModel* s
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnMapFromSource(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_MapFromSource_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_MapFromSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -264,9 +258,8 @@ QModelIndex* QIdentityProxyModel_SuperMapToSource(const QIdentityProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnMapToSource(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_MapToSource_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_MapToSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -283,9 +276,8 @@ QModelIndex* QIdentityProxyModel_SuperParent(const QIdentityProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnParent(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_Parent_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Parent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -302,9 +294,8 @@ int QIdentityProxyModel_SuperRowCount(const QIdentityProxyModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnRowCount(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_RowCount_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_RowCount_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -321,9 +312,8 @@ QVariant* QIdentityProxyModel_SuperHeaderData(const QIdentityProxyModel* self, i
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnHeaderData(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_HeaderData_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -340,9 +330,8 @@ bool QIdentityProxyModel_SuperDropMimeData(QIdentityProxyModel* self, const QMim
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnDropMimeData(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_DropMimeData_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -359,9 +348,8 @@ QModelIndex* QIdentityProxyModel_SuperSibling(const QIdentityProxyModel* self, i
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnSibling(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_Sibling_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Sibling_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -378,9 +366,8 @@ QItemSelection* QIdentityProxyModel_SuperMapSelectionFromSource(const QIdentityP
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnMapSelectionFromSource(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_MapSelectionFromSource_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_MapSelectionFromSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -397,9 +384,8 @@ QItemSelection* QIdentityProxyModel_SuperMapSelectionToSource(const QIdentityPro
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnMapSelectionToSource(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_MapSelectionToSource_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_MapSelectionToSource_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -434,9 +420,8 @@ libqt_list /* of QModelIndex* */ QIdentityProxyModel_SuperMatch(const QIdentityP
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnMatch(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_Match_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Match_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -453,9 +438,8 @@ void QIdentityProxyModel_SuperSetSourceModel(QIdentityProxyModel* self, QAbstrac
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnSetSourceModel(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_SetSourceModel_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_SetSourceModel_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -472,9 +456,8 @@ bool QIdentityProxyModel_SuperInsertColumns(QIdentityProxyModel* self, int colum
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnInsertColumns(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_InsertColumns_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -491,9 +474,8 @@ bool QIdentityProxyModel_SuperInsertRows(QIdentityProxyModel* self, int row, int
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnInsertRows(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_InsertRows_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -510,9 +492,8 @@ bool QIdentityProxyModel_SuperRemoveColumns(QIdentityProxyModel* self, int colum
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnRemoveColumns(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_RemoveColumns_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -529,9 +510,8 @@ bool QIdentityProxyModel_SuperRemoveRows(QIdentityProxyModel* self, int row, int
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnRemoveRows(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_RemoveRows_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -548,9 +528,8 @@ bool QIdentityProxyModel_SuperMoveRows(QIdentityProxyModel* self, const QModelIn
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnMoveRows(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_MoveRows_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -567,9 +546,8 @@ bool QIdentityProxyModel_SuperMoveColumns(QIdentityProxyModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnMoveColumns(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_MoveColumns_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -596,9 +574,8 @@ bool QIdentityProxyModel_SuperSubmit(QIdentityProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnSubmit(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_Submit_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -625,9 +602,8 @@ void QIdentityProxyModel_SuperRevert(QIdentityProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnRevert(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_Revert_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -654,9 +630,8 @@ QVariant* QIdentityProxyModel_SuperData(const QIdentityProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnData(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_Data_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Data_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -739,9 +714,8 @@ libqt_map /* of int to QVariant* */ QIdentityProxyModel_SuperItemData(const QIde
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnItemData(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_ItemData_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -768,9 +742,8 @@ int QIdentityProxyModel_SuperFlags(const QIdentityProxyModel* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnFlags(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_Flags_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Flags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -797,9 +770,8 @@ bool QIdentityProxyModel_SuperSetData(QIdentityProxyModel* self, const QModelInd
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnSetData(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_SetData_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -838,9 +810,8 @@ bool QIdentityProxyModel_SuperSetItemData(QIdentityProxyModel* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnSetItemData(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_SetItemData_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -867,9 +838,8 @@ bool QIdentityProxyModel_SuperSetHeaderData(QIdentityProxyModel* self, int secti
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnSetHeaderData(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_SetHeaderData_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -896,9 +866,8 @@ bool QIdentityProxyModel_SuperClearItemData(QIdentityProxyModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnClearItemData(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_ClearItemData_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -925,9 +894,8 @@ QModelIndex* QIdentityProxyModel_SuperBuddy(const QIdentityProxyModel* self, con
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnBuddy(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_Buddy_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -954,9 +922,8 @@ bool QIdentityProxyModel_SuperCanFetchMore(const QIdentityProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnCanFetchMore(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_CanFetchMore_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -983,9 +950,8 @@ void QIdentityProxyModel_SuperFetchMore(QIdentityProxyModel* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnFetchMore(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_FetchMore_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1012,9 +978,8 @@ void QIdentityProxyModel_SuperSort(QIdentityProxyModel* self, int column, int or
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnSort(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_Sort_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1041,9 +1006,8 @@ QSize* QIdentityProxyModel_SuperSpan(const QIdentityProxyModel* self, const QMod
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnSpan(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_Span_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1070,9 +1034,8 @@ bool QIdentityProxyModel_SuperHasChildren(const QIdentityProxyModel* self, const
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnHasChildren(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_HasChildren_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_HasChildren_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1111,9 +1074,8 @@ QMimeData* QIdentityProxyModel_SuperMimeData(const QIdentityProxyModel* self, co
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnMimeData(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_MimeData_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1140,9 +1102,8 @@ bool QIdentityProxyModel_SuperCanDropMimeData(const QIdentityProxyModel* self, c
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnCanDropMimeData(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_CanDropMimeData_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1237,9 +1198,8 @@ libqt_list /* of libqt_string */ QIdentityProxyModel_SuperMimeTypes(const QIdent
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnMimeTypes(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_MimeTypes_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1266,9 +1226,8 @@ int QIdentityProxyModel_SuperSupportedDragActions(const QIdentityProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnSupportedDragActions(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_SupportedDragActions_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1295,9 +1254,8 @@ int QIdentityProxyModel_SuperSupportedDropActions(const QIdentityProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnSupportedDropActions(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_SupportedDropActions_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1400,9 +1358,8 @@ libqt_map /* of int to libqt_string */ QIdentityProxyModel_SuperRoleNames(const 
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnRoleNames(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_RoleNames_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1429,9 +1386,8 @@ void QIdentityProxyModel_SuperMultiData(const QIdentityProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnMultiData(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_MultiData_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1458,9 +1414,8 @@ void QIdentityProxyModel_SuperResetInternalData(QIdentityProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnResetInternalData(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_ResetInternalData_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1487,9 +1442,8 @@ bool QIdentityProxyModel_SuperEvent(QIdentityProxyModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnEvent(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_Event_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1516,9 +1470,8 @@ bool QIdentityProxyModel_SuperEventFilter(QIdentityProxyModel* self, QObject* wa
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnEventFilter(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_EventFilter_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1545,9 +1498,8 @@ void QIdentityProxyModel_SuperTimerEvent(QIdentityProxyModel* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnTimerEvent(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_TimerEvent_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1574,9 +1526,8 @@ void QIdentityProxyModel_SuperChildEvent(QIdentityProxyModel* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnChildEvent(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_ChildEvent_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1603,9 +1554,8 @@ void QIdentityProxyModel_SuperCustomEvent(QIdentityProxyModel* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnCustomEvent(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_CustomEvent_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1632,9 +1582,8 @@ void QIdentityProxyModel_SuperConnectNotify(QIdentityProxyModel* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnConnectNotify(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_ConnectNotify_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1661,9 +1610,8 @@ void QIdentityProxyModel_SuperDisconnectNotify(QIdentityProxyModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnDisconnectNotify(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_DisconnectNotify_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1690,9 +1638,8 @@ void QIdentityProxyModel_SuperSetHandleSourceLayoutChanges(QIdentityProxyModel* 
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnSetHandleSourceLayoutChanges(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_SetHandleSourceLayoutChanges_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_SetHandleSourceLayoutChanges_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1719,9 +1666,8 @@ void QIdentityProxyModel_SuperSetHandleSourceDataChanges(QIdentityProxyModel* se
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnSetHandleSourceDataChanges(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_SetHandleSourceDataChanges_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_SetHandleSourceDataChanges_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1746,9 +1692,8 @@ QModelIndex* QIdentityProxyModel_SuperCreateSourceIndex(const QIdentityProxyMode
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnCreateSourceIndex(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_CreateSourceIndex_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_CreateSourceIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1773,9 +1718,8 @@ QModelIndex* QIdentityProxyModel_SuperCreateIndex(const QIdentityProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnCreateIndex(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_CreateIndex_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1814,9 +1758,8 @@ void QIdentityProxyModel_SuperEncodeData(const QIdentityProxyModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnEncodeData(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_EncodeData_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1843,9 +1786,8 @@ bool QIdentityProxyModel_SuperDecodeData(QIdentityProxyModel* self, int row, int
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnDecodeData(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_DecodeData_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1872,9 +1814,8 @@ void QIdentityProxyModel_SuperBeginInsertRows(QIdentityProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnBeginInsertRows(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_BeginInsertRows_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1901,9 +1842,8 @@ void QIdentityProxyModel_SuperEndInsertRows(QIdentityProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnEndInsertRows(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_EndInsertRows_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1930,9 +1870,8 @@ void QIdentityProxyModel_SuperBeginRemoveRows(QIdentityProxyModel* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnBeginRemoveRows(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1959,9 +1898,8 @@ void QIdentityProxyModel_SuperEndRemoveRows(QIdentityProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnEndRemoveRows(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_EndRemoveRows_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1988,9 +1926,8 @@ bool QIdentityProxyModel_SuperBeginMoveRows(QIdentityProxyModel* self, const QMo
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnBeginMoveRows(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_BeginMoveRows_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2017,9 +1954,8 @@ void QIdentityProxyModel_SuperEndMoveRows(QIdentityProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnEndMoveRows(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_EndMoveRows_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2046,9 +1982,8 @@ void QIdentityProxyModel_SuperBeginInsertColumns(QIdentityProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnBeginInsertColumns(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2075,9 +2010,8 @@ void QIdentityProxyModel_SuperEndInsertColumns(QIdentityProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnEndInsertColumns(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_EndInsertColumns_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2104,9 +2038,8 @@ void QIdentityProxyModel_SuperBeginRemoveColumns(QIdentityProxyModel* self, cons
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnBeginRemoveColumns(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2133,9 +2066,8 @@ void QIdentityProxyModel_SuperEndRemoveColumns(QIdentityProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnEndRemoveColumns(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2162,9 +2094,8 @@ bool QIdentityProxyModel_SuperBeginMoveColumns(QIdentityProxyModel* self, const 
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnBeginMoveColumns(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2191,9 +2122,8 @@ void QIdentityProxyModel_SuperEndMoveColumns(QIdentityProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnEndMoveColumns(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_EndMoveColumns_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2220,9 +2150,8 @@ void QIdentityProxyModel_SuperBeginResetModel(QIdentityProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnBeginResetModel(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_BeginResetModel_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2249,9 +2178,8 @@ void QIdentityProxyModel_SuperEndResetModel(QIdentityProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnEndResetModel(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_EndResetModel_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2278,9 +2206,8 @@ void QIdentityProxyModel_SuperChangePersistentIndex(QIdentityProxyModel* self, c
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnChangePersistentIndex(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2331,9 +2258,8 @@ void QIdentityProxyModel_SuperChangePersistentIndexList(QIdentityProxyModel* sel
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnChangePersistentIndexList(QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2396,9 +2322,8 @@ libqt_list /* of QModelIndex* */ QIdentityProxyModel_SuperPersistentIndexList(co
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnPersistentIndexList(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_PersistentIndexList_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2425,9 +2350,8 @@ QObject* QIdentityProxyModel_SuperSender(const QIdentityProxyModel* self) {
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnSender(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_Sender_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2454,9 +2378,8 @@ int QIdentityProxyModel_SuperSenderSignalIndex(const QIdentityProxyModel* self) 
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnSenderSignalIndex(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2483,9 +2406,8 @@ int QIdentityProxyModel_SuperReceivers(const QIdentityProxyModel* self, const ch
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnReceivers(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_Receivers_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2512,9 +2434,8 @@ bool QIdentityProxyModel_SuperIsSignalConnected(const QIdentityProxyModel* self,
 // Auxiliary method to allow providing re-implementation
 void QIdentityProxyModel_OnIsSignalConnected(const QIdentityProxyModel* self, intptr_t slot) {
     auto* vqidentityproxymodel = const_cast<VirtualQIdentityProxyModel*>(dynamic_cast<const VirtualQIdentityProxyModel*>(self));
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
+    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel)
         vqidentityproxymodel->setQIdentityProxyModel_IsSignalConnected_Callback(reinterpret_cast<VirtualQIdentityProxyModel::QIdentityProxyModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QIdentityProxyModel_Delete(QIdentityProxyModel* self) {

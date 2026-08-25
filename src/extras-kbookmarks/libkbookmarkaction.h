@@ -29,6 +29,8 @@ typedef struct QTimerEvent QTimerEvent;
 #endif
 
 KBookmarkAction* KBookmarkAction_new(const KBookmark* bk, KBookmarkOwner* owner, QObject* parent);
+KBookmarkActionInterface* KBookmarkAction_AsKBookmarkActionInterface(KBookmarkAction* self);
+KBookmarkAction* KBookmarkAction_FromKBookmarkActionInterface(KBookmarkActionInterface* _kbookmarkactioninterface);
 QMetaObject* KBookmarkAction_MetaObject(const KBookmarkAction* self);
 void* KBookmarkAction_Metacast(KBookmarkAction* self, const char* param1);
 int KBookmarkAction_Metacall(KBookmarkAction* self, int param1, int param2, void** param3);

@@ -238,9 +238,8 @@ QMetaObject* QProgressDialog_SuperMetaObject(const QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMetaObject(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_MetaObject_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -257,9 +256,8 @@ void* QProgressDialog_SuperMetacast(QProgressDialog* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMetacast(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_Metacast_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -276,9 +274,8 @@ int QProgressDialog_SuperMetacall(QProgressDialog* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMetacall(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_Metacall_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -295,9 +292,8 @@ QSize* QProgressDialog_SuperSizeHint(const QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnSizeHint(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_SizeHint_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -314,9 +310,8 @@ void QProgressDialog_SuperResizeEvent(QProgressDialog* self, QResizeEvent* event
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnResizeEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_ResizeEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -333,9 +328,8 @@ void QProgressDialog_SuperCloseEvent(QProgressDialog* self, QCloseEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnCloseEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_CloseEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_CloseEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -352,9 +346,8 @@ void QProgressDialog_SuperChangeEvent(QProgressDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnChangeEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_ChangeEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -371,9 +364,8 @@ void QProgressDialog_SuperShowEvent(QProgressDialog* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnShowEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_ShowEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -400,9 +392,8 @@ void QProgressDialog_SuperSetVisible(QProgressDialog* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnSetVisible(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_SetVisible_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -429,9 +420,8 @@ QSize* QProgressDialog_SuperMinimumSizeHint(const QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMinimumSizeHint(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_MinimumSizeHint_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -458,9 +448,8 @@ void QProgressDialog_SuperOpen(QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnOpen(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_Open_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -487,9 +476,8 @@ int QProgressDialog_SuperExec(QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnExec(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_Exec_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Exec_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -516,9 +504,8 @@ void QProgressDialog_SuperDone(QProgressDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnDone(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_Done_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Done_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -545,9 +532,8 @@ void QProgressDialog_SuperAccept(QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnAccept(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_Accept_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Accept_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -574,9 +560,8 @@ void QProgressDialog_SuperReject(QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnReject(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_Reject_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Reject_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -603,9 +588,8 @@ void QProgressDialog_SuperKeyPressEvent(QProgressDialog* self, QKeyEvent* param1
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnKeyPressEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_KeyPressEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -632,9 +616,8 @@ void QProgressDialog_SuperContextMenuEvent(QProgressDialog* self, QContextMenuEv
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnContextMenuEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_ContextMenuEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -661,9 +644,8 @@ bool QProgressDialog_SuperEventFilter(QProgressDialog* self, QObject* param1, QE
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnEventFilter(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_EventFilter_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -690,9 +672,8 @@ int QProgressDialog_SuperDevType(const QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnDevType(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_DevType_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -719,9 +700,8 @@ int QProgressDialog_SuperHeightForWidth(const QProgressDialog* self, int param1)
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnHeightForWidth(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_HeightForWidth_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -748,9 +728,8 @@ bool QProgressDialog_SuperHasHeightForWidth(const QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnHasHeightForWidth(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_HasHeightForWidth_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -777,9 +756,8 @@ QPaintEngine* QProgressDialog_SuperPaintEngine(const QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnPaintEngine(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_PaintEngine_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -806,9 +784,8 @@ bool QProgressDialog_SuperEvent(QProgressDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_Event_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -835,9 +812,8 @@ void QProgressDialog_SuperMousePressEvent(QProgressDialog* self, QMouseEvent* ev
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMousePressEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_MousePressEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -864,9 +840,8 @@ void QProgressDialog_SuperMouseReleaseEvent(QProgressDialog* self, QMouseEvent* 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMouseReleaseEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -893,9 +868,8 @@ void QProgressDialog_SuperMouseDoubleClickEvent(QProgressDialog* self, QMouseEve
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMouseDoubleClickEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -922,9 +896,8 @@ void QProgressDialog_SuperMouseMoveEvent(QProgressDialog* self, QMouseEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMouseMoveEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_MouseMoveEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -951,9 +924,8 @@ void QProgressDialog_SuperWheelEvent(QProgressDialog* self, QWheelEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnWheelEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_WheelEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -980,9 +952,8 @@ void QProgressDialog_SuperKeyReleaseEvent(QProgressDialog* self, QKeyEvent* even
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnKeyReleaseEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1009,9 +980,8 @@ void QProgressDialog_SuperFocusInEvent(QProgressDialog* self, QFocusEvent* event
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnFocusInEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_FocusInEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1038,9 +1008,8 @@ void QProgressDialog_SuperFocusOutEvent(QProgressDialog* self, QFocusEvent* even
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnFocusOutEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_FocusOutEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1067,9 +1036,8 @@ void QProgressDialog_SuperEnterEvent(QProgressDialog* self, QEnterEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnEnterEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_EnterEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1096,9 +1064,8 @@ void QProgressDialog_SuperLeaveEvent(QProgressDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnLeaveEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_LeaveEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1125,9 +1092,8 @@ void QProgressDialog_SuperPaintEvent(QProgressDialog* self, QPaintEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnPaintEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_PaintEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1154,9 +1120,8 @@ void QProgressDialog_SuperMoveEvent(QProgressDialog* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMoveEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_MoveEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1183,9 +1148,8 @@ void QProgressDialog_SuperTabletEvent(QProgressDialog* self, QTabletEvent* event
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnTabletEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_TabletEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1212,9 +1176,8 @@ void QProgressDialog_SuperActionEvent(QProgressDialog* self, QActionEvent* event
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnActionEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_ActionEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1241,9 +1204,8 @@ void QProgressDialog_SuperDragEnterEvent(QProgressDialog* self, QDragEnterEvent*
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnDragEnterEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_DragEnterEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1270,9 +1232,8 @@ void QProgressDialog_SuperDragMoveEvent(QProgressDialog* self, QDragMoveEvent* e
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnDragMoveEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_DragMoveEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1299,9 +1260,8 @@ void QProgressDialog_SuperDragLeaveEvent(QProgressDialog* self, QDragLeaveEvent*
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnDragLeaveEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_DragLeaveEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1328,9 +1288,8 @@ void QProgressDialog_SuperDropEvent(QProgressDialog* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnDropEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_DropEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1357,9 +1316,8 @@ void QProgressDialog_SuperHideEvent(QProgressDialog* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnHideEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_HideEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1388,9 +1346,8 @@ bool QProgressDialog_SuperNativeEvent(QProgressDialog* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnNativeEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_NativeEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1417,9 +1374,8 @@ int QProgressDialog_SuperMetric(const QProgressDialog* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnMetric(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_Metric_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1446,9 +1402,8 @@ void QProgressDialog_SuperInitPainter(const QProgressDialog* self, QPainter* pai
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnInitPainter(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_InitPainter_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1475,9 +1430,8 @@ QPaintDevice* QProgressDialog_SuperRedirected(const QProgressDialog* self, QPoin
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnRedirected(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_Redirected_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1504,9 +1458,8 @@ QPainter* QProgressDialog_SuperSharedPainter(const QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnSharedPainter(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_SharedPainter_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1533,9 +1486,8 @@ void QProgressDialog_SuperInputMethodEvent(QProgressDialog* self, QInputMethodEv
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnInputMethodEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_InputMethodEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1562,9 +1514,8 @@ QVariant* QProgressDialog_SuperInputMethodQuery(const QProgressDialog* self, int
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnInputMethodQuery(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_InputMethodQuery_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1591,9 +1542,8 @@ bool QProgressDialog_SuperFocusNextPrevChild(QProgressDialog* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnFocusNextPrevChild(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1620,9 +1570,8 @@ void QProgressDialog_SuperTimerEvent(QProgressDialog* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnTimerEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_TimerEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1649,9 +1598,8 @@ void QProgressDialog_SuperChildEvent(QProgressDialog* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnChildEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_ChildEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1678,9 +1626,8 @@ void QProgressDialog_SuperCustomEvent(QProgressDialog* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnCustomEvent(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_CustomEvent_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1707,9 +1654,8 @@ void QProgressDialog_SuperConnectNotify(QProgressDialog* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnConnectNotify(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_ConnectNotify_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1736,9 +1682,8 @@ void QProgressDialog_SuperDisconnectNotify(QProgressDialog* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnDisconnectNotify(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_DisconnectNotify_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1765,9 +1710,8 @@ void QProgressDialog_SuperForceShow(QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnForceShow(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_ForceShow_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_ForceShow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1794,9 +1738,8 @@ void QProgressDialog_SuperAdjustPosition(QProgressDialog* self, QWidget* param1)
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnAdjustPosition(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_AdjustPosition_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_AdjustPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1823,9 +1766,8 @@ void QProgressDialog_SuperUpdateMicroFocus(QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnUpdateMicroFocus(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1852,9 +1794,8 @@ void QProgressDialog_SuperCreate(QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnCreate(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_Create_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1881,9 +1822,8 @@ void QProgressDialog_SuperDestroy(QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnDestroy(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_Destroy_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1910,9 +1850,8 @@ bool QProgressDialog_SuperFocusNextChild(QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnFocusNextChild(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_FocusNextChild_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1939,9 +1878,8 @@ bool QProgressDialog_SuperFocusPreviousChild(QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnFocusPreviousChild(QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_FocusPreviousChild_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1968,9 +1906,8 @@ QObject* QProgressDialog_SuperSender(const QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnSender(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_Sender_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1997,9 +1934,8 @@ int QProgressDialog_SuperSenderSignalIndex(const QProgressDialog* self) {
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnSenderSignalIndex(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_SenderSignalIndex_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2026,9 +1962,8 @@ int QProgressDialog_SuperReceivers(const QProgressDialog* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnReceivers(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_Receivers_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2055,9 +1990,8 @@ bool QProgressDialog_SuperIsSignalConnected(const QProgressDialog* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnIsSignalConnected(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2084,9 +2018,8 @@ double QProgressDialog_SuperGetDecodedMetricF(const QProgressDialog* self, int m
 // Auxiliary method to allow providing re-implementation
 void QProgressDialog_OnGetDecodedMetricF(const QProgressDialog* self, intptr_t slot) {
     auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog)
         vqprogressdialog->setQProgressDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QProgressDialog_Delete(QProgressDialog* self) {

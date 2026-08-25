@@ -116,9 +116,8 @@ QMetaObject* QsciLexerJSON_SuperMetaObject(const QsciLexerJSON* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnMetaObject(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_MetaObject_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -135,9 +134,8 @@ void* QsciLexerJSON_SuperMetacast(QsciLexerJSON* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnMetacast(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_Metacast_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -154,9 +152,8 @@ int QsciLexerJSON_SuperMetacall(QsciLexerJSON* self, int param1, int param2, voi
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnMetacall(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_Metacall_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -183,9 +180,8 @@ int QsciLexerJSON_SuperLexerId(const QsciLexerJSON* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnLexerId(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_LexerId_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_LexerId_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -212,9 +208,8 @@ const char* QsciLexerJSON_SuperAutoCompletionFillups(const QsciLexerJSON* self) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnAutoCompletionFillups(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_AutoCompletionFillups_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_AutoCompletionFillups_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -309,9 +304,8 @@ libqt_list /* of libqt_string */ QsciLexerJSON_SuperAutoCompletionWordSeparators
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnAutoCompletionWordSeparators(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_AutoCompletionWordSeparators_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_AutoCompletionWordSeparators_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -338,9 +332,8 @@ const char* QsciLexerJSON_SuperBlockEnd(const QsciLexerJSON* self, int* style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnBlockEnd(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_BlockEnd_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_BlockEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -367,9 +360,8 @@ int QsciLexerJSON_SuperBlockLookback(const QsciLexerJSON* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnBlockLookback(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_BlockLookback_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_BlockLookback_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -396,9 +388,8 @@ const char* QsciLexerJSON_SuperBlockStart(const QsciLexerJSON* self, int* style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnBlockStart(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_BlockStart_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_BlockStart_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -425,9 +416,8 @@ const char* QsciLexerJSON_SuperBlockStartKeyword(const QsciLexerJSON* self, int*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnBlockStartKeyword(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_BlockStartKeyword_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_BlockStartKeyword_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -454,9 +444,8 @@ int QsciLexerJSON_SuperBraceStyle(const QsciLexerJSON* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnBraceStyle(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_BraceStyle_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_BraceStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -483,9 +472,8 @@ bool QsciLexerJSON_SuperCaseSensitive(const QsciLexerJSON* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnCaseSensitive(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_CaseSensitive_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_CaseSensitive_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -512,9 +500,8 @@ QColor* QsciLexerJSON_SuperColor(const QsciLexerJSON* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnColor(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_Color_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_Color_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -541,9 +528,8 @@ bool QsciLexerJSON_SuperEolFill(const QsciLexerJSON* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnEolFill(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_EolFill_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_EolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -570,9 +556,8 @@ QFont* QsciLexerJSON_SuperFont(const QsciLexerJSON* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnFont(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_Font_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_Font_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -599,9 +584,8 @@ int QsciLexerJSON_SuperIndentationGuideView(const QsciLexerJSON* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnIndentationGuideView(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_IndentationGuideView_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_IndentationGuideView_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -628,9 +612,8 @@ int QsciLexerJSON_SuperDefaultStyle(const QsciLexerJSON* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnDefaultStyle(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_DefaultStyle_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_DefaultStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -657,9 +640,8 @@ QColor* QsciLexerJSON_SuperPaper(const QsciLexerJSON* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnPaper(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_Paper_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_Paper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -686,9 +668,8 @@ QColor* QsciLexerJSON_SuperDefaultColor2(const QsciLexerJSON* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnDefaultColor2(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_DefaultColor2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -715,9 +696,8 @@ QFont* QsciLexerJSON_SuperDefaultFont2(const QsciLexerJSON* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnDefaultFont2(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_DefaultFont2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -744,9 +724,8 @@ QColor* QsciLexerJSON_SuperDefaultPaper2(const QsciLexerJSON* self, int style) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnDefaultPaper2(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_DefaultPaper2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -773,9 +752,8 @@ void QsciLexerJSON_SuperSetEditor(QsciLexerJSON* self, QsciScintilla* editor) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnSetEditor(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_SetEditor_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_SetEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -802,9 +780,8 @@ int QsciLexerJSON_SuperStyleBitsNeeded(const QsciLexerJSON* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnStyleBitsNeeded(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_StyleBitsNeeded_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_StyleBitsNeeded_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -831,9 +808,8 @@ const char* QsciLexerJSON_SuperWordCharacters(const QsciLexerJSON* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnWordCharacters(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_WordCharacters_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_WordCharacters_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -860,9 +836,8 @@ void QsciLexerJSON_SuperSetAutoIndentStyle(QsciLexerJSON* self, int autoindentst
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnSetAutoIndentStyle(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_SetAutoIndentStyle_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_SetAutoIndentStyle_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -889,9 +864,8 @@ void QsciLexerJSON_SuperSetColor(QsciLexerJSON* self, const QColor* c, int style
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnSetColor(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_SetColor_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_SetColor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -918,9 +892,8 @@ void QsciLexerJSON_SuperSetEolFill(QsciLexerJSON* self, bool eoffill, int style)
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnSetEolFill(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_SetEolFill_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_SetEolFill_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -947,9 +920,8 @@ void QsciLexerJSON_SuperSetFont(QsciLexerJSON* self, const QFont* f, int style) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnSetFont(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_SetFont_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_SetFont_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -976,9 +948,8 @@ void QsciLexerJSON_SuperSetPaper(QsciLexerJSON* self, const QColor* c, int style
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnSetPaper(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_SetPaper_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_SetPaper_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1007,9 +978,8 @@ bool QsciLexerJSON_SuperReadProperties(QsciLexerJSON* self, QSettings* qs, const
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnReadProperties(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_ReadProperties_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_ReadProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1038,9 +1008,8 @@ bool QsciLexerJSON_SuperWriteProperties(const QsciLexerJSON* self, QSettings* qs
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnWriteProperties(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_WriteProperties_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_WriteProperties_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1067,9 +1036,8 @@ bool QsciLexerJSON_SuperEvent(QsciLexerJSON* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnEvent(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_Event_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1096,9 +1064,8 @@ bool QsciLexerJSON_SuperEventFilter(QsciLexerJSON* self, QObject* watched, QEven
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnEventFilter(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_EventFilter_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1125,9 +1092,8 @@ void QsciLexerJSON_SuperTimerEvent(QsciLexerJSON* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnTimerEvent(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_TimerEvent_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1154,9 +1120,8 @@ void QsciLexerJSON_SuperChildEvent(QsciLexerJSON* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnChildEvent(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_ChildEvent_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1183,9 +1148,8 @@ void QsciLexerJSON_SuperCustomEvent(QsciLexerJSON* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnCustomEvent(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_CustomEvent_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1212,9 +1176,8 @@ void QsciLexerJSON_SuperConnectNotify(QsciLexerJSON* self, const QMetaMethod* si
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnConnectNotify(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_ConnectNotify_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1241,9 +1204,8 @@ void QsciLexerJSON_SuperDisconnectNotify(QsciLexerJSON* self, const QMetaMethod*
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnDisconnectNotify(QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_DisconnectNotify_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1292,9 +1254,8 @@ libqt_string QsciLexerJSON_SuperTextAsBytes(const QsciLexerJSON* self, const lib
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnTextAsBytes(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_TextAsBytes_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_TextAsBytes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1353,9 +1314,8 @@ libqt_string QsciLexerJSON_SuperBytesAsText(const QsciLexerJSON* self, const cha
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnBytesAsText(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_BytesAsText_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_BytesAsText_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1382,9 +1342,8 @@ QObject* QsciLexerJSON_SuperSender(const QsciLexerJSON* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnSender(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_Sender_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1411,9 +1370,8 @@ int QsciLexerJSON_SuperSenderSignalIndex(const QsciLexerJSON* self) {
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnSenderSignalIndex(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_SenderSignalIndex_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1440,9 +1398,8 @@ int QsciLexerJSON_SuperReceivers(const QsciLexerJSON* self, const char* signal) 
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnReceivers(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_Receivers_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1469,9 +1426,8 @@ bool QsciLexerJSON_SuperIsSignalConnected(const QsciLexerJSON* self, const QMeta
 // Auxiliary method to allow providing re-implementation
 void QsciLexerJSON_OnIsSignalConnected(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
+    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON)
         vqscilexerjson->setQsciLexerJSON_IsSignalConnected_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QsciLexerJSON_Delete(QsciLexerJSON* self) {

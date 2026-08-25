@@ -20,6 +20,14 @@ QExtensionManager* QExtensionManager_new2(QObject* parent) {
     return new VirtualQExtensionManager(parent);
 }
 
+QAbstractExtensionManager* QExtensionManager_AsQAbstractExtensionManager(QExtensionManager* self) {
+    return static_cast<QAbstractExtensionManager*>(self);
+}
+
+QExtensionManager* QExtensionManager_FromQAbstractExtensionManager(QAbstractExtensionManager* _qabstractextensionmanager) {
+    return dynamic_cast<QExtensionManager*>(static_cast<QAbstractExtensionManager*>(_qabstractextensionmanager));
+}
+
 QMetaObject* QExtensionManager_MetaObject(const QExtensionManager* self) {
     return (QMetaObject*)self->metaObject();
 }
@@ -61,9 +69,8 @@ QMetaObject* QExtensionManager_SuperMetaObject(const QExtensionManager* self) {
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnMetaObject(const QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = const_cast<VirtualQExtensionManager*>(dynamic_cast<const VirtualQExtensionManager*>(self));
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_MetaObject_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -80,9 +87,8 @@ void* QExtensionManager_SuperMetacast(QExtensionManager* self, const char* param
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnMetacast(QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_Metacast_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -99,9 +105,8 @@ int QExtensionManager_SuperMetacall(QExtensionManager* self, int param1, int par
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnMetacall(QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_Metacall_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -119,9 +124,8 @@ void QExtensionManager_SuperRegisterExtensions(QExtensionManager* self, QAbstrac
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnRegisterExtensions(QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_RegisterExtensions_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_RegisterExtensions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -139,9 +143,8 @@ void QExtensionManager_SuperUnregisterExtensions(QExtensionManager* self, QAbstr
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnUnregisterExtensions(QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_UnregisterExtensions_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_UnregisterExtensions_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -159,9 +162,8 @@ QObject* QExtensionManager_SuperExtension(const QExtensionManager* self, QObject
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnExtension(const QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = const_cast<VirtualQExtensionManager*>(dynamic_cast<const VirtualQExtensionManager*>(self));
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_Extension_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_Extension_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -188,9 +190,8 @@ bool QExtensionManager_SuperEvent(QExtensionManager* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnEvent(QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_Event_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -217,9 +218,8 @@ bool QExtensionManager_SuperEventFilter(QExtensionManager* self, QObject* watche
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnEventFilter(QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_EventFilter_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -246,9 +246,8 @@ void QExtensionManager_SuperTimerEvent(QExtensionManager* self, QTimerEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnTimerEvent(QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_TimerEvent_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -275,9 +274,8 @@ void QExtensionManager_SuperChildEvent(QExtensionManager* self, QChildEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnChildEvent(QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_ChildEvent_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -304,9 +302,8 @@ void QExtensionManager_SuperCustomEvent(QExtensionManager* self, QEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnCustomEvent(QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_CustomEvent_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -333,9 +330,8 @@ void QExtensionManager_SuperConnectNotify(QExtensionManager* self, const QMetaMe
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnConnectNotify(QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_ConnectNotify_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -362,9 +358,8 @@ void QExtensionManager_SuperDisconnectNotify(QExtensionManager* self, const QMet
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnDisconnectNotify(QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_DisconnectNotify_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -391,9 +386,8 @@ QObject* QExtensionManager_SuperSender(const QExtensionManager* self) {
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnSender(const QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = const_cast<VirtualQExtensionManager*>(dynamic_cast<const VirtualQExtensionManager*>(self));
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_Sender_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -420,9 +414,8 @@ int QExtensionManager_SuperSenderSignalIndex(const QExtensionManager* self) {
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnSenderSignalIndex(const QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = const_cast<VirtualQExtensionManager*>(dynamic_cast<const VirtualQExtensionManager*>(self));
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_SenderSignalIndex_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -449,9 +442,8 @@ int QExtensionManager_SuperReceivers(const QExtensionManager* self, const char* 
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnReceivers(const QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = const_cast<VirtualQExtensionManager*>(dynamic_cast<const VirtualQExtensionManager*>(self));
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_Receivers_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -478,9 +470,8 @@ bool QExtensionManager_SuperIsSignalConnected(const QExtensionManager* self, con
 // Auxiliary method to allow providing re-implementation
 void QExtensionManager_OnIsSignalConnected(const QExtensionManager* self, intptr_t slot) {
     auto* vqextensionmanager = const_cast<VirtualQExtensionManager*>(dynamic_cast<const VirtualQExtensionManager*>(self));
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
+    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager)
         vqextensionmanager->setQExtensionManager_IsSignalConnected_Callback(reinterpret_cast<VirtualQExtensionManager::QExtensionManager_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QExtensionManager_Delete(QExtensionManager* self) {

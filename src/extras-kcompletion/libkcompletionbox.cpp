@@ -276,9 +276,8 @@ QMetaObject* KCompletionBox_SuperMetaObject(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnMetaObject(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_MetaObject_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -295,9 +294,8 @@ void* KCompletionBox_SuperMetacast(KCompletionBox* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnMetacast(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_Metacast_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -314,9 +312,8 @@ int KCompletionBox_SuperMetacall(KCompletionBox* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnMetacall(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_Metacall_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -333,9 +330,8 @@ QSize* KCompletionBox_SuperSizeHint(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSizeHint(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SizeHint_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -352,9 +348,8 @@ void KCompletionBox_SuperPopup(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnPopup(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_Popup_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_Popup_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -371,9 +366,8 @@ void KCompletionBox_SuperSetVisible(KCompletionBox* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSetVisible(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SetVisible_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SetVisible_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -390,9 +384,8 @@ bool KCompletionBox_SuperEventFilter(KCompletionBox* self, QObject* param1, QEve
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnEventFilter(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_EventFilter_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -408,9 +401,8 @@ QPoint* KCompletionBox_SuperGlobalPositionHint(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnGlobalPositionHint(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_GlobalPositionHint_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_GlobalPositionHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -427,9 +419,8 @@ void KCompletionBox_SuperSlotActivated(KCompletionBox* self, QListWidgetItem* pa
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSlotActivated(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SlotActivated_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SlotActivated_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -456,9 +447,8 @@ void KCompletionBox_SuperSetSelectionModel(KCompletionBox* self, QItemSelectionM
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSetSelectionModel(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SetSelectionModel_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SetSelectionModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -485,9 +475,8 @@ void KCompletionBox_SuperDropEvent(KCompletionBox* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnDropEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_DropEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -514,9 +503,8 @@ bool KCompletionBox_SuperEvent(KCompletionBox* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_Event_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -611,9 +599,8 @@ libqt_list /* of libqt_string */ KCompletionBox_SuperMimeTypes(const KCompletion
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnMimeTypes(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_MimeTypes_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -652,9 +639,8 @@ QMimeData* KCompletionBox_SuperMimeData(const KCompletionBox* self, const libqt_
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnMimeData(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_MimeData_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -681,9 +667,8 @@ bool KCompletionBox_SuperDropMimeData(KCompletionBox* self, int index, const QMi
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnDropMimeData(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_DropMimeData_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -710,9 +695,8 @@ int KCompletionBox_SuperSupportedDropActions(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSupportedDropActions(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SupportedDropActions_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -739,9 +723,8 @@ QRect* KCompletionBox_SuperVisualRect(const KCompletionBox* self, const QModelIn
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnVisualRect(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_VisualRect_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_VisualRect_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -768,9 +751,8 @@ void KCompletionBox_SuperScrollTo(KCompletionBox* self, const QModelIndex* index
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnScrollTo(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ScrollTo_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ScrollTo_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -797,9 +779,8 @@ QModelIndex* KCompletionBox_SuperIndexAt(const KCompletionBox* self, const QPoin
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnIndexAt(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_IndexAt_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_IndexAt_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -826,9 +807,8 @@ void KCompletionBox_SuperDoItemsLayout(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnDoItemsLayout(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_DoItemsLayout_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_DoItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -855,9 +835,8 @@ void KCompletionBox_SuperReset(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnReset(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_Reset_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -884,9 +863,8 @@ void KCompletionBox_SuperSetRootIndex(KCompletionBox* self, const QModelIndex* i
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSetRootIndex(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SetRootIndex_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SetRootIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -913,9 +891,8 @@ void KCompletionBox_SuperScrollContentsBy(KCompletionBox* self, int dx, int dy) 
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnScrollContentsBy(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ScrollContentsBy_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ScrollContentsBy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -954,9 +931,8 @@ void KCompletionBox_SuperDataChanged(KCompletionBox* self, const QModelIndex* to
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnDataChanged(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_DataChanged_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_DataChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -983,9 +959,8 @@ void KCompletionBox_SuperRowsInserted(KCompletionBox* self, const QModelIndex* p
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnRowsInserted(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_RowsInserted_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_RowsInserted_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1012,9 +987,8 @@ void KCompletionBox_SuperRowsAboutToBeRemoved(KCompletionBox* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnRowsAboutToBeRemoved(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_RowsAboutToBeRemoved_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_RowsAboutToBeRemoved_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1041,9 +1015,8 @@ void KCompletionBox_SuperMouseMoveEvent(KCompletionBox* self, QMouseEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnMouseMoveEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_MouseMoveEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1070,9 +1043,8 @@ void KCompletionBox_SuperMouseReleaseEvent(KCompletionBox* self, QMouseEvent* e)
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnMouseReleaseEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_MouseReleaseEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1099,9 +1071,8 @@ void KCompletionBox_SuperWheelEvent(KCompletionBox* self, QWheelEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnWheelEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_WheelEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1128,9 +1099,8 @@ void KCompletionBox_SuperTimerEvent(KCompletionBox* self, QTimerEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnTimerEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_TimerEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1157,9 +1127,8 @@ void KCompletionBox_SuperResizeEvent(KCompletionBox* self, QResizeEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnResizeEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ResizeEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1186,9 +1155,8 @@ void KCompletionBox_SuperDragMoveEvent(KCompletionBox* self, QDragMoveEvent* e) 
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnDragMoveEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_DragMoveEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1215,9 +1183,8 @@ void KCompletionBox_SuperDragLeaveEvent(KCompletionBox* self, QDragLeaveEvent* e
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnDragLeaveEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_DragLeaveEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1244,9 +1211,8 @@ void KCompletionBox_SuperStartDrag(KCompletionBox* self, int supportedActions) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnStartDrag(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_StartDrag_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_StartDrag_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1273,9 +1239,8 @@ void KCompletionBox_SuperInitViewItemOption(const KCompletionBox* self, QStyleOp
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnInitViewItemOption(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_InitViewItemOption_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_InitViewItemOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1302,9 +1267,8 @@ void KCompletionBox_SuperPaintEvent(KCompletionBox* self, QPaintEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnPaintEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_PaintEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_PaintEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1331,9 +1295,8 @@ int KCompletionBox_SuperHorizontalOffset(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnHorizontalOffset(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_HorizontalOffset_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_HorizontalOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1360,9 +1323,8 @@ int KCompletionBox_SuperVerticalOffset(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnVerticalOffset(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_VerticalOffset_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_VerticalOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1387,9 +1349,8 @@ QModelIndex* KCompletionBox_SuperMoveCursor(KCompletionBox* self, int cursorActi
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnMoveCursor(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_MoveCursor_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_MoveCursor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1416,9 +1377,8 @@ void KCompletionBox_SuperSetSelection(KCompletionBox* self, const QRect* rect, i
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSetSelection(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SetSelection_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SetSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1443,9 +1403,8 @@ QRegion* KCompletionBox_SuperVisualRegionForSelection(const KCompletionBox* self
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnVisualRegionForSelection(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_VisualRegionForSelection_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_VisualRegionForSelection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1508,9 +1467,8 @@ libqt_list /* of QModelIndex* */ KCompletionBox_SuperSelectedIndexes(const KComp
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSelectedIndexes(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SelectedIndexes_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SelectedIndexes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1537,9 +1495,8 @@ void KCompletionBox_SuperUpdateGeometries(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnUpdateGeometries(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_UpdateGeometries_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_UpdateGeometries_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1566,9 +1523,8 @@ bool KCompletionBox_SuperIsIndexHidden(const KCompletionBox* self, const QModelI
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnIsIndexHidden(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_IsIndexHidden_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_IsIndexHidden_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1595,9 +1551,8 @@ void KCompletionBox_SuperSelectionChanged(KCompletionBox* self, const QItemSelec
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSelectionChanged(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SelectionChanged_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SelectionChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1624,9 +1579,8 @@ void KCompletionBox_SuperCurrentChanged(KCompletionBox* self, const QModelIndex*
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnCurrentChanged(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_CurrentChanged_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_CurrentChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1651,9 +1605,8 @@ QSize* KCompletionBox_SuperViewportSizeHint(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnViewportSizeHint(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ViewportSizeHint_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ViewportSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1682,9 +1635,8 @@ void KCompletionBox_SuperKeyboardSearch(KCompletionBox* self, const libqt_string
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnKeyboardSearch(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_KeyboardSearch_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_KeyboardSearch_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1711,9 +1663,8 @@ int KCompletionBox_SuperSizeHintForRow(const KCompletionBox* self, int row) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSizeHintForRow(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SizeHintForRow_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SizeHintForRow_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1740,9 +1691,8 @@ int KCompletionBox_SuperSizeHintForColumn(const KCompletionBox* self, int column
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSizeHintForColumn(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SizeHintForColumn_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SizeHintForColumn_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1769,9 +1719,8 @@ QAbstractItemDelegate* KCompletionBox_SuperItemDelegateForIndex(const KCompletio
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnItemDelegateForIndex(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ItemDelegateForIndex_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ItemDelegateForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1798,9 +1747,8 @@ QVariant* KCompletionBox_SuperInputMethodQuery(const KCompletionBox* self, int q
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnInputMethodQuery(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_InputMethodQuery_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1827,9 +1775,8 @@ void KCompletionBox_SuperSelectAll(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSelectAll(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SelectAll_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SelectAll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1856,9 +1803,8 @@ void KCompletionBox_SuperUpdateEditorData(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnUpdateEditorData(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_UpdateEditorData_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_UpdateEditorData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1885,9 +1831,8 @@ void KCompletionBox_SuperUpdateEditorGeometries(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnUpdateEditorGeometries(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_UpdateEditorGeometries_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_UpdateEditorGeometries_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1914,9 +1859,8 @@ void KCompletionBox_SuperVerticalScrollbarAction(KCompletionBox* self, int actio
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnVerticalScrollbarAction(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_VerticalScrollbarAction_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_VerticalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1943,9 +1887,8 @@ void KCompletionBox_SuperHorizontalScrollbarAction(KCompletionBox* self, int act
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnHorizontalScrollbarAction(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_HorizontalScrollbarAction_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_HorizontalScrollbarAction_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1972,9 +1915,8 @@ void KCompletionBox_SuperVerticalScrollbarValueChanged(KCompletionBox* self, int
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnVerticalScrollbarValueChanged(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_VerticalScrollbarValueChanged_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_VerticalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2001,9 +1943,8 @@ void KCompletionBox_SuperHorizontalScrollbarValueChanged(KCompletionBox* self, i
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnHorizontalScrollbarValueChanged(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_HorizontalScrollbarValueChanged_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_HorizontalScrollbarValueChanged_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2030,9 +1971,8 @@ void KCompletionBox_SuperCloseEditor(KCompletionBox* self, QWidget* editor, int 
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnCloseEditor(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_CloseEditor_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_CloseEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2059,9 +1999,8 @@ void KCompletionBox_SuperCommitData(KCompletionBox* self, QWidget* editor) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnCommitData(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_CommitData_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_CommitData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2088,9 +2027,8 @@ void KCompletionBox_SuperEditorDestroyed(KCompletionBox* self, QObject* editor) 
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnEditorDestroyed(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_EditorDestroyed_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_EditorDestroyed_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2117,9 +2055,8 @@ bool KCompletionBox_SuperEdit2(KCompletionBox* self, const QModelIndex* index, i
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnEdit2(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_Edit2_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_Edit2_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2146,9 +2083,8 @@ int KCompletionBox_SuperSelectionCommand(const KCompletionBox* self, const QMode
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSelectionCommand(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SelectionCommand_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SelectionCommand_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2175,9 +2111,8 @@ bool KCompletionBox_SuperFocusNextPrevChild(KCompletionBox* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnFocusNextPrevChild(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_FocusNextPrevChild_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2204,9 +2139,8 @@ bool KCompletionBox_SuperViewportEvent(KCompletionBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnViewportEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ViewportEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ViewportEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2233,9 +2167,8 @@ void KCompletionBox_SuperMousePressEvent(KCompletionBox* self, QMouseEvent* even
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnMousePressEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_MousePressEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2262,9 +2195,8 @@ void KCompletionBox_SuperMouseDoubleClickEvent(KCompletionBox* self, QMouseEvent
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnMouseDoubleClickEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2291,9 +2223,8 @@ void KCompletionBox_SuperDragEnterEvent(KCompletionBox* self, QDragEnterEvent* e
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnDragEnterEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_DragEnterEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2320,9 +2251,8 @@ void KCompletionBox_SuperFocusInEvent(KCompletionBox* self, QFocusEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnFocusInEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_FocusInEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2349,9 +2279,8 @@ void KCompletionBox_SuperFocusOutEvent(KCompletionBox* self, QFocusEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnFocusOutEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_FocusOutEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2378,9 +2307,8 @@ void KCompletionBox_SuperKeyPressEvent(KCompletionBox* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnKeyPressEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_KeyPressEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2407,9 +2335,8 @@ void KCompletionBox_SuperInputMethodEvent(KCompletionBox* self, QInputMethodEven
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnInputMethodEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_InputMethodEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2436,9 +2363,8 @@ QSize* KCompletionBox_SuperMinimumSizeHint(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnMinimumSizeHint(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_MinimumSizeHint_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2465,9 +2391,8 @@ void KCompletionBox_SuperSetupViewport(KCompletionBox* self, QWidget* viewport) 
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSetupViewport(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SetupViewport_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SetupViewport_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2494,9 +2419,8 @@ void KCompletionBox_SuperContextMenuEvent(KCompletionBox* self, QContextMenuEven
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnContextMenuEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ContextMenuEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2523,9 +2447,8 @@ void KCompletionBox_SuperChangeEvent(KCompletionBox* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnChangeEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ChangeEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2552,9 +2475,8 @@ void KCompletionBox_SuperInitStyleOption(const KCompletionBox* self, QStyleOptio
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnInitStyleOption(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_InitStyleOption_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2581,9 +2503,8 @@ int KCompletionBox_SuperDevType(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnDevType(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_DevType_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2610,9 +2531,8 @@ int KCompletionBox_SuperHeightForWidth(const KCompletionBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnHeightForWidth(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_HeightForWidth_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2639,9 +2559,8 @@ bool KCompletionBox_SuperHasHeightForWidth(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnHasHeightForWidth(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_HasHeightForWidth_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2668,9 +2587,8 @@ QPaintEngine* KCompletionBox_SuperPaintEngine(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnPaintEngine(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_PaintEngine_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2697,9 +2615,8 @@ void KCompletionBox_SuperKeyReleaseEvent(KCompletionBox* self, QKeyEvent* event)
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnKeyReleaseEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_KeyReleaseEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2726,9 +2643,8 @@ void KCompletionBox_SuperEnterEvent(KCompletionBox* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnEnterEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_EnterEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2755,9 +2671,8 @@ void KCompletionBox_SuperLeaveEvent(KCompletionBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnLeaveEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_LeaveEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2784,9 +2699,8 @@ void KCompletionBox_SuperMoveEvent(KCompletionBox* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnMoveEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_MoveEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2813,9 +2727,8 @@ void KCompletionBox_SuperCloseEvent(KCompletionBox* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnCloseEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_CloseEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2842,9 +2755,8 @@ void KCompletionBox_SuperTabletEvent(KCompletionBox* self, QTabletEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnTabletEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_TabletEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2871,9 +2783,8 @@ void KCompletionBox_SuperActionEvent(KCompletionBox* self, QActionEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnActionEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ActionEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2900,9 +2811,8 @@ void KCompletionBox_SuperShowEvent(KCompletionBox* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnShowEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ShowEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2929,9 +2839,8 @@ void KCompletionBox_SuperHideEvent(KCompletionBox* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnHideEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_HideEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2960,9 +2869,8 @@ bool KCompletionBox_SuperNativeEvent(KCompletionBox* self, const libqt_string ev
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnNativeEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_NativeEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2989,9 +2897,8 @@ int KCompletionBox_SuperMetric(const KCompletionBox* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnMetric(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_Metric_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3018,9 +2925,8 @@ void KCompletionBox_SuperInitPainter(const KCompletionBox* self, QPainter* paint
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnInitPainter(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_InitPainter_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3047,9 +2953,8 @@ QPaintDevice* KCompletionBox_SuperRedirected(const KCompletionBox* self, QPoint*
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnRedirected(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_Redirected_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3076,9 +2981,8 @@ QPainter* KCompletionBox_SuperSharedPainter(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSharedPainter(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SharedPainter_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3105,9 +3009,8 @@ void KCompletionBox_SuperChildEvent(KCompletionBox* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnChildEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ChildEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3134,9 +3037,8 @@ void KCompletionBox_SuperCustomEvent(KCompletionBox* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnCustomEvent(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_CustomEvent_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3163,9 +3065,8 @@ void KCompletionBox_SuperConnectNotify(KCompletionBox* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnConnectNotify(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ConnectNotify_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3192,9 +3093,8 @@ void KCompletionBox_SuperDisconnectNotify(KCompletionBox* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnDisconnectNotify(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_DisconnectNotify_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3219,9 +3119,8 @@ QRect* KCompletionBox_SuperCalculateGeometry(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnCalculateGeometry(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_CalculateGeometry_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_CalculateGeometry_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3248,9 +3147,8 @@ void KCompletionBox_SuperResizeAndReposition(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnResizeAndReposition(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ResizeAndReposition_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ResizeAndReposition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3277,9 +3175,8 @@ void KCompletionBox_SuperResizeContents(KCompletionBox* self, int width, int hei
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnResizeContents(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ResizeContents_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ResizeContents_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3304,9 +3201,8 @@ QSize* KCompletionBox_SuperContentsSize(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnContentsSize(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ContentsSize_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ContentsSize_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3331,9 +3227,8 @@ QRect* KCompletionBox_SuperRectForIndex(const KCompletionBox* self, const QModel
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnRectForIndex(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_RectForIndex_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_RectForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3360,9 +3255,8 @@ void KCompletionBox_SuperSetPositionForIndex(KCompletionBox* self, const QPoint*
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSetPositionForIndex(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SetPositionForIndex_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SetPositionForIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3389,9 +3283,8 @@ int KCompletionBox_SuperState(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnState(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_State_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_State_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3418,9 +3311,8 @@ void KCompletionBox_SuperSetState(KCompletionBox* self, int state) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSetState(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SetState_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SetState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3447,9 +3339,8 @@ void KCompletionBox_SuperScheduleDelayedItemsLayout(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnScheduleDelayedItemsLayout(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ScheduleDelayedItemsLayout_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ScheduleDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3476,9 +3367,8 @@ void KCompletionBox_SuperExecuteDelayedItemsLayout(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnExecuteDelayedItemsLayout(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ExecuteDelayedItemsLayout_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ExecuteDelayedItemsLayout_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3505,9 +3395,8 @@ void KCompletionBox_SuperSetDirtyRegion(KCompletionBox* self, const QRegion* reg
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSetDirtyRegion(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SetDirtyRegion_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SetDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3534,9 +3423,8 @@ void KCompletionBox_SuperScrollDirtyRegion(KCompletionBox* self, int dx, int dy)
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnScrollDirtyRegion(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ScrollDirtyRegion_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ScrollDirtyRegion_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3561,9 +3449,8 @@ QPoint* KCompletionBox_SuperDirtyRegionOffset(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnDirtyRegionOffset(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_DirtyRegionOffset_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_DirtyRegionOffset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3590,9 +3477,8 @@ void KCompletionBox_SuperStartAutoScroll(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnStartAutoScroll(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_StartAutoScroll_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_StartAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3619,9 +3505,8 @@ void KCompletionBox_SuperStopAutoScroll(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnStopAutoScroll(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_StopAutoScroll_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_StopAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3648,9 +3533,8 @@ void KCompletionBox_SuperDoAutoScroll(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnDoAutoScroll(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_DoAutoScroll_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_DoAutoScroll_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3677,9 +3561,8 @@ int KCompletionBox_SuperDropIndicatorPosition(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnDropIndicatorPosition(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_DropIndicatorPosition_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_DropIndicatorPosition_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3706,9 +3589,8 @@ void KCompletionBox_SuperSetViewportMargins(KCompletionBox* self, int left, int 
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSetViewportMargins(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SetViewportMargins_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SetViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3733,9 +3615,8 @@ QMargins* KCompletionBox_SuperViewportMargins(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnViewportMargins(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_ViewportMargins_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_ViewportMargins_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3762,9 +3643,8 @@ void KCompletionBox_SuperDrawFrame(KCompletionBox* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnDrawFrame(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_DrawFrame_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3791,9 +3671,8 @@ void KCompletionBox_SuperUpdateMicroFocus(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnUpdateMicroFocus(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_UpdateMicroFocus_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3820,9 +3699,8 @@ void KCompletionBox_SuperCreate(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnCreate(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_Create_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3849,9 +3727,8 @@ void KCompletionBox_SuperDestroy(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnDestroy(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_Destroy_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3878,9 +3755,8 @@ bool KCompletionBox_SuperFocusNextChild(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnFocusNextChild(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_FocusNextChild_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3907,9 +3783,8 @@ bool KCompletionBox_SuperFocusPreviousChild(KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnFocusPreviousChild(KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_FocusPreviousChild_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3936,9 +3811,8 @@ QObject* KCompletionBox_SuperSender(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSender(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_Sender_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3965,9 +3839,8 @@ int KCompletionBox_SuperSenderSignalIndex(const KCompletionBox* self) {
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnSenderSignalIndex(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_SenderSignalIndex_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -3994,9 +3867,8 @@ int KCompletionBox_SuperReceivers(const KCompletionBox* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnReceivers(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_Receivers_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4023,9 +3895,8 @@ bool KCompletionBox_SuperIsSignalConnected(const KCompletionBox* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnIsSignalConnected(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_IsSignalConnected_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -4052,9 +3923,8 @@ double KCompletionBox_SuperGetDecodedMetricF(const KCompletionBox* self, int met
 // Auxiliary method to allow providing re-implementation
 void KCompletionBox_OnGetDecodedMetricF(const KCompletionBox* self, intptr_t slot) {
     auto* vkcompletionbox = const_cast<VirtualKCompletionBox*>(dynamic_cast<const VirtualKCompletionBox*>(self));
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
+    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox)
         vkcompletionbox->setKCompletionBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualKCompletionBox::KCompletionBox_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void KCompletionBox_Delete(KCompletionBox* self) {

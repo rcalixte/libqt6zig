@@ -2770,9 +2770,8 @@ bool QOpenGLFunctions_3_2_Compatibility_SuperInitializeOpenGLFunctions(QOpenGLFu
 // Auxiliary method to allow providing re-implementation
 void QOpenGLFunctions_3_2_Compatibility_OnInitializeOpenGLFunctions(QOpenGLFunctions_3_2_Compatibility* self, intptr_t slot) {
     auto* vqopenglfunctions_3_2_compatibility = dynamic_cast<VirtualQOpenGLFunctions_3_2_Compatibility*>(self);
-    if (vqopenglfunctions_3_2_compatibility && vqopenglfunctions_3_2_compatibility->isVirtualQOpenGLFunctions_3_2_Compatibility) {
+    if (vqopenglfunctions_3_2_compatibility && vqopenglfunctions_3_2_compatibility->isVirtualQOpenGLFunctions_3_2_Compatibility)
         vqopenglfunctions_3_2_compatibility->setQOpenGLFunctions_3_2_Compatibility_InitializeOpenGLFunctions_Callback(reinterpret_cast<VirtualQOpenGLFunctions_3_2_Compatibility::QOpenGLFunctions_3_2_Compatibility_InitializeOpenGLFunctions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2799,9 +2798,8 @@ bool QOpenGLFunctions_3_2_Compatibility_SuperIsInitialized(const QOpenGLFunction
 // Auxiliary method to allow providing re-implementation
 void QOpenGLFunctions_3_2_Compatibility_OnIsInitialized(const QOpenGLFunctions_3_2_Compatibility* self, intptr_t slot) {
     auto* vqopenglfunctions_3_2_compatibility = const_cast<VirtualQOpenGLFunctions_3_2_Compatibility*>(dynamic_cast<const VirtualQOpenGLFunctions_3_2_Compatibility*>(self));
-    if (vqopenglfunctions_3_2_compatibility && vqopenglfunctions_3_2_compatibility->isVirtualQOpenGLFunctions_3_2_Compatibility) {
+    if (vqopenglfunctions_3_2_compatibility && vqopenglfunctions_3_2_compatibility->isVirtualQOpenGLFunctions_3_2_Compatibility)
         vqopenglfunctions_3_2_compatibility->setQOpenGLFunctions_3_2_Compatibility_IsInitialized_Callback(reinterpret_cast<VirtualQOpenGLFunctions_3_2_Compatibility::QOpenGLFunctions_3_2_Compatibility_IsInitialized_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2828,9 +2826,8 @@ void QOpenGLFunctions_3_2_Compatibility_SuperSetOwningContext(QOpenGLFunctions_3
 // Auxiliary method to allow providing re-implementation
 void QOpenGLFunctions_3_2_Compatibility_OnSetOwningContext(QOpenGLFunctions_3_2_Compatibility* self, intptr_t slot) {
     auto* vqopenglfunctions_3_2_compatibility = dynamic_cast<VirtualQOpenGLFunctions_3_2_Compatibility*>(self);
-    if (vqopenglfunctions_3_2_compatibility && vqopenglfunctions_3_2_compatibility->isVirtualQOpenGLFunctions_3_2_Compatibility) {
+    if (vqopenglfunctions_3_2_compatibility && vqopenglfunctions_3_2_compatibility->isVirtualQOpenGLFunctions_3_2_Compatibility)
         vqopenglfunctions_3_2_compatibility->setQOpenGLFunctions_3_2_Compatibility_SetOwningContext_Callback(reinterpret_cast<VirtualQOpenGLFunctions_3_2_Compatibility::QOpenGLFunctions_3_2_Compatibility_SetOwningContext_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2857,9 +2854,8 @@ QOpenGLContext* QOpenGLFunctions_3_2_Compatibility_SuperOwningContext(const QOpe
 // Auxiliary method to allow providing re-implementation
 void QOpenGLFunctions_3_2_Compatibility_OnOwningContext(const QOpenGLFunctions_3_2_Compatibility* self, intptr_t slot) {
     auto* vqopenglfunctions_3_2_compatibility = const_cast<VirtualQOpenGLFunctions_3_2_Compatibility*>(dynamic_cast<const VirtualQOpenGLFunctions_3_2_Compatibility*>(self));
-    if (vqopenglfunctions_3_2_compatibility && vqopenglfunctions_3_2_compatibility->isVirtualQOpenGLFunctions_3_2_Compatibility) {
+    if (vqopenglfunctions_3_2_compatibility && vqopenglfunctions_3_2_compatibility->isVirtualQOpenGLFunctions_3_2_Compatibility)
         vqopenglfunctions_3_2_compatibility->setQOpenGLFunctions_3_2_Compatibility_OwningContext_Callback(reinterpret_cast<VirtualQOpenGLFunctions_3_2_Compatibility::QOpenGLFunctions_3_2_Compatibility_OwningContext_Callback>(slot));
-    }
 }
 
 void QOpenGLFunctions_3_2_Compatibility_Delete(QOpenGLFunctions_3_2_Compatibility* self) {

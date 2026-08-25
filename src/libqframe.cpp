@@ -162,9 +162,8 @@ QMetaObject* QFrame_SuperMetaObject(const QFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnMetaObject(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_MetaObject_Callback(reinterpret_cast<VirtualQFrame::QFrame_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -181,9 +180,8 @@ void* QFrame_SuperMetacast(QFrame* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnMetacast(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_Metacast_Callback(reinterpret_cast<VirtualQFrame::QFrame_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -200,9 +198,8 @@ int QFrame_SuperMetacall(QFrame* self, int param1, int param2, void** param3) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnMetacall(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_Metacall_Callback(reinterpret_cast<VirtualQFrame::QFrame_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -219,9 +216,8 @@ QSize* QFrame_SuperSizeHint(const QFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnSizeHint(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_SizeHint_Callback(reinterpret_cast<VirtualQFrame::QFrame_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -238,9 +234,8 @@ bool QFrame_SuperEvent(QFrame* self, QEvent* e) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_Event_Callback(reinterpret_cast<VirtualQFrame::QFrame_Event_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -257,9 +252,8 @@ void QFrame_SuperPaintEvent(QFrame* self, QPaintEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnPaintEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_PaintEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_PaintEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -276,9 +270,8 @@ void QFrame_SuperChangeEvent(QFrame* self, QEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnChangeEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_ChangeEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_ChangeEvent_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -295,9 +288,8 @@ void QFrame_SuperInitStyleOption(const QFrame* self, QStyleOptionFrame* option) 
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnInitStyleOption(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_InitStyleOption_Callback(reinterpret_cast<VirtualQFrame::QFrame_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -324,9 +316,8 @@ int QFrame_SuperDevType(const QFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnDevType(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_DevType_Callback(reinterpret_cast<VirtualQFrame::QFrame_DevType_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -353,9 +344,8 @@ void QFrame_SuperSetVisible(QFrame* self, bool visible) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnSetVisible(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_SetVisible_Callback(reinterpret_cast<VirtualQFrame::QFrame_SetVisible_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -382,9 +372,8 @@ QSize* QFrame_SuperMinimumSizeHint(const QFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnMinimumSizeHint(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_MinimumSizeHint_Callback(reinterpret_cast<VirtualQFrame::QFrame_MinimumSizeHint_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -411,9 +400,8 @@ int QFrame_SuperHeightForWidth(const QFrame* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnHeightForWidth(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_HeightForWidth_Callback(reinterpret_cast<VirtualQFrame::QFrame_HeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -440,9 +428,8 @@ bool QFrame_SuperHasHeightForWidth(const QFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnHasHeightForWidth(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_HasHeightForWidth_Callback(reinterpret_cast<VirtualQFrame::QFrame_HasHeightForWidth_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -469,9 +456,8 @@ QPaintEngine* QFrame_SuperPaintEngine(const QFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnPaintEngine(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_PaintEngine_Callback(reinterpret_cast<VirtualQFrame::QFrame_PaintEngine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -498,9 +484,8 @@ void QFrame_SuperMousePressEvent(QFrame* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnMousePressEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_MousePressEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_MousePressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -527,9 +512,8 @@ void QFrame_SuperMouseReleaseEvent(QFrame* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnMouseReleaseEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_MouseReleaseEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_MouseReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -556,9 +540,8 @@ void QFrame_SuperMouseDoubleClickEvent(QFrame* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnMouseDoubleClickEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_MouseDoubleClickEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_MouseDoubleClickEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -585,9 +568,8 @@ void QFrame_SuperMouseMoveEvent(QFrame* self, QMouseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnMouseMoveEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_MouseMoveEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_MouseMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -614,9 +596,8 @@ void QFrame_SuperWheelEvent(QFrame* self, QWheelEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnWheelEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_WheelEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_WheelEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -643,9 +624,8 @@ void QFrame_SuperKeyPressEvent(QFrame* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnKeyPressEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_KeyPressEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_KeyPressEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -672,9 +652,8 @@ void QFrame_SuperKeyReleaseEvent(QFrame* self, QKeyEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnKeyReleaseEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_KeyReleaseEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_KeyReleaseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -701,9 +680,8 @@ void QFrame_SuperFocusInEvent(QFrame* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnFocusInEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_FocusInEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_FocusInEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -730,9 +708,8 @@ void QFrame_SuperFocusOutEvent(QFrame* self, QFocusEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnFocusOutEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_FocusOutEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_FocusOutEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -759,9 +736,8 @@ void QFrame_SuperEnterEvent(QFrame* self, QEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnEnterEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_EnterEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_EnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -788,9 +764,8 @@ void QFrame_SuperLeaveEvent(QFrame* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnLeaveEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_LeaveEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_LeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -817,9 +792,8 @@ void QFrame_SuperMoveEvent(QFrame* self, QMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnMoveEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_MoveEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_MoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -846,9 +820,8 @@ void QFrame_SuperResizeEvent(QFrame* self, QResizeEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnResizeEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_ResizeEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_ResizeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -875,9 +848,8 @@ void QFrame_SuperCloseEvent(QFrame* self, QCloseEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnCloseEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_CloseEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_CloseEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -904,9 +876,8 @@ void QFrame_SuperContextMenuEvent(QFrame* self, QContextMenuEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnContextMenuEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_ContextMenuEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_ContextMenuEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -933,9 +904,8 @@ void QFrame_SuperTabletEvent(QFrame* self, QTabletEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnTabletEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_TabletEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_TabletEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -962,9 +932,8 @@ void QFrame_SuperActionEvent(QFrame* self, QActionEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnActionEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_ActionEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_ActionEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -991,9 +960,8 @@ void QFrame_SuperDragEnterEvent(QFrame* self, QDragEnterEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnDragEnterEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_DragEnterEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_DragEnterEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1020,9 +988,8 @@ void QFrame_SuperDragMoveEvent(QFrame* self, QDragMoveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnDragMoveEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_DragMoveEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_DragMoveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1049,9 +1016,8 @@ void QFrame_SuperDragLeaveEvent(QFrame* self, QDragLeaveEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnDragLeaveEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_DragLeaveEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_DragLeaveEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1078,9 +1044,8 @@ void QFrame_SuperDropEvent(QFrame* self, QDropEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnDropEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_DropEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_DropEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1107,9 +1072,8 @@ void QFrame_SuperShowEvent(QFrame* self, QShowEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnShowEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_ShowEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_ShowEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1136,9 +1100,8 @@ void QFrame_SuperHideEvent(QFrame* self, QHideEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnHideEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_HideEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_HideEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1167,9 +1130,8 @@ bool QFrame_SuperNativeEvent(QFrame* self, const libqt_string eventType, void* m
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnNativeEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_NativeEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_NativeEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1196,9 +1158,8 @@ int QFrame_SuperMetric(const QFrame* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnMetric(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_Metric_Callback(reinterpret_cast<VirtualQFrame::QFrame_Metric_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1225,9 +1186,8 @@ void QFrame_SuperInitPainter(const QFrame* self, QPainter* painter) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnInitPainter(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_InitPainter_Callback(reinterpret_cast<VirtualQFrame::QFrame_InitPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1254,9 +1214,8 @@ QPaintDevice* QFrame_SuperRedirected(const QFrame* self, QPoint* offset) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnRedirected(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_Redirected_Callback(reinterpret_cast<VirtualQFrame::QFrame_Redirected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1283,9 +1242,8 @@ QPainter* QFrame_SuperSharedPainter(const QFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnSharedPainter(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_SharedPainter_Callback(reinterpret_cast<VirtualQFrame::QFrame_SharedPainter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1312,9 +1270,8 @@ void QFrame_SuperInputMethodEvent(QFrame* self, QInputMethodEvent* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnInputMethodEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_InputMethodEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_InputMethodEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1341,9 +1298,8 @@ QVariant* QFrame_SuperInputMethodQuery(const QFrame* self, int param1) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnInputMethodQuery(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_InputMethodQuery_Callback(reinterpret_cast<VirtualQFrame::QFrame_InputMethodQuery_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1370,9 +1326,8 @@ bool QFrame_SuperFocusNextPrevChild(QFrame* self, bool next) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnFocusNextPrevChild(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_FocusNextPrevChild_Callback(reinterpret_cast<VirtualQFrame::QFrame_FocusNextPrevChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1399,9 +1354,8 @@ bool QFrame_SuperEventFilter(QFrame* self, QObject* watched, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnEventFilter(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_EventFilter_Callback(reinterpret_cast<VirtualQFrame::QFrame_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1428,9 +1382,8 @@ void QFrame_SuperTimerEvent(QFrame* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnTimerEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_TimerEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1457,9 +1410,8 @@ void QFrame_SuperChildEvent(QFrame* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnChildEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_ChildEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1486,9 +1438,8 @@ void QFrame_SuperCustomEvent(QFrame* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnCustomEvent(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_CustomEvent_Callback(reinterpret_cast<VirtualQFrame::QFrame_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1515,9 +1466,8 @@ void QFrame_SuperConnectNotify(QFrame* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnConnectNotify(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_ConnectNotify_Callback(reinterpret_cast<VirtualQFrame::QFrame_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1544,9 +1494,8 @@ void QFrame_SuperDisconnectNotify(QFrame* self, const QMetaMethod* signal) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnDisconnectNotify(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_DisconnectNotify_Callback(reinterpret_cast<VirtualQFrame::QFrame_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1573,9 +1522,8 @@ void QFrame_SuperDrawFrame(QFrame* self, QPainter* param1) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnDrawFrame(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_DrawFrame_Callback(reinterpret_cast<VirtualQFrame::QFrame_DrawFrame_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1602,9 +1550,8 @@ void QFrame_SuperUpdateMicroFocus(QFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnUpdateMicroFocus(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_UpdateMicroFocus_Callback(reinterpret_cast<VirtualQFrame::QFrame_UpdateMicroFocus_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1631,9 +1578,8 @@ void QFrame_SuperCreate(QFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnCreate(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_Create_Callback(reinterpret_cast<VirtualQFrame::QFrame_Create_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1660,9 +1606,8 @@ void QFrame_SuperDestroy(QFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnDestroy(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_Destroy_Callback(reinterpret_cast<VirtualQFrame::QFrame_Destroy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1689,9 +1634,8 @@ bool QFrame_SuperFocusNextChild(QFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnFocusNextChild(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_FocusNextChild_Callback(reinterpret_cast<VirtualQFrame::QFrame_FocusNextChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1718,9 +1662,8 @@ bool QFrame_SuperFocusPreviousChild(QFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnFocusPreviousChild(QFrame* self, intptr_t slot) {
     auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_FocusPreviousChild_Callback(reinterpret_cast<VirtualQFrame::QFrame_FocusPreviousChild_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1747,9 +1690,8 @@ QObject* QFrame_SuperSender(const QFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnSender(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_Sender_Callback(reinterpret_cast<VirtualQFrame::QFrame_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1776,9 +1718,8 @@ int QFrame_SuperSenderSignalIndex(const QFrame* self) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnSenderSignalIndex(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_SenderSignalIndex_Callback(reinterpret_cast<VirtualQFrame::QFrame_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1805,9 +1746,8 @@ int QFrame_SuperReceivers(const QFrame* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnReceivers(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_Receivers_Callback(reinterpret_cast<VirtualQFrame::QFrame_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1834,9 +1774,8 @@ bool QFrame_SuperIsSignalConnected(const QFrame* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnIsSignalConnected(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_IsSignalConnected_Callback(reinterpret_cast<VirtualQFrame::QFrame_IsSignalConnected_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1863,9 +1802,8 @@ double QFrame_SuperGetDecodedMetricF(const QFrame* self, int metricA, int metric
 // Auxiliary method to allow providing re-implementation
 void QFrame_OnGetDecodedMetricF(const QFrame* self, intptr_t slot) {
     auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
-    if (vqframe && vqframe->isVirtualQFrame) {
+    if (vqframe && vqframe->isVirtualQFrame)
         vqframe->setQFrame_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQFrame::QFrame_GetDecodedMetricF_Callback>(slot));
-    }
 }
 
 void QFrame_Delete(QFrame* self) {

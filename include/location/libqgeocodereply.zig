@@ -2656,7 +2656,7 @@ pub const QGeoCodeReply = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodereply.html#public-types)
 pub const enums = struct {
-    pub const Error = enum(i32) {
+    pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const EngineNotSetError: i32 = 1;
         pub const CommunicationError: i32 = 2;

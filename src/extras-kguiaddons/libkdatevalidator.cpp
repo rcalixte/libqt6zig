@@ -61,9 +61,8 @@ QMetaObject* KDateValidator_SuperMetaObject(const KDateValidator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateValidator_OnMetaObject(const KDateValidator* self, intptr_t slot) {
     auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator)
         vkdatevalidator->setKDateValidator_MetaObject_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -80,9 +79,8 @@ void* KDateValidator_SuperMetacast(KDateValidator* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KDateValidator_OnMetacast(KDateValidator* self, intptr_t slot) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator)
         vkdatevalidator->setKDateValidator_Metacast_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -99,9 +97,8 @@ int KDateValidator_SuperMetacall(KDateValidator* self, int param1, int param2, v
 // Auxiliary method to allow providing re-implementation
 void KDateValidator_OnMetacall(KDateValidator* self, intptr_t slot) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator)
         vkdatevalidator->setKDateValidator_Metacall_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -119,9 +116,8 @@ int KDateValidator_SuperValidate(const KDateValidator* self, libqt_string text, 
 // Auxiliary method to allow providing re-implementation
 void KDateValidator_OnValidate(const KDateValidator* self, intptr_t slot) {
     auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator)
         vkdatevalidator->setKDateValidator_Validate_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_Validate_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -139,9 +135,8 @@ void KDateValidator_SuperFixup(const KDateValidator* self, libqt_string input) {
 // Auxiliary method to allow providing re-implementation
 void KDateValidator_OnFixup(const KDateValidator* self, intptr_t slot) {
     auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator)
         vkdatevalidator->setKDateValidator_Fixup_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_Fixup_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -168,9 +163,8 @@ bool KDateValidator_SuperEvent(KDateValidator* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateValidator_OnEvent(KDateValidator* self, intptr_t slot) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator)
         vkdatevalidator->setKDateValidator_Event_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -197,9 +191,8 @@ bool KDateValidator_SuperEventFilter(KDateValidator* self, QObject* watched, QEv
 // Auxiliary method to allow providing re-implementation
 void KDateValidator_OnEventFilter(KDateValidator* self, intptr_t slot) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator)
         vkdatevalidator->setKDateValidator_EventFilter_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -226,9 +219,8 @@ void KDateValidator_SuperTimerEvent(KDateValidator* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateValidator_OnTimerEvent(KDateValidator* self, intptr_t slot) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator)
         vkdatevalidator->setKDateValidator_TimerEvent_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -255,9 +247,8 @@ void KDateValidator_SuperChildEvent(KDateValidator* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateValidator_OnChildEvent(KDateValidator* self, intptr_t slot) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator)
         vkdatevalidator->setKDateValidator_ChildEvent_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -284,9 +275,8 @@ void KDateValidator_SuperCustomEvent(KDateValidator* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KDateValidator_OnCustomEvent(KDateValidator* self, intptr_t slot) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator)
         vkdatevalidator->setKDateValidator_CustomEvent_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -313,9 +303,8 @@ void KDateValidator_SuperConnectNotify(KDateValidator* self, const QMetaMethod* 
 // Auxiliary method to allow providing re-implementation
 void KDateValidator_OnConnectNotify(KDateValidator* self, intptr_t slot) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator)
         vkdatevalidator->setKDateValidator_ConnectNotify_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -342,9 +331,8 @@ void KDateValidator_SuperDisconnectNotify(KDateValidator* self, const QMetaMetho
 // Auxiliary method to allow providing re-implementation
 void KDateValidator_OnDisconnectNotify(KDateValidator* self, intptr_t slot) {
     auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator)
         vkdatevalidator->setKDateValidator_DisconnectNotify_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -371,9 +359,8 @@ QObject* KDateValidator_SuperSender(const KDateValidator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateValidator_OnSender(const KDateValidator* self, intptr_t slot) {
     auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator)
         vkdatevalidator->setKDateValidator_Sender_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -400,9 +387,8 @@ int KDateValidator_SuperSenderSignalIndex(const KDateValidator* self) {
 // Auxiliary method to allow providing re-implementation
 void KDateValidator_OnSenderSignalIndex(const KDateValidator* self, intptr_t slot) {
     auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator)
         vkdatevalidator->setKDateValidator_SenderSignalIndex_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -429,9 +415,8 @@ int KDateValidator_SuperReceivers(const KDateValidator* self, const char* signal
 // Auxiliary method to allow providing re-implementation
 void KDateValidator_OnReceivers(const KDateValidator* self, intptr_t slot) {
     auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator)
         vkdatevalidator->setKDateValidator_Receivers_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -458,9 +443,8 @@ bool KDateValidator_SuperIsSignalConnected(const KDateValidator* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void KDateValidator_OnIsSignalConnected(const KDateValidator* self, intptr_t slot) {
     auto* vkdatevalidator = const_cast<VirtualKDateValidator*>(dynamic_cast<const VirtualKDateValidator*>(self));
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
+    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator)
         vkdatevalidator->setKDateValidator_IsSignalConnected_Callback(reinterpret_cast<VirtualKDateValidator::KDateValidator_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KDateValidator_Delete(KDateValidator* self) {

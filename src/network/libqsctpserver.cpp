@@ -66,9 +66,8 @@ QMetaObject* QSctpServer_SuperMetaObject(const QSctpServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnMetaObject(const QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_MetaObject_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -85,9 +84,8 @@ void* QSctpServer_SuperMetacast(QSctpServer* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnMetacast(QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_Metacast_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -104,9 +102,8 @@ int QSctpServer_SuperMetacall(QSctpServer* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnMetacall(QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_Metacall_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -123,9 +120,8 @@ void QSctpServer_SuperIncomingConnection(QSctpServer* self, intptr_t handle) {
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnIncomingConnection(QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_IncomingConnection_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_IncomingConnection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -152,9 +148,8 @@ bool QSctpServer_SuperHasPendingConnections(const QSctpServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnHasPendingConnections(const QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_HasPendingConnections_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_HasPendingConnections_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -181,9 +176,8 @@ QTcpSocket* QSctpServer_SuperNextPendingConnection(QSctpServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnNextPendingConnection(QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_NextPendingConnection_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_NextPendingConnection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -210,9 +204,8 @@ bool QSctpServer_SuperEvent(QSctpServer* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnEvent(QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_Event_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -239,9 +232,8 @@ bool QSctpServer_SuperEventFilter(QSctpServer* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnEventFilter(QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_EventFilter_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -268,9 +260,8 @@ void QSctpServer_SuperTimerEvent(QSctpServer* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnTimerEvent(QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_TimerEvent_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -297,9 +288,8 @@ void QSctpServer_SuperChildEvent(QSctpServer* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnChildEvent(QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_ChildEvent_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -326,9 +316,8 @@ void QSctpServer_SuperCustomEvent(QSctpServer* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnCustomEvent(QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_CustomEvent_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -355,9 +344,8 @@ void QSctpServer_SuperConnectNotify(QSctpServer* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnConnectNotify(QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_ConnectNotify_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -384,9 +372,8 @@ void QSctpServer_SuperDisconnectNotify(QSctpServer* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnDisconnectNotify(QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_DisconnectNotify_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -413,9 +400,8 @@ void QSctpServer_SuperAddPendingConnection(QSctpServer* self, QTcpSocket* socket
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnAddPendingConnection(QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_AddPendingConnection_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_AddPendingConnection_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -442,9 +428,8 @@ QObject* QSctpServer_SuperSender(const QSctpServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnSender(const QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_Sender_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -471,9 +456,8 @@ int QSctpServer_SuperSenderSignalIndex(const QSctpServer* self) {
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnSenderSignalIndex(const QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_SenderSignalIndex_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -500,9 +484,8 @@ int QSctpServer_SuperReceivers(const QSctpServer* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnReceivers(const QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_Receivers_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -529,9 +512,8 @@ bool QSctpServer_SuperIsSignalConnected(const QSctpServer* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QSctpServer_OnIsSignalConnected(const QSctpServer* self, intptr_t slot) {
     auto* vqsctpserver = const_cast<VirtualQSctpServer*>(dynamic_cast<const VirtualQSctpServer*>(self));
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
+    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer)
         vqsctpserver->setQSctpServer_IsSignalConnected_Callback(reinterpret_cast<VirtualQSctpServer::QSctpServer_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QSctpServer_Delete(QSctpServer* self) {

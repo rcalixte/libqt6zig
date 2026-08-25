@@ -55,9 +55,8 @@ QMetaObject* KPageModel_SuperMetaObject(const KPageModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnMetaObject(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_MetaObject_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -74,9 +73,8 @@ void* KPageModel_SuperMetacast(KPageModel* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnMetacast(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_Metacast_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -93,9 +91,8 @@ int KPageModel_SuperMetacall(KPageModel* self, int param1, int param2, void** pa
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnMetacall(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_Metacall_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -122,9 +119,8 @@ QModelIndex* KPageModel_SuperIndex(const KPageModel* self, int row, int column, 
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnIndex(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_Index_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Index_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -151,9 +147,8 @@ QModelIndex* KPageModel_SuperParent(const KPageModel* self, const QModelIndex* c
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnParent(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_Parent_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Parent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -180,9 +175,8 @@ QModelIndex* KPageModel_SuperSibling(const KPageModel* self, int row, int column
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnSibling(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_Sibling_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Sibling_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -209,9 +203,8 @@ int KPageModel_SuperRowCount(const KPageModel* self, const QModelIndex* parent) 
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnRowCount(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_RowCount_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_RowCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -238,9 +231,8 @@ int KPageModel_SuperColumnCount(const KPageModel* self, const QModelIndex* paren
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnColumnCount(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_ColumnCount_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_ColumnCount_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -267,9 +259,8 @@ bool KPageModel_SuperHasChildren(const KPageModel* self, const QModelIndex* pare
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnHasChildren(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_HasChildren_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_HasChildren_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -296,9 +287,8 @@ QVariant* KPageModel_SuperData(const KPageModel* self, const QModelIndex* index,
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnData(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_Data_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Data_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -325,9 +315,8 @@ bool KPageModel_SuperSetData(KPageModel* self, const QModelIndex* index, const Q
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnSetData(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_SetData_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_SetData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -354,9 +343,8 @@ QVariant* KPageModel_SuperHeaderData(const KPageModel* self, int section, int or
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnHeaderData(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_HeaderData_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_HeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -383,9 +371,8 @@ bool KPageModel_SuperSetHeaderData(KPageModel* self, int section, int orientatio
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnSetHeaderData(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_SetHeaderData_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_SetHeaderData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -468,9 +455,8 @@ libqt_map /* of int to QVariant* */ KPageModel_SuperItemData(const KPageModel* s
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnItemData(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_ItemData_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_ItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -509,9 +495,8 @@ bool KPageModel_SuperSetItemData(KPageModel* self, const QModelIndex* index, con
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnSetItemData(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_SetItemData_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_SetItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -538,9 +523,8 @@ bool KPageModel_SuperClearItemData(KPageModel* self, const QModelIndex* index) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnClearItemData(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_ClearItemData_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_ClearItemData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -635,9 +619,8 @@ libqt_list /* of libqt_string */ KPageModel_SuperMimeTypes(const KPageModel* sel
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnMimeTypes(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_MimeTypes_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_MimeTypes_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -676,9 +659,8 @@ QMimeData* KPageModel_SuperMimeData(const KPageModel* self, const libqt_list /* 
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnMimeData(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_MimeData_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_MimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -705,9 +687,8 @@ bool KPageModel_SuperCanDropMimeData(const KPageModel* self, const QMimeData* da
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnCanDropMimeData(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_CanDropMimeData_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_CanDropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -734,9 +715,8 @@ bool KPageModel_SuperDropMimeData(KPageModel* self, const QMimeData* data, int a
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnDropMimeData(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_DropMimeData_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_DropMimeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -763,9 +743,8 @@ int KPageModel_SuperSupportedDropActions(const KPageModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnSupportedDropActions(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_SupportedDropActions_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_SupportedDropActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -792,9 +771,8 @@ int KPageModel_SuperSupportedDragActions(const KPageModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnSupportedDragActions(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_SupportedDragActions_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_SupportedDragActions_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -821,9 +799,8 @@ bool KPageModel_SuperInsertRows(KPageModel* self, int row, int count, const QMod
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnInsertRows(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_InsertRows_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_InsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -850,9 +827,8 @@ bool KPageModel_SuperInsertColumns(KPageModel* self, int column, int count, cons
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnInsertColumns(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_InsertColumns_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_InsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -879,9 +855,8 @@ bool KPageModel_SuperRemoveRows(KPageModel* self, int row, int count, const QMod
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnRemoveRows(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_RemoveRows_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_RemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -908,9 +883,8 @@ bool KPageModel_SuperRemoveColumns(KPageModel* self, int column, int count, cons
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnRemoveColumns(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_RemoveColumns_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_RemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -937,9 +911,8 @@ bool KPageModel_SuperMoveRows(KPageModel* self, const QModelIndex* sourceParent,
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnMoveRows(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_MoveRows_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_MoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -966,9 +939,8 @@ bool KPageModel_SuperMoveColumns(KPageModel* self, const QModelIndex* sourcePare
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnMoveColumns(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_MoveColumns_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_MoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -995,9 +967,8 @@ void KPageModel_SuperFetchMore(KPageModel* self, const QModelIndex* parent) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnFetchMore(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_FetchMore_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_FetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1024,9 +995,8 @@ bool KPageModel_SuperCanFetchMore(const KPageModel* self, const QModelIndex* par
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnCanFetchMore(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_CanFetchMore_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_CanFetchMore_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1053,9 +1023,8 @@ int KPageModel_SuperFlags(const KPageModel* self, const QModelIndex* index) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnFlags(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_Flags_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Flags_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1082,9 +1051,8 @@ void KPageModel_SuperSort(KPageModel* self, int column, int order) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnSort(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_Sort_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Sort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1111,9 +1079,8 @@ QModelIndex* KPageModel_SuperBuddy(const KPageModel* self, const QModelIndex* in
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnBuddy(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_Buddy_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Buddy_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1176,9 +1143,8 @@ libqt_list /* of QModelIndex* */ KPageModel_SuperMatch(const KPageModel* self, c
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnMatch(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_Match_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Match_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1205,9 +1171,8 @@ QSize* KPageModel_SuperSpan(const KPageModel* self, const QModelIndex* index) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnSpan(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_Span_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Span_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1310,9 +1275,8 @@ libqt_map /* of int to libqt_string */ KPageModel_SuperRoleNames(const KPageMode
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnRoleNames(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_RoleNames_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_RoleNames_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1339,9 +1303,8 @@ void KPageModel_SuperMultiData(const KPageModel* self, const QModelIndex* index,
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnMultiData(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_MultiData_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_MultiData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1368,9 +1331,8 @@ bool KPageModel_SuperSubmit(KPageModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnSubmit(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_Submit_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Submit_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1397,9 +1359,8 @@ void KPageModel_SuperRevert(KPageModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnRevert(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_Revert_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Revert_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1426,9 +1387,8 @@ void KPageModel_SuperResetInternalData(KPageModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnResetInternalData(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_ResetInternalData_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_ResetInternalData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1455,9 +1415,8 @@ bool KPageModel_SuperEvent(KPageModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnEvent(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_Event_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1484,9 +1443,8 @@ bool KPageModel_SuperEventFilter(KPageModel* self, QObject* watched, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnEventFilter(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_EventFilter_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1513,9 +1471,8 @@ void KPageModel_SuperTimerEvent(KPageModel* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnTimerEvent(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_TimerEvent_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1542,9 +1499,8 @@ void KPageModel_SuperChildEvent(KPageModel* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnChildEvent(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_ChildEvent_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1571,9 +1527,8 @@ void KPageModel_SuperCustomEvent(KPageModel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnCustomEvent(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_CustomEvent_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1600,9 +1555,8 @@ void KPageModel_SuperConnectNotify(KPageModel* self, const QMetaMethod* signal) 
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnConnectNotify(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_ConnectNotify_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1629,9 +1583,8 @@ void KPageModel_SuperDisconnectNotify(KPageModel* self, const QMetaMethod* signa
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnDisconnectNotify(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_DisconnectNotify_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1656,9 +1609,8 @@ QModelIndex* KPageModel_SuperCreateIndex(const KPageModel* self, int row, int co
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnCreateIndex(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_CreateIndex_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_CreateIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1697,9 +1649,8 @@ void KPageModel_SuperEncodeData(const KPageModel* self, const libqt_list /* of Q
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnEncodeData(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_EncodeData_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_EncodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1726,9 +1677,8 @@ bool KPageModel_SuperDecodeData(KPageModel* self, int row, int column, const QMo
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnDecodeData(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_DecodeData_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_DecodeData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1755,9 +1705,8 @@ void KPageModel_SuperBeginInsertRows(KPageModel* self, const QModelIndex* parent
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnBeginInsertRows(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_BeginInsertRows_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_BeginInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1784,9 +1733,8 @@ void KPageModel_SuperEndInsertRows(KPageModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnEndInsertRows(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_EndInsertRows_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_EndInsertRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1813,9 +1761,8 @@ void KPageModel_SuperBeginRemoveRows(KPageModel* self, const QModelIndex* parent
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnBeginRemoveRows(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_BeginRemoveRows_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_BeginRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1842,9 +1789,8 @@ void KPageModel_SuperEndRemoveRows(KPageModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnEndRemoveRows(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_EndRemoveRows_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_EndRemoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1871,9 +1817,8 @@ bool KPageModel_SuperBeginMoveRows(KPageModel* self, const QModelIndex* sourcePa
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnBeginMoveRows(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_BeginMoveRows_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_BeginMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1900,9 +1845,8 @@ void KPageModel_SuperEndMoveRows(KPageModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnEndMoveRows(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_EndMoveRows_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_EndMoveRows_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1929,9 +1873,8 @@ void KPageModel_SuperBeginInsertColumns(KPageModel* self, const QModelIndex* par
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnBeginInsertColumns(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_BeginInsertColumns_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_BeginInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1958,9 +1901,8 @@ void KPageModel_SuperEndInsertColumns(KPageModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnEndInsertColumns(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_EndInsertColumns_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_EndInsertColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1987,9 +1929,8 @@ void KPageModel_SuperBeginRemoveColumns(KPageModel* self, const QModelIndex* par
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnBeginRemoveColumns(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_BeginRemoveColumns_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_BeginRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2016,9 +1957,8 @@ void KPageModel_SuperEndRemoveColumns(KPageModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnEndRemoveColumns(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_EndRemoveColumns_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_EndRemoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2045,9 +1985,8 @@ bool KPageModel_SuperBeginMoveColumns(KPageModel* self, const QModelIndex* sourc
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnBeginMoveColumns(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_BeginMoveColumns_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_BeginMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2074,9 +2013,8 @@ void KPageModel_SuperEndMoveColumns(KPageModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnEndMoveColumns(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_EndMoveColumns_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_EndMoveColumns_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2103,9 +2041,8 @@ void KPageModel_SuperBeginResetModel(KPageModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnBeginResetModel(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_BeginResetModel_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_BeginResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2132,9 +2069,8 @@ void KPageModel_SuperEndResetModel(KPageModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnEndResetModel(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_EndResetModel_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_EndResetModel_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2161,9 +2097,8 @@ void KPageModel_SuperChangePersistentIndex(KPageModel* self, const QModelIndex* 
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnChangePersistentIndex(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_ChangePersistentIndex_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_ChangePersistentIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2214,9 +2149,8 @@ void KPageModel_SuperChangePersistentIndexList(KPageModel* self, const libqt_lis
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnChangePersistentIndexList(KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_ChangePersistentIndexList_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_ChangePersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2279,9 +2213,8 @@ libqt_list /* of QModelIndex* */ KPageModel_SuperPersistentIndexList(const KPage
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnPersistentIndexList(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_PersistentIndexList_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_PersistentIndexList_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2308,9 +2241,8 @@ QObject* KPageModel_SuperSender(const KPageModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnSender(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_Sender_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2337,9 +2269,8 @@ int KPageModel_SuperSenderSignalIndex(const KPageModel* self) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnSenderSignalIndex(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_SenderSignalIndex_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2366,9 +2297,8 @@ int KPageModel_SuperReceivers(const KPageModel* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnReceivers(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_Receivers_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -2395,9 +2325,8 @@ bool KPageModel_SuperIsSignalConnected(const KPageModel* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void KPageModel_OnIsSignalConnected(const KPageModel* self, intptr_t slot) {
     auto* vkpagemodel = const_cast<VirtualKPageModel*>(dynamic_cast<const VirtualKPageModel*>(self));
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
+    if (vkpagemodel && vkpagemodel->isVirtualKPageModel)
         vkpagemodel->setKPageModel_IsSignalConnected_Callback(reinterpret_cast<VirtualKPageModel::KPageModel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void KPageModel_Delete(KPageModel* self) {

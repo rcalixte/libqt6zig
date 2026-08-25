@@ -124,9 +124,8 @@ QMetaObject* QStyledItemDelegate_SuperMetaObject(const QStyledItemDelegate* self
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnMetaObject(const QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_MetaObject_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -143,9 +142,8 @@ void* QStyledItemDelegate_SuperMetacast(QStyledItemDelegate* self, const char* p
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnMetacast(QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_Metacast_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -162,9 +160,8 @@ int QStyledItemDelegate_SuperMetacall(QStyledItemDelegate* self, int param1, int
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnMetacall(QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_Metacall_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -181,9 +178,8 @@ void QStyledItemDelegate_SuperPaint(const QStyledItemDelegate* self, QPainter* p
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnPaint(const QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_Paint_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Paint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -200,9 +196,8 @@ QSize* QStyledItemDelegate_SuperSizeHint(const QStyledItemDelegate* self, const 
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnSizeHint(const QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_SizeHint_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SizeHint_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -219,9 +214,8 @@ QWidget* QStyledItemDelegate_SuperCreateEditor(const QStyledItemDelegate* self, 
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnCreateEditor(const QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_CreateEditor_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_CreateEditor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -238,9 +232,8 @@ void QStyledItemDelegate_SuperSetEditorData(const QStyledItemDelegate* self, QWi
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnSetEditorData(const QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_SetEditorData_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SetEditorData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -257,9 +250,8 @@ void QStyledItemDelegate_SuperSetModelData(const QStyledItemDelegate* self, QWid
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnSetModelData(const QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_SetModelData_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SetModelData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -276,9 +268,8 @@ void QStyledItemDelegate_SuperUpdateEditorGeometry(const QStyledItemDelegate* se
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnUpdateEditorGeometry(const QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_UpdateEditorGeometry_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_UpdateEditorGeometry_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -311,9 +302,8 @@ libqt_string QStyledItemDelegate_SuperDisplayText(const QStyledItemDelegate* sel
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnDisplayText(const QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_DisplayText_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_DisplayText_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -330,9 +320,8 @@ void QStyledItemDelegate_SuperInitStyleOption(const QStyledItemDelegate* self, Q
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnInitStyleOption(const QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_InitStyleOption_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_InitStyleOption_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -349,9 +338,8 @@ bool QStyledItemDelegate_SuperEventFilter(QStyledItemDelegate* self, QObject* ob
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnEventFilter(QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_EventFilter_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_EventFilter_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -368,9 +356,8 @@ bool QStyledItemDelegate_SuperEditorEvent(QStyledItemDelegate* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnEditorEvent(QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_EditorEvent_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_EditorEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -397,9 +384,8 @@ void QStyledItemDelegate_SuperDestroyEditor(const QStyledItemDelegate* self, QWi
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnDestroyEditor(const QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_DestroyEditor_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_DestroyEditor_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -426,9 +412,8 @@ bool QStyledItemDelegate_SuperHelpEvent(QStyledItemDelegate* self, QHelpEvent* e
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnHelpEvent(QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_HelpEvent_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_HelpEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -491,9 +476,8 @@ libqt_list /* of int */ QStyledItemDelegate_SuperPaintingRoles(const QStyledItem
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnPaintingRoles(const QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_PaintingRoles_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_PaintingRoles_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -520,9 +504,8 @@ bool QStyledItemDelegate_SuperEvent(QStyledItemDelegate* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnEvent(QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_Event_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -549,9 +532,8 @@ void QStyledItemDelegate_SuperTimerEvent(QStyledItemDelegate* self, QTimerEvent*
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnTimerEvent(QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_TimerEvent_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -578,9 +560,8 @@ void QStyledItemDelegate_SuperChildEvent(QStyledItemDelegate* self, QChildEvent*
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnChildEvent(QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_ChildEvent_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -607,9 +588,8 @@ void QStyledItemDelegate_SuperCustomEvent(QStyledItemDelegate* self, QEvent* eve
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnCustomEvent(QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_CustomEvent_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -636,9 +616,8 @@ void QStyledItemDelegate_SuperConnectNotify(QStyledItemDelegate* self, const QMe
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnConnectNotify(QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_ConnectNotify_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -665,9 +644,8 @@ void QStyledItemDelegate_SuperDisconnectNotify(QStyledItemDelegate* self, const 
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnDisconnectNotify(QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_DisconnectNotify_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -694,9 +672,8 @@ QObject* QStyledItemDelegate_SuperSender(const QStyledItemDelegate* self) {
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnSender(const QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_Sender_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -723,9 +700,8 @@ int QStyledItemDelegate_SuperSenderSignalIndex(const QStyledItemDelegate* self) 
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnSenderSignalIndex(const QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_SenderSignalIndex_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -752,9 +728,8 @@ int QStyledItemDelegate_SuperReceivers(const QStyledItemDelegate* self, const ch
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnReceivers(const QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_Receivers_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -781,9 +756,8 @@ bool QStyledItemDelegate_SuperIsSignalConnected(const QStyledItemDelegate* self,
 // Auxiliary method to allow providing re-implementation
 void QStyledItemDelegate_OnIsSignalConnected(const QStyledItemDelegate* self, intptr_t slot) {
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
+    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate)
         vqstyleditemdelegate->setQStyledItemDelegate_IsSignalConnected_Callback(reinterpret_cast<VirtualQStyledItemDelegate::QStyledItemDelegate_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QStyledItemDelegate_Delete(QStyledItemDelegate* self) {

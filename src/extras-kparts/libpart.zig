@@ -3,6 +3,7 @@ const qtc = @import("qt6c");
 const KActionCollection = @import("libqt6").KActionCollection;
 const KParts__GUIActivateEvent = @import("libqt6").KParts__GUIActivateEvent;
 const KParts__PartActivateEvent = @import("libqt6").KParts__PartActivateEvent;
+const KParts__PartBase = @import("libqt6").KParts__PartBase;
 const KParts__PartManager = @import("libqt6").KParts__PartManager;
 const KPluginMetaData = @import("libqt6").KPluginMetaData;
 const KXMLGUIBuilder = @import("libqt6").KXMLGUIBuilder;
@@ -83,6 +84,27 @@ pub const KParts__Part = extern struct {
         comptime _ = @TypeOf(_parent)._is_QObject;
         comptime _ = @TypeOf(data)._is_KPluginMetaData;
         return .{ .ptr = qtc.KParts__Part_new3(@ptrCast(_parent.ptr), @ptrCast(data.ptr)) };
+    }
+
+    /// Upcasts to a KParts::PartBase object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KParts__Part `
+    ///
+    pub fn asKParts__PartBase(self: KParts__Part) KParts__PartBase {
+        return .{ .ptr = qtc.KParts__Part_AsKParts__PartBase(@ptrCast(self.ptr)) };
+    }
+
+    /// Downcasts to a KParts__Part object
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _kparts__partbase: KParts__PartBase `
+    ///
+    pub fn fromKParts__PartBase(_kparts__partbase: anytype) KParts__Part {
+        comptime _ = @TypeOf(_kparts__partbase)._is_KParts__PartBase;
+        return @bitCast(qtc.KParts__Part_FromKParts__PartBase(@ptrCast(_kparts__partbase.ptr)));
     }
 
     /// ### DEPRECATED: Use `metaObject` instead

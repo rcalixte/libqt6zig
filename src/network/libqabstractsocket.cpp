@@ -329,9 +329,8 @@ QMetaObject* QAbstractSocket_SuperMetaObject(const QAbstractSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnMetaObject(const QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_MetaObject_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -348,9 +347,8 @@ void* QAbstractSocket_SuperMetacast(QAbstractSocket* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnMetacast(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_Metacast_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -367,9 +365,8 @@ int QAbstractSocket_SuperMetacall(QAbstractSocket* self, int param1, int param2,
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnMetacall(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_Metacall_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_Metacall_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -386,9 +383,8 @@ void QAbstractSocket_SuperResume(QAbstractSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnResume(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_Resume_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_Resume_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -405,9 +401,8 @@ bool QAbstractSocket_SuperBind(QAbstractSocket* self, const QHostAddress* addres
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnBind(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_Bind_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_Bind_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -425,9 +420,8 @@ void QAbstractSocket_SuperConnectToHost(QAbstractSocket* self, const libqt_strin
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnConnectToHost(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_ConnectToHost_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_ConnectToHost_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -444,9 +438,8 @@ void QAbstractSocket_SuperDisconnectFromHost(QAbstractSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnDisconnectFromHost(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_DisconnectFromHost_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_DisconnectFromHost_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -463,9 +456,8 @@ long long QAbstractSocket_SuperBytesAvailable(const QAbstractSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnBytesAvailable(const QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_BytesAvailable_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_BytesAvailable_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -482,9 +474,8 @@ long long QAbstractSocket_SuperBytesToWrite(const QAbstractSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnBytesToWrite(const QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_BytesToWrite_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_BytesToWrite_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -501,9 +492,8 @@ void QAbstractSocket_SuperSetReadBufferSize(QAbstractSocket* self, long long siz
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSetReadBufferSize(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_SetReadBufferSize_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_SetReadBufferSize_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -522,9 +512,8 @@ intptr_t QAbstractSocket_SuperSocketDescriptor(const QAbstractSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSocketDescriptor(const QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_SocketDescriptor_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_SocketDescriptor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -541,9 +530,8 @@ bool QAbstractSocket_SuperSetSocketDescriptor(QAbstractSocket* self, intptr_t so
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSetSocketDescriptor(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_SetSocketDescriptor_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_SetSocketDescriptor_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -560,9 +548,8 @@ void QAbstractSocket_SuperSetSocketOption(QAbstractSocket* self, int option, con
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSetSocketOption(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_SetSocketOption_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_SetSocketOption_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -579,9 +566,8 @@ QVariant* QAbstractSocket_SuperSocketOption(QAbstractSocket* self, int option) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSocketOption(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_SocketOption_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_SocketOption_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -598,9 +584,8 @@ void QAbstractSocket_SuperClose(QAbstractSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnClose(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_Close_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_Close_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -617,9 +602,8 @@ bool QAbstractSocket_SuperIsSequential(const QAbstractSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnIsSequential(const QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_IsSequential_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_IsSequential_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -636,9 +620,8 @@ bool QAbstractSocket_SuperWaitForConnected(QAbstractSocket* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnWaitForConnected(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_WaitForConnected_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_WaitForConnected_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -655,9 +638,8 @@ bool QAbstractSocket_SuperWaitForReadyRead(QAbstractSocket* self, int msecs) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnWaitForReadyRead(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_WaitForReadyRead_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_WaitForReadyRead_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -674,9 +656,8 @@ bool QAbstractSocket_SuperWaitForBytesWritten(QAbstractSocket* self, int msecs) 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnWaitForBytesWritten(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_WaitForBytesWritten_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_WaitForBytesWritten_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -693,9 +674,8 @@ bool QAbstractSocket_SuperWaitForDisconnected(QAbstractSocket* self, int msecs) 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnWaitForDisconnected(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_WaitForDisconnected_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_WaitForDisconnected_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -712,9 +692,8 @@ long long QAbstractSocket_SuperReadData(QAbstractSocket* self, char* data, long 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnReadData(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_ReadData_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_ReadData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -731,9 +710,8 @@ long long QAbstractSocket_SuperReadLineData(QAbstractSocket* self, char* data, l
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnReadLineData(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_ReadLineData_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_ReadLineData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -750,9 +728,8 @@ long long QAbstractSocket_SuperSkipData(QAbstractSocket* self, long long maxSize
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSkipData(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_SkipData_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_SkipData_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -769,9 +746,8 @@ long long QAbstractSocket_SuperWriteData(QAbstractSocket* self, const char* data
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnWriteData(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_WriteData_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_WriteData_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -798,9 +774,8 @@ bool QAbstractSocket_SuperOpen(QAbstractSocket* self, int mode) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnOpen(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_Open_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_Open_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -827,9 +802,8 @@ long long QAbstractSocket_SuperPos(const QAbstractSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnPos(const QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_Pos_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_Pos_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -856,9 +830,8 @@ long long QAbstractSocket_SuperSize(const QAbstractSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSize(const QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_Size_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_Size_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -885,9 +858,8 @@ bool QAbstractSocket_SuperSeek(QAbstractSocket* self, long long pos) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSeek(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_Seek_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_Seek_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -914,9 +886,8 @@ bool QAbstractSocket_SuperAtEnd(const QAbstractSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnAtEnd(const QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_AtEnd_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_AtEnd_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -943,9 +914,8 @@ bool QAbstractSocket_SuperReset(QAbstractSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnReset(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_Reset_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_Reset_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -972,9 +942,8 @@ bool QAbstractSocket_SuperCanReadLine(const QAbstractSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnCanReadLine(const QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_CanReadLine_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_CanReadLine_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1001,9 +970,8 @@ bool QAbstractSocket_SuperEvent(QAbstractSocket* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnEvent(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_Event_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1030,9 +998,8 @@ bool QAbstractSocket_SuperEventFilter(QAbstractSocket* self, QObject* watched, Q
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnEventFilter(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_EventFilter_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1059,9 +1026,8 @@ void QAbstractSocket_SuperTimerEvent(QAbstractSocket* self, QTimerEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnTimerEvent(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_TimerEvent_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1088,9 +1054,8 @@ void QAbstractSocket_SuperChildEvent(QAbstractSocket* self, QChildEvent* event) 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnChildEvent(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_ChildEvent_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1117,9 +1082,8 @@ void QAbstractSocket_SuperCustomEvent(QAbstractSocket* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnCustomEvent(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_CustomEvent_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1146,9 +1110,8 @@ void QAbstractSocket_SuperConnectNotify(QAbstractSocket* self, const QMetaMethod
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnConnectNotify(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_ConnectNotify_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1175,9 +1138,8 @@ void QAbstractSocket_SuperDisconnectNotify(QAbstractSocket* self, const QMetaMet
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnDisconnectNotify(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_DisconnectNotify_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1204,9 +1166,8 @@ void QAbstractSocket_SuperSetSocketState(QAbstractSocket* self, int state) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSetSocketState(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_SetSocketState_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_SetSocketState_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1233,9 +1194,8 @@ void QAbstractSocket_SuperSetSocketError(QAbstractSocket* self, int socketError)
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSetSocketError(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_SetSocketError_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_SetSocketError_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1262,9 +1222,8 @@ void QAbstractSocket_SuperSetLocalPort(QAbstractSocket* self, uint16_t port) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSetLocalPort(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_SetLocalPort_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_SetLocalPort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1291,9 +1250,8 @@ void QAbstractSocket_SuperSetLocalAddress(QAbstractSocket* self, const QHostAddr
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSetLocalAddress(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_SetLocalAddress_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_SetLocalAddress_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1320,9 +1278,8 @@ void QAbstractSocket_SuperSetPeerPort(QAbstractSocket* self, uint16_t port) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSetPeerPort(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_SetPeerPort_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_SetPeerPort_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1349,9 +1306,8 @@ void QAbstractSocket_SuperSetPeerAddress(QAbstractSocket* self, const QHostAddre
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSetPeerAddress(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_SetPeerAddress_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_SetPeerAddress_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1380,9 +1336,8 @@ void QAbstractSocket_SuperSetPeerName(QAbstractSocket* self, const libqt_string 
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSetPeerName(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_SetPeerName_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_SetPeerName_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1409,9 +1364,8 @@ void QAbstractSocket_SuperSetOpenMode(QAbstractSocket* self, int openMode) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSetOpenMode(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_SetOpenMode_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_SetOpenMode_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1440,9 +1394,8 @@ void QAbstractSocket_SuperSetErrorString(QAbstractSocket* self, const libqt_stri
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSetErrorString(QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_SetErrorString_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_SetErrorString_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1469,9 +1422,8 @@ QObject* QAbstractSocket_SuperSender(const QAbstractSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSender(const QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_Sender_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1498,9 +1450,8 @@ int QAbstractSocket_SuperSenderSignalIndex(const QAbstractSocket* self) {
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnSenderSignalIndex(const QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_SenderSignalIndex_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1527,9 +1478,8 @@ int QAbstractSocket_SuperReceivers(const QAbstractSocket* self, const char* sign
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnReceivers(const QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_Receivers_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -1556,9 +1506,8 @@ bool QAbstractSocket_SuperIsSignalConnected(const QAbstractSocket* self, const Q
 // Auxiliary method to allow providing re-implementation
 void QAbstractSocket_OnIsSignalConnected(const QAbstractSocket* self, intptr_t slot) {
     auto* vqabstractsocket = const_cast<VirtualQAbstractSocket*>(dynamic_cast<const VirtualQAbstractSocket*>(self));
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
+    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket)
         vqabstractsocket->setQAbstractSocket_IsSignalConnected_Callback(reinterpret_cast<VirtualQAbstractSocket::QAbstractSocket_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QAbstractSocket_Delete(QAbstractSocket* self) {

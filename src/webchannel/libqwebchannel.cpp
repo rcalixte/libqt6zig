@@ -129,9 +129,8 @@ QMetaObject* QWebChannel_SuperMetaObject(const QWebChannel* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebChannel_OnMetaObject(const QWebChannel* self, intptr_t slot) {
     auto* vqwebchannel = const_cast<VirtualQWebChannel*>(dynamic_cast<const VirtualQWebChannel*>(self));
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel)
         vqwebchannel->setQWebChannel_MetaObject_Callback(reinterpret_cast<VirtualQWebChannel::QWebChannel_MetaObject_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -148,9 +147,8 @@ void* QWebChannel_SuperMetacast(QWebChannel* self, const char* param1) {
 // Auxiliary method to allow providing re-implementation
 void QWebChannel_OnMetacast(QWebChannel* self, intptr_t slot) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel)
         vqwebchannel->setQWebChannel_Metacast_Callback(reinterpret_cast<VirtualQWebChannel::QWebChannel_Metacast_Callback>(slot));
-    }
 }
 
 // Base class handler implementation
@@ -167,9 +165,8 @@ int QWebChannel_SuperMetacall(QWebChannel* self, int param1, int param2, void** 
 // Auxiliary method to allow providing re-implementation
 void QWebChannel_OnMetacall(QWebChannel* self, intptr_t slot) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel)
         vqwebchannel->setQWebChannel_Metacall_Callback(reinterpret_cast<VirtualQWebChannel::QWebChannel_Metacall_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -196,9 +193,8 @@ bool QWebChannel_SuperEvent(QWebChannel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebChannel_OnEvent(QWebChannel* self, intptr_t slot) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel)
         vqwebchannel->setQWebChannel_Event_Callback(reinterpret_cast<VirtualQWebChannel::QWebChannel_Event_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -225,9 +221,8 @@ bool QWebChannel_SuperEventFilter(QWebChannel* self, QObject* watched, QEvent* e
 // Auxiliary method to allow providing re-implementation
 void QWebChannel_OnEventFilter(QWebChannel* self, intptr_t slot) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel)
         vqwebchannel->setQWebChannel_EventFilter_Callback(reinterpret_cast<VirtualQWebChannel::QWebChannel_EventFilter_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -254,9 +249,8 @@ void QWebChannel_SuperTimerEvent(QWebChannel* self, QTimerEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebChannel_OnTimerEvent(QWebChannel* self, intptr_t slot) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel)
         vqwebchannel->setQWebChannel_TimerEvent_Callback(reinterpret_cast<VirtualQWebChannel::QWebChannel_TimerEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -283,9 +277,8 @@ void QWebChannel_SuperChildEvent(QWebChannel* self, QChildEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebChannel_OnChildEvent(QWebChannel* self, intptr_t slot) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel)
         vqwebchannel->setQWebChannel_ChildEvent_Callback(reinterpret_cast<VirtualQWebChannel::QWebChannel_ChildEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -312,9 +305,8 @@ void QWebChannel_SuperCustomEvent(QWebChannel* self, QEvent* event) {
 // Auxiliary method to allow providing re-implementation
 void QWebChannel_OnCustomEvent(QWebChannel* self, intptr_t slot) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel)
         vqwebchannel->setQWebChannel_CustomEvent_Callback(reinterpret_cast<VirtualQWebChannel::QWebChannel_CustomEvent_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -341,9 +333,8 @@ void QWebChannel_SuperConnectNotify(QWebChannel* self, const QMetaMethod* signal
 // Auxiliary method to allow providing re-implementation
 void QWebChannel_OnConnectNotify(QWebChannel* self, intptr_t slot) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel)
         vqwebchannel->setQWebChannel_ConnectNotify_Callback(reinterpret_cast<VirtualQWebChannel::QWebChannel_ConnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -370,9 +361,8 @@ void QWebChannel_SuperDisconnectNotify(QWebChannel* self, const QMetaMethod* sig
 // Auxiliary method to allow providing re-implementation
 void QWebChannel_OnDisconnectNotify(QWebChannel* self, intptr_t slot) {
     auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel)
         vqwebchannel->setQWebChannel_DisconnectNotify_Callback(reinterpret_cast<VirtualQWebChannel::QWebChannel_DisconnectNotify_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -399,9 +389,8 @@ QObject* QWebChannel_SuperSender(const QWebChannel* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebChannel_OnSender(const QWebChannel* self, intptr_t slot) {
     auto* vqwebchannel = const_cast<VirtualQWebChannel*>(dynamic_cast<const VirtualQWebChannel*>(self));
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel)
         vqwebchannel->setQWebChannel_Sender_Callback(reinterpret_cast<VirtualQWebChannel::QWebChannel_Sender_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -428,9 +417,8 @@ int QWebChannel_SuperSenderSignalIndex(const QWebChannel* self) {
 // Auxiliary method to allow providing re-implementation
 void QWebChannel_OnSenderSignalIndex(const QWebChannel* self, intptr_t slot) {
     auto* vqwebchannel = const_cast<VirtualQWebChannel*>(dynamic_cast<const VirtualQWebChannel*>(self));
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel)
         vqwebchannel->setQWebChannel_SenderSignalIndex_Callback(reinterpret_cast<VirtualQWebChannel::QWebChannel_SenderSignalIndex_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -457,9 +445,8 @@ int QWebChannel_SuperReceivers(const QWebChannel* self, const char* signal) {
 // Auxiliary method to allow providing re-implementation
 void QWebChannel_OnReceivers(const QWebChannel* self, intptr_t slot) {
     auto* vqwebchannel = const_cast<VirtualQWebChannel*>(dynamic_cast<const VirtualQWebChannel*>(self));
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel)
         vqwebchannel->setQWebChannel_Receivers_Callback(reinterpret_cast<VirtualQWebChannel::QWebChannel_Receivers_Callback>(slot));
-    }
 }
 
 // Derived class handler implementation
@@ -486,9 +473,8 @@ bool QWebChannel_SuperIsSignalConnected(const QWebChannel* self, const QMetaMeth
 // Auxiliary method to allow providing re-implementation
 void QWebChannel_OnIsSignalConnected(const QWebChannel* self, intptr_t slot) {
     auto* vqwebchannel = const_cast<VirtualQWebChannel*>(dynamic_cast<const VirtualQWebChannel*>(self));
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
+    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel)
         vqwebchannel->setQWebChannel_IsSignalConnected_Callback(reinterpret_cast<VirtualQWebChannel::QWebChannel_IsSignalConnected_Callback>(slot));
-    }
 }
 
 void QWebChannel_Delete(QWebChannel* self) {
