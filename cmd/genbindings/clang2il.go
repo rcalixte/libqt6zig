@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"slices"
 	"strconv"
 	"strings"
 )
@@ -323,6 +324,8 @@ func (c *CppClass) IsRequiredProtectedMethod(m *CppMethod) bool {
 	return true
 }
 
+var inheritanceMap = map[string]map[string][]string{}
+
 // processClassType parses a single C++ class definition into our intermediate format.
 func processClassType(node map[string]any, addNamePrefix string) (CppClass, error) {
 	var ret CppClass
@@ -482,6 +485,9 @@ func processClassType(node map[string]any, addNamePrefix string) (CppClass, erro
 
 	// Check if this (publicly) inherits another class
 	if bases, ok := node["bases"].([]any); ok {
+		if inheritanceMap[ret.ClassName] == nil {
+			inheritanceMap[ret.ClassName] = map[string][]string{}
+		}
 		for _, base := range bases {
 			base, ok := base.(map[string]any)
 			if !ok {
@@ -497,6 +503,38 @@ func processClassType(node map[string]any, addNamePrefix string) (CppClass, erro
 				qualType := getPreferredType(typ)
 				if qualType != "" {
 					ret.DirectInherits = append(ret.DirectInherits, qualType)
+					if len(inheritanceMap[ret.ClassName]["direct"]) > 0 {
+						if !slices.Contains(inheritanceMap[ret.ClassName]["direct"], qualType) {
+							if !slices.Contains(inheritanceMap[ret.ClassName]["secondary"], qualType) {
+								inheritanceMap[ret.ClassName]["secondary"] = append(inheritanceMap[ret.ClassName]["secondary"], qualType)
+							}
+							methodName := strings.ReplaceAll(qualType, "::", "__")
+							ret.Methods = append(ret.Methods, CppMethod{
+								ReturnType: CppParameter{
+									ParameterType: qualType,
+								},
+								MethodName: "as" + methodName,
+								IsAsMethod: true,
+							})
+							class, ok := KnownClassnames[qualType]
+							if ok && class.Class.IsPolymorphic {
+								ret.Methods = append(ret.Methods, CppMethod{
+									ReturnType: CppParameter{
+										ParameterType: ret.ClassName,
+									},
+									Parameters: []CppParameter{{
+										ParameterName: "_" + strings.ToLower(methodName),
+										ParameterType: qualType},
+									},
+									MethodName:   "from" + methodName,
+									IsFromMethod: true,
+									IsStatic:     true,
+								})
+							}
+						}
+					} else {
+						inheritanceMap[ret.ClassName]["direct"] = []string{qualType}
+					}
 				}
 			}
 		}
