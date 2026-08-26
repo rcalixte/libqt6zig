@@ -1466,8 +1466,15 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		}
 
 		if p.PointerCount <= 1 {
-			preamble += "comptime _ = @TypeOf(" + p.ParameterName + ")._is_" + cabiClassName(p.ParameterType) + ";"
-			rvalue = "@ptrCast(" + p.ParameterName + ".ptr)"
+			className := cabiClassName(p.ParameterType)
+			preamble += "comptime _ = @TypeOf(" + p.ParameterName + ")._is_" + className + ";"
+			if _, ok := secondaryInheritanceMap[p.ParameterType]; ok && !zfs.isFromMethod {
+				preamble += "const " + p.ParameterName + "_ = if (@hasDecl(@TypeOf(" + p.ParameterName + `), "as` +
+					className + `")) ` + p.ParameterName + ".as" + className + "() else " + p.ParameterName + ";\n"
+				rvalue = "@ptrCast(" + p.ParameterName + "_.ptr)"
+			} else {
+				rvalue = "@ptrCast(" + p.ParameterName + ".ptr)"
+			}
 		} else {
 			rvalue = "@ptrCast(" + p.ParameterName + ")"
 		}
