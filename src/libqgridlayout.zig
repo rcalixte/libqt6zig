@@ -1365,7 +1365,8 @@ pub const QGridLayout = extern struct {
     ///
     pub fn addItem(self: QGridLayout, item: anytype, row: i32, column: i32) void {
         comptime _ = @TypeOf(item)._is_QLayoutItem;
-        qtc.QGridLayout_AddItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(row), @bitCast(column));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQLayoutItem")) item.asQLayoutItem() else item;
+        qtc.QGridLayout_AddItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// ### DEPRECATED: Use `setDefaultPositioning` instead
@@ -1424,7 +1425,8 @@ pub const QGridLayout = extern struct {
     ///
     pub fn addItem2(self: QGridLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QGridLayout_AddItem2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QGridLayout_AddItem2(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `onAddItem2` instead
@@ -1461,7 +1463,8 @@ pub const QGridLayout = extern struct {
     ///
     pub fn superAddItem2(self: QGridLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QGridLayout_SuperAddItem2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QGridLayout_SuperAddItem2(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
@@ -1634,7 +1637,8 @@ pub const QGridLayout = extern struct {
     ///
     pub fn addItem4(self: QGridLayout, item: anytype, row: i32, column: i32, rowSpan: i32) void {
         comptime _ = @TypeOf(item)._is_QLayoutItem;
-        qtc.QGridLayout_AddItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(row), @bitCast(column), @bitCast(rowSpan));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQLayoutItem")) item.asQLayoutItem() else item;
+        qtc.QGridLayout_AddItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(row), @bitCast(column), @bitCast(rowSpan));
     }
 
     /// ### DEPRECATED: Use `addItem5` instead
@@ -1659,7 +1663,8 @@ pub const QGridLayout = extern struct {
     ///
     pub fn addItem5(self: QGridLayout, item: anytype, row: i32, column: i32, rowSpan: i32, columnSpan: i32) void {
         comptime _ = @TypeOf(item)._is_QLayoutItem;
-        qtc.QGridLayout_AddItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQLayoutItem")) item.asQLayoutItem() else item;
+        qtc.QGridLayout_AddItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan));
     }
 
     /// ### DEPRECATED: Use `addItem6` instead
@@ -1686,7 +1691,8 @@ pub const QGridLayout = extern struct {
     ///
     pub fn addItem6(self: QGridLayout, item: anytype, row: i32, column: i32, rowSpan: i32, columnSpan: i32, param6: i32) void {
         comptime _ = @TypeOf(item)._is_QLayoutItem;
-        qtc.QGridLayout_AddItem6(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan), @bitCast(param6));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQLayoutItem")) item.asQLayoutItem() else item;
+        qtc.QGridLayout_AddItem6(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan), @bitCast(param6));
     }
 
     /// Inherited from QLayout
@@ -2027,7 +2033,8 @@ pub const QGridLayout = extern struct {
     ///
     pub fn removeItem(self: QGridLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `indexOf2` instead
@@ -2046,7 +2053,8 @@ pub const QGridLayout = extern struct {
     ///
     pub fn indexOf2(self: QGridLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        return qtc.QLayout_IndexOf2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        return qtc.QLayout_IndexOf2(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIndexOf2` instead
@@ -2087,7 +2095,8 @@ pub const QGridLayout = extern struct {
     ///
     pub fn superIndexOf2(self: QGridLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        return qtc.QLayout_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        return qtc.QLayout_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `totalMinimumHeightForWidth` instead

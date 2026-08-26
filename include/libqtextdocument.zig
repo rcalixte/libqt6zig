@@ -1196,7 +1196,8 @@ pub const QTextDocument = extern struct {
     ///
     pub fn print(self: QTextDocument, printer: anytype) void {
         comptime _ = @TypeOf(printer)._is_QPagedPaintDevice;
-        qtc.QTextDocument_Print(@ptrCast(self.ptr), @ptrCast(printer.ptr));
+        const printer_ = if (@hasDecl(@TypeOf(printer), "asQPagedPaintDevice")) printer.asQPagedPaintDevice() else printer;
+        qtc.QTextDocument_Print(@ptrCast(self.ptr), @ptrCast(printer_.ptr));
     }
 
     /// ### DEPRECATED: Use `resource` instead

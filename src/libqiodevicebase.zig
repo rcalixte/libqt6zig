@@ -23,7 +23,9 @@ pub const QIODeviceBase = extern struct {
     ///
     pub fn new(other: anytype) QIODeviceBase {
         comptime _ = @TypeOf(other)._is_QIODeviceBase;
-        return .{ .ptr = qtc.QIODeviceBase_new(@ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQIODeviceBase")) other.asQIODeviceBase() else other;
+
+        return .{ .ptr = qtc.QIODeviceBase_new(@ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `copyAssign` instead

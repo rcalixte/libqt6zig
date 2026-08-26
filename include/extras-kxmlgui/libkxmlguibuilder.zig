@@ -59,7 +59,8 @@ pub const KXMLGUIBuilder = extern struct {
     ///
     pub fn setBuilderClient(self: KXMLGUIBuilder, client: anytype) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
-        qtc.KXMLGUIBuilder_SetBuilderClient(@ptrCast(self.ptr), @ptrCast(client.ptr));
+        const client_ = if (@hasDecl(@TypeOf(client), "asKXMLGUIClient")) client.asKXMLGUIClient() else client;
+        qtc.KXMLGUIBuilder_SetBuilderClient(@ptrCast(self.ptr), @ptrCast(client_.ptr));
     }
 
     /// ### DEPRECATED: Use `widget` instead
@@ -460,7 +461,8 @@ pub const KXMLGUIBuilder = extern struct {
     ///
     pub fn finalizeGUI(self: KXMLGUIBuilder, client: anytype) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
-        qtc.KXMLGUIBuilder_FinalizeGUI(@ptrCast(self.ptr), @ptrCast(client.ptr));
+        const client_ = if (@hasDecl(@TypeOf(client), "asKXMLGUIClient")) client.asKXMLGUIClient() else client;
+        qtc.KXMLGUIBuilder_FinalizeGUI(@ptrCast(self.ptr), @ptrCast(client_.ptr));
     }
 
     /// ### DEPRECATED: Use `onFinalizeGUI` instead
@@ -497,7 +499,8 @@ pub const KXMLGUIBuilder = extern struct {
     ///
     pub fn superFinalizeGUI(self: KXMLGUIBuilder, client: anytype) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
-        qtc.KXMLGUIBuilder_SuperFinalizeGUI(@ptrCast(self.ptr), @ptrCast(client.ptr));
+        const client_ = if (@hasDecl(@TypeOf(client), "asKXMLGUIClient")) client.asKXMLGUIClient() else client;
+        qtc.KXMLGUIBuilder_SuperFinalizeGUI(@ptrCast(self.ptr), @ptrCast(client_.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead

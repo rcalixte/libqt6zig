@@ -39,7 +39,9 @@ pub const KBookmarkActionInterface = extern struct {
     ///
     pub fn new2(param1: anytype) KBookmarkActionInterface {
         comptime _ = @TypeOf(param1)._is_KBookmarkActionInterface;
-        return .{ .ptr = qtc.KBookmarkActionInterface_new2(@ptrCast(param1.ptr)) };
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asKBookmarkActionInterface")) param1.asKBookmarkActionInterface() else param1;
+
+        return .{ .ptr = qtc.KBookmarkActionInterface_new2(@ptrCast(param1_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `bookmark` instead

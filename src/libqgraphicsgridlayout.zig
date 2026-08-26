@@ -43,7 +43,9 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     pub fn new2(parent: anytype) QGraphicsGridLayout {
         comptime _ = @TypeOf(parent)._is_QGraphicsLayoutItem;
-        return .{ .ptr = qtc.QGraphicsGridLayout_new2(@ptrCast(parent.ptr)) };
+        const parent_ = if (@hasDecl(@TypeOf(parent), "asQGraphicsLayoutItem")) parent.asQGraphicsLayoutItem() else parent;
+
+        return .{ .ptr = qtc.QGraphicsGridLayout_new2(@ptrCast(parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `addItem` instead
@@ -68,7 +70,8 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     pub fn addItem(self: QGraphicsGridLayout, item: anytype, row: i32, column: i32, rowSpan: i32, columnSpan: i32) void {
         comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsGridLayout_AddItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsLayoutItem")) item.asQGraphicsLayoutItem() else item;
+        qtc.QGraphicsGridLayout_AddItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan));
     }
 
     /// ### DEPRECATED: Use `addItem2` instead
@@ -89,7 +92,8 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     pub fn addItem2(self: QGraphicsGridLayout, item: anytype, row: i32, column: i32) void {
         comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsGridLayout_AddItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(row), @bitCast(column));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsLayoutItem")) item.asQGraphicsLayoutItem() else item;
+        qtc.QGraphicsGridLayout_AddItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// ### DEPRECATED: Use `setHorizontalSpacing` instead
@@ -636,7 +640,8 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     pub fn setAlignment(self: QGraphicsGridLayout, item: anytype, _alignment: i32) void {
         comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsGridLayout_SetAlignment(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_alignment));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsLayoutItem")) item.asQGraphicsLayoutItem() else item;
+        qtc.QGraphicsGridLayout_SetAlignment(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_alignment));
     }
 
     /// ### DEPRECATED: Use `alignment` instead
@@ -657,7 +662,8 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     pub fn alignment(self: QGraphicsGridLayout, item: anytype) i32 {
         comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
-        return qtc.QGraphicsGridLayout_Alignment(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsLayoutItem")) item.asQGraphicsLayoutItem() else item;
+        return qtc.QGraphicsGridLayout_Alignment(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `rowCount` instead
@@ -872,7 +878,8 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     pub fn removeItem(self: QGraphicsGridLayout, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsGridLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsLayoutItem")) item.asQGraphicsLayoutItem() else item;
+        qtc.QGraphicsGridLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `invalidate` instead
@@ -1061,7 +1068,8 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     pub fn addItem6(self: QGraphicsGridLayout, item: anytype, row: i32, column: i32, rowSpan: i32, columnSpan: i32, _alignment: i32) void {
         comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsGridLayout_AddItem6(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan), @bitCast(_alignment));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsLayoutItem")) item.asQGraphicsLayoutItem() else item;
+        qtc.QGraphicsGridLayout_AddItem6(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(row), @bitCast(column), @bitCast(rowSpan), @bitCast(columnSpan), @bitCast(_alignment));
     }
 
     /// ### DEPRECATED: Use `addItem4` instead
@@ -1084,7 +1092,8 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     pub fn addItem4(self: QGraphicsGridLayout, item: anytype, row: i32, column: i32, _alignment: i32) void {
         comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsGridLayout_AddItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(row), @bitCast(column), @bitCast(_alignment));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsLayoutItem")) item.asQGraphicsLayoutItem() else item;
+        qtc.QGraphicsGridLayout_AddItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(row), @bitCast(column), @bitCast(_alignment));
     }
 
     /// ### DEPRECATED: Use `setContentsMargins` instead
@@ -1677,7 +1686,8 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     pub fn setParentLayoutItem(self: QGraphicsGridLayout, parent: anytype) void {
         comptime _ = @TypeOf(parent)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsLayoutItem_SetParentLayoutItem(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+        const parent_ = if (@hasDecl(@TypeOf(parent), "asQGraphicsLayoutItem")) parent.asQGraphicsLayoutItem() else parent;
+        qtc.QGraphicsLayoutItem_SetParentLayoutItem(@ptrCast(self.ptr), @ptrCast(parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `isLayout` instead
@@ -2035,7 +2045,8 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     pub fn addChildLayoutItem(self: QGraphicsGridLayout, layoutItem: anytype) void {
         comptime _ = @TypeOf(layoutItem)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsGridLayout_AddChildLayoutItem(@ptrCast(self.ptr), @ptrCast(layoutItem.ptr));
+        const layoutItem_ = if (@hasDecl(@TypeOf(layoutItem), "asQGraphicsLayoutItem")) layoutItem.asQGraphicsLayoutItem() else layoutItem;
+        qtc.QGraphicsGridLayout_AddChildLayoutItem(@ptrCast(self.ptr), @ptrCast(layoutItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `superAddChildLayoutItem` instead
@@ -2056,7 +2067,8 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     pub fn superAddChildLayoutItem(self: QGraphicsGridLayout, layoutItem: anytype) void {
         comptime _ = @TypeOf(layoutItem)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsGridLayout_SuperAddChildLayoutItem(@ptrCast(self.ptr), @ptrCast(layoutItem.ptr));
+        const layoutItem_ = if (@hasDecl(@TypeOf(layoutItem), "asQGraphicsLayoutItem")) layoutItem.asQGraphicsLayoutItem() else layoutItem;
+        qtc.QGraphicsGridLayout_SuperAddChildLayoutItem(@ptrCast(self.ptr), @ptrCast(layoutItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `onAddChildLayoutItem` instead
@@ -2097,7 +2109,8 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     pub fn setGraphicsItem(self: QGraphicsGridLayout, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsGridLayout_SetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsGridLayout_SetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `superSetGraphicsItem` instead
@@ -2118,7 +2131,8 @@ pub const QGraphicsGridLayout = extern struct {
     ///
     pub fn superSetGraphicsItem(self: QGraphicsGridLayout, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsGridLayout_SuperSetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsGridLayout_SuperSetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onSetGraphicsItem` instead

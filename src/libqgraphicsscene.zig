@@ -655,7 +655,8 @@ pub const QGraphicsScene = extern struct {
     ///
     pub fn collidingItems(self: QGraphicsScene, allocator: std.mem.Allocator, item: anytype) []QGraphicsItem {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        const _arr: qtc.libqt_list = qtc.QGraphicsScene_CollidingItems(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        const _arr: qtc.libqt_list = qtc.QGraphicsScene_CollidingItems(@ptrCast(self.ptr), @ptrCast(item_.ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsScene.collidingItems: Memory allocation failed");
         const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -829,7 +830,8 @@ pub const QGraphicsScene = extern struct {
     ///
     pub fn addItem(self: QGraphicsScene, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsScene_AddItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsScene_AddItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `addEllipse` instead
@@ -1054,7 +1056,8 @@ pub const QGraphicsScene = extern struct {
     ///
     pub fn removeItem(self: QGraphicsScene, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsScene_RemoveItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsScene_RemoveItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `focusItem` instead
@@ -1085,7 +1088,8 @@ pub const QGraphicsScene = extern struct {
     ///
     pub fn setFocusItem(self: QGraphicsScene, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsScene_SetFocusItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsScene_SetFocusItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `hasFocus` instead
@@ -1491,7 +1495,8 @@ pub const QGraphicsScene = extern struct {
     ///
     pub fn setActivePanel(self: QGraphicsScene, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsScene_SetActivePanel(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsScene_SetActivePanel(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `activeWindow` instead
@@ -1541,8 +1546,9 @@ pub const QGraphicsScene = extern struct {
     ///
     pub fn sendEvent(self: QGraphicsScene, item: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsScene_SendEvent(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsScene_SendEvent(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `minimumRenderSize` instead
@@ -3016,8 +3022,10 @@ pub const QGraphicsScene = extern struct {
     ///
     pub fn focusItemChanged(self: QGraphicsScene, newFocus: anytype, oldFocus: anytype, reason: i32) void {
         comptime _ = @TypeOf(newFocus)._is_QGraphicsItem;
+        const newFocus_ = if (@hasDecl(@TypeOf(newFocus), "asQGraphicsItem")) newFocus.asQGraphicsItem() else newFocus;
         comptime _ = @TypeOf(oldFocus)._is_QGraphicsItem;
-        qtc.QGraphicsScene_FocusItemChanged(@ptrCast(self.ptr), @ptrCast(newFocus.ptr), @ptrCast(oldFocus.ptr), @bitCast(reason));
+        const oldFocus_ = if (@hasDecl(@TypeOf(oldFocus), "asQGraphicsItem")) oldFocus.asQGraphicsItem() else oldFocus;
+        qtc.QGraphicsScene_FocusItemChanged(@ptrCast(self.ptr), @ptrCast(newFocus_.ptr), @ptrCast(oldFocus_.ptr), @bitCast(reason));
     }
 
     /// ### DEPRECATED: Use `onFocusItemChanged` instead
@@ -3497,7 +3505,8 @@ pub const QGraphicsScene = extern struct {
     ///
     pub fn collidingItems2(self: QGraphicsScene, allocator: std.mem.Allocator, item: anytype, mode: i32) []QGraphicsItem {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        const _arr: qtc.libqt_list = qtc.QGraphicsScene_CollidingItems2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(mode));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        const _arr: qtc.libqt_list = qtc.QGraphicsScene_CollidingItems2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsScene.collidingItems2: Memory allocation failed");
         const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -3931,7 +3940,8 @@ pub const QGraphicsScene = extern struct {
     ///
     pub fn setFocusItem2(self: QGraphicsScene, item: anytype, focusReason: i32) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsScene_SetFocusItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(focusReason));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsScene_SetFocusItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(focusReason));
     }
 
     /// ### DEPRECATED: Use `setFocus1` instead

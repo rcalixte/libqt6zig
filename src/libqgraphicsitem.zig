@@ -77,7 +77,9 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn new2(parent: anytype) QGraphicsItem {
         comptime _ = @TypeOf(parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_new2(@ptrCast(parent.ptr)) };
+        const parent_ = if (@hasDecl(@TypeOf(parent), "asQGraphicsItem")) parent.asQGraphicsItem() else parent;
+
+        return .{ .ptr = qtc.QGraphicsItem_new2(@ptrCast(parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `scene` instead
@@ -206,7 +208,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn setParentItem(self: QGraphicsItem, parent: anytype) void {
         comptime _ = @TypeOf(parent)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+        const parent_ = if (@hasDecl(@TypeOf(parent), "asQGraphicsItem")) parent.asQGraphicsItem() else parent;
+        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `childItems` instead
@@ -591,7 +594,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn isVisibleTo(self: QGraphicsItem, parent: anytype) bool {
         comptime _ = @TypeOf(parent)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+        const parent_ = if (@hasDecl(@TypeOf(parent), "asQGraphicsItem")) parent.asQGraphicsItem() else parent;
+        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `setVisible` instead
@@ -1057,7 +1061,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn setFocusProxy(self: QGraphicsItem, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `focusItem` instead
@@ -1380,7 +1385,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn itemTransform(self: QGraphicsItem, other: anytype) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setTransform` instead
@@ -1661,7 +1667,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn stackBefore(self: QGraphicsItem, sibling: anytype) void {
         comptime _ = @TypeOf(sibling)._is_QGraphicsItem;
-        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling.ptr));
+        const sibling_ = if (@hasDecl(@TypeOf(sibling), "asQGraphicsItem")) sibling.asQGraphicsItem() else sibling;
+        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling_.ptr));
     }
 
     /// ### DEPRECATED: Use `boundingRect` instead
@@ -1890,7 +1897,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn collidesWithItem(self: QGraphicsItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `onCollidesWithItem` instead
@@ -1929,7 +1937,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn superCollidesWithItem(self: QGraphicsItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `collidesWithPath` instead
@@ -2062,7 +2071,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn isObscuredBy(self: QGraphicsItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIsObscuredBy` instead
@@ -2099,7 +2109,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn superIsObscuredBy(self: QGraphicsItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `opaqueArea` instead
@@ -2335,8 +2346,9 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn mapToItem(self: QGraphicsItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent` instead
@@ -2389,8 +2401,9 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn mapRectToItem(self: QGraphicsItem, item: anytype, rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent` instead
@@ -2443,8 +2456,9 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn mapToItem4(self: QGraphicsItem, item: anytype, path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent4` instead
@@ -2497,8 +2511,9 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn mapFromItem(self: QGraphicsItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent` instead
@@ -2551,8 +2566,9 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn mapRectFromItem(self: QGraphicsItem, item: anytype, rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent` instead
@@ -2605,8 +2621,9 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn mapFromItem4(self: QGraphicsItem, item: anytype, path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent4` instead
@@ -2661,7 +2678,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn mapToItem5(self: QGraphicsItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent5` instead
@@ -2722,7 +2740,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn mapRectToItem2(self: QGraphicsItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent2` instead
@@ -2787,7 +2806,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn mapFromItem5(self: QGraphicsItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent5` instead
@@ -2848,7 +2868,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn mapRectFromItem2(self: QGraphicsItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent2` instead
@@ -2909,7 +2930,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn isAncestorOf(self: QGraphicsItem, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asQGraphicsItem")) child.asQGraphicsItem() else child;
+        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `commonAncestorItem` instead
@@ -2926,7 +2948,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn commonAncestorItem(self: QGraphicsItem, other: anytype) QGraphicsItem {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `isUnderMouse` instead
@@ -3076,7 +3099,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn installSceneEventFilter(self: QGraphicsItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeSceneEventFilter` instead
@@ -3093,7 +3117,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn removeSceneEventFilter(self: QGraphicsItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `updateMicroFocus` instead
@@ -3160,8 +3185,9 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn sceneEventFilter(self: QGraphicsItem, watched: anytype, event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        return qtc.QGraphicsItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `onSceneEventFilter` instead
@@ -3200,8 +3226,9 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn superSceneEventFilter(self: QGraphicsItem, watched: anytype, event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QGraphicsItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        return qtc.QGraphicsItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `sceneEvent` instead
@@ -4846,7 +4873,8 @@ pub const QGraphicsItem = extern struct {
     ///
     pub fn itemTransform2(self: QGraphicsItem, other: anytype, ok: *bool) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other.ptr), @ptrCast(ok)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other_.ptr), @ptrCast(ok)) };
     }
 
     /// ### DEPRECATED: Use `setTransform2` instead
@@ -4998,7 +5026,9 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn new2(_parent: anytype) QGraphicsObject {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsObject_new2(@ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsObject_new2(@ptrCast(_parent_.ptr)) };
     }
 
     /// Upcasts to a QGraphicsItem object
@@ -6864,7 +6894,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn setParentItem(self: QGraphicsObject, _parent: anytype) void {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `childItems` instead
@@ -7297,7 +7328,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn isVisibleTo(self: QGraphicsObject, _parent: anytype) bool {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `setVisible` instead
@@ -7825,7 +7857,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn setFocusProxy(self: QGraphicsObject, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `focusItem` instead
@@ -8190,7 +8223,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn itemTransform(self: QGraphicsObject, other: anytype) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setTransform` instead
@@ -8447,7 +8481,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn stackBefore(self: QGraphicsObject, sibling: anytype) void {
         comptime _ = @TypeOf(sibling)._is_QGraphicsItem;
-        qtc.QGraphicsItem_StackBefore(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(sibling.ptr));
+        const sibling_ = if (@hasDecl(@TypeOf(sibling), "asQGraphicsItem")) sibling.asQGraphicsItem() else sibling;
+        qtc.QGraphicsItem_StackBefore(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(sibling_.ptr));
     }
 
     /// ### DEPRECATED: Use `childrenBoundingRect` instead
@@ -8709,8 +8744,9 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn mapToItem(self: QGraphicsObject, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent` instead
@@ -8769,8 +8805,9 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn mapRectToItem(self: QGraphicsObject, item: anytype, rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @ptrCast(rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent` instead
@@ -8829,8 +8866,9 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn mapToItem4(self: QGraphicsObject, item: anytype, path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @ptrCast(path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent4` instead
@@ -8889,8 +8927,9 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn mapFromItem(self: QGraphicsObject, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent` instead
@@ -8949,8 +8988,9 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn mapRectFromItem(self: QGraphicsObject, item: anytype, rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @ptrCast(rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent` instead
@@ -9009,8 +9049,9 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn mapFromItem4(self: QGraphicsObject, item: anytype, path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @ptrCast(path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent4` instead
@@ -9071,7 +9112,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn mapToItem5(self: QGraphicsObject, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent5` instead
@@ -9138,7 +9180,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn mapRectToItem2(self: QGraphicsObject, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent2` instead
@@ -9209,7 +9252,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn mapFromItem5(self: QGraphicsObject, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent5` instead
@@ -9276,7 +9320,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn mapRectFromItem2(self: QGraphicsObject, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent2` instead
@@ -9343,7 +9388,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn isAncestorOf(self: QGraphicsObject, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asQGraphicsItem")) child.asQGraphicsItem() else child;
+        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `commonAncestorItem` instead
@@ -9362,7 +9408,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn commonAncestorItem(self: QGraphicsObject, other: anytype) QGraphicsItem {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `isUnderMouse` instead
@@ -9474,7 +9521,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn installSceneEventFilter(self: QGraphicsObject, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeSceneEventFilter` instead
@@ -9493,7 +9541,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn removeSceneEventFilter(self: QGraphicsObject, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `setFlag2` instead
@@ -9708,7 +9757,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn itemTransform2(self: QGraphicsObject, other: anytype, ok: *bool) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(other.ptr), @ptrCast(ok)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(other_.ptr), @ptrCast(ok)) };
     }
 
     /// ### DEPRECATED: Use `setTransform2` instead
@@ -10455,7 +10505,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn collidesWithItem(self: QGraphicsObject, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsObject_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsObject_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `superCollidesWithItem` instead
@@ -10478,7 +10529,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn superCollidesWithItem(self: QGraphicsObject, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsObject_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsObject_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `onCollidesWithItem` instead
@@ -10585,7 +10637,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn isObscuredBy(self: QGraphicsObject, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsObject_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsObject_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `superIsObscuredBy` instead
@@ -10606,7 +10659,8 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn superIsObscuredBy(self: QGraphicsObject, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsObject_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsObject_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIsObscuredBy` instead
@@ -10839,8 +10893,9 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn sceneEventFilter(self: QGraphicsObject, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsObject_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsObject_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `superSceneEventFilter` instead
@@ -10863,8 +10918,9 @@ pub const QGraphicsObject = extern struct {
     ///
     pub fn superSceneEventFilter(self: QGraphicsObject, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsObject_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsObject_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `onSceneEventFilter` instead
@@ -12859,7 +12915,9 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn new2(_parent: anytype) QAbstractGraphicsShapeItem {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QAbstractGraphicsShapeItem_new2(@ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QAbstractGraphicsShapeItem_new2(@ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `pen` instead
@@ -12938,7 +12996,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn isObscuredBy(self: QAbstractGraphicsShapeItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QAbstractGraphicsShapeItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QAbstractGraphicsShapeItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIsObscuredBy` instead
@@ -12975,7 +13034,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn superIsObscuredBy(self: QAbstractGraphicsShapeItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QAbstractGraphicsShapeItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QAbstractGraphicsShapeItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `opaqueArea` instead
@@ -13172,7 +13232,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn setParentItem(self: QAbstractGraphicsShapeItem, _parent: anytype) void {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `childItems` instead
@@ -13605,7 +13666,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn isVisibleTo(self: QAbstractGraphicsShapeItem, _parent: anytype) bool {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `setVisible` instead
@@ -14133,7 +14195,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn setFocusProxy(self: QAbstractGraphicsShapeItem, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `focusItem` instead
@@ -14498,7 +14561,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn itemTransform(self: QAbstractGraphicsShapeItem, other: anytype) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setTransform` instead
@@ -14755,7 +14819,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn stackBefore(self: QAbstractGraphicsShapeItem, sibling: anytype) void {
         comptime _ = @TypeOf(sibling)._is_QGraphicsItem;
-        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling.ptr));
+        const sibling_ = if (@hasDecl(@TypeOf(sibling), "asQGraphicsItem")) sibling.asQGraphicsItem() else sibling;
+        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling_.ptr));
     }
 
     /// ### DEPRECATED: Use `childrenBoundingRect` instead
@@ -15017,8 +15082,9 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn mapToItem(self: QAbstractGraphicsShapeItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent` instead
@@ -15077,8 +15143,9 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn mapRectToItem(self: QAbstractGraphicsShapeItem, item: anytype, rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent` instead
@@ -15137,8 +15204,9 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn mapToItem4(self: QAbstractGraphicsShapeItem, item: anytype, path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent4` instead
@@ -15197,8 +15265,9 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn mapFromItem(self: QAbstractGraphicsShapeItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent` instead
@@ -15257,8 +15326,9 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn mapRectFromItem(self: QAbstractGraphicsShapeItem, item: anytype, rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent` instead
@@ -15317,8 +15387,9 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn mapFromItem4(self: QAbstractGraphicsShapeItem, item: anytype, path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent4` instead
@@ -15379,7 +15450,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn mapToItem5(self: QAbstractGraphicsShapeItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent5` instead
@@ -15446,7 +15518,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn mapRectToItem2(self: QAbstractGraphicsShapeItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent2` instead
@@ -15517,7 +15590,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn mapFromItem5(self: QAbstractGraphicsShapeItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent5` instead
@@ -15584,7 +15658,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn mapRectFromItem2(self: QAbstractGraphicsShapeItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent2` instead
@@ -15651,7 +15726,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn isAncestorOf(self: QAbstractGraphicsShapeItem, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asQGraphicsItem")) child.asQGraphicsItem() else child;
+        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `commonAncestorItem` instead
@@ -15670,7 +15746,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn commonAncestorItem(self: QAbstractGraphicsShapeItem, other: anytype) QGraphicsItem {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `isUnderMouse` instead
@@ -15782,7 +15859,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn installSceneEventFilter(self: QAbstractGraphicsShapeItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeSceneEventFilter` instead
@@ -15801,7 +15879,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn removeSceneEventFilter(self: QAbstractGraphicsShapeItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `setFlag2` instead
@@ -16016,7 +16095,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn itemTransform2(self: QAbstractGraphicsShapeItem, other: anytype, ok: *bool) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other.ptr), @ptrCast(ok)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other_.ptr), @ptrCast(ok)) };
     }
 
     /// ### DEPRECATED: Use `setTransform2` instead
@@ -16385,7 +16465,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn collidesWithItem(self: QAbstractGraphicsShapeItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QAbstractGraphicsShapeItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QAbstractGraphicsShapeItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `superCollidesWithItem` instead
@@ -16408,7 +16489,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn superCollidesWithItem(self: QAbstractGraphicsShapeItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QAbstractGraphicsShapeItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QAbstractGraphicsShapeItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `onCollidesWithItem` instead
@@ -16649,8 +16731,9 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn sceneEventFilter(self: QAbstractGraphicsShapeItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QAbstractGraphicsShapeItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QAbstractGraphicsShapeItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `superSceneEventFilter` instead
@@ -16673,8 +16756,9 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     pub fn superSceneEventFilter(self: QAbstractGraphicsShapeItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QAbstractGraphicsShapeItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QAbstractGraphicsShapeItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `onSceneEventFilter` instead
@@ -18485,7 +18569,9 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn new3(_parent: anytype) QGraphicsPathItem {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsPathItem_new3(@ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsPathItem_new3(@ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new4` instead
@@ -18503,7 +18589,9 @@ pub const QGraphicsPathItem = extern struct {
     pub fn new4(_path: anytype, _parent: anytype) QGraphicsPathItem {
         comptime _ = @TypeOf(_path)._is_QPainterPath;
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsPathItem_new4(@ptrCast(_path.ptr), @ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsPathItem_new4(@ptrCast(_path.ptr), @ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `path` instead
@@ -18771,7 +18859,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn isObscuredBy(self: QGraphicsPathItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsPathItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsPathItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIsObscuredBy` instead
@@ -18808,7 +18897,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn superIsObscuredBy(self: QGraphicsPathItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsPathItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsPathItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `opaqueArea` instead
@@ -19291,7 +19381,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn setParentItem(self: QGraphicsPathItem, _parent: anytype) void {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `childItems` instead
@@ -19724,7 +19815,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn isVisibleTo(self: QGraphicsPathItem, _parent: anytype) bool {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `setVisible` instead
@@ -20252,7 +20344,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn setFocusProxy(self: QGraphicsPathItem, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `focusItem` instead
@@ -20617,7 +20710,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn itemTransform(self: QGraphicsPathItem, other: anytype) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setTransform` instead
@@ -20874,7 +20968,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn stackBefore(self: QGraphicsPathItem, sibling: anytype) void {
         comptime _ = @TypeOf(sibling)._is_QGraphicsItem;
-        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling.ptr));
+        const sibling_ = if (@hasDecl(@TypeOf(sibling), "asQGraphicsItem")) sibling.asQGraphicsItem() else sibling;
+        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling_.ptr));
     }
 
     /// ### DEPRECATED: Use `childrenBoundingRect` instead
@@ -21136,8 +21231,9 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn mapToItem(self: QGraphicsPathItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent` instead
@@ -21196,8 +21292,9 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn mapRectToItem(self: QGraphicsPathItem, item: anytype, rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent` instead
@@ -21256,8 +21353,9 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn mapToItem4(self: QGraphicsPathItem, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent4` instead
@@ -21316,8 +21414,9 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn mapFromItem(self: QGraphicsPathItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent` instead
@@ -21376,8 +21475,9 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn mapRectFromItem(self: QGraphicsPathItem, item: anytype, rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent` instead
@@ -21436,8 +21536,9 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn mapFromItem4(self: QGraphicsPathItem, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent4` instead
@@ -21498,7 +21599,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn mapToItem5(self: QGraphicsPathItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent5` instead
@@ -21565,7 +21667,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn mapRectToItem2(self: QGraphicsPathItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent2` instead
@@ -21636,7 +21739,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn mapFromItem5(self: QGraphicsPathItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent5` instead
@@ -21703,7 +21807,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn mapRectFromItem2(self: QGraphicsPathItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent2` instead
@@ -21770,7 +21875,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn isAncestorOf(self: QGraphicsPathItem, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asQGraphicsItem")) child.asQGraphicsItem() else child;
+        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `commonAncestorItem` instead
@@ -21789,7 +21895,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn commonAncestorItem(self: QGraphicsPathItem, other: anytype) QGraphicsItem {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `isUnderMouse` instead
@@ -21901,7 +22008,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn installSceneEventFilter(self: QGraphicsPathItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeSceneEventFilter` instead
@@ -21920,7 +22028,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn removeSceneEventFilter(self: QGraphicsPathItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `setFlag2` instead
@@ -22135,7 +22244,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn itemTransform2(self: QGraphicsPathItem, other: anytype, ok: *bool) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other.ptr), @ptrCast(ok)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other_.ptr), @ptrCast(ok)) };
     }
 
     /// ### DEPRECATED: Use `setTransform2` instead
@@ -22326,7 +22436,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn collidesWithItem(self: QGraphicsPathItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsPathItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsPathItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `superCollidesWithItem` instead
@@ -22349,7 +22460,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn superCollidesWithItem(self: QGraphicsPathItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsPathItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsPathItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `onCollidesWithItem` instead
@@ -22458,8 +22570,9 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn sceneEventFilter(self: QGraphicsPathItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsPathItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsPathItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `superSceneEventFilter` instead
@@ -22482,8 +22595,9 @@ pub const QGraphicsPathItem = extern struct {
     ///
     pub fn superSceneEventFilter(self: QGraphicsPathItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsPathItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsPathItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `onSceneEventFilter` instead
@@ -24124,7 +24238,9 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn new4(_parent: anytype) QGraphicsRectItem {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsRectItem_new4(@ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsRectItem_new4(@ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new5` instead
@@ -24142,7 +24258,9 @@ pub const QGraphicsRectItem = extern struct {
     pub fn new5(_rect: anytype, _parent: anytype) QGraphicsRectItem {
         comptime _ = @TypeOf(_rect)._is_QRectF;
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsRectItem_new5(@ptrCast(_rect.ptr), @ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsRectItem_new5(@ptrCast(_rect.ptr), @ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new6` instead
@@ -24165,7 +24283,9 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn new6(_x: f64, _y: f64, w: f64, h: f64, _parent: anytype) QGraphicsRectItem {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsRectItem_new6(@bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsRectItem_new6(@bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `rect` instead
@@ -24455,7 +24575,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn isObscuredBy(self: QGraphicsRectItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsRectItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsRectItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIsObscuredBy` instead
@@ -24492,7 +24613,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn superIsObscuredBy(self: QGraphicsRectItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsRectItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsRectItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `opaqueArea` instead
@@ -24975,7 +25097,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn setParentItem(self: QGraphicsRectItem, _parent: anytype) void {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `childItems` instead
@@ -25408,7 +25531,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn isVisibleTo(self: QGraphicsRectItem, _parent: anytype) bool {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `setVisible` instead
@@ -25936,7 +26060,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn setFocusProxy(self: QGraphicsRectItem, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `focusItem` instead
@@ -26301,7 +26426,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn itemTransform(self: QGraphicsRectItem, other: anytype) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setTransform` instead
@@ -26558,7 +26684,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn stackBefore(self: QGraphicsRectItem, sibling: anytype) void {
         comptime _ = @TypeOf(sibling)._is_QGraphicsItem;
-        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling.ptr));
+        const sibling_ = if (@hasDecl(@TypeOf(sibling), "asQGraphicsItem")) sibling.asQGraphicsItem() else sibling;
+        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling_.ptr));
     }
 
     /// ### DEPRECATED: Use `childrenBoundingRect` instead
@@ -26820,8 +26947,9 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn mapToItem(self: QGraphicsRectItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent` instead
@@ -26880,8 +27008,9 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn mapRectToItem(self: QGraphicsRectItem, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent` instead
@@ -26940,8 +27069,9 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn mapToItem4(self: QGraphicsRectItem, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent4` instead
@@ -27000,8 +27130,9 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn mapFromItem(self: QGraphicsRectItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent` instead
@@ -27060,8 +27191,9 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn mapRectFromItem(self: QGraphicsRectItem, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent` instead
@@ -27120,8 +27252,9 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn mapFromItem4(self: QGraphicsRectItem, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent4` instead
@@ -27182,7 +27315,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn mapToItem5(self: QGraphicsRectItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent5` instead
@@ -27249,7 +27383,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn mapRectToItem2(self: QGraphicsRectItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent2` instead
@@ -27320,7 +27455,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn mapFromItem5(self: QGraphicsRectItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent5` instead
@@ -27387,7 +27523,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn mapRectFromItem2(self: QGraphicsRectItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent2` instead
@@ -27454,7 +27591,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn isAncestorOf(self: QGraphicsRectItem, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asQGraphicsItem")) child.asQGraphicsItem() else child;
+        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `commonAncestorItem` instead
@@ -27473,7 +27611,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn commonAncestorItem(self: QGraphicsRectItem, other: anytype) QGraphicsItem {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `isUnderMouse` instead
@@ -27585,7 +27724,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn installSceneEventFilter(self: QGraphicsRectItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeSceneEventFilter` instead
@@ -27604,7 +27744,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn removeSceneEventFilter(self: QGraphicsRectItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `setFlag2` instead
@@ -27819,7 +27960,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn itemTransform2(self: QGraphicsRectItem, other: anytype, ok: *bool) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other.ptr), @ptrCast(ok)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other_.ptr), @ptrCast(ok)) };
     }
 
     /// ### DEPRECATED: Use `setTransform2` instead
@@ -28010,7 +28152,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn collidesWithItem(self: QGraphicsRectItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsRectItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsRectItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `superCollidesWithItem` instead
@@ -28033,7 +28176,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn superCollidesWithItem(self: QGraphicsRectItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsRectItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsRectItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `onCollidesWithItem` instead
@@ -28142,8 +28286,9 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn sceneEventFilter(self: QGraphicsRectItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsRectItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsRectItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `superSceneEventFilter` instead
@@ -28166,8 +28311,9 @@ pub const QGraphicsRectItem = extern struct {
     ///
     pub fn superSceneEventFilter(self: QGraphicsRectItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsRectItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsRectItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `onSceneEventFilter` instead
@@ -29808,7 +29954,9 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn new4(_parent: anytype) QGraphicsEllipseItem {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsEllipseItem_new4(@ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsEllipseItem_new4(@ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new5` instead
@@ -29826,7 +29974,9 @@ pub const QGraphicsEllipseItem = extern struct {
     pub fn new5(_rect: anytype, _parent: anytype) QGraphicsEllipseItem {
         comptime _ = @TypeOf(_rect)._is_QRectF;
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsEllipseItem_new5(@ptrCast(_rect.ptr), @ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsEllipseItem_new5(@ptrCast(_rect.ptr), @ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new6` instead
@@ -29849,7 +29999,9 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn new6(_x: f64, _y: f64, w: f64, h: f64, _parent: anytype) QGraphicsEllipseItem {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsEllipseItem_new6(@bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsEllipseItem_new6(@bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `rect` instead
@@ -30199,7 +30351,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn isObscuredBy(self: QGraphicsEllipseItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsEllipseItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsEllipseItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIsObscuredBy` instead
@@ -30236,7 +30389,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn superIsObscuredBy(self: QGraphicsEllipseItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsEllipseItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsEllipseItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `opaqueArea` instead
@@ -30719,7 +30873,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn setParentItem(self: QGraphicsEllipseItem, _parent: anytype) void {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `childItems` instead
@@ -31152,7 +31307,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn isVisibleTo(self: QGraphicsEllipseItem, _parent: anytype) bool {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `setVisible` instead
@@ -31680,7 +31836,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn setFocusProxy(self: QGraphicsEllipseItem, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `focusItem` instead
@@ -32045,7 +32202,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn itemTransform(self: QGraphicsEllipseItem, other: anytype) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setTransform` instead
@@ -32302,7 +32460,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn stackBefore(self: QGraphicsEllipseItem, sibling: anytype) void {
         comptime _ = @TypeOf(sibling)._is_QGraphicsItem;
-        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling.ptr));
+        const sibling_ = if (@hasDecl(@TypeOf(sibling), "asQGraphicsItem")) sibling.asQGraphicsItem() else sibling;
+        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling_.ptr));
     }
 
     /// ### DEPRECATED: Use `childrenBoundingRect` instead
@@ -32564,8 +32723,9 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn mapToItem(self: QGraphicsEllipseItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent` instead
@@ -32624,8 +32784,9 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn mapRectToItem(self: QGraphicsEllipseItem, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent` instead
@@ -32684,8 +32845,9 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn mapToItem4(self: QGraphicsEllipseItem, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent4` instead
@@ -32744,8 +32906,9 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn mapFromItem(self: QGraphicsEllipseItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent` instead
@@ -32804,8 +32967,9 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn mapRectFromItem(self: QGraphicsEllipseItem, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent` instead
@@ -32864,8 +33028,9 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn mapFromItem4(self: QGraphicsEllipseItem, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent4` instead
@@ -32926,7 +33091,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn mapToItem5(self: QGraphicsEllipseItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent5` instead
@@ -32993,7 +33159,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn mapRectToItem2(self: QGraphicsEllipseItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent2` instead
@@ -33064,7 +33231,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn mapFromItem5(self: QGraphicsEllipseItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent5` instead
@@ -33131,7 +33299,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn mapRectFromItem2(self: QGraphicsEllipseItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent2` instead
@@ -33198,7 +33367,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn isAncestorOf(self: QGraphicsEllipseItem, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asQGraphicsItem")) child.asQGraphicsItem() else child;
+        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `commonAncestorItem` instead
@@ -33217,7 +33387,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn commonAncestorItem(self: QGraphicsEllipseItem, other: anytype) QGraphicsItem {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `isUnderMouse` instead
@@ -33329,7 +33500,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn installSceneEventFilter(self: QGraphicsEllipseItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeSceneEventFilter` instead
@@ -33348,7 +33520,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn removeSceneEventFilter(self: QGraphicsEllipseItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `setFlag2` instead
@@ -33563,7 +33736,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn itemTransform2(self: QGraphicsEllipseItem, other: anytype, ok: *bool) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other.ptr), @ptrCast(ok)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other_.ptr), @ptrCast(ok)) };
     }
 
     /// ### DEPRECATED: Use `setTransform2` instead
@@ -33754,7 +33928,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn collidesWithItem(self: QGraphicsEllipseItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsEllipseItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsEllipseItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `superCollidesWithItem` instead
@@ -33777,7 +33952,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn superCollidesWithItem(self: QGraphicsEllipseItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsEllipseItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsEllipseItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `onCollidesWithItem` instead
@@ -33886,8 +34062,9 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn sceneEventFilter(self: QGraphicsEllipseItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsEllipseItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsEllipseItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `superSceneEventFilter` instead
@@ -33910,8 +34087,9 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     pub fn superSceneEventFilter(self: QGraphicsEllipseItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsEllipseItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsEllipseItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `onSceneEventFilter` instead
@@ -35517,7 +35695,9 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn new2(_parent: anytype) QGraphicsPolygonItem {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsPolygonItem_new2(@ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsPolygonItem_new2(@ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `fillRule` instead
@@ -35788,7 +35968,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn isObscuredBy(self: QGraphicsPolygonItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsPolygonItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsPolygonItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIsObscuredBy` instead
@@ -35825,7 +36006,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn superIsObscuredBy(self: QGraphicsPolygonItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsPolygonItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsPolygonItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `opaqueArea` instead
@@ -36308,7 +36490,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn setParentItem(self: QGraphicsPolygonItem, _parent: anytype) void {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `childItems` instead
@@ -36741,7 +36924,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn isVisibleTo(self: QGraphicsPolygonItem, _parent: anytype) bool {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `setVisible` instead
@@ -37269,7 +37453,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn setFocusProxy(self: QGraphicsPolygonItem, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `focusItem` instead
@@ -37634,7 +37819,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn itemTransform(self: QGraphicsPolygonItem, other: anytype) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setTransform` instead
@@ -37891,7 +38077,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn stackBefore(self: QGraphicsPolygonItem, sibling: anytype) void {
         comptime _ = @TypeOf(sibling)._is_QGraphicsItem;
-        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling.ptr));
+        const sibling_ = if (@hasDecl(@TypeOf(sibling), "asQGraphicsItem")) sibling.asQGraphicsItem() else sibling;
+        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling_.ptr));
     }
 
     /// ### DEPRECATED: Use `childrenBoundingRect` instead
@@ -38153,8 +38340,9 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn mapToItem(self: QGraphicsPolygonItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent` instead
@@ -38213,8 +38401,9 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn mapRectToItem(self: QGraphicsPolygonItem, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent` instead
@@ -38273,8 +38462,9 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn mapToItem4(self: QGraphicsPolygonItem, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent4` instead
@@ -38333,8 +38523,9 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn mapFromItem(self: QGraphicsPolygonItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent` instead
@@ -38393,8 +38584,9 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn mapRectFromItem(self: QGraphicsPolygonItem, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent` instead
@@ -38453,8 +38645,9 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn mapFromItem4(self: QGraphicsPolygonItem, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent4` instead
@@ -38515,7 +38708,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn mapToItem5(self: QGraphicsPolygonItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent5` instead
@@ -38582,7 +38776,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn mapRectToItem2(self: QGraphicsPolygonItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent2` instead
@@ -38653,7 +38848,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn mapFromItem5(self: QGraphicsPolygonItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent5` instead
@@ -38720,7 +38916,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn mapRectFromItem2(self: QGraphicsPolygonItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent2` instead
@@ -38787,7 +38984,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn isAncestorOf(self: QGraphicsPolygonItem, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asQGraphicsItem")) child.asQGraphicsItem() else child;
+        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `commonAncestorItem` instead
@@ -38806,7 +39004,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn commonAncestorItem(self: QGraphicsPolygonItem, other: anytype) QGraphicsItem {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `isUnderMouse` instead
@@ -38918,7 +39117,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn installSceneEventFilter(self: QGraphicsPolygonItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeSceneEventFilter` instead
@@ -38937,7 +39137,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn removeSceneEventFilter(self: QGraphicsPolygonItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `setFlag2` instead
@@ -39152,7 +39353,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn itemTransform2(self: QGraphicsPolygonItem, other: anytype, ok: *bool) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other.ptr), @ptrCast(ok)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other_.ptr), @ptrCast(ok)) };
     }
 
     /// ### DEPRECATED: Use `setTransform2` instead
@@ -39343,7 +39545,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn collidesWithItem(self: QGraphicsPolygonItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsPolygonItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsPolygonItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `superCollidesWithItem` instead
@@ -39366,7 +39569,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn superCollidesWithItem(self: QGraphicsPolygonItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsPolygonItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsPolygonItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `onCollidesWithItem` instead
@@ -39475,8 +39679,9 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn sceneEventFilter(self: QGraphicsPolygonItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsPolygonItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsPolygonItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `superSceneEventFilter` instead
@@ -39499,8 +39704,9 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     pub fn superSceneEventFilter(self: QGraphicsPolygonItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsPolygonItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsPolygonItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `onSceneEventFilter` instead
@@ -41140,7 +41346,9 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn new4(_parent: anytype) QGraphicsLineItem {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsLineItem_new4(@ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsLineItem_new4(@ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new5` instead
@@ -41158,7 +41366,9 @@ pub const QGraphicsLineItem = extern struct {
     pub fn new5(_line: anytype, _parent: anytype) QGraphicsLineItem {
         comptime _ = @TypeOf(_line)._is_QLineF;
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsLineItem_new5(@ptrCast(_line.ptr), @ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsLineItem_new5(@ptrCast(_line.ptr), @ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new6` instead
@@ -41181,7 +41391,9 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn new6(x1: f64, y1: f64, x2: f64, y2: f64, _parent: anytype) QGraphicsLineItem {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsLineItem_new6(@bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2), @ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsLineItem_new6(@bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2), @ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `pen` instead
@@ -41502,7 +41714,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn isObscuredBy(self: QGraphicsLineItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsLineItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsLineItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIsObscuredBy` instead
@@ -41539,7 +41752,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn superIsObscuredBy(self: QGraphicsLineItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsLineItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsLineItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `opaqueArea` instead
@@ -41952,7 +42166,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn setParentItem(self: QGraphicsLineItem, _parent: anytype) void {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `childItems` instead
@@ -42385,7 +42600,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn isVisibleTo(self: QGraphicsLineItem, _parent: anytype) bool {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `setVisible` instead
@@ -42913,7 +43129,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn setFocusProxy(self: QGraphicsLineItem, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `focusItem` instead
@@ -43278,7 +43495,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn itemTransform(self: QGraphicsLineItem, other: anytype) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setTransform` instead
@@ -43535,7 +43753,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn stackBefore(self: QGraphicsLineItem, sibling: anytype) void {
         comptime _ = @TypeOf(sibling)._is_QGraphicsItem;
-        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling.ptr));
+        const sibling_ = if (@hasDecl(@TypeOf(sibling), "asQGraphicsItem")) sibling.asQGraphicsItem() else sibling;
+        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling_.ptr));
     }
 
     /// ### DEPRECATED: Use `childrenBoundingRect` instead
@@ -43797,8 +44016,9 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn mapToItem(self: QGraphicsLineItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent` instead
@@ -43857,8 +44077,9 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn mapRectToItem(self: QGraphicsLineItem, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent` instead
@@ -43917,8 +44138,9 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn mapToItem4(self: QGraphicsLineItem, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent4` instead
@@ -43977,8 +44199,9 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn mapFromItem(self: QGraphicsLineItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent` instead
@@ -44037,8 +44260,9 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn mapRectFromItem(self: QGraphicsLineItem, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent` instead
@@ -44097,8 +44321,9 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn mapFromItem4(self: QGraphicsLineItem, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent4` instead
@@ -44159,7 +44384,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn mapToItem5(self: QGraphicsLineItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent5` instead
@@ -44226,7 +44452,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn mapRectToItem2(self: QGraphicsLineItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent2` instead
@@ -44297,7 +44524,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn mapFromItem5(self: QGraphicsLineItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent5` instead
@@ -44364,7 +44592,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn mapRectFromItem2(self: QGraphicsLineItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent2` instead
@@ -44431,7 +44660,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn isAncestorOf(self: QGraphicsLineItem, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asQGraphicsItem")) child.asQGraphicsItem() else child;
+        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `commonAncestorItem` instead
@@ -44450,7 +44680,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn commonAncestorItem(self: QGraphicsLineItem, other: anytype) QGraphicsItem {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `isUnderMouse` instead
@@ -44562,7 +44793,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn installSceneEventFilter(self: QGraphicsLineItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeSceneEventFilter` instead
@@ -44581,7 +44813,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn removeSceneEventFilter(self: QGraphicsLineItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `setFlag2` instead
@@ -44796,7 +45029,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn itemTransform2(self: QGraphicsLineItem, other: anytype, ok: *bool) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other.ptr), @ptrCast(ok)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other_.ptr), @ptrCast(ok)) };
     }
 
     /// ### DEPRECATED: Use `setTransform2` instead
@@ -44987,7 +45221,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn collidesWithItem(self: QGraphicsLineItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsLineItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsLineItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `superCollidesWithItem` instead
@@ -45010,7 +45245,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn superCollidesWithItem(self: QGraphicsLineItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsLineItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsLineItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `onCollidesWithItem` instead
@@ -45119,8 +45355,9 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn sceneEventFilter(self: QGraphicsLineItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsLineItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsLineItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `superSceneEventFilter` instead
@@ -45143,8 +45380,9 @@ pub const QGraphicsLineItem = extern struct {
     ///
     pub fn superSceneEventFilter(self: QGraphicsLineItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsLineItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsLineItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `onSceneEventFilter` instead
@@ -46764,7 +47002,9 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn new3(_parent: anytype) QGraphicsPixmapItem {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsPixmapItem_new3(@ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsPixmapItem_new3(@ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new4` instead
@@ -46782,7 +47022,9 @@ pub const QGraphicsPixmapItem = extern struct {
     pub fn new4(_pixmap: anytype, _parent: anytype) QGraphicsPixmapItem {
         comptime _ = @TypeOf(_pixmap)._is_QPixmap;
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsPixmapItem_new4(@ptrCast(_pixmap.ptr), @ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsPixmapItem_new4(@ptrCast(_pixmap.ptr), @ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `pixmap` instead
@@ -47133,7 +47375,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn isObscuredBy(self: QGraphicsPixmapItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsPixmapItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsPixmapItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIsObscuredBy` instead
@@ -47170,7 +47413,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn superIsObscuredBy(self: QGraphicsPixmapItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsPixmapItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsPixmapItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `opaqueArea` instead
@@ -47617,7 +47861,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn setParentItem(self: QGraphicsPixmapItem, _parent: anytype) void {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `childItems` instead
@@ -48050,7 +48295,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn isVisibleTo(self: QGraphicsPixmapItem, _parent: anytype) bool {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `setVisible` instead
@@ -48578,7 +48824,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn setFocusProxy(self: QGraphicsPixmapItem, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `focusItem` instead
@@ -48943,7 +49190,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn itemTransform(self: QGraphicsPixmapItem, other: anytype) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setTransform` instead
@@ -49200,7 +49448,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn stackBefore(self: QGraphicsPixmapItem, sibling: anytype) void {
         comptime _ = @TypeOf(sibling)._is_QGraphicsItem;
-        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling.ptr));
+        const sibling_ = if (@hasDecl(@TypeOf(sibling), "asQGraphicsItem")) sibling.asQGraphicsItem() else sibling;
+        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling_.ptr));
     }
 
     /// ### DEPRECATED: Use `childrenBoundingRect` instead
@@ -49462,8 +49711,9 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn mapToItem(self: QGraphicsPixmapItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent` instead
@@ -49522,8 +49772,9 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn mapRectToItem(self: QGraphicsPixmapItem, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent` instead
@@ -49582,8 +49833,9 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn mapToItem4(self: QGraphicsPixmapItem, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent4` instead
@@ -49642,8 +49894,9 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn mapFromItem(self: QGraphicsPixmapItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent` instead
@@ -49702,8 +49955,9 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn mapRectFromItem(self: QGraphicsPixmapItem, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent` instead
@@ -49762,8 +50016,9 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn mapFromItem4(self: QGraphicsPixmapItem, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent4` instead
@@ -49824,7 +50079,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn mapToItem5(self: QGraphicsPixmapItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent5` instead
@@ -49891,7 +50147,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn mapRectToItem2(self: QGraphicsPixmapItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent2` instead
@@ -49962,7 +50219,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn mapFromItem5(self: QGraphicsPixmapItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent5` instead
@@ -50029,7 +50287,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn mapRectFromItem2(self: QGraphicsPixmapItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent2` instead
@@ -50096,7 +50355,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn isAncestorOf(self: QGraphicsPixmapItem, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asQGraphicsItem")) child.asQGraphicsItem() else child;
+        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `commonAncestorItem` instead
@@ -50115,7 +50375,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn commonAncestorItem(self: QGraphicsPixmapItem, other: anytype) QGraphicsItem {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `isUnderMouse` instead
@@ -50227,7 +50488,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn installSceneEventFilter(self: QGraphicsPixmapItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeSceneEventFilter` instead
@@ -50246,7 +50508,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn removeSceneEventFilter(self: QGraphicsPixmapItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `setFlag2` instead
@@ -50461,7 +50724,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn itemTransform2(self: QGraphicsPixmapItem, other: anytype, ok: *bool) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other.ptr), @ptrCast(ok)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other_.ptr), @ptrCast(ok)) };
     }
 
     /// ### DEPRECATED: Use `setTransform2` instead
@@ -50652,7 +50916,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn collidesWithItem(self: QGraphicsPixmapItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsPixmapItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsPixmapItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `superCollidesWithItem` instead
@@ -50675,7 +50940,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn superCollidesWithItem(self: QGraphicsPixmapItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsPixmapItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsPixmapItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `onCollidesWithItem` instead
@@ -50784,8 +51050,9 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn sceneEventFilter(self: QGraphicsPixmapItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsPixmapItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsPixmapItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `superSceneEventFilter` instead
@@ -50808,8 +51075,9 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     pub fn superSceneEventFilter(self: QGraphicsPixmapItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsPixmapItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsPixmapItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `onSceneEventFilter` instead
@@ -52434,7 +52702,9 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn new3(_parent: anytype) QGraphicsTextItem {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsTextItem_new3(@ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsTextItem_new3(@ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new4` instead
@@ -52455,7 +52725,9 @@ pub const QGraphicsTextItem = extern struct {
             .data = text.ptr,
         };
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsTextItem_new4(text_str, @ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsTextItem_new4(text_str, @ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `metaObject` instead
@@ -53005,7 +53277,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn isObscuredBy(self: QGraphicsTextItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsTextItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsTextItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIsObscuredBy` instead
@@ -53042,7 +53315,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn superIsObscuredBy(self: QGraphicsTextItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsTextItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsTextItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `opaqueArea` instead
@@ -56257,7 +56531,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn setParentItem(self: QGraphicsTextItem, _parent: anytype) void {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `childItems` instead
@@ -56690,7 +56965,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn isVisibleTo(self: QGraphicsTextItem, _parent: anytype) bool {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `setVisible` instead
@@ -57218,7 +57494,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn setFocusProxy(self: QGraphicsTextItem, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `focusItem` instead
@@ -57583,7 +57860,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn itemTransform(self: QGraphicsTextItem, other: anytype) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setTransform` instead
@@ -57840,7 +58118,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn stackBefore(self: QGraphicsTextItem, sibling: anytype) void {
         comptime _ = @TypeOf(sibling)._is_QGraphicsItem;
-        qtc.QGraphicsItem_StackBefore(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(sibling.ptr));
+        const sibling_ = if (@hasDecl(@TypeOf(sibling), "asQGraphicsItem")) sibling.asQGraphicsItem() else sibling;
+        qtc.QGraphicsItem_StackBefore(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(sibling_.ptr));
     }
 
     /// ### DEPRECATED: Use `childrenBoundingRect` instead
@@ -58102,8 +58381,9 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn mapToItem(self: QGraphicsTextItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent` instead
@@ -58162,8 +58442,9 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn mapRectToItem(self: QGraphicsTextItem, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent` instead
@@ -58222,8 +58503,9 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn mapToItem4(self: QGraphicsTextItem, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent4` instead
@@ -58282,8 +58564,9 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn mapFromItem(self: QGraphicsTextItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent` instead
@@ -58342,8 +58625,9 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn mapRectFromItem(self: QGraphicsTextItem, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent` instead
@@ -58402,8 +58686,9 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn mapFromItem4(self: QGraphicsTextItem, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent4` instead
@@ -58464,7 +58749,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn mapToItem5(self: QGraphicsTextItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent5` instead
@@ -58531,7 +58817,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn mapRectToItem2(self: QGraphicsTextItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent2` instead
@@ -58602,7 +58889,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn mapFromItem5(self: QGraphicsTextItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent5` instead
@@ -58669,7 +58957,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn mapRectFromItem2(self: QGraphicsTextItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent2` instead
@@ -58736,7 +59025,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn isAncestorOf(self: QGraphicsTextItem, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asQGraphicsItem")) child.asQGraphicsItem() else child;
+        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `commonAncestorItem` instead
@@ -58755,7 +59045,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn commonAncestorItem(self: QGraphicsTextItem, other: anytype) QGraphicsItem {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `isUnderMouse` instead
@@ -58867,7 +59158,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn installSceneEventFilter(self: QGraphicsTextItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeSceneEventFilter` instead
@@ -58886,7 +59178,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn removeSceneEventFilter(self: QGraphicsTextItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `setFlag2` instead
@@ -59101,7 +59394,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn itemTransform2(self: QGraphicsTextItem, other: anytype, ok: *bool) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(other.ptr), @ptrCast(ok)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(other_.ptr), @ptrCast(ok)) };
     }
 
     /// ### DEPRECATED: Use `setTransform2` instead
@@ -59732,7 +60026,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn collidesWithItem(self: QGraphicsTextItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsTextItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsTextItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `superCollidesWithItem` instead
@@ -59755,7 +60050,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn superCollidesWithItem(self: QGraphicsTextItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsTextItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsTextItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `onCollidesWithItem` instead
@@ -59864,8 +60160,9 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn sceneEventFilter(self: QGraphicsTextItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsTextItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsTextItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `superSceneEventFilter` instead
@@ -59888,8 +60185,9 @@ pub const QGraphicsTextItem = extern struct {
     ///
     pub fn superSceneEventFilter(self: QGraphicsTextItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsTextItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsTextItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `onSceneEventFilter` instead
@@ -60591,7 +60889,9 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn new3(_parent: anytype) QGraphicsSimpleTextItem {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsSimpleTextItem_new3(@ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsSimpleTextItem_new3(@ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new4` instead
@@ -60612,7 +60912,9 @@ pub const QGraphicsSimpleTextItem = extern struct {
             .data = _text.ptr,
         };
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsSimpleTextItem_new4(text_str, @ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsSimpleTextItem_new4(text_str, @ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setText` instead
@@ -60920,7 +61222,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn isObscuredBy(self: QGraphicsSimpleTextItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsSimpleTextItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsSimpleTextItem_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIsObscuredBy` instead
@@ -60957,7 +61260,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn superIsObscuredBy(self: QGraphicsSimpleTextItem, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsSimpleTextItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsSimpleTextItem_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `opaqueArea` instead
@@ -61440,7 +61744,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn setParentItem(self: QGraphicsSimpleTextItem, _parent: anytype) void {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `childItems` instead
@@ -61873,7 +62178,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn isVisibleTo(self: QGraphicsSimpleTextItem, _parent: anytype) bool {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `setVisible` instead
@@ -62401,7 +62707,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn setFocusProxy(self: QGraphicsSimpleTextItem, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `focusItem` instead
@@ -62766,7 +63073,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn itemTransform(self: QGraphicsSimpleTextItem, other: anytype) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setTransform` instead
@@ -63023,7 +63331,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn stackBefore(self: QGraphicsSimpleTextItem, sibling: anytype) void {
         comptime _ = @TypeOf(sibling)._is_QGraphicsItem;
-        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling.ptr));
+        const sibling_ = if (@hasDecl(@TypeOf(sibling), "asQGraphicsItem")) sibling.asQGraphicsItem() else sibling;
+        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling_.ptr));
     }
 
     /// ### DEPRECATED: Use `childrenBoundingRect` instead
@@ -63285,8 +63594,9 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn mapToItem(self: QGraphicsSimpleTextItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent` instead
@@ -63345,8 +63655,9 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn mapRectToItem(self: QGraphicsSimpleTextItem, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent` instead
@@ -63405,8 +63716,9 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn mapToItem4(self: QGraphicsSimpleTextItem, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent4` instead
@@ -63465,8 +63777,9 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn mapFromItem(self: QGraphicsSimpleTextItem, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent` instead
@@ -63525,8 +63838,9 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn mapRectFromItem(self: QGraphicsSimpleTextItem, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent` instead
@@ -63585,8 +63899,9 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn mapFromItem4(self: QGraphicsSimpleTextItem, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent4` instead
@@ -63647,7 +63962,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn mapToItem5(self: QGraphicsSimpleTextItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent5` instead
@@ -63714,7 +64030,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn mapRectToItem2(self: QGraphicsSimpleTextItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent2` instead
@@ -63785,7 +64102,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn mapFromItem5(self: QGraphicsSimpleTextItem, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent5` instead
@@ -63852,7 +64170,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn mapRectFromItem2(self: QGraphicsSimpleTextItem, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent2` instead
@@ -63919,7 +64238,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn isAncestorOf(self: QGraphicsSimpleTextItem, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asQGraphicsItem")) child.asQGraphicsItem() else child;
+        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `commonAncestorItem` instead
@@ -63938,7 +64258,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn commonAncestorItem(self: QGraphicsSimpleTextItem, other: anytype) QGraphicsItem {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `isUnderMouse` instead
@@ -64050,7 +64371,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn installSceneEventFilter(self: QGraphicsSimpleTextItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeSceneEventFilter` instead
@@ -64069,7 +64391,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn removeSceneEventFilter(self: QGraphicsSimpleTextItem, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `setFlag2` instead
@@ -64284,7 +64607,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn itemTransform2(self: QGraphicsSimpleTextItem, other: anytype, ok: *bool) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other.ptr), @ptrCast(ok)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other_.ptr), @ptrCast(ok)) };
     }
 
     /// ### DEPRECATED: Use `setTransform2` instead
@@ -64475,7 +64799,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn collidesWithItem(self: QGraphicsSimpleTextItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsSimpleTextItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsSimpleTextItem_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `superCollidesWithItem` instead
@@ -64498,7 +64823,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn superCollidesWithItem(self: QGraphicsSimpleTextItem, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsSimpleTextItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsSimpleTextItem_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `onCollidesWithItem` instead
@@ -64607,8 +64933,9 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn sceneEventFilter(self: QGraphicsSimpleTextItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsSimpleTextItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsSimpleTextItem_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `superSceneEventFilter` instead
@@ -64631,8 +64958,9 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     pub fn superSceneEventFilter(self: QGraphicsSimpleTextItem, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsSimpleTextItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsSimpleTextItem_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `onSceneEventFilter` instead
@@ -66237,7 +66565,9 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn new2(_parent: anytype) QGraphicsItemGroup {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItemGroup_new2(@ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsItemGroup_new2(@ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `addToGroup` instead
@@ -66254,7 +66584,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn addToGroup(self: QGraphicsItemGroup, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsItemGroup_AddToGroup(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsItemGroup_AddToGroup(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeFromGroup` instead
@@ -66271,7 +66602,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn removeFromGroup(self: QGraphicsItemGroup, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsItemGroup_RemoveFromGroup(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsItemGroup_RemoveFromGroup(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `boundingRect` instead
@@ -66404,7 +66736,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn isObscuredBy(self: QGraphicsItemGroup, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsItemGroup_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsItemGroup_IsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIsObscuredBy` instead
@@ -66441,7 +66774,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn superIsObscuredBy(self: QGraphicsItemGroup, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return qtc.QGraphicsItemGroup_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return qtc.QGraphicsItemGroup_SuperIsObscuredBy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `opaqueArea` instead
@@ -66688,7 +67022,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn setParentItem(self: QGraphicsItemGroup, _parent: anytype) void {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        qtc.QGraphicsItem_SetParentItem(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `childItems` instead
@@ -67121,7 +67456,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn isVisibleTo(self: QGraphicsItemGroup, _parent: anytype) bool {
         comptime _ = @TypeOf(_parent)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsItem")) _parent.asQGraphicsItem() else _parent;
+        return qtc.QGraphicsItem_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `setVisible` instead
@@ -67649,7 +67985,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn setFocusProxy(self: QGraphicsItemGroup, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsItem_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `focusItem` instead
@@ -68014,7 +68351,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn itemTransform(self: QGraphicsItemGroup, other: anytype) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setTransform` instead
@@ -68271,7 +68609,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn stackBefore(self: QGraphicsItemGroup, sibling: anytype) void {
         comptime _ = @TypeOf(sibling)._is_QGraphicsItem;
-        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling.ptr));
+        const sibling_ = if (@hasDecl(@TypeOf(sibling), "asQGraphicsItem")) sibling.asQGraphicsItem() else sibling;
+        qtc.QGraphicsItem_StackBefore(@ptrCast(self.ptr), @ptrCast(sibling_.ptr));
     }
 
     /// ### DEPRECATED: Use `childrenBoundingRect` instead
@@ -68533,8 +68872,9 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn mapToItem(self: QGraphicsItemGroup, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent` instead
@@ -68593,8 +68933,9 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn mapRectToItem(self: QGraphicsItemGroup, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent` instead
@@ -68653,8 +68994,9 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn mapToItem4(self: QGraphicsItemGroup, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent4` instead
@@ -68713,8 +69055,9 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn mapFromItem(self: QGraphicsItemGroup, item: anytype, point: anytype) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(point)._is_QPointF;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(point.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(point.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent` instead
@@ -68773,8 +69116,9 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn mapRectFromItem(self: QGraphicsItemGroup, item: anytype, _rect: anytype) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_rect)._is_QRectF;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_rect.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent` instead
@@ -68833,8 +69177,9 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn mapFromItem4(self: QGraphicsItemGroup, item: anytype, _path: anytype) QPainterPath {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
         comptime _ = @TypeOf(_path)._is_QPainterPath;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_path.ptr)) };
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem4(@ptrCast(self.ptr), @ptrCast(item_.ptr), @ptrCast(_path.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent4` instead
@@ -68895,7 +69240,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn mapToItem5(self: QGraphicsItemGroup, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapToParent5` instead
@@ -68962,7 +69308,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn mapRectToItem2(self: QGraphicsItemGroup, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectToItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToParent2` instead
@@ -69033,7 +69380,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn mapFromItem5(self: QGraphicsItemGroup, item: anytype, _x: f64, _y: f64) QPointF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem5(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
     /// ### DEPRECATED: Use `mapFromParent5` instead
@@ -69100,7 +69448,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn mapRectFromItem2(self: QGraphicsItemGroup, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QRectF {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapRectFromItem2(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromParent2` instead
@@ -69167,7 +69516,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn isAncestorOf(self: QGraphicsItemGroup, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QGraphicsItem;
-        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asQGraphicsItem")) child.asQGraphicsItem() else child;
+        return qtc.QGraphicsItem_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `commonAncestorItem` instead
@@ -69186,7 +69536,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn commonAncestorItem(self: QGraphicsItemGroup, other: anytype) QGraphicsItem {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_CommonAncestorItem(@ptrCast(self.ptr), @ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `isUnderMouse` instead
@@ -69298,7 +69649,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn installSceneEventFilter(self: QGraphicsItemGroup, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_InstallSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeSceneEventFilter` instead
@@ -69317,7 +69669,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn removeSceneEventFilter(self: QGraphicsItemGroup, filterItem: anytype) void {
         comptime _ = @TypeOf(filterItem)._is_QGraphicsItem;
-        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem.ptr));
+        const filterItem_ = if (@hasDecl(@TypeOf(filterItem), "asQGraphicsItem")) filterItem.asQGraphicsItem() else filterItem;
+        qtc.QGraphicsItem_RemoveSceneEventFilter(@ptrCast(self.ptr), @ptrCast(filterItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `setFlag2` instead
@@ -69532,7 +69885,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn itemTransform2(self: QGraphicsItemGroup, other: anytype, ok: *bool) QTransform {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other.ptr), @ptrCast(ok)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return .{ .ptr = qtc.QGraphicsItem_ItemTransform2(@ptrCast(self.ptr), @ptrCast(other_.ptr), @ptrCast(ok)) };
     }
 
     /// ### DEPRECATED: Use `setTransform2` instead
@@ -69843,7 +70197,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn collidesWithItem(self: QGraphicsItemGroup, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsItemGroup_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsItemGroup_CollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `superCollidesWithItem` instead
@@ -69866,7 +70221,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn superCollidesWithItem(self: QGraphicsItemGroup, other: anytype, mode: i32) bool {
         comptime _ = @TypeOf(other)._is_QGraphicsItem;
-        return qtc.QGraphicsItemGroup_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other.ptr), @bitCast(mode));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQGraphicsItem")) other.asQGraphicsItem() else other;
+        return qtc.QGraphicsItemGroup_SuperCollidesWithItem(@ptrCast(self.ptr), @ptrCast(other_.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `onCollidesWithItem` instead
@@ -69975,8 +70331,9 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn sceneEventFilter(self: QGraphicsItemGroup, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsItemGroup_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsItemGroup_SceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `superSceneEventFilter` instead
@@ -69999,8 +70356,9 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     pub fn superSceneEventFilter(self: QGraphicsItemGroup, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QGraphicsItem;
+        const watched_ = if (@hasDecl(@TypeOf(watched), "asQGraphicsItem")) watched.asQGraphicsItem() else watched;
         comptime _ = @TypeOf(_event)._is_QEvent;
-        return qtc.QGraphicsItemGroup_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
+        return qtc.QGraphicsItemGroup_SuperSceneEventFilter(@ptrCast(self.ptr), @ptrCast(watched_.ptr), @ptrCast(_event.ptr));
     }
 
     /// ### DEPRECATED: Use `onSceneEventFilter` instead

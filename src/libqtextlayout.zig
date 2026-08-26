@@ -399,7 +399,9 @@ pub const QTextLayout = extern struct {
         };
         comptime _ = @TypeOf(_font)._is_QFont;
         comptime _ = @TypeOf(paintdevice)._is_QPaintDevice;
-        return .{ .ptr = qtc.QTextLayout_new5(text_str, @ptrCast(_font.ptr), @ptrCast(paintdevice.ptr)) };
+        const paintdevice_ = if (@hasDecl(@TypeOf(paintdevice), "asQPaintDevice")) paintdevice.asQPaintDevice() else paintdevice;
+
+        return .{ .ptr = qtc.QTextLayout_new5(text_str, @ptrCast(_font.ptr), @ptrCast(paintdevice_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setFont` instead

@@ -91,7 +91,8 @@ pub const KIO = extern struct {
     ///
     pub fn setDefaultJobUiDelegateExtension(extension: anytype) void {
         comptime _ = @TypeOf(extension)._is_KIO__JobUiDelegateExtension;
-        qtc.KIO_SetDefaultJobUiDelegateExtension(@ptrCast(extension.ptr));
+        const extension_ = if (@hasDecl(@TypeOf(extension), "asKIO__JobUiDelegateExtension")) extension.asKIO__JobUiDelegateExtension() else extension;
+        qtc.KIO_SetDefaultJobUiDelegateExtension(@ptrCast(extension_.ptr));
     }
 };
 

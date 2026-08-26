@@ -92,7 +92,8 @@ pub const Attica__PlatformDependentV2 = extern struct {
     ///
     pub fn operatorAssign(self: Attica__PlatformDependentV2, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_Attica__PlatformDependentV2;
-        qtc.Attica__PlatformDependentV2_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asAttica__PlatformDependentV2")) param1.asAttica__PlatformDependentV2() else param1;
+        qtc.Attica__PlatformDependentV2_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `getDefaultProviderFiles` instead

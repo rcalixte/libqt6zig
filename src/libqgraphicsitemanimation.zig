@@ -255,7 +255,8 @@ pub const QGraphicsItemAnimation = extern struct {
     ///
     pub fn setItem(self: QGraphicsItemAnimation, _item: anytype) void {
         comptime _ = @TypeOf(_item)._is_QGraphicsItem;
-        qtc.QGraphicsItemAnimation_SetItem(@ptrCast(self.ptr), @ptrCast(_item.ptr));
+        const _item_ = if (@hasDecl(@TypeOf(_item), "asQGraphicsItem")) _item.asQGraphicsItem() else _item;
+        qtc.QGraphicsItemAnimation_SetItem(@ptrCast(self.ptr), @ptrCast(_item_.ptr));
     }
 
     /// ### DEPRECATED: Use `timeLine` instead

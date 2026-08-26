@@ -40,7 +40,9 @@ pub const QLayoutItem = extern struct {
     ///
     pub fn new2(param1: anytype) QLayoutItem {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        return .{ .ptr = qtc.QLayoutItem_new2(@ptrCast(param1.ptr)) };
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+
+        return .{ .ptr = qtc.QLayoutItem_new2(@ptrCast(param1_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new3` instead
@@ -863,7 +865,8 @@ pub const QLayoutItem = extern struct {
     ///
     pub fn operatorAssign(self: QLayoutItem, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QLayoutItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QLayoutItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `onOperatorAssign` instead
@@ -900,7 +903,8 @@ pub const QLayoutItem = extern struct {
     ///
     pub fn superOperatorAssign(self: QLayoutItem, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QLayoutItem_SuperOperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QLayoutItem_SuperOperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead

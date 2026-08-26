@@ -39,7 +39,9 @@ pub const QGraphicsLayoutItem = extern struct {
     ///
     pub fn new2(parent: anytype) QGraphicsLayoutItem {
         comptime _ = @TypeOf(parent)._is_QGraphicsLayoutItem;
-        return .{ .ptr = qtc.QGraphicsLayoutItem_new2(@ptrCast(parent.ptr)) };
+        const parent_ = if (@hasDecl(@TypeOf(parent), "asQGraphicsLayoutItem")) parent.asQGraphicsLayoutItem() else parent;
+
+        return .{ .ptr = qtc.QGraphicsLayoutItem_new2(@ptrCast(parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new3` instead
@@ -56,7 +58,9 @@ pub const QGraphicsLayoutItem = extern struct {
     ///
     pub fn new3(parent: anytype, _isLayout: bool) QGraphicsLayoutItem {
         comptime _ = @TypeOf(parent)._is_QGraphicsLayoutItem;
-        return .{ .ptr = qtc.QGraphicsLayoutItem_new3(@ptrCast(parent.ptr), _isLayout) };
+        const parent_ = if (@hasDecl(@TypeOf(parent), "asQGraphicsLayoutItem")) parent.asQGraphicsLayoutItem() else parent;
+
+        return .{ .ptr = qtc.QGraphicsLayoutItem_new3(@ptrCast(parent_.ptr), _isLayout) };
     }
 
     /// ### DEPRECATED: Use `setSizePolicy` instead
@@ -721,7 +725,8 @@ pub const QGraphicsLayoutItem = extern struct {
     ///
     pub fn setParentLayoutItem(self: QGraphicsLayoutItem, parent: anytype) void {
         comptime _ = @TypeOf(parent)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsLayoutItem_SetParentLayoutItem(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+        const parent_ = if (@hasDecl(@TypeOf(parent), "asQGraphicsLayoutItem")) parent.asQGraphicsLayoutItem() else parent;
+        qtc.QGraphicsLayoutItem_SetParentLayoutItem(@ptrCast(self.ptr), @ptrCast(parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `isLayout` instead
@@ -780,7 +785,8 @@ pub const QGraphicsLayoutItem = extern struct {
     ///
     pub fn setGraphicsItem(self: QGraphicsLayoutItem, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsLayoutItem_SetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsLayoutItem_SetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onSetGraphicsItem` instead
@@ -817,7 +823,8 @@ pub const QGraphicsLayoutItem = extern struct {
     ///
     pub fn superSetGraphicsItem(self: QGraphicsLayoutItem, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsLayoutItem_SuperSetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsLayoutItem_SuperSetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `setOwnedByLayout` instead

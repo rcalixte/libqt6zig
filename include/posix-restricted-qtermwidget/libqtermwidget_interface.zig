@@ -1106,7 +1106,8 @@ pub const QTermWidgetInterface = extern struct {
     ///
     pub fn operatorAssign(self: QTermWidgetInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTermWidgetInterface;
-        qtc.QTermWidgetInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQTermWidgetInterface")) param1.asQTermWidgetInterface() else param1;
+        qtc.QTermWidgetInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead

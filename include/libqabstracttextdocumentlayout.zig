@@ -646,7 +646,8 @@ pub const QAbstractTextDocumentLayout = extern struct {
     ///
     pub fn setPaintDevice(self: QAbstractTextDocumentLayout, device: anytype) void {
         comptime _ = @TypeOf(device)._is_QPaintDevice;
-        qtc.QAbstractTextDocumentLayout_SetPaintDevice(@ptrCast(self.ptr), @ptrCast(device.ptr));
+        const device_ = if (@hasDecl(@TypeOf(device), "asQPaintDevice")) device.asQPaintDevice() else device;
+        qtc.QAbstractTextDocumentLayout_SetPaintDevice(@ptrCast(self.ptr), @ptrCast(device_.ptr));
     }
 
     /// ### DEPRECATED: Use `paintDevice` instead

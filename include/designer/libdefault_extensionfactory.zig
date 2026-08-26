@@ -1428,7 +1428,8 @@ pub const QExtensionFactory = extern struct {
     ///
     pub fn operatorAssign(self: QExtensionFactory, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAbstractExtensionFactory;
-        qtc.QAbstractExtensionFactory_OperatorAssign(@ptrCast(self.asQAbstractExtensionFactory().ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQAbstractExtensionFactory")) param1.asQAbstractExtensionFactory() else param1;
+        qtc.QAbstractExtensionFactory_OperatorAssign(@ptrCast(self.asQAbstractExtensionFactory().ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `event` instead

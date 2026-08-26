@@ -384,7 +384,8 @@ pub const QBoxLayout = extern struct {
     ///
     pub fn addItem(self: QBoxLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QBoxLayout_AddItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QBoxLayout_AddItem(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `onAddItem` instead
@@ -421,7 +422,8 @@ pub const QBoxLayout = extern struct {
     ///
     pub fn superAddItem(self: QBoxLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QBoxLayout_SuperAddItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QBoxLayout_SuperAddItem(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `insertSpacing` instead
@@ -531,7 +533,8 @@ pub const QBoxLayout = extern struct {
     ///
     pub fn insertItem(self: QBoxLayout, index: i32, param2: anytype) void {
         comptime _ = @TypeOf(param2)._is_QLayoutItem;
-        qtc.QBoxLayout_InsertItem(@ptrCast(self.ptr), @bitCast(index), @ptrCast(param2.ptr));
+        const param2_ = if (@hasDecl(@TypeOf(param2), "asQLayoutItem")) param2.asQLayoutItem() else param2;
+        qtc.QBoxLayout_InsertItem(@ptrCast(self.ptr), @bitCast(index), @ptrCast(param2_.ptr));
     }
 
     /// ### DEPRECATED: Use `spacing` instead
@@ -1864,7 +1867,8 @@ pub const QBoxLayout = extern struct {
     ///
     pub fn removeItem(self: QBoxLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `indexOf2` instead
@@ -1883,7 +1887,8 @@ pub const QBoxLayout = extern struct {
     ///
     pub fn indexOf2(self: QBoxLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        return qtc.QLayout_IndexOf2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        return qtc.QLayout_IndexOf2(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIndexOf2` instead
@@ -1924,7 +1929,8 @@ pub const QBoxLayout = extern struct {
     ///
     pub fn superIndexOf2(self: QBoxLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        return qtc.QLayout_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        return qtc.QLayout_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `totalMinimumHeightForWidth` instead
@@ -5081,7 +5087,8 @@ pub const QHBoxLayout = extern struct {
     ///
     pub fn insertItem(self: QHBoxLayout, index: i32, param2: anytype) void {
         comptime _ = @TypeOf(param2)._is_QLayoutItem;
-        qtc.QBoxLayout_InsertItem(@ptrCast(self.ptr), @bitCast(index), @ptrCast(param2.ptr));
+        const param2_ = if (@hasDecl(@TypeOf(param2), "asQLayoutItem")) param2.asQLayoutItem() else param2;
+        qtc.QBoxLayout_InsertItem(@ptrCast(self.ptr), @bitCast(index), @ptrCast(param2_.ptr));
     }
 
     /// ### DEPRECATED: Use `setStretchFactor` instead
@@ -5676,7 +5683,8 @@ pub const QHBoxLayout = extern struct {
     ///
     pub fn removeItem(self: QHBoxLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `indexOf2` instead
@@ -5695,7 +5703,8 @@ pub const QHBoxLayout = extern struct {
     ///
     pub fn indexOf2(self: QHBoxLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        return qtc.QLayout_IndexOf2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        return qtc.QLayout_IndexOf2(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIndexOf2` instead
@@ -5736,7 +5745,8 @@ pub const QHBoxLayout = extern struct {
     ///
     pub fn superIndexOf2(self: QHBoxLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        return qtc.QLayout_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        return qtc.QLayout_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `totalMinimumHeightForWidth` instead
@@ -6880,7 +6890,8 @@ pub const QHBoxLayout = extern struct {
     ///
     pub fn addItem(self: QHBoxLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QHBoxLayout_AddItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QHBoxLayout_AddItem(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `superAddItem` instead
@@ -6901,7 +6912,8 @@ pub const QHBoxLayout = extern struct {
     ///
     pub fn superAddItem(self: QHBoxLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QHBoxLayout_SuperAddItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QHBoxLayout_SuperAddItem(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `onAddItem` instead
@@ -9779,7 +9791,8 @@ pub const QVBoxLayout = extern struct {
     ///
     pub fn insertItem(self: QVBoxLayout, index: i32, param2: anytype) void {
         comptime _ = @TypeOf(param2)._is_QLayoutItem;
-        qtc.QBoxLayout_InsertItem(@ptrCast(self.ptr), @bitCast(index), @ptrCast(param2.ptr));
+        const param2_ = if (@hasDecl(@TypeOf(param2), "asQLayoutItem")) param2.asQLayoutItem() else param2;
+        qtc.QBoxLayout_InsertItem(@ptrCast(self.ptr), @bitCast(index), @ptrCast(param2_.ptr));
     }
 
     /// ### DEPRECATED: Use `setStretchFactor` instead
@@ -10374,7 +10387,8 @@ pub const QVBoxLayout = extern struct {
     ///
     pub fn removeItem(self: QVBoxLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `indexOf2` instead
@@ -10393,7 +10407,8 @@ pub const QVBoxLayout = extern struct {
     ///
     pub fn indexOf2(self: QVBoxLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        return qtc.QLayout_IndexOf2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        return qtc.QLayout_IndexOf2(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIndexOf2` instead
@@ -10434,7 +10449,8 @@ pub const QVBoxLayout = extern struct {
     ///
     pub fn superIndexOf2(self: QVBoxLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        return qtc.QLayout_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        return qtc.QLayout_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `totalMinimumHeightForWidth` instead
@@ -11578,7 +11594,8 @@ pub const QVBoxLayout = extern struct {
     ///
     pub fn addItem(self: QVBoxLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QVBoxLayout_AddItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QVBoxLayout_AddItem(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `superAddItem` instead
@@ -11599,7 +11616,8 @@ pub const QVBoxLayout = extern struct {
     ///
     pub fn superAddItem(self: QVBoxLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QVBoxLayout_SuperAddItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QVBoxLayout_SuperAddItem(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `onAddItem` instead

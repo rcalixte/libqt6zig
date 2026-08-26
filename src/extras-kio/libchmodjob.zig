@@ -200,7 +200,8 @@ pub const KIO__ChmodJob = extern struct {
     ///
     pub fn setUiDelegateExtension(self: KIO__ChmodJob, extension: anytype) void {
         comptime _ = @TypeOf(extension)._is_KIO__JobUiDelegateExtension;
-        qtc.KIO__Job_SetUiDelegateExtension(@ptrCast(self.ptr), @ptrCast(extension.ptr));
+        const extension_ = if (@hasDecl(@TypeOf(extension), "asKIO__JobUiDelegateExtension")) extension.asKIO__JobUiDelegateExtension() else extension;
+        qtc.KIO__Job_SetUiDelegateExtension(@ptrCast(self.ptr), @ptrCast(extension_.ptr));
     }
 
     /// ### DEPRECATED: Use `errorString` instead

@@ -33,7 +33,9 @@ pub const QSharedData = extern struct {
     ///
     pub fn new2(param1: anytype) QSharedData {
         comptime _ = @TypeOf(param1)._is_QSharedData;
-        return .{ .ptr = qtc.QSharedData_new2(@ptrCast(param1.ptr)) };
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQSharedData")) param1.asQSharedData() else param1;
+
+        return .{ .ptr = qtc.QSharedData_new2(@ptrCast(param1_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `delete` instead

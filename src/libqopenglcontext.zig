@@ -1595,7 +1595,8 @@ pub const QOpenGLContext = extern struct {
     ///
     pub fn makeCurrent(self: QOpenGLContext, _surface: anytype) bool {
         comptime _ = @TypeOf(_surface)._is_QSurface;
-        return qtc.QOpenGLContext_MakeCurrent(@ptrCast(self.ptr), @ptrCast(_surface.ptr));
+        const _surface_ = if (@hasDecl(@TypeOf(_surface), "asQSurface")) _surface.asQSurface() else _surface;
+        return qtc.QOpenGLContext_MakeCurrent(@ptrCast(self.ptr), @ptrCast(_surface_.ptr));
     }
 
     /// ### DEPRECATED: Use `doneCurrent` instead
@@ -1626,7 +1627,8 @@ pub const QOpenGLContext = extern struct {
     ///
     pub fn swapBuffers(self: QOpenGLContext, _surface: anytype) void {
         comptime _ = @TypeOf(_surface)._is_QSurface;
-        qtc.QOpenGLContext_SwapBuffers(@ptrCast(self.ptr), @ptrCast(_surface.ptr));
+        const _surface_ = if (@hasDecl(@TypeOf(_surface), "asQSurface")) _surface.asQSurface() else _surface;
+        qtc.QOpenGLContext_SwapBuffers(@ptrCast(self.ptr), @ptrCast(_surface_.ptr));
     }
 
     /// ### DEPRECATED: Use `getProcAddress` instead
