@@ -43,7 +43,9 @@ pub const KXMLGUIFactory = extern struct {
     ///
     pub fn new(builder: anytype) KXMLGUIFactory {
         comptime _ = @TypeOf(builder)._is_KXMLGUIBuilder;
-        return .{ .ptr = qtc.KXMLGUIFactory_new(@ptrCast(builder.ptr)) };
+        const builder_ = if (@hasDecl(@TypeOf(builder), "asKXMLGUIBuilder")) builder.asKXMLGUIBuilder() else builder;
+
+        return .{ .ptr = qtc.KXMLGUIFactory_new(@ptrCast(builder_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new2` instead
@@ -60,8 +62,9 @@ pub const KXMLGUIFactory = extern struct {
     ///
     pub fn new2(builder: anytype, _parent: anytype) KXMLGUIFactory {
         comptime _ = @TypeOf(builder)._is_KXMLGUIBuilder;
+        const builder_ = if (@hasDecl(@TypeOf(builder), "asKXMLGUIBuilder")) builder.asKXMLGUIBuilder() else builder;
         comptime _ = @TypeOf(_parent)._is_QObject;
-        return .{ .ptr = qtc.KXMLGUIFactory_new2(@ptrCast(builder.ptr), @ptrCast(_parent.ptr)) };
+        return .{ .ptr = qtc.KXMLGUIFactory_new2(@ptrCast(builder_.ptr), @ptrCast(_parent.ptr)) };
     }
 
     /// ### DEPRECATED: Use `metaObject` instead
@@ -332,7 +335,8 @@ pub const KXMLGUIFactory = extern struct {
     ///
     pub fn addClient(self: KXMLGUIFactory, client: anytype) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
-        qtc.KXMLGUIFactory_AddClient(@ptrCast(self.ptr), @ptrCast(client.ptr));
+        const client_ = if (@hasDecl(@TypeOf(client), "asKXMLGUIClient")) client.asKXMLGUIClient() else client;
+        qtc.KXMLGUIFactory_AddClient(@ptrCast(self.ptr), @ptrCast(client_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeClient` instead
@@ -349,7 +353,8 @@ pub const KXMLGUIFactory = extern struct {
     ///
     pub fn removeClient(self: KXMLGUIFactory, client: anytype) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
-        qtc.KXMLGUIFactory_RemoveClient(@ptrCast(self.ptr), @ptrCast(client.ptr));
+        const client_ = if (@hasDecl(@TypeOf(client), "asKXMLGUIClient")) client.asKXMLGUIClient() else client;
+        qtc.KXMLGUIFactory_RemoveClient(@ptrCast(self.ptr), @ptrCast(client_.ptr));
     }
 
     /// ### DEPRECATED: Use `plugActionList` instead
@@ -370,6 +375,7 @@ pub const KXMLGUIFactory = extern struct {
     ///
     pub fn plugActionList(self: KXMLGUIFactory, client: anytype, name: []const u8, actionList: []QAction) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
+        const client_ = if (@hasDecl(@TypeOf(client), "asKXMLGUIClient")) client.asKXMLGUIClient() else client;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -378,7 +384,7 @@ pub const KXMLGUIFactory = extern struct {
             .len = actionList.len,
             .data = @ptrCast(actionList.ptr),
         };
-        qtc.KXMLGUIFactory_PlugActionList(@ptrCast(self.ptr), @ptrCast(client.ptr), name_str, actionList_list);
+        qtc.KXMLGUIFactory_PlugActionList(@ptrCast(self.ptr), @ptrCast(client_.ptr), name_str, actionList_list);
     }
 
     /// ### DEPRECATED: Use `unplugActionList` instead
@@ -397,11 +403,12 @@ pub const KXMLGUIFactory = extern struct {
     ///
     pub fn unplugActionList(self: KXMLGUIFactory, client: anytype, name: []const u8) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
+        const client_ = if (@hasDecl(@TypeOf(client), "asKXMLGUIClient")) client.asKXMLGUIClient() else client;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.KXMLGUIFactory_UnplugActionList(@ptrCast(self.ptr), @ptrCast(client.ptr), name_str);
+        qtc.KXMLGUIFactory_UnplugActionList(@ptrCast(self.ptr), @ptrCast(client_.ptr), name_str);
     }
 
     /// ### DEPRECATED: Use `clients` instead
@@ -446,7 +453,8 @@ pub const KXMLGUIFactory = extern struct {
             .data = containerName.ptr,
         };
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
-        return .{ .ptr = qtc.KXMLGUIFactory_Container(@ptrCast(self.ptr), containerName_str, @ptrCast(client.ptr)) };
+        const client_ = if (@hasDecl(@TypeOf(client), "asKXMLGUIClient")) client.asKXMLGUIClient() else client;
+        return .{ .ptr = qtc.KXMLGUIFactory_Container(@ptrCast(self.ptr), containerName_str, @ptrCast(client_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `containers` instead
@@ -573,7 +581,8 @@ pub const KXMLGUIFactory = extern struct {
     ///
     pub fn clientAdded(self: KXMLGUIFactory, client: anytype) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
-        qtc.KXMLGUIFactory_ClientAdded(@ptrCast(self.ptr), @ptrCast(client.ptr));
+        const client_ = if (@hasDecl(@TypeOf(client), "asKXMLGUIClient")) client.asKXMLGUIClient() else client;
+        qtc.KXMLGUIFactory_ClientAdded(@ptrCast(self.ptr), @ptrCast(client_.ptr));
     }
 
     /// ### DEPRECATED: Use `onClientAdded` instead
@@ -606,7 +615,8 @@ pub const KXMLGUIFactory = extern struct {
     ///
     pub fn clientRemoved(self: KXMLGUIFactory, client: anytype) void {
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
-        qtc.KXMLGUIFactory_ClientRemoved(@ptrCast(self.ptr), @ptrCast(client.ptr));
+        const client_ = if (@hasDecl(@TypeOf(client), "asKXMLGUIClient")) client.asKXMLGUIClient() else client;
+        qtc.KXMLGUIFactory_ClientRemoved(@ptrCast(self.ptr), @ptrCast(client_.ptr));
     }
 
     /// ### DEPRECATED: Use `onClientRemoved` instead
@@ -816,7 +826,8 @@ pub const KXMLGUIFactory = extern struct {
             .data = containerName.ptr,
         };
         comptime _ = @TypeOf(client)._is_KXMLGUIClient;
-        return .{ .ptr = qtc.KXMLGUIFactory_Container3(@ptrCast(self.ptr), containerName_str, @ptrCast(client.ptr), useTagName) };
+        const client_ = if (@hasDecl(@TypeOf(client), "asKXMLGUIClient")) client.asKXMLGUIClient() else client;
+        return .{ .ptr = qtc.KXMLGUIFactory_Container3(@ptrCast(self.ptr), containerName_str, @ptrCast(client_.ptr), useTagName) };
     }
 
     /// ### DEPRECATED: Use `resetContainer2` instead

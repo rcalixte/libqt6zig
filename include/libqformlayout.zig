@@ -899,7 +899,8 @@ pub const QFormLayout = extern struct {
     ///
     pub fn setItem(self: QFormLayout, row: i32, role: i32, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QLayoutItem;
-        qtc.QFormLayout_SetItem(@ptrCast(self.ptr), @bitCast(row), @bitCast(role), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQLayoutItem")) item.asQLayoutItem() else item;
+        qtc.QFormLayout_SetItem(@ptrCast(self.ptr), @bitCast(row), @bitCast(role), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `setWidget` instead
@@ -1178,7 +1179,8 @@ pub const QFormLayout = extern struct {
     ///
     pub fn addItem(self: QFormLayout, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QLayoutItem;
-        qtc.QFormLayout_AddItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQLayoutItem")) item.asQLayoutItem() else item;
+        qtc.QFormLayout_AddItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onAddItem` instead
@@ -1215,7 +1217,8 @@ pub const QFormLayout = extern struct {
     ///
     pub fn superAddItem(self: QFormLayout, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QLayoutItem;
-        qtc.QFormLayout_SuperAddItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQLayoutItem")) item.asQLayoutItem() else item;
+        qtc.QFormLayout_SuperAddItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `itemAt2` instead
@@ -2149,7 +2152,8 @@ pub const QFormLayout = extern struct {
     ///
     pub fn removeItem(self: QFormLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `indexOf2` instead
@@ -2168,7 +2172,8 @@ pub const QFormLayout = extern struct {
     ///
     pub fn indexOf2(self: QFormLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        return qtc.QLayout_IndexOf2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        return qtc.QLayout_IndexOf2(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIndexOf2` instead
@@ -2209,7 +2214,8 @@ pub const QFormLayout = extern struct {
     ///
     pub fn superIndexOf2(self: QFormLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        return qtc.QLayout_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        return qtc.QLayout_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `totalMinimumHeightForWidth` instead
@@ -5021,7 +5027,8 @@ pub const QFormLayout__TakeRowResult = extern struct {
     ///
     pub fn setLabelItem(self: QFormLayout__TakeRowResult, _labelItem: anytype) void {
         comptime _ = @TypeOf(_labelItem)._is_QLayoutItem;
-        qtc.QFormLayout__TakeRowResult_SetLabelItem(@ptrCast(self.ptr), @ptrCast(_labelItem.ptr));
+        const _labelItem_ = if (@hasDecl(@TypeOf(_labelItem), "asQLayoutItem")) _labelItem.asQLayoutItem() else _labelItem;
+        qtc.QFormLayout__TakeRowResult_SetLabelItem(@ptrCast(self.ptr), @ptrCast(_labelItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `fieldItem` instead
@@ -5052,7 +5059,8 @@ pub const QFormLayout__TakeRowResult = extern struct {
     ///
     pub fn setFieldItem(self: QFormLayout__TakeRowResult, _fieldItem: anytype) void {
         comptime _ = @TypeOf(_fieldItem)._is_QLayoutItem;
-        qtc.QFormLayout__TakeRowResult_SetFieldItem(@ptrCast(self.ptr), @ptrCast(_fieldItem.ptr));
+        const _fieldItem_ = if (@hasDecl(@TypeOf(_fieldItem), "asQLayoutItem")) _fieldItem.asQLayoutItem() else _fieldItem;
+        qtc.QFormLayout__TakeRowResult_SetFieldItem(@ptrCast(self.ptr), @ptrCast(_fieldItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead

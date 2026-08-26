@@ -51,7 +51,9 @@ pub const QFontMetrics = extern struct {
     pub fn new2(font: anytype, pd: anytype) QFontMetrics {
         comptime _ = @TypeOf(font)._is_QFont;
         comptime _ = @TypeOf(pd)._is_QPaintDevice;
-        return .{ .ptr = qtc.QFontMetrics_new2(@ptrCast(font.ptr), @ptrCast(pd.ptr)) };
+        const pd_ = if (@hasDecl(@TypeOf(pd), "asQPaintDevice")) pd.asQPaintDevice() else pd;
+
+        return .{ .ptr = qtc.QFontMetrics_new2(@ptrCast(font.ptr), @ptrCast(pd_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new3` instead
@@ -981,7 +983,9 @@ pub const QFontMetricsF = extern struct {
     pub fn new2(font: anytype, pd: anytype) QFontMetricsF {
         comptime _ = @TypeOf(font)._is_QFont;
         comptime _ = @TypeOf(pd)._is_QPaintDevice;
-        return .{ .ptr = qtc.QFontMetricsF_new2(@ptrCast(font.ptr), @ptrCast(pd.ptr)) };
+        const pd_ = if (@hasDecl(@TypeOf(pd), "asQPaintDevice")) pd.asQPaintDevice() else pd;
+
+        return .{ .ptr = qtc.QFontMetricsF_new2(@ptrCast(font.ptr), @ptrCast(pd_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new3` instead

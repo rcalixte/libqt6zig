@@ -87,8 +87,9 @@ pub const QStylePainter = extern struct {
     ///
     pub fn new3(pd: anytype, w: anytype) QStylePainter {
         comptime _ = @TypeOf(pd)._is_QPaintDevice;
+        const pd_ = if (@hasDecl(@TypeOf(pd), "asQPaintDevice")) pd.asQPaintDevice() else pd;
         comptime _ = @TypeOf(w)._is_QWidget;
-        return .{ .ptr = qtc.QStylePainter_new3(@ptrCast(pd.ptr), @ptrCast(w.ptr)) };
+        return .{ .ptr = qtc.QStylePainter_new3(@ptrCast(pd_.ptr), @ptrCast(w.ptr)) };
     }
 
     /// ### DEPRECATED: Use `begin` instead
@@ -124,8 +125,9 @@ pub const QStylePainter = extern struct {
     ///
     pub fn begin2(self: QStylePainter, pd: anytype, w: anytype) bool {
         comptime _ = @TypeOf(pd)._is_QPaintDevice;
+        const pd_ = if (@hasDecl(@TypeOf(pd), "asQPaintDevice")) pd.asQPaintDevice() else pd;
         comptime _ = @TypeOf(w)._is_QWidget;
-        return qtc.QStylePainter_Begin2(@ptrCast(self.ptr), @ptrCast(pd.ptr), @ptrCast(w.ptr));
+        return qtc.QStylePainter_Begin2(@ptrCast(self.ptr), @ptrCast(pd_.ptr), @ptrCast(w.ptr));
     }
 
     /// ### DEPRECATED: Use `drawPrimitive` instead

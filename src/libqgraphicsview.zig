@@ -1046,7 +1046,8 @@ pub const QGraphicsView = extern struct {
     ///
     pub fn centerOn3(self: QGraphicsView, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsView_CenterOn3(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsView_CenterOn3(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `ensureVisible` instead
@@ -1102,7 +1103,8 @@ pub const QGraphicsView = extern struct {
     ///
     pub fn ensureVisible3(self: QGraphicsView, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsView_EnsureVisible3(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsView_EnsureVisible3(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `fitInView` instead
@@ -1158,7 +1160,8 @@ pub const QGraphicsView = extern struct {
     ///
     pub fn fitInView3(self: QGraphicsView, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsView_FitInView3(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsView_FitInView3(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `render` instead
@@ -3317,7 +3320,8 @@ pub const QGraphicsView = extern struct {
     ///
     pub fn ensureVisible23(self: QGraphicsView, item: anytype, xmargin: i32) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsView_EnsureVisible23(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(xmargin));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsView_EnsureVisible23(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(xmargin));
     }
 
     /// ### DEPRECATED: Use `ensureVisible33` instead
@@ -3338,7 +3342,8 @@ pub const QGraphicsView = extern struct {
     ///
     pub fn ensureVisible33(self: QGraphicsView, item: anytype, xmargin: i32, ymargin: i32) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsView_EnsureVisible33(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(xmargin), @bitCast(ymargin));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsView_EnsureVisible33(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(xmargin), @bitCast(ymargin));
     }
 
     /// ### DEPRECATED: Use `fitInView22` instead
@@ -3400,7 +3405,8 @@ pub const QGraphicsView = extern struct {
     ///
     pub fn fitInView23(self: QGraphicsView, item: anytype, aspectRadioMode: i32) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsView_FitInView23(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(aspectRadioMode));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsView_FitInView23(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(aspectRadioMode));
     }
 
     /// ### DEPRECATED: Use `render2` instead
@@ -8839,8 +8845,9 @@ pub const QGraphicsView = extern struct {
     ///
     pub fn render22(self: QGraphicsView, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
+        const target_ = if (@hasDecl(@TypeOf(target), "asQPaintDevice")) target.asQPaintDevice() else target;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
-        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target_.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// ### DEPRECATED: Use `render23` instead

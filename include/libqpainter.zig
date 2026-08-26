@@ -61,7 +61,9 @@ pub const QPainter = extern struct {
     ///
     pub fn new2(param1: anytype) QPainter {
         comptime _ = @TypeOf(param1)._is_QPaintDevice;
-        return .{ .ptr = qtc.QPainter_new2(@ptrCast(param1.ptr)) };
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQPaintDevice")) param1.asQPaintDevice() else param1;
+
+        return .{ .ptr = qtc.QPainter_new2(@ptrCast(param1_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `device` instead
@@ -92,7 +94,8 @@ pub const QPainter = extern struct {
     ///
     pub fn begin(self: QPainter, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QPaintDevice;
-        return qtc.QPainter_Begin(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQPaintDevice")) param1.asQPaintDevice() else param1;
+        return qtc.QPainter_Begin(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `end` instead

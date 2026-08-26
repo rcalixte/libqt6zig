@@ -57,7 +57,9 @@ pub const QGraphicsLinearLayout = extern struct {
     ///
     pub fn new3(parent: anytype) QGraphicsLinearLayout {
         comptime _ = @TypeOf(parent)._is_QGraphicsLayoutItem;
-        return .{ .ptr = qtc.QGraphicsLinearLayout_new3(@ptrCast(parent.ptr)) };
+        const parent_ = if (@hasDecl(@TypeOf(parent), "asQGraphicsLayoutItem")) parent.asQGraphicsLayoutItem() else parent;
+
+        return .{ .ptr = qtc.QGraphicsLinearLayout_new3(@ptrCast(parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new4` instead
@@ -74,7 +76,9 @@ pub const QGraphicsLinearLayout = extern struct {
     ///
     pub fn new4(_orientation: i32, parent: anytype) QGraphicsLinearLayout {
         comptime _ = @TypeOf(parent)._is_QGraphicsLayoutItem;
-        return .{ .ptr = qtc.QGraphicsLinearLayout_new4(@bitCast(_orientation), @ptrCast(parent.ptr)) };
+        const parent_ = if (@hasDecl(@TypeOf(parent), "asQGraphicsLayoutItem")) parent.asQGraphicsLayoutItem() else parent;
+
+        return .{ .ptr = qtc.QGraphicsLinearLayout_new4(@bitCast(_orientation), @ptrCast(parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `setOrientation` instead
@@ -125,7 +129,8 @@ pub const QGraphicsLinearLayout = extern struct {
     ///
     pub fn addItem(self: QGraphicsLinearLayout, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsLinearLayout_AddItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsLayoutItem")) item.asQGraphicsLayoutItem() else item;
+        qtc.QGraphicsLinearLayout_AddItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `addStretch` instead
@@ -158,7 +163,8 @@ pub const QGraphicsLinearLayout = extern struct {
     ///
     pub fn insertItem(self: QGraphicsLinearLayout, index: i32, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsLinearLayout_InsertItem(@ptrCast(self.ptr), @bitCast(index), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsLayoutItem")) item.asQGraphicsLayoutItem() else item;
+        qtc.QGraphicsLinearLayout_InsertItem(@ptrCast(self.ptr), @bitCast(index), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `insertStretch` instead
@@ -191,7 +197,8 @@ pub const QGraphicsLinearLayout = extern struct {
     ///
     pub fn removeItem(self: QGraphicsLinearLayout, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsLinearLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsLayoutItem")) item.asQGraphicsLayoutItem() else item;
+        qtc.QGraphicsLinearLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeAt` instead
@@ -326,7 +333,8 @@ pub const QGraphicsLinearLayout = extern struct {
     ///
     pub fn setStretchFactor(self: QGraphicsLinearLayout, item: anytype, stretch: i32) void {
         comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsLinearLayout_SetStretchFactor(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(stretch));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsLayoutItem")) item.asQGraphicsLayoutItem() else item;
+        qtc.QGraphicsLinearLayout_SetStretchFactor(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(stretch));
     }
 
     /// ### DEPRECATED: Use `stretchFactor` instead
@@ -343,7 +351,8 @@ pub const QGraphicsLinearLayout = extern struct {
     ///
     pub fn stretchFactor(self: QGraphicsLinearLayout, item: anytype) i32 {
         comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
-        return qtc.QGraphicsLinearLayout_StretchFactor(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsLayoutItem")) item.asQGraphicsLayoutItem() else item;
+        return qtc.QGraphicsLinearLayout_StretchFactor(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `setAlignment` instead
@@ -362,7 +371,8 @@ pub const QGraphicsLinearLayout = extern struct {
     ///
     pub fn setAlignment(self: QGraphicsLinearLayout, item: anytype, _alignment: i32) void {
         comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsLinearLayout_SetAlignment(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(_alignment));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsLayoutItem")) item.asQGraphicsLayoutItem() else item;
+        qtc.QGraphicsLinearLayout_SetAlignment(@ptrCast(self.ptr), @ptrCast(item_.ptr), @bitCast(_alignment));
     }
 
     /// ### DEPRECATED: Use `alignment` instead
@@ -383,7 +393,8 @@ pub const QGraphicsLinearLayout = extern struct {
     ///
     pub fn alignment(self: QGraphicsLinearLayout, item: anytype) i32 {
         comptime _ = @TypeOf(item)._is_QGraphicsLayoutItem;
-        return qtc.QGraphicsLinearLayout_Alignment(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsLayoutItem")) item.asQGraphicsLayoutItem() else item;
+        return qtc.QGraphicsLinearLayout_Alignment(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `setGeometry` instead
@@ -1302,7 +1313,8 @@ pub const QGraphicsLinearLayout = extern struct {
     ///
     pub fn setParentLayoutItem(self: QGraphicsLinearLayout, parent: anytype) void {
         comptime _ = @TypeOf(parent)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsLayoutItem_SetParentLayoutItem(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+        const parent_ = if (@hasDecl(@TypeOf(parent), "asQGraphicsLayoutItem")) parent.asQGraphicsLayoutItem() else parent;
+        qtc.QGraphicsLayoutItem_SetParentLayoutItem(@ptrCast(self.ptr), @ptrCast(parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `isLayout` instead
@@ -1660,7 +1672,8 @@ pub const QGraphicsLinearLayout = extern struct {
     ///
     pub fn addChildLayoutItem(self: QGraphicsLinearLayout, layoutItem: anytype) void {
         comptime _ = @TypeOf(layoutItem)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsLinearLayout_AddChildLayoutItem(@ptrCast(self.ptr), @ptrCast(layoutItem.ptr));
+        const layoutItem_ = if (@hasDecl(@TypeOf(layoutItem), "asQGraphicsLayoutItem")) layoutItem.asQGraphicsLayoutItem() else layoutItem;
+        qtc.QGraphicsLinearLayout_AddChildLayoutItem(@ptrCast(self.ptr), @ptrCast(layoutItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `superAddChildLayoutItem` instead
@@ -1681,7 +1694,8 @@ pub const QGraphicsLinearLayout = extern struct {
     ///
     pub fn superAddChildLayoutItem(self: QGraphicsLinearLayout, layoutItem: anytype) void {
         comptime _ = @TypeOf(layoutItem)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsLinearLayout_SuperAddChildLayoutItem(@ptrCast(self.ptr), @ptrCast(layoutItem.ptr));
+        const layoutItem_ = if (@hasDecl(@TypeOf(layoutItem), "asQGraphicsLayoutItem")) layoutItem.asQGraphicsLayoutItem() else layoutItem;
+        qtc.QGraphicsLinearLayout_SuperAddChildLayoutItem(@ptrCast(self.ptr), @ptrCast(layoutItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `onAddChildLayoutItem` instead
@@ -1722,7 +1736,8 @@ pub const QGraphicsLinearLayout = extern struct {
     ///
     pub fn setGraphicsItem(self: QGraphicsLinearLayout, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsLinearLayout_SetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsLinearLayout_SetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `superSetGraphicsItem` instead
@@ -1743,7 +1758,8 @@ pub const QGraphicsLinearLayout = extern struct {
     ///
     pub fn superSetGraphicsItem(self: QGraphicsLinearLayout, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsLinearLayout_SuperSetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsLinearLayout_SuperSetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onSetGraphicsItem` instead

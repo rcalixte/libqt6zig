@@ -306,7 +306,8 @@ pub const QPaintEngine = extern struct {
     ///
     pub fn begin(self: QPaintEngine, pdev: anytype) bool {
         comptime _ = @TypeOf(pdev)._is_QPaintDevice;
-        return qtc.QPaintEngine_Begin(@ptrCast(self.ptr), @ptrCast(pdev.ptr));
+        const pdev_ = if (@hasDecl(@TypeOf(pdev), "asQPaintDevice")) pdev.asQPaintDevice() else pdev;
+        return qtc.QPaintEngine_Begin(@ptrCast(self.ptr), @ptrCast(pdev_.ptr));
     }
 
     /// ### DEPRECATED: Use `onBegin` instead
@@ -343,7 +344,8 @@ pub const QPaintEngine = extern struct {
     ///
     pub fn superBegin(self: QPaintEngine, pdev: anytype) bool {
         comptime _ = @TypeOf(pdev)._is_QPaintDevice;
-        return qtc.QPaintEngine_SuperBegin(@ptrCast(self.ptr), @ptrCast(pdev.ptr));
+        const pdev_ = if (@hasDecl(@TypeOf(pdev), "asQPaintDevice")) pdev.asQPaintDevice() else pdev;
+        return qtc.QPaintEngine_SuperBegin(@ptrCast(self.ptr), @ptrCast(pdev_.ptr));
     }
 
     /// ### DEPRECATED: Use `end` instead
@@ -1358,7 +1360,8 @@ pub const QPaintEngine = extern struct {
     ///
     pub fn setPaintDevice(self: QPaintEngine, device: anytype) void {
         comptime _ = @TypeOf(device)._is_QPaintDevice;
-        qtc.QPaintEngine_SetPaintDevice(@ptrCast(self.ptr), @ptrCast(device.ptr));
+        const device_ = if (@hasDecl(@TypeOf(device), "asQPaintDevice")) device.asQPaintDevice() else device;
+        qtc.QPaintEngine_SetPaintDevice(@ptrCast(self.ptr), @ptrCast(device_.ptr));
     }
 
     /// ### DEPRECATED: Use `paintDevice` instead

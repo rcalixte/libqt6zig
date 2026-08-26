@@ -38,7 +38,9 @@ pub const QDBusPendingCall = extern struct {
     ///
     pub fn new(other: anytype) QDBusPendingCall {
         comptime _ = @TypeOf(other)._is_QDBusPendingCall;
-        return .{ .ptr = qtc.QDBusPendingCall_new(@ptrCast(other.ptr)) };
+        const other_ = if (@hasDecl(@TypeOf(other), "asQDBusPendingCall")) other.asQDBusPendingCall() else other;
+
+        return .{ .ptr = qtc.QDBusPendingCall_new(@ptrCast(other_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `operatorAssign` instead
@@ -55,7 +57,8 @@ pub const QDBusPendingCall = extern struct {
     ///
     pub fn operatorAssign(self: QDBusPendingCall, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDBusPendingCall;
-        qtc.QDBusPendingCall_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQDBusPendingCall")) other.asQDBusPendingCall() else other;
+        qtc.QDBusPendingCall_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other_.ptr));
     }
 
     /// ### DEPRECATED: Use `swap` instead
@@ -72,7 +75,8 @@ pub const QDBusPendingCall = extern struct {
     ///
     pub fn swap(self: QDBusPendingCall, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDBusPendingCall;
-        qtc.QDBusPendingCall_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQDBusPendingCall")) other.asQDBusPendingCall() else other;
+        qtc.QDBusPendingCall_Swap(@ptrCast(self.ptr), @ptrCast(other_.ptr));
     }
 
     /// ### DEPRECATED: Use `isFinished` instead
@@ -232,7 +236,9 @@ pub const QDBusPendingCallWatcher = extern struct {
     ///
     pub fn new(call: anytype) QDBusPendingCallWatcher {
         comptime _ = @TypeOf(call)._is_QDBusPendingCall;
-        return .{ .ptr = qtc.QDBusPendingCallWatcher_new(@ptrCast(call.ptr)) };
+        const call_ = if (@hasDecl(@TypeOf(call), "asQDBusPendingCall")) call.asQDBusPendingCall() else call;
+
+        return .{ .ptr = qtc.QDBusPendingCallWatcher_new(@ptrCast(call_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new2` instead
@@ -249,8 +255,9 @@ pub const QDBusPendingCallWatcher = extern struct {
     ///
     pub fn new2(call: anytype, _parent: anytype) QDBusPendingCallWatcher {
         comptime _ = @TypeOf(call)._is_QDBusPendingCall;
+        const call_ = if (@hasDecl(@TypeOf(call), "asQDBusPendingCall")) call.asQDBusPendingCall() else call;
         comptime _ = @TypeOf(_parent)._is_QObject;
-        return .{ .ptr = qtc.QDBusPendingCallWatcher_new2(@ptrCast(call.ptr), @ptrCast(_parent.ptr)) };
+        return .{ .ptr = qtc.QDBusPendingCallWatcher_new2(@ptrCast(call_.ptr), @ptrCast(_parent.ptr)) };
     }
 
     /// Upcasts to a QDBusPendingCall object
@@ -1542,7 +1549,8 @@ pub const QDBusPendingCallWatcher = extern struct {
     ///
     pub fn operatorAssign(self: QDBusPendingCallWatcher, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDBusPendingCall;
-        qtc.QDBusPendingCall_OperatorAssign(@ptrCast(self.asQDBusPendingCall().ptr), @ptrCast(other.ptr));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQDBusPendingCall")) other.asQDBusPendingCall() else other;
+        qtc.QDBusPendingCall_OperatorAssign(@ptrCast(self.asQDBusPendingCall().ptr), @ptrCast(other_.ptr));
     }
 
     /// ### DEPRECATED: Use `swap` instead
@@ -1561,7 +1569,8 @@ pub const QDBusPendingCallWatcher = extern struct {
     ///
     pub fn swap(self: QDBusPendingCallWatcher, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDBusPendingCall;
-        qtc.QDBusPendingCall_Swap(@ptrCast(self.asQDBusPendingCall().ptr), @ptrCast(other.ptr));
+        const other_ = if (@hasDecl(@TypeOf(other), "asQDBusPendingCall")) other.asQDBusPendingCall() else other;
+        qtc.QDBusPendingCall_Swap(@ptrCast(self.asQDBusPendingCall().ptr), @ptrCast(other_.ptr));
     }
 
     /// ### DEPRECATED: Use `isFinished` instead

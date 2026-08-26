@@ -685,7 +685,8 @@ pub const KIO__FileJob = extern struct {
     ///
     pub fn setUiDelegateExtension(self: KIO__FileJob, extension: anytype) void {
         comptime _ = @TypeOf(extension)._is_KIO__JobUiDelegateExtension;
-        qtc.KIO__Job_SetUiDelegateExtension(@ptrCast(self.ptr), @ptrCast(extension.ptr));
+        const extension_ = if (@hasDecl(@TypeOf(extension), "asKIO__JobUiDelegateExtension")) extension.asKIO__JobUiDelegateExtension() else extension;
+        qtc.KIO__Job_SetUiDelegateExtension(@ptrCast(self.ptr), @ptrCast(extension_.ptr));
     }
 
     /// ### DEPRECATED: Use `errorString` instead

@@ -1302,7 +1302,9 @@ pub const QGraphicsAnchorLayout = extern struct {
     ///
     pub fn new2(_parent: anytype) QGraphicsAnchorLayout {
         comptime _ = @TypeOf(_parent)._is_QGraphicsLayoutItem;
-        return .{ .ptr = qtc.QGraphicsAnchorLayout_new2(@ptrCast(_parent.ptr)) };
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsLayoutItem")) _parent.asQGraphicsLayoutItem() else _parent;
+
+        return .{ .ptr = qtc.QGraphicsAnchorLayout_new2(@ptrCast(_parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `addAnchor` instead
@@ -1325,8 +1327,10 @@ pub const QGraphicsAnchorLayout = extern struct {
     ///
     pub fn addAnchor(self: QGraphicsAnchorLayout, firstItem: anytype, firstEdge: i32, secondItem: anytype, secondEdge: i32) QGraphicsAnchor {
         comptime _ = @TypeOf(firstItem)._is_QGraphicsLayoutItem;
+        const firstItem_ = if (@hasDecl(@TypeOf(firstItem), "asQGraphicsLayoutItem")) firstItem.asQGraphicsLayoutItem() else firstItem;
         comptime _ = @TypeOf(secondItem)._is_QGraphicsLayoutItem;
-        return .{ .ptr = qtc.QGraphicsAnchorLayout_AddAnchor(@ptrCast(self.ptr), @ptrCast(firstItem.ptr), @bitCast(firstEdge), @ptrCast(secondItem.ptr), @bitCast(secondEdge)) };
+        const secondItem_ = if (@hasDecl(@TypeOf(secondItem), "asQGraphicsLayoutItem")) secondItem.asQGraphicsLayoutItem() else secondItem;
+        return .{ .ptr = qtc.QGraphicsAnchorLayout_AddAnchor(@ptrCast(self.ptr), @ptrCast(firstItem_.ptr), @bitCast(firstEdge), @ptrCast(secondItem_.ptr), @bitCast(secondEdge)) };
     }
 
     /// ### DEPRECATED: Use `anchor` instead
@@ -1349,8 +1353,10 @@ pub const QGraphicsAnchorLayout = extern struct {
     ///
     pub fn anchor(self: QGraphicsAnchorLayout, firstItem: anytype, firstEdge: i32, secondItem: anytype, secondEdge: i32) QGraphicsAnchor {
         comptime _ = @TypeOf(firstItem)._is_QGraphicsLayoutItem;
+        const firstItem_ = if (@hasDecl(@TypeOf(firstItem), "asQGraphicsLayoutItem")) firstItem.asQGraphicsLayoutItem() else firstItem;
         comptime _ = @TypeOf(secondItem)._is_QGraphicsLayoutItem;
-        return .{ .ptr = qtc.QGraphicsAnchorLayout_Anchor(@ptrCast(self.ptr), @ptrCast(firstItem.ptr), @bitCast(firstEdge), @ptrCast(secondItem.ptr), @bitCast(secondEdge)) };
+        const secondItem_ = if (@hasDecl(@TypeOf(secondItem), "asQGraphicsLayoutItem")) secondItem.asQGraphicsLayoutItem() else secondItem;
+        return .{ .ptr = qtc.QGraphicsAnchorLayout_Anchor(@ptrCast(self.ptr), @ptrCast(firstItem_.ptr), @bitCast(firstEdge), @ptrCast(secondItem_.ptr), @bitCast(secondEdge)) };
     }
 
     /// ### DEPRECATED: Use `addCornerAnchors` instead
@@ -1373,8 +1379,10 @@ pub const QGraphicsAnchorLayout = extern struct {
     ///
     pub fn addCornerAnchors(self: QGraphicsAnchorLayout, firstItem: anytype, firstCorner: i32, secondItem: anytype, secondCorner: i32) void {
         comptime _ = @TypeOf(firstItem)._is_QGraphicsLayoutItem;
+        const firstItem_ = if (@hasDecl(@TypeOf(firstItem), "asQGraphicsLayoutItem")) firstItem.asQGraphicsLayoutItem() else firstItem;
         comptime _ = @TypeOf(secondItem)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsAnchorLayout_AddCornerAnchors(@ptrCast(self.ptr), @ptrCast(firstItem.ptr), @bitCast(firstCorner), @ptrCast(secondItem.ptr), @bitCast(secondCorner));
+        const secondItem_ = if (@hasDecl(@TypeOf(secondItem), "asQGraphicsLayoutItem")) secondItem.asQGraphicsLayoutItem() else secondItem;
+        qtc.QGraphicsAnchorLayout_AddCornerAnchors(@ptrCast(self.ptr), @ptrCast(firstItem_.ptr), @bitCast(firstCorner), @ptrCast(secondItem_.ptr), @bitCast(secondCorner));
     }
 
     /// ### DEPRECATED: Use `addAnchors` instead
@@ -1393,8 +1401,10 @@ pub const QGraphicsAnchorLayout = extern struct {
     ///
     pub fn addAnchors(self: QGraphicsAnchorLayout, firstItem: anytype, secondItem: anytype) void {
         comptime _ = @TypeOf(firstItem)._is_QGraphicsLayoutItem;
+        const firstItem_ = if (@hasDecl(@TypeOf(firstItem), "asQGraphicsLayoutItem")) firstItem.asQGraphicsLayoutItem() else firstItem;
         comptime _ = @TypeOf(secondItem)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsAnchorLayout_AddAnchors(@ptrCast(self.ptr), @ptrCast(firstItem.ptr), @ptrCast(secondItem.ptr));
+        const secondItem_ = if (@hasDecl(@TypeOf(secondItem), "asQGraphicsLayoutItem")) secondItem.asQGraphicsLayoutItem() else secondItem;
+        qtc.QGraphicsAnchorLayout_AddAnchors(@ptrCast(self.ptr), @ptrCast(firstItem_.ptr), @ptrCast(secondItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `setHorizontalSpacing` instead
@@ -1805,8 +1815,10 @@ pub const QGraphicsAnchorLayout = extern struct {
     ///
     pub fn addAnchors3(self: QGraphicsAnchorLayout, firstItem: anytype, secondItem: anytype, orientations: i32) void {
         comptime _ = @TypeOf(firstItem)._is_QGraphicsLayoutItem;
+        const firstItem_ = if (@hasDecl(@TypeOf(firstItem), "asQGraphicsLayoutItem")) firstItem.asQGraphicsLayoutItem() else firstItem;
         comptime _ = @TypeOf(secondItem)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsAnchorLayout_AddAnchors3(@ptrCast(self.ptr), @ptrCast(firstItem.ptr), @ptrCast(secondItem.ptr), @bitCast(orientations));
+        const secondItem_ = if (@hasDecl(@TypeOf(secondItem), "asQGraphicsLayoutItem")) secondItem.asQGraphicsLayoutItem() else secondItem;
+        qtc.QGraphicsAnchorLayout_AddAnchors3(@ptrCast(self.ptr), @ptrCast(firstItem_.ptr), @ptrCast(secondItem_.ptr), @bitCast(orientations));
     }
 
     /// ### DEPRECATED: Use `setContentsMargins` instead
@@ -2399,7 +2411,8 @@ pub const QGraphicsAnchorLayout = extern struct {
     ///
     pub fn setParentLayoutItem(self: QGraphicsAnchorLayout, _parent: anytype) void {
         comptime _ = @TypeOf(_parent)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsLayoutItem_SetParentLayoutItem(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+        const _parent_ = if (@hasDecl(@TypeOf(_parent), "asQGraphicsLayoutItem")) _parent.asQGraphicsLayoutItem() else _parent;
+        qtc.QGraphicsLayoutItem_SetParentLayoutItem(@ptrCast(self.ptr), @ptrCast(_parent_.ptr));
     }
 
     /// ### DEPRECATED: Use `isLayout` instead
@@ -2757,7 +2770,8 @@ pub const QGraphicsAnchorLayout = extern struct {
     ///
     pub fn addChildLayoutItem(self: QGraphicsAnchorLayout, layoutItem: anytype) void {
         comptime _ = @TypeOf(layoutItem)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsAnchorLayout_AddChildLayoutItem(@ptrCast(self.ptr), @ptrCast(layoutItem.ptr));
+        const layoutItem_ = if (@hasDecl(@TypeOf(layoutItem), "asQGraphicsLayoutItem")) layoutItem.asQGraphicsLayoutItem() else layoutItem;
+        qtc.QGraphicsAnchorLayout_AddChildLayoutItem(@ptrCast(self.ptr), @ptrCast(layoutItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `superAddChildLayoutItem` instead
@@ -2778,7 +2792,8 @@ pub const QGraphicsAnchorLayout = extern struct {
     ///
     pub fn superAddChildLayoutItem(self: QGraphicsAnchorLayout, layoutItem: anytype) void {
         comptime _ = @TypeOf(layoutItem)._is_QGraphicsLayoutItem;
-        qtc.QGraphicsAnchorLayout_SuperAddChildLayoutItem(@ptrCast(self.ptr), @ptrCast(layoutItem.ptr));
+        const layoutItem_ = if (@hasDecl(@TypeOf(layoutItem), "asQGraphicsLayoutItem")) layoutItem.asQGraphicsLayoutItem() else layoutItem;
+        qtc.QGraphicsAnchorLayout_SuperAddChildLayoutItem(@ptrCast(self.ptr), @ptrCast(layoutItem_.ptr));
     }
 
     /// ### DEPRECATED: Use `onAddChildLayoutItem` instead
@@ -2819,7 +2834,8 @@ pub const QGraphicsAnchorLayout = extern struct {
     ///
     pub fn setGraphicsItem(self: QGraphicsAnchorLayout, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsAnchorLayout_SetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsAnchorLayout_SetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `superSetGraphicsItem` instead
@@ -2840,7 +2856,8 @@ pub const QGraphicsAnchorLayout = extern struct {
     ///
     pub fn superSetGraphicsItem(self: QGraphicsAnchorLayout, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QGraphicsItem;
-        qtc.QGraphicsAnchorLayout_SuperSetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        qtc.QGraphicsAnchorLayout_SuperSetGraphicsItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onSetGraphicsItem` instead

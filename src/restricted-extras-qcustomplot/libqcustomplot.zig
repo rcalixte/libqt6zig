@@ -1092,7 +1092,9 @@ pub const QCPPainter = extern struct {
     ///
     pub fn new2(_device: anytype) QCPPainter {
         comptime _ = @TypeOf(_device)._is_QPaintDevice;
-        return .{ .ptr = qtc.QCPPainter_new2(@ptrCast(_device.ptr)) };
+        const _device_ = if (@hasDecl(@TypeOf(_device), "asQPaintDevice")) _device.asQPaintDevice() else _device;
+
+        return .{ .ptr = qtc.QCPPainter_new2(@ptrCast(_device_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `antialiasing` instead
@@ -1189,7 +1191,8 @@ pub const QCPPainter = extern struct {
     ///
     pub fn begin(self: QCPPainter, _device: anytype) bool {
         comptime _ = @TypeOf(_device)._is_QPaintDevice;
-        return qtc.QCPPainter_Begin(@ptrCast(self.ptr), @ptrCast(_device.ptr));
+        const _device_ = if (@hasDecl(@TypeOf(_device), "asQPaintDevice")) _device.asQPaintDevice() else _device;
+        return qtc.QCPPainter_Begin(@ptrCast(self.ptr), @ptrCast(_device_.ptr));
     }
 
     /// ### DEPRECATED: Use `setPen` instead
@@ -72754,7 +72757,8 @@ pub const QCustomPlot = extern struct {
     ///
     pub fn render(self: QCustomPlot, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
-        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
+        const target_ = if (@hasDecl(@TypeOf(target), "asQPaintDevice")) target.asQPaintDevice() else target;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target_.ptr));
     }
 
     /// ### DEPRECATED: Use `render2` instead
@@ -75867,8 +75871,9 @@ pub const QCustomPlot = extern struct {
     ///
     pub fn render22(self: QCustomPlot, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
+        const target_ = if (@hasDecl(@TypeOf(target), "asQPaintDevice")) target.asQPaintDevice() else target;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
-        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target_.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// ### DEPRECATED: Use `render3` instead
@@ -75891,9 +75896,10 @@ pub const QCustomPlot = extern struct {
     ///
     pub fn render3(self: QCustomPlot, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
+        const target_ = if (@hasDecl(@TypeOf(target), "asQPaintDevice")) target.asQPaintDevice() else target;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
-        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target_.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// ### DEPRECATED: Use `render4` instead
@@ -75918,9 +75924,10 @@ pub const QCustomPlot = extern struct {
     ///
     pub fn render4(self: QCustomPlot, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
+        const target_ = if (@hasDecl(@TypeOf(target), "asQPaintDevice")) target.asQPaintDevice() else target;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
-        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target_.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// ### DEPRECATED: Use `render23` instead
@@ -80479,7 +80486,8 @@ pub const QCPPlottableInterface1D = extern struct {
     ///
     pub fn operatorAssign(self: QCPPlottableInterface1D, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCPPlottableInterface1D;
-        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQCPPlottableInterface1D")) param1.asQCPPlottableInterface1D() else param1;
+        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead
@@ -81456,7 +81464,8 @@ pub const QCPSelectionDecoratorBracket = extern struct {
     ///
     pub fn getTangentAngle(self: QCPSelectionDecoratorBracket, interface1d: anytype, dataIndex: i32, direction: i32) f64 {
         comptime _ = @TypeOf(interface1d)._is_QCPPlottableInterface1D;
-        return qtc.QCPSelectionDecoratorBracket_GetTangentAngle(@ptrCast(self.ptr), @ptrCast(interface1d.ptr), @bitCast(dataIndex), @bitCast(direction));
+        const interface1d_ = if (@hasDecl(@TypeOf(interface1d), "asQCPPlottableInterface1D")) interface1d.asQCPPlottableInterface1D() else interface1d;
+        return qtc.QCPSelectionDecoratorBracket_GetTangentAngle(@ptrCast(self.ptr), @ptrCast(interface1d_.ptr), @bitCast(dataIndex), @bitCast(direction));
     }
 
     /// ### DEPRECATED: Use `onGetTangentAngle` instead
@@ -81497,7 +81506,8 @@ pub const QCPSelectionDecoratorBracket = extern struct {
     ///
     pub fn superGetTangentAngle(self: QCPSelectionDecoratorBracket, interface1d: anytype, dataIndex: i32, direction: i32) f64 {
         comptime _ = @TypeOf(interface1d)._is_QCPPlottableInterface1D;
-        return qtc.QCPSelectionDecoratorBracket_SuperGetTangentAngle(@ptrCast(self.ptr), @ptrCast(interface1d.ptr), @bitCast(dataIndex), @bitCast(direction));
+        const interface1d_ = if (@hasDecl(@TypeOf(interface1d), "asQCPPlottableInterface1D")) interface1d.asQCPPlottableInterface1D() else interface1d;
+        return qtc.QCPSelectionDecoratorBracket_SuperGetTangentAngle(@ptrCast(self.ptr), @ptrCast(interface1d_.ptr), @bitCast(dataIndex), @bitCast(direction));
     }
 
     /// ### DEPRECATED: Use `getPixelCoordinates` instead
@@ -81516,7 +81526,8 @@ pub const QCPSelectionDecoratorBracket = extern struct {
     ///
     pub fn getPixelCoordinates(self: QCPSelectionDecoratorBracket, interface1d: anytype, dataIndex: i32) QPointF {
         comptime _ = @TypeOf(interface1d)._is_QCPPlottableInterface1D;
-        return .{ .ptr = qtc.QCPSelectionDecoratorBracket_GetPixelCoordinates(@ptrCast(self.ptr), @ptrCast(interface1d.ptr), @bitCast(dataIndex)) };
+        const interface1d_ = if (@hasDecl(@TypeOf(interface1d), "asQCPPlottableInterface1D")) interface1d.asQCPPlottableInterface1D() else interface1d;
+        return .{ .ptr = qtc.QCPSelectionDecoratorBracket_GetPixelCoordinates(@ptrCast(self.ptr), @ptrCast(interface1d_.ptr), @bitCast(dataIndex)) };
     }
 
     /// ### DEPRECATED: Use `onGetPixelCoordinates` instead
@@ -81557,7 +81568,8 @@ pub const QCPSelectionDecoratorBracket = extern struct {
     ///
     pub fn superGetPixelCoordinates(self: QCPSelectionDecoratorBracket, interface1d: anytype, dataIndex: i32) QPointF {
         comptime _ = @TypeOf(interface1d)._is_QCPPlottableInterface1D;
-        return .{ .ptr = qtc.QCPSelectionDecoratorBracket_SuperGetPixelCoordinates(@ptrCast(self.ptr), @ptrCast(interface1d.ptr), @bitCast(dataIndex)) };
+        const interface1d_ = if (@hasDecl(@TypeOf(interface1d), "asQCPPlottableInterface1D")) interface1d.asQCPPlottableInterface1D() else interface1d;
+        return .{ .ptr = qtc.QCPSelectionDecoratorBracket_SuperGetPixelCoordinates(@ptrCast(self.ptr), @ptrCast(interface1d_.ptr), @bitCast(dataIndex)) };
     }
 
     /// ### DEPRECATED: Use `pen` instead
@@ -113197,7 +113209,8 @@ pub const QCPGraph = extern struct {
     ///
     pub fn operatorAssign(self: QCPGraph, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCPPlottableInterface1D;
-        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQCPPlottableInterface1D")) param1.asQCPPlottableInterface1D() else param1;
+        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `name` instead
@@ -119548,7 +119561,8 @@ pub const QCPCurve = extern struct {
     ///
     pub fn operatorAssign(self: QCPCurve, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCPPlottableInterface1D;
-        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQCPPlottableInterface1D")) param1.asQCPPlottableInterface1D() else param1;
+        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `name` instead
@@ -127814,7 +127828,8 @@ pub const QCPBars = extern struct {
     ///
     pub fn operatorAssign(self: QCPBars, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCPPlottableInterface1D;
-        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQCPPlottableInterface1D")) param1.asQCPPlottableInterface1D() else param1;
+        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `name` instead
@@ -133571,7 +133586,8 @@ pub const QCPStatisticalBox = extern struct {
     ///
     pub fn operatorAssign(self: QCPStatisticalBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCPPlottableInterface1D;
-        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQCPPlottableInterface1D")) param1.asQCPPlottableInterface1D() else param1;
+        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `name` instead
@@ -144656,7 +144672,8 @@ pub const QCPFinancial = extern struct {
     ///
     pub fn operatorAssign(self: QCPFinancial, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCPPlottableInterface1D;
-        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQCPPlottableInterface1D")) param1.asQCPPlottableInterface1D() else param1;
+        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `name` instead
@@ -152657,7 +152674,8 @@ pub const QCPErrorBars = extern struct {
     ///
     pub fn operatorAssign(self: QCPErrorBars, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCPPlottableInterface1D;
-        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.asQCPPlottableInterface1D().ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQCPPlottableInterface1D")) param1.asQCPPlottableInterface1D() else param1;
+        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.asQCPPlottableInterface1D().ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `clipRect` instead

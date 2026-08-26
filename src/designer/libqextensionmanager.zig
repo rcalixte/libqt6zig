@@ -261,11 +261,12 @@ pub const QExtensionManager = extern struct {
     ///
     pub fn registerExtensions(self: QExtensionManager, factory: anytype, iid: []const u8) void {
         comptime _ = @TypeOf(factory)._is_QAbstractExtensionFactory;
+        const factory_ = if (@hasDecl(@TypeOf(factory), "asQAbstractExtensionFactory")) factory.asQAbstractExtensionFactory() else factory;
         const iid_str = qtc.libqt_string{
             .len = iid.len,
             .data = iid.ptr,
         };
-        qtc.QExtensionManager_RegisterExtensions(@ptrCast(self.ptr), @ptrCast(factory.ptr), iid_str);
+        qtc.QExtensionManager_RegisterExtensions(@ptrCast(self.ptr), @ptrCast(factory_.ptr), iid_str);
     }
 
     /// ### DEPRECATED: Use `onRegisterExtensions` instead
@@ -304,11 +305,12 @@ pub const QExtensionManager = extern struct {
     ///
     pub fn superRegisterExtensions(self: QExtensionManager, factory: anytype, iid: []const u8) void {
         comptime _ = @TypeOf(factory)._is_QAbstractExtensionFactory;
+        const factory_ = if (@hasDecl(@TypeOf(factory), "asQAbstractExtensionFactory")) factory.asQAbstractExtensionFactory() else factory;
         const iid_str = qtc.libqt_string{
             .len = iid.len,
             .data = iid.ptr,
         };
-        qtc.QExtensionManager_SuperRegisterExtensions(@ptrCast(self.ptr), @ptrCast(factory.ptr), iid_str);
+        qtc.QExtensionManager_SuperRegisterExtensions(@ptrCast(self.ptr), @ptrCast(factory_.ptr), iid_str);
     }
 
     /// ### DEPRECATED: Use `unregisterExtensions` instead
@@ -327,11 +329,12 @@ pub const QExtensionManager = extern struct {
     ///
     pub fn unregisterExtensions(self: QExtensionManager, factory: anytype, iid: []const u8) void {
         comptime _ = @TypeOf(factory)._is_QAbstractExtensionFactory;
+        const factory_ = if (@hasDecl(@TypeOf(factory), "asQAbstractExtensionFactory")) factory.asQAbstractExtensionFactory() else factory;
         const iid_str = qtc.libqt_string{
             .len = iid.len,
             .data = iid.ptr,
         };
-        qtc.QExtensionManager_UnregisterExtensions(@ptrCast(self.ptr), @ptrCast(factory.ptr), iid_str);
+        qtc.QExtensionManager_UnregisterExtensions(@ptrCast(self.ptr), @ptrCast(factory_.ptr), iid_str);
     }
 
     /// ### DEPRECATED: Use `onUnregisterExtensions` instead
@@ -370,11 +373,12 @@ pub const QExtensionManager = extern struct {
     ///
     pub fn superUnregisterExtensions(self: QExtensionManager, factory: anytype, iid: []const u8) void {
         comptime _ = @TypeOf(factory)._is_QAbstractExtensionFactory;
+        const factory_ = if (@hasDecl(@TypeOf(factory), "asQAbstractExtensionFactory")) factory.asQAbstractExtensionFactory() else factory;
         const iid_str = qtc.libqt_string{
             .len = iid.len,
             .data = iid.ptr,
         };
-        qtc.QExtensionManager_SuperUnregisterExtensions(@ptrCast(self.ptr), @ptrCast(factory.ptr), iid_str);
+        qtc.QExtensionManager_SuperUnregisterExtensions(@ptrCast(self.ptr), @ptrCast(factory_.ptr), iid_str);
     }
 
     /// ### DEPRECATED: Use `extension` instead
@@ -1474,7 +1478,8 @@ pub const QExtensionManager = extern struct {
     ///
     pub fn operatorAssign(self: QExtensionManager, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAbstractExtensionManager;
-        qtc.QAbstractExtensionManager_OperatorAssign(@ptrCast(self.asQAbstractExtensionManager().ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQAbstractExtensionManager")) param1.asQAbstractExtensionManager() else param1;
+        qtc.QAbstractExtensionManager_OperatorAssign(@ptrCast(self.asQAbstractExtensionManager().ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `event` instead

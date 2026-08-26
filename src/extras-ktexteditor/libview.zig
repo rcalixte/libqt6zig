@@ -3813,7 +3813,8 @@ pub const KTextEditor__View = extern struct {
     ///
     pub fn render(self: KTextEditor__View, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
-        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
+        const target_ = if (@hasDecl(@TypeOf(target), "asQPaintDevice")) target.asQPaintDevice() else target;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target_.ptr));
     }
 
     /// ### DEPRECATED: Use `render2` instead
@@ -7044,8 +7045,9 @@ pub const KTextEditor__View = extern struct {
     ///
     pub fn render22(self: KTextEditor__View, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
+        const target_ = if (@hasDecl(@TypeOf(target), "asQPaintDevice")) target.asQPaintDevice() else target;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
-        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target_.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// ### DEPRECATED: Use `render3` instead
@@ -7068,9 +7070,10 @@ pub const KTextEditor__View = extern struct {
     ///
     pub fn render3(self: KTextEditor__View, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
+        const target_ = if (@hasDecl(@TypeOf(target), "asQPaintDevice")) target.asQPaintDevice() else target;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
-        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target_.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// ### DEPRECATED: Use `render4` instead
@@ -7095,9 +7098,10 @@ pub const KTextEditor__View = extern struct {
     ///
     pub fn render4(self: KTextEditor__View, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
+        const target_ = if (@hasDecl(@TypeOf(target), "asQPaintDevice")) target.asQPaintDevice() else target;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
-        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target_.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// ### DEPRECATED: Use `render23` instead
@@ -8771,7 +8775,8 @@ pub const KTextEditor__View = extern struct {
     ///
     pub fn insertChildClient(self: KTextEditor__View, child: anytype) void {
         comptime _ = @TypeOf(child)._is_KXMLGUIClient;
-        qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asKXMLGUIClient")) child.asKXMLGUIClient() else child;
+        qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self.ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeChildClient` instead
@@ -8790,7 +8795,8 @@ pub const KTextEditor__View = extern struct {
     ///
     pub fn removeChildClient(self: KTextEditor__View, child: anytype) void {
         comptime _ = @TypeOf(child)._is_KXMLGUIClient;
-        qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asKXMLGUIClient")) child.asKXMLGUIClient() else child;
+        qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self.ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `childClients` instead
@@ -8833,7 +8839,8 @@ pub const KTextEditor__View = extern struct {
     ///
     pub fn setClientBuilder(self: KTextEditor__View, builder: anytype) void {
         comptime _ = @TypeOf(builder)._is_KXMLGUIBuilder;
-        qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self.ptr), @ptrCast(builder.ptr));
+        const builder_ = if (@hasDecl(@TypeOf(builder), "asKXMLGUIBuilder")) builder.asKXMLGUIBuilder() else builder;
+        qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self.ptr), @ptrCast(builder_.ptr));
     }
 
     /// ### DEPRECATED: Use `clientBuilder` instead

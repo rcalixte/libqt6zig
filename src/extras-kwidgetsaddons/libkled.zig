@@ -2443,7 +2443,8 @@ pub const KLed = extern struct {
     ///
     pub fn render(self: KLed, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
-        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
+        const target_ = if (@hasDecl(@TypeOf(target), "asQPaintDevice")) target.asQPaintDevice() else target;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target_.ptr));
     }
 
     /// ### DEPRECATED: Use `render2` instead
@@ -5556,8 +5557,9 @@ pub const KLed = extern struct {
     ///
     pub fn render22(self: KLed, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
+        const target_ = if (@hasDecl(@TypeOf(target), "asQPaintDevice")) target.asQPaintDevice() else target;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
-        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target_.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// ### DEPRECATED: Use `render3` instead
@@ -5580,9 +5582,10 @@ pub const KLed = extern struct {
     ///
     pub fn render3(self: KLed, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
+        const target_ = if (@hasDecl(@TypeOf(target), "asQPaintDevice")) target.asQPaintDevice() else target;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
-        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target_.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// ### DEPRECATED: Use `render4` instead
@@ -5607,9 +5610,10 @@ pub const KLed = extern struct {
     ///
     pub fn render4(self: KLed, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
+        const target_ = if (@hasDecl(@TypeOf(target), "asQPaintDevice")) target.asQPaintDevice() else target;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
-        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target_.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// ### DEPRECATED: Use `render23` instead

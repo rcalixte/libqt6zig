@@ -749,7 +749,8 @@ pub const KCompletionBase = extern struct {
     ///
     pub fn setDelegate(self: KCompletionBase, _delegate: anytype) void {
         comptime _ = @TypeOf(_delegate)._is_KCompletionBase;
-        qtc.KCompletionBase_SetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate.ptr));
+        const _delegate_ = if (@hasDecl(@TypeOf(_delegate), "asKCompletionBase")) _delegate.asKCompletionBase() else _delegate;
+        qtc.KCompletionBase_SetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate_.ptr));
     }
 
     /// ### DEPRECATED: Use `onSetDelegate` instead
@@ -786,7 +787,8 @@ pub const KCompletionBase = extern struct {
     ///
     pub fn superSetDelegate(self: KCompletionBase, _delegate: anytype) void {
         comptime _ = @TypeOf(_delegate)._is_KCompletionBase;
-        qtc.KCompletionBase_SuperSetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate.ptr));
+        const _delegate_ = if (@hasDecl(@TypeOf(_delegate), "asKCompletionBase")) _delegate.asKCompletionBase() else _delegate;
+        qtc.KCompletionBase_SuperSetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate_.ptr));
     }
 
     /// ### DEPRECATED: Use `delegate` instead

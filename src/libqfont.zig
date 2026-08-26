@@ -85,7 +85,9 @@ pub const QFont = extern struct {
     pub fn new4(font: anytype, pd: anytype) QFont {
         comptime _ = @TypeOf(font)._is_QFont;
         comptime _ = @TypeOf(pd)._is_QPaintDevice;
-        return .{ .ptr = qtc.QFont_new4(@ptrCast(font.ptr), @ptrCast(pd.ptr)) };
+        const pd_ = if (@hasDecl(@TypeOf(pd), "asQPaintDevice")) pd.asQPaintDevice() else pd;
+
+        return .{ .ptr = qtc.QFont_new4(@ptrCast(font.ptr), @ptrCast(pd_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new5` instead

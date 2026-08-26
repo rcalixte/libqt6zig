@@ -227,7 +227,8 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
     ///
     pub fn indexOf2(self: QDesignerLayoutDecorationExtension, item: anytype) i32 {
         comptime _ = @TypeOf(item)._is_QLayoutItem;
-        return qtc.QDesignerLayoutDecorationExtension_IndexOf2(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQLayoutItem")) item.asQLayoutItem() else item;
+        return qtc.QDesignerLayoutDecorationExtension_IndexOf2(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIndexOf2` instead
@@ -264,7 +265,8 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
     ///
     pub fn superIndexOf2(self: QDesignerLayoutDecorationExtension, item: anytype) i32 {
         comptime _ = @TypeOf(item)._is_QLayoutItem;
-        return qtc.QDesignerLayoutDecorationExtension_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQLayoutItem")) item.asQLayoutItem() else item;
+        return qtc.QDesignerLayoutDecorationExtension_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `currentInsertMode` instead

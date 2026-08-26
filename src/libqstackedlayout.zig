@@ -424,7 +424,8 @@ pub const QStackedLayout = extern struct {
     ///
     pub fn addItem(self: QStackedLayout, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QLayoutItem;
-        qtc.QStackedLayout_AddItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQLayoutItem")) item.asQLayoutItem() else item;
+        qtc.QStackedLayout_AddItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `onAddItem` instead
@@ -461,7 +462,8 @@ pub const QStackedLayout = extern struct {
     ///
     pub fn superAddItem(self: QStackedLayout, item: anytype) void {
         comptime _ = @TypeOf(item)._is_QLayoutItem;
-        qtc.QStackedLayout_SuperAddItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
+        const item_ = if (@hasDecl(@TypeOf(item), "asQLayoutItem")) item.asQLayoutItem() else item;
+        qtc.QStackedLayout_SuperAddItem(@ptrCast(self.ptr), @ptrCast(item_.ptr));
     }
 
     /// ### DEPRECATED: Use `sizeHint` instead
@@ -1307,7 +1309,8 @@ pub const QStackedLayout = extern struct {
     ///
     pub fn removeItem(self: QStackedLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `indexOf2` instead
@@ -1326,7 +1329,8 @@ pub const QStackedLayout = extern struct {
     ///
     pub fn indexOf2(self: QStackedLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        return qtc.QLayout_IndexOf2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        return qtc.QLayout_IndexOf2(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIndexOf2` instead
@@ -1367,7 +1371,8 @@ pub const QStackedLayout = extern struct {
     ///
     pub fn superIndexOf2(self: QStackedLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        return qtc.QLayout_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        return qtc.QLayout_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `totalMinimumHeightForWidth` instead

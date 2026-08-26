@@ -42,7 +42,9 @@ pub const KXMLGUIClient = extern struct {
     ///
     pub fn new2(parent: anytype) KXMLGUIClient {
         comptime _ = @TypeOf(parent)._is_KXMLGUIClient;
-        return .{ .ptr = qtc.KXMLGUIClient_new2(@ptrCast(parent.ptr)) };
+        const parent_ = if (@hasDecl(@TypeOf(parent), "asKXMLGUIClient")) parent.asKXMLGUIClient() else parent;
+
+        return .{ .ptr = qtc.KXMLGUIClient_new2(@ptrCast(parent_.ptr)) };
     }
 
     /// ### DEPRECATED: Use `action` instead
@@ -487,7 +489,8 @@ pub const KXMLGUIClient = extern struct {
     ///
     pub fn insertChildClient(self: KXMLGUIClient, child: anytype) void {
         comptime _ = @TypeOf(child)._is_KXMLGUIClient;
-        qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asKXMLGUIClient")) child.asKXMLGUIClient() else child;
+        qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self.ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeChildClient` instead
@@ -504,7 +507,8 @@ pub const KXMLGUIClient = extern struct {
     ///
     pub fn removeChildClient(self: KXMLGUIClient, child: anytype) void {
         comptime _ = @TypeOf(child)._is_KXMLGUIClient;
-        qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asKXMLGUIClient")) child.asKXMLGUIClient() else child;
+        qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self.ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `childClients` instead
@@ -543,7 +547,8 @@ pub const KXMLGUIClient = extern struct {
     ///
     pub fn setClientBuilder(self: KXMLGUIClient, builder: anytype) void {
         comptime _ = @TypeOf(builder)._is_KXMLGUIBuilder;
-        qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self.ptr), @ptrCast(builder.ptr));
+        const builder_ = if (@hasDecl(@TypeOf(builder), "asKXMLGUIBuilder")) builder.asKXMLGUIBuilder() else builder;
+        qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self.ptr), @ptrCast(builder_.ptr));
     }
 
     /// ### DEPRECATED: Use `clientBuilder` instead

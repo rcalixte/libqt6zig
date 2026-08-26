@@ -728,7 +728,8 @@ pub const QLayout = extern struct {
     ///
     pub fn addItem(self: QLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QLayout_AddItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QLayout_AddItem(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `onAddItem` instead
@@ -765,7 +766,8 @@ pub const QLayout = extern struct {
     ///
     pub fn superAddItem(self: QLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QLayout_SuperAddItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QLayout_SuperAddItem(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeWidget` instead
@@ -799,7 +801,8 @@ pub const QLayout = extern struct {
     ///
     pub fn removeItem(self: QLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        qtc.QLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        qtc.QLayout_RemoveItem(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `expandingDirections` instead
@@ -1184,7 +1187,8 @@ pub const QLayout = extern struct {
     ///
     pub fn indexOf2(self: QLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        return qtc.QLayout_IndexOf2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        return qtc.QLayout_IndexOf2(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `onIndexOf2` instead
@@ -1221,7 +1225,8 @@ pub const QLayout = extern struct {
     ///
     pub fn superIndexOf2(self: QLayout, param1: anytype) i32 {
         comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        return qtc.QLayout_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
+        return qtc.QLayout_SuperIndexOf2(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `count` instead

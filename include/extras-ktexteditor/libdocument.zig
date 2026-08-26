@@ -5229,7 +5229,8 @@ pub const KTextEditor__Document = extern struct {
     ///
     pub fn insertChildClient(self: KTextEditor__Document, child: anytype) void {
         comptime _ = @TypeOf(child)._is_KXMLGUIClient;
-        qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asKXMLGUIClient")) child.asKXMLGUIClient() else child;
+        qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self.ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `removeChildClient` instead
@@ -5248,7 +5249,8 @@ pub const KTextEditor__Document = extern struct {
     ///
     pub fn removeChildClient(self: KTextEditor__Document, child: anytype) void {
         comptime _ = @TypeOf(child)._is_KXMLGUIClient;
-        qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
+        const child_ = if (@hasDecl(@TypeOf(child), "asKXMLGUIClient")) child.asKXMLGUIClient() else child;
+        qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self.ptr), @ptrCast(child_.ptr));
     }
 
     /// ### DEPRECATED: Use `childClients` instead
@@ -5291,7 +5293,8 @@ pub const KTextEditor__Document = extern struct {
     ///
     pub fn setClientBuilder(self: KTextEditor__Document, builder: anytype) void {
         comptime _ = @TypeOf(builder)._is_KXMLGUIBuilder;
-        qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self.ptr), @ptrCast(builder.ptr));
+        const builder_ = if (@hasDecl(@TypeOf(builder), "asKXMLGUIBuilder")) builder.asKXMLGUIBuilder() else builder;
+        qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self.ptr), @ptrCast(builder_.ptr));
     }
 
     /// ### DEPRECATED: Use `clientBuilder` instead

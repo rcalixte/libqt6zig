@@ -1995,7 +1995,8 @@ pub const QAccessibleActionInterface = extern struct {
     ///
     pub fn operatorAssign(self: QAccessibleActionInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAccessibleActionInterface;
-        qtc.QAccessibleActionInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
+        const param1_ = if (@hasDecl(@TypeOf(param1), "asQAccessibleActionInterface")) param1.asQAccessibleActionInterface() else param1;
+        qtc.QAccessibleActionInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead
