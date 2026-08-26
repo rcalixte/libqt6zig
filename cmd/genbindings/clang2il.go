@@ -324,7 +324,10 @@ func (c *CppClass) IsRequiredProtectedMethod(m *CppMethod) bool {
 	return true
 }
 
-var inheritanceMap = map[string]map[string][]string{}
+var (
+	inheritanceMap          = map[string]map[string][]string{}
+	secondaryInheritanceMap = map[string]struct{}{}
+)
 
 // processClassType parses a single C++ class definition into our intermediate format.
 func processClassType(node map[string]any, addNamePrefix string) (CppClass, error) {
@@ -507,6 +510,7 @@ func processClassType(node map[string]any, addNamePrefix string) (CppClass, erro
 						if !slices.Contains(inheritanceMap[ret.ClassName]["direct"], qualType) {
 							if !slices.Contains(inheritanceMap[ret.ClassName]["secondary"], qualType) {
 								inheritanceMap[ret.ClassName]["secondary"] = append(inheritanceMap[ret.ClassName]["secondary"], qualType)
+								secondaryInheritanceMap[qualType] = struct{}{}
 							}
 							methodName := strings.ReplaceAll(qualType, "::", "__")
 							ret.Methods = append(ret.Methods, CppMethod{
