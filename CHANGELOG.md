@@ -1,4 +1,8 @@
 
+### 6.8.2 rev86 (28 August 2026)
+
+* Centralize struct definitions (#163)
+
 ### 6.8.2 rev85 (26 August 2026)
 
 * Add comptime upcasting for some inherited types (#162)
