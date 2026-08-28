@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const QOpenGLContext = @import("libqt6").QOpenGLContext;
 const qopenglversionfunctions_enums = enums;
-const Struct_i32_i32 = extern struct { first: i32, second: i32 };
+const Struct_i32_i32 = @import("libqt6").types.Struct_i32_i32; // extern struct { first: i32, second: i32 }
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html)
 pub const QOpenGLVersionStatus = extern struct {

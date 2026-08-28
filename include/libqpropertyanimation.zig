@@ -16,7 +16,7 @@ const qabstractanimation_enums = @import("libqabstractanimation.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
-const Struct_f64_QVariant = extern struct { first: f64, second: QVariant };
+const Struct_f64_QVariant = @import("libqt6").types.Struct_f64_QVariant; // extern struct { first: f64, second: QVariant }
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html)
 pub const QPropertyAnimation = extern struct {

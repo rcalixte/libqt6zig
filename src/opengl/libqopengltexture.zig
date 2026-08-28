@@ -4,8 +4,8 @@ const QColor = @import("libqt6").QColor;
 const QImage = @import("libqt6").QImage;
 const QOpenGLPixelTransferOptions = @import("libqt6").QOpenGLPixelTransferOptions;
 const qopengltexture_enums = enums;
-const Struct_f32_f32 = extern struct { first: f32, second: f32 };
-const Struct_i32_i32 = extern struct { first: i32, second: i32 };
+const Struct_f32_f32 = @import("libqt6").types.Struct_f32_f32; // extern struct { first: f32, second: f32 }
+const Struct_i32_i32 = @import("libqt6").types.Struct_i32_i32; // extern struct { first: i32, second: i32 }
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html)
 pub const QOpenGLTexture = extern struct {

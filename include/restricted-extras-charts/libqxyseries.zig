@@ -24,7 +24,7 @@ const qxyseries_enums = enums;
 const std = @import("std");
 const Map_i32_Map_i32_QVariant = std.AutoHashMapUnmanaged(i32, Map_i32_QVariant);
 const Map_i32_QVariant = std.AutoHashMapUnmanaged(i32, QVariant);
-const Struct_f64_f64 = extern struct { first: f64, second: f64 };
+const Struct_f64_f64 = @import("libqt6").types.Struct_f64_f64; // extern struct { first: f64, second: f64 }
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html)
 pub const QXYSeries = extern struct {

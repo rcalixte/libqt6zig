@@ -5,7 +5,7 @@ const QAccessibleInterface = @import("libqt6").QAccessibleInterface;
 const QObject = @import("libqt6").QObject;
 const QTextCursor = @import("libqt6").QTextCursor;
 const qaccessible_base_enums = enums;
-const Struct_i32_i32 = extern struct { first: i32, second: i32 };
+const Struct_i32_i32 = @import("libqt6").types.Struct_i32_i32; // extern struct { first: i32, second: i32 }
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html)
 pub const QAccessible = extern struct {

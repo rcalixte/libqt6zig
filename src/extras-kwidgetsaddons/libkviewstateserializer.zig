@@ -17,7 +17,7 @@ const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const Struct_i32_i32 = extern struct { first: i32, second: i32 };
+const Struct_i32_i32 = @import("libqt6").types.Struct_i32_i32; // extern struct { first: i32, second: i32 }
 
 /// ### [Upstream resources](https://api.kde.org/kviewstateserializer.html)
 pub const KViewStateSerializer = extern struct {
