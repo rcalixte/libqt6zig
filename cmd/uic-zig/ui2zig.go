@@ -502,7 +502,7 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 				ret.WriteString(fontVal + ".setFamily(" + strconv.Quote(*prop.FontVal.Family) + ");\n")
 			}
 
-			if prop.FontVal.PointSize != nil {
+			if prop.FontVal.PointSize != nil && *prop.FontVal.PointSize > 0 {
 				ret.WriteString(fontVal + ".setPointSize(" + strconv.Itoa(*prop.FontVal.PointSize) + ");\n")
 			}
 
@@ -595,7 +595,7 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			ret.WriteString("ui." + targetName + ".setBackgroundBrush(brush" + brushNum + ");\n")
 
 		} else if prop.LocaleVal != nil {
-			ret.WriteString("const locale_" + targetName + " = qt6.QLocale.new3(qt6.qlocale_enums.Language." + prop.LocaleVal.Language + ", qt6.qlocale_enums.Country." + prop.LocaleVal.Country + ");\n")
+			ret.WriteString("const locale_" + targetName + " = qt6.QLocale.new4(qt6.qlocale_enums.Language." + prop.LocaleVal.Language + ", qt6.qlocale_enums.Country." + prop.LocaleVal.Country + ");\n")
 			ret.WriteString("defer locale_" + targetName + ".delete();\n")
 			ret.WriteString("ui." + targetName + ".setLocale(locale_" + targetName + ");\n")
 
@@ -934,7 +934,11 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 
 	for _, attr := range w.Attributes {
 		if parentClass == "QTabWidget" && attr.Name == "title" {
-			ret.WriteString(writtenString(parentName+".setTabText("+parentName+".indexOf(ui."+w.Name+"), ", generateString(attr.StringVal), ");\n", attr.StringVal.Notr, true))
+			if attr.StringVal.Notr {
+				ret.WriteString("\n_ = " + parentName + ".addTab(ui." + w.Name + ", " + generateString(attr.StringVal) + ");\n")
+			} else {
+				ret.WriteString(writtenString(parentName+".setTabText("+parentName+".indexOf(ui."+w.Name+"), ", generateString(attr.StringVal), ");\n", attr.StringVal.Notr, true))
+			}
 
 		} else if wClass == "QDockWidget" && parentClass == "QMainWindow" && attr.Name == "dockWidgetArea" {
 			ret.WriteString(parentName + ".addDockWidget(" + *attr.NumberVal + ", ui." + w.Name + ");  // qt6.qnamespace_enums.DockWidgetArea (" + *attr.NumberVal + ")\n")
@@ -1295,7 +1299,9 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 
 			} else {
 				// addTab() overload without icon
-				ret.WriteString("\n_ = ui." + w.Name + ".addTab(ui." + child.Name + `, "");` + "\n")
+				if title, ok := propertyByName(child.Attributes, "title"); ok && !title.StringVal.Notr {
+					ret.WriteString("\n_ = ui." + w.Name + ".addTab(ui." + child.Name + `, "");` + "\n")
+				}
 			}
 		}
 
@@ -1502,13 +1508,10 @@ pub fn init(ui: *` + uClass + `Ui` + maybeAllocatorParam + `, parent: anytype) v
 		ret.WriteString(sb + "\n")
 	}
 
-	tabStops := u.TabStops
-	if len(tabStops.TabStops) > 0 {
-		for i := 0; i < len(tabStops.TabStops)-1; i++ {
-			current := tabStops.TabStops[i].Name
-			next := tabStops.TabStops[i+1].Name
-			ret.WriteString("qt6.QWidget.setTabOrder(ui." + current + ", ui." + next + ");\n")
-		}
+	for i := 1; i < len(u.TabStops.TabStops); i++ {
+		previous := u.TabStops.TabStops[i-1].Name
+		current := u.TabStops.TabStops[i].Name
+		ret.WriteString("qt6.QWidget.setTabOrder(ui." + previous + ", ui." + current + ");\n")
 	}
 
 	for _, ma := range menuActions {
@@ -1541,21 +1544,19 @@ pub fn init(ui: *` + uClass + `Ui` + maybeAllocatorParam + `, parent: anytype) v
 		ret.WriteString(sd + "\n")
 	}
 
-	connections := u.Connections
-
 	maybeComment := "// "
 	if flagExtraOps.ImportName != "" {
 		maybeComment = ""
 	}
 
-	if len(connections.Connections) != 0 {
+	if len(u.Connections.Connections) != 0 {
 		if flagExtraOps.ImportName == "" {
 			ret.WriteString("\n// Uncomment the connections below when ready or regenerate with -c\n")
 		}
 		ret.WriteString("// Double-check that the connection overload variants are correct!\n")
 	}
 
-	for _, c := range connections.Connections {
+	for _, c := range u.Connections.Connections {
 		signal := splitToParens(c.Signal)
 		slot := splitToParens(c.Slot)
 
@@ -1592,6 +1593,9 @@ pub fn deinit(ui: *const ` + uClass + `Ui) void {
 		fmt.Println("\nCustom widget(s):")
 		for _, cw := range u.CustomWidgets.CustomWidgets {
 			fmt.Println("  * " + cw.Name + " (" + cw.Extends + ")")
+		}
+		if !ExtendedFlag {
+			fmt.Println("\nYou may want to use '-e' to enable extended class support.")
 		}
 	}
 
