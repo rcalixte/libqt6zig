@@ -17,8 +17,8 @@ const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
-const Struct_f64_QPointF = extern struct { first: f64, second: QPointF };
-const Struct_f64_f64 = extern struct { first: f64, second: f64 };
+const Struct_f64_QPointF = @import("libqt6").types.Struct_f64_QPointF; // extern struct { first: f64, second: QPointF }
+const Struct_f64_f64 = @import("libqt6").types.Struct_f64_f64; // extern struct { first: f64, second: f64 }
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html)
 pub const QGraphicsItemAnimation = extern struct {

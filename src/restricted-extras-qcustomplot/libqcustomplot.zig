@@ -91,7 +91,7 @@ const std = @import("std");
 const ArrayMap_f64_QColor = std.array_hash_map.Auto(f64, QColor);
 const ArrayMap_f64_constu8 = std.array_hash_map.Auto(f64, []const u8);
 const Map_i32_QCPMarginGroup = std.AutoHashMapUnmanaged(i32, QCPMarginGroup);
-const Struct_QCPDataRange_QCPDataRange = extern struct { first: QCPDataRange, second: QCPDataRange };
+const Struct_QCPDataRange_QCPDataRange = @import("libqt6").types.Struct_QCPDataRange_QCPDataRange; // extern struct { first: QCPDataRange, second: QCPDataRange }
 
 /// ### [Upstream resources](https://www.qcustomplot.com/documentation/namespaceQCP.html)
 pub const QCP = extern struct {

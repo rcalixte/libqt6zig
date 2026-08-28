@@ -4,8 +4,8 @@ const KSyntaxHighlighting__Format = @import("libqt6").KSyntaxHighlighting__Forma
 const QChar = @import("libqt6").QChar;
 const definition_enums = enums;
 const std = @import("std");
-const Struct_QChar_constu8 = struct { first: QChar, second: []const u8 };
-const Struct_constu8_constu8 = struct { first: []const u8, second: []const u8 };
+const Struct_QChar_constu8 = @import("libqt6").types.Struct_QChar_constu8; // struct { first: QChar, second: []const u8 }
+const Struct_constu8_constu8 = @import("libqt6").types.Struct_constu8_constu8; // struct { first: []const u8, second: []const u8 }
 
 /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html)
 pub const KSyntaxHighlighting__Definition = extern struct {

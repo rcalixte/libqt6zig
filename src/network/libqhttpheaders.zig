@@ -4,7 +4,7 @@ const qhttpheaders_enums = enums;
 const std = @import("std");
 const ArrayMap_u8_Sliceu8 = std.array_hash_map.String([][]u8);
 const Map_u8_Sliceu8 = std.StringHashMapUnmanaged([][]u8);
-const Struct_u8_u8 = struct { first: []u8, second: []u8 };
+const Struct_u8_u8 = @import("libqt6").types.Struct_u8_u8; // struct { first: []u8, second: []u8 }
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html)
 pub const QHttpHeaders = extern struct {

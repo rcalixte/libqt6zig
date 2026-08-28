@@ -4,7 +4,7 @@ const KGuiItem = @import("libqt6").KGuiItem;
 const QPushButton = @import("libqt6").QPushButton;
 const kstandardguiitem_enums = enums;
 const std = @import("std");
-const Struct_KGuiItem_KGuiItem = extern struct { first: KGuiItem, second: KGuiItem };
+const Struct_KGuiItem_KGuiItem = @import("libqt6").types.Struct_KGuiItem_KGuiItem; // extern struct { first: KGuiItem, second: KGuiItem }
 
 /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html)
 pub const KStandardGuiItem = extern struct {

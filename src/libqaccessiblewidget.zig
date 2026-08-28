@@ -19,7 +19,7 @@ const QWidget = @import("libqt6").QWidget;
 const QWindow = @import("libqt6").QWindow;
 const qaccessible_base_enums = @import("libqaccessible_base.zig").enums;
 const std = @import("std");
-const Struct_QAccessibleInterface_i32 = extern struct { first: QAccessibleInterface, second: i32 };
+const Struct_QAccessibleInterface_i32 = @import("libqt6").types.Struct_QAccessibleInterface_i32; // extern struct { first: QAccessibleInterface, second: i32 }
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html)
 pub const QAccessibleWidget = extern struct {

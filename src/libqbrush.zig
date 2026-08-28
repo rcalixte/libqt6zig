@@ -9,7 +9,7 @@ const QVariant = @import("libqt6").QVariant;
 const qbrush_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const std = @import("std");
-const Struct_f64_QColor = extern struct { first: f64, second: QColor };
+const Struct_f64_QColor = @import("libqt6").types.Struct_f64_QColor; // extern struct { first: f64, second: QColor }
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html)
 pub const QBrush = extern struct {

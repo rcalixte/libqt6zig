@@ -8,7 +8,7 @@ const QVariant = @import("libqt6").QVariant;
 const std = @import("std");
 const ArrayMap_constu8_QVariant = std.array_hash_map.String(QVariant);
 const Map_constu8_QVariant = std.StringHashMapUnmanaged(QVariant);
-const Struct_QCborValue_QCborValue = extern struct { first: QCborValue, second: QCborValue };
+const Struct_QCborValue_QCborValue = @import("libqt6").types.Struct_QCborValue_QCborValue; // extern struct { first: QCborValue, second: QCborValue }
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html)
 pub const QCborMap = extern struct {

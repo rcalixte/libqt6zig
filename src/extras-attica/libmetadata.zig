@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const metadata_enums = enums;
 const std = @import("std");
-const Struct_u8_u8 = struct { first: []u8, second: []u8 };
+const Struct_u8_u8 = @import("libqt6").types.Struct_u8_u8; // struct { first: []u8, second: []u8 }
 
 /// ### [Upstream resources](https://api.kde.org/attica-metadata.html)
 pub const Attica__Metadata = extern struct {

@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const QSurfaceFormat = @import("libqt6").QSurfaceFormat;
 const qsurfaceformat_enums = @import("../libqsurfaceformat.zig").enums;
-const Struct_i32_i32 = extern struct { first: i32, second: i32 };
+const Struct_i32_i32 = @import("libqt6").types.Struct_i32_i32; // extern struct { first: i32, second: i32 }
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile.html)
 pub const QOpenGLVersionProfile = extern struct {
