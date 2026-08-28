@@ -3188,7 +3188,7 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 						maybeExtern := ifv(keyType == "[]u8" || keyType == "[]const u8" || valueType == "[]u8" || valueType == "[]const u8", "", "extern ")
 						typeName := "Struct_" + mapParamToString(keyType) + "_" + mapParamToString(valueType)
 						typeDef := maybeExtern + "struct { first: " + keyType + ", second: " + valueType + " }"
-						structDef = append(structDef, "const "+typeName+" = "+typeDef+";")
+						structDef = append(structDef, "const "+typeName+` = @import("libqt6").types.`+typeName+"; // "+typeDef)
 						zigTypes[typeName] = typeDef
 					}
 
