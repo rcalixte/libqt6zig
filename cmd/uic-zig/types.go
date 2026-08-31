@@ -3,10 +3,10 @@ package main
 import "encoding/xml"
 
 type UiLayoutItem struct {
-	Row     *int `xml:"row,attr"`
-	Column  *int `xml:"column,attr"`
-	RowSpan *int `xml:"rowspan,attr"`
-	ColSpan *int `xml:"colspan,attr"`
+	Row     *int `xml:"row,attr,omitempty"`
+	Column  *int `xml:"column,attr,omitempty"`
+	RowSpan *int `xml:"rowspan,attr,omitempty"`
+	ColSpan *int `xml:"colspan,attr,omitempty"`
 
 	// A layout item either has a widget, a spacer, or another layout
 	Widget *UiWidget `xml:"widget"`
@@ -27,7 +27,10 @@ type UiLayout struct {
 }
 
 type UiPropertyContainer struct {
-	Properties []UiProperty `xml:"property"`
+	Row        *int                  `xml:"row,attr,omitempty"`
+	Column     *int                  `xml:"column,attr,omitempty"`
+	Properties []UiProperty          `xml:"property"`
+	Items      []UiPropertyContainer `xml:"item"`
 }
 
 type UiSpacer struct {
@@ -45,6 +48,7 @@ type UiWidget struct {
 	Widgets []UiWidget `xml:"widget"` // If no layout
 
 	Columns []UiPropertyContainer `xml:"column"` // e.g. for QTreeWidget
+	Rows    []UiPropertyContainer `xml:"row"`    // e.g. for QTableWidget
 	Items   []UiPropertyContainer `xml:"item"`   // e.g. for QComboBox
 
 	AddActions []UiActionReference `xml:"addaction"`
@@ -72,7 +76,7 @@ type UiString struct {
 
 type UiIcon struct {
 	ResourceFile string `xml:"resource,attr,omitempty"`
-	Theme        string `xml:"theme,attr"`
+	Theme        string `xml:"theme,attr,omitempty"`
 
 	NormalOff   *string `xml:"normaloff,omitempty"`
 	NormalOn    *string `xml:"normalon,omitempty"`
@@ -220,8 +224,8 @@ type UiConnections struct {
 type UiConnection struct {
 	Sender   string `xml:"sender"`
 	Signal   string `xml:"signal"`
-	Slot     string `xml:"slot"`
 	Receiver string `xml:"receiver"`
+	Slot     string `xml:"slot"`
 }
 
 type UiCustomWidget struct {
@@ -254,8 +258,8 @@ type UiFile struct {
 	Class         string           `xml:"class"`
 	Version       string           `xml:"version,attr"` // e.g. 4.0
 	Widget        UiWidget         `xml:"widget"`       // There's only one root widget
-	Resources     UiResources      `xml:"resources"`
-	Connections   UiConnections    `xml:"connections"`
+	Resources     UiResources      `xml:"resources,omitempty"`
+	Connections   UiConnections    `xml:"connections,omitempty"`
 	CustomWidgets UiCustomWidgets  `xml:"customwidgets,omitempty"`
 	TabStops      UiTabStops       `xml:"tabstops,omitempty"`
 	LayoutDefault *UiLayoutDefault `xml:"layoutdefault,omitempty"`

@@ -211,12 +211,11 @@ func splitTranslationComment(s string) string {
 	return s
 }
 
-func splitLastWords(s string) (string, string, string) {
+func splitLastWords(s string) (string, string) {
 	lastSpace := strings.LastIndex(s, " ")
 	prevSpace := strings.LastIndex(s[:lastSpace], " ")
 
-	last := s[lastSpace+1:]                  // Final word
 	secondLast := s[prevSpace+1 : lastSpace] // Penultimate word
 	remainder := s[:prevSpace]               // Everything before penultimate word
-	return remainder, secondLast, last
+	return remainder, secondLast
 }

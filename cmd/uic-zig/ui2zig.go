@@ -41,8 +41,17 @@ var (
 	WidgetItemsMap        = map[string][]string{}
 	WidgetItems           = []string{}
 	TableWidgetMap        = map[string]struct{}{}
-	alphabeticRegex       = regexp.MustCompile(`^[a-zA-Z]+$`)
-	zigReservedWord       = map[string]struct{}{ // not an exhaustive list
+	alphabeticRegex       = regexp.MustCompile(`^[a-zA-Z_]+$`)
+	comboWidgets          = []string{
+		"KColorCombo",
+		"KComboBox",
+		"KDateComboBox",
+		"KHistoryComboBox",
+		"QComboBox",
+		"QFontComboBox",
+		"Sonnet::DictionaryComboBox",
+	}
+	zigReservedWord = map[string]struct{}{ // not an exhaustive list
 		"addrspace": {},
 		"align":     {},
 		"allowzero": {},
@@ -69,6 +78,11 @@ var (
 		"volatile":  {},
 	}
 )
+
+type WarningContext struct {
+	NeedsWarning bool
+	Class        string
+}
 
 func collectClassNames_Widget(u *UiWidget) []string {
 	var ret []string
@@ -199,7 +213,7 @@ func processPaletteGroup(ret *strings.Builder, targetName string, groupName stri
 func getNewBrush(brushNum, style, red, green, blue, alpha string) string {
 	var newBrush string
 
-	newBrush += "const color" + brushNum + " = qt6.QColor.new13(" + red + ", " + green + ", " + blue + ", " + alpha + ");\n"
+	newBrush += "const color" + brushNum + " = qt6.QColor.new15(" + red + ", " + green + ", " + blue + ", " + alpha + ");\n"
 	newBrush += "defer color" + brushNum + ".delete();\n"
 	newBrush += "const brush" + brushNum + " = qt6.QBrush.new3(color" + brushNum + ");\n"
 	newBrush += "defer brush" + brushNum + ".delete();\n"
@@ -248,9 +262,9 @@ func renderIcon(iconVal *UiIcon, ret *strings.Builder) string {
 		} else if iconVal.ResourceFile != "" {
 			theme = strconv.Quote(theme)
 			ret.WriteString("var " + iconName + ": qt6.QIcon = undefined;\n")
-			ret.WriteString("if (qt6.QIcon.hasThemeIcon(" + theme + ")) {\n")
-			ret.WriteString(iconName + " = .fromTheme(" + theme + ");\n")
-			ret.WriteString("} else {\n")
+			ret.WriteString("if (qt6.QIcon.hasThemeIcon(" + theme + "))\n")
+			ret.WriteString(iconName + " = .fromTheme(" + theme + ")\n")
+			ret.WriteString("else {\n")
 			ret.WriteString(iconName + " = .new();\n")
 			themeIconCond = true
 		} else {
@@ -310,7 +324,7 @@ func renderIcon(iconVal *UiIcon, ret *strings.Builder) string {
 	return iconName
 }
 
-func renderProperties(properties []UiProperty, ret *strings.Builder, targetName, targetClass, parentClass string) error {
+func renderProperties(properties []UiProperty, ret *strings.Builder, targetName, targetClass, parentClass string, warningContext WarningContext) error {
 	defaultMargin := DefaultGridMargin
 	if parentClass != "" {
 		defaultMargin = DefaultChildrenMargin
@@ -465,7 +479,11 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 
 		} else if prop.IconVal != nil {
 			iconName := renderIcon(prop.IconVal, ret)
-			ret.WriteString("ui." + targetName + setterFunc + "(" + iconName + ");\n")
+			if slices.Contains(comboWidgets, targetClass) {
+				ret.WriteString("ui." + targetName + ".addItem2(" + iconName + `, "");` + "\n")
+			} else {
+				ret.WriteString("ui." + targetName + setterFunc + "(" + iconName + ");\n")
+			}
 
 		} else if prop.Name == "sizePolicy" {
 			mapKey := prop.SizePolicyVal.HSizeType + "," + prop.SizePolicyVal.VSizeType + "," + strconv.Itoa(prop.SizePolicyVal.HStretch) + "," + strconv.Itoa(prop.SizePolicyVal.VStretch)
@@ -541,21 +559,28 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			var maybeOnlyFixed string
 			if ExtendedFlag && targetClass == "KFontRequester" {
 				maybeOnlyFixed = ", false"
-			} else if !ExtendedFlag && targetClass[0] == 'K' {
-				writeFlagWarning(ret, prop.Name, targetClass)
+			} else if warningContext.NeedsWarning {
+				writeFlagWarning(ret, prop.Name, warningContext.Class)
 			}
 			ret.WriteString("ui." + targetName + ".setFont(" + fontVal + maybeOnlyFixed + ");\n")
 
-		} else if prop.Name == "iconSize" {
+		} else if prop.Name == "iconSize" || prop.Name == "gridSize" {
 			ret.WriteString("const " + targetName + "_size" + strconv.Itoa(SizeCounter) + " = qt6.QSize.new4(" + fmt.Sprintf("%d, %d", prop.SizeVal.Width, prop.SizeVal.Height) + ");\n")
 			ret.WriteString("defer " + targetName + "_size" + strconv.Itoa(SizeCounter) + ".delete();\n")
-			ret.WriteString("ui." + targetName + ".setIconSize(" + targetName + "_size" + strconv.Itoa(SizeCounter) + ");\n")
+			ret.WriteString("ui." + targetName + setterFunc + "(" + targetName + "_size" + strconv.Itoa(SizeCounter) + ");\n")
 			SizeCounter++
 
 		} else if prop.DoubleVal != nil {
 			// QDoubleSpinBox
 			// "decimals", "minimum", "maximum", "value"
-			ret.WriteString("ui." + targetName + setterFunc + "(" + *prop.DoubleVal + ");\n")
+			if prop.StdSetVal != nil && *prop.StdSetVal != "" {
+				ret.WriteString("const " + numVariantName + strconv.Itoa(VariantCounter) + " = qt6.QVariant.new6(" + *prop.DoubleVal + ");\n")
+				ret.WriteString("defer " + numVariantName + strconv.Itoa(VariantCounter) + ".delete();\n")
+				ret.WriteString("_ = ui." + targetName + ".setProperty(" + strconv.Quote(prop.Name) + ", " + numVariantName + strconv.Itoa(VariantCounter) + ");\n")
+				VariantCounter++
+			} else {
+				ret.WriteString("ui." + targetName + setterFunc + "(" + *prop.DoubleVal + ");\n")
+			}
 
 		} else if prop.SizeVal != nil {
 			// "maximumSize", "minimumSize", "baseSize"
@@ -601,14 +626,14 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 
 		} else if prop.UIntVal != nil {
 			if !ExtendedFlag {
-				writeFlagWarning(ret, prop.Name, targetClass)
+				writeFlagWarning(ret, prop.Name, warningContext.Class)
 			} else {
 				ret.WriteString("ui." + targetName + setterFunc + "(" + *prop.UIntVal + ");\n")
 			}
 
 		} else if prop.CharVal != nil {
 			if !ExtendedFlag {
-				writeFlagWarning(ret, prop.Name, targetClass)
+				writeFlagWarning(ret, prop.Name, warningContext.Class)
 			} else {
 				ret.WriteString("const " + targetName + "_qchar = qt6.QChar.new4(" + prop.CharVal.Unicode + ");\n")
 				ret.WriteString("defer " + targetName + "_qchar.delete();\n")
@@ -616,8 +641,8 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			}
 
 		} else if prop.DateVal != nil {
-			if !ExtendedFlag && targetClass[0] == 'K' {
-				writeFlagWarning(ret, prop.Name, targetClass)
+			if warningContext.NeedsWarning {
+				writeFlagWarning(ret, prop.Name, warningContext.Class)
 			} else {
 				dateName := targetName + "_date" + strconv.Itoa(DateCounter)
 				var maybeDiscard string
@@ -631,8 +656,8 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			}
 
 		} else if prop.TimeVal != nil {
-			if !ExtendedFlag && targetClass[0] == 'K' {
-				writeFlagWarning(ret, prop.Name, targetClass)
+			if warningContext.NeedsWarning {
+				writeFlagWarning(ret, prop.Name, warningContext.Class)
 			} else {
 				timeName := targetName + "_time" + strconv.Itoa(TimeCounter)
 				ret.WriteString("const " + timeName + " = qt6.QTime.new6(" + strconv.Itoa(prop.TimeVal.Hour) + ", " + strconv.Itoa(prop.TimeVal.Minute) + ", " + strconv.Itoa(prop.TimeVal.Second) + ");\n")
@@ -642,8 +667,8 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			}
 
 		} else if prop.ColorVal != nil {
-			if !ExtendedFlag && targetClass[0] == 'K' {
-				writeFlagWarning(ret, prop.Name, targetClass)
+			if warningContext.NeedsWarning {
+				writeFlagWarning(ret, prop.Name, warningContext.Class)
 			} else {
 				colorOverload := "5"
 				var maybeAlpha string
@@ -659,8 +684,8 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			}
 
 		} else if prop.StringListVal != nil {
-			if !ExtendedFlag && targetClass[0] == 'K' {
-				writeFlagWarning(ret, prop.Name, targetClass)
+			if warningContext.NeedsWarning {
+				writeFlagWarning(ret, prop.Name, warningContext.Class)
 			} else {
 				comment := " // auxiliary to qt6.QCoreApplication.translate\n"
 				var items []string
@@ -773,7 +798,7 @@ func generateLayout(l *UiLayout, parentName, parentClass string, isNestedLayout 
 
 	// Layout->Properties
 
-	err := renderProperties(l.Properties, &ret, l.Name, l.Class, parentClass)
+	err := renderProperties(l.Properties, &ret, l.Name, l.Class, parentClass, WarningContext{NeedsWarning: false, Class: ""})
 	if err != nil {
 		return "", err
 	}
@@ -922,8 +947,12 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 	}
 
 	// Properties
+	warningContext := WarningContext{
+		NeedsWarning: !ExtendedFlag && w.Class[0] == 'K',
+		Class:        w.Class,
+	}
 
-	err := renderProperties(w.Properties, &ret, w.Name, wClass, parentClass)
+	err := renderProperties(w.Properties, &ret, w.Name, wClass, parentClass, warningContext)
 	if err != nil {
 		return "", err
 	}
@@ -1010,7 +1039,7 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 				attrName = strings.ToLower(attrName[0:1]) + attrName[1:]
 				ret.WriteString("const " + boolVariantName + strconv.Itoa(VariantCounter) + " = qt6.QVariant.new" + variantOverrideNum + "(" + strconv.FormatBool(*attr.BoolVal) + ");\n")
 				ret.WriteString("defer " + boolVariantName + strconv.Itoa(VariantCounter) + ".delete();\n")
-				ret.WriteString("_ = ui." + w.Name + "." + headerType + "Header().setProperty(" + strconv.Quote(attrName) + ", " + boolVariantName + strconv.Itoa(VariantCounter) + ");\n")
+				ret.WriteString("_ = " + headerName + ".setProperty(" + strconv.Quote(attrName) + ", " + boolVariantName + strconv.Itoa(VariantCounter) + ");\n")
 				VariantCounter++
 			} else {
 				ret.WriteString(preStr + viewParam + postStr)
@@ -1095,77 +1124,9 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 		}
 	}
 
-	// Items
-
-	for itemNo, itm := range w.Items {
-		targetSelf := "ui." + w.Name
-		var isItemClass bool
-
-		switch wClass {
-		case "QListWidget":
-			targetSelf = "item" + strconv.Itoa(ItemWidgetCounter)
-			isItemClass = true
-			ret.WriteString("const " + targetSelf + " = qt6.QListWidgetItem.new();\n")
-			ret.WriteString("ui." + w.Name + ".insertItem(" + strconv.Itoa(itemNo) + ", " + targetSelf + ");\n")
-		case "QTreeWidget":
-			targetSelf = "item" + strconv.Itoa(ItemWidgetCounter)
-			isItemClass = true
-			ret.WriteString("const " + targetSelf + " = qt6.QTreeWidgetItem.new3(ui." + w.Name + ");\n")
-		case "QTableWidget":
-			isItemClass = true
-		}
-
-		if !isItemClass {
-			ret.WriteString("ui." + w.Name + ".addItem(" + `"");` + "\n")
-		}
-
-		// Check for a "text" property and update the item's text
-		// Do this as a 2nd step so that the setItemText can be trapped for retranslate()
-		for _, prop := range itm.Properties {
-			switch prop.Name {
-			case "text":
-				if isItemClass {
-					var maybeItemNo string
-					if wClass == "QTreeWidget" {
-						// QTreeWidgetItem
-						maybeItemNo = ", " + strconv.Itoa(itemNo)
-					}
-					if !prop.StringVal.Notr {
-						ret.WriteString("const " + targetSelf + " = ui." + w.Name + ".item(" + strconv.Itoa(ItemWidgetCounter) + "); // auxiliary to qt6.QCoreApplication.translate " + w.Name + " " + sanitizeLowerName(wClass) + "\n")
-					}
-					ret.WriteString(writtenString(targetSelf+maybeItemNo+".setText(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
-				} else {
-					ret.WriteString(writtenString(targetSelf+".setItemText("+strconv.Itoa(itemNo)+", ", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
-				}
-			case "icon":
-				iconName := renderIcon(prop.IconVal, &ret)
-				ret.WriteString(targetSelf + ".setIcon(" + iconName + ");\n")
-			case "checkState":
-				ret.WriteString(targetSelf + ".setCheckState(qt6.qnamespace_enums.CheckState." + *prop.EnumVal + ");\n")
-			case "flags":
-				parts := strings.Split(*prop.SetVal, "|")
-				for i, p := range parts {
-					parts[i] = "qt6.qnamespace_enums.ItemFlag." + p
-				}
-
-				var emit string
-				if len(parts) > 0 {
-					emit = strings.Join(parts, "|")
-				}
-				ret.WriteString(targetSelf + ".setFlags(" + emit + ");\n")
-			default:
-				ret.WriteString("// UIC: no handler for item property '" + prop.Name + "'\n")
-			}
-		}
-
-		if isItemClass {
-			ItemWidgetCounter++
-		}
-	}
-
 	// Columns
 
-	isColumnSet := false
+	isColumnSet, isRowSet := false, false
 	for colNo, col := range w.Columns {
 		isHeaderSet := false
 		for _, prop := range col.Properties {
@@ -1186,26 +1147,111 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 				switch wClass {
 				case "QTreeWidget":
 					lookupKey = w.Name
-					itemName = "ui_" + w.Name + "_item"
+					itemName = "ui_" + w.Name + "_colitem"
 					setHeaderMethod = "ui." + w.Name + ".setHeaderItem(" + itemName + ");\n"
 					setItemMethod = writtenString(itemName+".set"+methodName+"("+colToStr+", ", textVal, ");", prop.StringVal.Notr, maybeComment == "")
 					translateItemMethod = "const " + itemName + " = ui." + w.Name + ".headerItem();"
 				default:
-					lookupKey = w.Name + "_" + colToStr
-					itemName = "ui_" + w.Name + "_item" + colToStr
-					setColumnMethod = "ui." + w.Name + ".setColumnCount(" + strconv.Itoa(len(w.Columns)) + ");\n"
+					lookupKey = w.Name + "_col" + colToStr
+					itemName = "ui_" + w.Name + "_colitem" + colToStr
+					setColumnMethod = "if (ui." + w.Name + ".columnCount() < " + strconv.Itoa(len(w.Columns)) + ")\n"
+					setColumnMethod += "ui." + w.Name + ".setColumnCount(" + strconv.Itoa(len(w.Columns)) + ");\n"
 					setHeaderMethod = "ui." + w.Name + ".setHorizontalHeaderItem(" + colToStr + ", " + itemName + ");\n"
 					setItemMethod = writtenString(itemName+".set"+methodName+"(", textVal, ");", prop.StringVal.Notr, maybeComment == "")
 					translateItemMethod = "const " + itemName + " = ui." + w.Name + ".horizontalHeaderItem(" + colToStr + ");"
 				}
 
-				wClassZig := "qt6." + strings.ReplaceAll(wClass, "::", "__")
-				newItem := "const " + itemName + " = " + wClassZig + "Item.new();\n"
-
-				if !isColumnSet && setColumnMethod != "" {
+				if !isColumnSet && len(w.Columns) > 0 && setColumnMethod != "" {
 					ret.WriteString(setColumnMethod)
 					isColumnSet = true
 				}
+
+				wClassZig := "qt6." + strings.ReplaceAll(wClass, "::", "__")
+				newItem := "const " + itemName + " = " + wClassZig + "Item.new();\n"
+
+				if _, ok := WidgetItemsMap[lookupKey]; !ok {
+					if maybeComment == "" {
+						ret.WriteString(newItem)
+						ret.WriteString(setHeaderMethod)
+						isHeaderSet = true
+					} else {
+						if wClass != "QTreeWidget" {
+							ret.WriteString(newItem)
+							ret.WriteString(setHeaderMethod)
+							isHeaderSet = true
+						}
+						if prop.StringVal.Value != "" {
+							WidgetItems = append(WidgetItems, lookupKey)
+							WidgetItemsMap[lookupKey] = append(WidgetItemsMap[lookupKey], strings.TrimSpace(translateItemMethod))
+						}
+					}
+				}
+
+				switch maybeComment {
+				case "":
+					if !isHeaderSet {
+						ret.WriteString(newItem)
+						ret.WriteString(setHeaderMethod)
+						isHeaderSet = true
+					}
+					ret.WriteString(setItemMethod)
+				default:
+					if prop.StringVal.Value != "" {
+						WidgetItemsMap[lookupKey] = append(WidgetItemsMap[lookupKey], strings.TrimSpace(setItemMethod))
+					}
+				}
+
+			default:
+				ret.WriteString("// UIC: no handler for column property '" + prop.Name + "'\n")
+			}
+		}
+	}
+
+	// Rows
+
+	for rowNo, row := range w.Rows {
+		isHeaderSet := false
+		for _, prop := range row.Properties {
+			methodName := strings.ToUpper(prop.Name[0:1]) + prop.Name[1:]
+
+			switch prop.Name {
+			case "text", "toolTip":
+				maybeComment := " // auxiliary to qt6.QCoreApplication.translate"
+				textVal := generateString(prop.StringVal)
+				if !strings.Contains(textVal, "qt6.QCoreApplication.translate") || prop.StringVal.Notr {
+					maybeComment = ""
+				}
+
+				rowToStr := strconv.Itoa(rowNo)
+
+				var lookupKey, itemName, setRowMethod, setHeaderMethod, setItemMethod, translateItemMethod string
+
+				switch wClass {
+				case "QTreeWidget":
+					lookupKey = w.Name
+					itemName = "ui_" + w.Name + "_rowitem"
+					setItemMethod = writtenString(itemName+".set"+methodName+"("+rowToStr+", ", textVal, ");", prop.StringVal.Notr, maybeComment == "")
+					translateItemMethod = "const " + itemName + " = ui." + w.Name + ".headerItem();"
+				default:
+					lookupKey = w.Name + "_row" + rowToStr
+					itemName = "ui_" + w.Name + "_rowitem" + rowToStr
+					setHeaderMethod = "ui." + w.Name + ".setVerticalHeaderItem(" + rowToStr + ", " + itemName + ");\n"
+					setItemMethod = writtenString(itemName+".set"+methodName+"(", textVal, ");", prop.StringVal.Notr, maybeComment == "")
+					translateItemMethod = "const " + itemName + " = ui." + w.Name + ".verticalHeaderItem(" + rowToStr + ");"
+				}
+
+				if wClass == "QTableWidget" {
+					setRowMethod = "if (ui." + w.Name + ".rowCount() < " + strconv.Itoa(len(w.Rows)) + ")\n"
+					setRowMethod += "ui." + w.Name + ".setRowCount(" + strconv.Itoa(len(w.Rows)) + ");\n"
+				}
+
+				if !isRowSet && len(w.Rows) > 0 && setRowMethod != "" {
+					ret.WriteString(setRowMethod)
+					isRowSet = true
+				}
+
+				wClassZig := "qt6." + strings.ReplaceAll(wClass, "::", "__")
+				newItem := "const " + itemName + " = " + wClassZig + "Item.new();\n"
 
 				if _, ok := WidgetItemsMap[lookupKey]; !ok {
 					if maybeComment == "" {
@@ -1219,7 +1265,7 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 							isHeaderSet = true
 						}
 						WidgetItems = append(WidgetItems, lookupKey)
-						WidgetItemsMap[lookupKey] = append(WidgetItemsMap[lookupKey], translateItemMethod)
+						WidgetItemsMap[lookupKey] = append(WidgetItemsMap[lookupKey], strings.TrimSpace(translateItemMethod))
 					}
 				}
 
@@ -1232,12 +1278,126 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 					}
 					ret.WriteString(setItemMethod)
 				default:
-					WidgetItemsMap[lookupKey] = append(WidgetItemsMap[lookupKey], setItemMethod)
+					WidgetItemsMap[lookupKey] = append(WidgetItemsMap[lookupKey], strings.TrimSpace(setItemMethod))
 				}
 
 			default:
-				ret.WriteString("// UIC: no handler for column property '" + prop.Name + "'\n")
+				ret.WriteString("// UIC: no handler for row property '" + prop.Name + "'\n")
 			}
+		}
+	}
+
+	// Items
+
+	for itemNo, itm := range w.Items {
+		targetSelf := "ui." + w.Name
+		var isItemClass bool
+
+		switch wClass {
+		case "QListWidget":
+			targetSelf = "item" + strconv.Itoa(ItemWidgetCounter)
+			isItemClass = true
+			ret.WriteString("const " + targetSelf + " = qt6.QListWidgetItem.new();\n")
+			ret.WriteString("ui." + w.Name + ".insertItem(" + strconv.Itoa(itemNo) + ", " + targetSelf + ");\n")
+		case "QTreeWidget":
+			targetSelf = "item" + strconv.Itoa(ItemWidgetCounter)
+			isItemClass = true
+			assignStr := "_"
+			for i := range itm.Properties {
+				if itm.Properties[i].Name == "text" && itm.Properties[i].StringVal.Notr || len(itm.Items) > 0 {
+					assignStr = "const " + targetSelf
+					break
+				}
+			}
+			ret.WriteString(assignStr + " = qt6.QTreeWidgetItem.new3(ui." + w.Name + ");\n")
+		case "QTableWidget":
+			targetSelf = "item" + strconv.Itoa(ItemWidgetCounter)
+			isItemClass = true
+			ret.WriteString("const " + targetSelf + " = qt6.QTableWidgetItem.new();\n")
+			ret.WriteString("ui." + w.Name + ".setItem(" + strconv.Itoa(*itm.Row) + ", " + strconv.Itoa(*itm.Column) + ", " + targetSelf + ");\n")
+		default:
+			ret.WriteString("ui." + w.Name + ".addItem(" + `"");` + "\n")
+		}
+
+		// Check for a "text" property and update the item's text
+		// Do this as a 2nd step so that the setItemText can be trapped for retranslate()
+		seenItems := map[string]struct{}{}
+		itemTextNum := 0
+		for _, prop := range itm.Properties {
+			switch prop.Name {
+			case "text":
+				if isItemClass {
+					var maybeItemNo, maybeTableItemNo string
+					methodName := "item"
+					selfStr := "const " + targetSelf
+					itemStr := targetSelf
+					switch wClass {
+					case "QTreeWidget":
+						// QTreeWidgetItem
+						methodName = "topLevelItem"
+						maybeItemNo = strconv.Itoa(itemTextNum) + ", "
+						itemTextNum++
+						if itemTextNum > len(w.Columns) {
+							itemTextNum = 0
+						}
+					case "QTableWidget":
+						// QTableWidgetItem
+						selfStr = "const item" + strconv.Itoa(ItemWidgetCounter)
+						maybeTableItemNo = strconv.Itoa(itemTextNum) + ", "
+						itemStr = "item" + strconv.Itoa(ItemWidgetCounter)
+					}
+					if !prop.StringVal.Notr {
+						if _, ok := seenItems[targetSelf]; !ok {
+							seenItems[targetSelf] = struct{}{}
+							ret.WriteString(selfStr + " = ui." + w.Name + "." + methodName + "(" + maybeTableItemNo + strconv.Itoa(ItemWidgetCounter) + "); // auxiliary to qt6.QCoreApplication.translate " + w.Name + " " + sanitizeLowerName(wClass) + "\n")
+						}
+					}
+					ret.WriteString(writtenString(itemStr+".setText("+maybeItemNo, generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
+				} else {
+					ret.WriteString(writtenString(targetSelf+".setItemText("+strconv.Itoa(itemNo)+", ", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
+				}
+			case "icon":
+				iconName := renderIcon(prop.IconVal, &ret)
+				if slices.Contains(comboWidgets, wClass) {
+					ret.WriteString(targetSelf + ".addItem2(" + iconName + `, "");` + "\n")
+				} else {
+					ret.WriteString(targetSelf + ".setIcon(" + iconName + ");\n")
+				}
+			case "checkState":
+				ret.WriteString(targetSelf + ".setCheckState(qt6.qnamespace_enums.CheckState." + *prop.EnumVal + ");\n")
+			case "flags":
+				parts := strings.Split(*prop.SetVal, "|")
+				for i, p := range parts {
+					parts[i] = "qt6.qnamespace_enums.ItemFlag." + p
+				}
+
+				var emit string
+				if len(parts) > 0 {
+					emit = strings.Join(parts, "|")
+				}
+				ret.WriteString(targetSelf + ".setFlags(" + emit + ");\n")
+			default:
+				ret.WriteString("// UIC: no handler for item property '" + prop.Name + "'\n")
+			}
+		}
+
+		for i, item := range itm.Items {
+			assignStr := "_"
+			itemName := targetSelf + "_item" + strconv.Itoa(i)
+			for j, prop := range item.Properties {
+				if prop.Name == "text" && prop.StringVal.Notr {
+					assignStr = "const " + itemName
+				}
+				ret.WriteString(assignStr + " = qt6.QTreeWidgetItem.new6(" + targetSelf + ");\n")
+				if !prop.StringVal.Notr {
+					ret.WriteString("const " + itemName + " = " + targetSelf + ".child(" + strconv.Itoa(i) + "); // auxiliary to qt6.QCoreApplication.translate " + w.Name + " " + sanitizeLowerName(wClass) + "\n")
+				}
+				ret.WriteString(writtenString(itemName+".setText("+strconv.Itoa(j)+", ", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
+			}
+		}
+
+		if isItemClass {
+			ItemWidgetCounter++
 		}
 	}
 
@@ -1428,13 +1588,13 @@ func generate(goGenerateArgs string, flagExtraOps UiFlagOptions, u UiFile) ([]by
 	var translateFunc, setBuddy, setCurrentRow, setCurrentIndex, setDefault, menuActions, newFuncBody, sortingBlockEnds []string
 	var foundWidgetItem bool
 	var lastParentItem string
-	for _, line := range strings.Split(nest, "\n") {
+	for line := range strings.SplitSeq(nest, "\n") {
 		if strings.Contains(line, "qt6.QCoreApplication.translate") {
 			if strings.Contains(line, "const item") {
-				retLine, parentItem, _ := splitLastWords(line)
+				retLine, parentItem := splitLastWords(line)
 				line = retLine
 				if lastParentItem != parentItem && !foundWidgetItem {
-					sortingBlockBegin := "const " + parentItem + "_sorting_enabled = ui." + parentItem + ".isSortingEnabled();\n"
+					sortingBlockBegin := "\nconst " + parentItem + "_sorting_enabled = ui." + parentItem + ".isSortingEnabled();\n"
 					sortingBlockBegin += "ui." + parentItem + ".setSortingEnabled(false);"
 					translateFunc = append(translateFunc, sortingBlockBegin)
 					sortingBlockEnds = append(sortingBlockEnds, "ui."+parentItem+".setSortingEnabled("+parentItem+"_sorting_enabled);\n")
@@ -1562,7 +1722,7 @@ pub fn init(ui: *` + uClass + `Ui` + maybeAllocatorParam + `, parent: anytype) v
 
 		qtZigMethod := "on" + strings.ToUpper(signal[0:1]) + signal[1:]
 
-		ret.WriteString(maybeComment + "ui." + c.Sender + "." + qtZigMethod + "(" + uClass + "UiConnections." + c.Sender + "_" + slot + ");\n")
+		ret.WriteString(maybeComment + "ui." + c.Sender + "." + qtZigMethod + "(" + uClass + "UiConnections." + c.Sender + slot + ");\n")
 	}
 
 	ret.WriteString(`
