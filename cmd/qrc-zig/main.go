@@ -88,6 +88,8 @@ func QrcExec() error {
 	}
 
 	if varName != DefaultVariableName {
+		sanitize := strings.NewReplacer(":", "_", "-", "_")
+		varName = sanitize.Replace(varName)
 		generate += " -v " + strconv.Quote(varName)
 	}
 
