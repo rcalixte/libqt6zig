@@ -35,6 +35,7 @@ QGeoCodingManagerEngine* QGeoCodingManagerEngine_new2(const libqt_map /* of libq
 QMetaObject* QGeoCodingManagerEngine_MetaObject(const QGeoCodingManagerEngine* self);
 void* QGeoCodingManagerEngine_Metacast(QGeoCodingManagerEngine* self, const char* param1);
 int QGeoCodingManagerEngine_Metacall(QGeoCodingManagerEngine* self, int param1, int param2, void** param3);
+libqt_string QGeoCodingManagerEngine_Tr(const char* s);
 libqt_string QGeoCodingManagerEngine_ManagerName(const QGeoCodingManagerEngine* self);
 int QGeoCodingManagerEngine_ManagerVersion(const QGeoCodingManagerEngine* self);
 QGeoCodeReply* QGeoCodingManagerEngine_Geocode(QGeoCodingManagerEngine* self, const QGeoAddress* address, const QGeoShape* bounds);
@@ -46,6 +47,8 @@ void QGeoCodingManagerEngine_Finished(QGeoCodingManagerEngine* self, QGeoCodeRep
 void QGeoCodingManagerEngine_Connect_Finished(QGeoCodingManagerEngine* self, intptr_t slot);
 void QGeoCodingManagerEngine_ErrorOccurred(QGeoCodingManagerEngine* self, QGeoCodeReply* reply, int errorVal);
 void QGeoCodingManagerEngine_Connect_ErrorOccurred(QGeoCodingManagerEngine* self, intptr_t slot);
+libqt_string QGeoCodingManagerEngine_Tr2(const char* s, const char* c);
+libqt_string QGeoCodingManagerEngine_Tr3(const char* s, const char* c, int n);
 void QGeoCodingManagerEngine_ErrorOccurred3(QGeoCodingManagerEngine* self, QGeoCodeReply* reply, int errorVal, const libqt_string errorString);
 void QGeoCodingManagerEngine_Connect_ErrorOccurred3(QGeoCodingManagerEngine* self, intptr_t slot);
 void QGeoCodingManagerEngine_OnMetaObject(const QGeoCodingManagerEngine* self, intptr_t slot);

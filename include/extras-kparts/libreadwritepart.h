@@ -66,6 +66,7 @@ KParts__ReadWritePart* KParts__ReadWritePart_new3(QObject* parent, const KPlugin
 QMetaObject* KParts__ReadWritePart_MetaObject(const KParts__ReadWritePart* self);
 void* KParts__ReadWritePart_Metacast(KParts__ReadWritePart* self, const char* param1);
 int KParts__ReadWritePart_Metacall(KParts__ReadWritePart* self, int param1, int param2, void** param3);
+libqt_string KParts__ReadWritePart_Tr(const char* s);
 bool KParts__ReadWritePart_IsReadWrite(const KParts__ReadWritePart* self);
 void KParts__ReadWritePart_SetReadWrite(KParts__ReadWritePart* self, bool readwrite);
 bool KParts__ReadWritePart_IsModified(const KParts__ReadWritePart* self);
@@ -81,6 +82,8 @@ bool KParts__ReadWritePart_Save(KParts__ReadWritePart* self);
 bool KParts__ReadWritePart_WaitSaveComplete(KParts__ReadWritePart* self);
 bool KParts__ReadWritePart_SaveFile(KParts__ReadWritePart* self);
 bool KParts__ReadWritePart_SaveToUrl(KParts__ReadWritePart* self);
+libqt_string KParts__ReadWritePart_Tr2(const char* s, const char* c);
+libqt_string KParts__ReadWritePart_Tr3(const char* s, const char* c, int n);
 void KParts__ReadWritePart_OnMetaObject(const KParts__ReadWritePart* self, intptr_t slot);
 QMetaObject* KParts__ReadWritePart_SuperMetaObject(const KParts__ReadWritePart* self);
 void KParts__ReadWritePart_OnMetacast(KParts__ReadWritePart* self, intptr_t slot);

@@ -37,6 +37,7 @@ typedef struct QPlaceSearchSuggestionReply QPlaceSearchSuggestionReply;
 QMetaObject* QPlaceManager_MetaObject(const QPlaceManager* self);
 void* QPlaceManager_Metacast(QPlaceManager* self, const char* param1);
 int QPlaceManager_Metacall(QPlaceManager* self, int param1, int param2, void** param3);
+libqt_string QPlaceManager_Tr(const char* s);
 libqt_string QPlaceManager_ManagerName(const QPlaceManager* self);
 int QPlaceManager_ManagerVersion(const QPlaceManager* self);
 QPlaceDetailsReply* QPlaceManager_GetPlaceDetails(const QPlaceManager* self, const libqt_string placeId);
@@ -75,6 +76,8 @@ void QPlaceManager_CategoryRemoved(QPlaceManager* self, const libqt_string categ
 void QPlaceManager_Connect_CategoryRemoved(QPlaceManager* self, intptr_t slot);
 void QPlaceManager_DataChanged(QPlaceManager* self);
 void QPlaceManager_Connect_DataChanged(QPlaceManager* self, intptr_t slot);
+libqt_string QPlaceManager_Tr2(const char* s, const char* c);
+libqt_string QPlaceManager_Tr3(const char* s, const char* c, int n);
 QPlaceIdReply* QPlaceManager_SaveCategory2(QPlaceManager* self, const QPlaceCategory* category, const libqt_string parentId);
 libqt_list /* of libqt_string */ QPlaceManager_ChildCategoryIds1(const QPlaceManager* self, const libqt_string parentId);
 libqt_list /* of QPlaceCategory* */ QPlaceManager_ChildCategories1(const QPlaceManager* self, const libqt_string parentId);

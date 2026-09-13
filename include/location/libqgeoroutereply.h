@@ -31,6 +31,7 @@ QGeoRouteReply* QGeoRouteReply_new2(int errorVal, const libqt_string errorString
 QMetaObject* QGeoRouteReply_MetaObject(const QGeoRouteReply* self);
 void* QGeoRouteReply_Metacast(QGeoRouteReply* self, const char* param1);
 int QGeoRouteReply_Metacall(QGeoRouteReply* self, int param1, int param2, void** param3);
+libqt_string QGeoRouteReply_Tr(const char* s);
 bool QGeoRouteReply_IsFinished(const QGeoRouteReply* self);
 int QGeoRouteReply_Error(const QGeoRouteReply* self);
 libqt_string QGeoRouteReply_ErrorString(const QGeoRouteReply* self);
@@ -43,6 +44,8 @@ void QGeoRouteReply_Aborted(QGeoRouteReply* self);
 void QGeoRouteReply_Connect_Aborted(QGeoRouteReply* self, intptr_t slot);
 void QGeoRouteReply_ErrorOccurred(QGeoRouteReply* self, int errorVal);
 void QGeoRouteReply_Connect_ErrorOccurred(QGeoRouteReply* self, intptr_t slot);
+libqt_string QGeoRouteReply_Tr2(const char* s, const char* c);
+libqt_string QGeoRouteReply_Tr3(const char* s, const char* c, int n);
 void QGeoRouteReply_ErrorOccurred2(QGeoRouteReply* self, int errorVal, const libqt_string errorString);
 void QGeoRouteReply_Connect_ErrorOccurred2(QGeoRouteReply* self, intptr_t slot);
 void QGeoRouteReply_OnMetaObject(const QGeoRouteReply* self, intptr_t slot);

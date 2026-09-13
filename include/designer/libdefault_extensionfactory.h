@@ -33,9 +33,12 @@ QExtensionFactory* QExtensionFactory_FromQAbstractExtensionFactory(QAbstractExte
 QMetaObject* QExtensionFactory_MetaObject(const QExtensionFactory* self);
 void* QExtensionFactory_Metacast(QExtensionFactory* self, const char* param1);
 int QExtensionFactory_Metacall(QExtensionFactory* self, int param1, int param2, void** param3);
+libqt_string QExtensionFactory_Tr(const char* s);
 QObject* QExtensionFactory_Extension(const QExtensionFactory* self, QObject* object, const libqt_string iid);
 QExtensionManager* QExtensionFactory_ExtensionManager(const QExtensionFactory* self);
 QObject* QExtensionFactory_CreateExtension(const QExtensionFactory* self, QObject* object, const libqt_string iid, QObject* parent);
+libqt_string QExtensionFactory_Tr2(const char* s, const char* c);
+libqt_string QExtensionFactory_Tr3(const char* s, const char* c, int n);
 void QExtensionFactory_OnMetaObject(const QExtensionFactory* self, intptr_t slot);
 QMetaObject* QExtensionFactory_SuperMetaObject(const QExtensionFactory* self);
 void QExtensionFactory_OnMetacast(QExtensionFactory* self, intptr_t slot);

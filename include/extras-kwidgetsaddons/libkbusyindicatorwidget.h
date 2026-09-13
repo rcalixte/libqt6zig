@@ -55,6 +55,7 @@ KBusyIndicatorWidget* KBusyIndicatorWidget_new2();
 QMetaObject* KBusyIndicatorWidget_MetaObject(const KBusyIndicatorWidget* self);
 void* KBusyIndicatorWidget_Metacast(KBusyIndicatorWidget* self, const char* param1);
 int KBusyIndicatorWidget_Metacall(KBusyIndicatorWidget* self, int param1, int param2, void** param3);
+libqt_string KBusyIndicatorWidget_Tr(const char* s);
 QSize* KBusyIndicatorWidget_MinimumSizeHint(const KBusyIndicatorWidget* self);
 bool KBusyIndicatorWidget_IsRunning(const KBusyIndicatorWidget* self);
 void KBusyIndicatorWidget_Start(KBusyIndicatorWidget* self);
@@ -65,6 +66,8 @@ void KBusyIndicatorWidget_HideEvent(KBusyIndicatorWidget* self, QHideEvent* even
 void KBusyIndicatorWidget_ResizeEvent(KBusyIndicatorWidget* self, QResizeEvent* event);
 void KBusyIndicatorWidget_PaintEvent(KBusyIndicatorWidget* self, QPaintEvent* param1);
 bool KBusyIndicatorWidget_Event(KBusyIndicatorWidget* self, QEvent* event);
+libqt_string KBusyIndicatorWidget_Tr2(const char* s, const char* c);
+libqt_string KBusyIndicatorWidget_Tr3(const char* s, const char* c, int n);
 void KBusyIndicatorWidget_SetRunning1(KBusyIndicatorWidget* self, const bool enable);
 void KBusyIndicatorWidget_OnMetaObject(const KBusyIndicatorWidget* self, intptr_t slot);
 QMetaObject* KBusyIndicatorWidget_SuperMetaObject(const KBusyIndicatorWidget* self);

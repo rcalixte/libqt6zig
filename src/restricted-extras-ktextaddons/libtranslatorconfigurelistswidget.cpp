@@ -57,12 +57,48 @@ int TextTranslator__TranslatorConfigureListsWidget_Metacall(TextTranslator__Tran
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string TextTranslator__TranslatorConfigureListsWidget_Tr(const char* s) {
+    auto _ret = TextTranslator::TranslatorConfigureListsWidget::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void TextTranslator__TranslatorConfigureListsWidget_Save(TextTranslator__TranslatorConfigureListsWidget* self) {
     self->save();
 }
 
 void TextTranslator__TranslatorConfigureListsWidget_Load(TextTranslator__TranslatorConfigureListsWidget* self) {
     self->load();
+}
+
+libqt_string TextTranslator__TranslatorConfigureListsWidget_Tr2(const char* s, const char* c) {
+    auto _ret = TextTranslator::TranslatorConfigureListsWidget::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string TextTranslator__TranslatorConfigureListsWidget_Tr3(const char* s, const char* c, int n) {
+    auto _ret = TextTranslator::TranslatorConfigureListsWidget::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

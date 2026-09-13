@@ -60,6 +60,7 @@ TextAddonsWidgets__SlideContainer* TextAddonsWidgets__SlideContainer_new2();
 QMetaObject* TextAddonsWidgets__SlideContainer_MetaObject(const TextAddonsWidgets__SlideContainer* self);
 void* TextAddonsWidgets__SlideContainer_Metacast(TextAddonsWidgets__SlideContainer* self, const char* param1);
 int TextAddonsWidgets__SlideContainer_Metacall(TextAddonsWidgets__SlideContainer* self, int param1, int param2, void** param3);
+libqt_string TextAddonsWidgets__SlideContainer_Tr(const char* s);
 QWidget* TextAddonsWidgets__SlideContainer_Content(const TextAddonsWidgets__SlideContainer* self);
 void TextAddonsWidgets__SlideContainer_SetContent(TextAddonsWidgets__SlideContainer* self, QWidget* content);
 QSize* TextAddonsWidgets__SlideContainer_SizeHint(const TextAddonsWidgets__SlideContainer* self);
@@ -74,6 +75,8 @@ void TextAddonsWidgets__SlideContainer_SlidedOut(TextAddonsWidgets__SlideContain
 void TextAddonsWidgets__SlideContainer_Connect_SlidedOut(TextAddonsWidgets__SlideContainer* self, intptr_t slot);
 void TextAddonsWidgets__SlideContainer_ResizeEvent(TextAddonsWidgets__SlideContainer* self, QResizeEvent* param1);
 bool TextAddonsWidgets__SlideContainer_EventFilter(TextAddonsWidgets__SlideContainer* self, QObject* param1, QEvent* event);
+libqt_string TextAddonsWidgets__SlideContainer_Tr2(const char* s, const char* c);
+libqt_string TextAddonsWidgets__SlideContainer_Tr3(const char* s, const char* c, int n);
 void TextAddonsWidgets__SlideContainer_OnMetaObject(const TextAddonsWidgets__SlideContainer* self, intptr_t slot);
 QMetaObject* TextAddonsWidgets__SlideContainer_SuperMetaObject(const TextAddonsWidgets__SlideContainer* self);
 void TextAddonsWidgets__SlideContainer_OnMetacast(TextAddonsWidgets__SlideContainer* self, intptr_t slot);

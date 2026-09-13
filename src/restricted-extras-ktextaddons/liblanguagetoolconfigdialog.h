@@ -59,6 +59,9 @@ TextGrammarCheck__LanguageToolConfigDialog* TextGrammarCheck__LanguageToolConfig
 QMetaObject* TextGrammarCheck__LanguageToolConfigDialog_MetaObject(const TextGrammarCheck__LanguageToolConfigDialog* self);
 void* TextGrammarCheck__LanguageToolConfigDialog_Metacast(TextGrammarCheck__LanguageToolConfigDialog* self, const char* param1);
 int TextGrammarCheck__LanguageToolConfigDialog_Metacall(TextGrammarCheck__LanguageToolConfigDialog* self, int param1, int param2, void** param3);
+libqt_string TextGrammarCheck__LanguageToolConfigDialog_Tr(const char* s);
+libqt_string TextGrammarCheck__LanguageToolConfigDialog_Tr2(const char* s, const char* c);
+libqt_string TextGrammarCheck__LanguageToolConfigDialog_Tr3(const char* s, const char* c, int n);
 void TextGrammarCheck__LanguageToolConfigDialog_OnMetaObject(const TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot);
 QMetaObject* TextGrammarCheck__LanguageToolConfigDialog_SuperMetaObject(const TextGrammarCheck__LanguageToolConfigDialog* self);
 void TextGrammarCheck__LanguageToolConfigDialog_OnMetacast(TextGrammarCheck__LanguageToolConfigDialog* self, intptr_t slot);

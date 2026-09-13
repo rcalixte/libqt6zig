@@ -59,6 +59,7 @@ KParts__Part* KParts__Part_FromKParts__PartBase(KParts__PartBase* _kparts__partb
 QMetaObject* KParts__Part_MetaObject(const KParts__Part* self);
 void* KParts__Part_Metacast(KParts__Part* self, const char* param1);
 int KParts__Part_Metacall(KParts__Part* self, int param1, int param2, void** param3);
+libqt_string KParts__Part_Tr(const char* s);
 QWidget* KParts__Part_Widget(KParts__Part* self);
 void KParts__Part_SetManager(KParts__Part* self, KParts__PartManager* manager);
 KParts__PartManager* KParts__Part_Manager(const KParts__Part* self);
@@ -74,6 +75,8 @@ void KParts__Part_SetWidget(KParts__Part* self, QWidget* widget);
 void KParts__Part_CustomEvent(KParts__Part* self, QEvent* event);
 void KParts__Part_PartActivateEvent(KParts__Part* self, KParts__PartActivateEvent* event);
 void KParts__Part_GuiActivateEvent(KParts__Part* self, KParts__GUIActivateEvent* event);
+libqt_string KParts__Part_Tr2(const char* s, const char* c);
+libqt_string KParts__Part_Tr3(const char* s, const char* c, int n);
 void KParts__Part_OnMetaObject(const KParts__Part* self, intptr_t slot);
 QMetaObject* KParts__Part_SuperMetaObject(const KParts__Part* self);
 void KParts__Part_OnMetacast(KParts__Part* self, intptr_t slot);

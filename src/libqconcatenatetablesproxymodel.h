@@ -36,6 +36,7 @@ QConcatenateTablesProxyModel* QConcatenateTablesProxyModel_new2(QObject* parent)
 QMetaObject* QConcatenateTablesProxyModel_MetaObject(const QConcatenateTablesProxyModel* self);
 void* QConcatenateTablesProxyModel_Metacast(QConcatenateTablesProxyModel* self, const char* param1);
 int QConcatenateTablesProxyModel_Metacall(QConcatenateTablesProxyModel* self, int param1, int param2, void** param3);
+libqt_string QConcatenateTablesProxyModel_Tr(const char* s);
 libqt_list /* of QAbstractItemModel* */ QConcatenateTablesProxyModel_SourceModels(const QConcatenateTablesProxyModel* self);
 void QConcatenateTablesProxyModel_AddSourceModel(QConcatenateTablesProxyModel* self, QAbstractItemModel* sourceModel);
 void QConcatenateTablesProxyModel_RemoveSourceModel(QConcatenateTablesProxyModel* self, QAbstractItemModel* sourceModel);
@@ -56,6 +57,8 @@ QMimeData* QConcatenateTablesProxyModel_MimeData(const QConcatenateTablesProxyMo
 bool QConcatenateTablesProxyModel_CanDropMimeData(const QConcatenateTablesProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent);
 bool QConcatenateTablesProxyModel_DropMimeData(QConcatenateTablesProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent);
 QSize* QConcatenateTablesProxyModel_Span(const QConcatenateTablesProxyModel* self, const QModelIndex* index);
+libqt_string QConcatenateTablesProxyModel_Tr2(const char* s, const char* c);
+libqt_string QConcatenateTablesProxyModel_Tr3(const char* s, const char* c, int n);
 void QConcatenateTablesProxyModel_OnMetaObject(const QConcatenateTablesProxyModel* self, intptr_t slot);
 QMetaObject* QConcatenateTablesProxyModel_SuperMetaObject(const QConcatenateTablesProxyModel* self);
 void QConcatenateTablesProxyModel_OnMetacast(QConcatenateTablesProxyModel* self, intptr_t slot);

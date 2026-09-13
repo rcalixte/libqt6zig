@@ -31,6 +31,18 @@ int KLocalizedContext_Metacall(KLocalizedContext* self, int param1, int param2, 
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string KLocalizedContext_Tr(const char* s) {
+    auto _ret = KLocalizedContext::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 libqt_string KLocalizedContext_TranslationDomain(const KLocalizedContext* self) {
     auto _ret = self->translationDomain();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -299,6 +311,30 @@ void KLocalizedContext_Connect_TranslationDomainChanged(KLocalizedContext* self,
         slotFunc(self, sigval1);
         libqt_free(translationDomain_str);
     });
+}
+
+libqt_string KLocalizedContext_Tr2(const char* s, const char* c) {
+    auto _ret = KLocalizedContext::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KLocalizedContext_Tr3(const char* s, const char* c, int n) {
+    auto _ret = KLocalizedContext::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string KLocalizedContext_I18n2(const KLocalizedContext* self, const libqt_string message, const QVariant* param1) {

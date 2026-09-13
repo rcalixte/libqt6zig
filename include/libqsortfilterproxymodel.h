@@ -39,6 +39,7 @@ QSortFilterProxyModel* QSortFilterProxyModel_new2(QObject* parent);
 QMetaObject* QSortFilterProxyModel_MetaObject(const QSortFilterProxyModel* self);
 void* QSortFilterProxyModel_Metacast(QSortFilterProxyModel* self, const char* param1);
 int QSortFilterProxyModel_Metacall(QSortFilterProxyModel* self, int param1, int param2, void** param3);
+libqt_string QSortFilterProxyModel_Tr(const char* s);
 void QSortFilterProxyModel_SetSourceModel(QSortFilterProxyModel* self, QAbstractItemModel* sourceModel);
 QModelIndex* QSortFilterProxyModel_MapToSource(const QSortFilterProxyModel* self, const QModelIndex* proxyIndex);
 QModelIndex* QSortFilterProxyModel_MapFromSource(const QSortFilterProxyModel* self, const QModelIndex* sourceIndex);
@@ -114,6 +115,8 @@ void QSortFilterProxyModel_RecursiveFilteringEnabledChanged(QSortFilterProxyMode
 void QSortFilterProxyModel_Connect_RecursiveFilteringEnabledChanged(QSortFilterProxyModel* self, intptr_t slot);
 void QSortFilterProxyModel_AutoAcceptChildRowsChanged(QSortFilterProxyModel* self, bool autoAcceptChildRows);
 void QSortFilterProxyModel_Connect_AutoAcceptChildRowsChanged(QSortFilterProxyModel* self, intptr_t slot);
+libqt_string QSortFilterProxyModel_Tr2(const char* s, const char* c);
+libqt_string QSortFilterProxyModel_Tr3(const char* s, const char* c, int n);
 void QSortFilterProxyModel_OnMetaObject(const QSortFilterProxyModel* self, intptr_t slot);
 QMetaObject* QSortFilterProxyModel_SuperMetaObject(const QSortFilterProxyModel* self);
 void QSortFilterProxyModel_OnMetacast(QSortFilterProxyModel* self, intptr_t slot);

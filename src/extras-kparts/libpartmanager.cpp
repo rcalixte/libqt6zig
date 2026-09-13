@@ -33,6 +33,18 @@ int KParts__PartManager_Metacall(KParts__PartManager* self, int param1, int para
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string KParts__PartManager_Tr(const char* s) {
+    auto _ret = KParts::PartManager::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void KParts__PartManager_SetSelectionPolicy(KParts__PartManager* self, int policy) {
     self->setSelectionPolicy(static_cast<KParts::PartManager::SelectionPolicy>(policy));
 }
@@ -152,6 +164,30 @@ void KParts__PartManager_Connect_ActivePartChanged(KParts__PartManager* self, in
         KParts__Part* sigval1 = newPart;
         slotFunc(self, sigval1);
     });
+}
+
+libqt_string KParts__PartManager_Tr2(const char* s, const char* c) {
+    auto _ret = KParts::PartManager::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KParts__PartManager_Tr3(const char* s, const char* c, int n) {
+    auto _ret = KParts::PartManager::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

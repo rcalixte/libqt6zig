@@ -37,6 +37,7 @@ Attica__ProviderManager* Attica__ProviderManager_new2(const int* flags);
 QMetaObject* Attica__ProviderManager_MetaObject(const Attica__ProviderManager* self);
 void* Attica__ProviderManager_Metacast(Attica__ProviderManager* self, const char* param1);
 int Attica__ProviderManager_Metacall(Attica__ProviderManager* self, int param1, int param2, void** param3);
+libqt_string Attica__ProviderManager_Tr(const char* s);
 void Attica__ProviderManager_LoadDefaultProviders(Attica__ProviderManager* self);
 libqt_list /* of QUrl* */ Attica__ProviderManager_DefaultProviderFiles(Attica__ProviderManager* self);
 void Attica__ProviderManager_AddProviderFileToDefaultProviders(Attica__ProviderManager* self, const QUrl* url);
@@ -58,6 +59,8 @@ void Attica__ProviderManager_AuthenticationCredentialsMissing(Attica__ProviderMa
 void Attica__ProviderManager_Connect_AuthenticationCredentialsMissing(Attica__ProviderManager* self, intptr_t slot);
 void Attica__ProviderManager_FailedToLoad(Attica__ProviderManager* self, const QUrl* provider, int errorVal);
 void Attica__ProviderManager_Connect_FailedToLoad(Attica__ProviderManager* self, intptr_t slot);
+libqt_string Attica__ProviderManager_Tr2(const char* s, const char* c);
+libqt_string Attica__ProviderManager_Tr3(const char* s, const char* c, int n);
 void Attica__ProviderManager_OnMetaObject(const Attica__ProviderManager* self, intptr_t slot);
 QMetaObject* Attica__ProviderManager_SuperMetaObject(const Attica__ProviderManager* self);
 void Attica__ProviderManager_OnMetacast(Attica__ProviderManager* self, intptr_t slot);

@@ -76,23 +76,23 @@ pub const SignOn__IdentityInfo = extern struct {
                 allocator.free(methods_inner);
             allocator.free(methods_inners);
         }
-        var i: usize = 0;
+        var methods_i: usize = 0;
         var methods_it = _methods.iterator();
-        while (methods_it.next()) |it_entry| : (i += 1) {
+        while (methods_it.next()) |it_entry| : (methods_i += 1) {
             const methods_key = it_entry.key_ptr.*;
-            methods_keys[i] = qtc.libqt_string{
+            methods_keys[methods_i] = qtc.libqt_string{
                 .len = methods_key.len,
                 .data = methods_key.ptr,
             };
-            methods_values[i].len = it_entry.value_ptr.*.len;
+            methods_values[methods_i].len = it_entry.value_ptr.*.len;
             const methods_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("SignOn__IdentityInfo.new3: Memory allocation failed");
-            methods_inners[i] = methods_val;
+            methods_inners[methods_i] = methods_val;
             for (it_entry.value_ptr.*, 0..) |str_item, j|
                 methods_val[j] = qtc.libqt_string{
                     .len = str_item.len,
                     .data = str_item.ptr,
                 };
-            methods_values[i].data = @ptrCast(methods_val.ptr);
+            methods_values[methods_i].data = @ptrCast(methods_val.ptr);
         }
         const methods_map = qtc.libqt_map{
             .len = methods_count,

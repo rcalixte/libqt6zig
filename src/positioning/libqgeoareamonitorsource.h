@@ -33,6 +33,7 @@ QGeoAreaMonitorSource* QGeoAreaMonitorSource_new(QObject* parent);
 QMetaObject* QGeoAreaMonitorSource_MetaObject(const QGeoAreaMonitorSource* self);
 void* QGeoAreaMonitorSource_Metacast(QGeoAreaMonitorSource* self, const char* param1);
 int QGeoAreaMonitorSource_Metacall(QGeoAreaMonitorSource* self, int param1, int param2, void** param3);
+libqt_string QGeoAreaMonitorSource_Tr(const char* s);
 QGeoAreaMonitorSource* QGeoAreaMonitorSource_CreateDefaultSource(QObject* parent);
 QGeoAreaMonitorSource* QGeoAreaMonitorSource_CreateSource(const libqt_string sourceName, QObject* parent);
 libqt_list /* of libqt_string */ QGeoAreaMonitorSource_AvailableSources();
@@ -56,6 +57,8 @@ void QGeoAreaMonitorSource_MonitorExpired(QGeoAreaMonitorSource* self, const QGe
 void QGeoAreaMonitorSource_Connect_MonitorExpired(QGeoAreaMonitorSource* self, intptr_t slot);
 void QGeoAreaMonitorSource_ErrorOccurred(QGeoAreaMonitorSource* self, int errorVal);
 void QGeoAreaMonitorSource_Connect_ErrorOccurred(QGeoAreaMonitorSource* self, intptr_t slot);
+libqt_string QGeoAreaMonitorSource_Tr2(const char* s, const char* c);
+libqt_string QGeoAreaMonitorSource_Tr3(const char* s, const char* c, int n);
 void QGeoAreaMonitorSource_OnMetaObject(const QGeoAreaMonitorSource* self, intptr_t slot);
 QMetaObject* QGeoAreaMonitorSource_SuperMetaObject(const QGeoAreaMonitorSource* self);
 void QGeoAreaMonitorSource_OnMetacast(QGeoAreaMonitorSource* self, intptr_t slot);

@@ -33,8 +33,11 @@ KToggleAction* KToggleAction_new3(const QIcon* icon, const libqt_string text, QO
 QMetaObject* KToggleAction_MetaObject(const KToggleAction* self);
 void* KToggleAction_Metacast(KToggleAction* self, const char* param1);
 int KToggleAction_Metacall(KToggleAction* self, int param1, int param2, void** param3);
+libqt_string KToggleAction_Tr(const char* s);
 void KToggleAction_SetCheckedState(KToggleAction* self, const KGuiItem* checkedItem);
 void KToggleAction_SlotToggled(KToggleAction* self, bool checked);
+libqt_string KToggleAction_Tr2(const char* s, const char* c);
+libqt_string KToggleAction_Tr3(const char* s, const char* c, int n);
 void KToggleAction_OnMetaObject(const KToggleAction* self, intptr_t slot);
 QMetaObject* KToggleAction_SuperMetaObject(const KToggleAction* self);
 void KToggleAction_OnMetacast(KToggleAction* self, intptr_t slot);

@@ -33,6 +33,7 @@ QNmeaPositionInfoSource* QNmeaPositionInfoSource_new2(int updateMode, QObject* p
 QMetaObject* QNmeaPositionInfoSource_MetaObject(const QNmeaPositionInfoSource* self);
 void* QNmeaPositionInfoSource_Metacast(QNmeaPositionInfoSource* self, const char* param1);
 int QNmeaPositionInfoSource_Metacall(QNmeaPositionInfoSource* self, int param1, int param2, void** param3);
+libqt_string QNmeaPositionInfoSource_Tr(const char* s);
 void QNmeaPositionInfoSource_SetUserEquivalentRangeError(QNmeaPositionInfoSource* self, double uere);
 double QNmeaPositionInfoSource_UserEquivalentRangeError(const QNmeaPositionInfoSource* self);
 int QNmeaPositionInfoSource_UpdateMode(const QNmeaPositionInfoSource* self);
@@ -47,6 +48,8 @@ void QNmeaPositionInfoSource_StartUpdates(QNmeaPositionInfoSource* self);
 void QNmeaPositionInfoSource_StopUpdates(QNmeaPositionInfoSource* self);
 void QNmeaPositionInfoSource_RequestUpdate(QNmeaPositionInfoSource* self, int timeout);
 bool QNmeaPositionInfoSource_ParsePosInfoFromNmeaData(QNmeaPositionInfoSource* self, const char* data, int size, QGeoPositionInfo* posInfo, bool* hasFix);
+libqt_string QNmeaPositionInfoSource_Tr2(const char* s, const char* c);
+libqt_string QNmeaPositionInfoSource_Tr3(const char* s, const char* c, int n);
 void QNmeaPositionInfoSource_OnMetaObject(const QNmeaPositionInfoSource* self, intptr_t slot);
 QMetaObject* QNmeaPositionInfoSource_SuperMetaObject(const QNmeaPositionInfoSource* self);
 void QNmeaPositionInfoSource_OnMetacast(QNmeaPositionInfoSource* self, intptr_t slot);

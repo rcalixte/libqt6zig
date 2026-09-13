@@ -30,6 +30,7 @@ QGeoPositionInfoSource* QGeoPositionInfoSource_new(QObject* parent);
 QMetaObject* QGeoPositionInfoSource_MetaObject(const QGeoPositionInfoSource* self);
 void* QGeoPositionInfoSource_Metacast(QGeoPositionInfoSource* self, const char* param1);
 int QGeoPositionInfoSource_Metacall(QGeoPositionInfoSource* self, int param1, int param2, void** param3);
+libqt_string QGeoPositionInfoSource_Tr(const char* s);
 void QGeoPositionInfoSource_SetUpdateInterval(QGeoPositionInfoSource* self, int msec);
 int QGeoPositionInfoSource_UpdateInterval(const QGeoPositionInfoSource* self);
 void QGeoPositionInfoSource_SetPreferredPositioningMethods(QGeoPositionInfoSource* self, int methods);
@@ -55,6 +56,8 @@ void QGeoPositionInfoSource_ErrorOccurred(QGeoPositionInfoSource* self, int para
 void QGeoPositionInfoSource_Connect_ErrorOccurred(QGeoPositionInfoSource* self, intptr_t slot);
 void QGeoPositionInfoSource_SupportedPositioningMethodsChanged(QGeoPositionInfoSource* self);
 void QGeoPositionInfoSource_Connect_SupportedPositioningMethodsChanged(QGeoPositionInfoSource* self, intptr_t slot);
+libqt_string QGeoPositionInfoSource_Tr2(const char* s, const char* c);
+libqt_string QGeoPositionInfoSource_Tr3(const char* s, const char* c, int n);
 void QGeoPositionInfoSource_OnMetaObject(const QGeoPositionInfoSource* self, intptr_t slot);
 QMetaObject* QGeoPositionInfoSource_SuperMetaObject(const QGeoPositionInfoSource* self);
 void QGeoPositionInfoSource_OnMetacast(QGeoPositionInfoSource* self, intptr_t slot);

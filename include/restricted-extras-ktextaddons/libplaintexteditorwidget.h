@@ -64,6 +64,7 @@ TextCustomEditor__PlainTextEditorWidget* TextCustomEditor__PlainTextEditorWidget
 QMetaObject* TextCustomEditor__PlainTextEditorWidget_MetaObject(const TextCustomEditor__PlainTextEditorWidget* self);
 void* TextCustomEditor__PlainTextEditorWidget_Metacast(TextCustomEditor__PlainTextEditorWidget* self, const char* param1);
 int TextCustomEditor__PlainTextEditorWidget_Metacall(TextCustomEditor__PlainTextEditorWidget* self, int param1, int param2, void** param3);
+libqt_string TextCustomEditor__PlainTextEditorWidget_Tr(const char* s);
 TextCustomEditor__PlainTextEditor* TextCustomEditor__PlainTextEditorWidget_Editor(const TextCustomEditor__PlainTextEditorWidget* self);
 void TextCustomEditor__PlainTextEditorWidget_SetReadOnly(TextCustomEditor__PlainTextEditorWidget* self, bool readOnly);
 bool TextCustomEditor__PlainTextEditorWidget_IsReadOnly(const TextCustomEditor__PlainTextEditorWidget* self);
@@ -72,6 +73,8 @@ libqt_string TextCustomEditor__PlainTextEditorWidget_ToPlainText(const TextCusto
 void TextCustomEditor__PlainTextEditorWidget_Clear(TextCustomEditor__PlainTextEditorWidget* self);
 void TextCustomEditor__PlainTextEditorWidget_SetSpellCheckingConfigFileName(TextCustomEditor__PlainTextEditorWidget* self, const libqt_string _fileName);
 bool TextCustomEditor__PlainTextEditorWidget_IsEmpty(const TextCustomEditor__PlainTextEditorWidget* self);
+libqt_string TextCustomEditor__PlainTextEditorWidget_Tr2(const char* s, const char* c);
+libqt_string TextCustomEditor__PlainTextEditorWidget_Tr3(const char* s, const char* c, int n);
 void TextCustomEditor__PlainTextEditorWidget_OnMetaObject(const TextCustomEditor__PlainTextEditorWidget* self, intptr_t slot);
 QMetaObject* TextCustomEditor__PlainTextEditorWidget_SuperMetaObject(const TextCustomEditor__PlainTextEditorWidget* self);
 void TextCustomEditor__PlainTextEditorWidget_OnMetacast(TextCustomEditor__PlainTextEditorWidget* self, intptr_t slot);

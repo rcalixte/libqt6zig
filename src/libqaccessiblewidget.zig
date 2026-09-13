@@ -1452,29 +1452,6 @@ pub const QAccessibleWidget = extern struct {
         return .{ .ptr = qtc.QAccessibleInterface_AttributesInterface(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `tr` instead
-    ///
-    pub const Tr = tr;
-
-    /// Inherited from QAccessibleActionInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` sourceText: [:0]const u8 `
-    ///
-    pub fn tr(allocator: std.mem.Allocator, sourceText: [:0]const u8) []const u8 {
-        const sourceText_Cstring = sourceText.ptr;
-        var _str = qtc.QObject_Tr(sourceText_Cstring);
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleWidget.tr: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `pressAction` instead
     ///
     pub const PressAction = pressAction;
@@ -1711,60 +1688,6 @@ pub const QAccessibleWidget = extern struct {
         var _str = qtc.QAccessibleActionInterface_PreviousPageAction();
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleWidget.previousPageAction: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `tr2` instead
-    ///
-    pub const Tr2 = tr2;
-
-    /// Inherited from QAccessibleActionInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` sourceText: [:0]const u8 `
-    ///
-    /// ` disambiguation: [:0]const u8 `
-    ///
-    pub fn tr2(allocator: std.mem.Allocator, sourceText: [:0]const u8, disambiguation: [:0]const u8) []const u8 {
-        const sourceText_Cstring = sourceText.ptr;
-        const disambiguation_Cstring = disambiguation.ptr;
-        var _str = qtc.QObject_Tr2(sourceText_Cstring, disambiguation_Cstring);
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleWidget.tr2: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `tr3` instead
-    ///
-    pub const Tr3 = tr3;
-
-    /// Inherited from QAccessibleActionInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` sourceText: [:0]const u8 `
-    ///
-    /// ` disambiguation: [:0]const u8 `
-    ///
-    /// ` n: i32 `
-    ///
-    pub fn tr3(allocator: std.mem.Allocator, sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32) []const u8 {
-        const sourceText_Cstring = sourceText.ptr;
-        const disambiguation_Cstring = disambiguation.ptr;
-        var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleWidget.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

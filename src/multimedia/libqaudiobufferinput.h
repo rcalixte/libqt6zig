@@ -34,11 +34,14 @@ QAudioBufferInput* QAudioBufferInput_new4(const QAudioFormat* format, QObject* p
 QMetaObject* QAudioBufferInput_MetaObject(const QAudioBufferInput* self);
 void* QAudioBufferInput_Metacast(QAudioBufferInput* self, const char* param1);
 int QAudioBufferInput_Metacall(QAudioBufferInput* self, int param1, int param2, void** param3);
+libqt_string QAudioBufferInput_Tr(const char* s);
 bool QAudioBufferInput_SendAudioBuffer(QAudioBufferInput* self, const QAudioBuffer* audioBuffer);
 QAudioFormat* QAudioBufferInput_Format(const QAudioBufferInput* self);
 QMediaCaptureSession* QAudioBufferInput_CaptureSession(const QAudioBufferInput* self);
 void QAudioBufferInput_ReadyToSendAudioBuffer(QAudioBufferInput* self);
 void QAudioBufferInput_Connect_ReadyToSendAudioBuffer(QAudioBufferInput* self, intptr_t slot);
+libqt_string QAudioBufferInput_Tr2(const char* s, const char* c);
+libqt_string QAudioBufferInput_Tr3(const char* s, const char* c, int n);
 void QAudioBufferInput_OnMetaObject(const QAudioBufferInput* self, intptr_t slot);
 QMetaObject* QAudioBufferInput_SuperMetaObject(const QAudioBufferInput* self);
 void QAudioBufferInput_OnMetacast(QAudioBufferInput* self, intptr_t slot);

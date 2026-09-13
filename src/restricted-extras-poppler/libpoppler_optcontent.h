@@ -35,6 +35,7 @@ typedef struct QVariant QVariant;
 QMetaObject* Poppler__OptContentModel_MetaObject(const Poppler__OptContentModel* self);
 void* Poppler__OptContentModel_Metacast(Poppler__OptContentModel* self, const char* param1);
 int Poppler__OptContentModel_Metacall(Poppler__OptContentModel* self, int param1, int param2, void** param3);
+libqt_string Poppler__OptContentModel_Tr(const char* s);
 QModelIndex* Poppler__OptContentModel_Index(const Poppler__OptContentModel* self, int row, int column, const QModelIndex* parent);
 QModelIndex* Poppler__OptContentModel_Parent(const Poppler__OptContentModel* self, const QModelIndex* child);
 int Poppler__OptContentModel_RowCount(const Poppler__OptContentModel* self, const QModelIndex* parent);
@@ -44,6 +45,8 @@ bool Poppler__OptContentModel_SetData(Poppler__OptContentModel* self, const QMod
 int Poppler__OptContentModel_Flags(const Poppler__OptContentModel* self, const QModelIndex* index);
 QVariant* Poppler__OptContentModel_HeaderData(const Poppler__OptContentModel* self, int section, int orientation, int role);
 void Poppler__OptContentModel_ApplyLink(Poppler__OptContentModel* self, Poppler__LinkOCGState* link);
+libqt_string Poppler__OptContentModel_Tr2(const char* s, const char* c);
+libqt_string Poppler__OptContentModel_Tr3(const char* s, const char* c, int n);
 void Poppler__OptContentModel_Delete(Poppler__OptContentModel* self);
 
 #ifdef __cplusplus

@@ -59,12 +59,15 @@ KFilePlaceEditDialog* KFilePlaceEditDialog_new4(bool allowGlobal, const QUrl* ur
 QMetaObject* KFilePlaceEditDialog_MetaObject(const KFilePlaceEditDialog* self);
 void* KFilePlaceEditDialog_Metacast(KFilePlaceEditDialog* self, const char* param1);
 int KFilePlaceEditDialog_Metacall(KFilePlaceEditDialog* self, int param1, int param2, void** param3);
+libqt_string KFilePlaceEditDialog_Tr(const char* s);
 bool KFilePlaceEditDialog_GetInformation(bool allowGlobal, QUrl* url, libqt_string label, libqt_string icon, bool isAddingNewPlace, bool* appLocal, int iconSize);
 QUrl* KFilePlaceEditDialog_Url(const KFilePlaceEditDialog* self);
 libqt_string KFilePlaceEditDialog_Label(const KFilePlaceEditDialog* self);
 libqt_string KFilePlaceEditDialog_Icon(const KFilePlaceEditDialog* self);
 bool KFilePlaceEditDialog_ApplicationLocal(const KFilePlaceEditDialog* self);
 void KFilePlaceEditDialog_UrlChanged(KFilePlaceEditDialog* self, const libqt_string param1);
+libqt_string KFilePlaceEditDialog_Tr2(const char* s, const char* c);
+libqt_string KFilePlaceEditDialog_Tr3(const char* s, const char* c, int n);
 bool KFilePlaceEditDialog_GetInformation8(bool allowGlobal, QUrl* url, libqt_string label, libqt_string icon, bool isAddingNewPlace, bool* appLocal, int iconSize, QWidget* parent);
 void KFilePlaceEditDialog_OnMetaObject(const KFilePlaceEditDialog* self, intptr_t slot);
 QMetaObject* KFilePlaceEditDialog_SuperMetaObject(const KFilePlaceEditDialog* self);

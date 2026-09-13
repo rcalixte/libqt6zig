@@ -67,6 +67,18 @@ int QColorDialog_Metacall(QColorDialog* self, int param1, int param2, void** par
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string QColorDialog_Tr(const char* s) {
+    auto _ret = QColorDialog::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void QColorDialog_SetCurrentColor(QColorDialog* self, const QColor* color) {
     self->setCurrentColor(*color);
 }
@@ -163,6 +175,30 @@ void QColorDialog_Done(QColorDialog* self, int result) {
     if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
         vqcolordialog->done(static_cast<int>(result));
     }
+}
+
+libqt_string QColorDialog_Tr2(const char* s, const char* c) {
+    auto _ret = QColorDialog::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QColorDialog_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QColorDialog::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QColorDialog_SetOption2(QColorDialog* self, int option, bool on) {

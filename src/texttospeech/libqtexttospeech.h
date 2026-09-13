@@ -36,6 +36,7 @@ QTextToSpeech* QTextToSpeech_new6(const libqt_string engine, const libqt_map /* 
 QMetaObject* QTextToSpeech_MetaObject(const QTextToSpeech* self);
 void* QTextToSpeech_Metacast(QTextToSpeech* self, const char* param1);
 int QTextToSpeech_Metacall(QTextToSpeech* self, int param1, int param2, void** param3);
+libqt_string QTextToSpeech_Tr(const char* s);
 bool QTextToSpeech_SetEngine(QTextToSpeech* self, const libqt_string engine);
 libqt_string QTextToSpeech_Engine(const QTextToSpeech* self);
 int QTextToSpeech_EngineCapabilities(const QTextToSpeech* self);
@@ -80,6 +81,8 @@ void QTextToSpeech_SayingWord(QTextToSpeech* self, const libqt_string word, ptrd
 void QTextToSpeech_Connect_SayingWord(QTextToSpeech* self, intptr_t slot);
 void QTextToSpeech_AboutToSynthesize(QTextToSpeech* self, ptrdiff_t id);
 void QTextToSpeech_Connect_AboutToSynthesize(QTextToSpeech* self, intptr_t slot);
+libqt_string QTextToSpeech_Tr2(const char* s, const char* c);
+libqt_string QTextToSpeech_Tr3(const char* s, const char* c, int n);
 bool QTextToSpeech_SetEngine2(QTextToSpeech* self, const libqt_string engine, const libqt_map /* of libqt_string to QVariant* */ params);
 void QTextToSpeech_Stop1(QTextToSpeech* self, int boundaryHint);
 void QTextToSpeech_Pause1(QTextToSpeech* self, int boundaryHint);

@@ -38,6 +38,7 @@ KTextEditor__InlineNoteProvider* KTextEditor__InlineNoteProvider_new();
 QMetaObject* KTextEditor__InlineNoteProvider_MetaObject(const KTextEditor__InlineNoteProvider* self);
 void* KTextEditor__InlineNoteProvider_Metacast(KTextEditor__InlineNoteProvider* self, const char* param1);
 int KTextEditor__InlineNoteProvider_Metacall(KTextEditor__InlineNoteProvider* self, int param1, int param2, void** param3);
+libqt_string KTextEditor__InlineNoteProvider_Tr(const char* s);
 libqt_list /* of int */ KTextEditor__InlineNoteProvider_InlineNotes(const KTextEditor__InlineNoteProvider* self, int line);
 QSize* KTextEditor__InlineNoteProvider_InlineNoteSize(const KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note);
 void KTextEditor__InlineNoteProvider_PaintInlineNote(const KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note, QPainter* painter, int direction);
@@ -49,6 +50,8 @@ void KTextEditor__InlineNoteProvider_InlineNotesReset(KTextEditor__InlineNotePro
 void KTextEditor__InlineNoteProvider_Connect_InlineNotesReset(KTextEditor__InlineNoteProvider* self, intptr_t slot);
 void KTextEditor__InlineNoteProvider_InlineNotesChanged(KTextEditor__InlineNoteProvider* self, int line);
 void KTextEditor__InlineNoteProvider_Connect_InlineNotesChanged(KTextEditor__InlineNoteProvider* self, intptr_t slot);
+libqt_string KTextEditor__InlineNoteProvider_Tr2(const char* s, const char* c);
+libqt_string KTextEditor__InlineNoteProvider_Tr3(const char* s, const char* c, int n);
 void KTextEditor__InlineNoteProvider_OnMetaObject(const KTextEditor__InlineNoteProvider* self, intptr_t slot);
 QMetaObject* KTextEditor__InlineNoteProvider_SuperMetaObject(const KTextEditor__InlineNoteProvider* self);
 void KTextEditor__InlineNoteProvider_OnMetacast(KTextEditor__InlineNoteProvider* self, intptr_t slot);

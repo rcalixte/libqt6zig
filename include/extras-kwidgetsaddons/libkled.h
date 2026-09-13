@@ -60,6 +60,7 @@ KLed* KLed_new6(const QColor* color, int state, int look, int shape, QWidget* pa
 QMetaObject* KLed_MetaObject(const KLed* self);
 void* KLed_Metacast(KLed* self, const char* param1);
 int KLed_Metacall(KLed* self, int param1, int param2, void** param3);
+libqt_string KLed_Tr(const char* s);
 QColor* KLed_Color(const KLed* self);
 int KLed_State(const KLed* self);
 int KLed_Look(const KLed* self);
@@ -77,6 +78,8 @@ void KLed_On(KLed* self);
 void KLed_Off(KLed* self);
 void KLed_PaintEvent(KLed* self, QPaintEvent* param1);
 void KLed_ResizeEvent(KLed* self, QResizeEvent* param1);
+libqt_string KLed_Tr2(const char* s, const char* c);
+libqt_string KLed_Tr3(const char* s, const char* c, int n);
 void KLed_OnMetaObject(const KLed* self, intptr_t slot);
 QMetaObject* KLed_SuperMetaObject(const KLed* self);
 void KLed_OnMetacast(KLed* self, intptr_t slot);

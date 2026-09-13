@@ -107,6 +107,7 @@ QDnsLookup* QDnsLookup_new11(int typeVal, const libqt_string name, uint8_t proto
 QMetaObject* QDnsLookup_MetaObject(const QDnsLookup* self);
 void* QDnsLookup_Metacast(QDnsLookup* self, const char* param1);
 int QDnsLookup_Metacall(QDnsLookup* self, int param1, int param2, void** param3);
+libqt_string QDnsLookup_Tr(const char* s);
 bool QDnsLookup_IsAuthenticData(const QDnsLookup* self);
 int QDnsLookup_Error(const QDnsLookup* self);
 libqt_string QDnsLookup_ErrorString(const QDnsLookup* self);
@@ -149,6 +150,8 @@ void QDnsLookup_NameserverPortChanged(QDnsLookup* self, uint16_t port);
 void QDnsLookup_Connect_NameserverPortChanged(QDnsLookup* self, intptr_t slot);
 void QDnsLookup_NameserverProtocolChanged(QDnsLookup* self, uint8_t protocol);
 void QDnsLookup_Connect_NameserverProtocolChanged(QDnsLookup* self, intptr_t slot);
+libqt_string QDnsLookup_Tr2(const char* s, const char* c);
+libqt_string QDnsLookup_Tr3(const char* s, const char* c, int n);
 void QDnsLookup_SetNameserver32(QDnsLookup* self, uint8_t protocol, const QHostAddress* nameserver, uint16_t port);
 void QDnsLookup_OnMetaObject(const QDnsLookup* self, intptr_t slot);
 QMetaObject* QDnsLookup_SuperMetaObject(const QDnsLookup* self);

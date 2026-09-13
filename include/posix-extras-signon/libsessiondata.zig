@@ -57,15 +57,15 @@ pub const SignOn__SessionData = extern struct {
         defer allocator.free(data_keys);
         const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("SignOn__SessionData.new3: Memory allocation failed");
         defer allocator.free(data_values);
-        var i: usize = 0;
+        var data_i: usize = 0;
         var data_it = data.iterator();
-        while (data_it.next()) |it_entry| : (i += 1) {
+        while (data_it.next()) |it_entry| : (data_i += 1) {
             const data_key = it_entry.key_ptr.*;
-            data_keys[i] = qtc.libqt_string{
+            data_keys[data_i] = qtc.libqt_string{
                 .len = data_key.len,
                 .data = data_key.ptr,
             };
-            data_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            data_values[data_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const data_map = qtc.libqt_map{
             .len = data_count,

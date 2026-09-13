@@ -64,6 +64,7 @@ TextCustomEditor__RichTextEditorWidget* TextCustomEditor__RichTextEditorWidget_n
 QMetaObject* TextCustomEditor__RichTextEditorWidget_MetaObject(const TextCustomEditor__RichTextEditorWidget* self);
 void* TextCustomEditor__RichTextEditorWidget_Metacast(TextCustomEditor__RichTextEditorWidget* self, const char* param1);
 int TextCustomEditor__RichTextEditorWidget_Metacall(TextCustomEditor__RichTextEditorWidget* self, int param1, int param2, void** param3);
+libqt_string TextCustomEditor__RichTextEditorWidget_Tr(const char* s);
 void TextCustomEditor__RichTextEditorWidget_Clear(TextCustomEditor__RichTextEditorWidget* self);
 TextCustomEditor__RichTextEditor* TextCustomEditor__RichTextEditorWidget_Editor(const TextCustomEditor__RichTextEditorWidget* self);
 void TextCustomEditor__RichTextEditorWidget_SetReadOnly(TextCustomEditor__RichTextEditorWidget* self, bool readOnly);
@@ -79,6 +80,8 @@ bool TextCustomEditor__RichTextEditorWidget_IsEmpty(const TextCustomEditor__Rich
 void TextCustomEditor__RichTextEditorWidget_SlotFindNext(TextCustomEditor__RichTextEditorWidget* self);
 void TextCustomEditor__RichTextEditorWidget_SlotFind(TextCustomEditor__RichTextEditorWidget* self);
 void TextCustomEditor__RichTextEditorWidget_SlotReplace(TextCustomEditor__RichTextEditorWidget* self);
+libqt_string TextCustomEditor__RichTextEditorWidget_Tr2(const char* s, const char* c);
+libqt_string TextCustomEditor__RichTextEditorWidget_Tr3(const char* s, const char* c, int n);
 void TextCustomEditor__RichTextEditorWidget_OnMetaObject(const TextCustomEditor__RichTextEditorWidget* self, intptr_t slot);
 QMetaObject* TextCustomEditor__RichTextEditorWidget_SuperMetaObject(const TextCustomEditor__RichTextEditorWidget* self);
 void TextCustomEditor__RichTextEditorWidget_OnMetacast(TextCustomEditor__RichTextEditorWidget* self, intptr_t slot);

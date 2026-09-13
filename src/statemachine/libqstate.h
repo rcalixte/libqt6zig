@@ -35,6 +35,7 @@ QState* QState_new4(int childMode, QState* parent);
 QMetaObject* QState_MetaObject(const QState* self);
 void* QState_Metacast(QState* self, const char* param1);
 int QState_Metacall(QState* self, int param1, int param2, void** param3);
+libqt_string QState_Tr(const char* s);
 QAbstractState* QState_ErrorState(const QState* self);
 void QState_SetErrorState(QState* self, QAbstractState* state);
 void QState_AddTransition(QState* self, QAbstractTransition* transition);
@@ -50,6 +51,8 @@ void QState_AssignProperty(QState* self, QObject* object, const char* name, cons
 void QState_OnEntry(QState* self, QEvent* event);
 void QState_OnExit(QState* self, QEvent* event);
 bool QState_Event(QState* self, QEvent* e);
+libqt_string QState_Tr2(const char* s, const char* c);
+libqt_string QState_Tr3(const char* s, const char* c, int n);
 void QState_OnMetaObject(const QState* self, intptr_t slot);
 QMetaObject* QState_SuperMetaObject(const QState* self);
 void QState_OnMetacast(QState* self, intptr_t slot);

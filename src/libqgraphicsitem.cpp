@@ -1768,6 +1768,18 @@ int QGraphicsObject_Metacall(QGraphicsObject* self, int param1, int param2, void
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string QGraphicsObject_Tr(const char* s) {
+    auto _ret = QGraphicsObject::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void QGraphicsObject_GrabGesture(QGraphicsObject* self, int typeVal) {
     self->grabGesture(static_cast<Qt::GestureType>(typeVal));
 }
@@ -1914,6 +1926,30 @@ bool QGraphicsObject_Event(QGraphicsObject* self, QEvent* ev) {
         return vqgraphicsobject->event(ev);
     }
     return {};
+}
+
+libqt_string QGraphicsObject_Tr2(const char* s, const char* c) {
+    auto _ret = QGraphicsObject::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QGraphicsObject_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QGraphicsObject::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QGraphicsObject_GrabGesture2(QGraphicsObject* self, int typeVal, int flags) {
@@ -10970,6 +11006,18 @@ int QGraphicsTextItem_Metacall(QGraphicsTextItem* self, int param1, int param2, 
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string QGraphicsTextItem_Tr(const char* s) {
+    auto _ret = QGraphicsTextItem::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 libqt_string QGraphicsTextItem_ToHtml(const QGraphicsTextItem* self) {
     auto _ret = self->toHtml();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -11298,6 +11346,30 @@ QVariant* QGraphicsTextItem_Extension(const QGraphicsTextItem* self, const QVari
         return new QVariant(vqgraphicstextitem->extension(*variant));
     }
     return {};
+}
+
+libqt_string QGraphicsTextItem_Tr2(const char* s, const char* c) {
+    auto _ret = QGraphicsTextItem::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QGraphicsTextItem_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QGraphicsTextItem::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

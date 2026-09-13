@@ -33,6 +33,7 @@ KReplace* KReplace_new3(const libqt_string pattern, const libqt_string replaceme
 QMetaObject* KReplace_MetaObject(const KReplace* self);
 void* KReplace_Metacast(KReplace* self, const char* param1);
 int KReplace_Metacall(KReplace* self, int param1, int param2, void** param3);
+libqt_string KReplace_Tr(const char* s);
 int KReplace_NumReplacements(const KReplace* self);
 void KReplace_ResetCounts(KReplace* self);
 int KReplace_Replace(KReplace* self);
@@ -43,6 +44,8 @@ bool KReplace_ShouldRestart(const KReplace* self, bool forceAsking, bool showNum
 void KReplace_DisplayFinalDialog(const KReplace* self);
 void KReplace_TextReplaced(KReplace* self, const libqt_string text, int replacementIndex, int replacedLength, int matchedLength);
 void KReplace_Connect_TextReplaced(KReplace* self, intptr_t slot);
+libqt_string KReplace_Tr2(const char* s, const char* c);
+libqt_string KReplace_Tr3(const char* s, const char* c, int n);
 QDialog* KReplace_ReplaceNextDialog1(KReplace* self, bool create);
 void KReplace_OnMetaObject(const KReplace* self, intptr_t slot);
 QMetaObject* KReplace_SuperMetaObject(const KReplace* self);

@@ -293,29 +293,6 @@ pub const Konsole__Filter = extern struct {
         qtc.Konsole__Filter_SuperGetLineColumn(@ptrCast(self.ptr), @bitCast(position), @ptrCast(startLine), @ptrCast(startColumn));
     }
 
-    /// ### DEPRECATED: Use `tr` instead
-    ///
-    pub const Tr = tr;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` s: [:0]const u8 `
-    ///
-    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
-        const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__Filter.tr: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `objectName` instead
     ///
     pub const ObjectName = objectName;
@@ -1031,60 +1008,6 @@ pub const Konsole__Filter = extern struct {
     ///
     pub fn deleteLater(self: Konsole__Filter) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `tr2` instead
-    ///
-    pub const Tr2 = tr2;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` s: [:0]const u8 `
-    ///
-    /// ` c: [:0]const u8 `
-    ///
-    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
-        const s_Cstring = s.ptr;
-        const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__Filter.tr2: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `tr3` instead
-    ///
-    pub const Tr3 = tr3;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` s: [:0]const u8 `
-    ///
-    /// ` c: [:0]const u8 `
-    ///
-    /// ` n: i32 `
-    ///
-    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
-        const s_Cstring = s.ptr;
-        const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__Filter.tr3: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `startTimer22` instead
@@ -2433,29 +2356,6 @@ pub const Konsole__RegExpFilter = extern struct {
         return .{ .ptr = qtc.Konsole__Filter_HotSpotAt(@ptrCast(self.ptr), @bitCast(line), @bitCast(column)) };
     }
 
-    /// ### DEPRECATED: Use `tr` instead
-    ///
-    pub const Tr = tr;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` s: [:0]const u8 `
-    ///
-    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
-        const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__RegExpFilter.tr: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `objectName` instead
     ///
     pub const ObjectName = objectName;
@@ -3171,60 +3071,6 @@ pub const Konsole__RegExpFilter = extern struct {
     ///
     pub fn deleteLater(self: Konsole__RegExpFilter) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `tr2` instead
-    ///
-    pub const Tr2 = tr2;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` s: [:0]const u8 `
-    ///
-    /// ` c: [:0]const u8 `
-    ///
-    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
-        const s_Cstring = s.ptr;
-        const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__RegExpFilter.tr2: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `tr3` instead
-    ///
-    pub const Tr3 = tr3;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` s: [:0]const u8 `
-    ///
-    /// ` c: [:0]const u8 `
-    ///
-    /// ` n: i32 `
-    ///
-    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
-        const s_Cstring = s.ptr;
-        const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__RegExpFilter.tr3: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
     }
 
     /// ### DEPRECATED: Use `startTimer22` instead
@@ -4747,7 +4593,9 @@ pub const Konsole__UrlFilter = extern struct {
     ///
     pub const Tr = tr;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
@@ -4757,7 +4605,7 @@ pub const Konsole__UrlFilter = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.Konsole__UrlFilter_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__UrlFilter.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4867,7 +4715,9 @@ pub const Konsole__UrlFilter = extern struct {
     ///
     pub const Tr2 = tr2;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
@@ -4880,7 +4730,7 @@ pub const Konsole__UrlFilter = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.Konsole__UrlFilter_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__UrlFilter.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4891,7 +4741,9 @@ pub const Konsole__UrlFilter = extern struct {
     ///
     pub const Tr3 = tr3;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
@@ -4906,7 +4758,7 @@ pub const Konsole__UrlFilter = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.Konsole__UrlFilter_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__UrlFilter.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -7094,7 +6946,9 @@ pub const Konsole__FilterObject = extern struct {
     ///
     pub const Tr = tr;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
@@ -7104,7 +6958,7 @@ pub const Konsole__FilterObject = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.Konsole__FilterObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__FilterObject.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -7183,7 +7037,9 @@ pub const Konsole__FilterObject = extern struct {
     ///
     pub const Tr2 = tr2;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
@@ -7196,7 +7052,7 @@ pub const Konsole__FilterObject = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.Konsole__FilterObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__FilterObject.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -7207,7 +7063,9 @@ pub const Konsole__FilterObject = extern struct {
     ///
     pub const Tr3 = tr3;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
@@ -7222,7 +7080,7 @@ pub const Konsole__FilterObject = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.Konsole__FilterObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__FilterObject.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

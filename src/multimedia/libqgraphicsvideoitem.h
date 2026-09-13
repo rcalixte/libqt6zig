@@ -48,6 +48,7 @@ QGraphicsVideoItem* QGraphicsVideoItem_new2(QGraphicsItem* parent);
 QMetaObject* QGraphicsVideoItem_MetaObject(const QGraphicsVideoItem* self);
 void* QGraphicsVideoItem_Metacast(QGraphicsVideoItem* self, const char* param1);
 int QGraphicsVideoItem_Metacall(QGraphicsVideoItem* self, int param1, int param2, void** param3);
+libqt_string QGraphicsVideoItem_Tr(const char* s);
 QVideoSink* QGraphicsVideoItem_VideoSink(const QGraphicsVideoItem* self);
 int QGraphicsVideoItem_AspectRatioMode(const QGraphicsVideoItem* self);
 void QGraphicsVideoItem_SetAspectRatioMode(QGraphicsVideoItem* self, int mode);
@@ -63,6 +64,8 @@ void QGraphicsVideoItem_NativeSizeChanged(QGraphicsVideoItem* self, const QSizeF
 void QGraphicsVideoItem_Connect_NativeSizeChanged(QGraphicsVideoItem* self, intptr_t slot);
 void QGraphicsVideoItem_TimerEvent(QGraphicsVideoItem* self, QTimerEvent* event);
 QVariant* QGraphicsVideoItem_ItemChange(QGraphicsVideoItem* self, int change, const QVariant* value);
+libqt_string QGraphicsVideoItem_Tr2(const char* s, const char* c);
+libqt_string QGraphicsVideoItem_Tr3(const char* s, const char* c, int n);
 void QGraphicsVideoItem_OnMetaObject(const QGraphicsVideoItem* self, intptr_t slot);
 QMetaObject* QGraphicsVideoItem_SuperMetaObject(const QGraphicsVideoItem* self);
 void QGraphicsVideoItem_OnMetacast(QGraphicsVideoItem* self, intptr_t slot);

@@ -63,7 +63,10 @@ KIO__ThumbnailCreator* KIO__ThumbnailCreator_new(QObject* parent, const libqt_li
 QMetaObject* KIO__ThumbnailCreator_MetaObject(const KIO__ThumbnailCreator* self);
 void* KIO__ThumbnailCreator_Metacast(KIO__ThumbnailCreator* self, const char* param1);
 int KIO__ThumbnailCreator_Metacall(KIO__ThumbnailCreator* self, int param1, int param2, void** param3);
+libqt_string KIO__ThumbnailCreator_Tr(const char* s);
 KIO__ThumbnailResult* KIO__ThumbnailCreator_Create(KIO__ThumbnailCreator* self, const KIO__ThumbnailRequest* request);
+libqt_string KIO__ThumbnailCreator_Tr2(const char* s, const char* c);
+libqt_string KIO__ThumbnailCreator_Tr3(const char* s, const char* c, int n);
 void KIO__ThumbnailCreator_OnMetaObject(const KIO__ThumbnailCreator* self, intptr_t slot);
 QMetaObject* KIO__ThumbnailCreator_SuperMetaObject(const KIO__ThumbnailCreator* self);
 void KIO__ThumbnailCreator_OnMetacast(KIO__ThumbnailCreator* self, intptr_t slot);

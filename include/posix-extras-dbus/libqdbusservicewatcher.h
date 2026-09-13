@@ -33,6 +33,7 @@ QDBusServiceWatcher* QDBusServiceWatcher_new5(const libqt_string service, const 
 QMetaObject* QDBusServiceWatcher_MetaObject(const QDBusServiceWatcher* self);
 void* QDBusServiceWatcher_Metacast(QDBusServiceWatcher* self, const char* param1);
 int QDBusServiceWatcher_Metacall(QDBusServiceWatcher* self, int param1, int param2, void** param3);
+libqt_string QDBusServiceWatcher_Tr(const char* s);
 libqt_list /* of libqt_string */ QDBusServiceWatcher_WatchedServices(const QDBusServiceWatcher* self);
 void QDBusServiceWatcher_SetWatchedServices(QDBusServiceWatcher* self, const libqt_list /* of libqt_string */ services);
 void QDBusServiceWatcher_AddWatchedService(QDBusServiceWatcher* self, const libqt_string newService);
@@ -47,6 +48,8 @@ void QDBusServiceWatcher_ServiceUnregistered(QDBusServiceWatcher* self, const li
 void QDBusServiceWatcher_Connect_ServiceUnregistered(QDBusServiceWatcher* self, intptr_t slot);
 void QDBusServiceWatcher_ServiceOwnerChanged(QDBusServiceWatcher* self, const libqt_string service, const libqt_string oldOwner, const libqt_string newOwner);
 void QDBusServiceWatcher_Connect_ServiceOwnerChanged(QDBusServiceWatcher* self, intptr_t slot);
+libqt_string QDBusServiceWatcher_Tr2(const char* s, const char* c);
+libqt_string QDBusServiceWatcher_Tr3(const char* s, const char* c, int n);
 void QDBusServiceWatcher_OnMetaObject(const QDBusServiceWatcher* self, intptr_t slot);
 QMetaObject* QDBusServiceWatcher_SuperMetaObject(const QDBusServiceWatcher* self);
 void QDBusServiceWatcher_OnMetacast(QDBusServiceWatcher* self, intptr_t slot);

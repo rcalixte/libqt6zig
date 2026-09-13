@@ -24,6 +24,18 @@ int QGeoCodingManager_Metacall(QGeoCodingManager* self, int param1, int param2, 
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string QGeoCodingManager_Tr(const char* s) {
+    auto _ret = QGeoCodingManager::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 libqt_string QGeoCodingManager_ManagerName(const QGeoCodingManager* self) {
     auto _ret = self->managerName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -84,6 +96,30 @@ void QGeoCodingManager_Connect_ErrorOccurred(QGeoCodingManager* self, intptr_t s
         int sigval2 = static_cast<int>(errorVal);
         slotFunc(self, sigval1, sigval2);
     });
+}
+
+libqt_string QGeoCodingManager_Tr2(const char* s, const char* c) {
+    auto _ret = QGeoCodingManager::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QGeoCodingManager_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QGeoCodingManager::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 QGeoCodeReply* QGeoCodingManager_Geocode22(QGeoCodingManager* self, const QGeoAddress* address, const QGeoShape* bounds) {

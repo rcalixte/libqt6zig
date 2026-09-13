@@ -55,6 +55,7 @@ QSqlRelationalTableModel* QSqlRelationalTableModel_new3(QObject* parent, const Q
 QMetaObject* QSqlRelationalTableModel_MetaObject(const QSqlRelationalTableModel* self);
 void* QSqlRelationalTableModel_Metacast(QSqlRelationalTableModel* self, const char* param1);
 int QSqlRelationalTableModel_Metacall(QSqlRelationalTableModel* self, int param1, int param2, void** param3);
+libqt_string QSqlRelationalTableModel_Tr(const char* s);
 QVariant* QSqlRelationalTableModel_Data(const QSqlRelationalTableModel* self, const QModelIndex* item, int role);
 bool QSqlRelationalTableModel_SetData(QSqlRelationalTableModel* self, const QModelIndex* item, const QVariant* value, int role);
 bool QSqlRelationalTableModel_RemoveColumns(QSqlRelationalTableModel* self, int column, int count, const QModelIndex* parent);
@@ -70,6 +71,8 @@ libqt_string QSqlRelationalTableModel_SelectStatement(const QSqlRelationalTableM
 bool QSqlRelationalTableModel_UpdateRowInTable(QSqlRelationalTableModel* self, int row, const QSqlRecord* values);
 bool QSqlRelationalTableModel_InsertRowIntoTable(QSqlRelationalTableModel* self, const QSqlRecord* values);
 libqt_string QSqlRelationalTableModel_OrderByClause(const QSqlRelationalTableModel* self);
+libqt_string QSqlRelationalTableModel_Tr2(const char* s, const char* c);
+libqt_string QSqlRelationalTableModel_Tr3(const char* s, const char* c, int n);
 void QSqlRelationalTableModel_OnMetaObject(const QSqlRelationalTableModel* self, intptr_t slot);
 QMetaObject* QSqlRelationalTableModel_SuperMetaObject(const QSqlRelationalTableModel* self);
 void QSqlRelationalTableModel_OnMetacast(QSqlRelationalTableModel* self, intptr_t slot);

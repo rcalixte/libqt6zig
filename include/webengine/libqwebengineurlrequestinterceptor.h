@@ -30,7 +30,10 @@ QWebEngineUrlRequestInterceptor* QWebEngineUrlRequestInterceptor_new2(QObject* p
 QMetaObject* QWebEngineUrlRequestInterceptor_MetaObject(const QWebEngineUrlRequestInterceptor* self);
 void* QWebEngineUrlRequestInterceptor_Metacast(QWebEngineUrlRequestInterceptor* self, const char* param1);
 int QWebEngineUrlRequestInterceptor_Metacall(QWebEngineUrlRequestInterceptor* self, int param1, int param2, void** param3);
+libqt_string QWebEngineUrlRequestInterceptor_Tr(const char* s);
 void QWebEngineUrlRequestInterceptor_InterceptRequest(QWebEngineUrlRequestInterceptor* self, QWebEngineUrlRequestInfo* info);
+libqt_string QWebEngineUrlRequestInterceptor_Tr2(const char* s, const char* c);
+libqt_string QWebEngineUrlRequestInterceptor_Tr3(const char* s, const char* c, int n);
 void QWebEngineUrlRequestInterceptor_OnMetaObject(const QWebEngineUrlRequestInterceptor* self, intptr_t slot);
 QMetaObject* QWebEngineUrlRequestInterceptor_SuperMetaObject(const QWebEngineUrlRequestInterceptor* self);
 void QWebEngineUrlRequestInterceptor_OnMetacast(QWebEngineUrlRequestInterceptor* self, intptr_t slot);

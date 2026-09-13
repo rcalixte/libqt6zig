@@ -33,8 +33,11 @@ typedef struct TextAutoCorrectionCore__TextAutoCorrectionSettingsBase TextAutoCo
 QMetaObject* TextAutoCorrectionCore__TextAutoCorrectionSettings_MetaObject(const TextAutoCorrectionCore__TextAutoCorrectionSettings* self);
 void* TextAutoCorrectionCore__TextAutoCorrectionSettings_Metacast(TextAutoCorrectionCore__TextAutoCorrectionSettings* self, const char* param1);
 int TextAutoCorrectionCore__TextAutoCorrectionSettings_Metacall(TextAutoCorrectionCore__TextAutoCorrectionSettings* self, int param1, int param2, void** param3);
+libqt_string TextAutoCorrectionCore__TextAutoCorrectionSettings_Tr(const char* s);
 TextAutoCorrectionCore__TextAutoCorrectionSettings* TextAutoCorrectionCore__TextAutoCorrectionSettings_Self();
 void TextAutoCorrectionCore__TextAutoCorrectionSettings_RequestSync(TextAutoCorrectionCore__TextAutoCorrectionSettings* self);
+libqt_string TextAutoCorrectionCore__TextAutoCorrectionSettings_Tr2(const char* s, const char* c);
+libqt_string TextAutoCorrectionCore__TextAutoCorrectionSettings_Tr3(const char* s, const char* c, int n);
 
 #ifdef __cplusplus
 } /* extern C */

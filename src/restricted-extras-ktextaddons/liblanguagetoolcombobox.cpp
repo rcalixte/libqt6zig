@@ -60,6 +60,18 @@ int TextGrammarCheck__LanguageToolComboBox_Metacall(TextGrammarCheck__LanguageTo
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string TextGrammarCheck__LanguageToolComboBox_Tr(const char* s) {
+    auto _ret = TextGrammarCheck::LanguageToolComboBox::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void TextGrammarCheck__LanguageToolComboBox_SetLanguage(TextGrammarCheck__LanguageToolComboBox* self, const libqt_string str) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
     self->setLanguage(str_QString);
@@ -67,6 +79,30 @@ void TextGrammarCheck__LanguageToolComboBox_SetLanguage(TextGrammarCheck__Langua
 
 libqt_string TextGrammarCheck__LanguageToolComboBox_Language(const TextGrammarCheck__LanguageToolComboBox* self) {
     auto _ret = self->language();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string TextGrammarCheck__LanguageToolComboBox_Tr2(const char* s, const char* c) {
+    auto _ret = TextGrammarCheck::LanguageToolComboBox::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string TextGrammarCheck__LanguageToolComboBox_Tr3(const char* s, const char* c, int n) {
+    auto _ret = TextGrammarCheck::LanguageToolComboBox::tr(s, c, static_cast<int>(n));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

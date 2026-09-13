@@ -219,6 +219,8 @@ pub const QRestAccessManager = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -229,7 +231,7 @@ pub const QRestAccessManager = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QRestAccessManager_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QRestAccessManager.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -407,15 +409,15 @@ pub const QRestAccessManager = extern struct {
         defer allocator.free(data_keys);
         const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("QRestAccessManager.post2: Memory allocation failed");
         defer allocator.free(data_values);
-        var i: usize = 0;
+        var data_i: usize = 0;
         var data_it = data.iterator();
-        while (data_it.next()) |it_entry| : (i += 1) {
+        while (data_it.next()) |it_entry| : (data_i += 1) {
             const data_key = it_entry.key_ptr.*;
-            data_keys[i] = qtc.libqt_string{
+            data_keys[data_i] = qtc.libqt_string{
                 .len = data_key.len,
                 .data = data_key.ptr,
             };
-            data_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            data_values[data_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const data_map = qtc.libqt_map{
             .len = data_count,
@@ -531,15 +533,15 @@ pub const QRestAccessManager = extern struct {
         defer allocator.free(data_keys);
         const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("QRestAccessManager.put2: Memory allocation failed");
         defer allocator.free(data_values);
-        var i: usize = 0;
+        var data_i: usize = 0;
         var data_it = data.iterator();
-        while (data_it.next()) |it_entry| : (i += 1) {
+        while (data_it.next()) |it_entry| : (data_i += 1) {
             const data_key = it_entry.key_ptr.*;
-            data_keys[i] = qtc.libqt_string{
+            data_keys[data_i] = qtc.libqt_string{
                 .len = data_key.len,
                 .data = data_key.ptr,
             };
-            data_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            data_values[data_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const data_map = qtc.libqt_map{
             .len = data_count,
@@ -655,15 +657,15 @@ pub const QRestAccessManager = extern struct {
         defer allocator.free(data_keys);
         const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("QRestAccessManager.patch2: Memory allocation failed");
         defer allocator.free(data_values);
-        var i: usize = 0;
+        var data_i: usize = 0;
         var data_it = data.iterator();
-        while (data_it.next()) |it_entry| : (i += 1) {
+        while (data_it.next()) |it_entry| : (data_i += 1) {
             const data_key = it_entry.key_ptr.*;
-            data_keys[i] = qtc.libqt_string{
+            data_keys[data_i] = qtc.libqt_string{
                 .len = data_key.len,
                 .data = data_key.ptr,
             };
-            data_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            data_values[data_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const data_map = qtc.libqt_map{
             .len = data_count,
@@ -801,6 +803,8 @@ pub const QRestAccessManager = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -814,7 +818,7 @@ pub const QRestAccessManager = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QRestAccessManager_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QRestAccessManager.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -825,6 +829,8 @@ pub const QRestAccessManager = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -840,7 +846,7 @@ pub const QRestAccessManager = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.QRestAccessManager_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QRestAccessManager.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

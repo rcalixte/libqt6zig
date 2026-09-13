@@ -59,6 +59,7 @@ TextCustomEditor__TextEditFindBarBase* TextCustomEditor__TextEditFindBarBase_new
 QMetaObject* TextCustomEditor__TextEditFindBarBase_MetaObject(const TextCustomEditor__TextEditFindBarBase* self);
 void* TextCustomEditor__TextEditFindBarBase_Metacast(TextCustomEditor__TextEditFindBarBase* self, const char* param1);
 int TextCustomEditor__TextEditFindBarBase_Metacall(TextCustomEditor__TextEditFindBarBase* self, int param1, int param2, void** param3);
+libqt_string TextCustomEditor__TextEditFindBarBase_Tr(const char* s);
 libqt_string TextCustomEditor__TextEditFindBarBase_Text(const TextCustomEditor__TextEditFindBarBase* self);
 void TextCustomEditor__TextEditFindBarBase_SetText(TextCustomEditor__TextEditFindBarBase* self, const libqt_string text);
 void TextCustomEditor__TextEditFindBarBase_FocusAndSetCursor(TextCustomEditor__TextEditFindBarBase* self);
@@ -80,6 +81,8 @@ void TextCustomEditor__TextEditFindBarBase_FindPrev(TextCustomEditor__TextEditFi
 void TextCustomEditor__TextEditFindBarBase_AutoSearch(TextCustomEditor__TextEditFindBarBase* self, const libqt_string str);
 void TextCustomEditor__TextEditFindBarBase_SlotSearchText(TextCustomEditor__TextEditFindBarBase* self, bool backward, bool isAutoSearch);
 void TextCustomEditor__TextEditFindBarBase_CloseBar(TextCustomEditor__TextEditFindBarBase* self);
+libqt_string TextCustomEditor__TextEditFindBarBase_Tr2(const char* s, const char* c);
+libqt_string TextCustomEditor__TextEditFindBarBase_Tr3(const char* s, const char* c, int n);
 void TextCustomEditor__TextEditFindBarBase_OnMetaObject(const TextCustomEditor__TextEditFindBarBase* self, intptr_t slot);
 QMetaObject* TextCustomEditor__TextEditFindBarBase_SuperMetaObject(const TextCustomEditor__TextEditFindBarBase* self);
 void TextCustomEditor__TextEditFindBarBase_OnMetacast(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot);

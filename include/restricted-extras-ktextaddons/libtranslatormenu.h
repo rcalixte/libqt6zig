@@ -34,6 +34,7 @@ TextTranslator__TranslatorMenu* TextTranslator__TranslatorMenu_new2(QObject* par
 QMetaObject* TextTranslator__TranslatorMenu_MetaObject(const TextTranslator__TranslatorMenu* self);
 void* TextTranslator__TranslatorMenu_Metacast(TextTranslator__TranslatorMenu* self, const char* param1);
 int TextTranslator__TranslatorMenu_Metacall(TextTranslator__TranslatorMenu* self, int param1, int param2, void** param3);
+libqt_string TextTranslator__TranslatorMenu_Tr(const char* s);
 QMenu* TextTranslator__TranslatorMenu_Menu(const TextTranslator__TranslatorMenu* self);
 bool TextTranslator__TranslatorMenu_IsEmpty(const TextTranslator__TranslatorMenu* self);
 QPersistentModelIndex* TextTranslator__TranslatorMenu_ModelIndex(const TextTranslator__TranslatorMenu* self);
@@ -41,6 +42,8 @@ void TextTranslator__TranslatorMenu_SetModelIndex(TextTranslator__TranslatorMenu
 void TextTranslator__TranslatorMenu_UpdateMenu(TextTranslator__TranslatorMenu* self);
 void TextTranslator__TranslatorMenu_Translate(TextTranslator__TranslatorMenu* self, const libqt_string from, const libqt_string to, const QPersistentModelIndex* modelIndex);
 void TextTranslator__TranslatorMenu_Connect_Translate(TextTranslator__TranslatorMenu* self, intptr_t slot);
+libqt_string TextTranslator__TranslatorMenu_Tr2(const char* s, const char* c);
+libqt_string TextTranslator__TranslatorMenu_Tr3(const char* s, const char* c, int n);
 void TextTranslator__TranslatorMenu_OnMetaObject(const TextTranslator__TranslatorMenu* self, intptr_t slot);
 QMetaObject* TextTranslator__TranslatorMenu_SuperMetaObject(const TextTranslator__TranslatorMenu* self);
 void TextTranslator__TranslatorMenu_OnMetacast(TextTranslator__TranslatorMenu* self, intptr_t slot);

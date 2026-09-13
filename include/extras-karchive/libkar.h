@@ -25,6 +25,7 @@ typedef struct QIODevice QIODevice;
 KAr* KAr_new(const libqt_string filename);
 KAr* KAr_new2(QIODevice* dev);
 KAr* KAr_new3(const KAr* param1);
+libqt_string KAr_Tr(const char* sourceText);
 bool KAr_DoPrepareWriting(KAr* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
 bool KAr_DoFinishWriting(KAr* self, long long size);
 bool KAr_DoWriteDir(KAr* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
@@ -32,6 +33,8 @@ bool KAr_DoWriteSymLink(KAr* self, const libqt_string name, const libqt_string t
 bool KAr_OpenArchive(KAr* self, int mode);
 bool KAr_CloseArchive(KAr* self);
 void KAr_VirtualHook(KAr* self, int id, void* data);
+libqt_string KAr_Tr2(const char* sourceText, const char* disambiguation);
+libqt_string KAr_Tr3(const char* sourceText, const char* disambiguation, int n);
 void KAr_OnDoPrepareWriting(KAr* self, intptr_t slot);
 bool KAr_SuperDoPrepareWriting(KAr* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
 void KAr_OnDoFinishWriting(KAr* self, intptr_t slot);

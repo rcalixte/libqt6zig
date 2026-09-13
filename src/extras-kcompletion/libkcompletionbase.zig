@@ -657,13 +657,13 @@ pub const KCompletionBase = extern struct {
         defer allocator.free(keyBindingMap_keys);
         const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KCompletionBase.setKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_values);
-        var i: usize = 0;
+        var keyBindingMap_i: usize = 0;
         var keyBindingMap_it = _keyBindingMap.iterator();
-        while (keyBindingMap_it.next()) |it_entry| : (i += 1) {
+        while (keyBindingMap_it.next()) |it_entry| : (keyBindingMap_i += 1) {
             const keyBindingMap_key = it_entry.key_ptr.*;
-            keyBindingMap_keys[i] = @bitCast(keyBindingMap_key);
+            keyBindingMap_keys[keyBindingMap_i] = @bitCast(keyBindingMap_key);
             const value = it_entry.value_ptr.*;
-            keyBindingMap_values[i] = qtc.libqt_list{
+            keyBindingMap_values[keyBindingMap_i] = qtc.libqt_list{
                 .len = value.len,
                 .data = @ptrCast(value.ptr),
             };
@@ -716,13 +716,13 @@ pub const KCompletionBase = extern struct {
         defer allocator.free(keyBindingMap_keys);
         const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KCompletionBase.setKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_values);
-        var i: usize = 0;
+        var keyBindingMap_i: usize = 0;
         var keyBindingMap_it = _keyBindingMap.iterator();
-        while (keyBindingMap_it.next()) |it_entry| : (i += 1) {
+        while (keyBindingMap_it.next()) |it_entry| : (keyBindingMap_i += 1) {
             const keyBindingMap_key = it_entry.key_ptr.*;
-            keyBindingMap_keys[i] = @bitCast(keyBindingMap_key);
+            keyBindingMap_keys[keyBindingMap_i] = @bitCast(keyBindingMap_key);
             const value = it_entry.value_ptr.*;
-            keyBindingMap_values[i] = qtc.libqt_list{
+            keyBindingMap_values[keyBindingMap_i] = qtc.libqt_list{
                 .len = value.len,
                 .data = @ptrCast(value.ptr),
             };

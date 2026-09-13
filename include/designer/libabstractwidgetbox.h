@@ -65,6 +65,7 @@ QDesignerWidgetBoxInterface* QDesignerWidgetBoxInterface_new3(QWidget* parent, i
 QMetaObject* QDesignerWidgetBoxInterface_MetaObject(const QDesignerWidgetBoxInterface* self);
 void* QDesignerWidgetBoxInterface_Metacast(QDesignerWidgetBoxInterface* self, const char* param1);
 int QDesignerWidgetBoxInterface_Metacall(QDesignerWidgetBoxInterface* self, int param1, int param2, void** param3);
+libqt_string QDesignerWidgetBoxInterface_Tr(const char* s);
 int QDesignerWidgetBoxInterface_CategoryCount(const QDesignerWidgetBoxInterface* self);
 QDesignerWidgetBoxInterface__Category* QDesignerWidgetBoxInterface_Category(const QDesignerWidgetBoxInterface* self, int cat_idx);
 void QDesignerWidgetBoxInterface_AddCategory(QDesignerWidgetBoxInterface* self, const QDesignerWidgetBoxInterface__Category* cat);
@@ -79,6 +80,8 @@ void QDesignerWidgetBoxInterface_SetFileName(QDesignerWidgetBoxInterface* self, 
 libqt_string QDesignerWidgetBoxInterface_FileName(const QDesignerWidgetBoxInterface* self);
 bool QDesignerWidgetBoxInterface_Load(QDesignerWidgetBoxInterface* self);
 bool QDesignerWidgetBoxInterface_Save(QDesignerWidgetBoxInterface* self);
+libqt_string QDesignerWidgetBoxInterface_Tr2(const char* s, const char* c);
+libqt_string QDesignerWidgetBoxInterface_Tr3(const char* s, const char* c, int n);
 void QDesignerWidgetBoxInterface_OnMetaObject(const QDesignerWidgetBoxInterface* self, intptr_t slot);
 QMetaObject* QDesignerWidgetBoxInterface_SuperMetaObject(const QDesignerWidgetBoxInterface* self);
 void QDesignerWidgetBoxInterface_OnMetacast(QDesignerWidgetBoxInterface* self, intptr_t slot);

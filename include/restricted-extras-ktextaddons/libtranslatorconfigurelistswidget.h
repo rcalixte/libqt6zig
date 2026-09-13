@@ -58,8 +58,11 @@ TextTranslator__TranslatorConfigureListsWidget* TextTranslator__TranslatorConfig
 QMetaObject* TextTranslator__TranslatorConfigureListsWidget_MetaObject(const TextTranslator__TranslatorConfigureListsWidget* self);
 void* TextTranslator__TranslatorConfigureListsWidget_Metacast(TextTranslator__TranslatorConfigureListsWidget* self, const char* param1);
 int TextTranslator__TranslatorConfigureListsWidget_Metacall(TextTranslator__TranslatorConfigureListsWidget* self, int param1, int param2, void** param3);
+libqt_string TextTranslator__TranslatorConfigureListsWidget_Tr(const char* s);
 void TextTranslator__TranslatorConfigureListsWidget_Save(TextTranslator__TranslatorConfigureListsWidget* self);
 void TextTranslator__TranslatorConfigureListsWidget_Load(TextTranslator__TranslatorConfigureListsWidget* self);
+libqt_string TextTranslator__TranslatorConfigureListsWidget_Tr2(const char* s, const char* c);
+libqt_string TextTranslator__TranslatorConfigureListsWidget_Tr3(const char* s, const char* c, int n);
 void TextTranslator__TranslatorConfigureListsWidget_OnMetaObject(const TextTranslator__TranslatorConfigureListsWidget* self, intptr_t slot);
 QMetaObject* TextTranslator__TranslatorConfigureListsWidget_SuperMetaObject(const TextTranslator__TranslatorConfigureListsWidget* self);
 void TextTranslator__TranslatorConfigureListsWidget_OnMetacast(TextTranslator__TranslatorConfigureListsWidget* self, intptr_t slot);

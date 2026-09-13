@@ -33,9 +33,12 @@ QBarLegendMarker* QBarLegendMarker_new2(QAbstractBarSeries* series, QBarSet* bar
 QMetaObject* QBarLegendMarker_MetaObject(const QBarLegendMarker* self);
 void* QBarLegendMarker_Metacast(QBarLegendMarker* self, const char* param1);
 int QBarLegendMarker_Metacall(QBarLegendMarker* self, int param1, int param2, void** param3);
+libqt_string QBarLegendMarker_Tr(const char* s);
 int QBarLegendMarker_Type(QBarLegendMarker* self);
 QAbstractBarSeries* QBarLegendMarker_Series(QBarLegendMarker* self);
 QBarSet* QBarLegendMarker_Barset(QBarLegendMarker* self);
+libqt_string QBarLegendMarker_Tr2(const char* s, const char* c);
+libqt_string QBarLegendMarker_Tr3(const char* s, const char* c, int n);
 void QBarLegendMarker_OnMetaObject(const QBarLegendMarker* self, intptr_t slot);
 QMetaObject* QBarLegendMarker_SuperMetaObject(const QBarLegendMarker* self);
 void QBarLegendMarker_OnMetacast(QBarLegendMarker* self, intptr_t slot);

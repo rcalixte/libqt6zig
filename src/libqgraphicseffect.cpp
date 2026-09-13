@@ -41,6 +41,18 @@ int QGraphicsEffect_Metacall(QGraphicsEffect* self, int param1, int param2, void
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string QGraphicsEffect_Tr(const char* s) {
+    auto _ret = QGraphicsEffect::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 QRectF* QGraphicsEffect_BoundingRectFor(const QGraphicsEffect* self, const QRectF* sourceRect) {
     return new QRectF(self->boundingRectFor(*sourceRect));
 }
@@ -85,6 +97,30 @@ void QGraphicsEffect_SourceChanged(QGraphicsEffect* self, int flags) {
     if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
         vqgraphicseffect->sourceChanged(static_cast<QGraphicsEffect::ChangeFlags>(flags));
     }
+}
+
+libqt_string QGraphicsEffect_Tr2(const char* s, const char* c) {
+    auto _ret = QGraphicsEffect::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QGraphicsEffect_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QGraphicsEffect::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
@@ -767,6 +803,18 @@ int QGraphicsColorizeEffect_Metacall(QGraphicsColorizeEffect* self, int param1, 
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string QGraphicsColorizeEffect_Tr(const char* s) {
+    auto _ret = QGraphicsColorizeEffect::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 QColor* QGraphicsColorizeEffect_Color(const QGraphicsColorizeEffect* self) {
     return new QColor(self->color());
 }
@@ -814,6 +862,30 @@ void QGraphicsColorizeEffect_Draw(QGraphicsColorizeEffect* self, QPainter* paint
     if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
         vqgraphicscolorizeeffect->draw(painter);
     }
+}
+
+libqt_string QGraphicsColorizeEffect_Tr2(const char* s, const char* c) {
+    auto _ret = QGraphicsColorizeEffect::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QGraphicsColorizeEffect_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QGraphicsColorizeEffect::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
@@ -1412,6 +1484,18 @@ int QGraphicsBlurEffect_Metacall(QGraphicsBlurEffect* self, int param1, int para
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string QGraphicsBlurEffect_Tr(const char* s) {
+    auto _ret = QGraphicsBlurEffect::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 QRectF* QGraphicsBlurEffect_BoundingRectFor(const QGraphicsBlurEffect* self, const QRectF* rect) {
     return new QRectF(self->boundingRectFor(*rect));
 }
@@ -1461,6 +1545,30 @@ void QGraphicsBlurEffect_Draw(QGraphicsBlurEffect* self, QPainter* painter) {
     if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
         vqgraphicsblureffect->draw(painter);
     }
+}
+
+libqt_string QGraphicsBlurEffect_Tr2(const char* s, const char* c) {
+    auto _ret = QGraphicsBlurEffect::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QGraphicsBlurEffect_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QGraphicsBlurEffect::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
@@ -2049,6 +2157,18 @@ int QGraphicsDropShadowEffect_Metacall(QGraphicsDropShadowEffect* self, int para
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string QGraphicsDropShadowEffect_Tr(const char* s) {
+    auto _ret = QGraphicsDropShadowEffect::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 QRectF* QGraphicsDropShadowEffect_BoundingRectFor(const QGraphicsDropShadowEffect* self, const QRectF* rect) {
     return new QRectF(self->boundingRectFor(*rect));
 }
@@ -2146,6 +2266,30 @@ void QGraphicsDropShadowEffect_Draw(QGraphicsDropShadowEffect* self, QPainter* p
     if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
         vqgraphicsdropshadoweffect->draw(painter);
     }
+}
+
+libqt_string QGraphicsDropShadowEffect_Tr2(const char* s, const char* c) {
+    auto _ret = QGraphicsDropShadowEffect::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QGraphicsDropShadowEffect_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QGraphicsDropShadowEffect::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation
@@ -2734,6 +2878,18 @@ int QGraphicsOpacityEffect_Metacall(QGraphicsOpacityEffect* self, int param1, in
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string QGraphicsOpacityEffect_Tr(const char* s) {
+    auto _ret = QGraphicsOpacityEffect::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 double QGraphicsOpacityEffect_Opacity(const QGraphicsOpacityEffect* self) {
     return static_cast<double>(self->opacity());
 }
@@ -2781,6 +2937,30 @@ void QGraphicsOpacityEffect_Draw(QGraphicsOpacityEffect* self, QPainter* painter
     if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
         vqgraphicsopacityeffect->draw(painter);
     }
+}
+
+libqt_string QGraphicsOpacityEffect_Tr2(const char* s, const char* c) {
+    auto _ret = QGraphicsOpacityEffect::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QGraphicsOpacityEffect_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QGraphicsOpacityEffect::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

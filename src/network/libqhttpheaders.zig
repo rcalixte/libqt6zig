@@ -711,23 +711,23 @@ pub const QHttpHeaders = extern struct {
                 allocator.free(headers_inner);
             allocator.free(headers_inners);
         }
-        var i: usize = 0;
+        var headers_i: usize = 0;
         var headers_it = headers.iterator();
-        while (headers_it.next()) |it_entry| : (i += 1) {
+        while (headers_it.next()) |it_entry| : (headers_i += 1) {
             const headers_key = it_entry.key_ptr.*;
-            headers_keys[i] = qtc.libqt_string{
+            headers_keys[headers_i] = qtc.libqt_string{
                 .len = headers_key.len,
                 .data = headers_key.ptr,
             };
-            headers_values[i].len = it_entry.value_ptr.*.len;
+            headers_values[headers_i].len = it_entry.value_ptr.*.len;
             const headers_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("QHttpHeaders.fromMultiMap: Memory allocation failed");
-            headers_inners[i] = headers_val;
+            headers_inners[headers_i] = headers_val;
             for (it_entry.value_ptr.*, 0..) |str_item, j|
                 headers_val[j] = qtc.libqt_string{
                     .len = str_item.len,
                     .data = str_item.ptr,
                 };
-            headers_values[i].data = @ptrCast(headers_val.ptr);
+            headers_values[headers_i].data = @ptrCast(headers_val.ptr);
         }
         const headers_map = qtc.libqt_map{
             .len = headers_count,
@@ -761,23 +761,23 @@ pub const QHttpHeaders = extern struct {
                 allocator.free(headers_inner);
             allocator.free(headers_inners);
         }
-        var i: usize = 0;
+        var headers_i: usize = 0;
         var headers_it = headers.iterator();
-        while (headers_it.next()) |it_entry| : (i += 1) {
+        while (headers_it.next()) |it_entry| : (headers_i += 1) {
             const headers_key = it_entry.key_ptr.*;
-            headers_keys[i] = qtc.libqt_string{
+            headers_keys[headers_i] = qtc.libqt_string{
                 .len = headers_key.len,
                 .data = headers_key.ptr,
             };
-            headers_values[i].len = it_entry.value_ptr.*.len;
+            headers_values[headers_i].len = it_entry.value_ptr.*.len;
             const headers_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("QHttpHeaders.fromMultiHash: Memory allocation failed");
-            headers_inners[i] = headers_val;
+            headers_inners[headers_i] = headers_val;
             for (it_entry.value_ptr.*, 0..) |str_item, j|
                 headers_val[j] = qtc.libqt_string{
                     .len = str_item.len,
                     .data = str_item.ptr,
                 };
-            headers_values[i].data = @ptrCast(headers_val.ptr);
+            headers_values[headers_i].data = @ptrCast(headers_val.ptr);
         }
         const headers_map = qtc.libqt_map{
             .len = headers_count,

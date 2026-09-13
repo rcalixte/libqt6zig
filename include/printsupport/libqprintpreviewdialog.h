@@ -61,11 +61,14 @@ QPrintPreviewDialog* QPrintPreviewDialog_new6(QPrinter* printer, QWidget* parent
 QMetaObject* QPrintPreviewDialog_MetaObject(const QPrintPreviewDialog* self);
 void* QPrintPreviewDialog_Metacast(QPrintPreviewDialog* self, const char* param1);
 int QPrintPreviewDialog_Metacall(QPrintPreviewDialog* self, int param1, int param2, void** param3);
+libqt_string QPrintPreviewDialog_Tr(const char* s);
 QPrinter* QPrintPreviewDialog_Printer(QPrintPreviewDialog* self);
 void QPrintPreviewDialog_SetVisible(QPrintPreviewDialog* self, bool visible);
 void QPrintPreviewDialog_Done(QPrintPreviewDialog* self, int result);
 void QPrintPreviewDialog_PaintRequested(QPrintPreviewDialog* self, QPrinter* printer);
 void QPrintPreviewDialog_Connect_PaintRequested(QPrintPreviewDialog* self, intptr_t slot);
+libqt_string QPrintPreviewDialog_Tr2(const char* s, const char* c);
+libqt_string QPrintPreviewDialog_Tr3(const char* s, const char* c, int n);
 void QPrintPreviewDialog_OnMetaObject(const QPrintPreviewDialog* self, intptr_t slot);
 QMetaObject* QPrintPreviewDialog_SuperMetaObject(const QPrintPreviewDialog* self);
 void QPrintPreviewDialog_OnMetacast(QPrintPreviewDialog* self, intptr_t slot);

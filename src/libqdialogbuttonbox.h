@@ -63,6 +63,7 @@ QDialogButtonBox* QDialogButtonBox_new8(int buttons, int orientation, QWidget* p
 QMetaObject* QDialogButtonBox_MetaObject(const QDialogButtonBox* self);
 void* QDialogButtonBox_Metacast(QDialogButtonBox* self, const char* param1);
 int QDialogButtonBox_Metacall(QDialogButtonBox* self, int param1, int param2, void** param3);
+libqt_string QDialogButtonBox_Tr(const char* s);
 void QDialogButtonBox_SetOrientation(QDialogButtonBox* self, int orientation);
 int QDialogButtonBox_Orientation(const QDialogButtonBox* self);
 void QDialogButtonBox_AddButton(QDialogButtonBox* self, QAbstractButton* button, int role);
@@ -88,6 +89,8 @@ void QDialogButtonBox_Rejected(QDialogButtonBox* self);
 void QDialogButtonBox_Connect_Rejected(QDialogButtonBox* self, intptr_t slot);
 void QDialogButtonBox_ChangeEvent(QDialogButtonBox* self, QEvent* event);
 bool QDialogButtonBox_Event(QDialogButtonBox* self, QEvent* event);
+libqt_string QDialogButtonBox_Tr2(const char* s, const char* c);
+libqt_string QDialogButtonBox_Tr3(const char* s, const char* c, int n);
 void QDialogButtonBox_OnMetaObject(const QDialogButtonBox* self, intptr_t slot);
 QMetaObject* QDialogButtonBox_SuperMetaObject(const QDialogButtonBox* self);
 void QDialogButtonBox_OnMetacast(QDialogButtonBox* self, intptr_t slot);

@@ -30,6 +30,7 @@ QHCandlestickModelMapper* QHCandlestickModelMapper_new2(QObject* parent);
 QMetaObject* QHCandlestickModelMapper_MetaObject(const QHCandlestickModelMapper* self);
 void* QHCandlestickModelMapper_Metacast(QHCandlestickModelMapper* self, const char* param1);
 int QHCandlestickModelMapper_Metacall(QHCandlestickModelMapper* self, int param1, int param2, void** param3);
+libqt_string QHCandlestickModelMapper_Tr(const char* s);
 int QHCandlestickModelMapper_Orientation(const QHCandlestickModelMapper* self);
 void QHCandlestickModelMapper_SetTimestampColumn(QHCandlestickModelMapper* self, int timestampColumn);
 int QHCandlestickModelMapper_TimestampColumn(const QHCandlestickModelMapper* self);
@@ -59,6 +60,8 @@ void QHCandlestickModelMapper_FirstSetRowChanged(QHCandlestickModelMapper* self)
 void QHCandlestickModelMapper_Connect_FirstSetRowChanged(QHCandlestickModelMapper* self, intptr_t slot);
 void QHCandlestickModelMapper_LastSetRowChanged(QHCandlestickModelMapper* self);
 void QHCandlestickModelMapper_Connect_LastSetRowChanged(QHCandlestickModelMapper* self, intptr_t slot);
+libqt_string QHCandlestickModelMapper_Tr2(const char* s, const char* c);
+libqt_string QHCandlestickModelMapper_Tr3(const char* s, const char* c, int n);
 void QHCandlestickModelMapper_OnMetaObject(const QHCandlestickModelMapper* self, intptr_t slot);
 QMetaObject* QHCandlestickModelMapper_SuperMetaObject(const QHCandlestickModelMapper* self);
 void QHCandlestickModelMapper_OnMetacast(QHCandlestickModelMapper* self, intptr_t slot);

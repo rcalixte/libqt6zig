@@ -34,7 +34,10 @@ KBookmarkAction* KBookmarkAction_FromKBookmarkActionInterface(KBookmarkActionInt
 QMetaObject* KBookmarkAction_MetaObject(const KBookmarkAction* self);
 void* KBookmarkAction_Metacast(KBookmarkAction* self, const char* param1);
 int KBookmarkAction_Metacall(KBookmarkAction* self, int param1, int param2, void** param3);
+libqt_string KBookmarkAction_Tr(const char* s);
 void KBookmarkAction_SlotSelected(KBookmarkAction* self, int mb, int km);
+libqt_string KBookmarkAction_Tr2(const char* s, const char* c);
+libqt_string KBookmarkAction_Tr3(const char* s, const char* c, int n);
 void KBookmarkAction_OnMetaObject(const KBookmarkAction* self, intptr_t slot);
 QMetaObject* KBookmarkAction_SuperMetaObject(const KBookmarkAction* self);
 void KBookmarkAction_OnMetacast(KBookmarkAction* self, intptr_t slot);

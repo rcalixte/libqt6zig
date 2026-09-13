@@ -43,6 +43,7 @@ KFileItemDelegate* KFileItemDelegate_new2(QObject* parent);
 QMetaObject* KFileItemDelegate_MetaObject(const KFileItemDelegate* self);
 void* KFileItemDelegate_Metacast(KFileItemDelegate* self, const char* param1);
 int KFileItemDelegate_Metacall(KFileItemDelegate* self, int param1, int param2, void** param3);
+libqt_string KFileItemDelegate_Tr(const char* s);
 QSize* KFileItemDelegate_SizeHint(const KFileItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index);
 void KFileItemDelegate_Paint(const KFileItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index);
 QWidget* KFileItemDelegate_CreateEditor(const KFileItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index);
@@ -74,6 +75,8 @@ void KFileItemDelegate_SetSelectionEmblemRect(KFileItemDelegate* self, QRect* re
 KFileItem* KFileItemDelegate_FileItem(const KFileItemDelegate* self, const QModelIndex* index);
 bool KFileItemDelegate_HelpEvent(KFileItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index);
 QRegion* KFileItemDelegate_Shape(KFileItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index);
+libqt_string KFileItemDelegate_Tr2(const char* s, const char* c);
+libqt_string KFileItemDelegate_Tr3(const char* s, const char* c, int n);
 void KFileItemDelegate_OnMetaObject(const KFileItemDelegate* self, intptr_t slot);
 QMetaObject* KFileItemDelegate_SuperMetaObject(const KFileItemDelegate* self);
 void KFileItemDelegate_OnMetacast(KFileItemDelegate* self, intptr_t slot);

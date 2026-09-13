@@ -58,6 +58,7 @@ TextCustomEditor__TextGoToLineWidget* TextCustomEditor__TextGoToLineWidget_new2(
 QMetaObject* TextCustomEditor__TextGoToLineWidget_MetaObject(const TextCustomEditor__TextGoToLineWidget* self);
 void* TextCustomEditor__TextGoToLineWidget_Metacast(TextCustomEditor__TextGoToLineWidget* self, const char* param1);
 int TextCustomEditor__TextGoToLineWidget_Metacall(TextCustomEditor__TextGoToLineWidget* self, int param1, int param2, void** param3);
+libqt_string TextCustomEditor__TextGoToLineWidget_Tr(const char* s);
 void TextCustomEditor__TextGoToLineWidget_GoToLine(TextCustomEditor__TextGoToLineWidget* self);
 void TextCustomEditor__TextGoToLineWidget_SetMaximumLineCount(TextCustomEditor__TextGoToLineWidget* self, int max);
 void TextCustomEditor__TextGoToLineWidget_MoveToLine(TextCustomEditor__TextGoToLineWidget* self, int param1);
@@ -68,6 +69,8 @@ bool TextCustomEditor__TextGoToLineWidget_Event(TextCustomEditor__TextGoToLineWi
 void TextCustomEditor__TextGoToLineWidget_ShowEvent(TextCustomEditor__TextGoToLineWidget* self, QShowEvent* e);
 bool TextCustomEditor__TextGoToLineWidget_EventFilter(TextCustomEditor__TextGoToLineWidget* self, QObject* obj, QEvent* event);
 void TextCustomEditor__TextGoToLineWidget_SlotBlockCountChanged(TextCustomEditor__TextGoToLineWidget* self, int numberBlockCount);
+libqt_string TextCustomEditor__TextGoToLineWidget_Tr2(const char* s, const char* c);
+libqt_string TextCustomEditor__TextGoToLineWidget_Tr3(const char* s, const char* c, int n);
 void TextCustomEditor__TextGoToLineWidget_OnMetaObject(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
 QMetaObject* TextCustomEditor__TextGoToLineWidget_SuperMetaObject(const TextCustomEditor__TextGoToLineWidget* self);
 void TextCustomEditor__TextGoToLineWidget_OnMetacast(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);

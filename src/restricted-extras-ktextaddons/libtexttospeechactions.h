@@ -33,6 +33,7 @@ TextEditTextToSpeech__TextToSpeechActions* TextEditTextToSpeech__TextToSpeechAct
 QMetaObject* TextEditTextToSpeech__TextToSpeechActions_MetaObject(const TextEditTextToSpeech__TextToSpeechActions* self);
 void* TextEditTextToSpeech__TextToSpeechActions_Metacast(TextEditTextToSpeech__TextToSpeechActions* self, const char* param1);
 int TextEditTextToSpeech__TextToSpeechActions_Metacall(TextEditTextToSpeech__TextToSpeechActions* self, int param1, int param2, void** param3);
+libqt_string TextEditTextToSpeech__TextToSpeechActions_Tr(const char* s);
 QAction* TextEditTextToSpeech__TextToSpeechActions_StopAction(const TextEditTextToSpeech__TextToSpeechActions* self);
 QAction* TextEditTextToSpeech__TextToSpeechActions_PlayPauseAction(const TextEditTextToSpeech__TextToSpeechActions* self);
 int TextEditTextToSpeech__TextToSpeechActions_State(const TextEditTextToSpeech__TextToSpeechActions* self);
@@ -40,6 +41,8 @@ void TextEditTextToSpeech__TextToSpeechActions_SetState(TextEditTextToSpeech__Te
 void TextEditTextToSpeech__TextToSpeechActions_SlotStop(TextEditTextToSpeech__TextToSpeechActions* self);
 void TextEditTextToSpeech__TextToSpeechActions_StateChanged(TextEditTextToSpeech__TextToSpeechActions* self, int state);
 void TextEditTextToSpeech__TextToSpeechActions_Connect_StateChanged(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
+libqt_string TextEditTextToSpeech__TextToSpeechActions_Tr2(const char* s, const char* c);
+libqt_string TextEditTextToSpeech__TextToSpeechActions_Tr3(const char* s, const char* c, int n);
 void TextEditTextToSpeech__TextToSpeechActions_OnMetaObject(const TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
 QMetaObject* TextEditTextToSpeech__TextToSpeechActions_SuperMetaObject(const TextEditTextToSpeech__TextToSpeechActions* self);
 void TextEditTextToSpeech__TextToSpeechActions_OnMetacast(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);

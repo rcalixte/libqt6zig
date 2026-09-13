@@ -36,10 +36,13 @@ KParts__FileInfoExtension* KParts__FileInfoExtension_new(KParts__ReadOnlyPart* p
 QMetaObject* KParts__FileInfoExtension_MetaObject(const KParts__FileInfoExtension* self);
 void* KParts__FileInfoExtension_Metacast(KParts__FileInfoExtension* self, const char* param1);
 int KParts__FileInfoExtension_Metacall(KParts__FileInfoExtension* self, int param1, int param2, void** param3);
+libqt_string KParts__FileInfoExtension_Tr(const char* s);
 KParts__FileInfoExtension* KParts__FileInfoExtension_ChildObject(QObject* obj);
 bool KParts__FileInfoExtension_HasSelection(const KParts__FileInfoExtension* self);
 int KParts__FileInfoExtension_SupportedQueryModes(const KParts__FileInfoExtension* self);
 KFileItemList* KParts__FileInfoExtension_QueryFor(const KParts__FileInfoExtension* self, int mode);
+libqt_string KParts__FileInfoExtension_Tr2(const char* s, const char* c);
+libqt_string KParts__FileInfoExtension_Tr3(const char* s, const char* c, int n);
 void KParts__FileInfoExtension_OnMetaObject(const KParts__FileInfoExtension* self, intptr_t slot);
 QMetaObject* KParts__FileInfoExtension_SuperMetaObject(const KParts__FileInfoExtension* self);
 void KParts__FileInfoExtension_OnMetacast(KParts__FileInfoExtension* self, intptr_t slot);

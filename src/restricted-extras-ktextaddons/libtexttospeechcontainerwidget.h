@@ -58,7 +58,10 @@ TextEditTextToSpeech__TextToSpeechContainerWidget* TextEditTextToSpeech__TextToS
 QMetaObject* TextEditTextToSpeech__TextToSpeechContainerWidget_MetaObject(const TextEditTextToSpeech__TextToSpeechContainerWidget* self);
 void* TextEditTextToSpeech__TextToSpeechContainerWidget_Metacast(TextEditTextToSpeech__TextToSpeechContainerWidget* self, const char* param1);
 int TextEditTextToSpeech__TextToSpeechContainerWidget_Metacall(TextEditTextToSpeech__TextToSpeechContainerWidget* self, int param1, int param2, void** param3);
+libqt_string TextEditTextToSpeech__TextToSpeechContainerWidget_Tr(const char* s);
 void TextEditTextToSpeech__TextToSpeechContainerWidget_Say(TextEditTextToSpeech__TextToSpeechContainerWidget* self, const libqt_string text);
+libqt_string TextEditTextToSpeech__TextToSpeechContainerWidget_Tr2(const char* s, const char* c);
+libqt_string TextEditTextToSpeech__TextToSpeechContainerWidget_Tr3(const char* s, const char* c, int n);
 void TextEditTextToSpeech__TextToSpeechContainerWidget_OnMetaObject(const TextEditTextToSpeech__TextToSpeechContainerWidget* self, intptr_t slot);
 QMetaObject* TextEditTextToSpeech__TextToSpeechContainerWidget_SuperMetaObject(const TextEditTextToSpeech__TextToSpeechContainerWidget* self);
 void TextEditTextToSpeech__TextToSpeechContainerWidget_OnMetacast(TextEditTextToSpeech__TextToSpeechContainerWidget* self, intptr_t slot);

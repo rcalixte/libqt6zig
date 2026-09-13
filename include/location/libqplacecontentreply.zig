@@ -209,6 +209,8 @@ pub const QPlaceContentReply = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -219,7 +221,7 @@ pub const QPlaceContentReply = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QPlaceContentReply_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContentReply.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -391,12 +393,12 @@ pub const QPlaceContentReply = extern struct {
         defer allocator.free(content_keys);
         const content_values = allocator.alloc(QtC.QPlaceContent, content_count) catch @panic("QPlaceContentReply.setContent: Memory allocation failed");
         defer allocator.free(content_values);
-        var i: usize = 0;
+        var content_i: usize = 0;
         var content_it = _content.iterator();
-        while (content_it.next()) |it_entry| : (i += 1) {
+        while (content_it.next()) |it_entry| : (content_i += 1) {
             const content_key = it_entry.key_ptr.*;
-            content_keys[i] = @bitCast(content_key);
-            content_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            content_keys[content_i] = @bitCast(content_key);
+            content_values[content_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const content_map = qtc.libqt_map{
             .len = content_count,
@@ -446,12 +448,12 @@ pub const QPlaceContentReply = extern struct {
         defer allocator.free(content_keys);
         const content_values = allocator.alloc(QtC.QPlaceContent, content_count) catch @panic("QPlaceContentReply.setContent: Memory allocation failed");
         defer allocator.free(content_values);
-        var i: usize = 0;
+        var content_i: usize = 0;
         var content_it = _content.iterator();
-        while (content_it.next()) |it_entry| : (i += 1) {
+        while (content_it.next()) |it_entry| : (content_i += 1) {
             const content_key = it_entry.key_ptr.*;
-            content_keys[i] = @bitCast(content_key);
-            content_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            content_keys[content_i] = @bitCast(content_key);
+            content_values[content_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const content_map = qtc.libqt_map{
             .len = content_count,
@@ -679,6 +681,8 @@ pub const QPlaceContentReply = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -692,7 +696,7 @@ pub const QPlaceContentReply = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QPlaceContentReply_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContentReply.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -703,6 +707,8 @@ pub const QPlaceContentReply = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -718,7 +724,7 @@ pub const QPlaceContentReply = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.QPlaceContentReply_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContentReply.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

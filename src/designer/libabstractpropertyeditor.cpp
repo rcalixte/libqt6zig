@@ -58,6 +58,18 @@ int QDesignerPropertyEditorInterface_Metacall(QDesignerPropertyEditorInterface* 
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string QDesignerPropertyEditorInterface_Tr(const char* s) {
+    auto _ret = QDesignerPropertyEditorInterface::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 QDesignerFormEditorInterface* QDesignerPropertyEditorInterface_Core(const QDesignerPropertyEditorInterface* self) {
     return self->core();
 }
@@ -117,6 +129,30 @@ void QDesignerPropertyEditorInterface_SetPropertyValue(QDesignerPropertyEditorIn
 
 void QDesignerPropertyEditorInterface_SetReadOnly(QDesignerPropertyEditorInterface* self, bool readOnly) {
     self->setReadOnly(readOnly);
+}
+
+libqt_string QDesignerPropertyEditorInterface_Tr2(const char* s, const char* c) {
+    auto _ret = QDesignerPropertyEditorInterface::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QDesignerPropertyEditorInterface_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QDesignerPropertyEditorInterface::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

@@ -31,6 +31,7 @@ KKeySequenceRecorder* KKeySequenceRecorder_new2(QWindow* window, QObject* parent
 QMetaObject* KKeySequenceRecorder_MetaObject(const KKeySequenceRecorder* self);
 void* KKeySequenceRecorder_Metacast(KKeySequenceRecorder* self, const char* param1);
 int KKeySequenceRecorder_Metacall(KKeySequenceRecorder* self, int param1, int param2, void** param3);
+libqt_string KKeySequenceRecorder_Tr(const char* s);
 void KKeySequenceRecorder_StartRecording(KKeySequenceRecorder* self);
 bool KKeySequenceRecorder_IsRecording(const KKeySequenceRecorder* self);
 QKeySequence* KKeySequenceRecorder_CurrentKeySequence(const KKeySequenceRecorder* self);
@@ -62,6 +63,8 @@ void KKeySequenceRecorder_ModifierOnlyAllowedChanged(KKeySequenceRecorder* self)
 void KKeySequenceRecorder_Connect_ModifierOnlyAllowedChanged(KKeySequenceRecorder* self, intptr_t slot);
 void KKeySequenceRecorder_PatternsChanged(KKeySequenceRecorder* self);
 void KKeySequenceRecorder_Connect_PatternsChanged(KKeySequenceRecorder* self, intptr_t slot);
+libqt_string KKeySequenceRecorder_Tr2(const char* s, const char* c);
+libqt_string KKeySequenceRecorder_Tr3(const char* s, const char* c, int n);
 void KKeySequenceRecorder_OnMetaObject(const KKeySequenceRecorder* self, intptr_t slot);
 QMetaObject* KKeySequenceRecorder_SuperMetaObject(const KKeySequenceRecorder* self);
 void KKeySequenceRecorder_OnMetacast(KKeySequenceRecorder* self, intptr_t slot);

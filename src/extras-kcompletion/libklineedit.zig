@@ -332,6 +332,8 @@ pub const KLineEdit = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -342,7 +344,7 @@ pub const KLineEdit = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.KLineEdit_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2086,6 +2088,8 @@ pub const KLineEdit = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -2099,7 +2103,7 @@ pub const KLineEdit = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.KLineEdit_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2110,6 +2114,8 @@ pub const KLineEdit = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -2125,7 +2131,7 @@ pub const KLineEdit = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.KLineEdit_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -13316,13 +13322,13 @@ pub const KLineEdit = extern struct {
         defer allocator.free(keyBindingMap_keys);
         const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KLineEdit.setKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_values);
-        var i: usize = 0;
+        var keyBindingMap_i: usize = 0;
         var keyBindingMap_it = _keyBindingMap.iterator();
-        while (keyBindingMap_it.next()) |it_entry| : (i += 1) {
+        while (keyBindingMap_it.next()) |it_entry| : (keyBindingMap_i += 1) {
             const keyBindingMap_key = it_entry.key_ptr.*;
-            keyBindingMap_keys[i] = @bitCast(keyBindingMap_key);
+            keyBindingMap_keys[keyBindingMap_i] = @bitCast(keyBindingMap_key);
             const value = it_entry.value_ptr.*;
-            keyBindingMap_values[i] = qtc.libqt_list{
+            keyBindingMap_values[keyBindingMap_i] = qtc.libqt_list{
                 .len = value.len,
                 .data = @ptrCast(value.ptr),
             };
@@ -13359,13 +13365,13 @@ pub const KLineEdit = extern struct {
         defer allocator.free(keyBindingMap_keys);
         const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KLineEdit.setKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_values);
-        var i: usize = 0;
+        var keyBindingMap_i: usize = 0;
         var keyBindingMap_it = _keyBindingMap.iterator();
-        while (keyBindingMap_it.next()) |it_entry| : (i += 1) {
+        while (keyBindingMap_it.next()) |it_entry| : (keyBindingMap_i += 1) {
             const keyBindingMap_key = it_entry.key_ptr.*;
-            keyBindingMap_keys[i] = @bitCast(keyBindingMap_key);
+            keyBindingMap_keys[keyBindingMap_i] = @bitCast(keyBindingMap_key);
             const value = it_entry.value_ptr.*;
-            keyBindingMap_values[i] = qtc.libqt_list{
+            keyBindingMap_values[keyBindingMap_i] = qtc.libqt_list{
                 .len = value.len,
                 .data = @ptrCast(value.ptr),
             };

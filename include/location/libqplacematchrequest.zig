@@ -194,15 +194,15 @@ pub const QPlaceMatchRequest = extern struct {
         defer allocator.free(parameters_keys);
         const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QPlaceMatchRequest.setParameters: Memory allocation failed");
         defer allocator.free(parameters_values);
-        var i: usize = 0;
+        var parameters_i: usize = 0;
         var parameters_it = _parameters.iterator();
-        while (parameters_it.next()) |it_entry| : (i += 1) {
+        while (parameters_it.next()) |it_entry| : (parameters_i += 1) {
             const parameters_key = it_entry.key_ptr.*;
-            parameters_keys[i] = qtc.libqt_string{
+            parameters_keys[parameters_i] = qtc.libqt_string{
                 .len = parameters_key.len,
                 .data = parameters_key.ptr,
             };
-            parameters_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            parameters_values[parameters_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const parameters_map = qtc.libqt_map{
             .len = parameters_count,

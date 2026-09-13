@@ -68,6 +68,7 @@ QTermWidget* QTermWidget_FromQTermWidgetInterface(QTermWidgetInterface* _qtermwi
 QMetaObject* QTermWidget_MetaObject(const QTermWidget* self);
 void* QTermWidget_Metacast(QTermWidget* self, const char* param1);
 int QTermWidget_Metacall(QTermWidget* self, int param1, int param2, void** param3);
+libqt_string QTermWidget_Tr(const char* s);
 QSize* QTermWidget_SizeHint(const QTermWidget* self);
 void QTermWidget_SetTerminalSizeHint(QTermWidget* self, bool enabled);
 bool QTermWidget_TerminalSizeHint(QTermWidget* self);
@@ -174,6 +175,8 @@ void QTermWidget_Clear(QTermWidget* self);
 void QTermWidget_ToggleShowSearchBar(QTermWidget* self);
 void QTermWidget_SaveHistory(QTermWidget* self, QIODevice* device);
 void QTermWidget_ResizeEvent(QTermWidget* self, QResizeEvent* param1);
+libqt_string QTermWidget_Tr2(const char* s, const char* c);
+libqt_string QTermWidget_Tr3(const char* s, const char* c, int n);
 void QTermWidget_OnMetaObject(const QTermWidget* self, intptr_t slot);
 QMetaObject* QTermWidget_SuperMetaObject(const QTermWidget* self);
 void QTermWidget_OnMetacast(QTermWidget* self, intptr_t slot);

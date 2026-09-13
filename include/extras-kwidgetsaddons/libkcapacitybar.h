@@ -58,6 +58,7 @@ KCapacityBar* KCapacityBar_new4(int drawTextMode, QWidget* parent);
 QMetaObject* KCapacityBar_MetaObject(const KCapacityBar* self);
 void* KCapacityBar_Metacast(KCapacityBar* self, const char* param1);
 int KCapacityBar_Metacall(KCapacityBar* self, int param1, int param2, void** param3);
+libqt_string KCapacityBar_Tr(const char* s);
 void KCapacityBar_SetValue(KCapacityBar* self, int value);
 int KCapacityBar_Value(const KCapacityBar* self);
 void KCapacityBar_SetText(KCapacityBar* self, const libqt_string text);
@@ -77,6 +78,8 @@ void KCapacityBar_DrawCapacityBar2(const KCapacityBar* self, QPainter* p, const 
 QSize* KCapacityBar_MinimumSizeHint(const KCapacityBar* self);
 void KCapacityBar_PaintEvent(KCapacityBar* self, QPaintEvent* event);
 void KCapacityBar_ChangeEvent(KCapacityBar* self, QEvent* event);
+libqt_string KCapacityBar_Tr2(const char* s, const char* c);
+libqt_string KCapacityBar_Tr3(const char* s, const char* c, int n);
 void KCapacityBar_OnMetaObject(const KCapacityBar* self, intptr_t slot);
 QMetaObject* KCapacityBar_SuperMetaObject(const KCapacityBar* self);
 void KCapacityBar_OnMetacast(KCapacityBar* self, intptr_t slot);

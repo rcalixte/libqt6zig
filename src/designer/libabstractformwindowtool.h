@@ -33,6 +33,7 @@ QDesignerFormWindowToolInterface* QDesignerFormWindowToolInterface_new2(QObject*
 QMetaObject* QDesignerFormWindowToolInterface_MetaObject(const QDesignerFormWindowToolInterface* self);
 void* QDesignerFormWindowToolInterface_Metacast(QDesignerFormWindowToolInterface* self, const char* param1);
 int QDesignerFormWindowToolInterface_Metacall(QDesignerFormWindowToolInterface* self, int param1, int param2, void** param3);
+libqt_string QDesignerFormWindowToolInterface_Tr(const char* s);
 QDesignerFormEditorInterface* QDesignerFormWindowToolInterface_Core(const QDesignerFormWindowToolInterface* self);
 QDesignerFormWindowInterface* QDesignerFormWindowToolInterface_FormWindow(const QDesignerFormWindowToolInterface* self);
 QWidget* QDesignerFormWindowToolInterface_Editor(const QDesignerFormWindowToolInterface* self);
@@ -40,6 +41,8 @@ QAction* QDesignerFormWindowToolInterface_Action(const QDesignerFormWindowToolIn
 void QDesignerFormWindowToolInterface_Activated(QDesignerFormWindowToolInterface* self);
 void QDesignerFormWindowToolInterface_Deactivated(QDesignerFormWindowToolInterface* self);
 bool QDesignerFormWindowToolInterface_HandleEvent(QDesignerFormWindowToolInterface* self, QWidget* widget, QWidget* managedWidget, QEvent* event);
+libqt_string QDesignerFormWindowToolInterface_Tr2(const char* s, const char* c);
+libqt_string QDesignerFormWindowToolInterface_Tr3(const char* s, const char* c, int n);
 void QDesignerFormWindowToolInterface_OnMetaObject(const QDesignerFormWindowToolInterface* self, intptr_t slot);
 QMetaObject* QDesignerFormWindowToolInterface_SuperMetaObject(const QDesignerFormWindowToolInterface* self);
 void QDesignerFormWindowToolInterface_OnMetacast(QDesignerFormWindowToolInterface* self, intptr_t slot);

@@ -34,8 +34,11 @@ KNSWidgets__Action* KNSWidgets__Action_new(const libqt_string text, const libqt_
 QMetaObject* KNSWidgets__Action_MetaObject(const KNSWidgets__Action* self);
 void* KNSWidgets__Action_Metacast(KNSWidgets__Action* self, const char* param1);
 int KNSWidgets__Action_Metacall(KNSWidgets__Action* self, int param1, int param2, void** param3);
+libqt_string KNSWidgets__Action_Tr(const char* s);
 void KNSWidgets__Action_DialogFinished(KNSWidgets__Action* self, const libqt_list /* of KNSCore__Entry* */ changedEntries);
 void KNSWidgets__Action_Connect_DialogFinished(KNSWidgets__Action* self, intptr_t slot);
+libqt_string KNSWidgets__Action_Tr2(const char* s, const char* c);
+libqt_string KNSWidgets__Action_Tr3(const char* s, const char* c, int n);
 void KNSWidgets__Action_OnMetaObject(const KNSWidgets__Action* self, intptr_t slot);
 QMetaObject* KNSWidgets__Action_SuperMetaObject(const KNSWidgets__Action* self);
 void KNSWidgets__Action_OnMetacast(KNSWidgets__Action* self, intptr_t slot);

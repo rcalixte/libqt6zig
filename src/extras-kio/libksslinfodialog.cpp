@@ -60,6 +60,18 @@ int KSslInfoDialog_Metacall(KSslInfoDialog* self, int param1, int param2, void**
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string KSslInfoDialog_Tr(const char* s) {
+    auto _ret = KSslInfoDialog::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void KSslInfoDialog_SetSslInfo(KSslInfoDialog* self, const libqt_list /* of QSslCertificate* */ certificateChain, const libqt_string ip, const libqt_string host, const libqt_string sslProtocol, const libqt_string cipher, int usedBits, int bits, const libqt_list /* of libqt_list of int */ validationErrors) {
     QList<QSslCertificate> certificateChain_QList;
     certificateChain_QList.reserve(certificateChain.len);
@@ -115,6 +127,30 @@ libqt_list /* of libqt_list of int */ KSslInfoDialog_CertificateErrorsFromString
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+libqt_string KSslInfoDialog_Tr2(const char* s, const char* c) {
+    auto _ret = KSslInfoDialog::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KSslInfoDialog_Tr3(const char* s, const char* c, int n) {
+    auto _ret = KSslInfoDialog::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

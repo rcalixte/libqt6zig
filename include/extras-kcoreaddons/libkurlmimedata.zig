@@ -78,16 +78,16 @@ pub const KUrlMimeData = extern struct {
         defer allocator.free(metaData_keys);
         const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KUrlMimeData.setMetaData: Memory allocation failed");
         defer allocator.free(metaData_values);
-        var i: usize = 0;
+        var metaData_i: usize = 0;
         var metaData_it = metaData.iterator();
-        while (metaData_it.next()) |it_entry| : (i += 1) {
+        while (metaData_it.next()) |it_entry| : (metaData_i += 1) {
             const metaData_key = it_entry.key_ptr.*;
-            metaData_keys[i] = qtc.libqt_string{
+            metaData_keys[metaData_i] = qtc.libqt_string{
                 .len = metaData_key.len,
                 .data = metaData_key.ptr,
             };
             const value = it_entry.value_ptr.*;
-            metaData_values[i] = qtc.libqt_string{
+            metaData_values[metaData_i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
@@ -152,16 +152,16 @@ pub const KUrlMimeData = extern struct {
         defer allocator.free(metaData_keys);
         const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KUrlMimeData.urlsFromMimeData: Memory allocation failed");
         defer allocator.free(metaData_values);
-        var i: usize = 0;
+        var metaData_i: usize = 0;
         var metaData_it = metaData.iterator();
-        while (metaData_it.next()) |it_entry| : (i += 1) {
+        while (metaData_it.next()) |it_entry| : (metaData_i += 1) {
             const metaData_key = it_entry.key_ptr.*;
-            metaData_keys[i] = qtc.libqt_string{
+            metaData_keys[metaData_i] = qtc.libqt_string{
                 .len = metaData_key.len,
                 .data = metaData_key.ptr,
             };
             const value = it_entry.value_ptr.*;
-            metaData_values[i] = qtc.libqt_string{
+            metaData_values[metaData_i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };

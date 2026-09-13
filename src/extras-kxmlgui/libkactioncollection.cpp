@@ -38,6 +38,18 @@ int KActionCollection_Metacall(KActionCollection* self, int param1, int param2, 
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string KActionCollection_Tr(const char* s) {
+    auto _ret = KActionCollection::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 libqt_list /* of KActionCollection* */ KActionCollection_AllCollections() {
     const QList<KActionCollection*>& _ret = KActionCollection::allCollections();
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -358,6 +370,30 @@ bool KActionCollection_IsShortcutsConfigurable(QAction* action) {
 
 void KActionCollection_SetShortcutsConfigurable(QAction* action, bool configurable) {
     KActionCollection::setShortcutsConfigurable(action, configurable);
+}
+
+libqt_string KActionCollection_Tr2(const char* s, const char* c) {
+    auto _ret = KActionCollection::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KActionCollection_Tr3(const char* s, const char* c, int n) {
+    auto _ret = KActionCollection::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void KActionCollection_ReadSettings1(KActionCollection* self, KConfigGroup* config) {

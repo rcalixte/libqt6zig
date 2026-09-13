@@ -62,7 +62,10 @@ TextGrammarCheck__GrammalecteResultWidget* TextGrammarCheck__GrammalecteResultWi
 QMetaObject* TextGrammarCheck__GrammalecteResultWidget_MetaObject(const TextGrammarCheck__GrammalecteResultWidget* self);
 void* TextGrammarCheck__GrammalecteResultWidget_Metacast(TextGrammarCheck__GrammalecteResultWidget* self, const char* param1);
 int TextGrammarCheck__GrammalecteResultWidget_Metacall(TextGrammarCheck__GrammalecteResultWidget* self, int param1, int param2, void** param3);
+libqt_string TextGrammarCheck__GrammalecteResultWidget_Tr(const char* s);
 void TextGrammarCheck__GrammalecteResultWidget_CheckGrammar(TextGrammarCheck__GrammalecteResultWidget* self);
+libqt_string TextGrammarCheck__GrammalecteResultWidget_Tr2(const char* s, const char* c);
+libqt_string TextGrammarCheck__GrammalecteResultWidget_Tr3(const char* s, const char* c, int n);
 void TextGrammarCheck__GrammalecteResultWidget_OnMetaObject(const TextGrammarCheck__GrammalecteResultWidget* self, intptr_t slot);
 QMetaObject* TextGrammarCheck__GrammalecteResultWidget_SuperMetaObject(const TextGrammarCheck__GrammalecteResultWidget* self);
 void TextGrammarCheck__GrammalecteResultWidget_OnMetacast(TextGrammarCheck__GrammalecteResultWidget* self, intptr_t slot);

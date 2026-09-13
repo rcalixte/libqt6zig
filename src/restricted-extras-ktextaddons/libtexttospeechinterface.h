@@ -36,11 +36,14 @@ TextEditTextToSpeech__TextToSpeechInterface* TextEditTextToSpeech__TextToSpeechI
 QMetaObject* TextEditTextToSpeech__TextToSpeechInterface_MetaObject(const TextEditTextToSpeech__TextToSpeechInterface* self);
 void* TextEditTextToSpeech__TextToSpeechInterface_Metacast(TextEditTextToSpeech__TextToSpeechInterface* self, const char* param1);
 int TextEditTextToSpeech__TextToSpeechInterface_Metacall(TextEditTextToSpeech__TextToSpeechInterface* self, int param1, int param2, void** param3);
+libqt_string TextEditTextToSpeech__TextToSpeechInterface_Tr(const char* s);
 bool TextEditTextToSpeech__TextToSpeechInterface_IsReady(const TextEditTextToSpeech__TextToSpeechInterface* self);
 void TextEditTextToSpeech__TextToSpeechInterface_Say(TextEditTextToSpeech__TextToSpeechInterface* self, const libqt_string text);
 double TextEditTextToSpeech__TextToSpeechInterface_Volume(const TextEditTextToSpeech__TextToSpeechInterface* self);
 void TextEditTextToSpeech__TextToSpeechInterface_SetVolume(TextEditTextToSpeech__TextToSpeechInterface* self, double value);
 void TextEditTextToSpeech__TextToSpeechInterface_ReloadSettings(TextEditTextToSpeech__TextToSpeechInterface* self);
+libqt_string TextEditTextToSpeech__TextToSpeechInterface_Tr2(const char* s, const char* c);
+libqt_string TextEditTextToSpeech__TextToSpeechInterface_Tr3(const char* s, const char* c, int n);
 void TextEditTextToSpeech__TextToSpeechInterface_OnMetaObject(const TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot);
 QMetaObject* TextEditTextToSpeech__TextToSpeechInterface_SuperMetaObject(const TextEditTextToSpeech__TextToSpeechInterface* self);
 void TextEditTextToSpeech__TextToSpeechInterface_OnMetacast(TextEditTextToSpeech__TextToSpeechInterface* self, intptr_t slot);

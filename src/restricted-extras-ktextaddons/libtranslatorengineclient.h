@@ -37,6 +37,7 @@ TextTranslator__TranslatorEngineClient* TextTranslator__TranslatorEngineClient_n
 QMetaObject* TextTranslator__TranslatorEngineClient_MetaObject(const TextTranslator__TranslatorEngineClient* self);
 void* TextTranslator__TranslatorEngineClient_Metacast(TextTranslator__TranslatorEngineClient* self, const char* param1);
 int TextTranslator__TranslatorEngineClient_Metacall(TextTranslator__TranslatorEngineClient* self, int param1, int param2, void** param3);
+libqt_string TextTranslator__TranslatorEngineClient_Tr(const char* s);
 libqt_string TextTranslator__TranslatorEngineClient_Name(const TextTranslator__TranslatorEngineClient* self);
 libqt_string TextTranslator__TranslatorEngineClient_TranslatedName(const TextTranslator__TranslatorEngineClient* self);
 TextTranslator__TranslatorEnginePlugin* TextTranslator__TranslatorEngineClient_CreateTranslator(TextTranslator__TranslatorEngineClient* self);
@@ -51,6 +52,8 @@ int TextTranslator__TranslatorEngineClient_EngineType(const TextTranslator__Tran
 void TextTranslator__TranslatorEngineClient_ConfigureChanged(TextTranslator__TranslatorEngineClient* self);
 void TextTranslator__TranslatorEngineClient_Connect_ConfigureChanged(TextTranslator__TranslatorEngineClient* self, intptr_t slot);
 bool TextTranslator__TranslatorEngineClient_IsSupported(const TextTranslator__TranslatorEngineClient* self, int lang);
+libqt_string TextTranslator__TranslatorEngineClient_Tr2(const char* s, const char* c);
+libqt_string TextTranslator__TranslatorEngineClient_Tr3(const char* s, const char* c, int n);
 void TextTranslator__TranslatorEngineClient_OnMetaObject(const TextTranslator__TranslatorEngineClient* self, intptr_t slot);
 QMetaObject* TextTranslator__TranslatorEngineClient_SuperMetaObject(const TextTranslator__TranslatorEngineClient* self);
 void TextTranslator__TranslatorEngineClient_OnMetacast(TextTranslator__TranslatorEngineClient* self, intptr_t slot);

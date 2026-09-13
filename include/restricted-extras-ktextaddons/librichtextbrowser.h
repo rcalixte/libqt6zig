@@ -68,6 +68,7 @@ TextCustomEditor__RichTextBrowser* TextCustomEditor__RichTextBrowser_new2();
 QMetaObject* TextCustomEditor__RichTextBrowser_MetaObject(const TextCustomEditor__RichTextBrowser* self);
 void* TextCustomEditor__RichTextBrowser_Metacast(TextCustomEditor__RichTextBrowser* self, const char* param1);
 int TextCustomEditor__RichTextBrowser_Metacall(TextCustomEditor__RichTextBrowser* self, int param1, int param2, void** param3);
+libqt_string TextCustomEditor__RichTextBrowser_Tr(const char* s);
 void TextCustomEditor__RichTextBrowser_SetSearchSupport(TextCustomEditor__RichTextBrowser* self, bool b);
 bool TextCustomEditor__RichTextBrowser_SearchSupport(const TextCustomEditor__RichTextBrowser* self);
 bool TextCustomEditor__RichTextBrowser_TextToSpeechSupport(const TextCustomEditor__RichTextBrowser* self);
@@ -88,6 +89,8 @@ void TextCustomEditor__RichTextBrowser_Say(TextCustomEditor__RichTextBrowser* se
 void TextCustomEditor__RichTextBrowser_Connect_Say(TextCustomEditor__RichTextBrowser* self, intptr_t slot);
 void TextCustomEditor__RichTextBrowser_FindText(TextCustomEditor__RichTextBrowser* self);
 void TextCustomEditor__RichTextBrowser_Connect_FindText(TextCustomEditor__RichTextBrowser* self, intptr_t slot);
+libqt_string TextCustomEditor__RichTextBrowser_Tr2(const char* s, const char* c);
+libqt_string TextCustomEditor__RichTextBrowser_Tr3(const char* s, const char* c, int n);
 void TextCustomEditor__RichTextBrowser_OnMetaObject(const TextCustomEditor__RichTextBrowser* self, intptr_t slot);
 QMetaObject* TextCustomEditor__RichTextBrowser_SuperMetaObject(const TextCustomEditor__RichTextBrowser* self);
 void TextCustomEditor__RichTextBrowser_OnMetacast(TextCustomEditor__RichTextBrowser* self, intptr_t slot);

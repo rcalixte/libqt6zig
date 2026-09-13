@@ -33,9 +33,12 @@ KIO__KUriFilterSearchProviderActions* KIO__KUriFilterSearchProviderActions_new2(
 QMetaObject* KIO__KUriFilterSearchProviderActions_MetaObject(const KIO__KUriFilterSearchProviderActions* self);
 void* KIO__KUriFilterSearchProviderActions_Metacast(KIO__KUriFilterSearchProviderActions* self, const char* param1);
 int KIO__KUriFilterSearchProviderActions_Metacall(KIO__KUriFilterSearchProviderActions* self, int param1, int param2, void** param3);
+libqt_string KIO__KUriFilterSearchProviderActions_Tr(const char* s);
 libqt_string KIO__KUriFilterSearchProviderActions_SelectedText(const KIO__KUriFilterSearchProviderActions* self);
 void KIO__KUriFilterSearchProviderActions_SetSelectedText(KIO__KUriFilterSearchProviderActions* self, const libqt_string selectedText);
 void KIO__KUriFilterSearchProviderActions_AddWebShortcutsToMenu(KIO__KUriFilterSearchProviderActions* self, QMenu* menu);
+libqt_string KIO__KUriFilterSearchProviderActions_Tr2(const char* s, const char* c);
+libqt_string KIO__KUriFilterSearchProviderActions_Tr3(const char* s, const char* c, int n);
 void KIO__KUriFilterSearchProviderActions_OnMetaObject(const KIO__KUriFilterSearchProviderActions* self, intptr_t slot);
 QMetaObject* KIO__KUriFilterSearchProviderActions_SuperMetaObject(const KIO__KUriFilterSearchProviderActions* self);
 void KIO__KUriFilterSearchProviderActions_OnMetacast(KIO__KUriFilterSearchProviderActions* self, intptr_t slot);

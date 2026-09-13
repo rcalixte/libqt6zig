@@ -28,6 +28,18 @@ int KParts__ListingFilterExtension_Metacall(KParts__ListingFilterExtension* self
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string KParts__ListingFilterExtension_Tr(const char* s) {
+    auto _ret = KParts::ListingFilterExtension::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 KParts__ListingFilterExtension* KParts__ListingFilterExtension_ChildObject(QObject* obj) {
     return KParts::ListingFilterExtension::childObject(obj);
 }
@@ -46,6 +58,30 @@ QVariant* KParts__ListingFilterExtension_Filter(const KParts__ListingFilterExten
 
 void KParts__ListingFilterExtension_SetFilter(KParts__ListingFilterExtension* self, int mode, const QVariant* filter) {
     self->setFilter(static_cast<KParts::ListingFilterExtension::FilterMode>(mode), *filter);
+}
+
+libqt_string KParts__ListingFilterExtension_Tr2(const char* s, const char* c) {
+    auto _ret = KParts::ListingFilterExtension::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KParts__ListingFilterExtension_Tr3(const char* s, const char* c, int n) {
+    auto _ret = KParts::ListingFilterExtension::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

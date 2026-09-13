@@ -305,15 +305,15 @@ pub const QGeoManeuver = extern struct {
         defer allocator.free(extendedAttributes_keys);
         const extendedAttributes_values = allocator.alloc(QtC.QVariant, extendedAttributes_count) catch @panic("QGeoManeuver.setExtendedAttributes: Memory allocation failed");
         defer allocator.free(extendedAttributes_values);
-        var i: usize = 0;
+        var extendedAttributes_i: usize = 0;
         var extendedAttributes_it = _extendedAttributes.iterator();
-        while (extendedAttributes_it.next()) |it_entry| : (i += 1) {
+        while (extendedAttributes_it.next()) |it_entry| : (extendedAttributes_i += 1) {
             const extendedAttributes_key = it_entry.key_ptr.*;
-            extendedAttributes_keys[i] = qtc.libqt_string{
+            extendedAttributes_keys[extendedAttributes_i] = qtc.libqt_string{
                 .len = extendedAttributes_key.len,
                 .data = extendedAttributes_key.ptr,
             };
-            extendedAttributes_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            extendedAttributes_values[extendedAttributes_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const extendedAttributes_map = qtc.libqt_map{
             .len = extendedAttributes_count,

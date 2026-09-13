@@ -58,6 +58,9 @@ KIO__SkipDialog* KIO__SkipDialog_new(QWidget* parent, int options, const libqt_s
 QMetaObject* KIO__SkipDialog_MetaObject(const KIO__SkipDialog* self);
 void* KIO__SkipDialog_Metacast(KIO__SkipDialog* self, const char* param1);
 int KIO__SkipDialog_Metacall(KIO__SkipDialog* self, int param1, int param2, void** param3);
+libqt_string KIO__SkipDialog_Tr(const char* s);
+libqt_string KIO__SkipDialog_Tr2(const char* s, const char* c);
+libqt_string KIO__SkipDialog_Tr3(const char* s, const char* c, int n);
 void KIO__SkipDialog_OnMetaObject(const KIO__SkipDialog* self, intptr_t slot);
 QMetaObject* KIO__SkipDialog_SuperMetaObject(const KIO__SkipDialog* self);
 void KIO__SkipDialog_OnMetacast(KIO__SkipDialog* self, intptr_t slot);

@@ -75,6 +75,8 @@ pub const QWebEngineClientHints = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -85,7 +87,7 @@ pub const QWebEngineClientHints = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QWebEngineClientHints_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -433,15 +435,15 @@ pub const QWebEngineClientHints = extern struct {
         defer allocator.free(fullVersionList_keys);
         const fullVersionList_values = allocator.alloc(QtC.QVariant, fullVersionList_count) catch @panic("QWebEngineClientHints.setFullVersionList: Memory allocation failed");
         defer allocator.free(fullVersionList_values);
-        var i: usize = 0;
+        var fullVersionList_i: usize = 0;
         var fullVersionList_it = _fullVersionList.iterator();
-        while (fullVersionList_it.next()) |it_entry| : (i += 1) {
+        while (fullVersionList_it.next()) |it_entry| : (fullVersionList_i += 1) {
             const fullVersionList_key = it_entry.key_ptr.*;
-            fullVersionList_keys[i] = qtc.libqt_string{
+            fullVersionList_keys[fullVersionList_i] = qtc.libqt_string{
                 .len = fullVersionList_key.len,
                 .data = fullVersionList_key.ptr,
             };
-            fullVersionList_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            fullVersionList_values[fullVersionList_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const fullVersionList_map = qtc.libqt_map{
             .len = fullVersionList_count,
@@ -515,6 +517,8 @@ pub const QWebEngineClientHints = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -528,7 +532,7 @@ pub const QWebEngineClientHints = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QWebEngineClientHints_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -539,6 +543,8 @@ pub const QWebEngineClientHints = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -554,7 +560,7 @@ pub const QWebEngineClientHints = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.QWebEngineClientHints_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

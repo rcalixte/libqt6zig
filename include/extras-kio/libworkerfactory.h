@@ -29,7 +29,10 @@ typedef struct QObject QObject;
 QMetaObject* KIO__WorkerFactory_MetaObject(const KIO__WorkerFactory* self);
 void* KIO__WorkerFactory_Metacast(KIO__WorkerFactory* self, const char* param1);
 int KIO__WorkerFactory_Metacall(KIO__WorkerFactory* self, int param1, int param2, void** param3);
+libqt_string KIO__WorkerFactory_Tr(const char* s);
 KIO__WorkerBase* KIO__WorkerFactory_CreateWorker(KIO__WorkerFactory* self, const libqt_string pool, const libqt_string app);
+libqt_string KIO__WorkerFactory_Tr2(const char* s, const char* c);
+libqt_string KIO__WorkerFactory_Tr3(const char* s, const char* c, int n);
 void KIO__WorkerFactory_Delete(KIO__WorkerFactory* self);
 
 #ifdef __cplusplus

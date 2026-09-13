@@ -42,6 +42,18 @@ int QAbstractProxyModel_Metacall(QAbstractProxyModel* self, int param1, int para
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string QAbstractProxyModel_Tr(const char* s) {
+    auto _ret = QAbstractProxyModel::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void QAbstractProxyModel_SetSourceModel(QAbstractProxyModel* self, QAbstractItemModel* sourceModel) {
     self->setSourceModel(sourceModel);
 }
@@ -222,6 +234,30 @@ libqt_map /* of int to libqt_string */ QAbstractProxyModel_RoleNames(const QAbst
     _out.keys = static_cast<void*>(_karr);
     _out.values = static_cast<void*>(_varr);
     return _out;
+}
+
+libqt_string QAbstractProxyModel_Tr2(const char* s, const char* c) {
+    auto _ret = QAbstractProxyModel::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QAbstractProxyModel_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QAbstractProxyModel::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

@@ -31,6 +31,7 @@ KEMailClientLauncherJob* KEMailClientLauncherJob_new2(QObject* parent);
 QMetaObject* KEMailClientLauncherJob_MetaObject(const KEMailClientLauncherJob* self);
 void* KEMailClientLauncherJob_Metacast(KEMailClientLauncherJob* self, const char* param1);
 int KEMailClientLauncherJob_Metacall(KEMailClientLauncherJob* self, int param1, int param2, void** param3);
+libqt_string KEMailClientLauncherJob_Tr(const char* s);
 void KEMailClientLauncherJob_SetTo(KEMailClientLauncherJob* self, const libqt_list /* of libqt_string */ to);
 void KEMailClientLauncherJob_SetCc(KEMailClientLauncherJob* self, const libqt_list /* of libqt_string */ cc);
 void KEMailClientLauncherJob_SetBcc(KEMailClientLauncherJob* self, const libqt_list /* of libqt_string */ bcc);
@@ -39,6 +40,8 @@ void KEMailClientLauncherJob_SetBody(KEMailClientLauncherJob* self, const libqt_
 void KEMailClientLauncherJob_SetAttachments(KEMailClientLauncherJob* self, const libqt_list /* of QUrl* */ urls);
 void KEMailClientLauncherJob_SetStartupId(KEMailClientLauncherJob* self, const libqt_string startupId);
 void KEMailClientLauncherJob_Start(KEMailClientLauncherJob* self);
+libqt_string KEMailClientLauncherJob_Tr2(const char* s, const char* c);
+libqt_string KEMailClientLauncherJob_Tr3(const char* s, const char* c, int n);
 void KEMailClientLauncherJob_OnMetaObject(const KEMailClientLauncherJob* self, intptr_t slot);
 QMetaObject* KEMailClientLauncherJob_SuperMetaObject(const KEMailClientLauncherJob* self);
 void KEMailClientLauncherJob_OnMetacast(KEMailClientLauncherJob* self, intptr_t slot);

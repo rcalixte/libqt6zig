@@ -24,8 +24,8 @@ func zigReservedWord(s string) bool {
 	}
 
 	switch s {
-	case "align", "allocator", "default", "defer", "error", "opaque",
-		"packed", "resume", "self", "suspend", "test", "type", "var":
+	case "align", "allocator", "default", "defer", "error", "null", "opaque",
+		"packed", "resume", "self", "suspend", "test", "type", "undefined", "var":
 		return true
 	default:
 		return false
@@ -1304,13 +1304,13 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		}
 
 		// Iterate map and fill
-		preamble += "var i: usize = 0;\n"
+		preamble += "var " + nameprefix + "_i: usize = 0;\n"
 		preamble += "var " + nameprefix + "_it = " + p.ParameterName + ".iterator();\n"
-		preamble += "while (" + nameprefix + "_it.next()) |it_entry| : (i += 1) {\n"
+		preamble += "while (" + nameprefix + "_it.next()) |it_entry| : (" + nameprefix + "_i += 1) {\n"
 		preamble += "const " + nameprefix + "_key = it_entry.key_ptr.*;\n"
 
 		if k == "constu8" || k == "u8" {
-			preamble += nameprefix + "_keys[i] = qtc.libqt_string{\n"
+			preamble += nameprefix + "_keys[" + nameprefix + "_i] = qtc.libqt_string{\n"
 			preamble += "    .len = " + nameprefix + "_key.len,\n"
 			preamble += "    .data = " + nameprefix + "_key.ptr,\n"
 			preamble += "};\n"
@@ -1318,13 +1318,13 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			castType := ifv(kType.IntType(), "bit", "ptr")
 			maybePtr := ifv(IsKnownClass(kType.ParameterType), ".ptr", "")
 
-			preamble += nameprefix + "_keys[i] = @" + castType + "Cast(" + nameprefix + "_key" + maybePtr + ");\n"
+			preamble += nameprefix + "_keys[" + nameprefix + "_i] = @" + castType + "Cast(" + nameprefix + "_key" + maybePtr + ");\n"
 		}
 
 		if isQMulti {
-			preamble += nameprefix + "_values[i].len = it_entry.value_ptr.*.len;\n"
+			preamble += nameprefix + "_values[" + nameprefix + "_i].len = it_entry.value_ptr.*.len;\n"
 			preamble += "const " + nameprefix + "_val = allocator.alloc(" + valueParamType + `, it_entry.value_ptr.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
-			preamble += nameprefix + "_inners[i] = " + nameprefix + "_val;\n"
+			preamble += nameprefix + "_inners[" + nameprefix + "_i] = " + nameprefix + "_val;\n"
 
 			if vType.ParameterType == "QByteArray" || vType.ParameterType == "QString" || valueTypeOverride {
 				preamble += "for (it_entry.value_ptr.*, 0..) |str_item, j|\n"
@@ -1335,7 +1335,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 			} else if IsKnownClass(vTypeDest) {
 				preamble += "const value = it_entry.value_ptr.*;\n"
-				preamble += nameprefix + "_values[i] = " + vParam + "{\n"
+				preamble += nameprefix + "_values[" + nameprefix + "_i] = " + vParam + "{\n"
 				preamble += "    .len = value.len,\n"
 				preamble += "    .data = @ptrCast(value.ptr),\n"
 				preamble += "};\n"
@@ -1344,24 +1344,24 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 				panic("UNHANDLED " + strings.ToUpper(containerType) + " PARAMETER TYPE: " + vType.ParameterType)
 			}
 
-			preamble += nameprefix + "_values[i].data = @ptrCast(" + nameprefix + "_val.ptr);\n"
+			preamble += nameprefix + "_values[" + nameprefix + "_i].data = @ptrCast(" + nameprefix + "_val.ptr);\n"
 
 		} else if vAllocType == "qtc.libqt_string" {
 			preamble += "const value = it_entry.value_ptr.*;\n"
-			preamble += nameprefix + "_values[i] = qtc.libqt_string{\n"
+			preamble += nameprefix + "_values[" + nameprefix + "_i] = qtc.libqt_string{\n"
 			preamble += "    .len = value.len,\n"
 			preamble += "    .data = value.ptr,\n"
 			preamble += "};\n"
 
 		} else if valIsList {
 			preamble += "const value = it_entry.value_ptr.*;\n"
-			preamble += nameprefix + "_values[i] = " + vParam + "{\n"
+			preamble += nameprefix + "_values[" + nameprefix + "_i] = " + vParam + "{\n"
 			preamble += "    .len = value.len,\n"
 			preamble += "    .data = @ptrCast(value.ptr),\n"
 			preamble += "};\n"
 
 		} else {
-			preamble += nameprefix + "_values[i] = " + valCast + "it_entry.value_ptr.*" + valCastClose + ";\n"
+			preamble += nameprefix + "_values[" + nameprefix + "_i] = " + valCast + "it_entry.value_ptr.*" + valCastClose + ";\n"
 		}
 
 		preamble += "}\n"
@@ -2585,6 +2585,11 @@ const qtc = @import("qt6c");`)
 				continue
 			}
 
+			if c.IsPolymorphic && (m.MethodName == "tr" || m.OverrideMethodName == "tr") &&
+				(!slices.Contains(c.PrivateMethods, "qt_static_metacall") || c.ClassName == "TextEmoticonsCore::CustomEmojiIconManager") {
+				continue
+			}
+
 			mSafeMethodName := m.SafeMethodName()
 
 			if _, ok := skippedMethods[c.ClassName+"_"+mSafeMethodName]; ok {
@@ -2613,16 +2618,15 @@ const qtc = @import("qt6c");`)
 				continue
 			}
 			overrideTr := (m.MethodName == "tr" || m.OverrideMethodName == "tr") && zigStructName != "QMetaObject"
-			cmdStructName := ifv(overrideTr, "QObject", zigStructName)
+			cmdStructName := zigStructName
 			var inheritedFrom string
-			if m.InheritedFrom != "" {
+			switch {
+			case overrideTr:
+				inheritedFrom = "\n/// Inherited from QObject\n///"
+			case m.InheritedFrom != "":
+				cmdStructName = cabiClassName(m.InheritedFrom)
 				inheritedFrom = "\n/// Inherited from " + m.InheritedFrom + "\n///"
-				if !overrideTr {
-					cmdStructName = cabiClassName(m.InheritedFrom)
-				}
-			}
-
-			if m.InheritedInClass != "" && m.InheritedInClass != c.ClassName {
+			case m.InheritedInClass != "" && m.InheritedInClass != c.ClassName:
 				inheritedFrom = "\n/// Inherited from " + m.InheritedInClass + "\n///"
 			}
 

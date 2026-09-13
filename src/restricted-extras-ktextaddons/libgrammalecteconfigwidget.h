@@ -59,8 +59,11 @@ TextGrammarCheck__GrammalecteConfigWidget* TextGrammarCheck__GrammalecteConfigWi
 QMetaObject* TextGrammarCheck__GrammalecteConfigWidget_MetaObject(const TextGrammarCheck__GrammalecteConfigWidget* self);
 void* TextGrammarCheck__GrammalecteConfigWidget_Metacast(TextGrammarCheck__GrammalecteConfigWidget* self, const char* param1);
 int TextGrammarCheck__GrammalecteConfigWidget_Metacall(TextGrammarCheck__GrammalecteConfigWidget* self, int param1, int param2, void** param3);
+libqt_string TextGrammarCheck__GrammalecteConfigWidget_Tr(const char* s);
 void TextGrammarCheck__GrammalecteConfigWidget_LoadSettings(TextGrammarCheck__GrammalecteConfigWidget* self);
 void TextGrammarCheck__GrammalecteConfigWidget_SaveSettings(TextGrammarCheck__GrammalecteConfigWidget* self);
+libqt_string TextGrammarCheck__GrammalecteConfigWidget_Tr2(const char* s, const char* c);
+libqt_string TextGrammarCheck__GrammalecteConfigWidget_Tr3(const char* s, const char* c, int n);
 void TextGrammarCheck__GrammalecteConfigWidget_OnMetaObject(const TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot);
 QMetaObject* TextGrammarCheck__GrammalecteConfigWidget_SuperMetaObject(const TextGrammarCheck__GrammalecteConfigWidget* self);
 void TextGrammarCheck__GrammalecteConfigWidget_OnMetacast(TextGrammarCheck__GrammalecteConfigWidget* self, intptr_t slot);

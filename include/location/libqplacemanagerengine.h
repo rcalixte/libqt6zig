@@ -47,6 +47,7 @@ QPlaceManagerEngine* QPlaceManagerEngine_new2(const libqt_map /* of libqt_string
 QMetaObject* QPlaceManagerEngine_MetaObject(const QPlaceManagerEngine* self);
 void* QPlaceManagerEngine_Metacast(QPlaceManagerEngine* self, const char* param1);
 int QPlaceManagerEngine_Metacall(QPlaceManagerEngine* self, int param1, int param2, void** param3);
+libqt_string QPlaceManagerEngine_Tr(const char* s);
 libqt_string QPlaceManagerEngine_ManagerName(const QPlaceManagerEngine* self);
 int QPlaceManagerEngine_ManagerVersion(const QPlaceManagerEngine* self);
 QPlaceDetailsReply* QPlaceManagerEngine_GetPlaceDetails(QPlaceManagerEngine* self, const libqt_string placeId);
@@ -85,6 +86,8 @@ void QPlaceManagerEngine_CategoryRemoved(QPlaceManagerEngine* self, const libqt_
 void QPlaceManagerEngine_Connect_CategoryRemoved(QPlaceManagerEngine* self, intptr_t slot);
 void QPlaceManagerEngine_DataChanged(QPlaceManagerEngine* self);
 void QPlaceManagerEngine_Connect_DataChanged(QPlaceManagerEngine* self, intptr_t slot);
+libqt_string QPlaceManagerEngine_Tr2(const char* s, const char* c);
+libqt_string QPlaceManagerEngine_Tr3(const char* s, const char* c, int n);
 void QPlaceManagerEngine_ErrorOccurred3(QPlaceManagerEngine* self, QPlaceReply* param1, int errorVal, const libqt_string errorString);
 void QPlaceManagerEngine_Connect_ErrorOccurred3(QPlaceManagerEngine* self, intptr_t slot);
 void QPlaceManagerEngine_OnMetaObject(const QPlaceManagerEngine* self, intptr_t slot);

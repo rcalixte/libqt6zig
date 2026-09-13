@@ -30,6 +30,7 @@ QAnimationGroup* QAnimationGroup_new2(QObject* parent);
 QMetaObject* QAnimationGroup_MetaObject(const QAnimationGroup* self);
 void* QAnimationGroup_Metacast(QAnimationGroup* self, const char* param1);
 int QAnimationGroup_Metacall(QAnimationGroup* self, int param1, int param2, void** param3);
+libqt_string QAnimationGroup_Tr(const char* s);
 QAbstractAnimation* QAnimationGroup_AnimationAt(const QAnimationGroup* self, int index);
 int QAnimationGroup_AnimationCount(const QAnimationGroup* self);
 int QAnimationGroup_IndexOfAnimation(const QAnimationGroup* self, QAbstractAnimation* animation);
@@ -39,6 +40,8 @@ void QAnimationGroup_RemoveAnimation(QAnimationGroup* self, QAbstractAnimation* 
 QAbstractAnimation* QAnimationGroup_TakeAnimation(QAnimationGroup* self, int index);
 void QAnimationGroup_Clear(QAnimationGroup* self);
 bool QAnimationGroup_Event(QAnimationGroup* self, QEvent* event);
+libqt_string QAnimationGroup_Tr2(const char* s, const char* c);
+libqt_string QAnimationGroup_Tr3(const char* s, const char* c, int n);
 void QAnimationGroup_OnMetaObject(const QAnimationGroup* self, intptr_t slot);
 QMetaObject* QAnimationGroup_SuperMetaObject(const QAnimationGroup* self);
 void QAnimationGroup_OnMetacast(QAnimationGroup* self, intptr_t slot);

@@ -35,6 +35,7 @@ QBoxSet* QBoxSet_new6(const double le, const double lq, const double m, const do
 QMetaObject* QBoxSet_MetaObject(const QBoxSet* self);
 void* QBoxSet_Metacast(QBoxSet* self, const char* param1);
 int QBoxSet_Metacall(QBoxSet* self, int param1, int param2, void** param3);
+libqt_string QBoxSet_Tr(const char* s);
 void QBoxSet_Append(QBoxSet* self, const double value);
 void QBoxSet_Append2(QBoxSet* self, const libqt_list /* of double */ values);
 void QBoxSet_Clear(QBoxSet* self);
@@ -69,6 +70,8 @@ void QBoxSet_ValueChanged(QBoxSet* self, int index);
 void QBoxSet_Connect_ValueChanged(QBoxSet* self, intptr_t slot);
 void QBoxSet_Cleared(QBoxSet* self);
 void QBoxSet_Connect_Cleared(QBoxSet* self, intptr_t slot);
+libqt_string QBoxSet_Tr2(const char* s, const char* c);
+libqt_string QBoxSet_Tr3(const char* s, const char* c, int n);
 void QBoxSet_OnMetaObject(const QBoxSet* self, intptr_t slot);
 QMetaObject* QBoxSet_SuperMetaObject(const QBoxSet* self);
 void QBoxSet_OnMetacast(QBoxSet* self, intptr_t slot);

@@ -33,9 +33,12 @@ QExtensionManager* QExtensionManager_FromQAbstractExtensionManager(QAbstractExte
 QMetaObject* QExtensionManager_MetaObject(const QExtensionManager* self);
 void* QExtensionManager_Metacast(QExtensionManager* self, const char* param1);
 int QExtensionManager_Metacall(QExtensionManager* self, int param1, int param2, void** param3);
+libqt_string QExtensionManager_Tr(const char* s);
 void QExtensionManager_RegisterExtensions(QExtensionManager* self, QAbstractExtensionFactory* factory, const libqt_string iid);
 void QExtensionManager_UnregisterExtensions(QExtensionManager* self, QAbstractExtensionFactory* factory, const libqt_string iid);
 QObject* QExtensionManager_Extension(const QExtensionManager* self, QObject* object, const libqt_string iid);
+libqt_string QExtensionManager_Tr2(const char* s, const char* c);
+libqt_string QExtensionManager_Tr3(const char* s, const char* c, int n);
 void QExtensionManager_OnMetaObject(const QExtensionManager* self, intptr_t slot);
 QMetaObject* QExtensionManager_SuperMetaObject(const QExtensionManager* self);
 void QExtensionManager_OnMetacast(QExtensionManager* self, intptr_t slot);

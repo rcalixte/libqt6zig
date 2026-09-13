@@ -29,6 +29,7 @@ QTimer* QTimer_new2(QObject* parent);
 QMetaObject* QTimer_MetaObject(const QTimer* self);
 void* QTimer_Metacast(QTimer* self, const char* param1);
 int QTimer_Metacall(QTimer* self, int param1, int param2, void** param3);
+libqt_string QTimer_Tr(const char* s);
 bool QTimer_IsActive(const QTimer* self);
 int QTimer_TimerId(const QTimer* self);
 int QTimer_Id(const QTimer* self);
@@ -51,6 +52,8 @@ void QTimer_SingleShot3(int64_t value, const QObject* receiver, const char* memb
 void QTimer_SingleShot4(int64_t interval, int timerType, const QObject* receiver, const char* member);
 void QTimer_Start3(QTimer* self, int64_t value);
 void QTimer_TimerEvent(QTimer* self, QTimerEvent* param1);
+libqt_string QTimer_Tr2(const char* s, const char* c);
+libqt_string QTimer_Tr3(const char* s, const char* c, int n);
 void QTimer_OnMetaObject(const QTimer* self, intptr_t slot);
 QMetaObject* QTimer_SuperMetaObject(const QTimer* self);
 void QTimer_OnMetacast(QTimer* self, intptr_t slot);

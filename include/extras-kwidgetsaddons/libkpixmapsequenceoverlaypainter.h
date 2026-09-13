@@ -35,6 +35,7 @@ KPixmapSequenceOverlayPainter* KPixmapSequenceOverlayPainter_new4(const KPixmapS
 QMetaObject* KPixmapSequenceOverlayPainter_MetaObject(const KPixmapSequenceOverlayPainter* self);
 void* KPixmapSequenceOverlayPainter_Metacast(KPixmapSequenceOverlayPainter* self, const char* param1);
 int KPixmapSequenceOverlayPainter_Metacall(KPixmapSequenceOverlayPainter* self, int param1, int param2, void** param3);
+libqt_string KPixmapSequenceOverlayPainter_Tr(const char* s);
 KPixmapSequence* KPixmapSequenceOverlayPainter_Sequence(const KPixmapSequenceOverlayPainter* self);
 int KPixmapSequenceOverlayPainter_Interval(const KPixmapSequenceOverlayPainter* self);
 QRect* KPixmapSequenceOverlayPainter_Rect(const KPixmapSequenceOverlayPainter* self);
@@ -49,6 +50,8 @@ void KPixmapSequenceOverlayPainter_SetOffset(KPixmapSequenceOverlayPainter* self
 void KPixmapSequenceOverlayPainter_Start(KPixmapSequenceOverlayPainter* self);
 void KPixmapSequenceOverlayPainter_Stop(KPixmapSequenceOverlayPainter* self);
 bool KPixmapSequenceOverlayPainter_EventFilter(KPixmapSequenceOverlayPainter* self, QObject* obj, QEvent* event);
+libqt_string KPixmapSequenceOverlayPainter_Tr2(const char* s, const char* c);
+libqt_string KPixmapSequenceOverlayPainter_Tr3(const char* s, const char* c, int n);
 void KPixmapSequenceOverlayPainter_OnMetaObject(const KPixmapSequenceOverlayPainter* self, intptr_t slot);
 QMetaObject* KPixmapSequenceOverlayPainter_SuperMetaObject(const KPixmapSequenceOverlayPainter* self);
 void KPixmapSequenceOverlayPainter_OnMetacast(KPixmapSequenceOverlayPainter* self, intptr_t slot);

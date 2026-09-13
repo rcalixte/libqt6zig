@@ -56,6 +56,7 @@ QDesignerPropertyEditorInterface* QDesignerPropertyEditorInterface_new2(QWidget*
 QMetaObject* QDesignerPropertyEditorInterface_MetaObject(const QDesignerPropertyEditorInterface* self);
 void* QDesignerPropertyEditorInterface_Metacast(QDesignerPropertyEditorInterface* self, const char* param1);
 int QDesignerPropertyEditorInterface_Metacall(QDesignerPropertyEditorInterface* self, int param1, int param2, void** param3);
+libqt_string QDesignerPropertyEditorInterface_Tr(const char* s);
 QDesignerFormEditorInterface* QDesignerPropertyEditorInterface_Core(const QDesignerPropertyEditorInterface* self);
 bool QDesignerPropertyEditorInterface_IsReadOnly(const QDesignerPropertyEditorInterface* self);
 QObject* QDesignerPropertyEditorInterface_Object(const QDesignerPropertyEditorInterface* self);
@@ -65,6 +66,8 @@ void QDesignerPropertyEditorInterface_Connect_PropertyChanged(QDesignerPropertyE
 void QDesignerPropertyEditorInterface_SetObject(QDesignerPropertyEditorInterface* self, QObject* object);
 void QDesignerPropertyEditorInterface_SetPropertyValue(QDesignerPropertyEditorInterface* self, const libqt_string name, const QVariant* value, bool changed);
 void QDesignerPropertyEditorInterface_SetReadOnly(QDesignerPropertyEditorInterface* self, bool readOnly);
+libqt_string QDesignerPropertyEditorInterface_Tr2(const char* s, const char* c);
+libqt_string QDesignerPropertyEditorInterface_Tr3(const char* s, const char* c, int n);
 void QDesignerPropertyEditorInterface_OnMetaObject(const QDesignerPropertyEditorInterface* self, intptr_t slot);
 QMetaObject* QDesignerPropertyEditorInterface_SuperMetaObject(const QDesignerPropertyEditorInterface* self);
 void QDesignerPropertyEditorInterface_OnMetacast(QDesignerPropertyEditorInterface* self, intptr_t slot);

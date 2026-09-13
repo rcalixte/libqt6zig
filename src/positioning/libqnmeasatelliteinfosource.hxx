@@ -402,7 +402,7 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             infos_out.data = static_cast<void*>(infos_arr);
             libqt_list /* of QGeoSatelliteInfo* */ cbval3 = infos_out;
             QGeoSatelliteInfo::SatelliteSystem& system_ret = system;
-            int* cbval4 = reinterpret_cast<int*>(&system);
+            int* cbval4 = reinterpret_cast<int*>(&system_ret);
             int callback_ret = parsesatelliteinfofromnmea_cb(this, cbval1, cbval2, cbval3, cbval4);
             free(infos_arr);
             return static_cast<VirtualQNmeaSatelliteInfoSource::SatelliteInfoParseStatus>(callback_ret);
@@ -582,7 +582,7 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             infos_out.data = static_cast<void*>(infos_arr);
             libqt_list /* of QGeoSatelliteInfo* */ cbval2 = infos_out;
             QGeoSatelliteInfo::SatelliteSystem& system_ret = system;
-            int* cbval3 = reinterpret_cast<int*>(&system);
+            int* cbval3 = reinterpret_cast<int*>(&system_ret);
             int callback_ret = parsesatelliteinfofromnmea2_cb(this, cbval1, cbval2, cbval3);
             libqt_free(data_str.data);
             free(infos_arr);

@@ -54,6 +54,7 @@ KSyntaxHighlighting__SyntaxHighlighter* KSyntaxHighlighting__SyntaxHighlighter_F
 QMetaObject* KSyntaxHighlighting__SyntaxHighlighter_MetaObject(const KSyntaxHighlighting__SyntaxHighlighter* self);
 void* KSyntaxHighlighting__SyntaxHighlighter_Metacast(KSyntaxHighlighting__SyntaxHighlighter* self, const char* param1);
 int KSyntaxHighlighting__SyntaxHighlighter_Metacall(KSyntaxHighlighting__SyntaxHighlighter* self, int param1, int param2, void** param3);
+libqt_string KSyntaxHighlighting__SyntaxHighlighter_Tr(const char* s);
 void KSyntaxHighlighting__SyntaxHighlighter_SetDefinition(KSyntaxHighlighting__SyntaxHighlighter* self, const KSyntaxHighlighting__Definition* def);
 void KSyntaxHighlighting__SyntaxHighlighter_SetTheme(KSyntaxHighlighting__SyntaxHighlighter* self, const KSyntaxHighlighting__Theme* theme);
 bool KSyntaxHighlighting__SyntaxHighlighter_StartsFoldingRegion(const KSyntaxHighlighting__SyntaxHighlighter* self, const QTextBlock* startBlock);
@@ -61,6 +62,8 @@ QTextBlock* KSyntaxHighlighting__SyntaxHighlighter_FindFoldingRegionEnd(const KS
 void KSyntaxHighlighting__SyntaxHighlighter_HighlightBlock(KSyntaxHighlighting__SyntaxHighlighter* self, const libqt_string text);
 void KSyntaxHighlighting__SyntaxHighlighter_ApplyFormat(KSyntaxHighlighting__SyntaxHighlighter* self, int offset, int length, const KSyntaxHighlighting__Format* format);
 void KSyntaxHighlighting__SyntaxHighlighter_ApplyFolding(KSyntaxHighlighting__SyntaxHighlighter* self, int offset, int length, KSyntaxHighlighting__FoldingRegion* region);
+libqt_string KSyntaxHighlighting__SyntaxHighlighter_Tr2(const char* s, const char* c);
+libqt_string KSyntaxHighlighting__SyntaxHighlighter_Tr3(const char* s, const char* c, int n);
 void KSyntaxHighlighting__SyntaxHighlighter_OnMetaObject(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
 QMetaObject* KSyntaxHighlighting__SyntaxHighlighter_SuperMetaObject(const KSyntaxHighlighting__SyntaxHighlighter* self);
 void KSyntaxHighlighting__SyntaxHighlighter_OnMetacast(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);

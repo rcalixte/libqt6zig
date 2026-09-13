@@ -61,10 +61,13 @@ KIO__RenameFileDialog* KIO__RenameFileDialog_new(const KFileItemList* items, QWi
 QMetaObject* KIO__RenameFileDialog_MetaObject(const KIO__RenameFileDialog* self);
 void* KIO__RenameFileDialog_Metacast(KIO__RenameFileDialog* self, const char* param1);
 int KIO__RenameFileDialog_Metacall(KIO__RenameFileDialog* self, int param1, int param2, void** param3);
+libqt_string KIO__RenameFileDialog_Tr(const char* s);
 void KIO__RenameFileDialog_RenamingFinished(KIO__RenameFileDialog* self, const libqt_list /* of QUrl* */ urls);
 void KIO__RenameFileDialog_Connect_RenamingFinished(KIO__RenameFileDialog* self, intptr_t slot);
 void KIO__RenameFileDialog_Error(KIO__RenameFileDialog* self, KJob* errorVal);
 void KIO__RenameFileDialog_Connect_Error(KIO__RenameFileDialog* self, intptr_t slot);
+libqt_string KIO__RenameFileDialog_Tr2(const char* s, const char* c);
+libqt_string KIO__RenameFileDialog_Tr3(const char* s, const char* c, int n);
 void KIO__RenameFileDialog_OnMetaObject(const KIO__RenameFileDialog* self, intptr_t slot);
 QMetaObject* KIO__RenameFileDialog_SuperMetaObject(const KIO__RenameFileDialog* self);
 void KIO__RenameFileDialog_OnMetacast(KIO__RenameFileDialog* self, intptr_t slot);

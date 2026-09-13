@@ -60,6 +60,9 @@ TextGrammarCheck__GrammalecteConfigDialog* TextGrammarCheck__GrammalecteConfigDi
 QMetaObject* TextGrammarCheck__GrammalecteConfigDialog_MetaObject(const TextGrammarCheck__GrammalecteConfigDialog* self);
 void* TextGrammarCheck__GrammalecteConfigDialog_Metacast(TextGrammarCheck__GrammalecteConfigDialog* self, const char* param1);
 int TextGrammarCheck__GrammalecteConfigDialog_Metacall(TextGrammarCheck__GrammalecteConfigDialog* self, int param1, int param2, void** param3);
+libqt_string TextGrammarCheck__GrammalecteConfigDialog_Tr(const char* s);
+libqt_string TextGrammarCheck__GrammalecteConfigDialog_Tr2(const char* s, const char* c);
+libqt_string TextGrammarCheck__GrammalecteConfigDialog_Tr3(const char* s, const char* c, int n);
 void TextGrammarCheck__GrammalecteConfigDialog_OnMetaObject(const TextGrammarCheck__GrammalecteConfigDialog* self, intptr_t slot);
 QMetaObject* TextGrammarCheck__GrammalecteConfigDialog_SuperMetaObject(const TextGrammarCheck__GrammalecteConfigDialog* self);
 void TextGrammarCheck__GrammalecteConfigDialog_OnMetacast(TextGrammarCheck__GrammalecteConfigDialog* self, intptr_t slot);

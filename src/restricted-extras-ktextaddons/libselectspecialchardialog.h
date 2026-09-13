@@ -59,6 +59,7 @@ TextAddonsWidgets__SelectSpecialCharDialog* TextAddonsWidgets__SelectSpecialChar
 QMetaObject* TextAddonsWidgets__SelectSpecialCharDialog_MetaObject(const TextAddonsWidgets__SelectSpecialCharDialog* self);
 void* TextAddonsWidgets__SelectSpecialCharDialog_Metacast(TextAddonsWidgets__SelectSpecialCharDialog* self, const char* param1);
 int TextAddonsWidgets__SelectSpecialCharDialog_Metacall(TextAddonsWidgets__SelectSpecialCharDialog* self, int param1, int param2, void** param3);
+libqt_string TextAddonsWidgets__SelectSpecialCharDialog_Tr(const char* s);
 void TextAddonsWidgets__SelectSpecialCharDialog_SetCurrentChar(TextAddonsWidgets__SelectSpecialCharDialog* self, QChar* c);
 QChar* TextAddonsWidgets__SelectSpecialCharDialog_CurrentChar(const TextAddonsWidgets__SelectSpecialCharDialog* self);
 void TextAddonsWidgets__SelectSpecialCharDialog_SetOkButtonText(TextAddonsWidgets__SelectSpecialCharDialog* self, const libqt_string text);
@@ -66,6 +67,8 @@ void TextAddonsWidgets__SelectSpecialCharDialog_ShowSelectButton(TextAddonsWidge
 void TextAddonsWidgets__SelectSpecialCharDialog_AutoInsertChar(TextAddonsWidgets__SelectSpecialCharDialog* self);
 void TextAddonsWidgets__SelectSpecialCharDialog_CharSelected(TextAddonsWidgets__SelectSpecialCharDialog* self, QChar* param1);
 void TextAddonsWidgets__SelectSpecialCharDialog_Connect_CharSelected(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot);
+libqt_string TextAddonsWidgets__SelectSpecialCharDialog_Tr2(const char* s, const char* c);
+libqt_string TextAddonsWidgets__SelectSpecialCharDialog_Tr3(const char* s, const char* c, int n);
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMetaObject(const TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot);
 QMetaObject* TextAddonsWidgets__SelectSpecialCharDialog_SuperMetaObject(const TextAddonsWidgets__SelectSpecialCharDialog* self);
 void TextAddonsWidgets__SelectSpecialCharDialog_OnMetacast(TextAddonsWidgets__SelectSpecialCharDialog* self, intptr_t slot);

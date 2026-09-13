@@ -62,8 +62,11 @@ TextGrammarCheck__LanguageToolResultWidget* TextGrammarCheck__LanguageToolResult
 QMetaObject* TextGrammarCheck__LanguageToolResultWidget_MetaObject(const TextGrammarCheck__LanguageToolResultWidget* self);
 void* TextGrammarCheck__LanguageToolResultWidget_Metacast(TextGrammarCheck__LanguageToolResultWidget* self, const char* param1);
 int TextGrammarCheck__LanguageToolResultWidget_Metacall(TextGrammarCheck__LanguageToolResultWidget* self, int param1, int param2, void** param3);
+libqt_string TextGrammarCheck__LanguageToolResultWidget_Tr(const char* s);
 void TextGrammarCheck__LanguageToolResultWidget_CheckGrammar(TextGrammarCheck__LanguageToolResultWidget* self);
 void TextGrammarCheck__LanguageToolResultWidget_AddExtraWidget(TextGrammarCheck__LanguageToolResultWidget* self);
+libqt_string TextGrammarCheck__LanguageToolResultWidget_Tr2(const char* s, const char* c);
+libqt_string TextGrammarCheck__LanguageToolResultWidget_Tr3(const char* s, const char* c, int n);
 void TextGrammarCheck__LanguageToolResultWidget_OnMetaObject(const TextGrammarCheck__LanguageToolResultWidget* self, intptr_t slot);
 QMetaObject* TextGrammarCheck__LanguageToolResultWidget_SuperMetaObject(const TextGrammarCheck__LanguageToolResultWidget* self);
 void TextGrammarCheck__LanguageToolResultWidget_OnMetacast(TextGrammarCheck__LanguageToolResultWidget* self, intptr_t slot);

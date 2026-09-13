@@ -32,6 +32,18 @@ int KOverlayIconPlugin_Metacall(KOverlayIconPlugin* self, int param1, int param2
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string KOverlayIconPlugin_Tr(const char* s) {
+    auto _ret = KOverlayIconPlugin::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 libqt_list /* of libqt_string */ KOverlayIconPlugin_GetOverlays(KOverlayIconPlugin* self, const QUrl* item) {
     QList<QString> _ret = self->getOverlays(*item);
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -87,6 +99,30 @@ void KOverlayIconPlugin_Connect_OverlaysChanged(KOverlayIconPlugin* self, intptr
         slotFunc(self, sigval1, sigval2);
         libqt_free(overlays_arr);
     });
+}
+
+libqt_string KOverlayIconPlugin_Tr2(const char* s, const char* c) {
+    auto _ret = KOverlayIconPlugin::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KOverlayIconPlugin_Tr3(const char* s, const char* c, int n) {
+    auto _ret = KOverlayIconPlugin::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

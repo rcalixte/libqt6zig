@@ -30,9 +30,12 @@ QWebChannelAbstractTransport* QWebChannelAbstractTransport_new2(QObject* parent)
 QMetaObject* QWebChannelAbstractTransport_MetaObject(const QWebChannelAbstractTransport* self);
 void* QWebChannelAbstractTransport_Metacast(QWebChannelAbstractTransport* self, const char* param1);
 int QWebChannelAbstractTransport_Metacall(QWebChannelAbstractTransport* self, int param1, int param2, void** param3);
+libqt_string QWebChannelAbstractTransport_Tr(const char* s);
 void QWebChannelAbstractTransport_SendMessage(QWebChannelAbstractTransport* self, const QJsonObject* message);
 void QWebChannelAbstractTransport_MessageReceived(QWebChannelAbstractTransport* self, const QJsonObject* message, QWebChannelAbstractTransport* transport);
 void QWebChannelAbstractTransport_Connect_MessageReceived(QWebChannelAbstractTransport* self, intptr_t slot);
+libqt_string QWebChannelAbstractTransport_Tr2(const char* s, const char* c);
+libqt_string QWebChannelAbstractTransport_Tr3(const char* s, const char* c, int n);
 void QWebChannelAbstractTransport_OnMetaObject(const QWebChannelAbstractTransport* self, intptr_t slot);
 QMetaObject* QWebChannelAbstractTransport_SuperMetaObject(const QWebChannelAbstractTransport* self);
 void QWebChannelAbstractTransport_OnMetacast(QWebChannelAbstractTransport* self, intptr_t slot);

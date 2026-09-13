@@ -38,6 +38,7 @@ QWebSocketServer* QWebSocketServer_new2(const libqt_string serverName, int secur
 QMetaObject* QWebSocketServer_MetaObject(const QWebSocketServer* self);
 void* QWebSocketServer_Metacast(QWebSocketServer* self, const char* param1);
 int QWebSocketServer_Metacall(QWebSocketServer* self, int param1, int param2, void** param3);
+libqt_string QWebSocketServer_Tr(const char* s);
 bool QWebSocketServer_Listen(QWebSocketServer* self);
 void QWebSocketServer_Close(QWebSocketServer* self);
 bool QWebSocketServer_IsListening(const QWebSocketServer* self);
@@ -93,6 +94,8 @@ void QWebSocketServer_HandshakeInterruptedOnError(QWebSocketServer* self, const 
 void QWebSocketServer_Connect_HandshakeInterruptedOnError(QWebSocketServer* self, intptr_t slot);
 void QWebSocketServer_Closed(QWebSocketServer* self);
 void QWebSocketServer_Connect_Closed(QWebSocketServer* self, intptr_t slot);
+libqt_string QWebSocketServer_Tr2(const char* s, const char* c);
+libqt_string QWebSocketServer_Tr3(const char* s, const char* c, int n);
 bool QWebSocketServer_Listen1(QWebSocketServer* self, const QHostAddress* address);
 bool QWebSocketServer_Listen2(QWebSocketServer* self, const QHostAddress* address, uint16_t port);
 void QWebSocketServer_OnMetaObject(const QWebSocketServer* self, intptr_t slot);

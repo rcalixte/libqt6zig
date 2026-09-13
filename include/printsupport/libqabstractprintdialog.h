@@ -57,6 +57,7 @@ QAbstractPrintDialog* QAbstractPrintDialog_new2(QPrinter* printer, QWidget* pare
 QMetaObject* QAbstractPrintDialog_MetaObject(const QAbstractPrintDialog* self);
 void* QAbstractPrintDialog_Metacast(QAbstractPrintDialog* self, const char* param1);
 int QAbstractPrintDialog_Metacall(QAbstractPrintDialog* self, int param1, int param2, void** param3);
+libqt_string QAbstractPrintDialog_Tr(const char* s);
 void QAbstractPrintDialog_SetOptionTabs(QAbstractPrintDialog* self, const libqt_list /* of QWidget* */ tabs);
 void QAbstractPrintDialog_SetPrintRange(QAbstractPrintDialog* self, int range);
 int QAbstractPrintDialog_PrintRange(const QAbstractPrintDialog* self);
@@ -67,6 +68,8 @@ void QAbstractPrintDialog_SetFromTo(QAbstractPrintDialog* self, int fromPage, in
 int QAbstractPrintDialog_FromPage(const QAbstractPrintDialog* self);
 int QAbstractPrintDialog_ToPage(const QAbstractPrintDialog* self);
 QPrinter* QAbstractPrintDialog_Printer(const QAbstractPrintDialog* self);
+libqt_string QAbstractPrintDialog_Tr2(const char* s, const char* c);
+libqt_string QAbstractPrintDialog_Tr3(const char* s, const char* c, int n);
 void QAbstractPrintDialog_OnMetaObject(const QAbstractPrintDialog* self, intptr_t slot);
 QMetaObject* QAbstractPrintDialog_SuperMetaObject(const QAbstractPrintDialog* self);
 void QAbstractPrintDialog_OnMetacast(QAbstractPrintDialog* self, intptr_t slot);

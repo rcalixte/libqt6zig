@@ -64,6 +64,7 @@ TextCustomEditor__RichTextBrowserWidget* TextCustomEditor__RichTextBrowserWidget
 QMetaObject* TextCustomEditor__RichTextBrowserWidget_MetaObject(const TextCustomEditor__RichTextBrowserWidget* self);
 void* TextCustomEditor__RichTextBrowserWidget_Metacast(TextCustomEditor__RichTextBrowserWidget* self, const char* param1);
 int TextCustomEditor__RichTextBrowserWidget_Metacall(TextCustomEditor__RichTextBrowserWidget* self, int param1, int param2, void** param3);
+libqt_string TextCustomEditor__RichTextBrowserWidget_Tr(const char* s);
 void TextCustomEditor__RichTextBrowserWidget_Clear(TextCustomEditor__RichTextBrowserWidget* self);
 TextCustomEditor__RichTextBrowser* TextCustomEditor__RichTextBrowserWidget_Editor(const TextCustomEditor__RichTextBrowserWidget* self);
 void TextCustomEditor__RichTextBrowserWidget_SetHtml(TextCustomEditor__RichTextBrowserWidget* self, const libqt_string html);
@@ -75,6 +76,8 @@ bool TextCustomEditor__RichTextBrowserWidget_AcceptRichText(const TextCustomEdit
 bool TextCustomEditor__RichTextBrowserWidget_IsEmpty(const TextCustomEditor__RichTextBrowserWidget* self);
 void TextCustomEditor__RichTextBrowserWidget_SlotFindNext(TextCustomEditor__RichTextBrowserWidget* self);
 void TextCustomEditor__RichTextBrowserWidget_SlotFind(TextCustomEditor__RichTextBrowserWidget* self);
+libqt_string TextCustomEditor__RichTextBrowserWidget_Tr2(const char* s, const char* c);
+libqt_string TextCustomEditor__RichTextBrowserWidget_Tr3(const char* s, const char* c, int n);
 void TextCustomEditor__RichTextBrowserWidget_OnMetaObject(const TextCustomEditor__RichTextBrowserWidget* self, intptr_t slot);
 QMetaObject* TextCustomEditor__RichTextBrowserWidget_SuperMetaObject(const TextCustomEditor__RichTextBrowserWidget* self);
 void TextCustomEditor__RichTextBrowserWidget_OnMetacast(TextCustomEditor__RichTextBrowserWidget* self, intptr_t slot);

@@ -37,6 +37,7 @@ QPdfBookmarkModel* QPdfBookmarkModel_new2(QObject* parent);
 QMetaObject* QPdfBookmarkModel_MetaObject(const QPdfBookmarkModel* self);
 void* QPdfBookmarkModel_Metacast(QPdfBookmarkModel* self, const char* param1);
 int QPdfBookmarkModel_Metacall(QPdfBookmarkModel* self, int param1, int param2, void** param3);
+libqt_string QPdfBookmarkModel_Tr(const char* s);
 QPdfDocument* QPdfBookmarkModel_Document(const QPdfBookmarkModel* self);
 void QPdfBookmarkModel_SetDocument(QPdfBookmarkModel* self, QPdfDocument* document);
 QVariant* QPdfBookmarkModel_Data(const QPdfBookmarkModel* self, const QModelIndex* index, int role);
@@ -47,6 +48,8 @@ int QPdfBookmarkModel_ColumnCount(const QPdfBookmarkModel* self, const QModelInd
 libqt_map /* of int to libqt_string */ QPdfBookmarkModel_RoleNames(const QPdfBookmarkModel* self);
 void QPdfBookmarkModel_DocumentChanged(QPdfBookmarkModel* self, QPdfDocument* document);
 void QPdfBookmarkModel_Connect_DocumentChanged(QPdfBookmarkModel* self, intptr_t slot);
+libqt_string QPdfBookmarkModel_Tr2(const char* s, const char* c);
+libqt_string QPdfBookmarkModel_Tr3(const char* s, const char* c, int n);
 void QPdfBookmarkModel_OnMetaObject(const QPdfBookmarkModel* self, intptr_t slot);
 QMetaObject* QPdfBookmarkModel_SuperMetaObject(const QPdfBookmarkModel* self);
 void QPdfBookmarkModel_OnMetacast(QPdfBookmarkModel* self, intptr_t slot);

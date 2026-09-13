@@ -27,12 +27,15 @@ typedef struct QWidget QWidget;
 QMetaObject* QDesignerNewFormWidgetInterface_MetaObject(const QDesignerNewFormWidgetInterface* self);
 void* QDesignerNewFormWidgetInterface_Metacast(QDesignerNewFormWidgetInterface* self, const char* param1);
 int QDesignerNewFormWidgetInterface_Metacall(QDesignerNewFormWidgetInterface* self, int param1, int param2, void** param3);
+libqt_string QDesignerNewFormWidgetInterface_Tr(const char* s);
 bool QDesignerNewFormWidgetInterface_HasCurrentTemplate(const QDesignerNewFormWidgetInterface* self);
 QDesignerNewFormWidgetInterface* QDesignerNewFormWidgetInterface_CreateNewFormWidget(QDesignerFormEditorInterface* core);
 void QDesignerNewFormWidgetInterface_TemplateActivated(QDesignerNewFormWidgetInterface* self);
 void QDesignerNewFormWidgetInterface_Connect_TemplateActivated(QDesignerNewFormWidgetInterface* self, intptr_t slot);
 void QDesignerNewFormWidgetInterface_CurrentTemplateChanged(QDesignerNewFormWidgetInterface* self, bool templateSelected);
 void QDesignerNewFormWidgetInterface_Connect_CurrentTemplateChanged(QDesignerNewFormWidgetInterface* self, intptr_t slot);
+libqt_string QDesignerNewFormWidgetInterface_Tr2(const char* s, const char* c);
+libqt_string QDesignerNewFormWidgetInterface_Tr3(const char* s, const char* c, int n);
 QDesignerNewFormWidgetInterface* QDesignerNewFormWidgetInterface_CreateNewFormWidget2(QDesignerFormEditorInterface* core, QWidget* parent);
 void QDesignerNewFormWidgetInterface_Delete(QDesignerNewFormWidgetInterface* self);
 

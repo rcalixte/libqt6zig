@@ -34,6 +34,7 @@ TextGrammarCheck__LanguageToolManager* TextGrammarCheck__LanguageToolManager_new
 QMetaObject* TextGrammarCheck__LanguageToolManager_MetaObject(const TextGrammarCheck__LanguageToolManager* self);
 void* TextGrammarCheck__LanguageToolManager_Metacast(TextGrammarCheck__LanguageToolManager* self, const char* param1);
 int TextGrammarCheck__LanguageToolManager_Metacall(TextGrammarCheck__LanguageToolManager* self, int param1, int param2, void** param3);
+libqt_string TextGrammarCheck__LanguageToolManager_Tr(const char* s);
 TextGrammarCheck__LanguageToolManager* TextGrammarCheck__LanguageToolManager_Self();
 QNetworkAccessManager* TextGrammarCheck__LanguageToolManager_NetworkAccessManager(const TextGrammarCheck__LanguageToolManager* self);
 libqt_string TextGrammarCheck__LanguageToolManager_LanguageToolPath(const TextGrammarCheck__LanguageToolManager* self);
@@ -49,6 +50,8 @@ libqt_string TextGrammarCheck__LanguageToolManager_LanguageToolLanguagesPath(con
 libqt_string TextGrammarCheck__LanguageToolManager_ConvertToLanguagePath(const libqt_string path);
 QColor* TextGrammarCheck__LanguageToolManager_GrammarColorForError(TextGrammarCheck__LanguageToolManager* self, const libqt_string errorVal);
 bool TextGrammarCheck__LanguageToolManager_AllowToGetListOfLanguages(const TextGrammarCheck__LanguageToolManager* self);
+libqt_string TextGrammarCheck__LanguageToolManager_Tr2(const char* s, const char* c);
+libqt_string TextGrammarCheck__LanguageToolManager_Tr3(const char* s, const char* c, int n);
 void TextGrammarCheck__LanguageToolManager_OnMetaObject(const TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
 QMetaObject* TextGrammarCheck__LanguageToolManager_SuperMetaObject(const TextGrammarCheck__LanguageToolManager* self);
 void TextGrammarCheck__LanguageToolManager_OnMetacast(TextGrammarCheck__LanguageToolManager* self, intptr_t slot);

@@ -32,6 +32,7 @@ QSpatialSound* QSpatialSound_new(QAudioEngine* engine);
 QMetaObject* QSpatialSound_MetaObject(const QSpatialSound* self);
 void* QSpatialSound_Metacast(QSpatialSound* self, const char* param1);
 int QSpatialSound_Metacall(QSpatialSound* self, int param1, int param2, void** param3);
+libqt_string QSpatialSound_Tr(const char* s);
 void QSpatialSound_SetSource(QSpatialSound* self, const QUrl* url);
 QUrl* QSpatialSound_Source(const QSpatialSound* self);
 int QSpatialSound_Loops(const QSpatialSound* self);
@@ -92,6 +93,8 @@ void QSpatialSound_Connect_NearFieldGainChanged(QSpatialSound* self, intptr_t sl
 void QSpatialSound_Play(QSpatialSound* self);
 void QSpatialSound_Pause(QSpatialSound* self);
 void QSpatialSound_Stop(QSpatialSound* self);
+libqt_string QSpatialSound_Tr2(const char* s, const char* c);
+libqt_string QSpatialSound_Tr3(const char* s, const char* c, int n);
 void QSpatialSound_OnMetaObject(const QSpatialSound* self, intptr_t slot);
 QMetaObject* QSpatialSound_SuperMetaObject(const QSpatialSound* self);
 void QSpatialSound_OnMetacast(QSpatialSound* self, intptr_t slot);

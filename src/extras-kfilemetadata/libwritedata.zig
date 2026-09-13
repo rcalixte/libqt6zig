@@ -169,13 +169,13 @@ pub const KFileMetaData__WriteData = extern struct {
         defer allocator.free(images_keys);
         const images_values = allocator.alloc(qtc.libqt_string, images_count) catch @panic("KFileMetaData__WriteData.addImageData: Memory allocation failed");
         defer allocator.free(images_values);
-        var i: usize = 0;
+        var images_i: usize = 0;
         var images_it = images.iterator();
-        while (images_it.next()) |it_entry| : (i += 1) {
+        while (images_it.next()) |it_entry| : (images_i += 1) {
             const images_key = it_entry.key_ptr.*;
-            images_keys[i] = @bitCast(images_key);
+            images_keys[images_i] = @bitCast(images_key);
             const value = it_entry.value_ptr.*;
-            images_values[i] = qtc.libqt_string{
+            images_values[images_i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };

@@ -33,6 +33,18 @@ int QSequentialAnimationGroup_Metacall(QSequentialAnimationGroup* self, int para
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string QSequentialAnimationGroup_Tr(const char* s) {
+    auto _ret = QSequentialAnimationGroup::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 QPauseAnimation* QSequentialAnimationGroup_AddPause(QSequentialAnimationGroup* self, int msecs) {
     return self->addPause(static_cast<int>(msecs));
 }
@@ -88,6 +100,30 @@ void QSequentialAnimationGroup_UpdateDirection(QSequentialAnimationGroup* self, 
     if (vqsequentialanimationgroup && vqsequentialanimationgroup->isVirtualQSequentialAnimationGroup) {
         vqsequentialanimationgroup->updateDirection(static_cast<QAbstractAnimation::Direction>(direction));
     }
+}
+
+libqt_string QSequentialAnimationGroup_Tr2(const char* s, const char* c) {
+    auto _ret = QSequentialAnimationGroup::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QSequentialAnimationGroup_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QSequentialAnimationGroup::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

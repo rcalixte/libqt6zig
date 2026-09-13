@@ -34,6 +34,7 @@ QsciLexerFortran77* QsciLexerFortran77_new2(QObject* parent);
 QMetaObject* QsciLexerFortran77_MetaObject(const QsciLexerFortran77* self);
 void* QsciLexerFortran77_Metacast(QsciLexerFortran77* self, const char* param1);
 int QsciLexerFortran77_Metacall(QsciLexerFortran77* self, int param1, int param2, void** param3);
+libqt_string QsciLexerFortran77_Tr(const char* s);
 const char* QsciLexerFortran77_Language(const QsciLexerFortran77* self);
 const char* QsciLexerFortran77_Lexer(const QsciLexerFortran77* self);
 int QsciLexerFortran77_BraceStyle(const QsciLexerFortran77* self);
@@ -46,6 +47,8 @@ libqt_string QsciLexerFortran77_Description(const QsciLexerFortran77* self, int 
 void QsciLexerFortran77_RefreshProperties(QsciLexerFortran77* self);
 bool QsciLexerFortran77_FoldCompact(const QsciLexerFortran77* self);
 void QsciLexerFortran77_SetFoldCompact(QsciLexerFortran77* self, bool fold);
+libqt_string QsciLexerFortran77_Tr2(const char* s, const char* c);
+libqt_string QsciLexerFortran77_Tr3(const char* s, const char* c, int n);
 void QsciLexerFortran77_OnMetaObject(const QsciLexerFortran77* self, intptr_t slot);
 QMetaObject* QsciLexerFortran77_SuperMetaObject(const QsciLexerFortran77* self);
 void QsciLexerFortran77_OnMetacast(QsciLexerFortran77* self, intptr_t slot);

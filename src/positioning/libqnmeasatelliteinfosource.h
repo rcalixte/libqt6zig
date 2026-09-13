@@ -33,6 +33,7 @@ QNmeaSatelliteInfoSource* QNmeaSatelliteInfoSource_new2(int mode, QObject* paren
 QMetaObject* QNmeaSatelliteInfoSource_MetaObject(const QNmeaSatelliteInfoSource* self);
 void* QNmeaSatelliteInfoSource_Metacast(QNmeaSatelliteInfoSource* self, const char* param1);
 int QNmeaSatelliteInfoSource_Metacall(QNmeaSatelliteInfoSource* self, int param1, int param2, void** param3);
+libqt_string QNmeaSatelliteInfoSource_Tr(const char* s);
 int QNmeaSatelliteInfoSource_UpdateMode(const QNmeaSatelliteInfoSource* self);
 void QNmeaSatelliteInfoSource_SetDevice(QNmeaSatelliteInfoSource* self, QIODevice* source);
 QIODevice* QNmeaSatelliteInfoSource_Device(const QNmeaSatelliteInfoSource* self);
@@ -46,6 +47,8 @@ void QNmeaSatelliteInfoSource_StopUpdates(QNmeaSatelliteInfoSource* self);
 void QNmeaSatelliteInfoSource_RequestUpdate(QNmeaSatelliteInfoSource* self, int timeout);
 int QNmeaSatelliteInfoSource_ParseSatellitesInUseFromNmea(QNmeaSatelliteInfoSource* self, const char* data, int size, libqt_list /* of int */ pnrsInUse);
 int QNmeaSatelliteInfoSource_ParseSatelliteInfoFromNmea(QNmeaSatelliteInfoSource* self, const char* data, int size, libqt_list /* of QGeoSatelliteInfo* */ infos, int* system);
+libqt_string QNmeaSatelliteInfoSource_Tr2(const char* s, const char* c);
+libqt_string QNmeaSatelliteInfoSource_Tr3(const char* s, const char* c, int n);
 void QNmeaSatelliteInfoSource_OnMetaObject(const QNmeaSatelliteInfoSource* self, intptr_t slot);
 QMetaObject* QNmeaSatelliteInfoSource_SuperMetaObject(const QNmeaSatelliteInfoSource* self);
 void QNmeaSatelliteInfoSource_OnMetacast(QNmeaSatelliteInfoSource* self, intptr_t slot);

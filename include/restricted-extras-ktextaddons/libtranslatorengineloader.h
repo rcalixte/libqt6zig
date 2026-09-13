@@ -37,6 +37,7 @@ TextTranslator__TranslatorEngineLoader* TextTranslator__TranslatorEngineLoader_n
 QMetaObject* TextTranslator__TranslatorEngineLoader_MetaObject(const TextTranslator__TranslatorEngineLoader* self);
 void* TextTranslator__TranslatorEngineLoader_Metacast(TextTranslator__TranslatorEngineLoader* self, const char* param1);
 int TextTranslator__TranslatorEngineLoader_Metacall(TextTranslator__TranslatorEngineLoader* self, int param1, int param2, void** param3);
+libqt_string TextTranslator__TranslatorEngineLoader_Tr(const char* s);
 TextTranslator__TranslatorEngineLoader* TextTranslator__TranslatorEngineLoader_Self();
 TextTranslator__TranslatorEngineClient* TextTranslator__TranslatorEngineLoader_CreateTranslatorClient(TextTranslator__TranslatorEngineLoader* self, const libqt_string clientName);
 libqt_map /* of libqt_string to libqt_string */ TextTranslator__TranslatorEngineLoader_TranslatorEngineInfos(const TextTranslator__TranslatorEngineLoader* self);
@@ -48,6 +49,8 @@ libqt_string TextTranslator__TranslatorEngineLoader_FallbackFirstEngine(const Te
 bool TextTranslator__TranslatorEngineLoader_ShowConfigureDialog(TextTranslator__TranslatorEngineLoader* self, const libqt_string clientName, QWidget* parentWidget);
 void TextTranslator__TranslatorEngineLoader_LoadingTranslatorFailed(TextTranslator__TranslatorEngineLoader* self);
 void TextTranslator__TranslatorEngineLoader_Connect_LoadingTranslatorFailed(TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+libqt_string TextTranslator__TranslatorEngineLoader_Tr2(const char* s, const char* c);
+libqt_string TextTranslator__TranslatorEngineLoader_Tr3(const char* s, const char* c, int n);
 void TextTranslator__TranslatorEngineLoader_OnMetaObject(const TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
 QMetaObject* TextTranslator__TranslatorEngineLoader_SuperMetaObject(const TextTranslator__TranslatorEngineLoader* self);
 void TextTranslator__TranslatorEngineLoader_OnMetacast(TextTranslator__TranslatorEngineLoader* self, intptr_t slot);

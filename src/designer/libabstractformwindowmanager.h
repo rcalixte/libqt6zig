@@ -36,6 +36,7 @@ QDesignerFormWindowManagerInterface* QDesignerFormWindowManagerInterface_new2(QO
 QMetaObject* QDesignerFormWindowManagerInterface_MetaObject(const QDesignerFormWindowManagerInterface* self);
 void* QDesignerFormWindowManagerInterface_Metacast(QDesignerFormWindowManagerInterface* self, const char* param1);
 int QDesignerFormWindowManagerInterface_Metacall(QDesignerFormWindowManagerInterface* self, int param1, int param2, void** param3);
+libqt_string QDesignerFormWindowManagerInterface_Tr(const char* s);
 QAction* QDesignerFormWindowManagerInterface_Action(const QDesignerFormWindowManagerInterface* self, int action);
 QActionGroup* QDesignerFormWindowManagerInterface_ActionGroup(const QDesignerFormWindowManagerInterface* self, int actionGroup);
 QAction* QDesignerFormWindowManagerInterface_ActionCut(const QDesignerFormWindowManagerInterface* self);
@@ -77,6 +78,8 @@ void QDesignerFormWindowManagerInterface_SetActiveFormWindow(QDesignerFormWindow
 void QDesignerFormWindowManagerInterface_ShowPreview(QDesignerFormWindowManagerInterface* self);
 void QDesignerFormWindowManagerInterface_CloseAllPreviews(QDesignerFormWindowManagerInterface* self);
 void QDesignerFormWindowManagerInterface_ShowPluginDialog(QDesignerFormWindowManagerInterface* self);
+libqt_string QDesignerFormWindowManagerInterface_Tr2(const char* s, const char* c);
+libqt_string QDesignerFormWindowManagerInterface_Tr3(const char* s, const char* c, int n);
 void QDesignerFormWindowManagerInterface_OnMetaObject(const QDesignerFormWindowManagerInterface* self, intptr_t slot);
 QMetaObject* QDesignerFormWindowManagerInterface_SuperMetaObject(const QDesignerFormWindowManagerInterface* self);
 void QDesignerFormWindowManagerInterface_OnMetacast(QDesignerFormWindowManagerInterface* self, intptr_t slot);
