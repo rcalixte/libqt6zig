@@ -34,6 +34,7 @@ KBookmarkMenu* KBookmarkMenu_new2(KBookmarkManager* mgr, KBookmarkOwner* owner, 
 QMetaObject* KBookmarkMenu_MetaObject(const KBookmarkMenu* self);
 void* KBookmarkMenu_Metacast(KBookmarkMenu* self, const char* param1);
 int KBookmarkMenu_Metacall(KBookmarkMenu* self, int param1, int param2, void** param3);
+libqt_string KBookmarkMenu_Tr(const char* s);
 void KBookmarkMenu_EnsureUpToDate(KBookmarkMenu* self);
 QAction* KBookmarkMenu_AddBookmarkAction(const KBookmarkMenu* self);
 QAction* KBookmarkMenu_BookmarkTabsAsFolderAction(const KBookmarkMenu* self);
@@ -46,6 +47,8 @@ void KBookmarkMenu_Clear(KBookmarkMenu* self);
 void KBookmarkMenu_Refill(KBookmarkMenu* self);
 QAction* KBookmarkMenu_ActionForBookmark(KBookmarkMenu* self, const KBookmark* bm);
 QMenu* KBookmarkMenu_ContextMenu(KBookmarkMenu* self, QAction* action);
+libqt_string KBookmarkMenu_Tr2(const char* s, const char* c);
+libqt_string KBookmarkMenu_Tr3(const char* s, const char* c, int n);
 void KBookmarkMenu_OnMetaObject(const KBookmarkMenu* self, intptr_t slot);
 QMetaObject* KBookmarkMenu_SuperMetaObject(const KBookmarkMenu* self);
 void KBookmarkMenu_OnMetacast(KBookmarkMenu* self, intptr_t slot);

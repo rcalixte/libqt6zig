@@ -32,6 +32,7 @@ KConfigDialogManager* KConfigDialogManager_new(QWidget* parent, KCoreConfigSkele
 QMetaObject* KConfigDialogManager_MetaObject(const KConfigDialogManager* self);
 void* KConfigDialogManager_Metacast(KConfigDialogManager* self, const char* param1);
 int KConfigDialogManager_Metacall(KConfigDialogManager* self, int param1, int param2, void** param3);
+libqt_string KConfigDialogManager_Tr(const char* s);
 void KConfigDialogManager_SettingsChanged(KConfigDialogManager* self);
 void KConfigDialogManager_Connect_SettingsChanged(KConfigDialogManager* self, intptr_t slot);
 void KConfigDialogManager_WidgetModified(KConfigDialogManager* self);
@@ -44,6 +45,8 @@ void KConfigDialogManager_UpdateSettings(KConfigDialogManager* self);
 void KConfigDialogManager_UpdateWidgets(KConfigDialogManager* self);
 void KConfigDialogManager_UpdateWidgetsDefault(KConfigDialogManager* self);
 void KConfigDialogManager_SetDefaultsIndicatorsVisible(KConfigDialogManager* self, bool enabled);
+libqt_string KConfigDialogManager_Tr2(const char* s, const char* c);
+libqt_string KConfigDialogManager_Tr3(const char* s, const char* c, int n);
 void KConfigDialogManager_OnMetaObject(const KConfigDialogManager* self, intptr_t slot);
 QMetaObject* KConfigDialogManager_SuperMetaObject(const KConfigDialogManager* self);
 void KConfigDialogManager_OnMetacast(KConfigDialogManager* self, intptr_t slot);

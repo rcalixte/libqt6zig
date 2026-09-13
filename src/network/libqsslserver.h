@@ -35,6 +35,7 @@ QSslServer* QSslServer_new2(QObject* parent);
 QMetaObject* QSslServer_MetaObject(const QSslServer* self);
 void* QSslServer_Metacast(QSslServer* self, const char* param1);
 int QSslServer_Metacall(QSslServer* self, int param1, int param2, void** param3);
+libqt_string QSslServer_Tr(const char* s);
 void QSslServer_SetSslConfiguration(QSslServer* self, const QSslConfiguration* sslConfiguration);
 QSslConfiguration* QSslServer_SslConfiguration(const QSslServer* self);
 void QSslServer_SetHandshakeTimeout(QSslServer* self, int timeout);
@@ -56,6 +57,8 @@ void QSslServer_Connect_HandshakeInterruptedOnError(QSslServer* self, intptr_t s
 void QSslServer_StartedEncryptionHandshake(QSslServer* self, QSslSocket* socket);
 void QSslServer_Connect_StartedEncryptionHandshake(QSslServer* self, intptr_t slot);
 void QSslServer_IncomingConnection(QSslServer* self, intptr_t socket);
+libqt_string QSslServer_Tr2(const char* s, const char* c);
+libqt_string QSslServer_Tr3(const char* s, const char* c, int n);
 void QSslServer_OnMetaObject(const QSslServer* self, intptr_t slot);
 QMetaObject* QSslServer_SuperMetaObject(const QSslServer* self);
 void QSslServer_OnMetacast(QSslServer* self, intptr_t slot);

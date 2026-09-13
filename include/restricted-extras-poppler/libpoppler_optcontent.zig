@@ -84,6 +84,8 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -94,7 +96,7 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.Poppler__OptContentModel_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__OptContentModel.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -276,6 +278,8 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -289,7 +293,7 @@ pub const Poppler__OptContentModel = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.Poppler__OptContentModel_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__OptContentModel.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -300,6 +304,8 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -315,7 +321,7 @@ pub const Poppler__OptContentModel = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.Poppler__OptContentModel_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__OptContentModel.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -470,12 +476,12 @@ pub const Poppler__OptContentModel = extern struct {
         defer allocator.free(roles_keys);
         const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("Poppler__OptContentModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_values);
-        var i: usize = 0;
+        var roles_i: usize = 0;
         var roles_it = roles.iterator();
-        while (roles_it.next()) |it_entry| : (i += 1) {
+        while (roles_it.next()) |it_entry| : (roles_i += 1) {
             const roles_key = it_entry.key_ptr.*;
-            roles_keys[i] = @bitCast(roles_key);
-            roles_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            roles_keys[roles_i] = @bitCast(roles_key);
+            roles_values[roles_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const roles_map = qtc.libqt_map{
             .len = roles_count,

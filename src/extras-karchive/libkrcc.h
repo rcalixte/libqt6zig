@@ -24,6 +24,7 @@ typedef struct QIODevice QIODevice;
 
 KRcc* KRcc_new(const libqt_string filename);
 KRcc* KRcc_new2(const KRcc* param1);
+libqt_string KRcc_Tr(const char* sourceText);
 bool KRcc_DoPrepareWriting(KRcc* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
 bool KRcc_DoFinishWriting(KRcc* self, long long size);
 bool KRcc_DoWriteDir(KRcc* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
@@ -31,6 +32,8 @@ bool KRcc_DoWriteSymLink(KRcc* self, const libqt_string name, const libqt_string
 bool KRcc_OpenArchive(KRcc* self, int mode);
 bool KRcc_CloseArchive(KRcc* self);
 void KRcc_VirtualHook(KRcc* self, int id, void* data);
+libqt_string KRcc_Tr2(const char* sourceText, const char* disambiguation);
+libqt_string KRcc_Tr3(const char* sourceText, const char* disambiguation, int n);
 void KRcc_OnDoPrepareWriting(KRcc* self, intptr_t slot);
 bool KRcc_SuperDoPrepareWriting(KRcc* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime);
 void KRcc_OnDoFinishWriting(KRcc* self, intptr_t slot);

@@ -33,6 +33,7 @@ QEventTransition* QEventTransition_new4(QObject* object, int typeVal, QState* so
 QMetaObject* QEventTransition_MetaObject(const QEventTransition* self);
 void* QEventTransition_Metacast(QEventTransition* self, const char* param1);
 int QEventTransition_Metacall(QEventTransition* self, int param1, int param2, void** param3);
+libqt_string QEventTransition_Tr(const char* s);
 QObject* QEventTransition_EventSource(const QEventTransition* self);
 void QEventTransition_SetEventSource(QEventTransition* self, QObject* object);
 int QEventTransition_EventType(const QEventTransition* self);
@@ -40,6 +41,8 @@ void QEventTransition_SetEventType(QEventTransition* self, int typeVal);
 bool QEventTransition_EventTest(QEventTransition* self, QEvent* event);
 void QEventTransition_OnTransition(QEventTransition* self, QEvent* event);
 bool QEventTransition_Event(QEventTransition* self, QEvent* e);
+libqt_string QEventTransition_Tr2(const char* s, const char* c);
+libqt_string QEventTransition_Tr3(const char* s, const char* c, int n);
 void QEventTransition_OnMetaObject(const QEventTransition* self, intptr_t slot);
 QMetaObject* QEventTransition_SuperMetaObject(const QEventTransition* self);
 void QEventTransition_OnMetacast(QEventTransition* self, intptr_t slot);

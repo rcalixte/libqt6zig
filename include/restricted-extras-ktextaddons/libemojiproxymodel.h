@@ -42,6 +42,7 @@ TextEmoticonsCore__EmojiProxyModel* TextEmoticonsCore__EmojiProxyModel_new2(QObj
 QMetaObject* TextEmoticonsCore__EmojiProxyModel_MetaObject(const TextEmoticonsCore__EmojiProxyModel* self);
 void* TextEmoticonsCore__EmojiProxyModel_Metacast(TextEmoticonsCore__EmojiProxyModel* self, const char* param1);
 int TextEmoticonsCore__EmojiProxyModel_Metacall(TextEmoticonsCore__EmojiProxyModel* self, int param1, int param2, void** param3);
+libqt_string TextEmoticonsCore__EmojiProxyModel_Tr(const char* s);
 libqt_string TextEmoticonsCore__EmojiProxyModel_Category(const TextEmoticonsCore__EmojiProxyModel* self);
 void TextEmoticonsCore__EmojiProxyModel_SetCategory(TextEmoticonsCore__EmojiProxyModel* self, const libqt_string newCategories);
 libqt_list /* of libqt_string */ TextEmoticonsCore__EmojiProxyModel_RecentEmoticons(const TextEmoticonsCore__EmojiProxyModel* self);
@@ -50,6 +51,8 @@ libqt_string TextEmoticonsCore__EmojiProxyModel_SearchIdentifier(const TextEmoti
 void TextEmoticonsCore__EmojiProxyModel_SetSearchIdentifier(TextEmoticonsCore__EmojiProxyModel* self, const libqt_string newSearchIdentifier);
 bool TextEmoticonsCore__EmojiProxyModel_FilterAcceptsRow(const TextEmoticonsCore__EmojiProxyModel* self, int source_row, const QModelIndex* source_parent);
 bool TextEmoticonsCore__EmojiProxyModel_LessThan(const TextEmoticonsCore__EmojiProxyModel* self, const QModelIndex* left, const QModelIndex* right);
+libqt_string TextEmoticonsCore__EmojiProxyModel_Tr2(const char* s, const char* c);
+libqt_string TextEmoticonsCore__EmojiProxyModel_Tr3(const char* s, const char* c, int n);
 void TextEmoticonsCore__EmojiProxyModel_OnMetaObject(const TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot);
 QMetaObject* TextEmoticonsCore__EmojiProxyModel_SuperMetaObject(const TextEmoticonsCore__EmojiProxyModel* self);
 void TextEmoticonsCore__EmojiProxyModel_OnMetacast(TextEmoticonsCore__EmojiProxyModel* self, intptr_t slot);

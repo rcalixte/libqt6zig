@@ -170,16 +170,16 @@ pub const KCrash = extern struct {
         defer allocator.free(details_keys);
         const details_values = allocator.alloc(qtc.libqt_string, details_count) catch @panic("KCrash.setErrorTags: Memory allocation failed");
         defer allocator.free(details_values);
-        var i: usize = 0;
+        var details_i: usize = 0;
         var details_it = details.iterator();
-        while (details_it.next()) |it_entry| : (i += 1) {
+        while (details_it.next()) |it_entry| : (details_i += 1) {
             const details_key = it_entry.key_ptr.*;
-            details_keys[i] = qtc.libqt_string{
+            details_keys[details_i] = qtc.libqt_string{
                 .len = details_key.len,
                 .data = details_key.ptr,
             };
             const value = it_entry.value_ptr.*;
-            details_values[i] = qtc.libqt_string{
+            details_values[details_i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
@@ -210,16 +210,16 @@ pub const KCrash = extern struct {
         defer allocator.free(details_keys);
         const details_values = allocator.alloc(qtc.libqt_string, details_count) catch @panic("KCrash.setErrorExtraData: Memory allocation failed");
         defer allocator.free(details_values);
-        var i: usize = 0;
+        var details_i: usize = 0;
         var details_it = details.iterator();
-        while (details_it.next()) |it_entry| : (i += 1) {
+        while (details_it.next()) |it_entry| : (details_i += 1) {
             const details_key = it_entry.key_ptr.*;
-            details_keys[i] = qtc.libqt_string{
+            details_keys[details_i] = qtc.libqt_string{
                 .len = details_key.len,
                 .data = details_key.ptr,
             };
             const value = it_entry.value_ptr.*;
-            details_values[i] = qtc.libqt_string{
+            details_values[details_i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
@@ -250,15 +250,15 @@ pub const KCrash = extern struct {
         defer allocator.free(data_keys);
         const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("KCrash.setGPUData: Memory allocation failed");
         defer allocator.free(data_values);
-        var i: usize = 0;
+        var data_i: usize = 0;
         var data_it = data.iterator();
-        while (data_it.next()) |it_entry| : (i += 1) {
+        while (data_it.next()) |it_entry| : (data_i += 1) {
             const data_key = it_entry.key_ptr.*;
-            data_keys[i] = qtc.libqt_string{
+            data_keys[data_i] = qtc.libqt_string{
                 .len = data_key.len,
                 .data = data_key.ptr,
             };
-            data_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            data_values[data_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const data_map = qtc.libqt_map{
             .len = data_count,

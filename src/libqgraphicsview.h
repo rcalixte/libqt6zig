@@ -70,6 +70,7 @@ QGraphicsView* QGraphicsView_new4(QGraphicsScene* scene, QWidget* parent);
 QMetaObject* QGraphicsView_MetaObject(const QGraphicsView* self);
 void* QGraphicsView_Metacast(QGraphicsView* self, const char* param1);
 int QGraphicsView_Metacall(QGraphicsView* self, int param1, int param2, void** param3);
+libqt_string QGraphicsView_Tr(const char* s);
 QSize* QGraphicsView_SizeHint(const QGraphicsView* self);
 int QGraphicsView_RenderHints(const QGraphicsView* self);
 void QGraphicsView_SetRenderHint(QGraphicsView* self, int hint);
@@ -169,6 +170,8 @@ void QGraphicsView_InputMethodEvent(QGraphicsView* self, QInputMethodEvent* even
 void QGraphicsView_DrawBackground(QGraphicsView* self, QPainter* painter, const QRectF* rect);
 void QGraphicsView_DrawForeground(QGraphicsView* self, QPainter* painter, const QRectF* rect);
 void QGraphicsView_DrawItems(QGraphicsView* self, QPainter* painter, int numItems, QGraphicsItem** items, const QStyleOptionGraphicsItem* options);
+libqt_string QGraphicsView_Tr2(const char* s, const char* c);
+libqt_string QGraphicsView_Tr3(const char* s, const char* c, int n);
 void QGraphicsView_SetRenderHint2(QGraphicsView* self, int hint, bool enabled);
 void QGraphicsView_SetOptimizationFlag2(QGraphicsView* self, int flag, bool enabled);
 void QGraphicsView_SetTransform2(QGraphicsView* self, const QTransform* matrix, bool combine);

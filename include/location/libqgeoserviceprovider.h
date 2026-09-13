@@ -35,6 +35,7 @@ QGeoServiceProvider* QGeoServiceProvider_new3(const libqt_string providerName, c
 QMetaObject* QGeoServiceProvider_MetaObject(const QGeoServiceProvider* self);
 void* QGeoServiceProvider_Metacast(QGeoServiceProvider* self, const char* param1);
 int QGeoServiceProvider_Metacall(QGeoServiceProvider* self, int param1, int param2, void** param3);
+libqt_string QGeoServiceProvider_Tr(const char* s);
 libqt_list /* of libqt_string */ QGeoServiceProvider_AvailableServiceProviders();
 int QGeoServiceProvider_RoutingFeatures(const QGeoServiceProvider* self);
 int QGeoServiceProvider_GeocodingFeatures(const QGeoServiceProvider* self);
@@ -59,6 +60,8 @@ libqt_string QGeoServiceProvider_NavigationErrorString(const QGeoServiceProvider
 void QGeoServiceProvider_SetParameters(QGeoServiceProvider* self, const libqt_map /* of libqt_string to QVariant* */ parameters);
 void QGeoServiceProvider_SetLocale(QGeoServiceProvider* self, const QLocale* locale);
 void QGeoServiceProvider_SetAllowExperimental(QGeoServiceProvider* self, bool allow);
+libqt_string QGeoServiceProvider_Tr2(const char* s, const char* c);
+libqt_string QGeoServiceProvider_Tr3(const char* s, const char* c, int n);
 void QGeoServiceProvider_OnMetaObject(const QGeoServiceProvider* self, intptr_t slot);
 QMetaObject* QGeoServiceProvider_SuperMetaObject(const QGeoServiceProvider* self);
 void QGeoServiceProvider_OnMetacast(QGeoServiceProvider* self, intptr_t slot);

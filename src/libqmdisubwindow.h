@@ -58,6 +58,7 @@ QMdiSubWindow* QMdiSubWindow_new3(QWidget* parent, int flags);
 QMetaObject* QMdiSubWindow_MetaObject(const QMdiSubWindow* self);
 void* QMdiSubWindow_Metacast(QMdiSubWindow* self, const char* param1);
 int QMdiSubWindow_Metacall(QMdiSubWindow* self, int param1, int param2, void** param3);
+libqt_string QMdiSubWindow_Tr(const char* s);
 QSize* QMdiSubWindow_SizeHint(const QMdiSubWindow* self);
 QSize* QMdiSubWindow_MinimumSizeHint(const QMdiSubWindow* self);
 void QMdiSubWindow_SetWidget(QMdiSubWindow* self, QWidget* widget);
@@ -100,6 +101,8 @@ void QMdiSubWindow_ContextMenuEvent(QMdiSubWindow* self, QContextMenuEvent* cont
 void QMdiSubWindow_FocusInEvent(QMdiSubWindow* self, QFocusEvent* focusInEvent);
 void QMdiSubWindow_FocusOutEvent(QMdiSubWindow* self, QFocusEvent* focusOutEvent);
 void QMdiSubWindow_ChildEvent(QMdiSubWindow* self, QChildEvent* childEvent);
+libqt_string QMdiSubWindow_Tr2(const char* s, const char* c);
+libqt_string QMdiSubWindow_Tr3(const char* s, const char* c, int n);
 void QMdiSubWindow_SetOption2(QMdiSubWindow* self, int option, bool on);
 void QMdiSubWindow_OnMetaObject(const QMdiSubWindow* self, intptr_t slot);
 QMetaObject* QMdiSubWindow_SuperMetaObject(const QMdiSubWindow* self);

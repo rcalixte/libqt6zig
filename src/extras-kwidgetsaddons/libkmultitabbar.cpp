@@ -72,6 +72,18 @@ int KMultiTabBar_Metacall(KMultiTabBar* self, int param1, int param2, void** par
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string KMultiTabBar_Tr(const char* s) {
+    auto _ret = KMultiTabBar::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 int KMultiTabBar_AppendButton(KMultiTabBar* self, const QIcon* icon) {
     return self->appendButton(*icon);
 }
@@ -132,6 +144,30 @@ void KMultiTabBar_PaintEvent(KMultiTabBar* self, QPaintEvent* param1) {
     if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
         vkmultitabbar->paintEvent(param1);
     }
+}
+
+libqt_string KMultiTabBar_Tr2(const char* s, const char* c) {
+    auto _ret = KMultiTabBar::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KMultiTabBar_Tr3(const char* s, const char* c, int n) {
+    auto _ret = KMultiTabBar::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 int KMultiTabBar_AppendButton2(KMultiTabBar* self, const QIcon* icon, int id) {
@@ -1860,6 +1896,18 @@ int KMultiTabBarButton_Metacall(KMultiTabBarButton* self, int param1, int param2
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string KMultiTabBarButton_Tr(const char* s) {
+    auto _ret = KMultiTabBarButton::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 int KMultiTabBarButton_Id(const KMultiTabBarButton* self) {
     return self->id();
 }
@@ -1881,6 +1929,30 @@ void KMultiTabBarButton_Connect_Clicked(KMultiTabBarButton* self, intptr_t slot)
     });
 }
 
+libqt_string KMultiTabBarButton_Tr2(const char* s, const char* c) {
+    auto _ret = KMultiTabBarButton::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KMultiTabBarButton_Tr3(const char* s, const char* c, int n) {
+    auto _ret = KMultiTabBarButton::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void KMultiTabBarButton_Delete(KMultiTabBarButton* self) {
     delete self;
 }
@@ -1895,6 +1967,18 @@ void* KMultiTabBarTab_Metacast(KMultiTabBarTab* self, const char* param1) {
 
 int KMultiTabBarTab_Metacall(KMultiTabBarTab* self, int param1, int param2, void** param3) {
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+}
+
+libqt_string KMultiTabBarTab_Tr(const char* s) {
+    auto _ret = KMultiTabBarTab::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 QSize* KMultiTabBarTab_SizeHint(const KMultiTabBarTab* self) {
@@ -1915,6 +1999,30 @@ void KMultiTabBarTab_SetStyle(KMultiTabBarTab* self, int style) {
 
 void KMultiTabBarTab_SetState(KMultiTabBarTab* self, bool state) {
     self->setState(state);
+}
+
+libqt_string KMultiTabBarTab_Tr2(const char* s, const char* c) {
+    auto _ret = KMultiTabBarTab::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KMultiTabBarTab_Tr3(const char* s, const char* c, int n) {
+    auto _ret = KMultiTabBarTab::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void KMultiTabBarTab_Delete(KMultiTabBarTab* self) {

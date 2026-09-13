@@ -21,6 +21,18 @@ int LayerShellQt__Window_Metacall(LayerShellQt__Window* self, int param1, int pa
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string LayerShellQt__Window_Tr(const char* s) {
+    auto _ret = LayerShellQt::Window::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void LayerShellQt__Window_SetAnchors(LayerShellQt__Window* self, int anchor) {
     self->setAnchors(static_cast<LayerShellQt::Window::Anchors>(anchor));
 }
@@ -174,6 +186,30 @@ void LayerShellQt__Window_Connect_LayerChanged(LayerShellQt__Window* self, intpt
     LayerShellQt::Window::connect(self, &LayerShellQt::Window::layerChanged, [self, slotFunc]() {
         slotFunc(self);
     });
+}
+
+libqt_string LayerShellQt__Window_Tr2(const char* s, const char* c) {
+    auto _ret = LayerShellQt::Window::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string LayerShellQt__Window_Tr3(const char* s, const char* c, int n) {
+    auto _ret = LayerShellQt::Window::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void LayerShellQt__Window_Delete(LayerShellQt__Window* self) {

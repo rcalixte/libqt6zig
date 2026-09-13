@@ -41,6 +41,7 @@ QWebSocket* QWebSocket_new4(const libqt_string origin, int version, QObject* par
 QMetaObject* QWebSocket_MetaObject(const QWebSocket* self);
 void* QWebSocket_Metacast(QWebSocket* self, const char* param1);
 int QWebSocket_Metacall(QWebSocket* self, int param1, int param2, void** param3);
+libqt_string QWebSocket_Tr(const char* s);
 void QWebSocket_Abort(QWebSocket* self);
 int QWebSocket_Error(const QWebSocket* self);
 libqt_string QWebSocket_ErrorString(const QWebSocket* self);
@@ -134,6 +135,8 @@ void QWebSocket_AlertReceived(QWebSocket* self, int level, int typeVal, const li
 void QWebSocket_Connect_AlertReceived(QWebSocket* self, intptr_t slot);
 void QWebSocket_HandshakeInterruptedOnError(QWebSocket* self, const QSslError* errorVal);
 void QWebSocket_Connect_HandshakeInterruptedOnError(QWebSocket* self, intptr_t slot);
+libqt_string QWebSocket_Tr2(const char* s, const char* c);
+libqt_string QWebSocket_Tr3(const char* s, const char* c, int n);
 void QWebSocket_Close1(QWebSocket* self, int closeCode);
 void QWebSocket_Close2(QWebSocket* self, int closeCode, const libqt_string reason);
 void QWebSocket_Ping1(QWebSocket* self, const libqt_string payload);

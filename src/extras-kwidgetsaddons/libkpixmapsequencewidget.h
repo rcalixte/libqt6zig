@@ -58,11 +58,14 @@ KPixmapSequenceWidget* KPixmapSequenceWidget_new4(const KPixmapSequence* seq, QW
 QMetaObject* KPixmapSequenceWidget_MetaObject(const KPixmapSequenceWidget* self);
 void* KPixmapSequenceWidget_Metacast(KPixmapSequenceWidget* self, const char* param1);
 int KPixmapSequenceWidget_Metacall(KPixmapSequenceWidget* self, int param1, int param2, void** param3);
+libqt_string KPixmapSequenceWidget_Tr(const char* s);
 KPixmapSequence* KPixmapSequenceWidget_Sequence(const KPixmapSequenceWidget* self);
 int KPixmapSequenceWidget_Interval(const KPixmapSequenceWidget* self);
 QSize* KPixmapSequenceWidget_SizeHint(const KPixmapSequenceWidget* self);
 void KPixmapSequenceWidget_SetSequence(KPixmapSequenceWidget* self, const KPixmapSequence* seq);
 void KPixmapSequenceWidget_SetInterval(KPixmapSequenceWidget* self, int msecs);
+libqt_string KPixmapSequenceWidget_Tr2(const char* s, const char* c);
+libqt_string KPixmapSequenceWidget_Tr3(const char* s, const char* c, int n);
 void KPixmapSequenceWidget_OnMetaObject(const KPixmapSequenceWidget* self, intptr_t slot);
 QMetaObject* KPixmapSequenceWidget_SuperMetaObject(const KPixmapSequenceWidget* self);
 void KPixmapSequenceWidget_OnMetacast(KPixmapSequenceWidget* self, intptr_t slot);

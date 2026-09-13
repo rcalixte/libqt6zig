@@ -57,6 +57,18 @@ int KCollapsibleGroupBox_Metacall(KCollapsibleGroupBox* self, int param1, int pa
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string KCollapsibleGroupBox_Tr(const char* s) {
+    auto _ret = KCollapsibleGroupBox::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void KCollapsibleGroupBox_SetTitle(KCollapsibleGroupBox* self, const libqt_string title) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     self->setTitle(title_QString);
@@ -172,6 +184,30 @@ void KCollapsibleGroupBox_ResizeEvent(KCollapsibleGroupBox* self, QResizeEvent* 
     if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
         vkcollapsiblegroupbox->resizeEvent(param1);
     }
+}
+
+libqt_string KCollapsibleGroupBox_Tr2(const char* s, const char* c) {
+    auto _ret = KCollapsibleGroupBox::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KCollapsibleGroupBox_Tr3(const char* s, const char* c, int n) {
+    auto _ret = KCollapsibleGroupBox::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

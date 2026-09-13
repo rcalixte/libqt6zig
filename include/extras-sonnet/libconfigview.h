@@ -58,6 +58,7 @@ Sonnet__ConfigView* Sonnet__ConfigView_new2();
 QMetaObject* Sonnet__ConfigView_MetaObject(const Sonnet__ConfigView* self);
 void* Sonnet__ConfigView_Metacast(Sonnet__ConfigView* self, const char* param1);
 int Sonnet__ConfigView_Metacall(Sonnet__ConfigView* self, int param1, int param2, void** param3);
+libqt_string Sonnet__ConfigView_Tr(const char* s);
 bool Sonnet__ConfigView_BackgroundCheckingButtonShown(const Sonnet__ConfigView* self);
 bool Sonnet__ConfigView_NoBackendFoundVisible(const Sonnet__ConfigView* self);
 libqt_list /* of libqt_string */ Sonnet__ConfigView_PreferredLanguages(const Sonnet__ConfigView* self);
@@ -70,6 +71,8 @@ void Sonnet__ConfigView_SetLanguage(Sonnet__ConfigView* self, const libqt_string
 void Sonnet__ConfigView_SetIgnoreList(Sonnet__ConfigView* self, const libqt_list /* of libqt_string */ ignoreList);
 void Sonnet__ConfigView_ConfigChanged(Sonnet__ConfigView* self);
 void Sonnet__ConfigView_Connect_ConfigChanged(Sonnet__ConfigView* self, intptr_t slot);
+libqt_string Sonnet__ConfigView_Tr2(const char* s, const char* c);
+libqt_string Sonnet__ConfigView_Tr3(const char* s, const char* c, int n);
 void Sonnet__ConfigView_OnMetaObject(const Sonnet__ConfigView* self, intptr_t slot);
 QMetaObject* Sonnet__ConfigView_SuperMetaObject(const Sonnet__ConfigView* self);
 void Sonnet__ConfigView_OnMetacast(Sonnet__ConfigView* self, intptr_t slot);

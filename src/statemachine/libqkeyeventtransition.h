@@ -34,12 +34,15 @@ QKeyEventTransition* QKeyEventTransition_new4(QObject* object, int typeVal, int 
 QMetaObject* QKeyEventTransition_MetaObject(const QKeyEventTransition* self);
 void* QKeyEventTransition_Metacast(QKeyEventTransition* self, const char* param1);
 int QKeyEventTransition_Metacall(QKeyEventTransition* self, int param1, int param2, void** param3);
+libqt_string QKeyEventTransition_Tr(const char* s);
 int QKeyEventTransition_Key(const QKeyEventTransition* self);
 void QKeyEventTransition_SetKey(QKeyEventTransition* self, int key);
 int QKeyEventTransition_ModifierMask(const QKeyEventTransition* self);
 void QKeyEventTransition_SetModifierMask(QKeyEventTransition* self, int modifiers);
 void QKeyEventTransition_OnTransition(QKeyEventTransition* self, QEvent* event);
 bool QKeyEventTransition_EventTest(QKeyEventTransition* self, QEvent* event);
+libqt_string QKeyEventTransition_Tr2(const char* s, const char* c);
+libqt_string QKeyEventTransition_Tr3(const char* s, const char* c, int n);
 void QKeyEventTransition_OnMetaObject(const QKeyEventTransition* self, intptr_t slot);
 QMetaObject* QKeyEventTransition_SuperMetaObject(const QKeyEventTransition* self);
 void QKeyEventTransition_OnMetacast(QKeyEventTransition* self, intptr_t slot);

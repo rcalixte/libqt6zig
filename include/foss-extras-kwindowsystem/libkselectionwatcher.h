@@ -30,9 +30,12 @@ KSelectionWatcher* KSelectionWatcher_new3(const char* selection, int screen, QOb
 QMetaObject* KSelectionWatcher_MetaObject(const KSelectionWatcher* self);
 void* KSelectionWatcher_Metacast(KSelectionWatcher* self, const char* param1);
 int KSelectionWatcher_Metacall(KSelectionWatcher* self, int param1, int param2, void** param3);
+libqt_string KSelectionWatcher_Tr(const char* s);
 void KSelectionWatcher_FilterEvent(KSelectionWatcher* self, void* ev_P);
 void KSelectionWatcher_LostOwner(KSelectionWatcher* self);
 void KSelectionWatcher_Connect_LostOwner(KSelectionWatcher* self, intptr_t slot);
+libqt_string KSelectionWatcher_Tr2(const char* s, const char* c);
+libqt_string KSelectionWatcher_Tr3(const char* s, const char* c, int n);
 void KSelectionWatcher_OnMetaObject(const KSelectionWatcher* self, intptr_t slot);
 QMetaObject* KSelectionWatcher_SuperMetaObject(const KSelectionWatcher* self);
 void KSelectionWatcher_OnMetacast(KSelectionWatcher* self, intptr_t slot);

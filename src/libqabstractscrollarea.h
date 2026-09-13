@@ -59,6 +59,7 @@ QAbstractScrollArea* QAbstractScrollArea_new2();
 QMetaObject* QAbstractScrollArea_MetaObject(const QAbstractScrollArea* self);
 void* QAbstractScrollArea_Metacast(QAbstractScrollArea* self, const char* param1);
 int QAbstractScrollArea_Metacall(QAbstractScrollArea* self, int param1, int param2, void** param3);
+libqt_string QAbstractScrollArea_Tr(const char* s);
 int QAbstractScrollArea_VerticalScrollBarPolicy(const QAbstractScrollArea* self);
 void QAbstractScrollArea_SetVerticalScrollBarPolicy(QAbstractScrollArea* self, int verticalScrollBarPolicy);
 QScrollBar* QAbstractScrollArea_VerticalScrollBar(const QAbstractScrollArea* self);
@@ -97,6 +98,8 @@ void QAbstractScrollArea_DropEvent(QAbstractScrollArea* self, QDropEvent* param1
 void QAbstractScrollArea_KeyPressEvent(QAbstractScrollArea* self, QKeyEvent* param1);
 void QAbstractScrollArea_ScrollContentsBy(QAbstractScrollArea* self, int dx, int dy);
 QSize* QAbstractScrollArea_ViewportSizeHint(const QAbstractScrollArea* self);
+libqt_string QAbstractScrollArea_Tr2(const char* s, const char* c);
+libqt_string QAbstractScrollArea_Tr3(const char* s, const char* c, int n);
 void QAbstractScrollArea_OnMetaObject(const QAbstractScrollArea* self, intptr_t slot);
 QMetaObject* QAbstractScrollArea_SuperMetaObject(const QAbstractScrollArea* self);
 void QAbstractScrollArea_OnMetacast(QAbstractScrollArea* self, intptr_t slot);

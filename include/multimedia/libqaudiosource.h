@@ -36,6 +36,7 @@ QAudioSource* QAudioSource_new6(const QAudioDevice* audioDeviceInfo, const QAudi
 QMetaObject* QAudioSource_MetaObject(const QAudioSource* self);
 void* QAudioSource_Metacast(QAudioSource* self, const char* param1);
 int QAudioSource_Metacall(QAudioSource* self, int param1, int param2, void** param3);
+libqt_string QAudioSource_Tr(const char* s);
 bool QAudioSource_IsNull(const QAudioSource* self);
 QAudioFormat* QAudioSource_Format(const QAudioSource* self);
 void QAudioSource_Start(QAudioSource* self, QIODevice* device);
@@ -55,6 +56,8 @@ int QAudioSource_Error(const QAudioSource* self);
 int QAudioSource_State(const QAudioSource* self);
 void QAudioSource_StateChanged(QAudioSource* self, int state);
 void QAudioSource_Connect_StateChanged(QAudioSource* self, intptr_t slot);
+libqt_string QAudioSource_Tr2(const char* s, const char* c);
+libqt_string QAudioSource_Tr3(const char* s, const char* c, int n);
 void QAudioSource_OnMetaObject(const QAudioSource* self, intptr_t slot);
 QMetaObject* QAudioSource_SuperMetaObject(const QAudioSource* self);
 void QAudioSource_OnMetacast(QAudioSource* self, intptr_t slot);

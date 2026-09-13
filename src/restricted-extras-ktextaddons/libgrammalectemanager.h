@@ -32,6 +32,7 @@ TextGrammarCheck__GrammalecteManager* TextGrammarCheck__GrammalecteManager_new2(
 QMetaObject* TextGrammarCheck__GrammalecteManager_MetaObject(const TextGrammarCheck__GrammalecteManager* self);
 void* TextGrammarCheck__GrammalecteManager_Metacast(TextGrammarCheck__GrammalecteManager* self, const char* param1);
 int TextGrammarCheck__GrammalecteManager_Metacall(TextGrammarCheck__GrammalecteManager* self, int param1, int param2, void** param3);
+libqt_string TextGrammarCheck__GrammalecteManager_Tr(const char* s);
 TextGrammarCheck__GrammalecteManager* TextGrammarCheck__GrammalecteManager_Self();
 libqt_string TextGrammarCheck__GrammalecteManager_PythonPath(const TextGrammarCheck__GrammalecteManager* self);
 libqt_string TextGrammarCheck__GrammalecteManager_GrammalectePath(const TextGrammarCheck__GrammalecteManager* self);
@@ -41,6 +42,8 @@ libqt_list /* of libqt_string */ TextGrammarCheck__GrammalecteManager_Options(co
 void TextGrammarCheck__GrammalecteManager_SetOptions(TextGrammarCheck__GrammalecteManager* self, const libqt_list /* of libqt_string */ saveOptions);
 void TextGrammarCheck__GrammalecteManager_LoadSettings(TextGrammarCheck__GrammalecteManager* self);
 void TextGrammarCheck__GrammalecteManager_SaveSettings(TextGrammarCheck__GrammalecteManager* self);
+libqt_string TextGrammarCheck__GrammalecteManager_Tr2(const char* s, const char* c);
+libqt_string TextGrammarCheck__GrammalecteManager_Tr3(const char* s, const char* c, int n);
 void TextGrammarCheck__GrammalecteManager_OnMetaObject(const TextGrammarCheck__GrammalecteManager* self, intptr_t slot);
 QMetaObject* TextGrammarCheck__GrammalecteManager_SuperMetaObject(const TextGrammarCheck__GrammalecteManager* self);
 void TextGrammarCheck__GrammalecteManager_OnMetacast(TextGrammarCheck__GrammalecteManager* self, intptr_t slot);

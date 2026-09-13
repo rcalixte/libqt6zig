@@ -60,6 +60,7 @@ KFindDialog* KFindDialog_new6(QWidget* parent, long options, const libqt_list /*
 QMetaObject* KFindDialog_MetaObject(const KFindDialog* self);
 void* KFindDialog_Metacast(KFindDialog* self, const char* param1);
 int KFindDialog_Metacall(KFindDialog* self, int param1, int param2, void** param3);
+libqt_string KFindDialog_Tr(const char* s);
 void KFindDialog_SetFindHistory(KFindDialog* self, const libqt_list /* of libqt_string */ history);
 libqt_list /* of libqt_string */ KFindDialog_FindHistory(const KFindDialog* self);
 void KFindDialog_SetHasSelection(KFindDialog* self, bool hasSelection);
@@ -80,6 +81,8 @@ void KFindDialog_Connect_OkClicked(KFindDialog* self, intptr_t slot);
 void KFindDialog_CancelClicked(KFindDialog* self);
 void KFindDialog_Connect_CancelClicked(KFindDialog* self, intptr_t slot);
 void KFindDialog_ShowEvent(KFindDialog* self, QShowEvent* param1);
+libqt_string KFindDialog_Tr2(const char* s, const char* c);
+libqt_string KFindDialog_Tr3(const char* s, const char* c, int n);
 void KFindDialog_OnMetaObject(const KFindDialog* self, intptr_t slot);
 QMetaObject* KFindDialog_SuperMetaObject(const KFindDialog* self);
 void KFindDialog_OnMetacast(KFindDialog* self, intptr_t slot);

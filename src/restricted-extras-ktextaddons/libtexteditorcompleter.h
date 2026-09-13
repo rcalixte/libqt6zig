@@ -35,10 +35,13 @@ TextCustomEditor__TextEditorCompleter* TextCustomEditor__TextEditorCompleter_new
 QMetaObject* TextCustomEditor__TextEditorCompleter_MetaObject(const TextCustomEditor__TextEditorCompleter* self);
 void* TextCustomEditor__TextEditorCompleter_Metacast(TextCustomEditor__TextEditorCompleter* self, const char* param1);
 int TextCustomEditor__TextEditorCompleter_Metacall(TextCustomEditor__TextEditorCompleter* self, int param1, int param2, void** param3);
+libqt_string TextCustomEditor__TextEditorCompleter_Tr(const char* s);
 void TextCustomEditor__TextEditorCompleter_SetCompleterStringList(TextCustomEditor__TextEditorCompleter* self, const libqt_list /* of libqt_string */ list);
 QCompleter* TextCustomEditor__TextEditorCompleter_Completer(const TextCustomEditor__TextEditorCompleter* self);
 void TextCustomEditor__TextEditorCompleter_CompleteText(TextCustomEditor__TextEditorCompleter* self);
 void TextCustomEditor__TextEditorCompleter_SetExcludeOfCharacters(TextCustomEditor__TextEditorCompleter* self, const libqt_string excludes);
+libqt_string TextCustomEditor__TextEditorCompleter_Tr2(const char* s, const char* c);
+libqt_string TextCustomEditor__TextEditorCompleter_Tr3(const char* s, const char* c, int n);
 void TextCustomEditor__TextEditorCompleter_OnMetaObject(const TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
 QMetaObject* TextCustomEditor__TextEditorCompleter_SuperMetaObject(const TextCustomEditor__TextEditorCompleter* self);
 void TextCustomEditor__TextEditorCompleter_OnMetacast(TextCustomEditor__TextEditorCompleter* self, intptr_t slot);

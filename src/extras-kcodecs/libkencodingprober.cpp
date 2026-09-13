@@ -13,6 +13,18 @@ KEncodingProber* KEncodingProber_new2(int proberType) {
     return new KEncodingProber(static_cast<KEncodingProber::ProberType>(proberType));
 }
 
+libqt_string KEncodingProber_Tr(const char* sourceText) {
+    auto _ret = KEncodingProber::tr(sourceText);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void KEncodingProber_Reset(KEncodingProber* self) {
     self->reset();
 }
@@ -58,6 +70,30 @@ int KEncodingProber_ProberTypeForName(const libqt_string lang) {
 
 libqt_string KEncodingProber_NameForProberType(int proberType) {
     auto _ret = KEncodingProber::nameForProberType(static_cast<KEncodingProber::ProberType>(proberType));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KEncodingProber_Tr2(const char* sourceText, const char* disambiguation) {
+    auto _ret = KEncodingProber::tr(sourceText, disambiguation);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KEncodingProber_Tr3(const char* sourceText, const char* disambiguation, int n) {
+    auto _ret = KEncodingProber::tr(sourceText, disambiguation, static_cast<int>(n));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

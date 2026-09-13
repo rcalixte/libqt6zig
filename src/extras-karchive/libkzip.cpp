@@ -21,6 +21,18 @@ KZip* KZip_new3(const KZip* param1) {
     return new VirtualKZip(*param1);
 }
 
+libqt_string KZip_Tr(const char* sourceText) {
+    auto _ret = KZip::tr(sourceText);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void KZip_SetExtraField(KZip* self, int ef) {
     self->setExtraField(static_cast<KZip::ExtraField>(ef));
 }
@@ -108,6 +120,30 @@ void KZip_VirtualHook(KZip* self, int id, void* data) {
     if (vkzip && vkzip->isVirtualKZip) {
         vkzip->virtual_hook(static_cast<int>(id), data);
     }
+}
+
+libqt_string KZip_Tr2(const char* sourceText, const char* disambiguation) {
+    auto _ret = KZip::tr(sourceText, disambiguation);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KZip_Tr3(const char* sourceText, const char* disambiguation, int n) {
+    auto _ret = KZip::tr(sourceText, disambiguation, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

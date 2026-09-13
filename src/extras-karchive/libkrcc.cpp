@@ -17,6 +17,18 @@ KRcc* KRcc_new2(const KRcc* param1) {
     return new VirtualKRcc(*param1);
 }
 
+libqt_string KRcc_Tr(const char* sourceText) {
+    auto _ret = KRcc::tr(sourceText);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 bool KRcc_DoPrepareWriting(KRcc* self, const libqt_string name, const libqt_string user, const libqt_string group, long long size, mode_t perm, const QDateTime* atime, const QDateTime* mtime, const QDateTime* ctime) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
@@ -80,6 +92,30 @@ void KRcc_VirtualHook(KRcc* self, int id, void* data) {
     if (vkrcc && vkrcc->isVirtualKRcc) {
         vkrcc->virtual_hook(static_cast<int>(id), data);
     }
+}
+
+libqt_string KRcc_Tr2(const char* sourceText, const char* disambiguation) {
+    auto _ret = KRcc::tr(sourceText, disambiguation);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KRcc_Tr3(const char* sourceText, const char* disambiguation, int n) {
+    auto _ret = KRcc::tr(sourceText, disambiguation, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

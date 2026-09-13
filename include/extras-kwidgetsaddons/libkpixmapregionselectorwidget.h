@@ -59,6 +59,7 @@ KPixmapRegionSelectorWidget* KPixmapRegionSelectorWidget_new2();
 QMetaObject* KPixmapRegionSelectorWidget_MetaObject(const KPixmapRegionSelectorWidget* self);
 void* KPixmapRegionSelectorWidget_Metacast(KPixmapRegionSelectorWidget* self, const char* param1);
 int KPixmapRegionSelectorWidget_Metacall(KPixmapRegionSelectorWidget* self, int param1, int param2, void** param3);
+libqt_string KPixmapRegionSelectorWidget_Tr(const char* s);
 void KPixmapRegionSelectorWidget_SetPixmap(KPixmapRegionSelectorWidget* self, const QPixmap* pixmap);
 QPixmap* KPixmapRegionSelectorWidget_Pixmap(const KPixmapRegionSelectorWidget* self);
 void KPixmapRegionSelectorWidget_SetSelectedRegion(KPixmapRegionSelectorWidget* self, const QRect* rect);
@@ -76,6 +77,8 @@ void KPixmapRegionSelectorWidget_PixmapRotated(KPixmapRegionSelectorWidget* self
 void KPixmapRegionSelectorWidget_Connect_PixmapRotated(KPixmapRegionSelectorWidget* self, intptr_t slot);
 QMenu* KPixmapRegionSelectorWidget_CreatePopupMenu(KPixmapRegionSelectorWidget* self);
 bool KPixmapRegionSelectorWidget_EventFilter(KPixmapRegionSelectorWidget* self, QObject* obj, QEvent* ev);
+libqt_string KPixmapRegionSelectorWidget_Tr2(const char* s, const char* c);
+libqt_string KPixmapRegionSelectorWidget_Tr3(const char* s, const char* c, int n);
 void KPixmapRegionSelectorWidget_OnMetaObject(const KPixmapRegionSelectorWidget* self, intptr_t slot);
 QMetaObject* KPixmapRegionSelectorWidget_SuperMetaObject(const KPixmapRegionSelectorWidget* self);
 void KPixmapRegionSelectorWidget_OnMetacast(KPixmapRegionSelectorWidget* self, intptr_t slot);

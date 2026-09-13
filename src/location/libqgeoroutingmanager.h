@@ -29,6 +29,7 @@ typedef struct QObject QObject;
 QMetaObject* QGeoRoutingManager_MetaObject(const QGeoRoutingManager* self);
 void* QGeoRoutingManager_Metacast(QGeoRoutingManager* self, const char* param1);
 int QGeoRoutingManager_Metacall(QGeoRoutingManager* self, int param1, int param2, void** param3);
+libqt_string QGeoRoutingManager_Tr(const char* s);
 libqt_string QGeoRoutingManager_ManagerName(const QGeoRoutingManager* self);
 int QGeoRoutingManager_ManagerVersion(const QGeoRoutingManager* self);
 QGeoRouteReply* QGeoRoutingManager_CalculateRoute(QGeoRoutingManager* self, const QGeoRouteRequest* request);
@@ -47,6 +48,8 @@ void QGeoRoutingManager_Finished(QGeoRoutingManager* self, QGeoRouteReply* reply
 void QGeoRoutingManager_Connect_Finished(QGeoRoutingManager* self, intptr_t slot);
 void QGeoRoutingManager_ErrorOccurred(QGeoRoutingManager* self, QGeoRouteReply* reply, int errorVal);
 void QGeoRoutingManager_Connect_ErrorOccurred(QGeoRoutingManager* self, intptr_t slot);
+libqt_string QGeoRoutingManager_Tr2(const char* s, const char* c);
+libqt_string QGeoRoutingManager_Tr3(const char* s, const char* c, int n);
 void QGeoRoutingManager_ErrorOccurred3(QGeoRoutingManager* self, QGeoRouteReply* reply, int errorVal, const libqt_string errorString);
 void QGeoRoutingManager_Connect_ErrorOccurred3(QGeoRoutingManager* self, intptr_t slot);
 void QGeoRoutingManager_Delete(QGeoRoutingManager* self);

@@ -57,8 +57,11 @@ QDesignerObjectInspectorInterface* QDesignerObjectInspectorInterface_new2(QWidge
 QMetaObject* QDesignerObjectInspectorInterface_MetaObject(const QDesignerObjectInspectorInterface* self);
 void* QDesignerObjectInspectorInterface_Metacast(QDesignerObjectInspectorInterface* self, const char* param1);
 int QDesignerObjectInspectorInterface_Metacall(QDesignerObjectInspectorInterface* self, int param1, int param2, void** param3);
+libqt_string QDesignerObjectInspectorInterface_Tr(const char* s);
 QDesignerFormEditorInterface* QDesignerObjectInspectorInterface_Core(const QDesignerObjectInspectorInterface* self);
 void QDesignerObjectInspectorInterface_SetFormWindow(QDesignerObjectInspectorInterface* self, QDesignerFormWindowInterface* formWindow);
+libqt_string QDesignerObjectInspectorInterface_Tr2(const char* s, const char* c);
+libqt_string QDesignerObjectInspectorInterface_Tr3(const char* s, const char* c, int n);
 void QDesignerObjectInspectorInterface_OnMetaObject(const QDesignerObjectInspectorInterface* self, intptr_t slot);
 QMetaObject* QDesignerObjectInspectorInterface_SuperMetaObject(const QDesignerObjectInspectorInterface* self);
 void QDesignerObjectInspectorInterface_OnMetacast(QDesignerObjectInspectorInterface* self, intptr_t slot);

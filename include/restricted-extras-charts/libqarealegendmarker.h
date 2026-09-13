@@ -32,8 +32,11 @@ QAreaLegendMarker* QAreaLegendMarker_new2(QAreaSeries* series, QLegend* legend, 
 QMetaObject* QAreaLegendMarker_MetaObject(const QAreaLegendMarker* self);
 void* QAreaLegendMarker_Metacast(QAreaLegendMarker* self, const char* param1);
 int QAreaLegendMarker_Metacall(QAreaLegendMarker* self, int param1, int param2, void** param3);
+libqt_string QAreaLegendMarker_Tr(const char* s);
 int QAreaLegendMarker_Type(QAreaLegendMarker* self);
 QAreaSeries* QAreaLegendMarker_Series(QAreaLegendMarker* self);
+libqt_string QAreaLegendMarker_Tr2(const char* s, const char* c);
+libqt_string QAreaLegendMarker_Tr3(const char* s, const char* c, int n);
 void QAreaLegendMarker_OnMetaObject(const QAreaLegendMarker* self, intptr_t slot);
 QMetaObject* QAreaLegendMarker_SuperMetaObject(const QAreaLegendMarker* self);
 void QAreaLegendMarker_OnMetacast(QAreaLegendMarker* self, intptr_t slot);

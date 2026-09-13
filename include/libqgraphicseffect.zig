@@ -212,6 +212,8 @@ pub const QGraphicsEffect = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -222,7 +224,7 @@ pub const QGraphicsEffect = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QGraphicsEffect_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsEffect.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -735,6 +737,8 @@ pub const QGraphicsEffect = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -748,7 +752,7 @@ pub const QGraphicsEffect = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QGraphicsEffect_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsEffect.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -759,6 +763,8 @@ pub const QGraphicsEffect = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -774,7 +780,7 @@ pub const QGraphicsEffect = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.QGraphicsEffect_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsEffect.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2882,6 +2888,8 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -2892,7 +2900,7 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QGraphicsColorizeEffect_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsColorizeEffect.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3083,6 +3091,8 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -3096,7 +3106,7 @@ pub const QGraphicsColorizeEffect = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QGraphicsColorizeEffect_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsColorizeEffect.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3107,6 +3117,8 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -3122,7 +3134,7 @@ pub const QGraphicsColorizeEffect = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.QGraphicsColorizeEffect_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsColorizeEffect.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5514,6 +5526,8 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -5524,7 +5538,7 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QGraphicsBlurEffect_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsBlurEffect.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5773,6 +5787,8 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -5786,7 +5802,7 @@ pub const QGraphicsBlurEffect = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QGraphicsBlurEffect_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsBlurEffect.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5797,6 +5813,8 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -5812,7 +5830,7 @@ pub const QGraphicsBlurEffect = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.QGraphicsBlurEffect_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsBlurEffect.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -8140,6 +8158,8 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -8150,7 +8170,7 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QGraphicsDropShadowEffect_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsDropShadowEffect.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -8555,6 +8575,8 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -8568,7 +8590,7 @@ pub const QGraphicsDropShadowEffect = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QGraphicsDropShadowEffect_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsDropShadowEffect.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -8579,6 +8601,8 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -8594,7 +8618,7 @@ pub const QGraphicsDropShadowEffect = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.QGraphicsDropShadowEffect_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsDropShadowEffect.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10922,6 +10946,8 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -10932,7 +10958,7 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QGraphicsOpacityEffect_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsOpacityEffect.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11123,6 +11149,8 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -11136,7 +11164,7 @@ pub const QGraphicsOpacityEffect = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QGraphicsOpacityEffect_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsOpacityEffect.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11147,6 +11175,8 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -11162,7 +11192,7 @@ pub const QGraphicsOpacityEffect = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.QGraphicsOpacityEffect_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsOpacityEffect.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

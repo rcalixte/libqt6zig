@@ -78,7 +78,7 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
             ((char*)dontShowAgainName_str)[dontShowAgainName_str_len] = '\0';
             const char* cbval1 = dontShowAgainName_str;
             KMessageBox::ButtonCode& result_ret = result;
-            int* cbval2 = reinterpret_cast<int*>(&result);
+            int* cbval2 = reinterpret_cast<int*>(&result_ret);
             bool callback_ret = shouldbeshowntwoactions_cb(this, cbval1, cbval2);
             libqt_free(dontShowAgainName_str);
             return callback_ret;

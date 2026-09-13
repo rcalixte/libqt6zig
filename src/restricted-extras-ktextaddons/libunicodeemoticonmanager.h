@@ -40,12 +40,15 @@ TextEmoticonsCore__UnicodeEmoticonManager* TextEmoticonsCore__UnicodeEmoticonMan
 QMetaObject* TextEmoticonsCore__UnicodeEmoticonManager_MetaObject(const TextEmoticonsCore__UnicodeEmoticonManager* self);
 void* TextEmoticonsCore__UnicodeEmoticonManager_Metacast(TextEmoticonsCore__UnicodeEmoticonManager* self, const char* param1);
 int TextEmoticonsCore__UnicodeEmoticonManager_Metacall(TextEmoticonsCore__UnicodeEmoticonManager* self, int param1, int param2, void** param3);
+libqt_string TextEmoticonsCore__UnicodeEmoticonManager_Tr(const char* s);
 TextEmoticonsCore__UnicodeEmoticonManager* TextEmoticonsCore__UnicodeEmoticonManager_Self();
 libqt_list /* of TextEmoticonsCore__UnicodeEmoticon* */ TextEmoticonsCore__UnicodeEmoticonManager_UnicodeEmojiList(const TextEmoticonsCore__UnicodeEmoticonManager* self);
 libqt_list /* of TextEmoticonsCore__UnicodeEmoticon* */ TextEmoticonsCore__UnicodeEmoticonManager_EmojisForCategory(const TextEmoticonsCore__UnicodeEmoticonManager* self, const libqt_string category);
 libqt_list /* of TextEmoticonsCore__EmoticonCategory* */ TextEmoticonsCore__UnicodeEmoticonManager_Categories(const TextEmoticonsCore__UnicodeEmoticonManager* self);
 TextEmoticonsCore__UnicodeEmoticon* TextEmoticonsCore__UnicodeEmoticonManager_UnicodeEmoticonForEmoji(const TextEmoticonsCore__UnicodeEmoticonManager* self, const libqt_string emojiIdentifier);
 int TextEmoticonsCore__UnicodeEmoticonManager_Count(const TextEmoticonsCore__UnicodeEmoticonManager* self);
+libqt_string TextEmoticonsCore__UnicodeEmoticonManager_Tr2(const char* s, const char* c);
+libqt_string TextEmoticonsCore__UnicodeEmoticonManager_Tr3(const char* s, const char* c, int n);
 void TextEmoticonsCore__UnicodeEmoticonManager_OnMetaObject(const TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot);
 QMetaObject* TextEmoticonsCore__UnicodeEmoticonManager_SuperMetaObject(const TextEmoticonsCore__UnicodeEmoticonManager* self);
 void TextEmoticonsCore__UnicodeEmoticonManager_OnMetacast(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot);

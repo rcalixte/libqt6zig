@@ -360,6 +360,7 @@ QGraphicsObject* QGraphicsObject_FromQGraphicsItem(QGraphicsItem* _qgraphicsitem
 QMetaObject* QGraphicsObject_MetaObject(const QGraphicsObject* self);
 void* QGraphicsObject_Metacast(QGraphicsObject* self, const char* param1);
 int QGraphicsObject_Metacall(QGraphicsObject* self, int param1, int param2, void** param3);
+libqt_string QGraphicsObject_Tr(const char* s);
 void QGraphicsObject_GrabGesture(QGraphicsObject* self, int typeVal);
 void QGraphicsObject_UngrabGesture(QGraphicsObject* self, int typeVal);
 void QGraphicsObject_ParentChanged(QGraphicsObject* self);
@@ -387,6 +388,8 @@ void QGraphicsObject_Connect_WidthChanged(QGraphicsObject* self, intptr_t slot);
 void QGraphicsObject_HeightChanged(QGraphicsObject* self);
 void QGraphicsObject_Connect_HeightChanged(QGraphicsObject* self, intptr_t slot);
 bool QGraphicsObject_Event(QGraphicsObject* self, QEvent* ev);
+libqt_string QGraphicsObject_Tr2(const char* s, const char* c);
+libqt_string QGraphicsObject_Tr3(const char* s, const char* c, int n);
 void QGraphicsObject_GrabGesture2(QGraphicsObject* self, int typeVal, int flags);
 void QGraphicsObject_OnMetaObject(const QGraphicsObject* self, intptr_t slot);
 QMetaObject* QGraphicsObject_SuperMetaObject(const QGraphicsObject* self);
@@ -1447,6 +1450,7 @@ QGraphicsTextItem* QGraphicsTextItem_new4(const libqt_string text, QGraphicsItem
 QMetaObject* QGraphicsTextItem_MetaObject(const QGraphicsTextItem* self);
 void* QGraphicsTextItem_Metacast(QGraphicsTextItem* self, const char* param1);
 int QGraphicsTextItem_Metacall(QGraphicsTextItem* self, int param1, int param2, void** param3);
+libqt_string QGraphicsTextItem_Tr(const char* s);
 libqt_string QGraphicsTextItem_ToHtml(const QGraphicsTextItem* self);
 void QGraphicsTextItem_SetHtml(QGraphicsTextItem* self, const libqt_string html);
 libqt_string QGraphicsTextItem_ToPlainText(const QGraphicsTextItem* self);
@@ -1501,6 +1505,8 @@ QVariant* QGraphicsTextItem_InputMethodQuery(const QGraphicsTextItem* self, int 
 bool QGraphicsTextItem_SupportsExtension(const QGraphicsTextItem* self, int extension);
 void QGraphicsTextItem_SetExtension(QGraphicsTextItem* self, int extension, const QVariant* variant);
 QVariant* QGraphicsTextItem_Extension(const QGraphicsTextItem* self, const QVariant* variant);
+libqt_string QGraphicsTextItem_Tr2(const char* s, const char* c);
+libqt_string QGraphicsTextItem_Tr3(const char* s, const char* c, int n);
 void QGraphicsTextItem_OnMetaObject(const QGraphicsTextItem* self, intptr_t slot);
 QMetaObject* QGraphicsTextItem_SuperMetaObject(const QGraphicsTextItem* self);
 void QGraphicsTextItem_OnMetacast(QGraphicsTextItem* self, intptr_t slot);

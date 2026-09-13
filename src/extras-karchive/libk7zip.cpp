@@ -21,6 +21,18 @@ K7Zip* K7Zip_new3(const K7Zip* param1) {
     return new VirtualK7Zip(*param1);
 }
 
+libqt_string K7Zip_Tr(const char* sourceText) {
+    auto _ret = K7Zip::tr(sourceText);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void K7Zip_SetPassword(K7Zip* self, const libqt_string password) {
     QString password_QString = QString::fromUtf8(password.data, password.len);
     self->setPassword(password_QString);
@@ -101,6 +113,30 @@ void K7Zip_VirtualHook(K7Zip* self, int id, void* data) {
     if (vk7zip && vk7zip->isVirtualK7Zip) {
         vk7zip->virtual_hook(static_cast<int>(id), data);
     }
+}
+
+libqt_string K7Zip_Tr2(const char* sourceText, const char* disambiguation) {
+    auto _ret = K7Zip::tr(sourceText, disambiguation);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string K7Zip_Tr3(const char* sourceText, const char* disambiguation, int n) {
+    auto _ret = K7Zip::tr(sourceText, disambiguation, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

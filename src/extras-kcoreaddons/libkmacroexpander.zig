@@ -1238,13 +1238,13 @@ pub const KMacroExpander = extern struct {
         defer allocator.free(map_keys);
         const map_values = allocator.alloc(qtc.libqt_string, map_count) catch @panic("KMacroExpander.expandMacros: Memory allocation failed");
         defer allocator.free(map_values);
-        var i: usize = 0;
+        var map_i: usize = 0;
         var map_it = map.iterator();
-        while (map_it.next()) |it_entry| : (i += 1) {
+        while (map_it.next()) |it_entry| : (map_i += 1) {
             const map_key = it_entry.key_ptr.*;
-            map_keys[i] = @ptrCast(map_key.ptr);
+            map_keys[map_i] = @ptrCast(map_key.ptr);
             const value = it_entry.value_ptr.*;
-            map_values[i] = qtc.libqt_string{
+            map_values[map_i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
@@ -1288,13 +1288,13 @@ pub const KMacroExpander = extern struct {
         defer allocator.free(map_keys);
         const map_values = allocator.alloc(qtc.libqt_string, map_count) catch @panic("KMacroExpander.expandMacrosShellQuote: Memory allocation failed");
         defer allocator.free(map_values);
-        var i: usize = 0;
+        var map_i: usize = 0;
         var map_it = map.iterator();
-        while (map_it.next()) |it_entry| : (i += 1) {
+        while (map_it.next()) |it_entry| : (map_i += 1) {
             const map_key = it_entry.key_ptr.*;
-            map_keys[i] = @ptrCast(map_key.ptr);
+            map_keys[map_i] = @ptrCast(map_key.ptr);
             const value = it_entry.value_ptr.*;
-            map_values[i] = qtc.libqt_string{
+            map_values[map_i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
@@ -1338,16 +1338,16 @@ pub const KMacroExpander = extern struct {
         defer allocator.free(map_keys);
         const map_values = allocator.alloc(qtc.libqt_string, map_count) catch @panic("KMacroExpander.expandMacros2: Memory allocation failed");
         defer allocator.free(map_values);
-        var i: usize = 0;
+        var map_i: usize = 0;
         var map_it = map.iterator();
-        while (map_it.next()) |it_entry| : (i += 1) {
+        while (map_it.next()) |it_entry| : (map_i += 1) {
             const map_key = it_entry.key_ptr.*;
-            map_keys[i] = qtc.libqt_string{
+            map_keys[map_i] = qtc.libqt_string{
                 .len = map_key.len,
                 .data = map_key.ptr,
             };
             const value = it_entry.value_ptr.*;
-            map_values[i] = qtc.libqt_string{
+            map_values[map_i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
@@ -1391,16 +1391,16 @@ pub const KMacroExpander = extern struct {
         defer allocator.free(map_keys);
         const map_values = allocator.alloc(qtc.libqt_string, map_count) catch @panic("KMacroExpander.expandMacrosShellQuote2: Memory allocation failed");
         defer allocator.free(map_values);
-        var i: usize = 0;
+        var map_i: usize = 0;
         var map_it = map.iterator();
-        while (map_it.next()) |it_entry| : (i += 1) {
+        while (map_it.next()) |it_entry| : (map_i += 1) {
             const map_key = it_entry.key_ptr.*;
-            map_keys[i] = qtc.libqt_string{
+            map_keys[map_i] = qtc.libqt_string{
                 .len = map_key.len,
                 .data = map_key.ptr,
             };
             const value = it_entry.value_ptr.*;
-            map_values[i] = qtc.libqt_string{
+            map_values[map_i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
@@ -1450,20 +1450,20 @@ pub const KMacroExpander = extern struct {
                 allocator.free(map_inner);
             allocator.free(map_inners);
         }
-        var i: usize = 0;
+        var map_i: usize = 0;
         var map_it = map.iterator();
-        while (map_it.next()) |it_entry| : (i += 1) {
+        while (map_it.next()) |it_entry| : (map_i += 1) {
             const map_key = it_entry.key_ptr.*;
-            map_keys[i] = @ptrCast(map_key.ptr);
-            map_values[i].len = it_entry.value_ptr.*.len;
+            map_keys[map_i] = @ptrCast(map_key.ptr);
+            map_values[map_i].len = it_entry.value_ptr.*.len;
             const map_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("KMacroExpander.expandMacros3: Memory allocation failed");
-            map_inners[i] = map_val;
+            map_inners[map_i] = map_val;
             for (it_entry.value_ptr.*, 0..) |str_item, j|
                 map_val[j] = qtc.libqt_string{
                     .len = str_item.len,
                     .data = str_item.ptr,
                 };
-            map_values[i].data = @ptrCast(map_val.ptr);
+            map_values[map_i].data = @ptrCast(map_val.ptr);
         }
         const map_map = qtc.libqt_map{
             .len = map_count,
@@ -1510,23 +1510,23 @@ pub const KMacroExpander = extern struct {
                 allocator.free(map_inner);
             allocator.free(map_inners);
         }
-        var i: usize = 0;
+        var map_i: usize = 0;
         var map_it = map.iterator();
-        while (map_it.next()) |it_entry| : (i += 1) {
+        while (map_it.next()) |it_entry| : (map_i += 1) {
             const map_key = it_entry.key_ptr.*;
-            map_keys[i] = qtc.libqt_string{
+            map_keys[map_i] = qtc.libqt_string{
                 .len = map_key.len,
                 .data = map_key.ptr,
             };
-            map_values[i].len = it_entry.value_ptr.*.len;
+            map_values[map_i].len = it_entry.value_ptr.*.len;
             const map_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("KMacroExpander.expandMacros4: Memory allocation failed");
-            map_inners[i] = map_val;
+            map_inners[map_i] = map_val;
             for (it_entry.value_ptr.*, 0..) |str_item, j|
                 map_val[j] = qtc.libqt_string{
                     .len = str_item.len,
                     .data = str_item.ptr,
                 };
-            map_values[i].data = @ptrCast(map_val.ptr);
+            map_values[map_i].data = @ptrCast(map_val.ptr);
         }
         const map_map = qtc.libqt_map{
             .len = map_count,
@@ -1573,20 +1573,20 @@ pub const KMacroExpander = extern struct {
                 allocator.free(map_inner);
             allocator.free(map_inners);
         }
-        var i: usize = 0;
+        var map_i: usize = 0;
         var map_it = map.iterator();
-        while (map_it.next()) |it_entry| : (i += 1) {
+        while (map_it.next()) |it_entry| : (map_i += 1) {
             const map_key = it_entry.key_ptr.*;
-            map_keys[i] = @ptrCast(map_key.ptr);
-            map_values[i].len = it_entry.value_ptr.*.len;
+            map_keys[map_i] = @ptrCast(map_key.ptr);
+            map_values[map_i].len = it_entry.value_ptr.*.len;
             const map_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("KMacroExpander.expandMacrosShellQuote3: Memory allocation failed");
-            map_inners[i] = map_val;
+            map_inners[map_i] = map_val;
             for (it_entry.value_ptr.*, 0..) |str_item, j|
                 map_val[j] = qtc.libqt_string{
                     .len = str_item.len,
                     .data = str_item.ptr,
                 };
-            map_values[i].data = @ptrCast(map_val.ptr);
+            map_values[map_i].data = @ptrCast(map_val.ptr);
         }
         const map_map = qtc.libqt_map{
             .len = map_count,
@@ -1633,23 +1633,23 @@ pub const KMacroExpander = extern struct {
                 allocator.free(map_inner);
             allocator.free(map_inners);
         }
-        var i: usize = 0;
+        var map_i: usize = 0;
         var map_it = map.iterator();
-        while (map_it.next()) |it_entry| : (i += 1) {
+        while (map_it.next()) |it_entry| : (map_i += 1) {
             const map_key = it_entry.key_ptr.*;
-            map_keys[i] = qtc.libqt_string{
+            map_keys[map_i] = qtc.libqt_string{
                 .len = map_key.len,
                 .data = map_key.ptr,
             };
-            map_values[i].len = it_entry.value_ptr.*.len;
+            map_values[map_i].len = it_entry.value_ptr.*.len;
             const map_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("KMacroExpander.expandMacrosShellQuote4: Memory allocation failed");
-            map_inners[i] = map_val;
+            map_inners[map_i] = map_val;
             for (it_entry.value_ptr.*, 0..) |str_item, j|
                 map_val[j] = qtc.libqt_string{
                     .len = str_item.len,
                     .data = str_item.ptr,
                 };
-            map_values[i].data = @ptrCast(map_val.ptr);
+            map_values[map_i].data = @ptrCast(map_val.ptr);
         }
         const map_map = qtc.libqt_map{
             .len = map_count,

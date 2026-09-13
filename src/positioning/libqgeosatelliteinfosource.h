@@ -30,6 +30,7 @@ QGeoSatelliteInfoSource* QGeoSatelliteInfoSource_new(QObject* parent);
 QMetaObject* QGeoSatelliteInfoSource_MetaObject(const QGeoSatelliteInfoSource* self);
 void* QGeoSatelliteInfoSource_Metacast(QGeoSatelliteInfoSource* self, const char* param1);
 int QGeoSatelliteInfoSource_Metacall(QGeoSatelliteInfoSource* self, int param1, int param2, void** param3);
+libqt_string QGeoSatelliteInfoSource_Tr(const char* s);
 QGeoSatelliteInfoSource* QGeoSatelliteInfoSource_CreateDefaultSource(QObject* parent);
 QGeoSatelliteInfoSource* QGeoSatelliteInfoSource_CreateSource(const libqt_string sourceName, QObject* parent);
 QGeoSatelliteInfoSource* QGeoSatelliteInfoSource_CreateDefaultSource2(const libqt_map /* of libqt_string to QVariant* */ parameters, QObject* parent);
@@ -51,6 +52,8 @@ void QGeoSatelliteInfoSource_SatellitesInUseUpdated(QGeoSatelliteInfoSource* sel
 void QGeoSatelliteInfoSource_Connect_SatellitesInUseUpdated(QGeoSatelliteInfoSource* self, intptr_t slot);
 void QGeoSatelliteInfoSource_ErrorOccurred(QGeoSatelliteInfoSource* self, int param1);
 void QGeoSatelliteInfoSource_Connect_ErrorOccurred(QGeoSatelliteInfoSource* self, intptr_t slot);
+libqt_string QGeoSatelliteInfoSource_Tr2(const char* s, const char* c);
+libqt_string QGeoSatelliteInfoSource_Tr3(const char* s, const char* c, int n);
 void QGeoSatelliteInfoSource_OnMetaObject(const QGeoSatelliteInfoSource* self, intptr_t slot);
 QMetaObject* QGeoSatelliteInfoSource_SuperMetaObject(const QGeoSatelliteInfoSource* self);
 void QGeoSatelliteInfoSource_OnMetacast(QGeoSatelliteInfoSource* self, intptr_t slot);

@@ -36,11 +36,14 @@ KSyntaxHighlighting__DefinitionDownloader* KSyntaxHighlighting__DefinitionDownlo
 QMetaObject* KSyntaxHighlighting__DefinitionDownloader_MetaObject(const KSyntaxHighlighting__DefinitionDownloader* self);
 void* KSyntaxHighlighting__DefinitionDownloader_Metacast(KSyntaxHighlighting__DefinitionDownloader* self, const char* param1);
 int KSyntaxHighlighting__DefinitionDownloader_Metacall(KSyntaxHighlighting__DefinitionDownloader* self, int param1, int param2, void** param3);
+libqt_string KSyntaxHighlighting__DefinitionDownloader_Tr(const char* s);
 void KSyntaxHighlighting__DefinitionDownloader_Start(KSyntaxHighlighting__DefinitionDownloader* self);
 void KSyntaxHighlighting__DefinitionDownloader_InformationMessage(KSyntaxHighlighting__DefinitionDownloader* self, const libqt_string msg);
 void KSyntaxHighlighting__DefinitionDownloader_Connect_InformationMessage(KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot);
 void KSyntaxHighlighting__DefinitionDownloader_Done(KSyntaxHighlighting__DefinitionDownloader* self);
 void KSyntaxHighlighting__DefinitionDownloader_Connect_Done(KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot);
+libqt_string KSyntaxHighlighting__DefinitionDownloader_Tr2(const char* s, const char* c);
+libqt_string KSyntaxHighlighting__DefinitionDownloader_Tr3(const char* s, const char* c, int n);
 void KSyntaxHighlighting__DefinitionDownloader_OnMetaObject(const KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot);
 QMetaObject* KSyntaxHighlighting__DefinitionDownloader_SuperMetaObject(const KSyntaxHighlighting__DefinitionDownloader* self);
 void KSyntaxHighlighting__DefinitionDownloader_OnMetacast(KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot);

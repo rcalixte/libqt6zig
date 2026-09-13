@@ -7,6 +7,18 @@
 #include "libkarchive.h"
 #include "libkarchive.hxx"
 
+libqt_string KArchive_Tr(const char* sourceText) {
+    auto _ret = KArchive::tr(sourceText);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 bool KArchive_Open(KArchive* self, int mode) {
     return self->open(static_cast<QIODevice::OpenMode>(mode));
 }
@@ -102,6 +114,30 @@ bool KArchive_WriteData2(KArchive* self, libqt_string data) {
 
 bool KArchive_FinishWriting(KArchive* self, long long size) {
     return self->finishWriting(static_cast<qint64>(size));
+}
+
+libqt_string KArchive_Tr2(const char* sourceText, const char* disambiguation) {
+    auto _ret = KArchive::tr(sourceText, disambiguation);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KArchive_Tr3(const char* sourceText, const char* disambiguation, int n) {
+    auto _ret = KArchive::tr(sourceText, disambiguation, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 bool KArchive_WriteDir2(KArchive* self, const libqt_string name, const libqt_string user) {

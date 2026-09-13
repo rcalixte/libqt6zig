@@ -82,6 +82,7 @@ TextCustomEditor__PlainTextEditor* TextCustomEditor__PlainTextEditor_new2();
 QMetaObject* TextCustomEditor__PlainTextEditor_MetaObject(const TextCustomEditor__PlainTextEditor* self);
 void* TextCustomEditor__PlainTextEditor_Metacast(TextCustomEditor__PlainTextEditor* self, const char* param1);
 int TextCustomEditor__PlainTextEditor_Metacall(TextCustomEditor__PlainTextEditor* self, int param1, int param2, void** param3);
+libqt_string TextCustomEditor__PlainTextEditor_Tr(const char* s);
 void TextCustomEditor__PlainTextEditor_SetSearchSupport(TextCustomEditor__PlainTextEditor* self, bool b);
 bool TextCustomEditor__PlainTextEditor_SearchSupport(const TextCustomEditor__PlainTextEditor* self);
 bool TextCustomEditor__PlainTextEditor_SpellCheckingSupport(const TextCustomEditor__PlainTextEditor* self);
@@ -131,6 +132,8 @@ void TextCustomEditor__PlainTextEditor_SpellCheckStatus(TextCustomEditor__PlainT
 void TextCustomEditor__PlainTextEditor_Connect_SpellCheckStatus(TextCustomEditor__PlainTextEditor* self, intptr_t slot);
 void TextCustomEditor__PlainTextEditor_Say(TextCustomEditor__PlainTextEditor* self, const libqt_string text);
 void TextCustomEditor__PlainTextEditor_Connect_Say(TextCustomEditor__PlainTextEditor* self, intptr_t slot);
+libqt_string TextCustomEditor__PlainTextEditor_Tr2(const char* s, const char* c);
+libqt_string TextCustomEditor__PlainTextEditor_Tr3(const char* s, const char* c, int n);
 void TextCustomEditor__PlainTextEditor_OnMetaObject(const TextCustomEditor__PlainTextEditor* self, intptr_t slot);
 QMetaObject* TextCustomEditor__PlainTextEditor_SuperMetaObject(const TextCustomEditor__PlainTextEditor* self);
 void TextCustomEditor__PlainTextEditor_OnMetacast(TextCustomEditor__PlainTextEditor* self, intptr_t slot);

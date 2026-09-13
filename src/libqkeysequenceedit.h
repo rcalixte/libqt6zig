@@ -59,6 +59,7 @@ QKeySequenceEdit* QKeySequenceEdit_new4(const QKeySequence* keySequence, QWidget
 QMetaObject* QKeySequenceEdit_MetaObject(const QKeySequenceEdit* self);
 void* QKeySequenceEdit_Metacast(QKeySequenceEdit* self, const char* param1);
 int QKeySequenceEdit_Metacall(QKeySequenceEdit* self, int param1, int param2, void** param3);
+libqt_string QKeySequenceEdit_Tr(const char* s);
 QKeySequence* QKeySequenceEdit_KeySequence(const QKeySequenceEdit* self);
 ptrdiff_t QKeySequenceEdit_MaximumSequenceLength(const QKeySequenceEdit* self);
 void QKeySequenceEdit_SetClearButtonEnabled(QKeySequenceEdit* self, bool enable);
@@ -77,6 +78,8 @@ void QKeySequenceEdit_KeyPressEvent(QKeySequenceEdit* self, QKeyEvent* param1);
 void QKeySequenceEdit_KeyReleaseEvent(QKeySequenceEdit* self, QKeyEvent* param1);
 void QKeySequenceEdit_TimerEvent(QKeySequenceEdit* self, QTimerEvent* param1);
 void QKeySequenceEdit_FocusOutEvent(QKeySequenceEdit* self, QFocusEvent* param1);
+libqt_string QKeySequenceEdit_Tr2(const char* s, const char* c);
+libqt_string QKeySequenceEdit_Tr3(const char* s, const char* c, int n);
 void QKeySequenceEdit_OnMetaObject(const QKeySequenceEdit* self, intptr_t slot);
 QMetaObject* QKeySequenceEdit_SuperMetaObject(const QKeySequenceEdit* self);
 void QKeySequenceEdit_OnMetacast(QKeySequenceEdit* self, intptr_t slot);

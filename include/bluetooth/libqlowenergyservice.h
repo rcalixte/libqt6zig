@@ -27,6 +27,7 @@ typedef struct QObject QObject;
 QMetaObject* QLowEnergyService_MetaObject(const QLowEnergyService* self);
 void* QLowEnergyService_Metacast(QLowEnergyService* self, const char* param1);
 int QLowEnergyService_Metacall(QLowEnergyService* self, int param1, int param2, void** param3);
+libqt_string QLowEnergyService_Tr(const char* s);
 libqt_list /* of QBluetoothUuid* */ QLowEnergyService_IncludedServices(const QLowEnergyService* self);
 int QLowEnergyService_Type(const QLowEnergyService* self);
 int QLowEnergyService_State(const QLowEnergyService* self);
@@ -56,6 +57,8 @@ void QLowEnergyService_DescriptorWritten(QLowEnergyService* self, const QLowEner
 void QLowEnergyService_Connect_DescriptorWritten(QLowEnergyService* self, intptr_t slot);
 void QLowEnergyService_ErrorOccurred(QLowEnergyService* self, int errorVal);
 void QLowEnergyService_Connect_ErrorOccurred(QLowEnergyService* self, intptr_t slot);
+libqt_string QLowEnergyService_Tr2(const char* s, const char* c);
+libqt_string QLowEnergyService_Tr3(const char* s, const char* c, int n);
 void QLowEnergyService_DiscoverDetails1(QLowEnergyService* self, int mode);
 void QLowEnergyService_WriteCharacteristic3(QLowEnergyService* self, const QLowEnergyCharacteristic* characteristic, const libqt_string newValue, int mode);
 void QLowEnergyService_Delete(QLowEnergyService* self);

@@ -33,8 +33,11 @@ TextTranslator__TranslatorEngineAccessManager* TextTranslator__TranslatorEngineA
 QMetaObject* TextTranslator__TranslatorEngineAccessManager_MetaObject(const TextTranslator__TranslatorEngineAccessManager* self);
 void* TextTranslator__TranslatorEngineAccessManager_Metacast(TextTranslator__TranslatorEngineAccessManager* self, const char* param1);
 int TextTranslator__TranslatorEngineAccessManager_Metacall(TextTranslator__TranslatorEngineAccessManager* self, int param1, int param2, void** param3);
+libqt_string TextTranslator__TranslatorEngineAccessManager_Tr(const char* s);
 TextTranslator__TranslatorEngineAccessManager* TextTranslator__TranslatorEngineAccessManager_Self();
 QNetworkAccessManager* TextTranslator__TranslatorEngineAccessManager_NetworkManager(TextTranslator__TranslatorEngineAccessManager* self);
+libqt_string TextTranslator__TranslatorEngineAccessManager_Tr2(const char* s, const char* c);
+libqt_string TextTranslator__TranslatorEngineAccessManager_Tr3(const char* s, const char* c, int n);
 void TextTranslator__TranslatorEngineAccessManager_OnMetaObject(const TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot);
 QMetaObject* TextTranslator__TranslatorEngineAccessManager_SuperMetaObject(const TextTranslator__TranslatorEngineAccessManager* self);
 void TextTranslator__TranslatorEngineAccessManager_OnMetacast(TextTranslator__TranslatorEngineAccessManager* self, intptr_t slot);

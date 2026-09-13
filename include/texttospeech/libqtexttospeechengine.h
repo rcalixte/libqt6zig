@@ -33,6 +33,7 @@ QTextToSpeechEngine* QTextToSpeechEngine_new2(QObject* parent);
 QMetaObject* QTextToSpeechEngine_MetaObject(const QTextToSpeechEngine* self);
 void* QTextToSpeechEngine_Metacast(QTextToSpeechEngine* self, const char* param1);
 int QTextToSpeechEngine_Metacall(QTextToSpeechEngine* self, int param1, int param2, void** param3);
+libqt_string QTextToSpeechEngine_Tr(const char* s);
 int QTextToSpeechEngine_Capabilities(const QTextToSpeechEngine* self);
 libqt_list /* of QLocale* */ QTextToSpeechEngine_AvailableLocales(const QTextToSpeechEngine* self);
 libqt_list /* of QVoice* */ QTextToSpeechEngine_AvailableVoices(const QTextToSpeechEngine* self);
@@ -62,6 +63,8 @@ void QTextToSpeechEngine_SayingWord(QTextToSpeechEngine* self, const libqt_strin
 void QTextToSpeechEngine_Connect_SayingWord(QTextToSpeechEngine* self, intptr_t slot);
 void QTextToSpeechEngine_Synthesized(QTextToSpeechEngine* self, const QAudioFormat* format, const libqt_string data);
 void QTextToSpeechEngine_Connect_Synthesized(QTextToSpeechEngine* self, intptr_t slot);
+libqt_string QTextToSpeechEngine_Tr2(const char* s, const char* c);
+libqt_string QTextToSpeechEngine_Tr3(const char* s, const char* c, int n);
 void QTextToSpeechEngine_OnMetaObject(const QTextToSpeechEngine* self, intptr_t slot);
 QMetaObject* QTextToSpeechEngine_SuperMetaObject(const QTextToSpeechEngine* self);
 void QTextToSpeechEngine_OnMetacast(QTextToSpeechEngine* self, intptr_t slot);

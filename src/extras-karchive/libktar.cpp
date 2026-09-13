@@ -28,6 +28,18 @@ KTar* KTar_new4(const libqt_string filename, const libqt_string mimetype) {
     return new VirtualKTar(filename_QString, mimetype_QString);
 }
 
+libqt_string KTar_Tr(const char* sourceText) {
+    auto _ret = KTar::tr(sourceText);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void KTar_SetOrigFileName(KTar* self, const libqt_string fileName) {
     QByteArray fileName_QByteArray(fileName.data, fileName.len);
     self->setOrigFileName(fileName_QByteArray);
@@ -104,6 +116,30 @@ void KTar_VirtualHook(KTar* self, int id, void* data) {
     if (vktar && vktar->isVirtualKTar) {
         vktar->virtual_hook(static_cast<int>(id), data);
     }
+}
+
+libqt_string KTar_Tr2(const char* sourceText, const char* disambiguation) {
+    auto _ret = KTar::tr(sourceText, disambiguation);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KTar_Tr3(const char* sourceText, const char* disambiguation, int n) {
+    auto _ret = KTar::tr(sourceText, disambiguation, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

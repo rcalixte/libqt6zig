@@ -292,6 +292,8 @@ pub const KMultiTabBar = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -302,7 +304,7 @@ pub const KMultiTabBar = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.KMultiTabBar_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -669,6 +671,8 @@ pub const KMultiTabBar = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -682,7 +686,7 @@ pub const KMultiTabBar = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.KMultiTabBar_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -693,6 +697,8 @@ pub const KMultiTabBar = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -708,7 +714,7 @@ pub const KMultiTabBar = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.KMultiTabBar_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10530,6 +10536,8 @@ pub const KMultiTabBarButton = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -10540,7 +10548,7 @@ pub const KMultiTabBarButton = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.KMultiTabBarButton_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10617,6 +10625,8 @@ pub const KMultiTabBarButton = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -10630,7 +10640,7 @@ pub const KMultiTabBarButton = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.KMultiTabBarButton_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10641,6 +10651,8 @@ pub const KMultiTabBarButton = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -10656,7 +10668,7 @@ pub const KMultiTabBarButton = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.KMultiTabBarButton_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -17851,6 +17863,8 @@ pub const KMultiTabBarTab = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -17861,7 +17875,7 @@ pub const KMultiTabBarTab = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.KMultiTabBarTab_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -17948,6 +17962,8 @@ pub const KMultiTabBarTab = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -17961,7 +17977,7 @@ pub const KMultiTabBarTab = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.KMultiTabBarTab_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -17972,6 +17988,8 @@ pub const KMultiTabBarTab = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -17987,7 +18005,7 @@ pub const KMultiTabBarTab = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.KMultiTabBarTab_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

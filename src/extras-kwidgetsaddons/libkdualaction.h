@@ -32,6 +32,7 @@ KDualAction* KDualAction_new2(const libqt_string inactiveText, const libqt_strin
 QMetaObject* KDualAction_MetaObject(const KDualAction* self);
 void* KDualAction_Metacast(KDualAction* self, const char* param1);
 int KDualAction_Metacall(KDualAction* self, int param1, int param2, void** param3);
+libqt_string KDualAction_Tr(const char* s);
 void KDualAction_SetActiveGuiItem(KDualAction* self, const KGuiItem* activeGuiItem);
 KGuiItem* KDualAction_ActiveGuiItem(const KDualAction* self);
 void KDualAction_SetInactiveGuiItem(KDualAction* self, const KGuiItem* inactiveGuiItem);
@@ -57,6 +58,8 @@ void KDualAction_ActiveChanged(KDualAction* self, bool param1);
 void KDualAction_Connect_ActiveChanged(KDualAction* self, intptr_t slot);
 void KDualAction_ActiveChangedByUser(KDualAction* self, bool param1);
 void KDualAction_Connect_ActiveChangedByUser(KDualAction* self, intptr_t slot);
+libqt_string KDualAction_Tr2(const char* s, const char* c);
+libqt_string KDualAction_Tr3(const char* s, const char* c, int n);
 void KDualAction_OnMetaObject(const KDualAction* self, intptr_t slot);
 QMetaObject* KDualAction_SuperMetaObject(const KDualAction* self);
 void KDualAction_OnMetacast(KDualAction* self, intptr_t slot);

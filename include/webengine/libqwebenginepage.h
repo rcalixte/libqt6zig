@@ -62,6 +62,7 @@ QWebEnginePage* QWebEnginePage_new4(QWebEngineProfile* profile, QObject* parent)
 QMetaObject* QWebEnginePage_MetaObject(const QWebEnginePage* self);
 void* QWebEnginePage_Metacast(QWebEnginePage* self, const char* param1);
 int QWebEnginePage_Metacall(QWebEnginePage* self, int param1, int param2, void** param3);
+libqt_string QWebEnginePage_Tr(const char* s);
 QWebEngineHistory* QWebEnginePage_History(const QWebEnginePage* self);
 bool QWebEnginePage_HasSelection(const QWebEnginePage* self);
 libqt_string QWebEnginePage_SelectedText(const QWebEnginePage* self);
@@ -208,6 +209,8 @@ void QWebEnginePage_JavaScriptAlert(QWebEnginePage* self, const QUrl* securityOr
 bool QWebEnginePage_JavaScriptConfirm(QWebEnginePage* self, const QUrl* securityOrigin, const libqt_string msg);
 void QWebEnginePage_JavaScriptConsoleMessage(QWebEnginePage* self, int level, const libqt_string message, int lineNumber, const libqt_string sourceID);
 bool QWebEnginePage_AcceptNavigationRequest(QWebEnginePage* self, const QUrl* url, int typeVal, bool isMainFrame);
+libqt_string QWebEnginePage_Tr2(const char* s, const char* c);
+libqt_string QWebEnginePage_Tr3(const char* s, const char* c, int n);
 void QWebEnginePage_FindText2(QWebEnginePage* self, const libqt_string subString, int options);
 void QWebEnginePage_FindText3(QWebEnginePage* self, const libqt_string subString, int options, intptr_t resultCallback);
 void QWebEnginePage_Download2(QWebEnginePage* self, const QUrl* url, const libqt_string filename);

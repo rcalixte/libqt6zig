@@ -619,15 +619,15 @@ pub const KIO__WorkerBase = extern struct {
         defer allocator.free(sslData_keys);
         const sslData_values = allocator.alloc(QtC.QVariant, sslData_count) catch @panic("KIO__WorkerBase.sslError: Memory allocation failed");
         defer allocator.free(sslData_values);
-        var i: usize = 0;
+        var sslData_i: usize = 0;
         var sslData_it = sslData.iterator();
-        while (sslData_it.next()) |it_entry| : (i += 1) {
+        while (sslData_it.next()) |it_entry| : (sslData_i += 1) {
             const sslData_key = it_entry.key_ptr.*;
-            sslData_keys[i] = qtc.libqt_string{
+            sslData_keys[sslData_i] = qtc.libqt_string{
                 .len = sslData_key.len,
                 .data = sslData_key.ptr,
             };
-            sslData_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            sslData_values[sslData_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const sslData_map = qtc.libqt_map{
             .len = sslData_count,

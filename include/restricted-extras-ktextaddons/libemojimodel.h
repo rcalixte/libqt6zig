@@ -52,6 +52,7 @@ TextEmoticonsCore__EmojiModel* TextEmoticonsCore__EmojiModel_new2(QObject* paren
 QMetaObject* TextEmoticonsCore__EmojiModel_MetaObject(const TextEmoticonsCore__EmojiModel* self);
 void* TextEmoticonsCore__EmojiModel_Metacast(TextEmoticonsCore__EmojiModel* self, const char* param1);
 int TextEmoticonsCore__EmojiModel_Metacall(TextEmoticonsCore__EmojiModel* self, int param1, int param2, void** param3);
+libqt_string TextEmoticonsCore__EmojiModel_Tr(const char* s);
 int TextEmoticonsCore__EmojiModel_RowCount(const TextEmoticonsCore__EmojiModel* self, const QModelIndex* parent);
 QVariant* TextEmoticonsCore__EmojiModel_Data(const TextEmoticonsCore__EmojiModel* self, const QModelIndex* index, int role);
 libqt_list /* of TextEmoticonsCore__UnicodeEmoticon* */ TextEmoticonsCore__EmojiModel_EmoticonList(const TextEmoticonsCore__EmojiModel* self);
@@ -61,6 +62,8 @@ void TextEmoticonsCore__EmojiModel_SetCustomEmojiList(TextEmoticonsCore__EmojiMo
 TextEmoticonsCore__CustomEmojiIconManager* TextEmoticonsCore__EmojiModel_CustomEmojiIconManager(const TextEmoticonsCore__EmojiModel* self);
 void TextEmoticonsCore__EmojiModel_SetCustomEmojiIconManager(TextEmoticonsCore__EmojiModel* self, TextEmoticonsCore__CustomEmojiIconManager* newCustomEmojiIconManager);
 void TextEmoticonsCore__EmojiModel_SetExcludeEmoticons(TextEmoticonsCore__EmojiModel* self, const libqt_list /* of libqt_string */ emoticons);
+libqt_string TextEmoticonsCore__EmojiModel_Tr2(const char* s, const char* c);
+libqt_string TextEmoticonsCore__EmojiModel_Tr3(const char* s, const char* c, int n);
 void TextEmoticonsCore__EmojiModel_OnMetaObject(const TextEmoticonsCore__EmojiModel* self, intptr_t slot);
 QMetaObject* TextEmoticonsCore__EmojiModel_SuperMetaObject(const TextEmoticonsCore__EmojiModel* self);
 void TextEmoticonsCore__EmojiModel_OnMetacast(TextEmoticonsCore__EmojiModel* self, intptr_t slot);

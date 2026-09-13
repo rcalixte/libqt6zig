@@ -34,6 +34,7 @@ QBluetoothServiceDiscoveryAgent* QBluetoothServiceDiscoveryAgent_new4(const QBlu
 QMetaObject* QBluetoothServiceDiscoveryAgent_MetaObject(const QBluetoothServiceDiscoveryAgent* self);
 void* QBluetoothServiceDiscoveryAgent_Metacast(QBluetoothServiceDiscoveryAgent* self, const char* param1);
 int QBluetoothServiceDiscoveryAgent_Metacall(QBluetoothServiceDiscoveryAgent* self, int param1, int param2, void** param3);
+libqt_string QBluetoothServiceDiscoveryAgent_Tr(const char* s);
 bool QBluetoothServiceDiscoveryAgent_IsActive(const QBluetoothServiceDiscoveryAgent* self);
 int QBluetoothServiceDiscoveryAgent_Error(const QBluetoothServiceDiscoveryAgent* self);
 libqt_string QBluetoothServiceDiscoveryAgent_ErrorString(const QBluetoothServiceDiscoveryAgent* self);
@@ -54,6 +55,8 @@ void QBluetoothServiceDiscoveryAgent_Canceled(QBluetoothServiceDiscoveryAgent* s
 void QBluetoothServiceDiscoveryAgent_Connect_Canceled(QBluetoothServiceDiscoveryAgent* self, intptr_t slot);
 void QBluetoothServiceDiscoveryAgent_ErrorOccurred(QBluetoothServiceDiscoveryAgent* self, int errorVal);
 void QBluetoothServiceDiscoveryAgent_Connect_ErrorOccurred(QBluetoothServiceDiscoveryAgent* self, intptr_t slot);
+libqt_string QBluetoothServiceDiscoveryAgent_Tr2(const char* s, const char* c);
+libqt_string QBluetoothServiceDiscoveryAgent_Tr3(const char* s, const char* c, int n);
 void QBluetoothServiceDiscoveryAgent_Start1(QBluetoothServiceDiscoveryAgent* self, int mode);
 void QBluetoothServiceDiscoveryAgent_OnMetaObject(const QBluetoothServiceDiscoveryAgent* self, intptr_t slot);
 QMetaObject* QBluetoothServiceDiscoveryAgent_SuperMetaObject(const QBluetoothServiceDiscoveryAgent* self);

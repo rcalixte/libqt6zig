@@ -21,6 +21,7 @@ typedef struct QDateTime QDateTime;
 typedef struct QIODevice QIODevice;
 #endif
 
+libqt_string KArchive_Tr(const char* sourceText);
 bool KArchive_Open(KArchive* self, int mode);
 bool KArchive_Close(KArchive* self);
 libqt_string KArchive_ErrorString(const KArchive* self);
@@ -38,6 +39,8 @@ bool KArchive_PrepareWriting(KArchive* self, const libqt_string name, const libq
 bool KArchive_WriteData(KArchive* self, const char* data, long long size);
 bool KArchive_WriteData2(KArchive* self, libqt_string data);
 bool KArchive_FinishWriting(KArchive* self, long long size);
+libqt_string KArchive_Tr2(const char* sourceText, const char* disambiguation);
+libqt_string KArchive_Tr3(const char* sourceText, const char* disambiguation, int n);
 bool KArchive_WriteDir2(KArchive* self, const libqt_string name, const libqt_string user);
 bool KArchive_WriteDir3(KArchive* self, const libqt_string name, const libqt_string user, const libqt_string group);
 bool KArchive_WriteDir4(KArchive* self, const libqt_string name, const libqt_string user, const libqt_string group, mode_t perm);

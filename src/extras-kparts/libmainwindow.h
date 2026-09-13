@@ -80,10 +80,13 @@ KParts__MainWindow* KParts__MainWindow_FromKParts__PartBase(KParts__PartBase* _k
 QMetaObject* KParts__MainWindow_MetaObject(const KParts__MainWindow* self);
 void* KParts__MainWindow_Metacast(KParts__MainWindow* self, const char* param1);
 int KParts__MainWindow_Metacall(KParts__MainWindow* self, int param1, int param2, void** param3);
+libqt_string KParts__MainWindow_Tr(const char* s);
 void KParts__MainWindow_ConfigureToolbars(KParts__MainWindow* self);
 void KParts__MainWindow_SlotSetStatusBarText(KParts__MainWindow* self, const libqt_string param1);
 void KParts__MainWindow_SaveNewToolbarConfig(KParts__MainWindow* self);
 void KParts__MainWindow_CreateShellGUI(KParts__MainWindow* self, bool create);
+libqt_string KParts__MainWindow_Tr2(const char* s, const char* c);
+libqt_string KParts__MainWindow_Tr3(const char* s, const char* c, int n);
 void KParts__MainWindow_OnMetaObject(const KParts__MainWindow* self, intptr_t slot);
 QMetaObject* KParts__MainWindow_SuperMetaObject(const KParts__MainWindow* self);
 void KParts__MainWindow_OnMetacast(KParts__MainWindow* self, intptr_t slot);

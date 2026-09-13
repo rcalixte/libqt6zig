@@ -208,6 +208,8 @@ pub const QGesture = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -218,7 +220,7 @@ pub const QGesture = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QGesture_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGesture.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -358,6 +360,8 @@ pub const QGesture = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -371,7 +375,7 @@ pub const QGesture = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QGesture_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGesture.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -382,6 +386,8 @@ pub const QGesture = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -397,7 +403,7 @@ pub const QGesture = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.QGesture_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QGesture.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2273,6 +2279,8 @@ pub const QPanGesture = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -2283,7 +2291,7 @@ pub const QPanGesture = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QPanGesture_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QPanGesture.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2400,6 +2408,8 @@ pub const QPanGesture = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -2413,7 +2423,7 @@ pub const QPanGesture = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QPanGesture_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QPanGesture.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2424,6 +2434,8 @@ pub const QPanGesture = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -2439,7 +2451,7 @@ pub const QPanGesture = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.QPanGesture_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QPanGesture.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4460,6 +4472,8 @@ pub const QPinchGesture = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -4470,7 +4484,7 @@ pub const QPinchGesture = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QPinchGesture_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QPinchGesture.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4822,6 +4836,8 @@ pub const QPinchGesture = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -4835,7 +4851,7 @@ pub const QPinchGesture = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QPinchGesture_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QPinchGesture.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4846,6 +4862,8 @@ pub const QPinchGesture = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -4861,7 +4879,7 @@ pub const QPinchGesture = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.QPinchGesture_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QPinchGesture.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6882,6 +6900,8 @@ pub const QSwipeGesture = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -6892,7 +6912,7 @@ pub const QSwipeGesture = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QSwipeGesture_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QSwipeGesture.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6969,6 +6989,8 @@ pub const QSwipeGesture = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -6982,7 +7004,7 @@ pub const QSwipeGesture = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QSwipeGesture_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QSwipeGesture.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6993,6 +7015,8 @@ pub const QSwipeGesture = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -7008,7 +7032,7 @@ pub const QSwipeGesture = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.QSwipeGesture_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QSwipeGesture.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9029,6 +9053,8 @@ pub const QTapGesture = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -9039,7 +9065,7 @@ pub const QTapGesture = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QTapGesture_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapGesture.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9081,6 +9107,8 @@ pub const QTapGesture = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -9094,7 +9122,7 @@ pub const QTapGesture = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QTapGesture_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapGesture.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9105,6 +9133,8 @@ pub const QTapGesture = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -9120,7 +9150,7 @@ pub const QTapGesture = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.QTapGesture_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapGesture.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11141,6 +11171,8 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -11151,7 +11183,7 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QTapAndHoldGesture_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapAndHoldGesture.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11217,6 +11249,8 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -11230,7 +11264,7 @@ pub const QTapAndHoldGesture = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QTapAndHoldGesture_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapAndHoldGesture.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11241,6 +11275,8 @@ pub const QTapAndHoldGesture = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -11256,7 +11292,7 @@ pub const QTapAndHoldGesture = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.QTapAndHoldGesture_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QTapAndHoldGesture.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

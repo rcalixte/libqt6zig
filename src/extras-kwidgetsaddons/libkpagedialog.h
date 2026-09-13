@@ -62,6 +62,7 @@ KPageDialog* KPageDialog_new3(QWidget* parent, int flags);
 QMetaObject* KPageDialog_MetaObject(const KPageDialog* self);
 void* KPageDialog_Metacast(KPageDialog* self, const char* param1);
 int KPageDialog_Metacall(KPageDialog* self, int param1, int param2, void** param3);
+libqt_string KPageDialog_Tr(const char* s);
 void KPageDialog_SetFaceType(KPageDialog* self, int faceType);
 KPageWidgetItem* KPageDialog_AddPage(KPageDialog* self, QWidget* widget, const libqt_string name);
 void KPageDialog_AddPage2(KPageDialog* self, KPageWidgetItem* item);
@@ -79,6 +80,8 @@ void KPageDialog_CurrentPageChanged(KPageDialog* self, KPageWidgetItem* current,
 void KPageDialog_Connect_CurrentPageChanged(KPageDialog* self, intptr_t slot);
 void KPageDialog_PageRemoved(KPageDialog* self, KPageWidgetItem* page);
 void KPageDialog_Connect_PageRemoved(KPageDialog* self, intptr_t slot);
+libqt_string KPageDialog_Tr2(const char* s, const char* c);
+libqt_string KPageDialog_Tr3(const char* s, const char* c, int n);
 void KPageDialog_OnMetaObject(const KPageDialog* self, intptr_t slot);
 QMetaObject* KPageDialog_SuperMetaObject(const KPageDialog* self);
 void KPageDialog_OnMetacast(KPageDialog* self, intptr_t slot);

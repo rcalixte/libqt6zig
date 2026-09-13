@@ -33,10 +33,13 @@ KToolBarPopupAction* KToolBarPopupAction_new(const QIcon* icon, const libqt_stri
 QMetaObject* KToolBarPopupAction_MetaObject(const KToolBarPopupAction* self);
 void* KToolBarPopupAction_Metacast(KToolBarPopupAction* self, const char* param1);
 int KToolBarPopupAction_Metacall(KToolBarPopupAction* self, int param1, int param2, void** param3);
+libqt_string KToolBarPopupAction_Tr(const char* s);
 QMenu* KToolBarPopupAction_PopupMenu(const KToolBarPopupAction* self);
 int KToolBarPopupAction_PopupMode(const KToolBarPopupAction* self);
 void KToolBarPopupAction_SetPopupMode(KToolBarPopupAction* self, int popupMode);
 QWidget* KToolBarPopupAction_CreateWidget(KToolBarPopupAction* self, QWidget* parent);
+libqt_string KToolBarPopupAction_Tr2(const char* s, const char* c);
+libqt_string KToolBarPopupAction_Tr3(const char* s, const char* c, int n);
 void KToolBarPopupAction_OnMetaObject(const KToolBarPopupAction* self, intptr_t slot);
 QMetaObject* KToolBarPopupAction_SuperMetaObject(const KToolBarPopupAction* self);
 void KToolBarPopupAction_OnMetacast(KToolBarPopupAction* self, intptr_t slot);

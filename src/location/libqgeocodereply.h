@@ -31,6 +31,7 @@ QGeoCodeReply* QGeoCodeReply_new2(int errorVal, const libqt_string errorString, 
 QMetaObject* QGeoCodeReply_MetaObject(const QGeoCodeReply* self);
 void* QGeoCodeReply_Metacast(QGeoCodeReply* self, const char* param1);
 int QGeoCodeReply_Metacall(QGeoCodeReply* self, int param1, int param2, void** param3);
+libqt_string QGeoCodeReply_Tr(const char* s);
 bool QGeoCodeReply_IsFinished(const QGeoCodeReply* self);
 int QGeoCodeReply_Error(const QGeoCodeReply* self);
 libqt_string QGeoCodeReply_ErrorString(const QGeoCodeReply* self);
@@ -45,6 +46,8 @@ void QGeoCodeReply_Aborted(QGeoCodeReply* self);
 void QGeoCodeReply_Connect_Aborted(QGeoCodeReply* self, intptr_t slot);
 void QGeoCodeReply_ErrorOccurred(QGeoCodeReply* self, int errorVal);
 void QGeoCodeReply_Connect_ErrorOccurred(QGeoCodeReply* self, intptr_t slot);
+libqt_string QGeoCodeReply_Tr2(const char* s, const char* c);
+libqt_string QGeoCodeReply_Tr3(const char* s, const char* c, int n);
 void QGeoCodeReply_ErrorOccurred2(QGeoCodeReply* self, int errorVal, const libqt_string errorString);
 void QGeoCodeReply_Connect_ErrorOccurred2(QGeoCodeReply* self, intptr_t slot);
 void QGeoCodeReply_OnMetaObject(const QGeoCodeReply* self, intptr_t slot);

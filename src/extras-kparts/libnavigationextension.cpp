@@ -36,6 +36,18 @@ int KParts__NavigationExtension_Metacall(KParts__NavigationExtension* self, int 
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string KParts__NavigationExtension_Tr(const char* s) {
+    auto _ret = KParts::NavigationExtension::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 int KParts__NavigationExtension_XOffset(KParts__NavigationExtension* self) {
     return self->xOffset();
 }
@@ -198,6 +210,30 @@ void KParts__NavigationExtension_SetPageSecurity(KParts__NavigationExtension* se
 
 void KParts__NavigationExtension_ItemsRemoved(KParts__NavigationExtension* self, const KFileItemList* items) {
     self->itemsRemoved(*items);
+}
+
+libqt_string KParts__NavigationExtension_Tr2(const char* s, const char* c) {
+    auto _ret = KParts::NavigationExtension::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KParts__NavigationExtension_Tr3(const char* s, const char* c, int n) {
+    auto _ret = KParts::NavigationExtension::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void KParts__NavigationExtension_OpenUrlRequest2(KParts__NavigationExtension* self, const QUrl* url, const KParts__OpenUrlArguments* arguments) {

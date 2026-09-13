@@ -34,6 +34,7 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__FileCopyJob_MetaObject(const KIO__FileCopyJob* self);
 void* KIO__FileCopyJob_Metacast(KIO__FileCopyJob* self, const char* param1);
 int KIO__FileCopyJob_Metacall(KIO__FileCopyJob* self, int param1, int param2, void** param3);
+libqt_string KIO__FileCopyJob_Tr(const char* s);
 void KIO__FileCopyJob_SetSourceSize(KIO__FileCopyJob* self, unsigned long long size);
 void KIO__FileCopyJob_SetModificationTime(KIO__FileCopyJob* self, const QDateTime* mtime);
 QUrl* KIO__FileCopyJob_SrcUrl(const KIO__FileCopyJob* self);
@@ -43,6 +44,8 @@ bool KIO__FileCopyJob_DoResume(KIO__FileCopyJob* self);
 bool KIO__FileCopyJob_DoKill(KIO__FileCopyJob* self);
 void KIO__FileCopyJob_MimeTypeFound(KIO__FileCopyJob* self, KIO__Job* job, const libqt_string mimeType);
 void KIO__FileCopyJob_Connect_MimeTypeFound(KIO__FileCopyJob* self, intptr_t slot);
+libqt_string KIO__FileCopyJob_Tr2(const char* s, const char* c);
+libqt_string KIO__FileCopyJob_Tr3(const char* s, const char* c, int n);
 void KIO__FileCopyJob_Delete(KIO__FileCopyJob* self);
 
 KIO__FileCopyJob* KIO_FileCopy(const QUrl* src, const QUrl* dest, int permissions, int flags);

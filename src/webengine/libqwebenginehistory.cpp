@@ -79,6 +79,18 @@ int QWebEngineHistoryModel_Metacall(QWebEngineHistoryModel* self, int param1, in
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string QWebEngineHistoryModel_Tr(const char* s) {
+    auto _ret = QWebEngineHistoryModel::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 int QWebEngineHistoryModel_RowCount(const QWebEngineHistoryModel* self, const QModelIndex* parent) {
     return self->rowCount(*parent);
 }
@@ -114,6 +126,30 @@ void QWebEngineHistoryModel_Reset(QWebEngineHistoryModel* self) {
     self->reset();
 }
 
+libqt_string QWebEngineHistoryModel_Tr2(const char* s, const char* c) {
+    auto _ret = QWebEngineHistoryModel::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QWebEngineHistoryModel_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QWebEngineHistoryModel::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 QMetaObject* QWebEngineHistory_MetaObject(const QWebEngineHistory* self) {
     return (QMetaObject*)self->metaObject();
 }
@@ -124,6 +160,18 @@ void* QWebEngineHistory_Metacast(QWebEngineHistory* self, const char* param1) {
 
 int QWebEngineHistory_Metacall(QWebEngineHistory* self, int param1, int param2, void** param3) {
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+}
+
+libqt_string QWebEngineHistory_Tr(const char* s) {
+    auto _ret = QWebEngineHistory::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QWebEngineHistory_Clear(QWebEngineHistory* self) {
@@ -223,4 +271,28 @@ QWebEngineHistoryModel* QWebEngineHistory_BackItemsModel(const QWebEngineHistory
 
 QWebEngineHistoryModel* QWebEngineHistory_ForwardItemsModel(const QWebEngineHistory* self) {
     return self->forwardItemsModel();
+}
+
+libqt_string QWebEngineHistory_Tr2(const char* s, const char* c) {
+    auto _ret = QWebEngineHistory::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QWebEngineHistory_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QWebEngineHistory::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }

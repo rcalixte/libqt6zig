@@ -70,6 +70,7 @@ KParts__ReadOnlyPart* KParts__ReadOnlyPart_new3(QObject* parent, const KPluginMe
 QMetaObject* KParts__ReadOnlyPart_MetaObject(const KParts__ReadOnlyPart* self);
 void* KParts__ReadOnlyPart_Metacast(KParts__ReadOnlyPart* self, const char* param1);
 int KParts__ReadOnlyPart_Metacall(KParts__ReadOnlyPart* self, int param1, int param2, void** param3);
+libqt_string KParts__ReadOnlyPart_Tr(const char* s);
 void KParts__ReadOnlyPart_SetProgressInfoEnabled(KParts__ReadOnlyPart* self, bool show);
 bool KParts__ReadOnlyPart_IsProgressInfoEnabled(const KParts__ReadOnlyPart* self);
 bool KParts__ReadOnlyPart_OpenUrl(KParts__ReadOnlyPart* self, const QUrl* url);
@@ -93,6 +94,8 @@ void KParts__ReadOnlyPart_UrlChanged(KParts__ReadOnlyPart* self, const QUrl* url
 void KParts__ReadOnlyPart_Connect_UrlChanged(KParts__ReadOnlyPart* self, intptr_t slot);
 bool KParts__ReadOnlyPart_OpenFile(KParts__ReadOnlyPart* self);
 void KParts__ReadOnlyPart_GuiActivateEvent(KParts__ReadOnlyPart* self, KParts__GUIActivateEvent* event);
+libqt_string KParts__ReadOnlyPart_Tr2(const char* s, const char* c);
+libqt_string KParts__ReadOnlyPart_Tr3(const char* s, const char* c, int n);
 void KParts__ReadOnlyPart_OnMetaObject(const KParts__ReadOnlyPart* self, intptr_t slot);
 QMetaObject* KParts__ReadOnlyPart_SuperMetaObject(const KParts__ReadOnlyPart* self);
 void KParts__ReadOnlyPart_OnMetacast(KParts__ReadOnlyPart* self, intptr_t slot);

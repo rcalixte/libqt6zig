@@ -64,12 +64,15 @@ TextCustomEditor__RichTextBrowserFindBar* TextCustomEditor__RichTextBrowserFindB
 QMetaObject* TextCustomEditor__RichTextBrowserFindBar_MetaObject(const TextCustomEditor__RichTextBrowserFindBar* self);
 void* TextCustomEditor__RichTextBrowserFindBar_Metacast(TextCustomEditor__RichTextBrowserFindBar* self, const char* param1);
 int TextCustomEditor__RichTextBrowserFindBar_Metacall(TextCustomEditor__RichTextBrowserFindBar* self, int param1, int param2, void** param3);
+libqt_string TextCustomEditor__RichTextBrowserFindBar_Tr(const char* s);
 bool TextCustomEditor__RichTextBrowserFindBar_ViewIsReadOnly(const TextCustomEditor__RichTextBrowserFindBar* self);
 bool TextCustomEditor__RichTextBrowserFindBar_DocumentIsEmpty(const TextCustomEditor__RichTextBrowserFindBar* self);
 bool TextCustomEditor__RichTextBrowserFindBar_SearchInDocument(TextCustomEditor__RichTextBrowserFindBar* self, const libqt_string text, int searchOptions);
 bool TextCustomEditor__RichTextBrowserFindBar_SearchInDocument2(TextCustomEditor__RichTextBrowserFindBar* self, const QRegularExpression* regExp, int searchOptions);
 void TextCustomEditor__RichTextBrowserFindBar_AutoSearchMoveCursor(TextCustomEditor__RichTextBrowserFindBar* self);
 void TextCustomEditor__RichTextBrowserFindBar_SlotSearchText(TextCustomEditor__RichTextBrowserFindBar* self, bool backward, bool isAutoSearch);
+libqt_string TextCustomEditor__RichTextBrowserFindBar_Tr2(const char* s, const char* c);
+libqt_string TextCustomEditor__RichTextBrowserFindBar_Tr3(const char* s, const char* c, int n);
 void TextCustomEditor__RichTextBrowserFindBar_OnMetaObject(const TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot);
 QMetaObject* TextCustomEditor__RichTextBrowserFindBar_SuperMetaObject(const TextCustomEditor__RichTextBrowserFindBar* self);
 void TextCustomEditor__RichTextBrowserFindBar_OnMetacast(TextCustomEditor__RichTextBrowserFindBar* self, intptr_t slot);

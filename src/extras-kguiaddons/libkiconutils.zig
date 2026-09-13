@@ -56,12 +56,12 @@ pub const KIconUtils = extern struct {
         defer allocator.free(overlays_keys);
         const overlays_values = allocator.alloc(QtC.QIcon, overlays_count) catch @panic("KIconUtils.addOverlays: Memory allocation failed");
         defer allocator.free(overlays_values);
-        var i: usize = 0;
+        var overlays_i: usize = 0;
         var overlays_it = overlays.iterator();
-        while (overlays_it.next()) |it_entry| : (i += 1) {
+        while (overlays_it.next()) |it_entry| : (overlays_i += 1) {
             const overlays_key = it_entry.key_ptr.*;
-            overlays_keys[i] = @bitCast(overlays_key);
-            overlays_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            overlays_keys[overlays_i] = @bitCast(overlays_key);
+            overlays_values[overlays_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const overlays_map = qtc.libqt_map{
             .len = overlays_count,

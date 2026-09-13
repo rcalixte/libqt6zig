@@ -58,10 +58,13 @@ TextGrammarCheck__LanguageToolConfigWidget* TextGrammarCheck__LanguageToolConfig
 QMetaObject* TextGrammarCheck__LanguageToolConfigWidget_MetaObject(const TextGrammarCheck__LanguageToolConfigWidget* self);
 void* TextGrammarCheck__LanguageToolConfigWidget_Metacast(TextGrammarCheck__LanguageToolConfigWidget* self, const char* param1);
 int TextGrammarCheck__LanguageToolConfigWidget_Metacall(TextGrammarCheck__LanguageToolConfigWidget* self, int param1, int param2, void** param3);
+libqt_string TextGrammarCheck__LanguageToolConfigWidget_Tr(const char* s);
 void TextGrammarCheck__LanguageToolConfigWidget_LoadSettings(TextGrammarCheck__LanguageToolConfigWidget* self);
 void TextGrammarCheck__LanguageToolConfigWidget_SaveSettings(TextGrammarCheck__LanguageToolConfigWidget* self);
 void TextGrammarCheck__LanguageToolConfigWidget_ResetValue(TextGrammarCheck__LanguageToolConfigWidget* self);
 void TextGrammarCheck__LanguageToolConfigWidget_Connect_ResetValue(TextGrammarCheck__LanguageToolConfigWidget* self, intptr_t slot);
+libqt_string TextGrammarCheck__LanguageToolConfigWidget_Tr2(const char* s, const char* c);
+libqt_string TextGrammarCheck__LanguageToolConfigWidget_Tr3(const char* s, const char* c, int n);
 void TextGrammarCheck__LanguageToolConfigWidget_OnMetaObject(const TextGrammarCheck__LanguageToolConfigWidget* self, intptr_t slot);
 QMetaObject* TextGrammarCheck__LanguageToolConfigWidget_SuperMetaObject(const TextGrammarCheck__LanguageToolConfigWidget* self);
 void TextGrammarCheck__LanguageToolConfigWidget_OnMetacast(TextGrammarCheck__LanguageToolConfigWidget* self, intptr_t slot);

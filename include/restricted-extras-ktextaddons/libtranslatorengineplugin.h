@@ -32,6 +32,7 @@ TextTranslator__TranslatorEnginePlugin* TextTranslator__TranslatorEnginePlugin_n
 QMetaObject* TextTranslator__TranslatorEnginePlugin_MetaObject(const TextTranslator__TranslatorEnginePlugin* self);
 void* TextTranslator__TranslatorEnginePlugin_Metacast(TextTranslator__TranslatorEnginePlugin* self, const char* param1);
 int TextTranslator__TranslatorEnginePlugin_Metacall(TextTranslator__TranslatorEnginePlugin* self, int param1, int param2, void** param3);
+libqt_string TextTranslator__TranslatorEnginePlugin_Tr(const char* s);
 void TextTranslator__TranslatorEnginePlugin_Translate(TextTranslator__TranslatorEnginePlugin* self);
 libqt_string TextTranslator__TranslatorEnginePlugin_ResultTranslate(const TextTranslator__TranslatorEnginePlugin* self);
 void TextTranslator__TranslatorEnginePlugin_SetInputText(TextTranslator__TranslatorEnginePlugin* self, const libqt_string text);
@@ -52,6 +53,8 @@ void TextTranslator__TranslatorEnginePlugin_Connect_TranslateFailed(TextTranslat
 void TextTranslator__TranslatorEnginePlugin_LanguagesChanged(TextTranslator__TranslatorEnginePlugin* self);
 void TextTranslator__TranslatorEnginePlugin_Connect_LanguagesChanged(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot);
 libqt_string TextTranslator__TranslatorEnginePlugin_LanguageCode(TextTranslator__TranslatorEnginePlugin* self, const libqt_string langStr);
+libqt_string TextTranslator__TranslatorEnginePlugin_Tr2(const char* s, const char* c);
+libqt_string TextTranslator__TranslatorEnginePlugin_Tr3(const char* s, const char* c, int n);
 void TextTranslator__TranslatorEnginePlugin_OnMetaObject(const TextTranslator__TranslatorEnginePlugin* self, intptr_t slot);
 QMetaObject* TextTranslator__TranslatorEnginePlugin_SuperMetaObject(const TextTranslator__TranslatorEnginePlugin* self);
 void TextTranslator__TranslatorEnginePlugin_OnMetacast(TextTranslator__TranslatorEnginePlugin* self, intptr_t slot);

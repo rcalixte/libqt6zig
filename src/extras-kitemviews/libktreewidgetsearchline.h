@@ -62,6 +62,7 @@ KTreeWidgetSearchLine* KTreeWidgetSearchLine_new4(QWidget* parent, QTreeWidget* 
 QMetaObject* KTreeWidgetSearchLine_MetaObject(const KTreeWidgetSearchLine* self);
 void* KTreeWidgetSearchLine_Metacast(KTreeWidgetSearchLine* self, const char* param1);
 int KTreeWidgetSearchLine_Metacall(KTreeWidgetSearchLine* self, int param1, int param2, void** param3);
+libqt_string KTreeWidgetSearchLine_Tr(const char* s);
 int KTreeWidgetSearchLine_CaseSensitivity(const KTreeWidgetSearchLine* self);
 libqt_list /* of int */ KTreeWidgetSearchLine_SearchColumns(const KTreeWidgetSearchLine* self);
 bool KTreeWidgetSearchLine_KeepParentsVisible(const KTreeWidgetSearchLine* self);
@@ -90,6 +91,8 @@ void KTreeWidgetSearchLine_ConnectTreeWidget(KTreeWidgetSearchLine* self, QTreeW
 void KTreeWidgetSearchLine_DisconnectTreeWidget(KTreeWidgetSearchLine* self, QTreeWidget* param1);
 bool KTreeWidgetSearchLine_CanChooseColumnsCheck(KTreeWidgetSearchLine* self);
 bool KTreeWidgetSearchLine_Event(KTreeWidgetSearchLine* self, QEvent* event);
+libqt_string KTreeWidgetSearchLine_Tr2(const char* s, const char* c);
+libqt_string KTreeWidgetSearchLine_Tr3(const char* s, const char* c, int n);
 void KTreeWidgetSearchLine_OnMetaObject(const KTreeWidgetSearchLine* self, intptr_t slot);
 QMetaObject* KTreeWidgetSearchLine_SuperMetaObject(const KTreeWidgetSearchLine* self);
 void KTreeWidgetSearchLine_OnMetacast(KTreeWidgetSearchLine* self, intptr_t slot);

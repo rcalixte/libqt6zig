@@ -36,9 +36,12 @@ KFontAction* KFontAction_new4(const QIcon* icon, const libqt_string text, QObjec
 QMetaObject* KFontAction_MetaObject(const KFontAction* self);
 void* KFontAction_Metacast(KFontAction* self, const char* param1);
 int KFontAction_Metacall(KFontAction* self, int param1, int param2, void** param3);
+libqt_string KFontAction_Tr(const char* s);
 libqt_string KFontAction_Font(const KFontAction* self);
 void KFontAction_SetFont(KFontAction* self, const libqt_string family);
 QWidget* KFontAction_CreateWidget(KFontAction* self, QWidget* parent);
+libqt_string KFontAction_Tr2(const char* s, const char* c);
+libqt_string KFontAction_Tr3(const char* s, const char* c, int n);
 void KFontAction_OnMetaObject(const KFontAction* self, intptr_t slot);
 QMetaObject* KFontAction_SuperMetaObject(const KFontAction* self);
 void KFontAction_OnMetacast(KFontAction* self, intptr_t slot);

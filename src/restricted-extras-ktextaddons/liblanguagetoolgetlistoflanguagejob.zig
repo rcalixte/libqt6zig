@@ -205,7 +205,9 @@ pub const TextGrammarCheck__LanguageToolGetListOfLanguageJob = extern struct {
     ///
     pub const Tr = tr;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolGetListOfLanguageJob.html)
     ///
     /// ## Parameter(s):
     ///
@@ -215,7 +217,7 @@ pub const TextGrammarCheck__LanguageToolGetListOfLanguageJob = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.TextGrammarCheck__LanguageToolGetListOfLanguageJob_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolGetListOfLanguageJob.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -439,7 +441,9 @@ pub const TextGrammarCheck__LanguageToolGetListOfLanguageJob = extern struct {
     ///
     pub const Tr2 = tr2;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolGetListOfLanguageJob.html)
     ///
     /// ## Parameter(s):
     ///
@@ -452,7 +456,7 @@ pub const TextGrammarCheck__LanguageToolGetListOfLanguageJob = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.TextGrammarCheck__LanguageToolGetListOfLanguageJob_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolGetListOfLanguageJob.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -463,7 +467,9 @@ pub const TextGrammarCheck__LanguageToolGetListOfLanguageJob = extern struct {
     ///
     pub const Tr3 = tr3;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1LanguageToolGetListOfLanguageJob.html)
     ///
     /// ## Parameter(s):
     ///
@@ -478,7 +484,7 @@ pub const TextGrammarCheck__LanguageToolGetListOfLanguageJob = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.TextGrammarCheck__LanguageToolGetListOfLanguageJob_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__LanguageToolGetListOfLanguageJob.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

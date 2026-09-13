@@ -1243,15 +1243,15 @@ pub const QSslConfiguration = extern struct {
         defer allocator.free(backendConfiguration_keys);
         const backendConfiguration_values = allocator.alloc(QtC.QVariant, backendConfiguration_count) catch @panic("QSslConfiguration.setBackendConfiguration1: Memory allocation failed");
         defer allocator.free(backendConfiguration_values);
-        var i: usize = 0;
+        var backendConfiguration_i: usize = 0;
         var backendConfiguration_it = _backendConfiguration.iterator();
-        while (backendConfiguration_it.next()) |it_entry| : (i += 1) {
+        while (backendConfiguration_it.next()) |it_entry| : (backendConfiguration_i += 1) {
             const backendConfiguration_key = it_entry.key_ptr.*;
-            backendConfiguration_keys[i] = qtc.libqt_string{
+            backendConfiguration_keys[backendConfiguration_i] = qtc.libqt_string{
                 .len = backendConfiguration_key.len,
                 .data = backendConfiguration_key.ptr,
             };
-            backendConfiguration_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            backendConfiguration_values[backendConfiguration_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const backendConfiguration_map = qtc.libqt_map{
             .len = backendConfiguration_count,

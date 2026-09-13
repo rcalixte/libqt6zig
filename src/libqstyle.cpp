@@ -39,6 +39,18 @@ int QStyle_Metacall(QStyle* self, int param1, int param2, void** param3) {
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string QStyle_Tr(const char* s) {
+    auto _ret = QStyle::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 libqt_string QStyle_Name(const QStyle* self) {
     auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -175,6 +187,30 @@ int QStyle_CombinedLayoutSpacing(const QStyle* self, int controls1, int controls
 
 QStyle* QStyle_Proxy(const QStyle* self) {
     return (QStyle*)self->proxy();
+}
+
+libqt_string QStyle_Tr2(const char* s, const char* c) {
+    auto _ret = QStyle::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QStyle_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QStyle::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 int QStyle_SliderPositionFromValue5(int min, int max, int val, int space, bool upsideDown) {

@@ -72,6 +72,7 @@ KXmlGuiWindow* KXmlGuiWindow_FromKXMLGUIClient(KXMLGUIClient* _kxmlguiclient);
 QMetaObject* KXmlGuiWindow_MetaObject(const KXmlGuiWindow* self);
 void* KXmlGuiWindow_Metacast(KXmlGuiWindow* self, const char* param1);
 int KXmlGuiWindow_Metacall(KXmlGuiWindow* self, int param1, int param2, void** param3);
+libqt_string KXmlGuiWindow_Tr(const char* s);
 void KXmlGuiWindow_SetHelpMenuEnabled(KXmlGuiWindow* self);
 bool KXmlGuiWindow_IsHelpMenuEnabled(const KXmlGuiWindow* self);
 KXMLGUIFactory* KXmlGuiWindow_GuiFactory(KXmlGuiWindow* self);
@@ -95,6 +96,8 @@ bool KXmlGuiWindow_IsToolBarVisible(KXmlGuiWindow* self, const libqt_string name
 void KXmlGuiWindow_SetToolBarVisible(KXmlGuiWindow* self, const libqt_string name, bool visible);
 bool KXmlGuiWindow_Event(KXmlGuiWindow* self, QEvent* event);
 void KXmlGuiWindow_SaveNewToolbarConfig(KXmlGuiWindow* self);
+libqt_string KXmlGuiWindow_Tr2(const char* s, const char* c);
+libqt_string KXmlGuiWindow_Tr3(const char* s, const char* c, int n);
 void KXmlGuiWindow_SetHelpMenuEnabled1(KXmlGuiWindow* self, bool showHelpMenu);
 void KXmlGuiWindow_CreateGUI1(KXmlGuiWindow* self, const libqt_string xmlfile);
 void KXmlGuiWindow_SetupGUI1(KXmlGuiWindow* self, int options);

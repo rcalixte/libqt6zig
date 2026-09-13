@@ -37,6 +37,7 @@ QShortcut* QShortcut_new9(int key, QObject* parent, const char* member, const ch
 QMetaObject* QShortcut_MetaObject(const QShortcut* self);
 void* QShortcut_Metacast(QShortcut* self, const char* param1);
 int QShortcut_Metacall(QShortcut* self, int param1, int param2, void** param3);
+libqt_string QShortcut_Tr(const char* s);
 void QShortcut_SetKey(QShortcut* self, const QKeySequence* key);
 QKeySequence* QShortcut_Key(const QShortcut* self);
 void QShortcut_SetKeys(QShortcut* self, int key);
@@ -56,6 +57,8 @@ void QShortcut_Connect_Activated(QShortcut* self, intptr_t slot);
 void QShortcut_ActivatedAmbiguously(QShortcut* self);
 void QShortcut_Connect_ActivatedAmbiguously(QShortcut* self, intptr_t slot);
 bool QShortcut_Event(QShortcut* self, QEvent* e);
+libqt_string QShortcut_Tr2(const char* s, const char* c);
+libqt_string QShortcut_Tr3(const char* s, const char* c, int n);
 void QShortcut_OnMetaObject(const QShortcut* self, intptr_t slot);
 QMetaObject* QShortcut_SuperMetaObject(const QShortcut* self);
 void QShortcut_OnMetacast(QShortcut* self, intptr_t slot);

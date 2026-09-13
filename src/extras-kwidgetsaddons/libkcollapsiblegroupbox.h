@@ -55,6 +55,7 @@ KCollapsibleGroupBox* KCollapsibleGroupBox_new2();
 QMetaObject* KCollapsibleGroupBox_MetaObject(const KCollapsibleGroupBox* self);
 void* KCollapsibleGroupBox_Metacast(KCollapsibleGroupBox* self, const char* param1);
 int KCollapsibleGroupBox_Metacall(KCollapsibleGroupBox* self, int param1, int param2, void** param3);
+libqt_string KCollapsibleGroupBox_Tr(const char* s);
 void KCollapsibleGroupBox_SetTitle(KCollapsibleGroupBox* self, const libqt_string title);
 libqt_string KCollapsibleGroupBox_Title(const KCollapsibleGroupBox* self);
 void KCollapsibleGroupBox_SetExpanded(KCollapsibleGroupBox* self, bool expanded);
@@ -75,6 +76,8 @@ void KCollapsibleGroupBox_MouseMoveEvent(KCollapsibleGroupBox* self, QMouseEvent
 void KCollapsibleGroupBox_LeaveEvent(KCollapsibleGroupBox* self, QEvent* param1);
 void KCollapsibleGroupBox_KeyPressEvent(KCollapsibleGroupBox* self, QKeyEvent* param1);
 void KCollapsibleGroupBox_ResizeEvent(KCollapsibleGroupBox* self, QResizeEvent* param1);
+libqt_string KCollapsibleGroupBox_Tr2(const char* s, const char* c);
+libqt_string KCollapsibleGroupBox_Tr3(const char* s, const char* c, int n);
 void KCollapsibleGroupBox_OnMetaObject(const KCollapsibleGroupBox* self, intptr_t slot);
 QMetaObject* KCollapsibleGroupBox_SuperMetaObject(const KCollapsibleGroupBox* self);
 void KCollapsibleGroupBox_OnMetacast(KCollapsibleGroupBox* self, intptr_t slot);

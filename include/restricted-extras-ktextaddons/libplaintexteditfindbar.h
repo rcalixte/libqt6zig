@@ -64,12 +64,15 @@ TextCustomEditor__PlainTextEditFindBar* TextCustomEditor__PlainTextEditFindBar_n
 QMetaObject* TextCustomEditor__PlainTextEditFindBar_MetaObject(const TextCustomEditor__PlainTextEditFindBar* self);
 void* TextCustomEditor__PlainTextEditFindBar_Metacast(TextCustomEditor__PlainTextEditFindBar* self, const char* param1);
 int TextCustomEditor__PlainTextEditFindBar_Metacall(TextCustomEditor__PlainTextEditFindBar* self, int param1, int param2, void** param3);
+libqt_string TextCustomEditor__PlainTextEditFindBar_Tr(const char* s);
 bool TextCustomEditor__PlainTextEditFindBar_ViewIsReadOnly(const TextCustomEditor__PlainTextEditFindBar* self);
 bool TextCustomEditor__PlainTextEditFindBar_DocumentIsEmpty(const TextCustomEditor__PlainTextEditFindBar* self);
 bool TextCustomEditor__PlainTextEditFindBar_SearchInDocument(TextCustomEditor__PlainTextEditFindBar* self, const libqt_string text, int searchOptions);
 bool TextCustomEditor__PlainTextEditFindBar_SearchInDocument2(TextCustomEditor__PlainTextEditFindBar* self, const QRegularExpression* regExp, int searchOptions);
 void TextCustomEditor__PlainTextEditFindBar_AutoSearchMoveCursor(TextCustomEditor__PlainTextEditFindBar* self);
 void TextCustomEditor__PlainTextEditFindBar_SlotSearchText(TextCustomEditor__PlainTextEditFindBar* self, bool backward, bool isAutoSearch);
+libqt_string TextCustomEditor__PlainTextEditFindBar_Tr2(const char* s, const char* c);
+libqt_string TextCustomEditor__PlainTextEditFindBar_Tr3(const char* s, const char* c, int n);
 void TextCustomEditor__PlainTextEditFindBar_OnMetaObject(const TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot);
 QMetaObject* TextCustomEditor__PlainTextEditFindBar_SuperMetaObject(const TextCustomEditor__PlainTextEditFindBar* self);
 void TextCustomEditor__PlainTextEditFindBar_OnMetacast(TextCustomEditor__PlainTextEditFindBar* self, intptr_t slot);

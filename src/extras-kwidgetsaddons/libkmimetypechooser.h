@@ -62,8 +62,11 @@ KMimeTypeChooser* KMimeTypeChooser_new7(const libqt_string text, const libqt_lis
 QMetaObject* KMimeTypeChooser_MetaObject(const KMimeTypeChooser* self);
 void* KMimeTypeChooser_Metacast(KMimeTypeChooser* self, const char* param1);
 int KMimeTypeChooser_Metacall(KMimeTypeChooser* self, int param1, int param2, void** param3);
+libqt_string KMimeTypeChooser_Tr(const char* s);
 libqt_list /* of libqt_string */ KMimeTypeChooser_MimeTypes(const KMimeTypeChooser* self);
 libqt_list /* of libqt_string */ KMimeTypeChooser_Patterns(const KMimeTypeChooser* self);
+libqt_string KMimeTypeChooser_Tr2(const char* s, const char* c);
+libqt_string KMimeTypeChooser_Tr3(const char* s, const char* c, int n);
 void KMimeTypeChooser_OnMetaObject(const KMimeTypeChooser* self, intptr_t slot);
 QMetaObject* KMimeTypeChooser_SuperMetaObject(const KMimeTypeChooser* self);
 void KMimeTypeChooser_OnMetacast(KMimeTypeChooser* self, intptr_t slot);
@@ -256,8 +259,11 @@ KMimeTypeChooserDialog* KMimeTypeChooserDialog_new10(const libqt_string title, c
 QMetaObject* KMimeTypeChooserDialog_MetaObject(const KMimeTypeChooserDialog* self);
 void* KMimeTypeChooserDialog_Metacast(KMimeTypeChooserDialog* self, const char* param1);
 int KMimeTypeChooserDialog_Metacall(KMimeTypeChooserDialog* self, int param1, int param2, void** param3);
+libqt_string KMimeTypeChooserDialog_Tr(const char* s);
 KMimeTypeChooser* KMimeTypeChooserDialog_Chooser(KMimeTypeChooserDialog* self);
 QSize* KMimeTypeChooserDialog_SizeHint(const KMimeTypeChooserDialog* self);
+libqt_string KMimeTypeChooserDialog_Tr2(const char* s, const char* c);
+libqt_string KMimeTypeChooserDialog_Tr3(const char* s, const char* c, int n);
 void KMimeTypeChooserDialog_OnMetaObject(const KMimeTypeChooserDialog* self, intptr_t slot);
 QMetaObject* KMimeTypeChooserDialog_SuperMetaObject(const KMimeTypeChooserDialog* self);
 void KMimeTypeChooserDialog_OnMetacast(KMimeTypeChooserDialog* self, intptr_t slot);

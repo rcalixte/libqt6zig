@@ -62,8 +62,11 @@ void KUnitConversion__UnitCategory_Delete(KUnitConversion__UnitCategory* self);
 QMetaObject* KUnitConversion__UpdateJob_MetaObject(const KUnitConversion__UpdateJob* self);
 void* KUnitConversion__UpdateJob_Metacast(KUnitConversion__UpdateJob* self, const char* param1);
 int KUnitConversion__UpdateJob_Metacall(KUnitConversion__UpdateJob* self, int param1, int param2, void** param3);
+libqt_string KUnitConversion__UpdateJob_Tr(const char* s);
 void KUnitConversion__UpdateJob_Finished(KUnitConversion__UpdateJob* self);
 void KUnitConversion__UpdateJob_Connect_Finished(KUnitConversion__UpdateJob* self, intptr_t slot);
+libqt_string KUnitConversion__UpdateJob_Tr2(const char* s, const char* c);
+libqt_string KUnitConversion__UpdateJob_Tr3(const char* s, const char* c, int n);
 void KUnitConversion__UpdateJob_Delete(KUnitConversion__UpdateJob* self);
 
 #ifdef __cplusplus

@@ -35,6 +35,7 @@ QMouseEventTransition* QMouseEventTransition_new4(QObject* object, int typeVal, 
 QMetaObject* QMouseEventTransition_MetaObject(const QMouseEventTransition* self);
 void* QMouseEventTransition_Metacast(QMouseEventTransition* self, const char* param1);
 int QMouseEventTransition_Metacall(QMouseEventTransition* self, int param1, int param2, void** param3);
+libqt_string QMouseEventTransition_Tr(const char* s);
 int QMouseEventTransition_Button(const QMouseEventTransition* self);
 void QMouseEventTransition_SetButton(QMouseEventTransition* self, int button);
 int QMouseEventTransition_ModifierMask(const QMouseEventTransition* self);
@@ -43,6 +44,8 @@ QPainterPath* QMouseEventTransition_HitTestPath(const QMouseEventTransition* sel
 void QMouseEventTransition_SetHitTestPath(QMouseEventTransition* self, const QPainterPath* path);
 void QMouseEventTransition_OnTransition(QMouseEventTransition* self, QEvent* event);
 bool QMouseEventTransition_EventTest(QMouseEventTransition* self, QEvent* event);
+libqt_string QMouseEventTransition_Tr2(const char* s, const char* c);
+libqt_string QMouseEventTransition_Tr3(const char* s, const char* c, int n);
 void QMouseEventTransition_OnMetaObject(const QMouseEventTransition* self, intptr_t slot);
 QMetaObject* QMouseEventTransition_SuperMetaObject(const QMouseEventTransition* self);
 void QMouseEventTransition_OnMetacast(QMouseEventTransition* self, intptr_t slot);

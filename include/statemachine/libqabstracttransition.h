@@ -33,6 +33,7 @@ QAbstractTransition* QAbstractTransition_new2(QState* sourceState);
 QMetaObject* QAbstractTransition_MetaObject(const QAbstractTransition* self);
 void* QAbstractTransition_Metacast(QAbstractTransition* self, const char* param1);
 int QAbstractTransition_Metacall(QAbstractTransition* self, int param1, int param2, void** param3);
+libqt_string QAbstractTransition_Tr(const char* s);
 QState* QAbstractTransition_SourceState(const QAbstractTransition* self);
 QAbstractState* QAbstractTransition_TargetState(const QAbstractTransition* self);
 void QAbstractTransition_SetTargetState(QAbstractTransition* self, QAbstractState* target);
@@ -47,6 +48,8 @@ libqt_list /* of QAbstractAnimation* */ QAbstractTransition_Animations(const QAb
 bool QAbstractTransition_EventTest(QAbstractTransition* self, QEvent* event);
 void QAbstractTransition_OnTransition(QAbstractTransition* self, QEvent* event);
 bool QAbstractTransition_Event(QAbstractTransition* self, QEvent* e);
+libqt_string QAbstractTransition_Tr2(const char* s, const char* c);
+libqt_string QAbstractTransition_Tr3(const char* s, const char* c, int n);
 void QAbstractTransition_OnMetaObject(const QAbstractTransition* self, intptr_t slot);
 QMetaObject* QAbstractTransition_SuperMetaObject(const QAbstractTransition* self);
 void QAbstractTransition_OnMetacast(QAbstractTransition* self, intptr_t slot);

@@ -34,6 +34,7 @@ QPropertyAnimation* QPropertyAnimation_new4(QObject* target, const libqt_string 
 QMetaObject* QPropertyAnimation_MetaObject(const QPropertyAnimation* self);
 void* QPropertyAnimation_Metacast(QPropertyAnimation* self, const char* param1);
 int QPropertyAnimation_Metacall(QPropertyAnimation* self, int param1, int param2, void** param3);
+libqt_string QPropertyAnimation_Tr(const char* s);
 QObject* QPropertyAnimation_TargetObject(const QPropertyAnimation* self);
 void QPropertyAnimation_SetTargetObject(QPropertyAnimation* self, QObject* target);
 libqt_string QPropertyAnimation_PropertyName(const QPropertyAnimation* self);
@@ -41,6 +42,8 @@ void QPropertyAnimation_SetPropertyName(QPropertyAnimation* self, const libqt_st
 bool QPropertyAnimation_Event(QPropertyAnimation* self, QEvent* event);
 void QPropertyAnimation_UpdateCurrentValue(QPropertyAnimation* self, const QVariant* value);
 void QPropertyAnimation_UpdateState(QPropertyAnimation* self, int newState, int oldState);
+libqt_string QPropertyAnimation_Tr2(const char* s, const char* c);
+libqt_string QPropertyAnimation_Tr3(const char* s, const char* c, int n);
 void QPropertyAnimation_OnMetaObject(const QPropertyAnimation* self, intptr_t slot);
 QMetaObject* QPropertyAnimation_SuperMetaObject(const QPropertyAnimation* self);
 void QPropertyAnimation_OnMetacast(QPropertyAnimation* self, intptr_t slot);

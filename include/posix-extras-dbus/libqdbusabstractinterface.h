@@ -33,6 +33,7 @@ void QDBusAbstractInterfaceBase_Delete(QDBusAbstractInterfaceBase* self);
 QMetaObject* QDBusAbstractInterface_MetaObject(const QDBusAbstractInterface* self);
 void* QDBusAbstractInterface_Metacast(QDBusAbstractInterface* self, const char* param1);
 int QDBusAbstractInterface_Metacall(QDBusAbstractInterface* self, int param1, int param2, void** param3);
+libqt_string QDBusAbstractInterface_Tr(const char* s);
 bool QDBusAbstractInterface_IsValid(const QDBusAbstractInterface* self);
 QDBusConnection* QDBusAbstractInterface_Connection(const QDBusAbstractInterface* self);
 libqt_string QDBusAbstractInterface_Service(const QDBusAbstractInterface* self);
@@ -50,6 +51,8 @@ bool QDBusAbstractInterface_CallWithCallback(QDBusAbstractInterface* self, const
 bool QDBusAbstractInterface_CallWithCallback2(QDBusAbstractInterface* self, const libqt_string method, const libqt_list /* of QVariant* */ args, QObject* receiver, const char* member);
 QDBusPendingCall* QDBusAbstractInterface_AsyncCall(QDBusAbstractInterface* self, const libqt_string method);
 QDBusPendingCall* QDBusAbstractInterface_AsyncCallWithArgumentList(QDBusAbstractInterface* self, const libqt_string method, const libqt_list /* of QVariant* */ args);
+libqt_string QDBusAbstractInterface_Tr2(const char* s, const char* c);
+libqt_string QDBusAbstractInterface_Tr3(const char* s, const char* c, int n);
 void QDBusAbstractInterface_Delete(QDBusAbstractInterface* self);
 
 #ifdef __cplusplus

@@ -33,6 +33,7 @@ QBluetoothLocalDevice* QBluetoothLocalDevice_new4(const QBluetoothAddress* addre
 QMetaObject* QBluetoothLocalDevice_MetaObject(const QBluetoothLocalDevice* self);
 void* QBluetoothLocalDevice_Metacast(QBluetoothLocalDevice* self, const char* param1);
 int QBluetoothLocalDevice_Metacall(QBluetoothLocalDevice* self, int param1, int param2, void** param3);
+libqt_string QBluetoothLocalDevice_Tr(const char* s);
 bool QBluetoothLocalDevice_IsValid(const QBluetoothLocalDevice* self);
 void QBluetoothLocalDevice_RequestPairing(QBluetoothLocalDevice* self, const QBluetoothAddress* address, int pairing);
 int QBluetoothLocalDevice_PairingStatus(const QBluetoothLocalDevice* self, const QBluetoothAddress* address);
@@ -53,6 +54,8 @@ void QBluetoothLocalDevice_PairingFinished(QBluetoothLocalDevice* self, const QB
 void QBluetoothLocalDevice_Connect_PairingFinished(QBluetoothLocalDevice* self, intptr_t slot);
 void QBluetoothLocalDevice_ErrorOccurred(QBluetoothLocalDevice* self, int errorVal);
 void QBluetoothLocalDevice_Connect_ErrorOccurred(QBluetoothLocalDevice* self, intptr_t slot);
+libqt_string QBluetoothLocalDevice_Tr2(const char* s, const char* c);
+libqt_string QBluetoothLocalDevice_Tr3(const char* s, const char* c, int n);
 void QBluetoothLocalDevice_OnMetaObject(const QBluetoothLocalDevice* self, intptr_t slot);
 QMetaObject* QBluetoothLocalDevice_SuperMetaObject(const QBluetoothLocalDevice* self);
 void QBluetoothLocalDevice_OnMetacast(QBluetoothLocalDevice* self, intptr_t slot);

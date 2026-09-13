@@ -95,15 +95,15 @@ pub const QJsonObject = extern struct {
         defer allocator.free(map_keys);
         const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("QJsonObject.fromVariantMap: Memory allocation failed");
         defer allocator.free(map_values);
-        var i: usize = 0;
+        var map_i: usize = 0;
         var map_it = map.iterator();
-        while (map_it.next()) |it_entry| : (i += 1) {
+        while (map_it.next()) |it_entry| : (map_i += 1) {
             const map_key = it_entry.key_ptr.*;
-            map_keys[i] = qtc.libqt_string{
+            map_keys[map_i] = qtc.libqt_string{
                 .len = map_key.len,
                 .data = map_key.ptr,
             };
-            map_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            map_values[map_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const map_map = qtc.libqt_map{
             .len = map_count,
@@ -168,15 +168,15 @@ pub const QJsonObject = extern struct {
         defer allocator.free(map_keys);
         const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("QJsonObject.fromVariantHash: Memory allocation failed");
         defer allocator.free(map_values);
-        var i: usize = 0;
+        var map_i: usize = 0;
         var map_it = map.iterator();
-        while (map_it.next()) |it_entry| : (i += 1) {
+        while (map_it.next()) |it_entry| : (map_i += 1) {
             const map_key = it_entry.key_ptr.*;
-            map_keys[i] = qtc.libqt_string{
+            map_keys[map_i] = qtc.libqt_string{
                 .len = map_key.len,
                 .data = map_key.ptr,
             };
-            map_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            map_values[map_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const map_map = qtc.libqt_map{
             .len = map_count,

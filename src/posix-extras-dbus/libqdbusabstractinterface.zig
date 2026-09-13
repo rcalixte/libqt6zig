@@ -79,29 +79,6 @@ pub const QDBusAbstractInterfaceBase = extern struct {
         return qtc.QObject_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
-    /// ### DEPRECATED: Use `tr` instead
-    ///
-    pub const Tr = tr;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` s: [:0]const u8 `
-    ///
-    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
-        const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusAbstractInterfaceBase.tr: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `event` instead
     ///
     pub const Event = event;
@@ -860,60 +837,6 @@ pub const QDBusAbstractInterfaceBase = extern struct {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `tr2` instead
-    ///
-    pub const Tr2 = tr2;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` s: [:0]const u8 `
-    ///
-    /// ` c: [:0]const u8 `
-    ///
-    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
-        const s_Cstring = s.ptr;
-        const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusAbstractInterfaceBase.tr2: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// ### DEPRECATED: Use `tr3` instead
-    ///
-    pub const Tr3 = tr3;
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    /// ` s: [:0]const u8 `
-    ///
-    /// ` c: [:0]const u8 `
-    ///
-    /// ` n: i32 `
-    ///
-    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
-        const s_Cstring = s.ptr;
-        const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusAbstractInterfaceBase.tr3: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
     /// ### DEPRECATED: Use `startTimer22` instead
     ///
     pub const StartTimer22 = startTimer22;
@@ -1262,6 +1185,8 @@ pub const QDBusAbstractInterface = extern struct {
     ///
     pub const Tr = tr;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -1272,7 +1197,7 @@ pub const QDBusAbstractInterface = extern struct {
     ///
     pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
-        var _str = qtc.QObject_Tr(s_Cstring);
+        var _str = qtc.QDBusAbstractInterface_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusAbstractInterface.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1628,6 +1553,8 @@ pub const QDBusAbstractInterface = extern struct {
     ///
     pub const Tr2 = tr2;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -1641,7 +1568,7 @@ pub const QDBusAbstractInterface = extern struct {
     pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
+        var _str = qtc.QDBusAbstractInterface_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusAbstractInterface.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1652,6 +1579,8 @@ pub const QDBusAbstractInterface = extern struct {
     ///
     pub const Tr3 = tr3;
 
+    /// Inherited from QObject
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -1667,7 +1596,7 @@ pub const QDBusAbstractInterface = extern struct {
     pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        var _str = qtc.QDBusAbstractInterface_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusAbstractInterface.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

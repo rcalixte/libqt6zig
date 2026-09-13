@@ -44,6 +44,7 @@ QDesignerFormEditorInterface* QDesignerFormEditorInterface_new2(QObject* parent)
 QMetaObject* QDesignerFormEditorInterface_MetaObject(const QDesignerFormEditorInterface* self);
 void* QDesignerFormEditorInterface_Metacast(QDesignerFormEditorInterface* self, const char* param1);
 int QDesignerFormEditorInterface_Metacall(QDesignerFormEditorInterface* self, int param1, int param2, void** param3);
+libqt_string QDesignerFormEditorInterface_Tr(const char* s);
 QExtensionManager* QDesignerFormEditorInterface_ExtensionManager(const QDesignerFormEditorInterface* self);
 QWidget* QDesignerFormEditorInterface_TopLevel(const QDesignerFormEditorInterface* self);
 QDesignerWidgetBoxInterface* QDesignerFormEditorInterface_WidgetBox(const QDesignerFormEditorInterface* self);
@@ -69,6 +70,8 @@ void QDesignerFormEditorInterface_SetSettingsManager(QDesignerFormEditorInterfac
 void QDesignerFormEditorInterface_SetOptionsPages(QDesignerFormEditorInterface* self, const libqt_list /* of QDesignerOptionsPageInterface* */ optionsPages);
 libqt_list /* of QObject* */ QDesignerFormEditorInterface_PluginInstances(const QDesignerFormEditorInterface* self);
 QIcon* QDesignerFormEditorInterface_CreateIcon(const libqt_string name);
+libqt_string QDesignerFormEditorInterface_Tr2(const char* s, const char* c);
+libqt_string QDesignerFormEditorInterface_Tr3(const char* s, const char* c, int n);
 void QDesignerFormEditorInterface_OnMetaObject(const QDesignerFormEditorInterface* self, intptr_t slot);
 QMetaObject* QDesignerFormEditorInterface_SuperMetaObject(const QDesignerFormEditorInterface* self);
 void QDesignerFormEditorInterface_OnMetacast(QDesignerFormEditorInterface* self, intptr_t slot);

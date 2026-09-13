@@ -32,6 +32,7 @@ typedef struct QWidget QWidget;
 QMetaObject* QDesignerFormWindowInterface_MetaObject(const QDesignerFormWindowInterface* self);
 void* QDesignerFormWindowInterface_Metacast(QDesignerFormWindowInterface* self, const char* param1);
 int QDesignerFormWindowInterface_Metacall(QDesignerFormWindowInterface* self, int param1, int param2, void** param3);
+libqt_string QDesignerFormWindowInterface_Tr(const char* s);
 libqt_string QDesignerFormWindowInterface_FileName(const QDesignerFormWindowInterface* self);
 QDir* QDesignerFormWindowInterface_AbsoluteDir(const QDesignerFormWindowInterface* self);
 libqt_string QDesignerFormWindowInterface_Contents(const QDesignerFormWindowInterface* self);
@@ -117,6 +118,8 @@ void QDesignerFormWindowInterface_WidgetRemoved(QDesignerFormWindowInterface* se
 void QDesignerFormWindowInterface_Connect_WidgetRemoved(QDesignerFormWindowInterface* self, intptr_t slot);
 void QDesignerFormWindowInterface_ObjectRemoved(QDesignerFormWindowInterface* self, QObject* o);
 void QDesignerFormWindowInterface_Connect_ObjectRemoved(QDesignerFormWindowInterface* self, intptr_t slot);
+libqt_string QDesignerFormWindowInterface_Tr2(const char* s, const char* c);
+libqt_string QDesignerFormWindowInterface_Tr3(const char* s, const char* c, int n);
 void QDesignerFormWindowInterface_ActivateResourceFilePaths2(QDesignerFormWindowInterface* self, const libqt_list /* of libqt_string */ paths, int* errorCount);
 void QDesignerFormWindowInterface_Delete(QDesignerFormWindowInterface* self);
 

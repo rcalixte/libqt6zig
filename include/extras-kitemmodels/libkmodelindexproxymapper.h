@@ -32,6 +32,7 @@ KModelIndexProxyMapper* KModelIndexProxyMapper_new2(const QAbstractItemModel* le
 QMetaObject* KModelIndexProxyMapper_MetaObject(const KModelIndexProxyMapper* self);
 void* KModelIndexProxyMapper_Metacast(KModelIndexProxyMapper* self, const char* param1);
 int KModelIndexProxyMapper_Metacall(KModelIndexProxyMapper* self, int param1, int param2, void** param3);
+libqt_string KModelIndexProxyMapper_Tr(const char* s);
 QModelIndex* KModelIndexProxyMapper_MapLeftToRight(const KModelIndexProxyMapper* self, const QModelIndex* index);
 QModelIndex* KModelIndexProxyMapper_MapRightToLeft(const KModelIndexProxyMapper* self, const QModelIndex* index);
 QItemSelection* KModelIndexProxyMapper_MapSelectionLeftToRight(const KModelIndexProxyMapper* self, const QItemSelection* selection);
@@ -39,6 +40,8 @@ QItemSelection* KModelIndexProxyMapper_MapSelectionRightToLeft(const KModelIndex
 bool KModelIndexProxyMapper_IsConnected(const KModelIndexProxyMapper* self);
 void KModelIndexProxyMapper_IsConnectedChanged(KModelIndexProxyMapper* self);
 void KModelIndexProxyMapper_Connect_IsConnectedChanged(KModelIndexProxyMapper* self, intptr_t slot);
+libqt_string KModelIndexProxyMapper_Tr2(const char* s, const char* c);
+libqt_string KModelIndexProxyMapper_Tr3(const char* s, const char* c, int n);
 void KModelIndexProxyMapper_OnMetaObject(const KModelIndexProxyMapper* self, intptr_t slot);
 QMetaObject* KModelIndexProxyMapper_SuperMetaObject(const KModelIndexProxyMapper* self);
 void KModelIndexProxyMapper_OnMetacast(KModelIndexProxyMapper* self, intptr_t slot);

@@ -30,6 +30,7 @@ QSharedData* KModifierKeyInfoProvider_AsQSharedData(KModifierKeyInfoProvider* se
 QMetaObject* KModifierKeyInfoProvider_MetaObject(const KModifierKeyInfoProvider* self);
 void* KModifierKeyInfoProvider_Metacast(KModifierKeyInfoProvider* self, const char* param1);
 int KModifierKeyInfoProvider_Metacall(KModifierKeyInfoProvider* self, int param1, int param2, void** param3);
+libqt_string KModifierKeyInfoProvider_Tr(const char* s);
 bool KModifierKeyInfoProvider_IsKeyPressed(const KModifierKeyInfoProvider* self, int key);
 bool KModifierKeyInfoProvider_IsKeyLatched(const KModifierKeyInfoProvider* self, int key);
 bool KModifierKeyInfoProvider_SetKeyLatched(KModifierKeyInfoProvider* self, int key, bool latched);
@@ -50,6 +51,8 @@ void KModifierKeyInfoProvider_KeyAdded(KModifierKeyInfoProvider* self, int key);
 void KModifierKeyInfoProvider_Connect_KeyAdded(KModifierKeyInfoProvider* self, intptr_t slot);
 void KModifierKeyInfoProvider_KeyRemoved(KModifierKeyInfoProvider* self, int key);
 void KModifierKeyInfoProvider_Connect_KeyRemoved(KModifierKeyInfoProvider* self, intptr_t slot);
+libqt_string KModifierKeyInfoProvider_Tr2(const char* s, const char* c);
+libqt_string KModifierKeyInfoProvider_Tr3(const char* s, const char* c, int n);
 void KModifierKeyInfoProvider_OnMetaObject(const KModifierKeyInfoProvider* self, intptr_t slot);
 QMetaObject* KModifierKeyInfoProvider_SuperMetaObject(const KModifierKeyInfoProvider* self);
 void KModifierKeyInfoProvider_OnMetacast(KModifierKeyInfoProvider* self, intptr_t slot);

@@ -31,6 +31,18 @@ int KModifierKeyInfo_Metacall(KModifierKeyInfo* self, int param1, int param2, vo
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string KModifierKeyInfo_Tr(const char* s) {
+    auto _ret = KModifierKeyInfo::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 bool KModifierKeyInfo_KnowsKey(const KModifierKeyInfo* self, int key) {
     return self->knowsKey(static_cast<Qt::Key>(key));
 }
@@ -146,6 +158,30 @@ void KModifierKeyInfo_Connect_KeyRemoved(KModifierKeyInfo* self, intptr_t slot) 
         int sigval1 = static_cast<int>(key);
         slotFunc(self, sigval1);
     });
+}
+
+libqt_string KModifierKeyInfo_Tr2(const char* s, const char* c) {
+    auto _ret = KModifierKeyInfo::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KModifierKeyInfo_Tr3(const char* s, const char* c, int n) {
+    auto _ret = KModifierKeyInfo::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

@@ -61,8 +61,11 @@ TextGrammarCheck__LanguageToolComboBox* TextGrammarCheck__LanguageToolComboBox_n
 QMetaObject* TextGrammarCheck__LanguageToolComboBox_MetaObject(const TextGrammarCheck__LanguageToolComboBox* self);
 void* TextGrammarCheck__LanguageToolComboBox_Metacast(TextGrammarCheck__LanguageToolComboBox* self, const char* param1);
 int TextGrammarCheck__LanguageToolComboBox_Metacall(TextGrammarCheck__LanguageToolComboBox* self, int param1, int param2, void** param3);
+libqt_string TextGrammarCheck__LanguageToolComboBox_Tr(const char* s);
 void TextGrammarCheck__LanguageToolComboBox_SetLanguage(TextGrammarCheck__LanguageToolComboBox* self, const libqt_string str);
 libqt_string TextGrammarCheck__LanguageToolComboBox_Language(const TextGrammarCheck__LanguageToolComboBox* self);
+libqt_string TextGrammarCheck__LanguageToolComboBox_Tr2(const char* s, const char* c);
+libqt_string TextGrammarCheck__LanguageToolComboBox_Tr3(const char* s, const char* c, int n);
 void TextGrammarCheck__LanguageToolComboBox_OnMetaObject(const TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot);
 QMetaObject* TextGrammarCheck__LanguageToolComboBox_SuperMetaObject(const TextGrammarCheck__LanguageToolComboBox* self);
 void TextGrammarCheck__LanguageToolComboBox_OnMetacast(TextGrammarCheck__LanguageToolComboBox* self, intptr_t slot);

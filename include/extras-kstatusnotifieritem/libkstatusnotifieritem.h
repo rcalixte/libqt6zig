@@ -36,6 +36,7 @@ KStatusNotifierItem* KStatusNotifierItem_new4(const libqt_string id, QObject* pa
 QMetaObject* KStatusNotifierItem_MetaObject(const KStatusNotifierItem* self);
 void* KStatusNotifierItem_Metacast(KStatusNotifierItem* self, const char* param1);
 int KStatusNotifierItem_Metacall(KStatusNotifierItem* self, int param1, int param2, void** param3);
+libqt_string KStatusNotifierItem_Tr(const char* s);
 libqt_string KStatusNotifierItem_Id(const KStatusNotifierItem* self);
 void KStatusNotifierItem_SetCategory(KStatusNotifierItem* self, const int category);
 int KStatusNotifierItem_Category(const KStatusNotifierItem* self);
@@ -91,6 +92,8 @@ void KStatusNotifierItem_Connect_SecondaryActivateRequested(KStatusNotifierItem*
 void KStatusNotifierItem_QuitRequested(KStatusNotifierItem* self);
 void KStatusNotifierItem_Connect_QuitRequested(KStatusNotifierItem* self, intptr_t slot);
 bool KStatusNotifierItem_EventFilter(KStatusNotifierItem* self, QObject* watched, QEvent* event);
+libqt_string KStatusNotifierItem_Tr2(const char* s, const char* c);
+libqt_string KStatusNotifierItem_Tr3(const char* s, const char* c, int n);
 void KStatusNotifierItem_ShowMessage4(KStatusNotifierItem* self, const libqt_string title, const libqt_string message, const libqt_string icon, int timeout);
 void KStatusNotifierItem_OnMetaObject(const KStatusNotifierItem* self, intptr_t slot);
 QMetaObject* KStatusNotifierItem_SuperMetaObject(const KStatusNotifierItem* self);

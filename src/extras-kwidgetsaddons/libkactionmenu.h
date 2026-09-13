@@ -34,6 +34,7 @@ KActionMenu* KActionMenu_new3(const QIcon* icon, const libqt_string text, QObjec
 QMetaObject* KActionMenu_MetaObject(const KActionMenu* self);
 void* KActionMenu_Metacast(KActionMenu* self, const char* param1);
 int KActionMenu_Metacall(KActionMenu* self, int param1, int param2, void** param3);
+libqt_string KActionMenu_Tr(const char* s);
 void KActionMenu_AddAction(KActionMenu* self, QAction* action);
 QAction* KActionMenu_AddSeparator(KActionMenu* self);
 void KActionMenu_InsertAction(KActionMenu* self, QAction* before, QAction* action);
@@ -42,6 +43,8 @@ void KActionMenu_RemoveAction(KActionMenu* self, QAction* action);
 int KActionMenu_PopupMode(const KActionMenu* self);
 void KActionMenu_SetPopupMode(KActionMenu* self, int popupMode);
 QWidget* KActionMenu_CreateWidget(KActionMenu* self, QWidget* parent);
+libqt_string KActionMenu_Tr2(const char* s, const char* c);
+libqt_string KActionMenu_Tr3(const char* s, const char* c, int n);
 void KActionMenu_OnMetaObject(const KActionMenu* self, intptr_t slot);
 QMetaObject* KActionMenu_SuperMetaObject(const KActionMenu* self);
 void KActionMenu_OnMetacast(KActionMenu* self, intptr_t slot);

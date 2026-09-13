@@ -42,6 +42,18 @@ int QBluetoothServiceDiscoveryAgent_Metacall(QBluetoothServiceDiscoveryAgent* se
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string QBluetoothServiceDiscoveryAgent_Tr(const char* s) {
+    auto _ret = QBluetoothServiceDiscoveryAgent::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 bool QBluetoothServiceDiscoveryAgent_IsActive(const QBluetoothServiceDiscoveryAgent* self) {
     return self->isActive();
 }
@@ -168,6 +180,30 @@ void QBluetoothServiceDiscoveryAgent_Connect_ErrorOccurred(QBluetoothServiceDisc
         int sigval1 = static_cast<int>(errorVal);
         slotFunc(self, sigval1);
     });
+}
+
+libqt_string QBluetoothServiceDiscoveryAgent_Tr2(const char* s, const char* c) {
+    auto _ret = QBluetoothServiceDiscoveryAgent::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QBluetoothServiceDiscoveryAgent_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QBluetoothServiceDiscoveryAgent::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QBluetoothServiceDiscoveryAgent_Start1(QBluetoothServiceDiscoveryAgent* self, int mode) {

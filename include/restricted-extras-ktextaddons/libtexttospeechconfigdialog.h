@@ -59,6 +59,9 @@ TextEditTextToSpeech__TextToSpeechConfigDialog* TextEditTextToSpeech__TextToSpee
 QMetaObject* TextEditTextToSpeech__TextToSpeechConfigDialog_MetaObject(const TextEditTextToSpeech__TextToSpeechConfigDialog* self);
 void* TextEditTextToSpeech__TextToSpeechConfigDialog_Metacast(TextEditTextToSpeech__TextToSpeechConfigDialog* self, const char* param1);
 int TextEditTextToSpeech__TextToSpeechConfigDialog_Metacall(TextEditTextToSpeech__TextToSpeechConfigDialog* self, int param1, int param2, void** param3);
+libqt_string TextEditTextToSpeech__TextToSpeechConfigDialog_Tr(const char* s);
+libqt_string TextEditTextToSpeech__TextToSpeechConfigDialog_Tr2(const char* s, const char* c);
+libqt_string TextEditTextToSpeech__TextToSpeechConfigDialog_Tr3(const char* s, const char* c, int n);
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnMetaObject(const TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot);
 QMetaObject* TextEditTextToSpeech__TextToSpeechConfigDialog_SuperMetaObject(const TextEditTextToSpeech__TextToSpeechConfigDialog* self);
 void TextEditTextToSpeech__TextToSpeechConfigDialog_OnMetacast(TextEditTextToSpeech__TextToSpeechConfigDialog* self, intptr_t slot);

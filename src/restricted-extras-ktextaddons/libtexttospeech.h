@@ -28,6 +28,7 @@ typedef struct TextEditTextToSpeech__TextToSpeech TextEditTextToSpeech__TextToSp
 QMetaObject* TextEditTextToSpeech__TextToSpeech_MetaObject(const TextEditTextToSpeech__TextToSpeech* self);
 void* TextEditTextToSpeech__TextToSpeech_Metacast(TextEditTextToSpeech__TextToSpeech* self, const char* param1);
 int TextEditTextToSpeech__TextToSpeech_Metacall(TextEditTextToSpeech__TextToSpeech* self, int param1, int param2, void** param3);
+libqt_string TextEditTextToSpeech__TextToSpeech_Tr(const char* s);
 TextEditTextToSpeech__TextToSpeech* TextEditTextToSpeech__TextToSpeech_Self();
 bool TextEditTextToSpeech__TextToSpeech_IsReady(const TextEditTextToSpeech__TextToSpeech* self);
 double TextEditTextToSpeech__TextToSpeech_Volume(const TextEditTextToSpeech__TextToSpeech* self);
@@ -46,6 +47,8 @@ void TextEditTextToSpeech__TextToSpeech_SetVolume(TextEditTextToSpeech__TextToSp
 void TextEditTextToSpeech__TextToSpeech_SetLocale(const TextEditTextToSpeech__TextToSpeech* self, const QLocale* locale);
 void TextEditTextToSpeech__TextToSpeech_StateChanged(TextEditTextToSpeech__TextToSpeech* self, int param1);
 void TextEditTextToSpeech__TextToSpeech_Connect_StateChanged(TextEditTextToSpeech__TextToSpeech* self, intptr_t slot);
+libqt_string TextEditTextToSpeech__TextToSpeech_Tr2(const char* s, const char* c);
+libqt_string TextEditTextToSpeech__TextToSpeech_Tr3(const char* s, const char* c, int n);
 void TextEditTextToSpeech__TextToSpeech_Delete(TextEditTextToSpeech__TextToSpeech* self);
 
 #ifdef __cplusplus

@@ -34,6 +34,7 @@ QWaveDecoder* QWaveDecoder_new4(QIODevice* device, const QAudioFormat* format, Q
 QMetaObject* QWaveDecoder_MetaObject(const QWaveDecoder* self);
 void* QWaveDecoder_Metacast(QWaveDecoder* self, const char* param1);
 int QWaveDecoder_Metacall(QWaveDecoder* self, int param1, int param2, void** param3);
+libqt_string QWaveDecoder_Tr(const char* s);
 QAudioFormat* QWaveDecoder_AudioFormat(const QWaveDecoder* self);
 QIODevice* QWaveDecoder_GetDevice(QWaveDecoder* self);
 int QWaveDecoder_Duration(const QWaveDecoder* self);
@@ -50,6 +51,8 @@ void QWaveDecoder_FormatKnown(QWaveDecoder* self);
 void QWaveDecoder_Connect_FormatKnown(QWaveDecoder* self, intptr_t slot);
 void QWaveDecoder_ParsingError(QWaveDecoder* self);
 void QWaveDecoder_Connect_ParsingError(QWaveDecoder* self, intptr_t slot);
+libqt_string QWaveDecoder_Tr2(const char* s, const char* c);
+libqt_string QWaveDecoder_Tr3(const char* s, const char* c, int n);
 void QWaveDecoder_OnMetaObject(const QWaveDecoder* self, intptr_t slot);
 QMetaObject* QWaveDecoder_SuperMetaObject(const QWaveDecoder* self);
 void QWaveDecoder_OnMetacast(QWaveDecoder* self, intptr_t slot);

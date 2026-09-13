@@ -40,6 +40,7 @@ KCheckableProxyModel* KCheckableProxyModel_new2(QObject* parent);
 QMetaObject* KCheckableProxyModel_MetaObject(const KCheckableProxyModel* self);
 void* KCheckableProxyModel_Metacast(KCheckableProxyModel* self, const char* param1);
 int KCheckableProxyModel_Metacall(KCheckableProxyModel* self, int param1, int param2, void** param3);
+libqt_string KCheckableProxyModel_Tr(const char* s);
 void KCheckableProxyModel_SetSelectionModel(KCheckableProxyModel* self, QItemSelectionModel* itemSelectionModel);
 QItemSelectionModel* KCheckableProxyModel_SelectionModel(const KCheckableProxyModel* self);
 int KCheckableProxyModel_Flags(const KCheckableProxyModel* self, const QModelIndex* index);
@@ -48,6 +49,8 @@ bool KCheckableProxyModel_SetData(KCheckableProxyModel* self, const QModelIndex*
 void KCheckableProxyModel_SetSourceModel(KCheckableProxyModel* self, QAbstractItemModel* sourceModel);
 libqt_map /* of int to libqt_string */ KCheckableProxyModel_RoleNames(const KCheckableProxyModel* self);
 bool KCheckableProxyModel_Select(KCheckableProxyModel* self, const QItemSelection* selection, int command);
+libqt_string KCheckableProxyModel_Tr2(const char* s, const char* c);
+libqt_string KCheckableProxyModel_Tr3(const char* s, const char* c, int n);
 void KCheckableProxyModel_OnMetaObject(const KCheckableProxyModel* self, intptr_t slot);
 QMetaObject* KCheckableProxyModel_SuperMetaObject(const KCheckableProxyModel* self);
 void KCheckableProxyModel_OnMetacast(KCheckableProxyModel* self, intptr_t slot);

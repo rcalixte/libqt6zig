@@ -19,6 +19,7 @@ typedef struct KCharsets KCharsets;
 typedef struct QChar QChar;
 #endif
 
+libqt_string KCharsets_Tr(const char* sourceText);
 KCharsets* KCharsets_Charsets();
 QChar* KCharsets_FromEntity(libqt_string str);
 QChar* KCharsets_FromEntity2(libqt_string str, int* len);
@@ -29,6 +30,8 @@ libqt_list /* of libqt_string */ KCharsets_DescriptiveEncodingNames(const KChars
 libqt_list /* of libqt_list of libqt_string */ KCharsets_EncodingsByScript(const KCharsets* self);
 libqt_string KCharsets_DescriptionForEncoding(const KCharsets* self, libqt_string encoding);
 libqt_string KCharsets_EncodingForName(const KCharsets* self, const libqt_string descriptiveName);
+libqt_string KCharsets_Tr2(const char* sourceText, const char* disambiguation);
+libqt_string KCharsets_Tr3(const char* sourceText, const char* disambiguation, int n);
 void KCharsets_Delete(KCharsets* self);
 
 #ifdef __cplusplus

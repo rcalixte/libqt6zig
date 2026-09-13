@@ -32,6 +32,7 @@ TextGrammarCheck__GrammalecteResultJob* TextGrammarCheck__GrammalecteResultJob_n
 QMetaObject* TextGrammarCheck__GrammalecteResultJob_MetaObject(const TextGrammarCheck__GrammalecteResultJob* self);
 void* TextGrammarCheck__GrammalecteResultJob_Metacast(TextGrammarCheck__GrammalecteResultJob* self, const char* param1);
 int TextGrammarCheck__GrammalecteResultJob_Metacall(TextGrammarCheck__GrammalecteResultJob* self, int param1, int param2, void** param3);
+libqt_string TextGrammarCheck__GrammalecteResultJob_Tr(const char* s);
 void TextGrammarCheck__GrammalecteResultJob_Start(TextGrammarCheck__GrammalecteResultJob* self);
 bool TextGrammarCheck__GrammalecteResultJob_CanStart(TextGrammarCheck__GrammalecteResultJob* self);
 libqt_string TextGrammarCheck__GrammalecteResultJob_Text(const TextGrammarCheck__GrammalecteResultJob* self);
@@ -46,6 +47,8 @@ void TextGrammarCheck__GrammalecteResultJob_Finished(TextGrammarCheck__Grammalec
 void TextGrammarCheck__GrammalecteResultJob_Connect_Finished(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
 void TextGrammarCheck__GrammalecteResultJob_Error(TextGrammarCheck__GrammalecteResultJob* self, int typeVal);
 void TextGrammarCheck__GrammalecteResultJob_Connect_Error(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+libqt_string TextGrammarCheck__GrammalecteResultJob_Tr2(const char* s, const char* c);
+libqt_string TextGrammarCheck__GrammalecteResultJob_Tr3(const char* s, const char* c, int n);
 void TextGrammarCheck__GrammalecteResultJob_OnMetaObject(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
 QMetaObject* TextGrammarCheck__GrammalecteResultJob_SuperMetaObject(const TextGrammarCheck__GrammalecteResultJob* self);
 void TextGrammarCheck__GrammalecteResultJob_OnMetacast(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);

@@ -57,6 +57,18 @@ int QStatusBar_Metacall(QStatusBar* self, int param1, int param2, void** param3)
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
+libqt_string QStatusBar_Tr(const char* s) {
+    auto _ret = QStatusBar::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void QStatusBar_AddWidget(QStatusBar* self, QWidget* widget) {
     self->addWidget(widget);
 }
@@ -154,6 +166,30 @@ bool QStatusBar_Event(QStatusBar* self, QEvent* param1) {
         return vqstatusbar->event(param1);
     }
     return {};
+}
+
+libqt_string QStatusBar_Tr2(const char* s, const char* c) {
+    auto _ret = QStatusBar::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QStatusBar_Tr3(const char* s, const char* c, int n) {
+    auto _ret = QStatusBar::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QStatusBar_AddWidget2(QStatusBar* self, QWidget* widget, int stretch) {

@@ -33,6 +33,7 @@ QSignalTransition* QSignalTransition_new4(const QObject* sender, const char* sig
 QMetaObject* QSignalTransition_MetaObject(const QSignalTransition* self);
 void* QSignalTransition_Metacast(QSignalTransition* self, const char* param1);
 int QSignalTransition_Metacall(QSignalTransition* self, int param1, int param2, void** param3);
+libqt_string QSignalTransition_Tr(const char* s);
 QObject* QSignalTransition_SenderObject(const QSignalTransition* self);
 void QSignalTransition_SetSenderObject(QSignalTransition* self, const QObject* sender);
 libqt_string QSignalTransition_Signal(const QSignalTransition* self);
@@ -40,6 +41,8 @@ void QSignalTransition_SetSignal(QSignalTransition* self, const libqt_string sig
 bool QSignalTransition_EventTest(QSignalTransition* self, QEvent* event);
 void QSignalTransition_OnTransition(QSignalTransition* self, QEvent* event);
 bool QSignalTransition_Event(QSignalTransition* self, QEvent* e);
+libqt_string QSignalTransition_Tr2(const char* s, const char* c);
+libqt_string QSignalTransition_Tr3(const char* s, const char* c, int n);
 void QSignalTransition_OnMetaObject(const QSignalTransition* self, intptr_t slot);
 QMetaObject* QSignalTransition_SuperMetaObject(const QSignalTransition* self);
 void QSignalTransition_OnMetacast(QSignalTransition* self, intptr_t slot);

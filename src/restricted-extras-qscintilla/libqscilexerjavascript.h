@@ -35,6 +35,7 @@ QsciLexerJavaScript* QsciLexerJavaScript_new2(QObject* parent);
 QMetaObject* QsciLexerJavaScript_MetaObject(const QsciLexerJavaScript* self);
 void* QsciLexerJavaScript_Metacast(QsciLexerJavaScript* self, const char* param1);
 int QsciLexerJavaScript_Metacall(QsciLexerJavaScript* self, int param1, int param2, void** param3);
+libqt_string QsciLexerJavaScript_Tr(const char* s);
 const char* QsciLexerJavaScript_Language(const QsciLexerJavaScript* self);
 QColor* QsciLexerJavaScript_DefaultColor(const QsciLexerJavaScript* self, int style);
 bool QsciLexerJavaScript_DefaultEolFill(const QsciLexerJavaScript* self, int style);
@@ -42,6 +43,8 @@ QFont* QsciLexerJavaScript_DefaultFont(const QsciLexerJavaScript* self, int styl
 QColor* QsciLexerJavaScript_DefaultPaper(const QsciLexerJavaScript* self, int style);
 const char* QsciLexerJavaScript_Keywords(const QsciLexerJavaScript* self, int set);
 libqt_string QsciLexerJavaScript_Description(const QsciLexerJavaScript* self, int style);
+libqt_string QsciLexerJavaScript_Tr2(const char* s, const char* c);
+libqt_string QsciLexerJavaScript_Tr3(const char* s, const char* c, int n);
 void QsciLexerJavaScript_OnMetaObject(const QsciLexerJavaScript* self, intptr_t slot);
 QMetaObject* QsciLexerJavaScript_SuperMetaObject(const QsciLexerJavaScript* self);
 void QsciLexerJavaScript_OnMetacast(QsciLexerJavaScript* self, intptr_t slot);

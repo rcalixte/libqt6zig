@@ -66,6 +66,7 @@ TextGrammarCheck__GrammarResultWidget* TextGrammarCheck__GrammarResultWidget_new
 QMetaObject* TextGrammarCheck__GrammarResultWidget_MetaObject(const TextGrammarCheck__GrammarResultWidget* self);
 void* TextGrammarCheck__GrammarResultWidget_Metacast(TextGrammarCheck__GrammarResultWidget* self, const char* param1);
 int TextGrammarCheck__GrammarResultWidget_Metacall(TextGrammarCheck__GrammarResultWidget* self, int param1, int param2, void** param3);
+libqt_string TextGrammarCheck__GrammarResultWidget_Tr(const char* s);
 void TextGrammarCheck__GrammarResultWidget_SetText(TextGrammarCheck__GrammarResultWidget* self, const libqt_string str);
 void TextGrammarCheck__GrammarResultWidget_CheckGrammar(TextGrammarCheck__GrammarResultWidget* self);
 void TextGrammarCheck__GrammarResultWidget_ApplyGrammarResult(TextGrammarCheck__GrammarResultWidget* self, const libqt_list /* of TextGrammarCheck__GrammarError* */ infos);
@@ -78,6 +79,8 @@ void TextGrammarCheck__GrammarResultWidget_Connect_CloseChecker(TextGrammarCheck
 void TextGrammarCheck__GrammarResultWidget_Configure(TextGrammarCheck__GrammarResultWidget* self);
 void TextGrammarCheck__GrammarResultWidget_Connect_Configure(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot);
 void TextGrammarCheck__GrammarResultWidget_AddExtraWidget(TextGrammarCheck__GrammarResultWidget* self);
+libqt_string TextGrammarCheck__GrammarResultWidget_Tr2(const char* s, const char* c);
+libqt_string TextGrammarCheck__GrammarResultWidget_Tr3(const char* s, const char* c, int n);
 void TextGrammarCheck__GrammarResultWidget_OnMetaObject(const TextGrammarCheck__GrammarResultWidget* self, intptr_t slot);
 QMetaObject* TextGrammarCheck__GrammarResultWidget_SuperMetaObject(const TextGrammarCheck__GrammarResultWidget* self);
 void TextGrammarCheck__GrammarResultWidget_OnMetacast(TextGrammarCheck__GrammarResultWidget* self, intptr_t slot);

@@ -74,6 +74,7 @@ TextGrammarCheck__GrammarResultTextEdit* TextGrammarCheck__GrammarResultTextEdit
 QMetaObject* TextGrammarCheck__GrammarResultTextEdit_MetaObject(const TextGrammarCheck__GrammarResultTextEdit* self);
 void* TextGrammarCheck__GrammarResultTextEdit_Metacast(TextGrammarCheck__GrammarResultTextEdit* self, const char* param1);
 int TextGrammarCheck__GrammarResultTextEdit_Metacall(TextGrammarCheck__GrammarResultTextEdit* self, int param1, int param2, void** param3);
+libqt_string TextGrammarCheck__GrammarResultTextEdit_Tr(const char* s);
 void TextGrammarCheck__GrammarResultTextEdit_ApplyGrammarResult(TextGrammarCheck__GrammarResultTextEdit* self, const libqt_list /* of TextGrammarCheck__GrammarError* */ infos);
 void TextGrammarCheck__GrammarResultTextEdit_ContextMenuEvent(TextGrammarCheck__GrammarResultTextEdit* self, QContextMenuEvent* event);
 void TextGrammarCheck__GrammarResultTextEdit_PaintEvent(TextGrammarCheck__GrammarResultTextEdit* self, QPaintEvent* event);
@@ -86,6 +87,8 @@ void TextGrammarCheck__GrammarResultTextEdit_CloseChecker(TextGrammarCheck__Gram
 void TextGrammarCheck__GrammarResultTextEdit_Connect_CloseChecker(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot);
 void TextGrammarCheck__GrammarResultTextEdit_Configure(TextGrammarCheck__GrammarResultTextEdit* self);
 void TextGrammarCheck__GrammarResultTextEdit_Connect_Configure(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot);
+libqt_string TextGrammarCheck__GrammarResultTextEdit_Tr2(const char* s, const char* c);
+libqt_string TextGrammarCheck__GrammarResultTextEdit_Tr3(const char* s, const char* c, int n);
 void TextGrammarCheck__GrammarResultTextEdit_OnMetaObject(const TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot);
 QMetaObject* TextGrammarCheck__GrammarResultTextEdit_SuperMetaObject(const TextGrammarCheck__GrammarResultTextEdit* self);
 void TextGrammarCheck__GrammarResultTextEdit_OnMetacast(TextGrammarCheck__GrammarResultTextEdit* self, intptr_t slot);

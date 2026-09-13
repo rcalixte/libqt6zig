@@ -36,10 +36,13 @@ KFileMetaData__ExtractorPlugin* KFileMetaData__ExtractorPlugin_new(QObject* pare
 QMetaObject* KFileMetaData__ExtractorPlugin_MetaObject(const KFileMetaData__ExtractorPlugin* self);
 void* KFileMetaData__ExtractorPlugin_Metacast(KFileMetaData__ExtractorPlugin* self, const char* param1);
 int KFileMetaData__ExtractorPlugin_Metacall(KFileMetaData__ExtractorPlugin* self, int param1, int param2, void** param3);
+libqt_string KFileMetaData__ExtractorPlugin_Tr(const char* s);
 libqt_list /* of libqt_string */ KFileMetaData__ExtractorPlugin_Mimetypes(const KFileMetaData__ExtractorPlugin* self);
 void KFileMetaData__ExtractorPlugin_Extract(KFileMetaData__ExtractorPlugin* self, KFileMetaData__ExtractionResult* result);
 QDateTime* KFileMetaData__ExtractorPlugin_DateTimeFromString(const libqt_string dateString);
 libqt_list /* of libqt_string */ KFileMetaData__ExtractorPlugin_ContactsFromString(const libqt_string string);
+libqt_string KFileMetaData__ExtractorPlugin_Tr2(const char* s, const char* c);
+libqt_string KFileMetaData__ExtractorPlugin_Tr3(const char* s, const char* c, int n);
 void KFileMetaData__ExtractorPlugin_OnMetaObject(const KFileMetaData__ExtractorPlugin* self, intptr_t slot);
 QMetaObject* KFileMetaData__ExtractorPlugin_SuperMetaObject(const KFileMetaData__ExtractorPlugin* self);
 void KFileMetaData__ExtractorPlugin_OnMetacast(KFileMetaData__ExtractorPlugin* self, intptr_t slot);

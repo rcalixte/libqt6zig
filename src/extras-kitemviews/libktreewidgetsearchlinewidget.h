@@ -58,9 +58,12 @@ KTreeWidgetSearchLineWidget* KTreeWidgetSearchLineWidget_new3(QWidget* parent, Q
 QMetaObject* KTreeWidgetSearchLineWidget_MetaObject(const KTreeWidgetSearchLineWidget* self);
 void* KTreeWidgetSearchLineWidget_Metacast(KTreeWidgetSearchLineWidget* self, const char* param1);
 int KTreeWidgetSearchLineWidget_Metacall(KTreeWidgetSearchLineWidget* self, int param1, int param2, void** param3);
+libqt_string KTreeWidgetSearchLineWidget_Tr(const char* s);
 KTreeWidgetSearchLine* KTreeWidgetSearchLineWidget_SearchLine(const KTreeWidgetSearchLineWidget* self);
 void KTreeWidgetSearchLineWidget_CreateWidgets(KTreeWidgetSearchLineWidget* self);
 KTreeWidgetSearchLine* KTreeWidgetSearchLineWidget_CreateSearchLine(const KTreeWidgetSearchLineWidget* self, QTreeWidget* treeWidget);
+libqt_string KTreeWidgetSearchLineWidget_Tr2(const char* s, const char* c);
+libqt_string KTreeWidgetSearchLineWidget_Tr3(const char* s, const char* c, int n);
 void KTreeWidgetSearchLineWidget_OnMetaObject(const KTreeWidgetSearchLineWidget* self, intptr_t slot);
 QMetaObject* KTreeWidgetSearchLineWidget_SuperMetaObject(const KTreeWidgetSearchLineWidget* self);
 void KTreeWidgetSearchLineWidget_OnMetacast(KTreeWidgetSearchLineWidget* self, intptr_t slot);

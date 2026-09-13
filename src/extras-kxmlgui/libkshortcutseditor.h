@@ -60,6 +60,7 @@ KShortcutsEditor* KShortcutsEditor_new6(QWidget* parent, int actionTypes, int al
 QMetaObject* KShortcutsEditor_MetaObject(const KShortcutsEditor* self);
 void* KShortcutsEditor_Metacast(KShortcutsEditor* self, const char* param1);
 int KShortcutsEditor_Metacall(KShortcutsEditor* self, int param1, int param2, void** param3);
+libqt_string KShortcutsEditor_Tr(const char* s);
 bool KShortcutsEditor_IsModified(const KShortcutsEditor* self);
 void KShortcutsEditor_ClearCollections(KShortcutsEditor* self);
 void KShortcutsEditor_AddCollection(KShortcutsEditor* self, KActionCollection* param1);
@@ -70,6 +71,8 @@ int KShortcutsEditor_ActionTypes(const KShortcutsEditor* self);
 void KShortcutsEditor_KeyChange(KShortcutsEditor* self);
 void KShortcutsEditor_Connect_KeyChange(KShortcutsEditor* self, intptr_t slot);
 void KShortcutsEditor_AllDefault(KShortcutsEditor* self);
+libqt_string KShortcutsEditor_Tr2(const char* s, const char* c);
+libqt_string KShortcutsEditor_Tr3(const char* s, const char* c, int n);
 void KShortcutsEditor_AddCollection2(KShortcutsEditor* self, KActionCollection* param1, const libqt_string title);
 void KShortcutsEditor_OnMetaObject(const KShortcutsEditor* self, intptr_t slot);
 QMetaObject* KShortcutsEditor_SuperMetaObject(const KShortcutsEditor* self);

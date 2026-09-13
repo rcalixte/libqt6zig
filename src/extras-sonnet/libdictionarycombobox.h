@@ -61,6 +61,7 @@ Sonnet__DictionaryComboBox* Sonnet__DictionaryComboBox_new2();
 QMetaObject* Sonnet__DictionaryComboBox_MetaObject(const Sonnet__DictionaryComboBox* self);
 void* Sonnet__DictionaryComboBox_Metacast(Sonnet__DictionaryComboBox* self, const char* param1);
 int Sonnet__DictionaryComboBox_Metacall(Sonnet__DictionaryComboBox* self, int param1, int param2, void** param3);
+libqt_string Sonnet__DictionaryComboBox_Tr(const char* s);
 void Sonnet__DictionaryComboBox_ReloadCombo(Sonnet__DictionaryComboBox* self);
 libqt_string Sonnet__DictionaryComboBox_CurrentDictionaryName(const Sonnet__DictionaryComboBox* self);
 libqt_string Sonnet__DictionaryComboBox_CurrentDictionary(const Sonnet__DictionaryComboBox* self);
@@ -72,6 +73,8 @@ void Sonnet__DictionaryComboBox_DictionaryChanged(Sonnet__DictionaryComboBox* se
 void Sonnet__DictionaryComboBox_Connect_DictionaryChanged(Sonnet__DictionaryComboBox* self, intptr_t slot);
 void Sonnet__DictionaryComboBox_DictionaryNameChanged(Sonnet__DictionaryComboBox* self, const libqt_string dictionaryName);
 void Sonnet__DictionaryComboBox_Connect_DictionaryNameChanged(Sonnet__DictionaryComboBox* self, intptr_t slot);
+libqt_string Sonnet__DictionaryComboBox_Tr2(const char* s, const char* c);
+libqt_string Sonnet__DictionaryComboBox_Tr3(const char* s, const char* c, int n);
 void Sonnet__DictionaryComboBox_OnMetaObject(const Sonnet__DictionaryComboBox* self, intptr_t slot);
 QMetaObject* Sonnet__DictionaryComboBox_SuperMetaObject(const Sonnet__DictionaryComboBox* self);
 void Sonnet__DictionaryComboBox_OnMetacast(Sonnet__DictionaryComboBox* self, intptr_t slot);

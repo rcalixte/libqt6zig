@@ -45,16 +45,16 @@ pub const KIO__MetaData = extern struct {
         defer allocator.free(metaData_keys);
         const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.new2: Memory allocation failed");
         defer allocator.free(metaData_values);
-        var i: usize = 0;
+        var metaData_i: usize = 0;
         var metaData_it = metaData.iterator();
-        while (metaData_it.next()) |it_entry| : (i += 1) {
+        while (metaData_it.next()) |it_entry| : (metaData_i += 1) {
             const metaData_key = it_entry.key_ptr.*;
-            metaData_keys[i] = qtc.libqt_string{
+            metaData_keys[metaData_i] = qtc.libqt_string{
                 .len = metaData_key.len,
                 .data = metaData_key.ptr,
             };
             const value = it_entry.value_ptr.*;
-            metaData_values[i] = qtc.libqt_string{
+            metaData_values[metaData_i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
@@ -85,15 +85,15 @@ pub const KIO__MetaData = extern struct {
         defer allocator.free(param1_keys);
         const param1_values = allocator.alloc(QtC.QVariant, param1_count) catch @panic("KIO__MetaData.new3: Memory allocation failed");
         defer allocator.free(param1_values);
-        var i: usize = 0;
+        var param1_i: usize = 0;
         var param1_it = param1.iterator();
-        while (param1_it.next()) |it_entry| : (i += 1) {
+        while (param1_it.next()) |it_entry| : (param1_i += 1) {
             const param1_key = it_entry.key_ptr.*;
-            param1_keys[i] = qtc.libqt_string{
+            param1_keys[param1_i] = qtc.libqt_string{
                 .len = param1_key.len,
                 .data = param1_key.ptr,
             };
-            param1_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            param1_values[param1_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const param1_map = qtc.libqt_map{
             .len = param1_count,
@@ -138,16 +138,16 @@ pub const KIO__MetaData = extern struct {
         defer allocator.free(metaData_keys);
         const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.operatorPlusAssign: Memory allocation failed");
         defer allocator.free(metaData_values);
-        var i: usize = 0;
+        var metaData_i: usize = 0;
         var metaData_it = metaData.iterator();
-        while (metaData_it.next()) |it_entry| : (i += 1) {
+        while (metaData_it.next()) |it_entry| : (metaData_i += 1) {
             const metaData_key = it_entry.key_ptr.*;
-            metaData_keys[i] = qtc.libqt_string{
+            metaData_keys[metaData_i] = qtc.libqt_string{
                 .len = metaData_key.len,
                 .data = metaData_key.ptr,
             };
             const value = it_entry.value_ptr.*;
-            metaData_values[i] = qtc.libqt_string{
+            metaData_values[metaData_i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
@@ -180,15 +180,15 @@ pub const KIO__MetaData = extern struct {
         defer allocator.free(metaData_keys);
         const metaData_values = allocator.alloc(QtC.QVariant, metaData_count) catch @panic("KIO__MetaData.operatorPlusAssign2: Memory allocation failed");
         defer allocator.free(metaData_values);
-        var i: usize = 0;
+        var metaData_i: usize = 0;
         var metaData_it = metaData.iterator();
-        while (metaData_it.next()) |it_entry| : (i += 1) {
+        while (metaData_it.next()) |it_entry| : (metaData_i += 1) {
             const metaData_key = it_entry.key_ptr.*;
-            metaData_keys[i] = qtc.libqt_string{
+            metaData_keys[metaData_i] = qtc.libqt_string{
                 .len = metaData_key.len,
                 .data = metaData_key.ptr,
             };
-            metaData_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            metaData_values[metaData_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const metaData_map = qtc.libqt_map{
             .len = metaData_count,
@@ -218,15 +218,15 @@ pub const KIO__MetaData = extern struct {
         defer allocator.free(metaData_keys);
         const metaData_values = allocator.alloc(QtC.QVariant, metaData_count) catch @panic("KIO__MetaData.operatorAssign: Memory allocation failed");
         defer allocator.free(metaData_values);
-        var i: usize = 0;
+        var metaData_i: usize = 0;
         var metaData_it = metaData.iterator();
-        while (metaData_it.next()) |it_entry| : (i += 1) {
+        while (metaData_it.next()) |it_entry| : (metaData_i += 1) {
             const metaData_key = it_entry.key_ptr.*;
-            metaData_keys[i] = qtc.libqt_string{
+            metaData_keys[metaData_i] = qtc.libqt_string{
                 .len = metaData_key.len,
                 .data = metaData_key.ptr,
             };
-            metaData_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            metaData_values[metaData_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const metaData_map = qtc.libqt_map{
             .len = metaData_count,

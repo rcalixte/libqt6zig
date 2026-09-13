@@ -41,6 +41,7 @@ KDirSortFilterProxyModel* KDirSortFilterProxyModel_new2(QObject* parent);
 QMetaObject* KDirSortFilterProxyModel_MetaObject(const KDirSortFilterProxyModel* self);
 void* KDirSortFilterProxyModel_Metacast(KDirSortFilterProxyModel* self, const char* param1);
 int KDirSortFilterProxyModel_Metacall(KDirSortFilterProxyModel* self, int param1, int param2, void** param3);
+libqt_string KDirSortFilterProxyModel_Tr(const char* s);
 bool KDirSortFilterProxyModel_HasChildren(const KDirSortFilterProxyModel* self, const QModelIndex* parent);
 bool KDirSortFilterProxyModel_CanFetchMore(const KDirSortFilterProxyModel* self, const QModelIndex* parent);
 int KDirSortFilterProxyModel_PointsForPermissions(const QFileInfo* info);
@@ -50,6 +51,8 @@ void KDirSortFilterProxyModel_SetSortHiddenFilesLast(KDirSortFilterProxyModel* s
 bool KDirSortFilterProxyModel_SortHiddenFilesLast(const KDirSortFilterProxyModel* self);
 int KDirSortFilterProxyModel_SupportedDragOptions(const KDirSortFilterProxyModel* self);
 bool KDirSortFilterProxyModel_SubSortLessThan(const KDirSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right);
+libqt_string KDirSortFilterProxyModel_Tr2(const char* s, const char* c);
+libqt_string KDirSortFilterProxyModel_Tr3(const char* s, const char* c, int n);
 void KDirSortFilterProxyModel_OnMetaObject(const KDirSortFilterProxyModel* self, intptr_t slot);
 QMetaObject* KDirSortFilterProxyModel_SuperMetaObject(const KDirSortFilterProxyModel* self);
 void KDirSortFilterProxyModel_OnMetacast(KDirSortFilterProxyModel* self, intptr_t slot);

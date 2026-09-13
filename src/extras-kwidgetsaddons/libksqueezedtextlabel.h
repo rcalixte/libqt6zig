@@ -61,6 +61,7 @@ KSqueezedTextLabel* KSqueezedTextLabel_new4(const libqt_string text, QWidget* pa
 QMetaObject* KSqueezedTextLabel_MetaObject(const KSqueezedTextLabel* self);
 void* KSqueezedTextLabel_Metacast(KSqueezedTextLabel* self, const char* param1);
 int KSqueezedTextLabel_Metacall(KSqueezedTextLabel* self, int param1, int param2, void** param3);
+libqt_string KSqueezedTextLabel_Tr(const char* s);
 QSize* KSqueezedTextLabel_MinimumSizeHint(const KSqueezedTextLabel* self);
 QSize* KSqueezedTextLabel_SizeHint(const KSqueezedTextLabel* self);
 void KSqueezedTextLabel_SetIndent(KSqueezedTextLabel* self, int indent);
@@ -76,6 +77,8 @@ void KSqueezedTextLabel_Clear(KSqueezedTextLabel* self);
 void KSqueezedTextLabel_MouseReleaseEvent(KSqueezedTextLabel* self, QMouseEvent* param1);
 void KSqueezedTextLabel_ResizeEvent(KSqueezedTextLabel* self, QResizeEvent* param1);
 void KSqueezedTextLabel_ContextMenuEvent(KSqueezedTextLabel* self, QContextMenuEvent* param1);
+libqt_string KSqueezedTextLabel_Tr2(const char* s, const char* c);
+libqt_string KSqueezedTextLabel_Tr3(const char* s, const char* c, int n);
 void KSqueezedTextLabel_OnMetaObject(const KSqueezedTextLabel* self, intptr_t slot);
 QMetaObject* KSqueezedTextLabel_SuperMetaObject(const KSqueezedTextLabel* self);
 void KSqueezedTextLabel_OnMetacast(KSqueezedTextLabel* self, intptr_t slot);

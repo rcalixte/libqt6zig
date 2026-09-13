@@ -114,6 +114,7 @@ QDesignerWidgetDataBaseInterface* QDesignerWidgetDataBaseInterface_new2(QObject*
 QMetaObject* QDesignerWidgetDataBaseInterface_MetaObject(const QDesignerWidgetDataBaseInterface* self);
 void* QDesignerWidgetDataBaseInterface_Metacast(QDesignerWidgetDataBaseInterface* self, const char* param1);
 int QDesignerWidgetDataBaseInterface_Metacall(QDesignerWidgetDataBaseInterface* self, int param1, int param2, void** param3);
+libqt_string QDesignerWidgetDataBaseInterface_Tr(const char* s);
 int QDesignerWidgetDataBaseInterface_Count(const QDesignerWidgetDataBaseInterface* self);
 QDesignerWidgetDataBaseItemInterface* QDesignerWidgetDataBaseInterface_Item(const QDesignerWidgetDataBaseInterface* self, int index);
 int QDesignerWidgetDataBaseInterface_IndexOf(const QDesignerWidgetDataBaseInterface* self, QDesignerWidgetDataBaseItemInterface* item);
@@ -126,6 +127,8 @@ bool QDesignerWidgetDataBaseInterface_IsContainer(const QDesignerWidgetDataBaseI
 bool QDesignerWidgetDataBaseInterface_IsCustom(const QDesignerWidgetDataBaseInterface* self, QObject* object);
 void QDesignerWidgetDataBaseInterface_Changed(QDesignerWidgetDataBaseInterface* self);
 void QDesignerWidgetDataBaseInterface_Connect_Changed(QDesignerWidgetDataBaseInterface* self, intptr_t slot);
+libqt_string QDesignerWidgetDataBaseInterface_Tr2(const char* s, const char* c);
+libqt_string QDesignerWidgetDataBaseInterface_Tr3(const char* s, const char* c, int n);
 bool QDesignerWidgetDataBaseInterface_IsContainer2(const QDesignerWidgetDataBaseInterface* self, QObject* object, bool resolveName);
 bool QDesignerWidgetDataBaseInterface_IsCustom2(const QDesignerWidgetDataBaseInterface* self, QObject* object, bool resolveName);
 void QDesignerWidgetDataBaseInterface_OnMetaObject(const QDesignerWidgetDataBaseInterface* self, intptr_t slot);

@@ -45,15 +45,15 @@ pub const PackageKit__Details = extern struct {
         defer allocator.free(other_keys);
         const other_values = allocator.alloc(QtC.QVariant, other_count) catch @panic("PackageKit__Details.new2: Memory allocation failed");
         defer allocator.free(other_values);
-        var i: usize = 0;
+        var other_i: usize = 0;
         var other_it = other.iterator();
-        while (other_it.next()) |it_entry| : (i += 1) {
+        while (other_it.next()) |it_entry| : (other_i += 1) {
             const other_key = it_entry.key_ptr.*;
-            other_keys[i] = qtc.libqt_string{
+            other_keys[other_i] = qtc.libqt_string{
                 .len = other_key.len,
                 .data = other_key.ptr,
             };
-            other_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            other_values[other_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const other_map = qtc.libqt_map{
             .len = other_count,

@@ -62,6 +62,7 @@ TextEditTextToSpeech__TextToSpeechWidget* TextEditTextToSpeech__TextToSpeechWidg
 QMetaObject* TextEditTextToSpeech__TextToSpeechWidget_MetaObject(const TextEditTextToSpeech__TextToSpeechWidget* self);
 void* TextEditTextToSpeech__TextToSpeechWidget_Metacast(TextEditTextToSpeech__TextToSpeechWidget* self, const char* param1);
 int TextEditTextToSpeech__TextToSpeechWidget_Metacall(TextEditTextToSpeech__TextToSpeechWidget* self, int param1, int param2, void** param3);
+libqt_string TextEditTextToSpeech__TextToSpeechWidget_Tr(const char* s);
 int TextEditTextToSpeech__TextToSpeechWidget_State(const TextEditTextToSpeech__TextToSpeechWidget* self);
 void TextEditTextToSpeech__TextToSpeechWidget_SetState(TextEditTextToSpeech__TextToSpeechWidget* self, int state);
 void TextEditTextToSpeech__TextToSpeechWidget_SetTextToSpeechInterface(TextEditTextToSpeech__TextToSpeechWidget* self, TextEditTextToSpeech__TextToSpeechInterface* interface);
@@ -73,6 +74,8 @@ void TextEditTextToSpeech__TextToSpeechWidget_StateChanged(TextEditTextToSpeech_
 void TextEditTextToSpeech__TextToSpeechWidget_Connect_StateChanged(TextEditTextToSpeech__TextToSpeechWidget* self, intptr_t slot);
 void TextEditTextToSpeech__TextToSpeechWidget_ChangeVisibility(TextEditTextToSpeech__TextToSpeechWidget* self, bool state);
 void TextEditTextToSpeech__TextToSpeechWidget_Connect_ChangeVisibility(TextEditTextToSpeech__TextToSpeechWidget* self, intptr_t slot);
+libqt_string TextEditTextToSpeech__TextToSpeechWidget_Tr2(const char* s, const char* c);
+libqt_string TextEditTextToSpeech__TextToSpeechWidget_Tr3(const char* s, const char* c, int n);
 void TextEditTextToSpeech__TextToSpeechWidget_OnMetaObject(const TextEditTextToSpeech__TextToSpeechWidget* self, intptr_t slot);
 QMetaObject* TextEditTextToSpeech__TextToSpeechWidget_SuperMetaObject(const TextEditTextToSpeech__TextToSpeechWidget* self);
 void TextEditTextToSpeech__TextToSpeechWidget_OnMetacast(TextEditTextToSpeech__TextToSpeechWidget* self, intptr_t slot);

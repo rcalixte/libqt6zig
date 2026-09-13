@@ -75,6 +75,7 @@ TextCustomEditor__RichTextEditor* TextCustomEditor__RichTextEditor_new2();
 QMetaObject* TextCustomEditor__RichTextEditor_MetaObject(const TextCustomEditor__RichTextEditor* self);
 void* TextCustomEditor__RichTextEditor_Metacast(TextCustomEditor__RichTextEditor* self, const char* param1);
 int TextCustomEditor__RichTextEditor_Metacall(TextCustomEditor__RichTextEditor* self, int param1, int param2, void** param3);
+libqt_string TextCustomEditor__RichTextEditor_Tr(const char* s);
 void TextCustomEditor__RichTextEditor_SetSearchSupport(TextCustomEditor__RichTextEditor* self, bool b);
 bool TextCustomEditor__RichTextEditor_SearchSupport(const TextCustomEditor__RichTextEditor* self);
 bool TextCustomEditor__RichTextEditor_SpellCheckingSupport(const TextCustomEditor__RichTextEditor* self);
@@ -136,6 +137,8 @@ void TextCustomEditor__RichTextEditor_SpellCheckingFinished(TextCustomEditor__Ri
 void TextCustomEditor__RichTextEditor_Connect_SpellCheckingFinished(TextCustomEditor__RichTextEditor* self, intptr_t slot);
 void TextCustomEditor__RichTextEditor_SpellCheckingCanceled(TextCustomEditor__RichTextEditor* self);
 void TextCustomEditor__RichTextEditor_Connect_SpellCheckingCanceled(TextCustomEditor__RichTextEditor* self, intptr_t slot);
+libqt_string TextCustomEditor__RichTextEditor_Tr2(const char* s, const char* c);
+libqt_string TextCustomEditor__RichTextEditor_Tr3(const char* s, const char* c, int n);
 void TextCustomEditor__RichTextEditor_OnMetaObject(const TextCustomEditor__RichTextEditor* self, intptr_t slot);
 QMetaObject* TextCustomEditor__RichTextEditor_SuperMetaObject(const TextCustomEditor__RichTextEditor* self);
 void TextCustomEditor__RichTextEditor_OnMetacast(TextCustomEditor__RichTextEditor* self, intptr_t slot);

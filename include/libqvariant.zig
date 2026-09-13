@@ -291,15 +291,15 @@ pub const QVariant = extern struct {
         defer allocator.free(hash_keys);
         const hash_values = allocator.alloc(QtC.QVariant, hash_count) catch @panic("QVariant.new17: Memory allocation failed");
         defer allocator.free(hash_values);
-        var i: usize = 0;
+        var hash_i: usize = 0;
         var hash_it = hash.iterator();
-        while (hash_it.next()) |it_entry| : (i += 1) {
+        while (hash_it.next()) |it_entry| : (hash_i += 1) {
             const hash_key = it_entry.key_ptr.*;
-            hash_keys[i] = qtc.libqt_string{
+            hash_keys[hash_i] = qtc.libqt_string{
                 .len = hash_key.len,
                 .data = hash_key.ptr,
             };
-            hash_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            hash_values[hash_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const hash_map = qtc.libqt_map{
             .len = hash_count,
@@ -390,15 +390,15 @@ pub const QVariant = extern struct {
         defer allocator.free(map_keys);
         const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("QVariant.new22: Memory allocation failed");
         defer allocator.free(map_values);
-        var i: usize = 0;
+        var map_i: usize = 0;
         var map_it = map.iterator();
-        while (map_it.next()) |it_entry| : (i += 1) {
+        while (map_it.next()) |it_entry| : (map_i += 1) {
             const map_key = it_entry.key_ptr.*;
-            map_keys[i] = qtc.libqt_string{
+            map_keys[map_i] = qtc.libqt_string{
                 .len = map_key.len,
                 .data = map_key.ptr,
             };
-            map_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            map_values[map_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const map_map = qtc.libqt_map{
             .len = map_count,

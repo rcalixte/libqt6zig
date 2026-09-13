@@ -720,16 +720,16 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
         defer allocator.free(entries_keys);
         const entries_values = allocator.alloc(qtc.libqt_string, entries_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.setAutocorrectEntries: Memory allocation failed");
         defer allocator.free(entries_values);
-        var i: usize = 0;
+        var entries_i: usize = 0;
         var entries_it = entries.iterator();
-        while (entries_it.next()) |it_entry| : (i += 1) {
+        while (entries_it.next()) |it_entry| : (entries_i += 1) {
             const entries_key = it_entry.key_ptr.*;
-            entries_keys[i] = qtc.libqt_string{
+            entries_keys[entries_i] = qtc.libqt_string{
                 .len = entries_key.len,
                 .data = entries_key.ptr,
             };
             const value = it_entry.value_ptr.*;
-            entries_values[i] = qtc.libqt_string{
+            entries_values[entries_i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
@@ -901,16 +901,16 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
         defer allocator.free(newSuperScriptEntries_keys);
         const newSuperScriptEntries_values = allocator.alloc(qtc.libqt_string, newSuperScriptEntries_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.setSuperScriptEntries: Memory allocation failed");
         defer allocator.free(newSuperScriptEntries_values);
-        var i: usize = 0;
+        var newSuperScriptEntries_i: usize = 0;
         var newSuperScriptEntries_it = newSuperScriptEntries.iterator();
-        while (newSuperScriptEntries_it.next()) |it_entry| : (i += 1) {
+        while (newSuperScriptEntries_it.next()) |it_entry| : (newSuperScriptEntries_i += 1) {
             const newSuperScriptEntries_key = it_entry.key_ptr.*;
-            newSuperScriptEntries_keys[i] = qtc.libqt_string{
+            newSuperScriptEntries_keys[newSuperScriptEntries_i] = qtc.libqt_string{
                 .len = newSuperScriptEntries_key.len,
                 .data = newSuperScriptEntries_key.ptr,
             };
             const value = it_entry.value_ptr.*;
-            newSuperScriptEntries_values[i] = qtc.libqt_string{
+            newSuperScriptEntries_values[newSuperScriptEntries_i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };

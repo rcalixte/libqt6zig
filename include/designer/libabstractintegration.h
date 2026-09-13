@@ -35,6 +35,7 @@ QDesignerIntegrationInterface* QDesignerIntegrationInterface_new2(QDesignerFormE
 QMetaObject* QDesignerIntegrationInterface_MetaObject(const QDesignerIntegrationInterface* self);
 void* QDesignerIntegrationInterface_Metacast(QDesignerIntegrationInterface* self, const char* param1);
 int QDesignerIntegrationInterface_Metacall(QDesignerIntegrationInterface* self, int param1, int param2, void** param3);
+libqt_string QDesignerIntegrationInterface_Tr(const char* s);
 QDesignerFormEditorInterface* QDesignerIntegrationInterface_Core(const QDesignerIntegrationInterface* self);
 QWidget* QDesignerIntegrationInterface_ContainerWindow(const QDesignerIntegrationInterface* self, QWidget* widget);
 QDesignerResourceBrowserInterface* QDesignerIntegrationInterface_CreateResourceBrowser(QDesignerIntegrationInterface* self, QWidget* parent);
@@ -66,6 +67,8 @@ void QDesignerIntegrationInterface_UpdateActiveFormWindow(QDesignerIntegrationIn
 void QDesignerIntegrationInterface_SetupFormWindow(QDesignerIntegrationInterface* self, QDesignerFormWindowInterface* formWindow);
 void QDesignerIntegrationInterface_UpdateSelection(QDesignerIntegrationInterface* self);
 void QDesignerIntegrationInterface_UpdateCustomWidgetPlugins(QDesignerIntegrationInterface* self);
+libqt_string QDesignerIntegrationInterface_Tr2(const char* s, const char* c);
+libqt_string QDesignerIntegrationInterface_Tr3(const char* s, const char* c, int n);
 void QDesignerIntegrationInterface_OnMetaObject(const QDesignerIntegrationInterface* self, intptr_t slot);
 QMetaObject* QDesignerIntegrationInterface_SuperMetaObject(const QDesignerIntegrationInterface* self);
 void QDesignerIntegrationInterface_OnMetacast(QDesignerIntegrationInterface* self, intptr_t slot);
@@ -152,6 +155,7 @@ QDesignerIntegration* QDesignerIntegration_new2(QDesignerFormEditorInterface* co
 QMetaObject* QDesignerIntegration_MetaObject(const QDesignerIntegration* self);
 void* QDesignerIntegration_Metacast(QDesignerIntegration* self, const char* param1);
 int QDesignerIntegration_Metacall(QDesignerIntegration* self, int param1, int param2, void** param3);
+libqt_string QDesignerIntegration_Tr(const char* s);
 libqt_string QDesignerIntegration_HeaderSuffix(const QDesignerIntegration* self);
 void QDesignerIntegration_SetHeaderSuffix(QDesignerIntegration* self, const libqt_string headerSuffix);
 bool QDesignerIntegration_IsHeaderLowercase(const QDesignerIntegration* self);
@@ -173,6 +177,8 @@ void QDesignerIntegration_UpdateActiveFormWindow(QDesignerIntegration* self, QDe
 void QDesignerIntegration_SetupFormWindow(QDesignerIntegration* self, QDesignerFormWindowInterface* formWindow);
 void QDesignerIntegration_UpdateSelection(QDesignerIntegration* self);
 void QDesignerIntegration_UpdateCustomWidgetPlugins(QDesignerIntegration* self);
+libqt_string QDesignerIntegration_Tr2(const char* s, const char* c);
+libqt_string QDesignerIntegration_Tr3(const char* s, const char* c, int n);
 void QDesignerIntegration_OnMetaObject(const QDesignerIntegration* self, intptr_t slot);
 QMetaObject* QDesignerIntegration_SuperMetaObject(const QDesignerIntegration* self);
 void QDesignerIntegration_OnMetacast(QDesignerIntegration* self, intptr_t slot);

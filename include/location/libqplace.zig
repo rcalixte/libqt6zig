@@ -361,12 +361,12 @@ pub const QPlace = extern struct {
         defer allocator.free(content_keys);
         const content_values = allocator.alloc(QtC.QPlaceContent, content_count) catch @panic("QPlace.setContent: Memory allocation failed");
         defer allocator.free(content_values);
-        var i: usize = 0;
+        var content_i: usize = 0;
         var content_it = _content.iterator();
-        while (content_it.next()) |it_entry| : (i += 1) {
+        while (content_it.next()) |it_entry| : (content_i += 1) {
             const content_key = it_entry.key_ptr.*;
-            content_keys[i] = @bitCast(content_key);
-            content_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            content_keys[content_i] = @bitCast(content_key);
+            content_values[content_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const content_map = qtc.libqt_map{
             .len = content_count,
@@ -398,12 +398,12 @@ pub const QPlace = extern struct {
         defer allocator.free(content_keys);
         const content_values = allocator.alloc(QtC.QPlaceContent, content_count) catch @panic("QPlace.insertContent: Memory allocation failed");
         defer allocator.free(content_values);
-        var i: usize = 0;
+        var content_i: usize = 0;
         var content_it = _content.iterator();
-        while (content_it.next()) |it_entry| : (i += 1) {
+        while (content_it.next()) |it_entry| : (content_i += 1) {
             const content_key = it_entry.key_ptr.*;
-            content_keys[i] = @bitCast(content_key);
-            content_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            content_keys[content_i] = @bitCast(content_key);
+            content_values[content_i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const content_map = qtc.libqt_map{
             .len = content_count,

@@ -33,6 +33,7 @@ QSoundEffect* QSoundEffect_new4(const QAudioDevice* audioDevice, QObject* parent
 QMetaObject* QSoundEffect_MetaObject(const QSoundEffect* self);
 void* QSoundEffect_Metacast(QSoundEffect* self, const char* param1);
 int QSoundEffect_Metacall(QSoundEffect* self, int param1, int param2, void** param3);
+libqt_string QSoundEffect_Tr(const char* s);
 libqt_list /* of libqt_string */ QSoundEffect_SupportedMimeTypes();
 QUrl* QSoundEffect_Source(const QSoundEffect* self);
 void QSoundEffect_SetSource(QSoundEffect* self, const QUrl* url);
@@ -68,6 +69,8 @@ void QSoundEffect_AudioDeviceChanged(QSoundEffect* self);
 void QSoundEffect_Connect_AudioDeviceChanged(QSoundEffect* self, intptr_t slot);
 void QSoundEffect_Play(QSoundEffect* self);
 void QSoundEffect_Stop(QSoundEffect* self);
+libqt_string QSoundEffect_Tr2(const char* s, const char* c);
+libqt_string QSoundEffect_Tr3(const char* s, const char* c, int n);
 void QSoundEffect_OnMetaObject(const QSoundEffect* self, intptr_t slot);
 QMetaObject* QSoundEffect_SuperMetaObject(const QSoundEffect* self);
 void QSoundEffect_OnMetacast(QSoundEffect* self, intptr_t slot);

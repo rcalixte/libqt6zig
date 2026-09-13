@@ -70,6 +70,7 @@ KCategorizedView* KCategorizedView_new2();
 QMetaObject* KCategorizedView_MetaObject(const KCategorizedView* self);
 void* KCategorizedView_Metacast(KCategorizedView* self, const char* param1);
 int KCategorizedView_Metacall(KCategorizedView* self, int param1, int param2, void** param3);
+libqt_string KCategorizedView_Tr(const char* s);
 void KCategorizedView_SetModel(KCategorizedView* self, QAbstractItemModel* model);
 void KCategorizedView_SetGridSize(KCategorizedView* self, const QSize* size);
 void KCategorizedView_SetGridSizeOwn(KCategorizedView* self, const QSize* size);
@@ -111,6 +112,8 @@ void KCategorizedView_CurrentChanged(KCategorizedView* self, const QModelIndex* 
 void KCategorizedView_DataChanged(KCategorizedView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles);
 void KCategorizedView_RowsInserted(KCategorizedView* self, const QModelIndex* parent, int start, int end);
 void KCategorizedView_SlotLayoutChanged(KCategorizedView* self);
+libqt_string KCategorizedView_Tr2(const char* s, const char* c);
+libqt_string KCategorizedView_Tr3(const char* s, const char* c, int n);
 void KCategorizedView_OnMetaObject(const KCategorizedView* self, intptr_t slot);
 QMetaObject* KCategorizedView_SuperMetaObject(const KCategorizedView* self);
 void KCategorizedView_OnMetacast(KCategorizedView* self, intptr_t slot);
