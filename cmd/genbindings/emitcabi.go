@@ -177,10 +177,10 @@ func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 
 	// Handle QFlags types
 	if ft, ok := p.QFlagsOf(); ok {
-		ret = ft.CABIType
+		ret = ifv(isSlot && p.Const, "const ", "") + ft.CABIType
 
 	} else if e, ok := KnownEnums[p.ParameterType]; ok {
-		ret = e.EnumTypeCABI
+		ret = ifv(isSlot && p.Const, "const ", "") + e.EnumTypeCABI
 	}
 
 	if p.Pointer {
@@ -750,13 +750,19 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 
 		// C++ has given us a QByteArray. CABI needs this as a libqt_string
 		// Do not free the data, the caller will free it
+		var maybePointer string
+		memberRef := "."
+		if p.Pointer {
+			maybePointer = "*"
+			memberRef = "->"
+		}
 
-		shouldReturn = maybeConst + p.ParameterType + " " + namePrefix + "_qb = "
+		shouldReturn = maybeConst + p.ParameterType + maybePointer + " " + namePrefix + "_qb = "
 
 		afterCall += indent + "libqt_string " + namePrefix + "_str;\n"
-		afterCall += indent + namePrefix + "_str.len = " + namePrefix + "_qb.length();\n"
+		afterCall += indent + namePrefix + "_str.len = " + namePrefix + "_qb" + memberRef + "length();\n"
 		afterCall += indent + namePrefix + "_str.data = static_cast<char*>(malloc(" + namePrefix + "_str.len));\n"
-		afterCall += indent + "memcpy((void*)" + namePrefix + "_str.data, " + namePrefix + "_qb.data(), " + namePrefix + "_str.len);\n"
+		afterCall += indent + "memcpy((void*)" + namePrefix + "_str.data, " + namePrefix + "_qb" + memberRef + "data(), " + namePrefix + "_str.len);\n"
 		afterCall += indent + assignExpression + namePrefix + "_str;\n"
 
 		cleanupType = QStringDataFree
@@ -1083,7 +1089,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 			// Hard int cast
 			afterCall += indent + assignExpression + "(" + p.RenderTypeCabi(false) + ")(" + namePrefix + "_ret);\n"
 		} else if p.ByRef {
-			afterCall += indent + assignExpression + "reinterpret_cast<" + p.RenderTypeCabi(false) + ">(&" + rvalue + ");\n"
+			afterCall += indent + assignExpression + "reinterpret_cast<" + p.RenderTypeCabi(isSignal) + ">(&" + namePrefix + "_ret);\n"
 		} else if p.IsChronoSeconds() {
 			afterCall += indent + assignExpression + namePrefix + "_ret.count();\n"
 		} else {
@@ -1841,9 +1847,6 @@ extern "C" {
 			if m.IsProtected && !m.IsVirtual {
 				continue
 			}
-			if (m.MethodName == "tr" || m.OverrideMethodName == "tr") && (c.ClassName != "QObject" && c.ClassName != "QMetaObject") {
-				continue
-			}
 			if !m.IsStatic && isBindingRemoved(methodPrefixName) {
 				continue
 			}
@@ -2170,9 +2173,6 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 			// useful thing is to expose calling the virtual base)
 			// Protected non-virtual methods should always be hidden
 			if m.IsProtected && !m.IsVirtual {
-				continue
-			}
-			if (m.MethodName == "tr" || m.OverrideMethodName == "tr") && (c.ClassName != "QObject" && c.ClassName != "QMetaObject") {
 				continue
 			}
 			if !m.IsStatic && isBindingRemoved(methodPrefixName) {
