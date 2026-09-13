@@ -179,13 +179,13 @@ func parse(filePaths []string, options FlagOptions) (string, error) {
 					currentContext.Name = name
 
 					switch lit {
-					case "Tr":
+					case "Tr", "tr":
 						expectedParams = 1
 
-					case "Tr2":
+					case "Tr2", "tr2":
 						expectedParams = 2
 
-					case "Tr3":
+					case "Tr3", "tr3":
 						expectedParams = 3
 						expectingNumerus = true
 					}
