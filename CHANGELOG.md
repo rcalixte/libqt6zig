@@ -1,4 +1,8 @@
 
+### 6.8.2 rev87 (13 September 2026)
+
+* Remove centralized class-based translation methods and add maintainer build option (#166)
+
 ### 6.8.2 rev86 (28 August 2026)
 
 * Centralize struct definitions (#163)
