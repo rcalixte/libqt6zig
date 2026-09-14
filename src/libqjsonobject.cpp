@@ -35,7 +35,7 @@ QJsonObject* QJsonObject_FromVariantMap(const libqt_map /* of libqt_string to QV
     QVariant** map_varr = static_cast<QVariant**>(map.values);
     for (size_t i = 0; i < map.len; ++i) {
         QString map_karr_i_QString = QString::fromUtf8(map_karr[i].data, map_karr[i].len);
-        map_QMap[map_karr_i_QString] = *(map_varr[i]);
+        map_QMap.insert(map_karr_i_QString, *(map_varr[i]));
     }
     return new QJsonObject(QJsonObject::fromVariantMap(map_QMap));
 }
@@ -73,7 +73,7 @@ QJsonObject* QJsonObject_FromVariantHash(const libqt_map /* of libqt_string to Q
     QVariant** map_varr = static_cast<QVariant**>(map.values);
     for (size_t i = 0; i < map.len; ++i) {
         QString map_karr_i_QString = QString::fromUtf8(map_karr[i].data, map_karr[i].len);
-        map_QHash[map_karr_i_QString] = *(map_varr[i]);
+        map_QHash.insert(map_karr_i_QString, *(map_varr[i]));
     }
     return new QJsonObject(QJsonObject::fromVariantHash(map_QHash));
 }

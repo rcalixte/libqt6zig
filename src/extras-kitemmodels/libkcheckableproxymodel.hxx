@@ -566,7 +566,7 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             libqt_string* callback_ret_varr = static_cast<libqt_string*>(callback_ret.values);
             for (size_t i = 0; i < callback_ret.len; ++i) {
                 QByteArray callback_ret_varr_i_QByteArray(callback_ret_varr[i].data, callback_ret_varr[i].len);
-                callback_ret_QHash[static_cast<int>(callback_ret_karr[i])] = callback_ret_varr_i_QByteArray;
+                callback_ret_QHash.insert(static_cast<int>(callback_ret_karr[i]), callback_ret_varr_i_QByteArray);
             }
             return callback_ret_QHash;
         }
@@ -999,7 +999,7 @@ class VirtualKCheckableProxyModel final : public KCheckableProxyModel {
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
             QVariant** callback_ret_varr = static_cast<QVariant**>(callback_ret.values);
             for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QMap[static_cast<int>(callback_ret_karr[i])] = *(callback_ret_varr[i]);
+                callback_ret_QMap.insert(static_cast<int>(callback_ret_karr[i]), *(callback_ret_varr[i]));
             }
             return callback_ret_QMap;
         }

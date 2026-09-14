@@ -2323,7 +2323,7 @@ pub const enums = struct {
         pub const InvalidQueryError: i32 = 103;
     };
 
-    pub const SignOn__AuthService = enum {
+    pub const IdentityFilterCriteria = enum {
         pub const AuthMethod: i32 = 0;
         pub const Username: i32 = 1;
         pub const Realm: i32 = 2;

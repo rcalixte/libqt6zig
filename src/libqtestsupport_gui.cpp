@@ -1,10 +1,32 @@
 #include <QEventPoint>
+#include <QList>
 #include <QPoint>
+#include <QPointingDevice>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QTest__QTouchEventSequence
 #include <QWindow>
 #include <qtestsupport_gui.h>
 #include "libqtestsupport_gui.h"
 #include "libqtestsupport_gui.hxx"
+
+void qtestsupport_gui_h_HandleTouchEvent(QWindow* w, const QPointingDevice* device, const libqt_list /* of QEventPoint* */ points, int mods) {
+    QList<QEventPoint> points_QList;
+    points_QList.reserve(points.len);
+    QEventPoint** points_arr = static_cast<QEventPoint**>(points.data);
+    for (size_t i = 0; i < points.len; ++i) {
+        points_QList.push_back(*(points_arr[i]));
+    }
+    qt_handleTouchEvent(w, device, points_QList, static_cast<Qt::KeyboardModifiers>(mods));
+}
+
+bool qtestsupport_gui_h_HandleTouchEventv2(QWindow* w, const QPointingDevice* device, const libqt_list /* of QEventPoint* */ points, int mods) {
+    QList<QEventPoint> points_QList;
+    points_QList.reserve(points.len);
+    QEventPoint** points_arr = static_cast<QEventPoint**>(points.data);
+    for (size_t i = 0; i < points.len; ++i) {
+        points_QList.push_back(*(points_arr[i]));
+    }
+    return qt_handleTouchEventv2(w, device, points_QList, static_cast<Qt::KeyboardModifiers>(mods));
+}
 
 QTest__QTouchEventSequence* QTest__QTouchEventSequence_Press(QTest__QTouchEventSequence* self, int touchId, const QPoint* pt) {
     QTest::QTouchEventSequence& _ret = self->press(static_cast<int>(touchId), *pt);

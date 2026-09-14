@@ -754,7 +754,7 @@ void QStandardItemModel_SetItemRoleNames(QStandardItemModel* self, const libqt_m
     libqt_string* roleNames_varr = static_cast<libqt_string*>(roleNames.values);
     for (size_t i = 0; i < roleNames.len; ++i) {
         QByteArray roleNames_varr_i_QByteArray(roleNames_varr[i].data, roleNames_varr[i].len);
-        roleNames_QHash[static_cast<int>(roleNames_karr[i])] = roleNames_varr_i_QByteArray;
+        roleNames_QHash.insert(static_cast<int>(roleNames_karr[i]), roleNames_varr_i_QByteArray);
     }
     self->setItemRoleNames(roleNames_QHash);
 }
@@ -873,7 +873,7 @@ bool QStandardItemModel_SetItemData(QStandardItemModel* self, const QModelIndex*
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     return self->setItemData(*index, roles_QMap);
 }
@@ -1664,7 +1664,7 @@ bool QStandardItemModel_SuperSetItemData(QStandardItemModel* self, const QModelI
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vqstandarditemmodel && vqstandarditemmodel->isVirtualQStandardItemModel) {
         vqstandarditemmodel->setQStandardItemModel_SetItemData_IsBase(true);

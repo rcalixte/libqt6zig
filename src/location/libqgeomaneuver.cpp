@@ -90,7 +90,7 @@ void QGeoManeuver_SetExtendedAttributes(QGeoManeuver* self, const libqt_map /* o
     QVariant** extendedAttributes_varr = static_cast<QVariant**>(extendedAttributes.values);
     for (size_t i = 0; i < extendedAttributes.len; ++i) {
         QString extendedAttributes_karr_i_QString = QString::fromUtf8(extendedAttributes_karr[i].data, extendedAttributes_karr[i].len);
-        extendedAttributes_QMap[extendedAttributes_karr_i_QString] = *(extendedAttributes_varr[i]);
+        extendedAttributes_QMap.insert(extendedAttributes_karr_i_QString, *(extendedAttributes_varr[i]));
     }
     self->setExtendedAttributes(extendedAttributes_QMap);
 }

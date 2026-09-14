@@ -158,7 +158,7 @@ void QNetworkCacheMetaData_SetAttributes(QNetworkCacheMetaData* self, const libq
     int* attributes_karr = static_cast<int*>(attributes.keys);
     QVariant** attributes_varr = static_cast<QVariant**>(attributes.values);
     for (size_t i = 0; i < attributes.len; ++i) {
-        attributes_QHash[static_cast<QNetworkRequest::Attribute>(attributes_karr[i])] = *(attributes_varr[i]);
+        attributes_QHash.insert(static_cast<QNetworkRequest::Attribute>(attributes_karr[i]), *(attributes_varr[i]));
     }
     self->setAttributes(attributes_QHash);
 }

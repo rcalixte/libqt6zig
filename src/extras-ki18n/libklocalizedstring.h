@@ -85,6 +85,35 @@ KLocalizedString* KLocalizedString_Subs211(const KLocalizedString* self, const K
 KLocalizedString* KLocalizedString_Subs311(const KLocalizedString* self, const KLocalizedString* a, int fieldWidth, QChar* fillChar);
 void KLocalizedString_Delete(KLocalizedString* self);
 
+KLocalizedString* klocalizedstring_h_Ki18n(const char* text);
+KLocalizedString* klocalizedstring_h_Ki18nc(const char* context, const char* text);
+KLocalizedString* klocalizedstring_h_Ki18np(const char* singular, const char* plural);
+KLocalizedString* klocalizedstring_h_Ki18ncp(const char* context, const char* singular, const char* plural);
+KLocalizedString* klocalizedstring_h_Ki18nd(const char* domain, const char* text);
+KLocalizedString* klocalizedstring_h_Ki18ndc(const char* domain, const char* context, const char* text);
+KLocalizedString* klocalizedstring_h_Ki18ndp(const char* domain, const char* singular, const char* plural);
+KLocalizedString* klocalizedstring_h_Ki18ndcp(const char* domain, const char* context, const char* singular, const char* plural);
+KLocalizedString* klocalizedstring_h_Kxi18n(const char* text);
+KLocalizedString* klocalizedstring_h_Kxi18nc(const char* context, const char* text);
+KLocalizedString* klocalizedstring_h_Kxi18np(const char* singular, const char* plural);
+KLocalizedString* klocalizedstring_h_Kxi18ncp(const char* context, const char* singular, const char* plural);
+KLocalizedString* klocalizedstring_h_Kxi18nd(const char* domain, const char* text);
+KLocalizedString* klocalizedstring_h_Kxi18ndc(const char* domain, const char* context, const char* text);
+KLocalizedString* klocalizedstring_h_Kxi18ndp(const char* domain, const char* singular, const char* plural);
+KLocalizedString* klocalizedstring_h_Kxi18ndcp(const char* domain, const char* context, const char* singular, const char* plural);
+libqt_string klocalizedstring_h_Tr2i18n(const char* text, const char* comment);
+libqt_string klocalizedstring_h_Tr2i18nd(const char* domain, const char* text, const char* comment);
+libqt_string klocalizedstring_h_Tr2xi18n(const char* text, const char* comment);
+libqt_string klocalizedstring_h_Tr2xi18nd(const char* domain, const char* text, const char* comment);
+libqt_string klocalizedstring_h_I18n(const char* text);
+libqt_string klocalizedstring_h_I18nc(const char* context, const char* text);
+libqt_string klocalizedstring_h_I18nd(const char* domain, const char* text);
+libqt_string klocalizedstring_h_I18ndc(const char* domain, const char* context, const char* text);
+libqt_string klocalizedstring_h_Xi18n(const char* text);
+libqt_string klocalizedstring_h_Xi18nc(const char* context, const char* text);
+libqt_string klocalizedstring_h_Xi18nd(const char* domain, const char* text);
+libqt_string klocalizedstring_h_Xi18ndc(const char* domain, const char* context, const char* text);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

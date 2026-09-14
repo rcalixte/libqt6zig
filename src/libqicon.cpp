@@ -396,3 +396,16 @@ libqt_list /* of QSize* */ QIcon_AvailableSizes2(const QIcon* self, int mode, in
 void QIcon_Delete(QIcon* self) {
     delete self;
 }
+
+libqt_string qicon_h_FindAtNxFile(const libqt_string baseFileName, double targetDevicePixelRatio, double* sourceDevicePixelRatio) {
+    QString baseFileName_QString = QString::fromUtf8(baseFileName.data, baseFileName.len);
+    auto _ret = qt_findAtNxFile(baseFileName_QString, static_cast<qreal>(targetDevicePixelRatio), static_cast<qreal*>(sourceDevicePixelRatio));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}

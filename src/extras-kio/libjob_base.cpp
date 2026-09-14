@@ -108,7 +108,7 @@ void KIO__Job_AddMetaData2(KIO__Job* self, const libqt_map /* of libqt_string to
     for (size_t i = 0; i < values.len; ++i) {
         QString values_karr_i_QString = QString::fromUtf8(values_karr[i].data, values_karr[i].len);
         QString values_varr_i_QString = QString::fromUtf8(values_varr[i].data, values_varr[i].len);
-        values_QMap[values_karr_i_QString] = values_varr_i_QString;
+        values_QMap.insert(values_karr_i_QString, values_varr_i_QString);
     }
     self->addMetaData(values_QMap);
 }
@@ -120,7 +120,7 @@ void KIO__Job_MergeMetaData(KIO__Job* self, const libqt_map /* of libqt_string t
     for (size_t i = 0; i < values.len; ++i) {
         QString values_karr_i_QString = QString::fromUtf8(values_karr[i].data, values_karr[i].len);
         QString values_varr_i_QString = QString::fromUtf8(values_varr[i].data, values_varr[i].len);
-        values_QMap[values_karr_i_QString] = values_varr_i_QString;
+        values_QMap.insert(values_karr_i_QString, values_varr_i_QString);
     }
     self->mergeMetaData(values_QMap);
 }

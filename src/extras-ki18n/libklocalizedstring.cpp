@@ -413,3 +413,211 @@ KLocalizedString* KLocalizedString_Subs311(const KLocalizedString* self, const K
 void KLocalizedString_Delete(KLocalizedString* self) {
     delete self;
 }
+
+KLocalizedString* klocalizedstring_h_Ki18n(const char* text) {
+    return new KLocalizedString(ki18n(text));
+}
+
+KLocalizedString* klocalizedstring_h_Ki18nc(const char* context, const char* text) {
+    return new KLocalizedString(ki18nc(context, text));
+}
+
+KLocalizedString* klocalizedstring_h_Ki18np(const char* singular, const char* plural) {
+    return new KLocalizedString(ki18np(singular, plural));
+}
+
+KLocalizedString* klocalizedstring_h_Ki18ncp(const char* context, const char* singular, const char* plural) {
+    return new KLocalizedString(ki18ncp(context, singular, plural));
+}
+
+KLocalizedString* klocalizedstring_h_Ki18nd(const char* domain, const char* text) {
+    return new KLocalizedString(ki18nd(domain, text));
+}
+
+KLocalizedString* klocalizedstring_h_Ki18ndc(const char* domain, const char* context, const char* text) {
+    return new KLocalizedString(ki18ndc(domain, context, text));
+}
+
+KLocalizedString* klocalizedstring_h_Ki18ndp(const char* domain, const char* singular, const char* plural) {
+    return new KLocalizedString(ki18ndp(domain, singular, plural));
+}
+
+KLocalizedString* klocalizedstring_h_Ki18ndcp(const char* domain, const char* context, const char* singular, const char* plural) {
+    return new KLocalizedString(ki18ndcp(domain, context, singular, plural));
+}
+
+KLocalizedString* klocalizedstring_h_Kxi18n(const char* text) {
+    return new KLocalizedString(kxi18n(text));
+}
+
+KLocalizedString* klocalizedstring_h_Kxi18nc(const char* context, const char* text) {
+    return new KLocalizedString(kxi18nc(context, text));
+}
+
+KLocalizedString* klocalizedstring_h_Kxi18np(const char* singular, const char* plural) {
+    return new KLocalizedString(kxi18np(singular, plural));
+}
+
+KLocalizedString* klocalizedstring_h_Kxi18ncp(const char* context, const char* singular, const char* plural) {
+    return new KLocalizedString(kxi18ncp(context, singular, plural));
+}
+
+KLocalizedString* klocalizedstring_h_Kxi18nd(const char* domain, const char* text) {
+    return new KLocalizedString(kxi18nd(domain, text));
+}
+
+KLocalizedString* klocalizedstring_h_Kxi18ndc(const char* domain, const char* context, const char* text) {
+    return new KLocalizedString(kxi18ndc(domain, context, text));
+}
+
+KLocalizedString* klocalizedstring_h_Kxi18ndp(const char* domain, const char* singular, const char* plural) {
+    return new KLocalizedString(kxi18ndp(domain, singular, plural));
+}
+
+KLocalizedString* klocalizedstring_h_Kxi18ndcp(const char* domain, const char* context, const char* singular, const char* plural) {
+    return new KLocalizedString(kxi18ndcp(domain, context, singular, plural));
+}
+
+libqt_string klocalizedstring_h_Tr2i18n(const char* text, const char* comment) {
+    auto _ret = tr2i18n(text, comment);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string klocalizedstring_h_Tr2i18nd(const char* domain, const char* text, const char* comment) {
+    auto _ret = tr2i18nd(domain, text, comment);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string klocalizedstring_h_Tr2xi18n(const char* text, const char* comment) {
+    auto _ret = tr2xi18n(text, comment);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string klocalizedstring_h_Tr2xi18nd(const char* domain, const char* text, const char* comment) {
+    auto _ret = tr2xi18nd(domain, text, comment);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string klocalizedstring_h_I18n(const char* text) {
+    auto _ret = i18n(text);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string klocalizedstring_h_I18nc(const char* context, const char* text) {
+    auto _ret = i18nc(context, text);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string klocalizedstring_h_I18nd(const char* domain, const char* text) {
+    auto _ret = i18nd(domain, text);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string klocalizedstring_h_I18ndc(const char* domain, const char* context, const char* text) {
+    auto _ret = i18ndc(domain, context, text);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string klocalizedstring_h_Xi18n(const char* text) {
+    auto _ret = xi18n(text);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string klocalizedstring_h_Xi18nc(const char* context, const char* text) {
+    auto _ret = xi18nc(context, text);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string klocalizedstring_h_Xi18nd(const char* domain, const char* text) {
+    auto _ret = xi18nd(domain, text);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string klocalizedstring_h_Xi18ndc(const char* domain, const char* context, const char* text) {
+    auto _ret = xi18ndc(domain, context, text);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}

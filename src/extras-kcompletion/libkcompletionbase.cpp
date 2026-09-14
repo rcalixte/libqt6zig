@@ -363,7 +363,7 @@ void KCompletionBase_SetKeyBindingMap(KCompletionBase* self, libqt_map /* of int
         for (size_t j = 0; j < keyBindingMap_varr[i].len; ++j) {
             keyBindingMap_varr_i_QList.push_back(*(keyBindingMap_varr_i_arr[j]));
         }
-        keyBindingMap_QMap[static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i])] = keyBindingMap_varr_i_QList;
+        keyBindingMap_QMap.insert(static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i]), keyBindingMap_varr_i_QList);
     }
     if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
         vkcompletionbase->setKeyBindingMap(keyBindingMap_QMap);
@@ -385,7 +385,7 @@ void KCompletionBase_SuperSetKeyBindingMap(KCompletionBase* self, libqt_map /* o
         for (size_t j = 0; j < keyBindingMap_varr[i].len; ++j) {
             keyBindingMap_varr_i_QList.push_back(*(keyBindingMap_varr_i_arr[j]));
         }
-        keyBindingMap_QMap[static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i])] = keyBindingMap_varr_i_QList;
+        keyBindingMap_QMap.insert(static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i]), keyBindingMap_varr_i_QList);
     }
     if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
         vkcompletionbase->setKCompletionBase_SetKeyBindingMap_IsBase(true);

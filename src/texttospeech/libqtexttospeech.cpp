@@ -31,7 +31,7 @@ QTextToSpeech* QTextToSpeech_new3(const libqt_string engine, const libqt_map /* 
     QVariant** params_varr = static_cast<QVariant**>(params.values);
     for (size_t i = 0; i < params.len; ++i) {
         QString params_karr_i_QString = QString::fromUtf8(params_karr[i].data, params_karr[i].len);
-        params_QMap[params_karr_i_QString] = *(params_varr[i]);
+        params_QMap.insert(params_karr_i_QString, *(params_varr[i]));
     }
     return new VirtualQTextToSpeech(engine_QString, params_QMap);
 }
@@ -52,7 +52,7 @@ QTextToSpeech* QTextToSpeech_new6(const libqt_string engine, const libqt_map /* 
     QVariant** params_varr = static_cast<QVariant**>(params.values);
     for (size_t i = 0; i < params.len; ++i) {
         QString params_karr_i_QString = QString::fromUtf8(params_karr[i].data, params_karr[i].len);
-        params_QMap[params_karr_i_QString] = *(params_varr[i]);
+        params_QMap.insert(params_karr_i_QString, *(params_varr[i]));
     }
     return new VirtualQTextToSpeech(engine_QString, params_QMap, parent);
 }
@@ -417,7 +417,7 @@ bool QTextToSpeech_SetEngine2(QTextToSpeech* self, const libqt_string engine, co
     QVariant** params_varr = static_cast<QVariant**>(params.values);
     for (size_t i = 0; i < params.len; ++i) {
         QString params_karr_i_QString = QString::fromUtf8(params_karr[i].data, params_karr[i].len);
-        params_QMap[params_karr_i_QString] = *(params_varr[i]);
+        params_QMap.insert(params_karr_i_QString, *(params_varr[i]));
     }
     return self->setEngine(engine_QString, params_QMap);
 }

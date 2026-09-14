@@ -25,11 +25,16 @@ typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
 typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QObject QObject;
+typedef struct QRegularExpression QRegularExpression;
 typedef struct QSignalBlocker QSignalBlocker;
 typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 #endif
+
+void qobject_h_QFindChildrenHelper(const QObject* parent, libqt_string name, const QMetaObject* mo, libqt_list /* of void* */ list, int options);
+void qobject_h_QFindChildrenHelper2(const QObject* parent, const QRegularExpression* re, const QMetaObject* mo, libqt_list /* of void* */ list, int options);
+QObject* qobject_h_QFindChildHelper(const QObject* parent, libqt_string name, const QMetaObject* mo, int options);
 
 QObject* QObject_new();
 QObject* QObject_new2(QObject* parent);

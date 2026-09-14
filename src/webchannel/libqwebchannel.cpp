@@ -51,7 +51,7 @@ void QWebChannel_RegisterObjects(QWebChannel* self, const libqt_map /* of libqt_
     QObject** objects_varr = static_cast<QObject**>(objects.values);
     for (size_t i = 0; i < objects.len; ++i) {
         QString objects_karr_i_QString = QString::fromUtf8(objects_karr[i].data, objects_karr[i].len);
-        objects_QHash[objects_karr_i_QString] = objects_varr[i];
+        objects_QHash.insert(objects_karr_i_QString, objects_varr[i]);
     }
     self->registerObjects(objects_QHash);
 }

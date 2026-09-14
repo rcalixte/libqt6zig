@@ -411,7 +411,7 @@ void QPlaceContentReply_SetContent(QPlaceContentReply* self, const libqt_map /* 
     int* content_karr = static_cast<int*>(content.keys);
     QPlaceContent** content_varr = static_cast<QPlaceContent**>(content.values);
     for (size_t i = 0; i < content.len; ++i) {
-        content_QMap[static_cast<int>(content_karr[i])] = *(content_varr[i]);
+        content_QMap.insert(static_cast<int>(content_karr[i]), *(content_varr[i]));
     }
     if (vqplacecontentreply && vqplacecontentreply->isVirtualQPlaceContentReply) {
         vqplacecontentreply->setContent(content_QMap);
@@ -427,7 +427,7 @@ void QPlaceContentReply_SuperSetContent(QPlaceContentReply* self, const libqt_ma
     int* content_karr = static_cast<int*>(content.keys);
     QPlaceContent** content_varr = static_cast<QPlaceContent**>(content.values);
     for (size_t i = 0; i < content.len; ++i) {
-        content_QMap[static_cast<int>(content_karr[i])] = *(content_varr[i]);
+        content_QMap.insert(static_cast<int>(content_karr[i]), *(content_varr[i]));
     }
     if (vqplacecontentreply && vqplacecontentreply->isVirtualQPlaceContentReply) {
         vqplacecontentreply->setQPlaceContentReply_SetContent_IsBase(true);

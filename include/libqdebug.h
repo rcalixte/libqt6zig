@@ -20,6 +20,7 @@ typedef struct QDebug QDebug;
 typedef struct QDebugStateSaver QDebugStateSaver;
 typedef struct QIODevice QIODevice;
 typedef struct QIODeviceBase QIODeviceBase;
+typedef struct QMetaObject QMetaObject;
 typedef struct QNoDebug QNoDebug;
 #endif
 
@@ -82,6 +83,10 @@ QNoDebug* QNoDebug_MaybeQuote(QNoDebug* self);
 QNoDebug* QNoDebug_Verbosity(QNoDebug* self, int param1);
 QNoDebug* QNoDebug_MaybeQuote1(QNoDebug* self, const char param1);
 void QNoDebug_Delete(QNoDebug* self);
+
+void qdebug_h_QMetaEnumFlagDebugOperator(QDebug* debug, size_t sizeofT, unsigned int value);
+QDebug* qdebug_h_QMetaEnumDebugOperator(QDebug* param1, long long value, const QMetaObject* meta, const char* name);
+QDebug* qdebug_h_QMetaEnumFlagDebugOperator2(QDebug* dbg, unsigned long long value, const QMetaObject* meta, const char* name);
 
 #ifdef __cplusplus
 } /* extern C */

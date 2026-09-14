@@ -681,7 +681,7 @@ pub const enums = struct {
         pub const T_ERROR: i32 = 3;
     };
 
-    pub const KProtocolInfo = enum {
+    pub const FileNameUsedForCopying = enum {
         pub const Name: i32 = 0;
         pub const FromUrl: i32 = 1;
         pub const DisplayName: i32 = 2;

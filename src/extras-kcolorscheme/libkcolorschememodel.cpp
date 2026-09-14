@@ -463,7 +463,7 @@ bool KColorSchemeModel_SetItemData(KColorSchemeModel* self, const QModelIndex* i
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         return vkcolorschememodel->setItemData(*index, roles_QMap);
@@ -479,7 +479,7 @@ bool KColorSchemeModel_SuperSetItemData(KColorSchemeModel* self, const QModelInd
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
         vkcolorschememodel->setKColorSchemeModel_SetItemData_IsBase(true);

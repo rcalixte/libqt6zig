@@ -254,7 +254,7 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
             libqt_string* callback_ret_varr = static_cast<libqt_string*>(callback_ret.values);
             for (size_t i = 0; i < callback_ret.len; ++i) {
                 QString callback_ret_varr_i_QString = QString::fromUtf8(callback_ret_varr[i].data, callback_ret_varr[i].len);
-                callback_ret_QMap[static_cast<TextTranslator::TranslatorUtil::Language>(callback_ret_karr[i])] = callback_ret_varr_i_QString;
+                callback_ret_QMap.insert(static_cast<TextTranslator::TranslatorUtil::Language>(callback_ret_karr[i]), callback_ret_varr_i_QString);
             }
             return callback_ret_QMap;
         }
@@ -271,7 +271,7 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
             libqt_string* callback_ret_varr = static_cast<libqt_string*>(callback_ret.values);
             for (size_t i = 0; i < callback_ret.len; ++i) {
                 QString callback_ret_varr_i_QString = QString::fromUtf8(callback_ret_varr[i].data, callback_ret_varr[i].len);
-                callback_ret_QMap[static_cast<TextTranslator::TranslatorUtil::Language>(callback_ret_karr[i])] = callback_ret_varr_i_QString;
+                callback_ret_QMap.insert(static_cast<TextTranslator::TranslatorUtil::Language>(callback_ret_karr[i]), callback_ret_varr_i_QString);
             }
             return callback_ret_QMap;
         }
@@ -510,7 +510,7 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
             libqt_string* callback_ret_varr = static_cast<libqt_string*>(callback_ret.values);
             for (size_t i = 0; i < callback_ret.len; ++i) {
                 QString callback_ret_varr_i_QString = QString::fromUtf8(callback_ret_varr[i].data, callback_ret_varr[i].len);
-                callback_ret_QMap[static_cast<TextTranslator::TranslatorUtil::Language>(callback_ret_karr[i])] = callback_ret_varr_i_QString;
+                callback_ret_QMap.insert(static_cast<TextTranslator::TranslatorUtil::Language>(callback_ret_karr[i]), callback_ret_varr_i_QString);
             }
             return callback_ret_QMap;
         }

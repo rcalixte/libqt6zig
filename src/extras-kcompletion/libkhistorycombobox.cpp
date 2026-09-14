@@ -2430,7 +2430,7 @@ void KHistoryComboBox_SetKeyBindingMap(KHistoryComboBox* self, libqt_map /* of i
         for (size_t j = 0; j < keyBindingMap_varr[i].len; ++j) {
             keyBindingMap_varr_i_QList.push_back(*(keyBindingMap_varr_i_arr[j]));
         }
-        keyBindingMap_QMap[static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i])] = keyBindingMap_varr_i_QList;
+        keyBindingMap_QMap.insert(static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i]), keyBindingMap_varr_i_QList);
     }
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKeyBindingMap(keyBindingMap_QMap);
@@ -2452,7 +2452,7 @@ void KHistoryComboBox_SuperSetKeyBindingMap(KHistoryComboBox* self, libqt_map /*
         for (size_t j = 0; j < keyBindingMap_varr[i].len; ++j) {
             keyBindingMap_varr_i_QList.push_back(*(keyBindingMap_varr_i_arr[j]));
         }
-        keyBindingMap_QMap[static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i])] = keyBindingMap_varr_i_QList;
+        keyBindingMap_QMap.insert(static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i]), keyBindingMap_varr_i_QList);
     }
     if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
         vkhistorycombobox->setKHistoryComboBox_SetKeyBindingMap_IsBase(true);

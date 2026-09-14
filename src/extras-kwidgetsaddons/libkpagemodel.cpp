@@ -502,7 +502,7 @@ bool KPageModel_SetItemData(KPageModel* self, const QModelIndex* index, const li
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
         return vkpagemodel->setItemData(*index, roles_QMap);
@@ -518,7 +518,7 @@ bool KPageModel_SuperSetItemData(KPageModel* self, const QModelIndex* index, con
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
         vkpagemodel->setKPageModel_SetItemData_IsBase(true);

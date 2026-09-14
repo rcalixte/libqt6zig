@@ -550,6 +550,29 @@ pub const QMessageLogger = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qlogging-h.html)
+pub const qlogging_h = extern struct {
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlogging-h.html#qt_error_string)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` errorCode: i32 `
+    ///
+    pub fn errorString(allocator: std.mem.Allocator, errorCode: i32) []const u8 {
+        var _str = qtc.qlogging_h_ErrorString(@bitCast(errorCode));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlogging_h.errorString: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlogging.html#public-types)
 pub const enums = struct {
     pub const QtMsgType = enum {

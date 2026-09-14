@@ -90,7 +90,7 @@ QNetworkReply* QRestAccessManager_Post2(QRestAccessManager* self, const QNetwork
     QVariant** data_varr = static_cast<QVariant**>(data.values);
     for (size_t i = 0; i < data.len; ++i) {
         QString data_karr_i_QString = QString::fromUtf8(data_karr[i].data, data_karr[i].len);
-        data_QMap[data_karr_i_QString] = *(data_varr[i]);
+        data_QMap.insert(data_karr_i_QString, *(data_varr[i]));
     }
     return self->post(*request, data_QMap);
 }
@@ -118,7 +118,7 @@ QNetworkReply* QRestAccessManager_Put2(QRestAccessManager* self, const QNetworkR
     QVariant** data_varr = static_cast<QVariant**>(data.values);
     for (size_t i = 0; i < data.len; ++i) {
         QString data_karr_i_QString = QString::fromUtf8(data_karr[i].data, data_karr[i].len);
-        data_QMap[data_karr_i_QString] = *(data_varr[i]);
+        data_QMap.insert(data_karr_i_QString, *(data_varr[i]));
     }
     return self->put(*request, data_QMap);
 }
@@ -146,7 +146,7 @@ QNetworkReply* QRestAccessManager_Patch2(QRestAccessManager* self, const QNetwor
     QVariant** data_varr = static_cast<QVariant**>(data.values);
     for (size_t i = 0; i < data.len; ++i) {
         QString data_karr_i_QString = QString::fromUtf8(data_karr[i].data, data_karr[i].len);
-        data_QMap[data_karr_i_QString] = *(data_varr[i]);
+        data_QMap.insert(data_karr_i_QString, *(data_varr[i]));
     }
     return self->patch(*request, data_QMap);
 }

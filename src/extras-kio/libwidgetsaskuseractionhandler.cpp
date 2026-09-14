@@ -88,7 +88,7 @@ void KIO__WidgetsAskUserActionHandler_AskIgnoreSslErrors(KIO__WidgetsAskUserActi
     QVariant** sslErrorData_varr = static_cast<QVariant**>(sslErrorData.values);
     for (size_t i = 0; i < sslErrorData.len; ++i) {
         QString sslErrorData_karr_i_QString = QString::fromUtf8(sslErrorData_karr[i].data, sslErrorData_karr[i].len);
-        sslErrorData_QMap[sslErrorData_karr_i_QString] = *(sslErrorData_varr[i]);
+        sslErrorData_QMap.insert(sslErrorData_karr_i_QString, *(sslErrorData_varr[i]));
     }
     self->askIgnoreSslErrors(sslErrorData_QMap, parent);
 }
@@ -271,7 +271,7 @@ void KIO__WidgetsAskUserActionHandler_SuperAskIgnoreSslErrors(KIO__WidgetsAskUse
     QVariant** sslErrorData_varr = static_cast<QVariant**>(sslErrorData.values);
     for (size_t i = 0; i < sslErrorData.len; ++i) {
         QString sslErrorData_karr_i_QString = QString::fromUtf8(sslErrorData_karr[i].data, sslErrorData_karr[i].len);
-        sslErrorData_QMap[sslErrorData_karr_i_QString] = *(sslErrorData_varr[i]);
+        sslErrorData_QMap.insert(sslErrorData_karr_i_QString, *(sslErrorData_varr[i]));
     }
     if (vkiowidgetsaskuseractionhandler && vkiowidgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
         vkiowidgetsaskuseractionhandler->setKIO__WidgetsAskUserActionHandler_AskIgnoreSslErrors_IsBase(true);

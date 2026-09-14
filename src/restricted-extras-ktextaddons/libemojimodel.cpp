@@ -531,7 +531,7 @@ bool TextEmoticonsCore__EmojiModel_SetItemData(TextEmoticonsCore__EmojiModel* se
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vtextemoticonscoreemojimodel && vtextemoticonscoreemojimodel->isVirtualTextEmoticonsCoreEmojiModel) {
         return vtextemoticonscoreemojimodel->setItemData(*index, roles_QMap);
@@ -547,7 +547,7 @@ bool TextEmoticonsCore__EmojiModel_SuperSetItemData(TextEmoticonsCore__EmojiMode
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vtextemoticonscoreemojimodel && vtextemoticonscoreemojimodel->isVirtualTextEmoticonsCoreEmojiModel) {
         vtextemoticonscoreemojimodel->setTextEmoticonsCore__EmojiModel_SetItemData_IsBase(true);

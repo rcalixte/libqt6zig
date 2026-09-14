@@ -572,7 +572,7 @@ bool QPdfBookmarkModel_SetItemData(QPdfBookmarkModel* self, const QModelIndex* i
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
         return vqpdfbookmarkmodel->setItemData(*index, roles_QMap);
@@ -588,7 +588,7 @@ bool QPdfBookmarkModel_SuperSetItemData(QPdfBookmarkModel* self, const QModelInd
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vqpdfbookmarkmodel && vqpdfbookmarkmodel->isVirtualQPdfBookmarkModel) {
         vqpdfbookmarkmodel->setQPdfBookmarkModel_SetItemData_IsBase(true);

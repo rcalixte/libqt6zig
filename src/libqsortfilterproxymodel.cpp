@@ -1312,7 +1312,7 @@ bool QSortFilterProxyModel_SetItemData(QSortFilterProxyModel* self, const QModel
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
         return vqsortfilterproxymodel->setItemData(*index, roles_QMap);
@@ -1328,7 +1328,7 @@ bool QSortFilterProxyModel_SuperSetItemData(QSortFilterProxyModel* self, const Q
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vqsortfilterproxymodel && vqsortfilterproxymodel->isVirtualQSortFilterProxyModel) {
         vqsortfilterproxymodel->setQSortFilterProxyModel_SetItemData_IsBase(true);

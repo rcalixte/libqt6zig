@@ -35,7 +35,7 @@ QWebEngineHttpRequest* QWebEngineHttpRequest_PostRequest(const QUrl* url, const 
     for (size_t i = 0; i < postData.len; ++i) {
         QString postData_karr_i_QString = QString::fromUtf8(postData_karr[i].data, postData_karr[i].len);
         QString postData_varr_i_QString = QString::fromUtf8(postData_varr[i].data, postData_varr[i].len);
-        postData_QMap[postData_karr_i_QString] = postData_varr_i_QString;
+        postData_QMap.insert(postData_karr_i_QString, postData_varr_i_QString);
     }
     return new QWebEngineHttpRequest(QWebEngineHttpRequest::postRequest(*url, postData_QMap));
 }

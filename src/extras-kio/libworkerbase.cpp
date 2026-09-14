@@ -180,7 +180,7 @@ int KIO__WorkerBase_SslError(KIO__WorkerBase* self, const libqt_map /* of libqt_
     QVariant** sslData_varr = static_cast<QVariant**>(sslData.values);
     for (size_t i = 0; i < sslData.len; ++i) {
         QString sslData_karr_i_QString = QString::fromUtf8(sslData_karr[i].data, sslData_karr[i].len);
-        sslData_QMap[sslData_karr_i_QString] = *(sslData_varr[i]);
+        sslData_QMap.insert(sslData_karr_i_QString, *(sslData_varr[i]));
     }
     return self->sslError(sslData_QMap);
 }

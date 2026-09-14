@@ -1400,6 +1400,37 @@ pub const QIcon = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qicon-h.html)
+pub const qicon_h = extern struct {
+    /// ### DEPRECATED: Use `findAtNxFile` instead
+    ///
+    pub const FindAtNxFile = findAtNxFile;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon-h.html#qt_findAtNxFile)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` baseFileName: []const u8 `
+    ///
+    /// ` targetDevicePixelRatio: f64 `
+    ///
+    /// ` sourceDevicePixelRatio: *f64 `
+    ///
+    pub fn findAtNxFile(allocator: std.mem.Allocator, baseFileName: []const u8, targetDevicePixelRatio: f64, sourceDevicePixelRatio: *f64) []const u8 {
+        const baseFileName_str = qtc.libqt_string{
+            .len = baseFileName.len,
+            .data = baseFileName.ptr,
+        };
+        var _str = qtc.qicon_h_FindAtNxFile(baseFileName_str, @bitCast(targetDevicePixelRatio), @ptrCast(sourceDevicePixelRatio));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qicon_h.findAtNxFile: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#public-types)
 pub const enums = struct {
     pub const Mode = enum {

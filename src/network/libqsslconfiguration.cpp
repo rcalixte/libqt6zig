@@ -451,7 +451,7 @@ void QSslConfiguration_SetBackendConfiguration1(QSslConfiguration* self, const l
     QVariant** backendConfiguration_varr = static_cast<QVariant**>(backendConfiguration.values);
     for (size_t i = 0; i < backendConfiguration.len; ++i) {
         QByteArray backendConfiguration_karr_i_QByteArray(backendConfiguration_karr[i].data, backendConfiguration_karr[i].len);
-        backendConfiguration_QMap[backendConfiguration_karr_i_QByteArray] = *(backendConfiguration_varr[i]);
+        backendConfiguration_QMap.insert(backendConfiguration_karr_i_QByteArray, *(backendConfiguration_varr[i]));
     }
     self->setBackendConfiguration(backendConfiguration_QMap);
 }

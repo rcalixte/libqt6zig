@@ -23,7 +23,7 @@ QGeoRoutingManagerEngine* QGeoRoutingManagerEngine_new(const libqt_map /* of lib
     QVariant** parameters_varr = static_cast<QVariant**>(parameters.values);
     for (size_t i = 0; i < parameters.len; ++i) {
         QString parameters_karr_i_QString = QString::fromUtf8(parameters_karr[i].data, parameters_karr[i].len);
-        parameters_QMap[parameters_karr_i_QString] = *(parameters_varr[i]);
+        parameters_QMap.insert(parameters_karr_i_QString, *(parameters_varr[i]));
     }
     return new VirtualQGeoRoutingManagerEngine(parameters_QMap);
 }
@@ -34,7 +34,7 @@ QGeoRoutingManagerEngine* QGeoRoutingManagerEngine_new2(const libqt_map /* of li
     QVariant** parameters_varr = static_cast<QVariant**>(parameters.values);
     for (size_t i = 0; i < parameters.len; ++i) {
         QString parameters_karr_i_QString = QString::fromUtf8(parameters_karr[i].data, parameters_karr[i].len);
-        parameters_QMap[parameters_karr_i_QString] = *(parameters_varr[i]);
+        parameters_QMap.insert(parameters_karr_i_QString, *(parameters_varr[i]));
     }
     return new VirtualQGeoRoutingManagerEngine(parameters_QMap, parent);
 }

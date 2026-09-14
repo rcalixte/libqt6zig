@@ -46,3 +46,8 @@ void QHashSeed_ResetRandomGlobalSeed() {
 void QHashSeed_Delete(QHashSeed* self) {
     delete self;
 }
+
+unsigned int qhashfunctions_h_Hash(libqt_string key, unsigned int chained) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return static_cast<unsigned int>(qt_hash(key_QString, static_cast<uint>(chained)));
+}

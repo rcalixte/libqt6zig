@@ -191,7 +191,7 @@ void KPasswordDialog_SetKnownLogins(KPasswordDialog* self, const libqt_map /* of
     for (size_t i = 0; i < knownLogins.len; ++i) {
         QString knownLogins_karr_i_QString = QString::fromUtf8(knownLogins_karr[i].data, knownLogins_karr[i].len);
         QString knownLogins_varr_i_QString = QString::fromUtf8(knownLogins_varr[i].data, knownLogins_varr[i].len);
-        knownLogins_QMap[knownLogins_karr_i_QString] = knownLogins_varr_i_QString;
+        knownLogins_QMap.insert(knownLogins_karr_i_QString, knownLogins_varr_i_QString);
     }
     self->setKnownLogins(knownLogins_QMap);
 }

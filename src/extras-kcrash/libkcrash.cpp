@@ -57,7 +57,7 @@ void KCrash_SetErrorTags(const libqt_map /* of libqt_string to libqt_string */ d
     for (size_t i = 0; i < details.len; ++i) {
         QString details_karr_i_QString = QString::fromUtf8(details_karr[i].data, details_karr[i].len);
         QString details_varr_i_QString = QString::fromUtf8(details_varr[i].data, details_varr[i].len);
-        details_QHash[details_karr_i_QString] = details_varr_i_QString;
+        details_QHash.insert(details_karr_i_QString, details_varr_i_QString);
     }
     KCrash::setErrorTags(details_QHash);
 }
@@ -70,7 +70,7 @@ void KCrash_SetErrorExtraData(const libqt_map /* of libqt_string to libqt_string
     for (size_t i = 0; i < details.len; ++i) {
         QString details_karr_i_QString = QString::fromUtf8(details_karr[i].data, details_karr[i].len);
         QString details_varr_i_QString = QString::fromUtf8(details_varr[i].data, details_varr[i].len);
-        details_QHash[details_karr_i_QString] = details_varr_i_QString;
+        details_QHash.insert(details_karr_i_QString, details_varr_i_QString);
     }
     KCrash::setErrorExtraData(details_QHash);
 }
@@ -82,7 +82,7 @@ void KCrash_SetGPUData(const libqt_map /* of libqt_string to QVariant* */ data) 
     QVariant** data_varr = static_cast<QVariant**>(data.values);
     for (size_t i = 0; i < data.len; ++i) {
         QString data_karr_i_QString = QString::fromUtf8(data_karr[i].data, data_karr[i].len);
-        data_QHash[data_karr_i_QString] = *(data_varr[i]);
+        data_QHash.insert(data_karr_i_QString, *(data_varr[i]));
     }
     KCrash::setGPUData(data_QHash);
 }

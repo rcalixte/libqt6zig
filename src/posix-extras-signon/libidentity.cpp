@@ -86,7 +86,7 @@ void SignOn__Identity_VerifyUser2(SignOn__Identity* self, const libqt_map /* of 
     QVariant** params_varr = static_cast<QVariant**>(params.values);
     for (size_t i = 0; i < params.len; ++i) {
         QString params_karr_i_QString = QString::fromUtf8(params_karr[i].data, params_karr[i].len);
-        params_QMap[params_karr_i_QString] = *(params_varr[i]);
+        params_QMap.insert(params_karr_i_QString, *(params_varr[i]));
     }
     self->verifyUser(params_QMap);
 }

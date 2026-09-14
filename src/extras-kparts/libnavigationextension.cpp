@@ -260,7 +260,7 @@ void KParts__NavigationExtension_PopupMenu5(KParts__NavigationExtension* self, c
         for (size_t j = 0; j < actionGroups_varr[i].len; ++j) {
             actionGroups_varr_i_QList.push_back(actionGroups_varr_i_arr[j]);
         }
-        actionGroups_QMap[actionGroups_karr_i_QString] = actionGroups_varr_i_QList;
+        actionGroups_QMap.insert(actionGroups_karr_i_QString, actionGroups_varr_i_QList);
     }
     self->popupMenu(*global, *items, *arguments, static_cast<KParts::NavigationExtension::PopupFlags>(flags), actionGroups_QMap);
 }
@@ -289,7 +289,7 @@ void KParts__NavigationExtension_PopupMenu6(KParts__NavigationExtension* self, c
         for (size_t j = 0; j < actionGroups_varr[i].len; ++j) {
             actionGroups_varr_i_QList.push_back(actionGroups_varr_i_arr[j]);
         }
-        actionGroups_QMap[actionGroups_karr_i_QString] = actionGroups_varr_i_QList;
+        actionGroups_QMap.insert(actionGroups_karr_i_QString, actionGroups_varr_i_QList);
     }
     self->popupMenu(*global, *url, mode, *arguments, static_cast<KParts::NavigationExtension::PopupFlags>(flags), actionGroups_QMap);
 }

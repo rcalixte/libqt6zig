@@ -20,9 +20,13 @@ typedef QTest::QTouchEventSequence QTest__QTouchEventSequence;
 #else
 typedef struct QEventPoint QEventPoint;
 typedef struct QPoint QPoint;
+typedef struct QPointingDevice QPointingDevice;
 typedef struct QTest__QTouchEventSequence QTest__QTouchEventSequence;
 typedef struct QWindow QWindow;
 #endif
+
+void qtestsupport_gui_h_HandleTouchEvent(QWindow* w, const QPointingDevice* device, const libqt_list /* of QEventPoint* */ points, int mods);
+bool qtestsupport_gui_h_HandleTouchEventv2(QWindow* w, const QPointingDevice* device, const libqt_list /* of QEventPoint* */ points, int mods);
 
 QTest__QTouchEventSequence* QTest__QTouchEventSequence_Press(QTest__QTouchEventSequence* self, int touchId, const QPoint* pt);
 QTest__QTouchEventSequence* QTest__QTouchEventSequence_Move(QTest__QTouchEventSequence* self, int touchId, const QPoint* pt);

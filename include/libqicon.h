@@ -95,6 +95,8 @@ libqt_list /* of QSize* */ QIcon_AvailableSizes1(const QIcon* self, int mode);
 libqt_list /* of QSize* */ QIcon_AvailableSizes2(const QIcon* self, int mode, int state);
 void QIcon_Delete(QIcon* self);
 
+libqt_string qicon_h_FindAtNxFile(const libqt_string baseFileName, double targetDevicePixelRatio, double* sourceDevicePixelRatio);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

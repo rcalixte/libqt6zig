@@ -404,7 +404,7 @@ void QXYSeries_SetPointConfiguration(QXYSeries* self, const int index, const lib
     int* configuration_karr = static_cast<int*>(configuration.keys);
     QVariant** configuration_varr = static_cast<QVariant**>(configuration.values);
     for (size_t i = 0; i < configuration.len; ++i) {
-        configuration_QHash[static_cast<QXYSeries::PointConfiguration>(configuration_karr[i])] = *(configuration_varr[i]);
+        configuration_QHash.insert(static_cast<QXYSeries::PointConfiguration>(configuration_karr[i]), *(configuration_varr[i]));
     }
     self->setPointConfiguration(static_cast<const int>(index), configuration_QHash);
 }
@@ -424,9 +424,9 @@ void QXYSeries_SetPointsConfiguration(QXYSeries* self, const libqt_map /* of int
         int* pointsConfiguration_varr_i_karr = static_cast<int*>(pointsConfiguration_varr[i].keys);
         QVariant** pointsConfiguration_varr_i_varr = static_cast<QVariant**>(pointsConfiguration_varr[i].values);
         for (size_t i = 0; i < pointsConfiguration_varr[i].len; ++i) {
-            pointsConfiguration_varr_i_QHash[static_cast<QXYSeries::PointConfiguration>(pointsConfiguration_varr_i_karr[i])] = *(pointsConfiguration_varr_i_varr[i]);
+            pointsConfiguration_varr_i_QHash.insert(static_cast<QXYSeries::PointConfiguration>(pointsConfiguration_varr_i_karr[i]), *(pointsConfiguration_varr_i_varr[i]));
         }
-        pointsConfiguration_QHash[static_cast<int>(pointsConfiguration_karr[i])] = pointsConfiguration_varr_i_QHash;
+        pointsConfiguration_QHash.insert(static_cast<int>(pointsConfiguration_karr[i]), pointsConfiguration_varr_i_QHash);
     }
     self->setPointsConfiguration(pointsConfiguration_QHash);
 }
@@ -835,9 +835,9 @@ void QXYSeries_PointsConfigurationChanged(QXYSeries* self, const libqt_map /* of
         int* configuration_varr_i_karr = static_cast<int*>(configuration_varr[i].keys);
         QVariant** configuration_varr_i_varr = static_cast<QVariant**>(configuration_varr[i].values);
         for (size_t i = 0; i < configuration_varr[i].len; ++i) {
-            configuration_varr_i_QHash[static_cast<QXYSeries::PointConfiguration>(configuration_varr_i_karr[i])] = *(configuration_varr_i_varr[i]);
+            configuration_varr_i_QHash.insert(static_cast<QXYSeries::PointConfiguration>(configuration_varr_i_karr[i]), *(configuration_varr_i_varr[i]));
         }
-        configuration_QHash[static_cast<int>(configuration_karr[i])] = configuration_varr_i_QHash;
+        configuration_QHash.insert(static_cast<int>(configuration_karr[i]), configuration_varr_i_QHash);
     }
     self->pointsConfigurationChanged(configuration_QHash);
 }

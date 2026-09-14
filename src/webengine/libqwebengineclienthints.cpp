@@ -179,7 +179,7 @@ void QWebEngineClientHints_SetFullVersionList(QWebEngineClientHints* self, const
     QVariant** fullVersionList_varr = static_cast<QVariant**>(fullVersionList.values);
     for (size_t i = 0; i < fullVersionList.len; ++i) {
         QString fullVersionList_karr_i_QString = QString::fromUtf8(fullVersionList_karr[i].data, fullVersionList_karr[i].len);
-        fullVersionList_QMap[fullVersionList_karr_i_QString] = *(fullVersionList_varr[i]);
+        fullVersionList_QMap.insert(fullVersionList_karr_i_QString, *(fullVersionList_varr[i]));
     }
     self->setFullVersionList(fullVersionList_QMap);
 }

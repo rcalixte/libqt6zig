@@ -622,7 +622,7 @@ bool KNumberModel_SetItemData(KNumberModel* self, const QModelIndex* index, cons
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         return vknumbermodel->setItemData(*index, roles_QMap);
@@ -638,7 +638,7 @@ bool KNumberModel_SuperSetItemData(KNumberModel* self, const QModelIndex* index,
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
         vknumbermodel->setKNumberModel_SetItemData_IsBase(true);

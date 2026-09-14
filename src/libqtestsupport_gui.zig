@@ -1,7 +1,66 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QEventPoint = @import("libqt6").QEventPoint;
 const QPoint = @import("libqt6").QPoint;
+const QPointingDevice = @import("libqt6").QPointingDevice;
 const QWindow = @import("libqt6").QWindow;
+const qnamespace_enums = @import("libqnamespace.zig").enums;
+const std = @import("std");
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qtestsupport-gui-h.html)
+pub const qtestsupport_gui_h = extern struct {
+    /// ### DEPRECATED: Use `handleTouchEvent` instead
+    ///
+    pub const HandleTouchEvent = handleTouchEvent;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtestsupport-gui-h.html#qt_handleTouchEvent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` w: QWindow `
+    ///
+    /// ` device: QPointingDevice `
+    ///
+    /// ` points: []QEventPoint `
+    ///
+    /// ` mods: flag of qnamespace_enums.KeyboardModifier `
+    ///
+    pub fn handleTouchEvent(w: anytype, device: anytype, points: []QEventPoint, mods: i32) void {
+        comptime _ = @TypeOf(w)._is_QWindow;
+        comptime _ = @TypeOf(device)._is_QPointingDevice;
+        const points_list = qtc.libqt_list{
+            .len = points.len,
+            .data = @ptrCast(points.ptr),
+        };
+        qtc.qtestsupport_gui_h_HandleTouchEvent(@ptrCast(w.ptr), @ptrCast(device.ptr), points_list, @bitCast(mods));
+    }
+
+    /// ### DEPRECATED: Use `handleTouchEventv2` instead
+    ///
+    pub const HandleTouchEventv2 = handleTouchEventv2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtestsupport-gui-h.html#qt_handleTouchEventv2)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` w: QWindow `
+    ///
+    /// ` device: QPointingDevice `
+    ///
+    /// ` points: []QEventPoint `
+    ///
+    /// ` mods: flag of qnamespace_enums.KeyboardModifier `
+    ///
+    pub fn handleTouchEventv2(w: anytype, device: anytype, points: []QEventPoint, mods: i32) bool {
+        comptime _ = @TypeOf(w)._is_QWindow;
+        comptime _ = @TypeOf(device)._is_QPointingDevice;
+        const points_list = qtc.libqt_list{
+            .len = points.len,
+            .data = @ptrCast(points.ptr),
+        };
+        return qtc.qtestsupport_gui_h_HandleTouchEventv2(@ptrCast(w.ptr), @ptrCast(device.ptr), points_list, @bitCast(mods));
+    }
+};
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventsequence.html)
 pub const QTest__QTouchEventSequence = extern struct {
