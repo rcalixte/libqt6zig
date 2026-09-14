@@ -462,7 +462,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot,
 
 		} else {
 			preamble += addPreV
-			preamble += indent + "\t" + maybeDerefOpen + nameprefix + "_" + containerType + maybeDerefClose + "[" + addFwdK + "] = " + addFwdV + ";\n"
+			preamble += indent + "\t" + maybeDerefOpen + nameprefix + "_" + containerType + maybeDerefClose + ".insert(" + addFwdK + ", " + addFwdV + ");\n"
 		}
 
 		preamble += indent + "}\n"
@@ -1159,7 +1159,9 @@ func getReferencedTypes(src *CppParsedHeader, qtextradefs map[string]struct{}) [
 	}
 
 	for _, c := range src.Classes {
-		foundTypes[c.ClassName] = struct{}{}
+		if !c.IsFreeFunctions {
+			foundTypes[c.ClassName] = struct{}{}
+		}
 
 		for _, ctor := range c.Ctors {
 			for _, p := range ctor.Parameters {
@@ -2217,6 +2219,10 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 			if m.IsReadonlyOperator() && len(m.Parameters) == 1 {
 				operator := m.CppCallTarget()[8:]
 				callTarget = "(*self " + operator + " " + forwarding + ")"
+			}
+
+			if m.IsFreeFunction {
+				callTarget = m.CppCallTarget() + "(" + forwarding + ")"
 			}
 
 			if _, exists := seenClassMethods[methodPrefixName+"_"+mSafeMethodName]; !exists {
