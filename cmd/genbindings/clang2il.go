@@ -4,9 +4,11 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"path/filepath"
 	"slices"
 	"strconv"
 	"strings"
+	"unicode"
 )
 
 var (
@@ -39,10 +41,19 @@ var (
 		"KStandardActions::RawStringData": {},
 		"KTextEditor::InlineNote":         {},
 	}
+
+	skipFreeFunctions = []string{
+		"qbswap",
+		"qdbus_cast",
+		"qobject_cast",
+		"qt_noop",
+		"qvariant_cast",
+		"swap",
+	}
 )
 
 // parseHeader parses a whole C++ header into our CppParsedHeader intermediate format.
-func parseHeader(topLevel []any, addNamePrefix string) (*CppParsedHeader, error) {
+func parseHeader(topLevel []any, addNamePrefix, inputHeader string) (*CppParsedHeader, error) {
 
 	var ret CppParsedHeader
 
@@ -121,7 +132,7 @@ nextTopLevel:
 
 			} else {
 
-				contents, err := parseHeader(namespaceInner, addNamePrefix+namespace+"::")
+				contents, err := parseHeader(namespaceInner, addNamePrefix+namespace+"::", inputHeader)
 				if err != nil {
 					panic(err)
 				}
@@ -142,15 +153,24 @@ nextTopLevel:
 			}
 
 			// Handle class method
-			if className := getClassFromMangledName(fn.mangledName, fn.name); className != "" {
-				if shouldSkipClass(className) {
-					continue nextTopLevel
-				}
+			className := getClassFromMangledName(fn.mangledName, fn.name)
+			var isFreeFunction bool
+			if className == "" {
+				className = strings.TrimSuffix(filepath.Base(inputHeader), ".h") + "_h"
+				isFreeFunction = true
+			}
+			if shouldSkipClass(className) {
+				continue nextTopLevel
+			}
 
-				method := fn.createMethod(node["inner"].([]any))
-				if err := addMethodToClass(&ret.Classes, className, method); err != nil {
-					continue nextTopLevel
-				}
+			method := fn.createMethod(node["inner"].([]any))
+			if slices.Contains(skipFreeFunctions, method.MethodName) ||
+				(method.MethodName[0] == 'q' && unicode.IsUpper(rune(method.MethodName[1]))) {
+				continue nextTopLevel
+			}
+			method.IsFreeFunction = isFreeFunction
+			if err := addMethodToClass(&ret.Classes, className, method); err != nil {
+				continue nextTopLevel
 			}
 
 		case "EnumDecl":
@@ -199,6 +219,9 @@ nextTopLevel:
 			td, err := processTypedef(node, addNamePrefix)
 			if err != nil {
 				return nil, fmt.Errorf("processTypedef: %w", err)
+			}
+			if strings.HasPrefix(td.Alias, "__") {
+				continue
 			}
 			ret.Typedefs = append(ret.Typedefs, td)
 
@@ -251,10 +274,9 @@ func getPreferredType(node any) string {
 		qualType = q
 	}
 
-	desugared = strings.ReplaceAll(desugared, "enum ", "")
-	desugared = strings.ReplaceAll(desugared, "::enum_type", "")
-	qualType = strings.ReplaceAll(qualType, "enum ", "")
-	qualType = strings.ReplaceAll(qualType, "::enum_type", "")
+	replacer := strings.NewReplacer("enum ", "", "::enum_type", "")
+	desugared = replacer.Replace(desugared)
+	qualType = replacer.Replace(qualType)
 
 	if strings.Contains(desugared, "::") && !strings.Contains(qualType, "::") {
 		return desugared
@@ -950,7 +972,16 @@ nextEnumEntry:
 		if kind == "DeprecatedAttr" || kind == "FullComment" || kind == "VisibilityAttr" {
 			continue nextEnumEntry // skip
 		} else if kind == "EnumConstantDecl" {
-			// allow
+			// allow but check for possible rename
+			if strings.HasSuffix(ret.EnumName, "::") {
+				if typeobj, ok := entry["type"].(map[string]any); ok {
+					if qualType, ok := typeobj["qualType"].(string); ok {
+						if _, ok := KnownTypedefs[qualType]; ok {
+							ret.EnumName = qualType
+						}
+					}
+				}
+			}
 		} else {
 			// unknown kind, or maybe !ok
 			return ret, fmt.Errorf("unexpected kind %q", kind)
@@ -1389,8 +1420,8 @@ func parseSingleTypeString(p, className string) CppParameter {
 	}
 	insert.ParameterType = strings.TrimSpace(insert.ParameterType)
 	insert.ParameterType = strings.TrimPrefix(insert.ParameterType, "::")
-	insert.ParameterType = strings.ReplaceAll(insert.ParameterType, "enum ", "")
-	insert.ParameterType = strings.ReplaceAll(insert.ParameterType, "::enum_type", "")
+	replacer := strings.NewReplacer("enum ", "", "::enum_type", "")
+	insert.ParameterType = replacer.Replace(insert.ParameterType)
 
 	if className != "" && insert.ParameterType != "" {
 		if strings.Contains(className, "::") {
@@ -1437,10 +1468,7 @@ func parseFunctionDecl(node map[string]any) (*functionInfo, error) {
 		return nil, nil
 	}
 
-	mangledName, ok := node["mangledName"].(string)
-	if !ok {
-		return nil, nil
-	}
+	mangledName, _ := node["mangledName"].(string)
 
 	typeInfo, ok := node["type"].(map[string]any)
 	if !ok {
@@ -1449,11 +1477,11 @@ func parseFunctionDecl(node map[string]any) (*functionInfo, error) {
 
 	qualType, ok := typeInfo["qualType"].(string)
 	if !ok {
-		return nil, nil
+		return nil, errors.New("function has no qualType")
 	}
 
-	qualType = strings.ReplaceAll(qualType, "enum ", "")
-	qualType = strings.ReplaceAll(qualType, "::enum_type", "")
+	replacer := strings.NewReplacer("enum ", "", "::enum_type", "")
+	qualType = replacer.Replace(qualType)
 
 	returnType, params, isConst, err := parseTypeString(qualType, getClassFromMangledName(mangledName, name))
 	if err != nil {
@@ -1561,8 +1589,9 @@ func addMethodToClass(classes *[]CppClass, className string, method CppMethod) e
 
 	// Create new class
 	*classes = append(*classes, CppClass{
-		ClassName: className,
-		Methods:   []CppMethod{method},
+		ClassName:       className,
+		Methods:         []CppMethod{method},
+		IsFreeFunctions: method.IsFreeFunction,
 	})
 	return nil
 }
