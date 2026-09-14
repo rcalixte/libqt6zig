@@ -1,4 +1,8 @@
 
+### 6.8.2 rev88 (14 September 2026)
+
+* **BREAKING CHANGE:** Project additional free functions and enum typedefs (#168)
+
 ### 6.8.2 rev87 (13 September 2026)
 
 * Remove centralized class-based translation methods and add maintainer build option (#166)
