@@ -817,7 +817,7 @@ bool QIdentityProxyModel_SetItemData(QIdentityProxyModel* self, const QModelInde
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         return vqidentityproxymodel->setItemData(*index, roles_QMap);
@@ -833,7 +833,7 @@ bool QIdentityProxyModel_SuperSetItemData(QIdentityProxyModel* self, const QMode
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
         vqidentityproxymodel->setQIdentityProxyModel_SetItemData_IsBase(true);

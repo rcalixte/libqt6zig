@@ -118,7 +118,7 @@ void QGeoAreaMonitorInfo_SetNotificationParameters(QGeoAreaMonitorInfo* self, co
     QVariant** parameters_varr = static_cast<QVariant**>(parameters.values);
     for (size_t i = 0; i < parameters.len; ++i) {
         QString parameters_karr_i_QString = QString::fromUtf8(parameters_karr[i].data, parameters_karr[i].len);
-        parameters_QMap[parameters_karr_i_QString] = *(parameters_varr[i]);
+        parameters_QMap.insert(parameters_karr_i_QString, *(parameters_varr[i]));
     }
     self->setNotificationParameters(parameters_QMap);
 }

@@ -127,7 +127,7 @@ void KDatePickerPopup_SetDateMap(KDatePickerPopup* self, const libqt_map /* of Q
     libqt_string* dateMap_varr = static_cast<libqt_string*>(dateMap.values);
     for (size_t i = 0; i < dateMap.len; ++i) {
         QString dateMap_varr_i_QString = QString::fromUtf8(dateMap_varr[i].data, dateMap_varr[i].len);
-        dateMap_QMap[*(dateMap_karr[i])] = dateMap_varr_i_QString;
+        dateMap_QMap.insert(*(dateMap_karr[i]), dateMap_varr_i_QString);
     }
     self->setDateMap(dateMap_QMap);
 }

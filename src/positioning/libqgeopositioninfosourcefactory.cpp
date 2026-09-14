@@ -16,7 +16,7 @@ QGeoPositionInfoSource* QGeoPositionInfoSourceFactory_PositionInfoSource(QGeoPos
     QVariant** parameters_varr = static_cast<QVariant**>(parameters.values);
     for (size_t i = 0; i < parameters.len; ++i) {
         QString parameters_karr_i_QString = QString::fromUtf8(parameters_karr[i].data, parameters_karr[i].len);
-        parameters_QMap[parameters_karr_i_QString] = *(parameters_varr[i]);
+        parameters_QMap.insert(parameters_karr_i_QString, *(parameters_varr[i]));
     }
     return self->positionInfoSource(parent, parameters_QMap);
 }
@@ -27,7 +27,7 @@ QGeoSatelliteInfoSource* QGeoPositionInfoSourceFactory_SatelliteInfoSource(QGeoP
     QVariant** parameters_varr = static_cast<QVariant**>(parameters.values);
     for (size_t i = 0; i < parameters.len; ++i) {
         QString parameters_karr_i_QString = QString::fromUtf8(parameters_karr[i].data, parameters_karr[i].len);
-        parameters_QMap[parameters_karr_i_QString] = *(parameters_varr[i]);
+        parameters_QMap.insert(parameters_karr_i_QString, *(parameters_varr[i]));
     }
     return self->satelliteInfoSource(parent, parameters_QMap);
 }
@@ -38,7 +38,7 @@ QGeoAreaMonitorSource* QGeoPositionInfoSourceFactory_AreaMonitor(QGeoPositionInf
     QVariant** parameters_varr = static_cast<QVariant**>(parameters.values);
     for (size_t i = 0; i < parameters.len; ++i) {
         QString parameters_karr_i_QString = QString::fromUtf8(parameters_karr[i].data, parameters_karr[i].len);
-        parameters_QMap[parameters_karr_i_QString] = *(parameters_varr[i]);
+        parameters_QMap.insert(parameters_karr_i_QString, *(parameters_varr[i]));
     }
     return self->areaMonitor(parent, parameters_QMap);
 }

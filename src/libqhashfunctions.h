@@ -30,6 +30,8 @@ void QHashSeed_SetDeterministicGlobalSeed();
 void QHashSeed_ResetRandomGlobalSeed();
 void QHashSeed_Delete(QHashSeed* self);
 
+unsigned int qhashfunctions_h_Hash(libqt_string key, unsigned int chained);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

@@ -35,7 +35,7 @@ void KUrlMimeData_SetMetaData(const libqt_map /* of libqt_string to libqt_string
     for (size_t i = 0; i < metaData.len; ++i) {
         QString metaData_karr_i_QString = QString::fromUtf8(metaData_karr[i].data, metaData_karr[i].len);
         QString metaData_varr_i_QString = QString::fromUtf8(metaData_varr[i].data, metaData_varr[i].len);
-        metaData_QMap[metaData_karr_i_QString] = metaData_varr_i_QString;
+        metaData_QMap.insert(metaData_karr_i_QString, metaData_varr_i_QString);
     }
     KUrlMimeData::setMetaData(metaData_QMap, mimeData);
 }
@@ -68,7 +68,7 @@ libqt_list /* of QUrl* */ KUrlMimeData_UrlsFromMimeData(const QMimeData* mimeDat
     for (size_t i = 0; i < metaData->len; ++i) {
         QString metaData_karr_i_QString = QString::fromUtf8(metaData_karr[i].data, metaData_karr[i].len);
         QString metaData_varr_i_QString = QString::fromUtf8(metaData_varr[i].data, metaData_varr[i].len);
-        (*metaData_QMap)[metaData_karr_i_QString] = metaData_varr_i_QString;
+        (*metaData_QMap).insert(metaData_karr_i_QString, metaData_varr_i_QString);
     }
     QList<QUrl> _ret = KUrlMimeData::urlsFromMimeData(mimeData, static_cast<KUrlMimeData::DecodeOptions>(decodeOptions), metaData_QMap);
     // Convert QList<> from C++ memory to manually-managed C memory

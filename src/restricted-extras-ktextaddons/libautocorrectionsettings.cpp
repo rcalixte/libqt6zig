@@ -243,7 +243,7 @@ void TextAutoCorrectionCore__AutoCorrectionSettings_SetAutocorrectEntries(TextAu
     for (size_t i = 0; i < entries.len; ++i) {
         QString entries_karr_i_QString = QString::fromUtf8(entries_karr[i].data, entries_karr[i].len);
         QString entries_varr_i_QString = QString::fromUtf8(entries_varr[i].data, entries_varr[i].len);
-        entries_QHash[entries_karr_i_QString] = entries_varr_i_QString;
+        entries_QHash.insert(entries_karr_i_QString, entries_varr_i_QString);
     }
     self->setAutocorrectEntries(entries_QHash);
 }
@@ -338,7 +338,7 @@ void TextAutoCorrectionCore__AutoCorrectionSettings_SetSuperScriptEntries(TextAu
     for (size_t i = 0; i < newSuperScriptEntries.len; ++i) {
         QString newSuperScriptEntries_karr_i_QString = QString::fromUtf8(newSuperScriptEntries_karr[i].data, newSuperScriptEntries_karr[i].len);
         QString newSuperScriptEntries_varr_i_QString = QString::fromUtf8(newSuperScriptEntries_varr[i].data, newSuperScriptEntries_varr[i].len);
-        newSuperScriptEntries_QHash[newSuperScriptEntries_karr_i_QString] = newSuperScriptEntries_varr_i_QString;
+        newSuperScriptEntries_QHash.insert(newSuperScriptEntries_karr_i_QString, newSuperScriptEntries_varr_i_QString);
     }
     self->setSuperScriptEntries(newSuperScriptEntries_QHash);
 }

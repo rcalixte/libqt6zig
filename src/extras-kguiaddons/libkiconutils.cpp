@@ -17,7 +17,7 @@ QIcon* KIconUtils_AddOverlays(const QIcon* icon, const libqt_map /* of int to QI
     int* overlays_karr = static_cast<int*>(overlays.keys);
     QIcon** overlays_varr = static_cast<QIcon**>(overlays.values);
     for (size_t i = 0; i < overlays.len; ++i) {
-        overlays_QHash[static_cast<Qt::Corner>(overlays_karr[i])] = *(overlays_varr[i]);
+        overlays_QHash.insert(static_cast<Qt::Corner>(overlays_karr[i]), *(overlays_varr[i]));
     }
     return new QIcon(KIconUtils::addOverlays(*icon, overlays_QHash));
 }

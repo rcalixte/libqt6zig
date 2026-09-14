@@ -748,7 +748,7 @@ bool QSqlQueryModel_SetItemData(QSqlQueryModel* self, const QModelIndex* index, 
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
         return vqsqlquerymodel->setItemData(*index, roles_QMap);
@@ -764,7 +764,7 @@ bool QSqlQueryModel_SuperSetItemData(QSqlQueryModel* self, const QModelIndex* in
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
         vqsqlquerymodel->setQSqlQueryModel_SetItemData_IsBase(true);

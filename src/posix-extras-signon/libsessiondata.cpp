@@ -21,7 +21,7 @@ SignOn__SessionData* SignOn__SessionData_new3(const libqt_map /* of libqt_string
     QVariant** data_varr = static_cast<QVariant**>(data.values);
     for (size_t i = 0; i < data.len; ++i) {
         QString data_karr_i_QString = QString::fromUtf8(data_karr[i].data, data_karr[i].len);
-        data_QMap[data_karr_i_QString] = *(data_varr[i]);
+        data_QMap.insert(data_karr_i_QString, *(data_varr[i]));
     }
     return new SignOn::SessionData(data_QMap);
 }

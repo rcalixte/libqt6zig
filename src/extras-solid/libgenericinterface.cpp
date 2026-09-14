@@ -80,7 +80,7 @@ void Solid__GenericInterface_PropertyChanged(Solid__GenericInterface* self, cons
     int* changes_varr = static_cast<int*>(changes.values);
     for (size_t i = 0; i < changes.len; ++i) {
         QString changes_karr_i_QString = QString::fromUtf8(changes_karr[i].data, changes_karr[i].len);
-        changes_QMap[changes_karr_i_QString] = static_cast<int>(changes_varr[i]);
+        changes_QMap.insert(changes_karr_i_QString, static_cast<int>(changes_varr[i]));
     }
     self->propertyChanged(changes_QMap);
 }

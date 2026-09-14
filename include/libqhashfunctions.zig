@@ -155,3 +155,26 @@ pub const QHashSeed = extern struct {
         qtc.QHashSeed_Delete(@ptrCast(self.ptr));
     }
 };
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qhashfunctions-h.html)
+pub const qhashfunctions_h = extern struct {
+    /// ### DEPRECATED: Use `hash` instead
+    ///
+    pub const Hash = hash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhashfunctions-h.html#qt_hash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` chained: u32 `
+    ///
+    pub fn hash(key: []const u8, chained: u32) u32 {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.qhashfunctions_h_Hash(key_str, @bitCast(chained));
+    }
+};

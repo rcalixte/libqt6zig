@@ -283,7 +283,7 @@ bool KTextEditor__MainWindow_ShowMessage(KTextEditor__MainWindow* self, const li
     QVariant** message_varr = static_cast<QVariant**>(message.values);
     for (size_t i = 0; i < message.len; ++i) {
         QString message_karr_i_QString = QString::fromUtf8(message_karr[i].data, message_karr[i].len);
-        message_QMap[message_karr_i_QString] = *(message_varr[i]);
+        message_QMap.insert(message_karr_i_QString, *(message_varr[i]));
     }
     return self->showMessage(message_QMap);
 }

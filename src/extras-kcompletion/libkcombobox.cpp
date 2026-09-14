@@ -2470,7 +2470,7 @@ void KComboBox_SetKeyBindingMap(KComboBox* self, libqt_map /* of int to libqt_li
         for (size_t j = 0; j < keyBindingMap_varr[i].len; ++j) {
             keyBindingMap_varr_i_QList.push_back(*(keyBindingMap_varr_i_arr[j]));
         }
-        keyBindingMap_QMap[static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i])] = keyBindingMap_varr_i_QList;
+        keyBindingMap_QMap.insert(static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i]), keyBindingMap_varr_i_QList);
     }
     if (vkcombobox && vkcombobox->isVirtualKComboBox) {
         vkcombobox->setKeyBindingMap(keyBindingMap_QMap);
@@ -2492,7 +2492,7 @@ void KComboBox_SuperSetKeyBindingMap(KComboBox* self, libqt_map /* of int to lib
         for (size_t j = 0; j < keyBindingMap_varr[i].len; ++j) {
             keyBindingMap_varr_i_QList.push_back(*(keyBindingMap_varr_i_arr[j]));
         }
-        keyBindingMap_QMap[static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i])] = keyBindingMap_varr_i_QList;
+        keyBindingMap_QMap.insert(static_cast<KCompletionBase::KeyBindingType>(keyBindingMap_karr[i]), keyBindingMap_varr_i_QList);
     }
     if (vkcombobox && vkcombobox->isVirtualKComboBox) {
         vkcombobox->setKComboBox_SetKeyBindingMap_IsBase(true);

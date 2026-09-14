@@ -60,7 +60,7 @@ void KFileMetaData__WriteData_AddImageData(KFileMetaData__WriteData* self, const
     libqt_string* images_varr = static_cast<libqt_string*>(images.values);
     for (size_t i = 0; i < images.len; ++i) {
         QByteArray images_varr_i_QByteArray(images_varr[i].data, images_varr[i].len);
-        images_QMap[static_cast<KFileMetaData::EmbeddedImageData::ImageType>(images_karr[i])] = images_varr_i_QByteArray;
+        images_QMap.insert(static_cast<KFileMetaData::EmbeddedImageData::ImageType>(images_karr[i]), images_varr_i_QByteArray);
     }
     self->addImageData(images_QMap);
 }

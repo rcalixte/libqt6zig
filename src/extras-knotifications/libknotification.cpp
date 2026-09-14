@@ -940,7 +940,7 @@ void KNotification_SetHints(KNotification* self, const libqt_map /* of libqt_str
     QVariant** hints_varr = static_cast<QVariant**>(hints.values);
     for (size_t i = 0; i < hints.len; ++i) {
         QString hints_karr_i_QString = QString::fromUtf8(hints_karr[i].data, hints_karr[i].len);
-        hints_QMap[hints_karr_i_QString] = *(hints_varr[i]);
+        hints_QMap.insert(hints_karr_i_QString, *(hints_varr[i]));
     }
     self->setHints(hints_QMap);
 }

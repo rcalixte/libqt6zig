@@ -6,12 +6,103 @@ const QEvent = @import("libqt6").QEvent;
 const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QRegularExpression = @import("libqt6").QRegularExpression;
 const QThread = @import("libqt6").QThread;
 const QTimerEvent = @import("libqt6").QTimerEvent;
 const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qobject-h.html)
+pub const qobject_h = extern struct {
+    /// ### DEPRECATED: Use `qFindChildrenHelper` instead
+    ///
+    pub const QFindChildrenHelper = qFindChildrenHelper;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject-h.html#qt_qFindChildren_helper)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QObject `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` mo: QMetaObject `
+    ///
+    /// ` list: []?*anyopaque `
+    ///
+    /// ` options: flag of qnamespace_enums.FindChildOption `
+    ///
+    pub fn qFindChildrenHelper(parent: anytype, name: []const u8, mo: anytype, list: []?*anyopaque, options: i32) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        comptime _ = @TypeOf(mo)._is_QMetaObject;
+        const list_list = qtc.libqt_list{
+            .len = list.len,
+            .data = list.ptr,
+        };
+        qtc.qobject_h_QFindChildrenHelper(@ptrCast(parent.ptr), name_str, @ptrCast(mo.ptr), list_list, @bitCast(options));
+    }
+
+    /// ### DEPRECATED: Use `qFindChildrenHelper2` instead
+    ///
+    pub const QFindChildrenHelper2 = qFindChildrenHelper2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject-h.html#qt_qFindChildren_helper)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QObject `
+    ///
+    /// ` re: QRegularExpression `
+    ///
+    /// ` mo: QMetaObject `
+    ///
+    /// ` list: []?*anyopaque `
+    ///
+    /// ` options: flag of qnamespace_enums.FindChildOption `
+    ///
+    pub fn qFindChildrenHelper2(parent: anytype, re: anytype, mo: anytype, list: []?*anyopaque, options: i32) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        comptime _ = @TypeOf(re)._is_QRegularExpression;
+        comptime _ = @TypeOf(mo)._is_QMetaObject;
+        const list_list = qtc.libqt_list{
+            .len = list.len,
+            .data = list.ptr,
+        };
+        qtc.qobject_h_QFindChildrenHelper2(@ptrCast(parent.ptr), @ptrCast(re.ptr), @ptrCast(mo.ptr), list_list, @bitCast(options));
+    }
+
+    /// ### DEPRECATED: Use `qFindChildHelper` instead
+    ///
+    pub const QFindChildHelper = qFindChildHelper;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject-h.html#qt_qFindChild_helper)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` parent: QObject `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` mo: QMetaObject `
+    ///
+    /// ` options: flag of qnamespace_enums.FindChildOption `
+    ///
+    pub fn qFindChildHelper(parent: anytype, name: []const u8, mo: anytype, options: i32) QObject {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        comptime _ = @TypeOf(mo)._is_QMetaObject;
+        return .{ .ptr = qtc.qobject_h_QFindChildHelper(@ptrCast(parent.ptr), name_str, @ptrCast(mo.ptr), @bitCast(options)) };
+    }
+};
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html)
 pub const QObject = extern struct {

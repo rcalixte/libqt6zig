@@ -309,7 +309,7 @@ QCborMap* QCborMap_FromVariantMap(const libqt_map /* of libqt_string to QVariant
     QVariant** map_varr = static_cast<QVariant**>(map.values);
     for (size_t i = 0; i < map.len; ++i) {
         QString map_karr_i_QString = QString::fromUtf8(map_karr[i].data, map_karr[i].len);
-        map_QMap[map_karr_i_QString] = *(map_varr[i]);
+        map_QMap.insert(map_karr_i_QString, *(map_varr[i]));
     }
     return new QCborMap(QCborMap::fromVariantMap(map_QMap));
 }
@@ -321,7 +321,7 @@ QCborMap* QCborMap_FromVariantHash(const libqt_map /* of libqt_string to QVarian
     QVariant** hash_varr = static_cast<QVariant**>(hash.values);
     for (size_t i = 0; i < hash.len; ++i) {
         QString hash_karr_i_QString = QString::fromUtf8(hash_karr[i].data, hash_karr[i].len);
-        hash_QHash[hash_karr_i_QString] = *(hash_varr[i]);
+        hash_QHash.insert(hash_karr_i_QString, *(hash_varr[i]));
     }
     return new QCborMap(QCborMap::fromVariantHash(hash_QHash));
 }

@@ -291,7 +291,7 @@ func gatherTypes(name string, dirs []string, allowHeader func(string) bool, clan
 			panic(err)
 		}
 
-		parsed, err := parseHeader(astInner, "")
+		parsed, err := parseHeader(astInner, "", inputHeader)
 		if err != nil {
 			panic(err)
 		}
@@ -398,7 +398,7 @@ func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool,
 		}
 
 		// Convert it to our intermediate format
-		parsed, err := parseHeader(astInner, "")
+		parsed, err := parseHeader(astInner, "", inputHeader)
 		if err != nil {
 			panic(err)
 		}

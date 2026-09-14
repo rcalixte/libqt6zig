@@ -130,7 +130,7 @@ void QPlace_SetContent(QPlace* self, int typeVal, const libqt_map /* of int to Q
     int* content_karr = static_cast<int*>(content.keys);
     QPlaceContent** content_varr = static_cast<QPlaceContent**>(content.values);
     for (size_t i = 0; i < content.len; ++i) {
-        content_QMap[static_cast<int>(content_karr[i])] = *(content_varr[i]);
+        content_QMap.insert(static_cast<int>(content_karr[i]), *(content_varr[i]));
     }
     self->setContent(static_cast<QPlaceContent::Type>(typeVal), content_QMap);
 }
@@ -140,7 +140,7 @@ void QPlace_InsertContent(QPlace* self, int typeVal, const libqt_map /* of int t
     int* content_karr = static_cast<int*>(content.keys);
     QPlaceContent** content_varr = static_cast<QPlaceContent**>(content.values);
     for (size_t i = 0; i < content.len; ++i) {
-        content_QMap[static_cast<int>(content_karr[i])] = *(content_varr[i]);
+        content_QMap.insert(static_cast<int>(content_karr[i]), *(content_varr[i]));
     }
     self->insertContent(static_cast<QPlaceContent::Type>(typeVal), content_QMap);
 }

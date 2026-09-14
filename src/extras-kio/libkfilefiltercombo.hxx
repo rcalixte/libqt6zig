@@ -1621,7 +1621,7 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
                 for (size_t j = 0; j < callback_ret_varr[i].len; ++j) {
                     callback_ret_varr_i_QList.push_back(*(callback_ret_varr_i_arr[j]));
                 }
-                callback_ret_QMap[static_cast<KCompletionBase::KeyBindingType>(callback_ret_karr[i])] = callback_ret_varr_i_QList;
+                callback_ret_QMap.insert(static_cast<KCompletionBase::KeyBindingType>(callback_ret_karr[i]), callback_ret_varr_i_QList);
             }
             return callback_ret_QMap;
         }

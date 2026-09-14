@@ -1304,3 +1304,612 @@ pub const KLocalizedString = extern struct {
         qtc.KLocalizedString_Delete(@ptrCast(self.ptr));
     }
 };
+
+/// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html)
+pub const klocalizedstring_h = extern struct {
+    /// ### DEPRECATED: Use `ki18n` instead
+    ///
+    pub const Ki18n = ki18n;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#ki18n)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    pub fn ki18n(text: [:0]const u8) KLocalizedString {
+        const text_Cstring = text.ptr;
+        return .{ .ptr = qtc.klocalizedstring_h_Ki18n(text_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `ki18nc` instead
+    ///
+    pub const Ki18nc = ki18nc;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#ki18nc)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` context: [:0]const u8 `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    pub fn ki18nc(context: [:0]const u8, text: [:0]const u8) KLocalizedString {
+        const context_Cstring = context.ptr;
+        const text_Cstring = text.ptr;
+        return .{ .ptr = qtc.klocalizedstring_h_Ki18nc(context_Cstring, text_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `ki18np` instead
+    ///
+    pub const Ki18np = ki18np;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#ki18np)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` singular: [:0]const u8 `
+    ///
+    /// ` plural: [:0]const u8 `
+    ///
+    pub fn ki18np(singular: [:0]const u8, plural: [:0]const u8) KLocalizedString {
+        const singular_Cstring = singular.ptr;
+        const plural_Cstring = plural.ptr;
+        return .{ .ptr = qtc.klocalizedstring_h_Ki18np(singular_Cstring, plural_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `ki18ncp` instead
+    ///
+    pub const Ki18ncp = ki18ncp;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#ki18ncp)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` context: [:0]const u8 `
+    ///
+    /// ` singular: [:0]const u8 `
+    ///
+    /// ` plural: [:0]const u8 `
+    ///
+    pub fn ki18ncp(context: [:0]const u8, singular: [:0]const u8, plural: [:0]const u8) KLocalizedString {
+        const context_Cstring = context.ptr;
+        const singular_Cstring = singular.ptr;
+        const plural_Cstring = plural.ptr;
+        return .{ .ptr = qtc.klocalizedstring_h_Ki18ncp(context_Cstring, singular_Cstring, plural_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `ki18nd` instead
+    ///
+    pub const Ki18nd = ki18nd;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#ki18nd)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` domain: [:0]const u8 `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    pub fn ki18nd(domain: [:0]const u8, text: [:0]const u8) KLocalizedString {
+        const domain_Cstring = domain.ptr;
+        const text_Cstring = text.ptr;
+        return .{ .ptr = qtc.klocalizedstring_h_Ki18nd(domain_Cstring, text_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `ki18ndc` instead
+    ///
+    pub const Ki18ndc = ki18ndc;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#ki18ndc)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` domain: [:0]const u8 `
+    ///
+    /// ` context: [:0]const u8 `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    pub fn ki18ndc(domain: [:0]const u8, context: [:0]const u8, text: [:0]const u8) KLocalizedString {
+        const domain_Cstring = domain.ptr;
+        const context_Cstring = context.ptr;
+        const text_Cstring = text.ptr;
+        return .{ .ptr = qtc.klocalizedstring_h_Ki18ndc(domain_Cstring, context_Cstring, text_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `ki18ndp` instead
+    ///
+    pub const Ki18ndp = ki18ndp;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#ki18ndp)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` domain: [:0]const u8 `
+    ///
+    /// ` singular: [:0]const u8 `
+    ///
+    /// ` plural: [:0]const u8 `
+    ///
+    pub fn ki18ndp(domain: [:0]const u8, singular: [:0]const u8, plural: [:0]const u8) KLocalizedString {
+        const domain_Cstring = domain.ptr;
+        const singular_Cstring = singular.ptr;
+        const plural_Cstring = plural.ptr;
+        return .{ .ptr = qtc.klocalizedstring_h_Ki18ndp(domain_Cstring, singular_Cstring, plural_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `ki18ndcp` instead
+    ///
+    pub const Ki18ndcp = ki18ndcp;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#ki18ndcp)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` domain: [:0]const u8 `
+    ///
+    /// ` context: [:0]const u8 `
+    ///
+    /// ` singular: [:0]const u8 `
+    ///
+    /// ` plural: [:0]const u8 `
+    ///
+    pub fn ki18ndcp(domain: [:0]const u8, context: [:0]const u8, singular: [:0]const u8, plural: [:0]const u8) KLocalizedString {
+        const domain_Cstring = domain.ptr;
+        const context_Cstring = context.ptr;
+        const singular_Cstring = singular.ptr;
+        const plural_Cstring = plural.ptr;
+        return .{ .ptr = qtc.klocalizedstring_h_Ki18ndcp(domain_Cstring, context_Cstring, singular_Cstring, plural_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `kxi18n` instead
+    ///
+    pub const Kxi18n = kxi18n;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#kxi18n)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    pub fn kxi18n(text: [:0]const u8) KLocalizedString {
+        const text_Cstring = text.ptr;
+        return .{ .ptr = qtc.klocalizedstring_h_Kxi18n(text_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `kxi18nc` instead
+    ///
+    pub const Kxi18nc = kxi18nc;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#kxi18nc)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` context: [:0]const u8 `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    pub fn kxi18nc(context: [:0]const u8, text: [:0]const u8) KLocalizedString {
+        const context_Cstring = context.ptr;
+        const text_Cstring = text.ptr;
+        return .{ .ptr = qtc.klocalizedstring_h_Kxi18nc(context_Cstring, text_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `kxi18np` instead
+    ///
+    pub const Kxi18np = kxi18np;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#kxi18np)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` singular: [:0]const u8 `
+    ///
+    /// ` plural: [:0]const u8 `
+    ///
+    pub fn kxi18np(singular: [:0]const u8, plural: [:0]const u8) KLocalizedString {
+        const singular_Cstring = singular.ptr;
+        const plural_Cstring = plural.ptr;
+        return .{ .ptr = qtc.klocalizedstring_h_Kxi18np(singular_Cstring, plural_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `kxi18ncp` instead
+    ///
+    pub const Kxi18ncp = kxi18ncp;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#kxi18ncp)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` context: [:0]const u8 `
+    ///
+    /// ` singular: [:0]const u8 `
+    ///
+    /// ` plural: [:0]const u8 `
+    ///
+    pub fn kxi18ncp(context: [:0]const u8, singular: [:0]const u8, plural: [:0]const u8) KLocalizedString {
+        const context_Cstring = context.ptr;
+        const singular_Cstring = singular.ptr;
+        const plural_Cstring = plural.ptr;
+        return .{ .ptr = qtc.klocalizedstring_h_Kxi18ncp(context_Cstring, singular_Cstring, plural_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `kxi18nd` instead
+    ///
+    pub const Kxi18nd = kxi18nd;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#kxi18nd)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` domain: [:0]const u8 `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    pub fn kxi18nd(domain: [:0]const u8, text: [:0]const u8) KLocalizedString {
+        const domain_Cstring = domain.ptr;
+        const text_Cstring = text.ptr;
+        return .{ .ptr = qtc.klocalizedstring_h_Kxi18nd(domain_Cstring, text_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `kxi18ndc` instead
+    ///
+    pub const Kxi18ndc = kxi18ndc;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#kxi18ndc)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` domain: [:0]const u8 `
+    ///
+    /// ` context: [:0]const u8 `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    pub fn kxi18ndc(domain: [:0]const u8, context: [:0]const u8, text: [:0]const u8) KLocalizedString {
+        const domain_Cstring = domain.ptr;
+        const context_Cstring = context.ptr;
+        const text_Cstring = text.ptr;
+        return .{ .ptr = qtc.klocalizedstring_h_Kxi18ndc(domain_Cstring, context_Cstring, text_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `kxi18ndp` instead
+    ///
+    pub const Kxi18ndp = kxi18ndp;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#kxi18ndp)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` domain: [:0]const u8 `
+    ///
+    /// ` singular: [:0]const u8 `
+    ///
+    /// ` plural: [:0]const u8 `
+    ///
+    pub fn kxi18ndp(domain: [:0]const u8, singular: [:0]const u8, plural: [:0]const u8) KLocalizedString {
+        const domain_Cstring = domain.ptr;
+        const singular_Cstring = singular.ptr;
+        const plural_Cstring = plural.ptr;
+        return .{ .ptr = qtc.klocalizedstring_h_Kxi18ndp(domain_Cstring, singular_Cstring, plural_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `kxi18ndcp` instead
+    ///
+    pub const Kxi18ndcp = kxi18ndcp;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#kxi18ndcp)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` domain: [:0]const u8 `
+    ///
+    /// ` context: [:0]const u8 `
+    ///
+    /// ` singular: [:0]const u8 `
+    ///
+    /// ` plural: [:0]const u8 `
+    ///
+    pub fn kxi18ndcp(domain: [:0]const u8, context: [:0]const u8, singular: [:0]const u8, plural: [:0]const u8) KLocalizedString {
+        const domain_Cstring = domain.ptr;
+        const context_Cstring = context.ptr;
+        const singular_Cstring = singular.ptr;
+        const plural_Cstring = plural.ptr;
+        return .{ .ptr = qtc.klocalizedstring_h_Kxi18ndcp(domain_Cstring, context_Cstring, singular_Cstring, plural_Cstring) };
+    }
+
+    /// ### DEPRECATED: Use `tr2i18n` instead
+    ///
+    pub const Tr2i18n = tr2i18n;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#tr2i18n)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    /// ` comment: [:0]const u8 `
+    ///
+    pub fn tr2i18n(allocator: std.mem.Allocator, text: [:0]const u8, comment: [:0]const u8) []const u8 {
+        const text_Cstring = text.ptr;
+        const comment_Cstring = comment.ptr;
+        var _str = qtc.klocalizedstring_h_Tr2i18n(text_Cstring, comment_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring_h.tr2i18n: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `tr2i18nd` instead
+    ///
+    pub const Tr2i18nd = tr2i18nd;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#tr2i18nd)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` domain: [:0]const u8 `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    /// ` comment: [:0]const u8 `
+    ///
+    pub fn tr2i18nd(allocator: std.mem.Allocator, domain: [:0]const u8, text: [:0]const u8, comment: [:0]const u8) []const u8 {
+        const domain_Cstring = domain.ptr;
+        const text_Cstring = text.ptr;
+        const comment_Cstring = comment.ptr;
+        var _str = qtc.klocalizedstring_h_Tr2i18nd(domain_Cstring, text_Cstring, comment_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring_h.tr2i18nd: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `tr2xi18n` instead
+    ///
+    pub const Tr2xi18n = tr2xi18n;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#tr2xi18n)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    /// ` comment: [:0]const u8 `
+    ///
+    pub fn tr2xi18n(allocator: std.mem.Allocator, text: [:0]const u8, comment: [:0]const u8) []const u8 {
+        const text_Cstring = text.ptr;
+        const comment_Cstring = comment.ptr;
+        var _str = qtc.klocalizedstring_h_Tr2xi18n(text_Cstring, comment_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring_h.tr2xi18n: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `tr2xi18nd` instead
+    ///
+    pub const Tr2xi18nd = tr2xi18nd;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#tr2xi18nd)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` domain: [:0]const u8 `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    /// ` comment: [:0]const u8 `
+    ///
+    pub fn tr2xi18nd(allocator: std.mem.Allocator, domain: [:0]const u8, text: [:0]const u8, comment: [:0]const u8) []const u8 {
+        const domain_Cstring = domain.ptr;
+        const text_Cstring = text.ptr;
+        const comment_Cstring = comment.ptr;
+        var _str = qtc.klocalizedstring_h_Tr2xi18nd(domain_Cstring, text_Cstring, comment_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring_h.tr2xi18nd: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `i18n` instead
+    ///
+    pub const I18n = i18n;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#i18n)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    pub fn i18n(allocator: std.mem.Allocator, text: [:0]const u8) []const u8 {
+        const text_Cstring = text.ptr;
+        var _str = qtc.klocalizedstring_h_I18n(text_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring_h.i18n: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `i18nc` instead
+    ///
+    pub const I18nc = i18nc;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#i18nc)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` context: [:0]const u8 `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    pub fn i18nc(allocator: std.mem.Allocator, context: [:0]const u8, text: [:0]const u8) []const u8 {
+        const context_Cstring = context.ptr;
+        const text_Cstring = text.ptr;
+        var _str = qtc.klocalizedstring_h_I18nc(context_Cstring, text_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring_h.i18nc: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `i18nd` instead
+    ///
+    pub const I18nd = i18nd;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#i18nd)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` domain: [:0]const u8 `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    pub fn i18nd(allocator: std.mem.Allocator, domain: [:0]const u8, text: [:0]const u8) []const u8 {
+        const domain_Cstring = domain.ptr;
+        const text_Cstring = text.ptr;
+        var _str = qtc.klocalizedstring_h_I18nd(domain_Cstring, text_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring_h.i18nd: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `i18ndc` instead
+    ///
+    pub const I18ndc = i18ndc;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#i18ndc)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` domain: [:0]const u8 `
+    ///
+    /// ` context: [:0]const u8 `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    pub fn i18ndc(allocator: std.mem.Allocator, domain: [:0]const u8, context: [:0]const u8, text: [:0]const u8) []const u8 {
+        const domain_Cstring = domain.ptr;
+        const context_Cstring = context.ptr;
+        const text_Cstring = text.ptr;
+        var _str = qtc.klocalizedstring_h_I18ndc(domain_Cstring, context_Cstring, text_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring_h.i18ndc: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `xi18n` instead
+    ///
+    pub const Xi18n = xi18n;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#xi18n)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    pub fn xi18n(allocator: std.mem.Allocator, text: [:0]const u8) []const u8 {
+        const text_Cstring = text.ptr;
+        var _str = qtc.klocalizedstring_h_Xi18n(text_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring_h.xi18n: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `xi18nc` instead
+    ///
+    pub const Xi18nc = xi18nc;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#xi18nc)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` context: [:0]const u8 `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    pub fn xi18nc(allocator: std.mem.Allocator, context: [:0]const u8, text: [:0]const u8) []const u8 {
+        const context_Cstring = context.ptr;
+        const text_Cstring = text.ptr;
+        var _str = qtc.klocalizedstring_h_Xi18nc(context_Cstring, text_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring_h.xi18nc: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `xi18nd` instead
+    ///
+    pub const Xi18nd = xi18nd;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#xi18nd)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` domain: [:0]const u8 `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    pub fn xi18nd(allocator: std.mem.Allocator, domain: [:0]const u8, text: [:0]const u8) []const u8 {
+        const domain_Cstring = domain.ptr;
+        const text_Cstring = text.ptr;
+        var _str = qtc.klocalizedstring_h_Xi18nd(domain_Cstring, text_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring_h.xi18nd: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `xi18ndc` instead
+    ///
+    pub const Xi18ndc = xi18ndc;
+
+    /// ### [Upstream resources](https://api.kde.org/klocalizedstring-h.html#xi18ndc)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` domain: [:0]const u8 `
+    ///
+    /// ` context: [:0]const u8 `
+    ///
+    /// ` text: [:0]const u8 `
+    ///
+    pub fn xi18ndc(allocator: std.mem.Allocator, domain: [:0]const u8, context: [:0]const u8, text: [:0]const u8) []const u8 {
+        const domain_Cstring = domain.ptr;
+        const context_Cstring = context.ptr;
+        const text_Cstring = text.ptr;
+        var _str = qtc.klocalizedstring_h_Xi18ndc(domain_Cstring, context_Cstring, text_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring_h.xi18ndc: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+};

@@ -17,7 +17,7 @@ KIO__MetaData* KIO__MetaData_new2(const libqt_map /* of libqt_string to libqt_st
     for (size_t i = 0; i < metaData.len; ++i) {
         QString metaData_karr_i_QString = QString::fromUtf8(metaData_karr[i].data, metaData_karr[i].len);
         QString metaData_varr_i_QString = QString::fromUtf8(metaData_varr[i].data, metaData_varr[i].len);
-        metaData_QMap[metaData_karr_i_QString] = metaData_varr_i_QString;
+        metaData_QMap.insert(metaData_karr_i_QString, metaData_varr_i_QString);
     }
     return new KIO::MetaData(metaData_QMap);
 }
@@ -28,7 +28,7 @@ KIO__MetaData* KIO__MetaData_new3(const libqt_map /* of libqt_string to QVariant
     QVariant** param1_varr = static_cast<QVariant**>(param1.values);
     for (size_t i = 0; i < param1.len; ++i) {
         QString param1_karr_i_QString = QString::fromUtf8(param1_karr[i].data, param1_karr[i].len);
-        param1_QMap[param1_karr_i_QString] = *(param1_varr[i]);
+        param1_QMap.insert(param1_karr_i_QString, *(param1_varr[i]));
     }
     return new KIO::MetaData(param1_QMap);
 }
@@ -44,7 +44,7 @@ KIO__MetaData* KIO__MetaData_OperatorPlusAssign(KIO__MetaData* self, const libqt
     for (size_t i = 0; i < metaData.len; ++i) {
         QString metaData_karr_i_QString = QString::fromUtf8(metaData_karr[i].data, metaData_karr[i].len);
         QString metaData_varr_i_QString = QString::fromUtf8(metaData_varr[i].data, metaData_varr[i].len);
-        metaData_QMap[metaData_karr_i_QString] = metaData_varr_i_QString;
+        metaData_QMap.insert(metaData_karr_i_QString, metaData_varr_i_QString);
     }
     KIO::MetaData& _ret = self->operator+=(metaData_QMap);
     // Cast returned reference into pointer
@@ -57,7 +57,7 @@ KIO__MetaData* KIO__MetaData_OperatorPlusAssign2(KIO__MetaData* self, const libq
     QVariant** metaData_varr = static_cast<QVariant**>(metaData.values);
     for (size_t i = 0; i < metaData.len; ++i) {
         QString metaData_karr_i_QString = QString::fromUtf8(metaData_karr[i].data, metaData_karr[i].len);
-        metaData_QMap[metaData_karr_i_QString] = *(metaData_varr[i]);
+        metaData_QMap.insert(metaData_karr_i_QString, *(metaData_varr[i]));
     }
     KIO::MetaData& _ret = self->operator+=(metaData_QMap);
     // Cast returned reference into pointer
@@ -70,7 +70,7 @@ void KIO__MetaData_OperatorAssign(KIO__MetaData* self, const libqt_map /* of lib
     QVariant** metaData_varr = static_cast<QVariant**>(metaData.values);
     for (size_t i = 0; i < metaData.len; ++i) {
         QString metaData_karr_i_QString = QString::fromUtf8(metaData_karr[i].data, metaData_karr[i].len);
-        metaData_QMap[metaData_karr_i_QString] = *(metaData_varr[i]);
+        metaData_QMap.insert(metaData_karr_i_QString, *(metaData_varr[i]));
     }
     self->operator=(metaData_QMap);
 }

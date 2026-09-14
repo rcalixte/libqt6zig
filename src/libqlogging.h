@@ -57,6 +57,8 @@ QDebug* QMessageLogger_Fatal3(const QMessageLogger* self, intptr_t catFunc);
 QNoDebug* QMessageLogger_NoDebug(const QMessageLogger* self);
 void QMessageLogger_Delete(QMessageLogger* self);
 
+libqt_string qlogging_h_ErrorString(int errorCode);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

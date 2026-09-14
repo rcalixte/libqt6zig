@@ -7,6 +7,7 @@
 #include <QMetaObject>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection
 #include <QObject>
+#include <QRegularExpression>
 #include <QSignalBlocker>
 #include <QString>
 #include <QThread>
@@ -15,6 +16,30 @@
 #include <qobject.h>
 #include "libqobject.h"
 #include "libqobject.hxx"
+
+void qobject_h_QFindChildrenHelper(const QObject* parent, libqt_string name, const QMetaObject* mo, libqt_list /* of void* */ list, int options) {
+    QList<void*> list_QList;
+    list_QList.reserve(list.len);
+    void** list_arr = static_cast<void**>(list.data);
+    for (size_t i = 0; i < list.len; ++i) {
+        list_QList.push_back(list_arr[i]);
+    }
+    qt_qFindChildren_helper(parent, QAnyStringView(name.data, name.len), *mo, &list_QList, static_cast<Qt::FindChildOptions>(options));
+}
+
+void qobject_h_QFindChildrenHelper2(const QObject* parent, const QRegularExpression* re, const QMetaObject* mo, libqt_list /* of void* */ list, int options) {
+    QList<void*> list_QList;
+    list_QList.reserve(list.len);
+    void** list_arr = static_cast<void**>(list.data);
+    for (size_t i = 0; i < list.len; ++i) {
+        list_QList.push_back(list_arr[i]);
+    }
+    qt_qFindChildren_helper(parent, *re, *mo, &list_QList, static_cast<Qt::FindChildOptions>(options));
+}
+
+QObject* qobject_h_QFindChildHelper(const QObject* parent, libqt_string name, const QMetaObject* mo, int options) {
+    return qt_qFindChild_helper(parent, QAnyStringView(name.data, name.len), *mo, static_cast<Qt::FindChildOptions>(options));
+}
 
 QObject* QObject_new() {
     return new VirtualQObject();

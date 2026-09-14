@@ -24,10 +24,6 @@ libqt_string KNSCore_ReplaceBBCode(const libqt_string unformattedText) {
     return _str;
 }
 
-size_t KNSCore_QHash(const KNSCore__Entry* entry, size_t seed) {
-    return KNSCore::qHash(*entry, static_cast<size_t>(seed));
-}
-
 KNSCore__Entry* KNSCore__Entry_new() {
     return new KNSCore::Entry();
 }

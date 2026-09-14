@@ -12294,7 +12294,7 @@ void QCPAxisTickerText_SetTicks(QCPAxisTickerText* self, const libqt_map /* of d
     libqt_string* ticks_varr = static_cast<libqt_string*>(ticks.values);
     for (size_t i = 0; i < ticks.len; ++i) {
         QString ticks_varr_i_QString = QString::fromUtf8(ticks_varr[i].data, ticks_varr[i].len);
-        ticks_QMap[static_cast<double>(ticks_karr[i])] = ticks_varr_i_QString;
+        ticks_QMap.insert(static_cast<double>(ticks_karr[i]), ticks_varr_i_QString);
     }
     self->setTicks(ticks_QMap);
 }
@@ -12335,7 +12335,7 @@ void QCPAxisTickerText_AddTicks(QCPAxisTickerText* self, const libqt_map /* of d
     libqt_string* ticks_varr = static_cast<libqt_string*>(ticks.values);
     for (size_t i = 0; i < ticks.len; ++i) {
         QString ticks_varr_i_QString = QString::fromUtf8(ticks_varr[i].data, ticks_varr[i].len);
-        ticks_QMap[static_cast<double>(ticks_karr[i])] = ticks_varr_i_QString;
+        ticks_QMap.insert(static_cast<double>(ticks_karr[i]), ticks_varr_i_QString);
     }
     self->addTicks(ticks_QMap);
 }
@@ -23275,7 +23275,7 @@ void QCPColorGradient_SetColorStops(QCPColorGradient* self, const libqt_map /* o
     double* colorStops_karr = static_cast<double*>(colorStops.keys);
     QColor** colorStops_varr = static_cast<QColor**>(colorStops.values);
     for (size_t i = 0; i < colorStops.len; ++i) {
-        colorStops_QMap[static_cast<double>(colorStops_karr[i])] = *(colorStops_varr[i]);
+        colorStops_QMap.insert(static_cast<double>(colorStops_karr[i]), *(colorStops_varr[i]));
     }
     self->setColorStops(colorStops_QMap);
 }

@@ -16,7 +16,7 @@ PackageKit__Details* PackageKit__Details_new2(const libqt_map /* of libqt_string
     QVariant** other_varr = static_cast<QVariant**>(other.values);
     for (size_t i = 0; i < other.len; ++i) {
         QString other_karr_i_QString = QString::fromUtf8(other_karr[i].data, other_karr[i].len);
-        other_QMap[other_karr_i_QString] = *(other_varr[i]);
+        other_QMap.insert(other_karr_i_QString, *(other_varr[i]));
     }
     return new PackageKit::Details(other_QMap);
 }

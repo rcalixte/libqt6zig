@@ -178,10 +178,8 @@ func ImportHeaderForClass(className string) bool {
 		"KUriFilterSearchProvider",       // Qt 6 kurifilter.h
 		"KUrlComboRequester",             // Qt 6 kurlrequester.h
 		"KNSCore",                        // Qt 6 searchrequest.h
-		"KSyntaxHighlighting",            // Qt 6 state.h
 		"KParts",                         // Qt 6 partloader.h
 		"TerminalInterface",              // Qt 6 kde_terminal_interface.h
-		"KTextEditor",                    // Qt 6 KTextEditor
 		"QKeychain",                      // Qt 6 QKeychain
 		"kImageAnnotator",                // Qt 6 kImageAnnotator
 		"Poppler",                        // Qt 6 Poppler
@@ -246,7 +244,7 @@ func AllowClass(className string) bool {
 		"QSequentialIterable",            // Qt 6. Extends a QIterator<>, too hard
 		"QBrushDataPointerDeleter",       // Qt 6 qbrush.h. Appears in header but cannot be linked
 		"QPropertyBindingPrivatePtr",     // Qt 6 qpropertyprivate.h. Appears in header but cannot be linked
-		"KCompletionMatchesWrapper",      // Qt 6 kcompletionmatches.h, incomplete forward declaration
+		"KCompletionMatchesWrapper",      // Qt 6 kcompletionmatches.h, private incomplete forward declaration
 		"KGroupId",                       // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
 		"KUserId",                        // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
 		"KQuickIconProvider",             // Qt 6 kquickiconprovider.h, inherits from QQuickImageProvider
@@ -267,7 +265,7 @@ func AllowClass(className string) bool {
 func AllowSignal(mm CppMethod) bool {
 	if !mm.ReturnType.Void() {
 		// This affects how we cast the signal function pointer for connect
-		// It would be fixable, but, real signals always have void return types anyway
+		// It would be fixable, but real signals always have void return types anyway
 		return false
 	}
 
@@ -621,7 +619,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		return nil
 	}
 	if strings.HasPrefix(p.ParameterType, "std::") {
-		// std::initializer           e.g. qcborarray.h
+		// std::initializer_list      e.g. qcborarray.h
 		// std::string                QByteArray->toStdString(). There are QString overloads already
 		// std::nullptr_t             Qcborstreamwriter
 		// std::seed_seq              QRandom

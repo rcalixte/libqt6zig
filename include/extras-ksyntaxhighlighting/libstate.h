@@ -16,7 +16,6 @@ extern "C" {
 #ifdef __cplusplus
 typedef KSyntaxHighlighting::State KSyntaxHighlighting__State;
 #else
-typedef struct KSyntaxHighlighting KSyntaxHighlighting;
 typedef struct KSyntaxHighlighting__State KSyntaxHighlighting__State;
 #endif
 

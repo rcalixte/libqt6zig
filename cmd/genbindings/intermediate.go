@@ -381,6 +381,7 @@ type CppMethod struct {
 	IsMoveCtor         bool
 	IsSignal           bool
 	IsConst            bool
+	IsFreeFunction     bool
 	IsVariable         bool
 	IsPrivate          bool
 	IsVirtual          bool
@@ -623,12 +624,13 @@ type CppClass struct {
 	HasTrivialMoveAssign bool
 	HasEmptyCtor         bool
 
-	ChildTypedefs  []CppTypedef
-	ChildClassdefs []CppClass
-	ChildEnums     []CppEnum
-	PrivateMethods []string
-	PrivateSignals []CppMethod
-	IsPolymorphic  bool // If true, this method is polymorphic and can be called on a pointer to a virtual base class
+	ChildTypedefs   []CppTypedef
+	ChildClassdefs  []CppClass
+	ChildEnums      []CppEnum
+	PrivateMethods  []string
+	PrivateSignals  []CppMethod
+	IsPolymorphic   bool // If true, this method is polymorphic and can be called on a pointer to a virtual base class
+	IsFreeFunctions bool
 }
 
 // Virtual checks if the class has any virtual methods. This requires global

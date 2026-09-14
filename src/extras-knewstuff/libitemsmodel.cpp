@@ -541,7 +541,7 @@ bool KNSCore__ItemsModel_SetItemData(KNSCore__ItemsModel* self, const QModelInde
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         return vknscoreitemsmodel->setItemData(*index, roles_QMap);
@@ -557,7 +557,7 @@ bool KNSCore__ItemsModel_SuperSetItemData(KNSCore__ItemsModel* self, const QMode
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vknscoreitemsmodel && vknscoreitemsmodel->isVirtualKNSCoreItemsModel) {
         vknscoreitemsmodel->setKNSCore__ItemsModel_SetItemData_IsBase(true);

@@ -1201,7 +1201,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 	} else if kType, vType, containerType, ok := p.QMapOf(); ok {
 		// QMap<K,V>
 		zfs.imports["std"] = struct{}{}
-		var hashMapType, k, valCast, valCastClose, vTypeDest string
+		var hashMapType, k, valCast, valCastClose string
 		isQMulti := IsMultiHashMap(containerType)
 		maybeArray := ifv(IsOrderedMap(containerType), "Array", "")
 
@@ -1282,7 +1282,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		if IsKnownClass(kTypeZig) {
 			maybeKeyPointer = "QtC."
 		}
-		if IsKnownClass(vAllocType) {
+		if IsKnownClass(vType.ParameterType) {
 			maybeValuePointer = "QtC."
 			valCastClose = ".ptr)"
 		}
@@ -1333,7 +1333,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 				preamble += "        .data = str_item.ptr,\n"
 				preamble += "    };\n"
 
-			} else if IsKnownClass(vTypeDest) {
+			} else if IsKnownClass(vAllocType) {
 				preamble += "const value = it_entry.value_ptr.*;\n"
 				preamble += nameprefix + "_values[" + nameprefix + "_i] = " + vParam + "{\n"
 				preamble += "    .len = value.len,\n"
@@ -2397,7 +2397,6 @@ const qtc = @import("qt6c");`)
 			maybeDedupe = ifv(zigStruct == "knscore" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			maybeDedupe = ifv(zigStruct == "kstandardactions" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			maybeDedupe = ifv(zigStruct == "kstandardshortcut" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
-			maybeDedupe = ifv(zigStruct == "ktexteditor" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			maybeDedupe = ifv(zigStruct == "ktimezone" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 
 			if zigStruct == "poppler" {
@@ -2414,7 +2413,7 @@ const qtc = @import("qt6c");`)
 			ret.WriteString(pageUrl + "\n" +
 				"pub const " + zigStructName + " = extern struct {\n")
 
-			if AllowStructDef(c.ClassName) && !isBindingRemoved(c.ClassName) {
+			if !c.IsFreeFunctions && AllowStructDef(c.ClassName) && !isBindingRemoved(c.ClassName) {
 				ret.WriteString(pageUrl + "\n" + ptrFieldDesc +
 					"ptr: QtC." + zigStructName + ",\n\n")
 

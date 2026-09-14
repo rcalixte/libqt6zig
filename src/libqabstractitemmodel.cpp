@@ -397,7 +397,7 @@ bool QAbstractItemModel_SetItemData(QAbstractItemModel* self, const QModelIndex*
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     return self->setItemData(*index, roles_QMap);
 }
@@ -1120,7 +1120,7 @@ bool QAbstractItemModel_SuperSetItemData(QAbstractItemModel* self, const QModelI
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->setQAbstractItemModel_SetItemData_IsBase(true);
@@ -3308,7 +3308,7 @@ bool QAbstractTableModel_SetItemData(QAbstractTableModel* self, const QModelInde
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         return vqabstracttablemodel->setItemData(*index, roles_QMap);
@@ -3324,7 +3324,7 @@ bool QAbstractTableModel_SuperSetItemData(QAbstractTableModel* self, const QMode
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         vqabstracttablemodel->setQAbstractTableModel_SetItemData_IsBase(true);
@@ -5548,7 +5548,7 @@ bool QAbstractListModel_SetItemData(QAbstractListModel* self, const QModelIndex*
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         return vqabstractlistmodel->setItemData(*index, roles_QMap);
@@ -5564,7 +5564,7 @@ bool QAbstractListModel_SuperSetItemData(QAbstractListModel* self, const QModelI
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         vqabstractlistmodel->setQAbstractListModel_SetItemData_IsBase(true);

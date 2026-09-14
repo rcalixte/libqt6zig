@@ -22,7 +22,6 @@ typedef KTextEditor::LineRange KTextEditor__LineRange;
 typedef KTextEditor::Range KTextEditor__Range;
 #endif
 #else
-typedef struct KTextEditor KTextEditor;
 typedef struct KTextEditor__Cursor KTextEditor__Cursor;
 typedef struct KTextEditor__LineRange KTextEditor__LineRange;
 typedef struct KTextEditor__Range KTextEditor__Range;

@@ -23,7 +23,7 @@ SignOn__IdentityInfo* SignOn__IdentityInfo_new3(const libqt_string caption, cons
     SignOn::MechanismsList* methods_varr = static_cast<SignOn::MechanismsList*>(methods.values);
     for (size_t i = 0; i < methods.len; ++i) {
         QString methods_karr_i_QString = QString::fromUtf8(methods_karr[i].data, methods_karr[i].len);
-        methods_QMap[methods_karr_i_QString] = methods_varr[i];
+        methods_QMap.insert(methods_karr_i_QString, methods_varr[i]);
     }
     return new SignOn::IdentityInfo(caption_QString, userName_QString, methods_QMap);
 }

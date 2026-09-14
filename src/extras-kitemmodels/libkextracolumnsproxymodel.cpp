@@ -986,7 +986,7 @@ bool KExtraColumnsProxyModel_SetItemData(KExtraColumnsProxyModel* self, const QM
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         return vkextracolumnsproxymodel->setItemData(*index, roles_QMap);
@@ -1002,7 +1002,7 @@ bool KExtraColumnsProxyModel_SuperSetItemData(KExtraColumnsProxyModel* self, con
     int* roles_karr = static_cast<int*>(roles.keys);
     QVariant** roles_varr = static_cast<QVariant**>(roles.values);
     for (size_t i = 0; i < roles.len; ++i) {
-        roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
+        roles_QMap.insert(static_cast<int>(roles_karr[i]), *(roles_varr[i]));
     }
     if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
         vkextracolumnsproxymodel->setKExtraColumnsProxyModel_SetItemData_IsBase(true);

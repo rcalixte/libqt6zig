@@ -3,6 +3,7 @@
 #include <QMessageLogContext>
 #include <QMessageLogger>
 #include <QNoDebug>
+#include <QString>
 #include <qlogging.h>
 #include "libqlogging.h"
 #include "libqlogging.hxx"
@@ -142,4 +143,16 @@ QNoDebug* QMessageLogger_NoDebug(const QMessageLogger* self) {
 
 void QMessageLogger_Delete(QMessageLogger* self) {
     delete self;
+}
+
+libqt_string qlogging_h_ErrorString(int errorCode) {
+    auto _ret = qt_error_string(static_cast<int>(errorCode));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
