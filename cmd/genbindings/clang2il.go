@@ -45,6 +45,7 @@ var (
 	skipFreeFunctions = []string{
 		"qbswap",
 		"qdbus_cast",
+		"qjsvalue_cast",
 		"qobject_cast",
 		"qt_noop",
 		"qvariant_cast",
