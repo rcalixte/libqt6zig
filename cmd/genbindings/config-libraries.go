@@ -181,6 +181,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6PrintSupport"),
 		},
 
+		// Qt 6 QML
+		// Depends on Qt Core, Network
+		{
+			path: "qml",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtQml",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Qml"),
+		},
+
 		// Qt 6 Spatial Audio
 		// Depends on Qt Core, Multimedia
 		{
