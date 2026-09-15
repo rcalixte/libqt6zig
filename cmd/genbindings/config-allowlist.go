@@ -143,6 +143,8 @@ func ImportHeaderForClass(className string) bool {
 		"QGenericRunnable",               // Qt 6.8 qrunnable.h
 		"QCameraPermission",              // Qt 6.8 qpermissions.h
 		"QMicrophonePermission",          // Qt 6.8 qpermissions.h
+		"QJSPrimitiveNull",               // Qt 6.8 qjsprimitivevalue.h
+		"QJSPrimitiveUndefined",          // Qt 6.8 qjsprimitivevalue.h
 		"QDBusPendingReplyTypes",         // Qt 6 qdbuspendingreply.h
 		"QAbstractOpenGLFunctions",       // Qt 6 qopenglfunctions.h
 		"QOpenGLVersionFunctionsBackend", // Qt 6 qopenglversionfunctions.h
@@ -548,9 +550,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 	if strings.Contains(p.ParameterType, "::*)(") { // Member function pointer
 		return ErrTooComplex // e.g. KConfigCompilerSignallingItem
 	}
-	if strings.Contains(p.ParameterType, "QJSValue") { // callback function pointer
-		return ErrTooComplex // e.g. QWebEngineFrame_RunJavaScript2
-	}
 	if strings.HasPrefix(p.ParameterType, "Dom") {
 		return ErrTooComplex // e.g. Qt UI forward declarations for internal use
 	}
@@ -600,7 +599,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		return ErrTooComplex // e.g. Qt 6 qstringconverter.h
 	}
 	if strings.HasPrefix(p.ParameterType, "QQmlListProperty<") {
-		return ErrTooComplex // e.g. Qt 6 QWebChannel qmlwebchannel.h, supporting this is required for QML
+		return ErrTooComplex // e.g. Qt 6 QWebChannel qmlwebchannel.h
 	}
 	if strings.HasPrefix(p.ParameterType, "Result<") {
 		return ErrTooComplex // e.g. Qt 6 kpluginfactory.h . Template type
@@ -709,6 +708,11 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		return ErrTooComplex
 	}
 
+	// Qt 6 QML
+	if strings.HasPrefix(p.ParameterType, "QQmlV4") || strings.HasPrefix(p.ParameterType, "QV4") {
+		return ErrTooComplex // e.g. QQmlV4FunctionPtr
+	}
+
 	// Qt 6 Attica
 	if strings.HasPrefix(p.ParameterType, "ItemJob<") {
 		return ErrTooComplex // template classes
@@ -788,8 +792,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QPostEventList",                  // Qt QCoreApplication: private headers required
 		"QMetaCallEvent",                  // ..
 		"QPostEvent",                      // ..
-		"QQmlEngine",                      // Qt 6 qqmlengine.h, need to add QtQml for this to work
-		"QJSEngine",                       // Qt 6 qjsengine.h, need to add QtQml for this to work
+		"QQmlComponentAttached",           // Qt 6 QML qqmlcomponent.h
 		"Character",                       // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
 		"HistoryType",                     // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
 		"ScreenWindow",                    // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
