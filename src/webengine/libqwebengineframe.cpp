@@ -1,3 +1,4 @@
+#include <QJSValue>
 #include <QList>
 #include <QSizeF>
 #include <QString>
@@ -91,6 +92,16 @@ void QWebEngineFrame_RunJavaScript3(QWebEngineFrame* self, const libqt_string sc
     self->runJavaScript(script_QString);
 }
 
+void QWebEngineFrame_RunJavaScript4(QWebEngineFrame* self, const libqt_string script, const QJSValue* callback) {
+    QString script_QString = QString::fromUtf8(script.data, script.len);
+    self->runJavaScript(script_QString, *callback);
+}
+
+void QWebEngineFrame_RunJavaScript5(QWebEngineFrame* self, const libqt_string script, unsigned int worldId, const QJSValue* callback) {
+    QString script_QString = QString::fromUtf8(script.data, script.len);
+    self->runJavaScript(script_QString, static_cast<quint32>(worldId), *callback);
+}
+
 void QWebEngineFrame_PrintToPdf(QWebEngineFrame* self, const libqt_string filePath) {
     QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
     self->printToPdf(filePath_QString);
@@ -107,6 +118,10 @@ void QWebEngineFrame_PrintToPdf2(QWebEngineFrame* self, intptr_t callback) {
         reinterpret_cast<void (*)(libqt_string)>(callback)(funcparam1_fv);
     };
     self->printToPdf(callback_func);
+}
+
+void QWebEngineFrame_PrintToPdf3(QWebEngineFrame* self, const QJSValue* callback) {
+    self->printToPdf(*callback);
 }
 
 void QWebEngineFrame_RunJavaScript22(QWebEngineFrame* self, const libqt_string script, unsigned int worldId) {

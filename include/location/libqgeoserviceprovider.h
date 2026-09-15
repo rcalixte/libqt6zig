@@ -25,6 +25,7 @@ typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
 typedef struct QObject QObject;
 typedef struct QPlaceManager QPlaceManager;
+typedef struct QQmlEngine QQmlEngine;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 #endif
@@ -60,6 +61,7 @@ libqt_string QGeoServiceProvider_NavigationErrorString(const QGeoServiceProvider
 void QGeoServiceProvider_SetParameters(QGeoServiceProvider* self, const libqt_map /* of libqt_string to QVariant* */ parameters);
 void QGeoServiceProvider_SetLocale(QGeoServiceProvider* self, const QLocale* locale);
 void QGeoServiceProvider_SetAllowExperimental(QGeoServiceProvider* self, bool allow);
+void QGeoServiceProvider_SetQmlEngine(QGeoServiceProvider* self, QQmlEngine* engine);
 libqt_string QGeoServiceProvider_Tr2(const char* s, const char* c);
 libqt_string QGeoServiceProvider_Tr3(const char* s, const char* c, int n);
 void QGeoServiceProvider_OnMetaObject(const QGeoServiceProvider* self, intptr_t slot);
