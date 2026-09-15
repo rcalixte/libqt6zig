@@ -26,6 +26,8 @@ pub const modules = &.{
     "QtPositioning",
     // Qt 6 Print Support
     "QtPrintSupport",
+    // Qt 6 QML
+    "QtQml",
     // Qt 6 Spatial Audio
     "QtSpatialAudio",
     // Qt 6 SQL

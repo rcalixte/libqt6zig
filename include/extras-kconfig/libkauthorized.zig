@@ -2,10 +2,12 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const QBindingStorage = @import("libqt6").QBindingStorage;
 const QEvent = @import("libqt6").QEvent;
+const QJSEngine = @import("libqt6").QJSEngine;
 const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
 const QObject = @import("libqt6").QObject;
+const QQmlEngine = @import("libqt6").QQmlEngine;
 const QThread = @import("libqt6").QThread;
 const QVariant = @import("libqt6").QVariant;
 const kauthorized_enums = enums;
@@ -174,6 +176,24 @@ pub const KAuthorized = extern struct {
             .data = pluginId.ptr,
         };
         return qtc.KAuthorized_AuthorizeControlModule(pluginId_str);
+    }
+
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
+    /// ### [Upstream resources](https://api.kde.org/kauthorized.html#create)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QQmlEngine `
+    ///
+    /// ` param2: QJSEngine `
+    ///
+    pub fn create(param1: anytype, param2: anytype) KAuthorized {
+        comptime _ = @TypeOf(param1)._is_QQmlEngine;
+        comptime _ = @TypeOf(param2)._is_QJSEngine;
+        return .{ .ptr = qtc.KAuthorized_Create(@ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// ### DEPRECATED: Use `tr2` instead

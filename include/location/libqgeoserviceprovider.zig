@@ -11,6 +11,7 @@ const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
 const QObject = @import("libqt6").QObject;
 const QPlaceManager = @import("libqt6").QPlaceManager;
+const QQmlEngine = @import("libqt6").QQmlEngine;
 const QThread = @import("libqt6").QThread;
 const QTimerEvent = @import("libqt6").QTimerEvent;
 const QVariant = @import("libqt6").QVariant;
@@ -767,6 +768,23 @@ pub const QGeoServiceProvider = extern struct {
     ///
     pub fn setAllowExperimental(self: QGeoServiceProvider, allow: bool) void {
         qtc.QGeoServiceProvider_SetAllowExperimental(@ptrCast(self.ptr), allow);
+    }
+
+    /// ### DEPRECATED: Use `setQmlEngine` instead
+    ///
+    pub const SetQmlEngine = setQmlEngine;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoserviceprovider.html#setQmlEngine)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGeoServiceProvider `
+    ///
+    /// ` engine: QQmlEngine `
+    ///
+    pub fn setQmlEngine(self: QGeoServiceProvider, engine: anytype) void {
+        comptime _ = @TypeOf(engine)._is_QQmlEngine;
+        qtc.QGeoServiceProvider_SetQmlEngine(@ptrCast(self.ptr), @ptrCast(engine.ptr));
     }
 
     /// ### DEPRECATED: Use `tr2` instead

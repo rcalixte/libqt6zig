@@ -1,7 +1,9 @@
 #include <KAuthorized>
+#include <QJSEngine>
 #include <QMetaMethod>
 #include <QMetaObject>
 #include <QObject>
+#include <QQmlEngine>
 #include <QString>
 #include <kauthorized.h>
 #include "libkauthorized.h"
@@ -52,6 +54,10 @@ bool KAuthorized_AuthorizeAction2(int action) {
 bool KAuthorized_AuthorizeControlModule(const libqt_string pluginId) {
     QString pluginId_QString = QString::fromUtf8(pluginId.data, pluginId.len);
     return KAuthorized::authorizeControlModule(pluginId_QString);
+}
+
+KAuthorized* KAuthorized_Create(QQmlEngine* param1, QJSEngine* param2) {
+    return KAuthorized::create(param1, param2);
 }
 
 libqt_string KAuthorized_Tr2(const char* s, const char* c) {

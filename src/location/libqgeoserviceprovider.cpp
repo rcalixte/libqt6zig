@@ -10,6 +10,7 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QPlaceManager>
+#include <QQmlEngine>
 #include <QString>
 #include <QTimerEvent>
 #include <QVariant>
@@ -236,6 +237,10 @@ void QGeoServiceProvider_SetLocale(QGeoServiceProvider* self, const QLocale* loc
 
 void QGeoServiceProvider_SetAllowExperimental(QGeoServiceProvider* self, bool allow) {
     self->setAllowExperimental(allow);
+}
+
+void QGeoServiceProvider_SetQmlEngine(QGeoServiceProvider* self, QQmlEngine* engine) {
+    self->setQmlEngine(engine);
 }
 
 libqt_string QGeoServiceProvider_Tr2(const char* s, const char* c) {

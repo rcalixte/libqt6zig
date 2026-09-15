@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QJSValue = @import("libqt6").QJSValue;
 const QSizeF = @import("libqt6").QSizeF;
 const QUrl = @import("libqt6").QUrl;
 const QVariant = @import("libqt6").QVariant;
@@ -214,6 +215,54 @@ pub const QWebEngineFrame = extern struct {
         qtc.QWebEngineFrame_RunJavaScript3(@ptrCast(self.ptr), script_str);
     }
 
+    /// ### DEPRECATED: Use `runJavaScript4` instead
+    ///
+    pub const RunJavaScript4 = runJavaScript4;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#runJavaScript)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QWebEngineFrame `
+    ///
+    /// ` script: []const u8 `
+    ///
+    /// ` callback: QJSValue `
+    ///
+    pub fn runJavaScript4(self: QWebEngineFrame, script: []const u8, callback: anytype) void {
+        const script_str = qtc.libqt_string{
+            .len = script.len,
+            .data = script.ptr,
+        };
+        comptime _ = @TypeOf(callback)._is_QJSValue;
+        qtc.QWebEngineFrame_RunJavaScript4(@ptrCast(self.ptr), script_str, @ptrCast(callback.ptr));
+    }
+
+    /// ### DEPRECATED: Use `runJavaScript5` instead
+    ///
+    pub const RunJavaScript5 = runJavaScript5;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#runJavaScript)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QWebEngineFrame `
+    ///
+    /// ` script: []const u8 `
+    ///
+    /// ` worldId: u32 `
+    ///
+    /// ` callback: QJSValue `
+    ///
+    pub fn runJavaScript5(self: QWebEngineFrame, script: []const u8, worldId: u32, callback: anytype) void {
+        const script_str = qtc.libqt_string{
+            .len = script.len,
+            .data = script.ptr,
+        };
+        comptime _ = @TypeOf(callback)._is_QJSValue;
+        qtc.QWebEngineFrame_RunJavaScript5(@ptrCast(self.ptr), script_str, @bitCast(worldId), @ptrCast(callback.ptr));
+    }
+
     /// ### DEPRECATED: Use `printToPdf` instead
     ///
     pub const PrintToPdf = printToPdf;
@@ -248,6 +297,23 @@ pub const QWebEngineFrame = extern struct {
     ///
     pub fn printToPdf2(self: QWebEngineFrame, callback: *const fn (qtc.libqt_string) callconv(.c) void) void {
         qtc.QWebEngineFrame_PrintToPdf2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### DEPRECATED: Use `printToPdf3` instead
+    ///
+    pub const PrintToPdf3 = printToPdf3;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineframe.html#printToPdf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QWebEngineFrame `
+    ///
+    /// ` callback: QJSValue `
+    ///
+    pub fn printToPdf3(self: QWebEngineFrame, callback: anytype) void {
+        comptime _ = @TypeOf(callback)._is_QJSValue;
+        qtc.QWebEngineFrame_PrintToPdf3(@ptrCast(self.ptr), @ptrCast(callback.ptr));
     }
 
     /// ### DEPRECATED: Use `runJavaScript22` instead

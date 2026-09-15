@@ -15,6 +15,7 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
+typedef struct QJSValue QJSValue;
 typedef struct QSizeF QSizeF;
 typedef struct QUrl QUrl;
 typedef struct QWebEngineFrame QWebEngineFrame;
@@ -31,8 +32,11 @@ bool QWebEngineFrame_IsMainFrame(const QWebEngineFrame* self);
 void QWebEngineFrame_RunJavaScript(QWebEngineFrame* self, const libqt_string script, intptr_t callback);
 void QWebEngineFrame_RunJavaScript2(QWebEngineFrame* self, const libqt_string script, unsigned int worldId, intptr_t callback);
 void QWebEngineFrame_RunJavaScript3(QWebEngineFrame* self, const libqt_string script);
+void QWebEngineFrame_RunJavaScript4(QWebEngineFrame* self, const libqt_string script, const QJSValue* callback);
+void QWebEngineFrame_RunJavaScript5(QWebEngineFrame* self, const libqt_string script, unsigned int worldId, const QJSValue* callback);
 void QWebEngineFrame_PrintToPdf(QWebEngineFrame* self, const libqt_string filePath);
 void QWebEngineFrame_PrintToPdf2(QWebEngineFrame* self, intptr_t callback);
+void QWebEngineFrame_PrintToPdf3(QWebEngineFrame* self, const QJSValue* callback);
 void QWebEngineFrame_RunJavaScript22(QWebEngineFrame* self, const libqt_string script, unsigned int worldId);
 void QWebEngineFrame_Delete(QWebEngineFrame* self);
 
