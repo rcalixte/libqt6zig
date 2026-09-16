@@ -192,6 +192,19 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Qml"),
 		},
 
+		// Qt 6 Quick
+		// Depends on Qt Core, GUI, Widgets, OpenGL, QML
+		{
+			path: "quick",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtQuick",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtQuickControls2",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtQuickWidgets",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6QuickControls2"),
+		},
+
 		// Qt 6 Spatial Audio
 		// Depends on Qt Core, Multimedia
 		{

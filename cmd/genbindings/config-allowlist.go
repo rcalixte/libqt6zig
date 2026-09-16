@@ -145,6 +145,7 @@ func ImportHeaderForClass(className string) bool {
 		"QMicrophonePermission",          // Qt 6.8 qpermissions.h
 		"QJSPrimitiveNull",               // Qt 6.8 qjsprimitivevalue.h
 		"QJSPrimitiveUndefined",          // Qt 6.8 qjsprimitivevalue.h
+		"QSGMaterialType",                // Qt 6.8 qsgmaterial.h
 		"QDBusPendingReplyTypes",         // Qt 6 qdbuspendingreply.h
 		"QAbstractOpenGLFunctions",       // Qt 6 qopenglfunctions.h
 		"QOpenGLVersionFunctionsBackend", // Qt 6 qopenglversionfunctions.h
@@ -249,7 +250,6 @@ func AllowClass(className string) bool {
 		"KCompletionMatchesWrapper",      // Qt 6 kcompletionmatches.h, private incomplete forward declaration
 		"KGroupId",                       // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
 		"KUserId",                        // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
-		"KQuickIconProvider",             // Qt 6 kquickiconprovider.h, inherits from QQuickImageProvider
 		"KBookmarkGroupTraverser",        // Qt 6 kbookmark.h, a legacy class
 		"KLocalization::Internal",        // Qt 6 klocalizedqmlcontext.h
 		"KSycocaFactory",                 // Qt 6 ksycoca.h, a legacy class
@@ -294,7 +294,8 @@ func AllowVirtualForClass(className string) bool {
 		"QDesignerLanguageExtension",      // Qt 6 Designer
 		"QDesignerNewFormWidgetInterface", // Qt 6 Designer
 		"QDesignerPromotionInterface",     // Qt 6 Designer
-		"QFutureWatcherBase":              // Pure virtual method futureInterface() returns an unprojectable template type
+		"QFutureWatcherBase",              // Pure virtual method futureInterface() returns an unprojectable template type
+		"QQuickRhiItemRenderer":           // Qt 6 Quick Rhi
 		return false
 	}
 
@@ -492,7 +493,8 @@ func AllowCtor(className string) bool {
 		"KIO::WorkerFactory",          // Qt 6 KIO
 		"Poppler::MediaRendition",     // Qt 6 Poppler
 		"QNativeInterface::QGLXContext",
-		"QNativeInterface::QEGLContext":
+		"QNativeInterface::QEGLContext",
+		"QNativeInterface::QSGVulkanTexture":
 		return false
 	}
 
@@ -713,6 +715,16 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		return ErrTooComplex // e.g. QQmlV4FunctionPtr
 	}
 
+	// Qt 6 Rhi
+	if strings.HasPrefix(p.ParameterType, "QRhi") {
+		return ErrTooComplex // e.g. QRhiCommandBuffer, QRhiRenderBuffer, QRhiTexture
+	}
+
+	// Qt 6 Vulkan
+	if strings.HasPrefix(p.ParameterType, "Vk") {
+		return ErrTooComplex // e.g. VkPhysicalDevice
+	}
+
 	// Qt 6 Attica
 	if strings.HasPrefix(p.ParameterType, "ItemJob<") {
 		return ErrTooComplex // template classes
@@ -788,11 +800,12 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QPlatformMediaRecorder",          // Qt 6 Multimedia qmediarecorder.h
 		"QPlatformVideoSink",              // Qt 6 Multimedia qvideosink.h
 		"QTransform::Affine",              // Qt 6 qtransform.h - public method returning private type
-		"QRhi",                            // Qt 6 unstable types, used in Multimedia
 		"QPostEventList",                  // Qt QCoreApplication: private headers required
 		"QMetaCallEvent",                  // ..
 		"QPostEvent",                      // ..
 		"QQmlComponentAttached",           // Qt 6 QML qqmlcomponent.h
+		"QQuickCloseEvent",                // Qt 6 Quick qquickwindow.h
+		"QShader",                         // Qt 6 Quick qsgmaterialshader.h
 		"Character",                       // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
 		"HistoryType",                     // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
 		"ScreenWindow",                    // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
