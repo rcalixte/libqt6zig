@@ -37,6 +37,7 @@ All types inheriting from these base classes also inherit the casting methods wh
   <tr><td><code>QPdfWriter</code></td><td><code>QObject</code></td><td><code>QPagedPaintDevice</code></td></tr>
   <tr><td><code>QQmlEngineExtensionPlugin</code></td><td><code>QObject</code></td><td><code>QQmlEngineExtensionInterface</code></td></tr>
   <tr><td><code>QQmlExtensionPlugin</code></td><td><code>QObject</code></td><td><code>QQmlExtensionInterface</code></td></tr>
+  <tr><td><code>QQuickItem</code></td><td><code>QObject</code></td><td><code>QQmlParserStatus</code></td></tr>
   <tr><td><code>QTermWidget</code></td><td><code>QWidget</code></td><td><code>QTermWidgetInterface</code></td></tr>
   <tr><td><code>QWidget</code></td><td><code>QObject</code></td><td><code>QPaintDevice</code></td></tr>
   <tr><td><code>QWindow</code></td><td><code>QObject</code></td><td><code>QSurface</code></td></tr>
