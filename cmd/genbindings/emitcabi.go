@@ -1300,7 +1300,7 @@ var (
 	}
 
 	unmatchedQtConnect = []string{
-		"QWebSocket_Error2",
+		"QWebSocket_Error2", // @ref https://doc.qt.io/qt-6/qwebsocket-obsolete.html
 	}
 
 	moveCtorOnly = map[string]struct{}{
@@ -1324,17 +1324,11 @@ var (
 	}
 
 	skippedMethods = map[string]struct{}{
-		"KEncodingFileDialog_Tr":                {}, // linker error due to currently missing staticMetaObject
-		"KEncodingFileDialog_Tr2":               {}, // linker error due to currently missing staticMetaObject
-		"KEncodingFileDialog_Tr3":               {}, // linker error due to currently missing staticMetaObject
-		"KIO_FileCopy2":                         {}, // this overload is intentionally not implemented upstream
-		"KIO_FileMove2":                         {}, // this overload is intentionally not implemented upstream
-		"KTextEditor::DocumentCursor_ToCursor2": {}, // broken overload
-		"KTextEditor::MovingCursor_ToCursor2":   {}, // broken overload
-		"KTextEditor::MovingRange_ToRange2":     {}, // broken overload
-		"KTextEditor_QHash":                     {}, // multiple conflicting overloads
-		"KXmlGuiWindow_VirtualHook":             {}, // this method is found in multiple base classes of different types and undocumented
-		"QHostAddress_IsInSubnet2":              {}, // linker error
+		"KIO_FileCopy2":             {}, // this overload is intentionally not implemented upstream
+		"KIO_FileMove2":             {}, // this overload is intentionally not implemented upstream
+		"KTextEditor_QHash":         {}, // multiple conflicting overloads
+		"KXmlGuiWindow_VirtualHook": {}, // this method is found in multiple base classes of different types and undocumented
+		"QHostAddress_IsInSubnet2":  {}, // linker error
 	}
 
 	cTypes = []string{
@@ -1993,6 +1987,10 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 		ret.WriteString("#include <PackageKit/Transaction>\n")
 	}
 
+	if srcFilename == "qbytearrayalgorithms.h" {
+		ret.WriteString("#include <QByteArrayView>\n")
+	}
+
 	referencedTypes := getReferencedTypes(src, nil)
 	seenRefs := make([]string, 0, len(referencedTypes))
 
@@ -2209,6 +2207,18 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 
 			if m.IsStatic && !m.IsProtected {
 				callTarget = c.ClassName + "::"
+			}
+
+			// hack around ambiguous member function calls
+			// safe to remove on next rebase
+			// @ref https://invent.kde.org/frameworks/kiconthemes/-/merge_requests/227
+			if c.ClassName == "KIconLoader" {
+				switch mSafeMethodName {
+				case "LoadScaledIcon":
+					forwarding += ", 0"
+				case "LoadScaledIcon2":
+					forwarding += ", QSize()"
+				}
 			}
 
 			callTarget += m.CppCallTarget() + "(" + forwarding + ")"
