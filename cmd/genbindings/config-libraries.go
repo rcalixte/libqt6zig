@@ -445,15 +445,15 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		},
 
 		// KI18n
-		// Depends on Qt Core
+		// Depends on Qt Core, QML
 		{
 			path: "extras-ki18n",
 			dirs: []string{
 				"/usr/include/KF6/KI18n",
 				"/usr/include/KF6/KI18nLocaleData",
 			},
-			allowHeader: ExceptHeaders("klocalizedqmlcontext.h"),
-			cflags:      "--std=c++17 -I/usr/include/KF6/KI18n -I/usr/include/KF6/KI18nLocaleData " + pkgConfigCflags("Qt6Core"),
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KI18n -I/usr/include/KF6/KI18nLocaleData " + pkgConfigCflags("Qt6Qml"),
 		},
 
 		// KIdleTime
