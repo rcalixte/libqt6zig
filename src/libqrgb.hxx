@@ -1,6 +1,6 @@
 #pragma once
-#ifndef LIBQENDIAN_HXX
-#define LIBQENDIAN_HXX
+#ifndef LIBQRGB_HXX
+#define LIBQRGB_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

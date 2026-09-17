@@ -14,6 +14,7 @@ const QMovie = @import("libqt6").QMovie;
 const QObject = @import("libqt6").QObject;
 const QPalette = @import("libqt6").QPalette;
 const QPixmap = @import("libqt6").QPixmap;
+const QSize = @import("libqt6").QSize;
 const QThread = @import("libqt6").QThread;
 const QTimerEvent = @import("libqt6").QTimerEvent;
 const QVariant = @import("libqt6").QVariant;
@@ -353,6 +354,54 @@ pub const KIconLoader = extern struct {
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KIconLoader_LoadIcon(@ptrCast(self.ptr), name_str, @bitCast(group)) };
+    }
+
+    /// ### DEPRECATED: Use `loadScaledIcon` instead
+    ///
+    pub const LoadScaledIcon = loadScaledIcon;
+
+    /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadScaledIcon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KIconLoader `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` group: kiconloader_enums.Group `
+    ///
+    /// ` scale: f64 `
+    ///
+    pub fn loadScaledIcon(self: KIconLoader, name: []const u8, group: i32, scale: f64) QPixmap {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return .{ .ptr = qtc.KIconLoader_LoadScaledIcon(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(scale)) };
+    }
+
+    /// ### DEPRECATED: Use `loadScaledIcon2` instead
+    ///
+    pub const LoadScaledIcon2 = loadScaledIcon2;
+
+    /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadScaledIcon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KIconLoader `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` group: kiconloader_enums.Group `
+    ///
+    /// ` scale: f64 `
+    ///
+    pub fn loadScaledIcon2(self: KIconLoader, name: []const u8, group: i32, scale: f64) QPixmap {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return .{ .ptr = qtc.KIconLoader_LoadScaledIcon2(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(scale)) };
     }
 
     /// ### DEPRECATED: Use `loadMimeTypeIcon` instead
@@ -1147,6 +1196,203 @@ pub const KIconLoader = extern struct {
             .data = overlays_arr.ptr,
         };
         return .{ .ptr = qtc.KIconLoader_LoadIcon5(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(size), @bitCast(state), overlays_list) };
+    }
+
+    /// ### DEPRECATED: Use `loadScaledIcon4` instead
+    ///
+    pub const LoadScaledIcon4 = loadScaledIcon4;
+
+    /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadScaledIcon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KIconLoader `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` group: kiconloader_enums.Group `
+    ///
+    /// ` scale: f64 `
+    ///
+    /// ` size: i32 `
+    ///
+    pub fn loadScaledIcon4(self: KIconLoader, name: []const u8, group: i32, scale: f64, size: i32) QPixmap {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return .{ .ptr = qtc.KIconLoader_LoadScaledIcon4(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(scale), @bitCast(size)) };
+    }
+
+    /// ### DEPRECATED: Use `loadScaledIcon5` instead
+    ///
+    pub const LoadScaledIcon5 = loadScaledIcon5;
+
+    /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadScaledIcon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KIconLoader `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` group: kiconloader_enums.Group `
+    ///
+    /// ` scale: f64 `
+    ///
+    /// ` size: i32 `
+    ///
+    /// ` state: i32 `
+    ///
+    pub fn loadScaledIcon5(self: KIconLoader, name: []const u8, group: i32, scale: f64, size: i32, state: i32) QPixmap {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return .{ .ptr = qtc.KIconLoader_LoadScaledIcon5(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(scale), @bitCast(size), @bitCast(state)) };
+    }
+
+    /// ### DEPRECATED: Use `loadScaledIcon6` instead
+    ///
+    pub const LoadScaledIcon6 = loadScaledIcon6;
+
+    /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadScaledIcon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KIconLoader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` group: kiconloader_enums.Group `
+    ///
+    /// ` scale: f64 `
+    ///
+    /// ` size: i32 `
+    ///
+    /// ` state: i32 `
+    ///
+    /// ` overlays: []const []const u8 `
+    ///
+    pub fn loadScaledIcon6(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group: i32, scale: f64, size: i32, state: i32, overlays: []const []const u8) QPixmap {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconLoader.loadScaledIcon6: Memory allocation failed");
+        defer allocator.free(overlays_arr);
+        for (overlays, 0..overlays.len) |str_item, i|
+            overlays_arr[i] = .{
+                .len = str_item.len,
+                .data = str_item.ptr,
+            };
+        const overlays_list = qtc.libqt_list{
+            .len = overlays.len,
+            .data = overlays_arr.ptr,
+        };
+        return .{ .ptr = qtc.KIconLoader_LoadScaledIcon6(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(scale), @bitCast(size), @bitCast(state), overlays_list) };
+    }
+
+    /// ### DEPRECATED: Use `loadScaledIcon42` instead
+    ///
+    pub const LoadScaledIcon42 = loadScaledIcon42;
+
+    /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadScaledIcon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KIconLoader `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` group: kiconloader_enums.Group `
+    ///
+    /// ` scale: f64 `
+    ///
+    /// ` size: QSize `
+    ///
+    pub fn loadScaledIcon42(self: KIconLoader, name: []const u8, group: i32, scale: f64, size: anytype) QPixmap {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        comptime _ = @TypeOf(size)._is_QSize;
+        return .{ .ptr = qtc.KIconLoader_LoadScaledIcon42(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(scale), @ptrCast(size.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `loadScaledIcon52` instead
+    ///
+    pub const LoadScaledIcon52 = loadScaledIcon52;
+
+    /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadScaledIcon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KIconLoader `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` group: kiconloader_enums.Group `
+    ///
+    /// ` scale: f64 `
+    ///
+    /// ` size: QSize `
+    ///
+    /// ` state: i32 `
+    ///
+    pub fn loadScaledIcon52(self: KIconLoader, name: []const u8, group: i32, scale: f64, size: anytype, state: i32) QPixmap {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        comptime _ = @TypeOf(size)._is_QSize;
+        return .{ .ptr = qtc.KIconLoader_LoadScaledIcon52(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(scale), @ptrCast(size.ptr), @bitCast(state)) };
+    }
+
+    /// ### DEPRECATED: Use `loadScaledIcon62` instead
+    ///
+    pub const LoadScaledIcon62 = loadScaledIcon62;
+
+    /// ### [Upstream resources](https://api.kde.org/kiconloader.html#loadScaledIcon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KIconLoader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ` group: kiconloader_enums.Group `
+    ///
+    /// ` scale: f64 `
+    ///
+    /// ` size: QSize `
+    ///
+    /// ` state: i32 `
+    ///
+    /// ` overlays: []const []const u8 `
+    ///
+    pub fn loadScaledIcon62(self: KIconLoader, allocator: std.mem.Allocator, name: []const u8, group: i32, scale: f64, size: anytype, state: i32, overlays: []const []const u8) QPixmap {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        comptime _ = @TypeOf(size)._is_QSize;
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconLoader.loadScaledIcon62: Memory allocation failed");
+        defer allocator.free(overlays_arr);
+        for (overlays, 0..overlays.len) |str_item, i|
+            overlays_arr[i] = .{
+                .len = str_item.len,
+                .data = str_item.ptr,
+            };
+        const overlays_list = qtc.libqt_list{
+            .len = overlays.len,
+            .data = overlays_arr.ptr,
+        };
+        return .{ .ptr = qtc.KIconLoader_LoadScaledIcon62(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(scale), @ptrCast(size.ptr), @bitCast(state), overlays_list) };
     }
 
     /// ### DEPRECATED: Use `loadMimeTypeIcon3` instead

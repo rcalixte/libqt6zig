@@ -8,6 +8,10 @@
 #include "libqgeoareamonitorinfo.h"
 #include "libqgeoareamonitorinfo.hxx"
 
+size_t qgeoareamonitorinfo_h_QHash(const QGeoAreaMonitorInfo* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}
+
 QGeoAreaMonitorInfo* QGeoAreaMonitorInfo_new() {
     return new QGeoAreaMonitorInfo();
 }

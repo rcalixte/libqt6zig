@@ -734,6 +734,60 @@ pub const QModelIndex = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html)
+pub const qabstractitemmodel = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` index: QPersistentModelIndex `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(index: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(index)._is_QPersistentModelIndex;
+        return qtc.qabstractitemmodel_QHash(@ptrCast(index.ptr), @bitCast(seed));
+    }
+
+    /// ### DEPRECATED: Use `qHash2` instead
+    ///
+    pub const QHash2 = qHash2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` index: QPersistentModelIndex `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash2(index: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(index)._is_QPersistentModelIndex;
+        return qtc.qabstractitemmodel_QHash2(@ptrCast(index.ptr), @bitCast(seed));
+    }
+
+    /// ### DEPRECATED: Use `qHash3` instead
+    ///
+    pub const QHash3 = qHash3;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` index: QModelIndex `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash3(index: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.qabstractitemmodel_QHash3(@ptrCast(index.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html)
 pub const QPersistentModelIndex = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html)
@@ -839,7 +893,7 @@ pub const QPersistentModelIndex = extern struct {
     ///
     pub const ToQModelIndex = toQModelIndex;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator-QModelIndex)
     ///
     /// ## Parameter(s):
     ///

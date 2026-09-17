@@ -1050,6 +1050,26 @@ pub const QJsonObject = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html)
+pub const qjsonobject = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` object: QJsonObject `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(object: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(object)._is_QJsonObject;
+        return qtc.qjsonobject_QHash(@ptrCast(object.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html)
 pub const QJsonObject__iterator = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject-iterator.html)

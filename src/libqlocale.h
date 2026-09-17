@@ -22,6 +22,8 @@ typedef struct QLocale QLocale;
 typedef struct QTime QTime;
 #endif
 
+size_t qlocale_QHash(const QLocale* key, size_t seed);
+
 QLocale* QLocale_new();
 QLocale* QLocale_new2(const libqt_string name);
 QLocale* QLocale_new3(libqt_string name);

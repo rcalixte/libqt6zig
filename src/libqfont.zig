@@ -1332,7 +1332,7 @@ pub const QFont = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///
@@ -1739,6 +1739,26 @@ pub const QFont = extern struct {
     ///
     pub fn delete(self: QFont) void {
         qtc.QFont_Delete(@ptrCast(self.ptr));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qfont-h.html)
+pub const qfont_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` font: QFont `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(font: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(font)._is_QFont;
+        return qtc.qfont_h_QHash(@ptrCast(font.ptr), @bitCast(seed));
     }
 };
 

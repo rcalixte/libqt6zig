@@ -558,6 +558,161 @@ pub const QPixelFormat = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat-h.html)
+pub const qpixelformat_h = extern struct {
+    /// ### DEPRECATED: Use `qPixelFormatRgba` instead
+    ///
+    pub const QPixelFormatRgba = qPixelFormatRgba;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat-h.html#qPixelFormatRgba)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` red: u8 `
+    ///
+    /// ` green: u8 `
+    ///
+    /// ` blue: u8 `
+    ///
+    /// ` alfa: u8 `
+    ///
+    /// ` usage: qpixelformat_enums.AlphaUsage `
+    ///
+    /// ` position: qpixelformat_enums.AlphaPosition `
+    ///
+    /// ` pmul: qpixelformat_enums.AlphaPremultiplied `
+    ///
+    /// ` typeInt: qpixelformat_enums.TypeInterpretation `
+    ///
+    pub fn qPixelFormatRgba(red: u8, green: u8, blue: u8, alfa: u8, usage: i32, position: i32, pmul: i32, typeInt: i32) QPixelFormat {
+        return .{ .ptr = qtc.qpixelformat_h_QPixelFormatRgba(@bitCast(red), @bitCast(green), @bitCast(blue), @bitCast(alfa), @bitCast(usage), @bitCast(position), @bitCast(pmul), @bitCast(typeInt)) };
+    }
+
+    /// ### DEPRECATED: Use `qPixelFormatGrayscale` instead
+    ///
+    pub const QPixelFormatGrayscale = qPixelFormatGrayscale;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat-h.html#qPixelFormatGrayscale)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` channelSize: u8 `
+    ///
+    /// ` typeInt: qpixelformat_enums.TypeInterpretation `
+    ///
+    pub fn qPixelFormatGrayscale(channelSize: u8, typeInt: i32) QPixelFormat {
+        return .{ .ptr = qtc.qpixelformat_h_QPixelFormatGrayscale(@bitCast(channelSize), @bitCast(typeInt)) };
+    }
+
+    /// ### DEPRECATED: Use `qPixelFormatAlpha` instead
+    ///
+    pub const QPixelFormatAlpha = qPixelFormatAlpha;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat-h.html#qPixelFormatAlpha)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` channelSize: u8 `
+    ///
+    /// ` typeInt: qpixelformat_enums.TypeInterpretation `
+    ///
+    pub fn qPixelFormatAlpha(channelSize: u8, typeInt: i32) QPixelFormat {
+        return .{ .ptr = qtc.qpixelformat_h_QPixelFormatAlpha(@bitCast(channelSize), @bitCast(typeInt)) };
+    }
+
+    /// ### DEPRECATED: Use `qPixelFormatCmyk` instead
+    ///
+    pub const QPixelFormatCmyk = qPixelFormatCmyk;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat-h.html#qPixelFormatCmyk)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` channelSize: u8 `
+    ///
+    /// ` alfa: u8 `
+    ///
+    /// ` usage: qpixelformat_enums.AlphaUsage `
+    ///
+    /// ` position: qpixelformat_enums.AlphaPosition `
+    ///
+    /// ` typeInt: qpixelformat_enums.TypeInterpretation `
+    ///
+    pub fn qPixelFormatCmyk(channelSize: u8, alfa: u8, usage: i32, position: i32, typeInt: i32) QPixelFormat {
+        return .{ .ptr = qtc.qpixelformat_h_QPixelFormatCmyk(@bitCast(channelSize), @bitCast(alfa), @bitCast(usage), @bitCast(position), @bitCast(typeInt)) };
+    }
+
+    /// ### DEPRECATED: Use `qPixelFormatHsl` instead
+    ///
+    pub const QPixelFormatHsl = qPixelFormatHsl;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat-h.html#qPixelFormatHsl)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` channelSize: u8 `
+    ///
+    /// ` alfa: u8 `
+    ///
+    /// ` usage: qpixelformat_enums.AlphaUsage `
+    ///
+    /// ` position: qpixelformat_enums.AlphaPosition `
+    ///
+    /// ` typeInt: qpixelformat_enums.TypeInterpretation `
+    ///
+    pub fn qPixelFormatHsl(channelSize: u8, alfa: u8, usage: i32, position: i32, typeInt: i32) QPixelFormat {
+        return .{ .ptr = qtc.qpixelformat_h_QPixelFormatHsl(@bitCast(channelSize), @bitCast(alfa), @bitCast(usage), @bitCast(position), @bitCast(typeInt)) };
+    }
+
+    /// ### DEPRECATED: Use `qPixelFormatHsv` instead
+    ///
+    pub const QPixelFormatHsv = qPixelFormatHsv;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat-h.html#qPixelFormatHsv)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` channelSize: u8 `
+    ///
+    /// ` alfa: u8 `
+    ///
+    /// ` usage: qpixelformat_enums.AlphaUsage `
+    ///
+    /// ` position: qpixelformat_enums.AlphaPosition `
+    ///
+    /// ` typeInt: qpixelformat_enums.TypeInterpretation `
+    ///
+    pub fn qPixelFormatHsv(channelSize: u8, alfa: u8, usage: i32, position: i32, typeInt: i32) QPixelFormat {
+        return .{ .ptr = qtc.qpixelformat_h_QPixelFormatHsv(@bitCast(channelSize), @bitCast(alfa), @bitCast(usage), @bitCast(position), @bitCast(typeInt)) };
+    }
+
+    /// ### DEPRECATED: Use `qPixelFormatYuv` instead
+    ///
+    pub const QPixelFormatYuv = qPixelFormatYuv;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat-h.html#qPixelFormatYuv)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` layout: qpixelformat_enums.YUVLayout `
+    ///
+    /// ` alfa: u8 `
+    ///
+    /// ` usage: qpixelformat_enums.AlphaUsage `
+    ///
+    /// ` position: qpixelformat_enums.AlphaPosition `
+    ///
+    /// ` p_mul: qpixelformat_enums.AlphaPremultiplied `
+    ///
+    /// ` typeInt: qpixelformat_enums.TypeInterpretation `
+    ///
+    /// ` b_order: qpixelformat_enums.ByteOrder `
+    ///
+    pub fn qPixelFormatYuv(layout: i32, alfa: u8, usage: i32, position: i32, p_mul: i32, typeInt: i32, b_order: i32) QPixelFormat {
+        return .{ .ptr = qtc.qpixelformat_h_QPixelFormatYuv(@bitCast(layout), @bitCast(alfa), @bitCast(usage), @bitCast(position), @bitCast(p_mul), @bitCast(typeInt), @bitCast(b_order)) };
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixelformat.html#public-types)
 pub const enums = struct {
     pub const ColorModel = enum {

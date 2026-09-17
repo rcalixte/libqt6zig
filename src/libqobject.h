@@ -32,9 +32,11 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 #endif
 
-void qobject_h_QFindChildrenHelper(const QObject* parent, libqt_string name, const QMetaObject* mo, libqt_list /* of void* */ list, int options);
-void qobject_h_QFindChildrenHelper2(const QObject* parent, const QRegularExpression* re, const QMetaObject* mo, libqt_list /* of void* */ list, int options);
-QObject* qobject_h_QFindChildHelper(const QObject* parent, libqt_string name, const QMetaObject* mo, int options);
+void qobject_QFindChildrenHelper(const QObject* parent, libqt_string name, const QMetaObject* mo, libqt_list /* of void* */ list, int options);
+void qobject_QFindChildrenHelper2(const QObject* parent, const QRegularExpression* re, const QMetaObject* mo, libqt_list /* of void* */ list, int options);
+QObject* qobject_QFindChildHelper(const QObject* parent, libqt_string name, const QMetaObject* mo, int options);
+QBindingStorage* qobject_QGetBindingStorage(const QObject* o);
+QBindingStorage* qobject_QGetBindingStorage2(QObject* o);
 
 QObject* QObject_new();
 QObject* QObject_new2(QObject* parent);

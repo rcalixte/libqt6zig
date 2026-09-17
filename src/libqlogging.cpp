@@ -145,7 +145,12 @@ void QMessageLogger_Delete(QMessageLogger* self) {
     delete self;
 }
 
-libqt_string qlogging_h_ErrorString(int errorCode) {
+void qlogging_QSetMessagePattern(const libqt_string messagePattern) {
+    QString messagePattern_QString = QString::fromUtf8(messagePattern.data, messagePattern.len);
+    qSetMessagePattern(messagePattern_QString);
+}
+
+libqt_string qlogging_ErrorString(int errorCode) {
     auto _ret = qt_error_string(static_cast<int>(errorCode));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();

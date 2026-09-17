@@ -5,6 +5,26 @@ const QVariant = @import("libqt6").QVariant;
 const qkeysequence_enums = enums;
 const std = @import("std");
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence-h.html)
+pub const qkeysequence_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QKeySequence `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.qkeysequence_h_QHash(@ptrCast(key.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html)
 pub const QKeySequence = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html)
@@ -419,7 +439,7 @@ pub const QKeySequence = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeysequence.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///

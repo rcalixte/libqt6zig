@@ -116,6 +116,10 @@ void QPoint_Delete(QPoint* self) {
     delete self;
 }
 
+size_t qpoint_QHash(QPoint* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}
+
 QPointF* QPointF_new(const QPointF* other) {
     return new QPointF(*other);
 }

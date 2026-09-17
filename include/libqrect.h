@@ -108,6 +108,8 @@ bool QRect_Contains22(const QRect* self, const QRect* r, bool proper);
 bool QRect_Contains23(const QRect* self, const QPoint* p, bool proper);
 void QRect_Delete(QRect* self);
 
+size_t qrect_QHash(const QRect* r, size_t seed);
+
 QRectF* QRectF_new(const QRectF* other);
 QRectF* QRectF_new2(QRectF* other);
 QRectF* QRectF_new3();

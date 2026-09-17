@@ -5,6 +5,26 @@ const qurl_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qurl.html)
+pub const qurl = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qurl.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` url: QUrl `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(url: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return qtc.qurl_QHash(@ptrCast(url.ptr), @bitCast(seed));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qurl.html)
 pub const QUrl = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qurl.html)
     ///

@@ -16,6 +16,7 @@ extern "C" {
 #ifdef __cplusplus
 typedef KTextEditor::Cursor KTextEditor__Cursor;
 #else
+typedef struct KTextEditor KTextEditor;
 typedef struct KTextEditor__Cursor KTextEditor__Cursor;
 #endif
 

@@ -1,5 +1,6 @@
 #include <QBitmap>
 #include <QPoint>
+#include <QPolygon>
 #include <QRect>
 #include <QRegion>
 #include <QSpan>
@@ -20,20 +21,28 @@ QRegion* QRegion_new3(const QRect* r) {
     return new QRegion(*r);
 }
 
-QRegion* QRegion_new4(const QRegion* region) {
+QRegion* QRegion_new4(const QPolygon* pa) {
+    return new QRegion(*pa);
+}
+
+QRegion* QRegion_new5(const QRegion* region) {
     return new QRegion(*region);
 }
 
-QRegion* QRegion_new5(const QBitmap* bitmap) {
+QRegion* QRegion_new6(const QBitmap* bitmap) {
     return new QRegion(*bitmap);
 }
 
-QRegion* QRegion_new6(int x, int y, int w, int h, int t) {
+QRegion* QRegion_new7(int x, int y, int w, int h, int t) {
     return new QRegion(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<QRegion::RegionType>(t));
 }
 
-QRegion* QRegion_new7(const QRect* r, int t) {
+QRegion* QRegion_new8(const QRect* r, int t) {
     return new QRegion(*r, static_cast<QRegion::RegionType>(t));
+}
+
+QRegion* QRegion_new9(const QPolygon* pa, int fillRule) {
+    return new QRegion(*pa, static_cast<Qt::FillRule>(fillRule));
 }
 
 void QRegion_OperatorAssign(QRegion* self, const QRegion* param1) {

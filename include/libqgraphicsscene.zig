@@ -12,6 +12,7 @@ const QGraphicsItemGroup = @import("libqt6").QGraphicsItemGroup;
 const QGraphicsLineItem = @import("libqt6").QGraphicsLineItem;
 const QGraphicsPathItem = @import("libqt6").QGraphicsPathItem;
 const QGraphicsPixmapItem = @import("libqt6").QGraphicsPixmapItem;
+const QGraphicsPolygonItem = @import("libqt6").QGraphicsPolygonItem;
 const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
 const QGraphicsRectItem = @import("libqt6").QGraphicsRectItem;
 const QGraphicsSceneContextMenuEvent = @import("libqt6").QGraphicsSceneContextMenuEvent;
@@ -36,6 +37,7 @@ const QPalette = @import("libqt6").QPalette;
 const QPen = @import("libqt6").QPen;
 const QPixmap = @import("libqt6").QPixmap;
 const QPointF = @import("libqt6").QPointF;
+const QPolygonF = @import("libqt6").QPolygonF;
 const QRectF = @import("libqt6").QRectF;
 const QStyle = @import("libqt6").QStyle;
 const QStyleOptionGraphicsItem = @import("libqt6").QStyleOptionGraphicsItem;
@@ -582,6 +584,31 @@ pub const QGraphicsScene = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `items4` instead
+    ///
+    pub const Items4 = items4;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsScene `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    pub fn items4(self: QGraphicsScene, allocator: std.mem.Allocator, polygon: anytype) []QGraphicsItem {
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        const _arr: qtc.libqt_list = qtc.QGraphicsScene_Items4(@ptrCast(self.ptr), @ptrCast(polygon.ptr));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsScene.items4: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
+        return _ret;
+    }
+
     /// ### DEPRECATED: Use `items5` instead
     ///
     pub const Items5 = items5;
@@ -902,6 +929,23 @@ pub const QGraphicsScene = extern struct {
     pub fn addPixmap(self: QGraphicsScene, pixmap: anytype) QGraphicsPixmapItem {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         return .{ .ptr = qtc.QGraphicsScene_AddPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `addPolygon` instead
+    ///
+    pub const AddPolygon = addPolygon;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscene.html#addPolygon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsScene `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    pub fn addPolygon(self: QGraphicsScene, polygon: anytype) QGraphicsPolygonItem {
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        return .{ .ptr = qtc.QGraphicsScene_AddPolygon(@ptrCast(self.ptr), @ptrCast(polygon.ptr)) };
     }
 
     /// ### DEPRECATED: Use `addRect` instead
@@ -3368,6 +3412,94 @@ pub const QGraphicsScene = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `items24` instead
+    ///
+    pub const Items24 = items24;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsScene `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    /// ` mode: qnamespace_enums.ItemSelectionMode `
+    ///
+    pub fn items24(self: QGraphicsScene, allocator: std.mem.Allocator, polygon: anytype, mode: i32) []QGraphicsItem {
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        const _arr: qtc.libqt_list = qtc.QGraphicsScene_Items24(@ptrCast(self.ptr), @ptrCast(polygon.ptr), @bitCast(mode));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsScene.items24: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `items34` instead
+    ///
+    pub const Items34 = items34;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsScene `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    /// ` mode: qnamespace_enums.ItemSelectionMode `
+    ///
+    /// ` order: qnamespace_enums.SortOrder `
+    ///
+    pub fn items34(self: QGraphicsScene, allocator: std.mem.Allocator, polygon: anytype, mode: i32, order: i32) []QGraphicsItem {
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        const _arr: qtc.libqt_list = qtc.QGraphicsScene_Items34(@ptrCast(self.ptr), @ptrCast(polygon.ptr), @bitCast(mode), @bitCast(order));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsScene.items34: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `items44` instead
+    ///
+    pub const Items44 = items44;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsScene `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    /// ` mode: qnamespace_enums.ItemSelectionMode `
+    ///
+    /// ` order: qnamespace_enums.SortOrder `
+    ///
+    /// ` deviceTransform: QTransform `
+    ///
+    pub fn items44(self: QGraphicsScene, allocator: std.mem.Allocator, polygon: anytype, mode: i32, order: i32, deviceTransform: anytype) []QGraphicsItem {
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        comptime _ = @TypeOf(deviceTransform)._is_QTransform;
+        const _arr: qtc.libqt_list = qtc.QGraphicsScene_Items44(@ptrCast(self.ptr), @ptrCast(polygon.ptr), @bitCast(mode), @bitCast(order), @ptrCast(deviceTransform.ptr));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsScene.items44: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
+        return _ret;
+    }
+
     /// ### DEPRECATED: Use `items25` instead
     ///
     pub const Items25 = items25;
@@ -3689,6 +3821,49 @@ pub const QGraphicsScene = extern struct {
         comptime _ = @TypeOf(pen)._is_QPen;
         comptime _ = @TypeOf(brush)._is_QBrush;
         return .{ .ptr = qtc.QGraphicsScene_AddPath3(@ptrCast(self.ptr), @ptrCast(path.ptr), @ptrCast(pen.ptr), @ptrCast(brush.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `addPolygon2` instead
+    ///
+    pub const AddPolygon2 = addPolygon2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscene.html#addPolygon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsScene `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    /// ` pen: QPen `
+    ///
+    pub fn addPolygon2(self: QGraphicsScene, polygon: anytype, pen: anytype) QGraphicsPolygonItem {
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        comptime _ = @TypeOf(pen)._is_QPen;
+        return .{ .ptr = qtc.QGraphicsScene_AddPolygon2(@ptrCast(self.ptr), @ptrCast(polygon.ptr), @ptrCast(pen.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `addPolygon3` instead
+    ///
+    pub const AddPolygon3 = addPolygon3;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscene.html#addPolygon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsScene `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    /// ` pen: QPen `
+    ///
+    /// ` brush: QBrush `
+    ///
+    pub fn addPolygon3(self: QGraphicsScene, polygon: anytype, pen: anytype, brush: anytype) QGraphicsPolygonItem {
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        comptime _ = @TypeOf(pen)._is_QPen;
+        comptime _ = @TypeOf(brush)._is_QBrush;
+        return .{ .ptr = qtc.QGraphicsScene_AddPolygon3(@ptrCast(self.ptr), @ptrCast(polygon.ptr), @ptrCast(pen.ptr), @ptrCast(brush.ptr)) };
     }
 
     /// ### DEPRECATED: Use `addRect22` instead

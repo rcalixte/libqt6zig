@@ -68,6 +68,8 @@ QMetaProperty* QQmlProperty_Property(const QQmlProperty* self);
 QMetaMethod* QQmlProperty_Method(const QQmlProperty* self);
 void QQmlProperty_Delete(QQmlProperty* self);
 
+size_t qqmlproperty_h_QHash(const QQmlProperty* key, size_t seed);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

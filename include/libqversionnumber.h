@@ -18,6 +18,8 @@ extern "C" {
 typedef struct QVersionNumber QVersionNumber;
 #endif
 
+size_t qversionnumber_QHash(const QVersionNumber* key, size_t seed);
+
 QVersionNumber* QVersionNumber_new();
 QVersionNumber* QVersionNumber_new2(libqt_list /* of const int */ args);
 QVersionNumber* QVersionNumber_new3(int maj);

@@ -18,9 +18,14 @@ extern "C" {
 
 #endif
 
-libqt_string qtenvironmentvariables_h_Qgetenv(const char* varName);
-bool qtenvironmentvariables_h_Qputenv(const char* varName, libqt_string value);
-bool qtenvironmentvariables_h_Qunsetenv(const char* varName);
+libqt_string qtenvironmentvariables_Qgetenv(const char* varName);
+libqt_string qtenvironmentvariables_QEnvironmentVariable(const char* varName);
+libqt_string qtenvironmentvariables_QEnvironmentVariable2(const char* varName, const libqt_string defaultValue);
+bool qtenvironmentvariables_Qputenv(const char* varName, libqt_string value);
+bool qtenvironmentvariables_Qunsetenv(const char* varName);
+bool qtenvironmentvariables_QEnvironmentVariableIsEmpty(const char* varName);
+bool qtenvironmentvariables_QEnvironmentVariableIsSet(const char* varName);
+int qtenvironmentvariables_QEnvironmentVariableIntValue(const char* varName, bool* ok);
 
 #ifdef __cplusplus
 } /* extern C */

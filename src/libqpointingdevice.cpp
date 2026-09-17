@@ -54,6 +54,10 @@ void QPointingDeviceUniqueId_Delete(QPointingDeviceUniqueId* self) {
     delete self;
 }
 
+size_t qpointingdevice_h_QHash(QPointingDeviceUniqueId* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}
+
 QPointingDevice* QPointingDevice_new() {
     return new VirtualQPointingDevice();
 }

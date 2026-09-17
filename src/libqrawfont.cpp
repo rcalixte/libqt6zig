@@ -290,3 +290,7 @@ QRawFont* QRawFont_FromFont2(const QFont* font, int writingSystem) {
 void QRawFont_Delete(QRawFont* self) {
     delete self;
 }
+
+size_t qrawfont_h_QHash(const QRawFont* font, size_t seed) {
+    return qHash(*font, static_cast<size_t>(seed));
+}

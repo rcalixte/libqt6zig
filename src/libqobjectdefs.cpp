@@ -19,6 +19,10 @@
 #include "libqobjectdefs.h"
 #include "libqobjectdefs.hxx"
 
+const char* qobjectdefs_QFlagLocation(const char* method) {
+    return (const char*)qFlagLocation(method);
+}
+
 QGenericArgument* QGenericArgument_new(const QGenericArgument* other) {
     return new QGenericArgument(*other);
 }

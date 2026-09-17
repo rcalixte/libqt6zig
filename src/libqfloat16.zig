@@ -84,7 +84,7 @@ pub const qfloat16 = extern struct {
     ///
     pub const ToFloat = toFloat;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfloat16.html#operator-float)
     ///
     /// ## Parameter(s):
     ///

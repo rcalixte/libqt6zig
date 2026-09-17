@@ -610,7 +610,7 @@ pub const QBitRef = extern struct {
     ///
     pub const ToBool = toBool;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitref.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitref.html#operator-bool)
     ///
     /// ## Parameter(s):
     ///

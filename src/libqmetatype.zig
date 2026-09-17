@@ -1162,6 +1162,41 @@ pub const QMetaType = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html)
+pub const qmetatype = extern struct {
+    /// ### DEPRECATED: Use `qRegisterMetaType` instead
+    ///
+    pub const QRegisterMetaType = qRegisterMetaType;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#qRegisterMetaType)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` meta: QMetaType `
+    ///
+    pub fn qRegisterMetaType(meta: anytype) i32 {
+        comptime _ = @TypeOf(meta)._is_QMetaType;
+        return qtc.qmetatype_QRegisterMetaType(@ptrCast(meta.ptr));
+    }
+
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _type: QMetaType `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(_type: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(_type)._is_QMetaType;
+        return qtc.qmetatype_QHash(@ptrCast(_type.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#public-types)
 pub const enums = struct {
     pub const QCborSimpleType = enum(u8) { _ };

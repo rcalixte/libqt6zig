@@ -32,6 +32,8 @@ libqt_string QSslError_ErrorString(const QSslError* self);
 QSslCertificate* QSslError_Certificate(const QSslError* self);
 void QSslError_Delete(QSslError* self);
 
+size_t qsslerror_h_QHash(const QSslError* key, size_t seed);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

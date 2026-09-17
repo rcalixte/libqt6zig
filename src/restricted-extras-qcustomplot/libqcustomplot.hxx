@@ -21688,6 +21688,8 @@ class VirtualQCPGraph final : public QCPGraph {
     using QCPGraph_GetOverlappingSegments_Callback = libqt_list /* of pair_qcpdatarange_qcpdatarange tuple of QCPDataRange* and QCPDataRange* */ (*)(const QCPGraph*, libqt_list /* of QCPDataRange* */, libqt_list /* of QPointF* */, libqt_list /* of QCPDataRange* */, libqt_list /* of QPointF* */);
     using QCPGraph_SegmentsIntersect_Callback = bool (*)(const QCPGraph*, double, double, double, double, int*);
     using QCPGraph_GetFillBasePoint_Callback = QPointF* (*)(const QCPGraph*, QPointF*);
+    using QCPGraph_GetFillPolygon_Callback = QPolygonF* (*)(const QCPGraph*, libqt_list /* of QPointF* */, QCPDataRange*);
+    using QCPGraph_GetChannelFillPolygon_Callback = QPolygonF* (*)(const QCPGraph*, libqt_list /* of QPointF* */, QCPDataRange*, libqt_list /* of QPointF* */, QCPDataRange*);
     using QCPGraph_FindIndexBelowX_Callback = int (*)(const QCPGraph*, libqt_list /* of QPointF* */, double);
     using QCPGraph_FindIndexAboveX_Callback = int (*)(const QCPGraph*, libqt_list /* of QPointF* */, double);
     using QCPGraph_FindIndexBelowY_Callback = int (*)(const QCPGraph*, libqt_list /* of QPointF* */, double);
@@ -21757,6 +21759,8 @@ class VirtualQCPGraph final : public QCPGraph {
     QCPGraph_GetOverlappingSegments_Callback qcpgraph_getoverlappingsegments_callback = nullptr;
     QCPGraph_SegmentsIntersect_Callback qcpgraph_segmentsintersect_callback = nullptr;
     QCPGraph_GetFillBasePoint_Callback qcpgraph_getfillbasepoint_callback = nullptr;
+    QCPGraph_GetFillPolygon_Callback qcpgraph_getfillpolygon_callback = nullptr;
+    QCPGraph_GetChannelFillPolygon_Callback qcpgraph_getchannelfillpolygon_callback = nullptr;
     QCPGraph_FindIndexBelowX_Callback qcpgraph_findindexbelowx_callback = nullptr;
     QCPGraph_FindIndexAboveX_Callback qcpgraph_findindexabovex_callback = nullptr;
     QCPGraph_FindIndexBelowY_Callback qcpgraph_findindexbelowy_callback = nullptr;
@@ -21825,6 +21829,8 @@ class VirtualQCPGraph final : public QCPGraph {
     mutable bool qcpgraph_getoverlappingsegments_isbase = false;
     mutable bool qcpgraph_segmentsintersect_isbase = false;
     mutable bool qcpgraph_getfillbasepoint_isbase = false;
+    mutable bool qcpgraph_getfillpolygon_isbase = false;
+    mutable bool qcpgraph_getchannelfillpolygon_isbase = false;
     mutable bool qcpgraph_findindexbelowx_isbase = false;
     mutable bool qcpgraph_findindexabovex_isbase = false;
     mutable bool qcpgraph_findindexbelowy_isbase = false;
@@ -21896,6 +21902,8 @@ class VirtualQCPGraph final : public QCPGraph {
     inline void setQCPGraph_GetOverlappingSegments_Callback(QCPGraph_GetOverlappingSegments_Callback cb) { qcpgraph_getoverlappingsegments_callback = cb; }
     inline void setQCPGraph_SegmentsIntersect_Callback(QCPGraph_SegmentsIntersect_Callback cb) { qcpgraph_segmentsintersect_callback = cb; }
     inline void setQCPGraph_GetFillBasePoint_Callback(QCPGraph_GetFillBasePoint_Callback cb) { qcpgraph_getfillbasepoint_callback = cb; }
+    inline void setQCPGraph_GetFillPolygon_Callback(QCPGraph_GetFillPolygon_Callback cb) { qcpgraph_getfillpolygon_callback = cb; }
+    inline void setQCPGraph_GetChannelFillPolygon_Callback(QCPGraph_GetChannelFillPolygon_Callback cb) { qcpgraph_getchannelfillpolygon_callback = cb; }
     inline void setQCPGraph_FindIndexBelowX_Callback(QCPGraph_FindIndexBelowX_Callback cb) { qcpgraph_findindexbelowx_callback = cb; }
     inline void setQCPGraph_FindIndexAboveX_Callback(QCPGraph_FindIndexAboveX_Callback cb) { qcpgraph_findindexabovex_callback = cb; }
     inline void setQCPGraph_FindIndexBelowY_Callback(QCPGraph_FindIndexBelowY_Callback cb) { qcpgraph_findindexbelowy_callback = cb; }
@@ -21964,6 +21972,8 @@ class VirtualQCPGraph final : public QCPGraph {
     inline void setQCPGraph_GetOverlappingSegments_IsBase(bool value) const { qcpgraph_getoverlappingsegments_isbase = value; }
     inline void setQCPGraph_SegmentsIntersect_IsBase(bool value) const { qcpgraph_segmentsintersect_isbase = value; }
     inline void setQCPGraph_GetFillBasePoint_IsBase(bool value) const { qcpgraph_getfillbasepoint_isbase = value; }
+    inline void setQCPGraph_GetFillPolygon_IsBase(bool value) const { qcpgraph_getfillpolygon_isbase = value; }
+    inline void setQCPGraph_GetChannelFillPolygon_IsBase(bool value) const { qcpgraph_getchannelfillpolygon_isbase = value; }
     inline void setQCPGraph_FindIndexBelowX_IsBase(bool value) const { qcpgraph_findindexbelowx_isbase = value; }
     inline void setQCPGraph_FindIndexAboveX_IsBase(bool value) const { qcpgraph_findindexabovex_isbase = value; }
     inline void setQCPGraph_FindIndexBelowY_IsBase(bool value) const { qcpgraph_findindexbelowy_isbase = value; }
@@ -23026,6 +23036,74 @@ class VirtualQCPGraph final : public QCPGraph {
     }
 
     // Virtual method for C ABI access and custom callback
+    const QPolygonF getFillPolygon(const QVector<QPointF>* lineData, QCPDataRange segment) const {
+        if (qcpgraph_getfillpolygon_isbase) {
+            qcpgraph_getfillpolygon_isbase = false;
+            return QCPGraph::getFillPolygon(lineData, segment);
+        }
+        auto getfillpolygon_cb = qcpgraph_getfillpolygon_callback;
+        if (getfillpolygon_cb) {
+            const QVector<QPointF>* lineData_ret = lineData;
+            // Convert QVector<> from C++ memory to manually-managed C memory
+            QPointF** lineData_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (lineData_ret->size())));
+            for (qsizetype i = 0; i < lineData_ret->size(); ++i) {
+                lineData_arr[i] = new QPointF((*lineData_ret)[i]);
+            }
+            libqt_list lineData_out;
+            lineData_out.len = lineData_ret->size();
+            lineData_out.data = static_cast<void*>(lineData_arr);
+            libqt_list /* of QPointF* */ cbval1 = lineData_out;
+            QCPDataRange* cbval2 = new QCPDataRange(segment);
+            QPolygonF* callback_ret = getfillpolygon_cb(this, cbval1, cbval2);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            free(lineData_arr);
+            return callback_ret_Value;
+        }
+        return QCPGraph::getFillPolygon(lineData, segment);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    const QPolygonF getChannelFillPolygon(const QVector<QPointF>* thisData, QCPDataRange thisSegment, const QVector<QPointF>* otherData, QCPDataRange otherSegment) const {
+        if (qcpgraph_getchannelfillpolygon_isbase) {
+            qcpgraph_getchannelfillpolygon_isbase = false;
+            return QCPGraph::getChannelFillPolygon(thisData, thisSegment, otherData, otherSegment);
+        }
+        auto getchannelfillpolygon_cb = qcpgraph_getchannelfillpolygon_callback;
+        if (getchannelfillpolygon_cb) {
+            const QVector<QPointF>* thisData_ret = thisData;
+            // Convert QVector<> from C++ memory to manually-managed C memory
+            QPointF** thisData_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (thisData_ret->size())));
+            for (qsizetype i = 0; i < thisData_ret->size(); ++i) {
+                thisData_arr[i] = new QPointF((*thisData_ret)[i]);
+            }
+            libqt_list thisData_out;
+            thisData_out.len = thisData_ret->size();
+            thisData_out.data = static_cast<void*>(thisData_arr);
+            libqt_list /* of QPointF* */ cbval1 = thisData_out;
+            QCPDataRange* cbval2 = new QCPDataRange(thisSegment);
+            const QVector<QPointF>* otherData_ret = otherData;
+            // Convert QVector<> from C++ memory to manually-managed C memory
+            QPointF** otherData_arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (otherData_ret->size())));
+            for (qsizetype i = 0; i < otherData_ret->size(); ++i) {
+                otherData_arr[i] = new QPointF((*otherData_ret)[i]);
+            }
+            libqt_list otherData_out;
+            otherData_out.len = otherData_ret->size();
+            otherData_out.data = static_cast<void*>(otherData_arr);
+            libqt_list /* of QPointF* */ cbval3 = otherData_out;
+            QCPDataRange* cbval4 = new QCPDataRange(otherSegment);
+            QPolygonF* callback_ret = getchannelfillpolygon_cb(this, cbval1, cbval2, cbval3, cbval4);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            free(thisData_arr);
+            free(otherData_arr);
+            return callback_ret_Value;
+        }
+        return QCPGraph::getChannelFillPolygon(thisData, thisSegment, otherData, otherSegment);
+    }
+
+    // Virtual method for C ABI access and custom callback
     int findIndexBelowX(const QVector<QPointF>* data, double x) const {
         if (qcpgraph_findindexbelowx_isbase) {
             qcpgraph_findindexbelowx_isbase = false;
@@ -23354,6 +23432,10 @@ class VirtualQCPGraph final : public QCPGraph {
     friend bool QCPGraph_SuperSegmentsIntersect(const QCPGraph* self, double aLower, double aUpper, double bLower, double bUpper, int* bPrecedence);
     friend QPointF* QCPGraph_GetFillBasePoint(const QCPGraph* self, QPointF* matchingDataPoint);
     friend QPointF* QCPGraph_SuperGetFillBasePoint(const QCPGraph* self, QPointF* matchingDataPoint);
+    friend QPolygonF* QCPGraph_GetFillPolygon(const QCPGraph* self, const libqt_list /* of QPointF* */ lineData, QCPDataRange* segment);
+    friend QPolygonF* QCPGraph_SuperGetFillPolygon(const QCPGraph* self, const libqt_list /* of QPointF* */ lineData, QCPDataRange* segment);
+    friend QPolygonF* QCPGraph_GetChannelFillPolygon(const QCPGraph* self, const libqt_list /* of QPointF* */ thisData, QCPDataRange* thisSegment, const libqt_list /* of QPointF* */ otherData, QCPDataRange* otherSegment);
+    friend QPolygonF* QCPGraph_SuperGetChannelFillPolygon(const QCPGraph* self, const libqt_list /* of QPointF* */ thisData, QCPDataRange* thisSegment, const libqt_list /* of QPointF* */ otherData, QCPDataRange* otherSegment);
     friend int QCPGraph_FindIndexBelowX(const QCPGraph* self, const libqt_list /* of QPointF* */ data, double x);
     friend int QCPGraph_SuperFindIndexBelowX(const QCPGraph* self, const libqt_list /* of QPointF* */ data, double x);
     friend int QCPGraph_FindIndexAboveX(const QCPGraph* self, const libqt_list /* of QPointF* */ data, double x);

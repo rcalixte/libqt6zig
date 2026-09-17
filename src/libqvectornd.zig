@@ -569,7 +569,7 @@ pub const QVector2D = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector2d.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///
@@ -1353,7 +1353,7 @@ pub const QVector3D = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector3d.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///
@@ -2033,7 +2033,7 @@ pub const QVector4D = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qvector4d.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///

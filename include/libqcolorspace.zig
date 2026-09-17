@@ -778,7 +778,7 @@ pub const QColorSpace = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolorspace.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///

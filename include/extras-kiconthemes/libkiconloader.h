@@ -29,6 +29,7 @@ typedef struct QMovie QMovie;
 typedef struct QObject QObject;
 typedef struct QPalette QPalette;
 typedef struct QPixmap QPixmap;
+typedef struct QSize QSize;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
@@ -43,6 +44,8 @@ libqt_string KIconLoader_Tr(const char* s);
 KIconLoader* KIconLoader_Global();
 void KIconLoader_AddAppDir(KIconLoader* self, const libqt_string appname);
 QPixmap* KIconLoader_LoadIcon(const KIconLoader* self, const libqt_string name, int group);
+QPixmap* KIconLoader_LoadScaledIcon(const KIconLoader* self, const libqt_string name, int group, double scale);
+QPixmap* KIconLoader_LoadScaledIcon2(const KIconLoader* self, const libqt_string name, int group, double scale);
 QPixmap* KIconLoader_LoadMimeTypeIcon(const KIconLoader* self, const libqt_string iconName, int group);
 libqt_string KIconLoader_IconPath(const KIconLoader* self, const libqt_string name, int group_or_size);
 libqt_string KIconLoader_IconPath2(const KIconLoader* self, const libqt_string name, int group_or_size, bool canReturnNull, double scale);
@@ -78,6 +81,12 @@ void KIconLoader_AddAppDir2(KIconLoader* self, const libqt_string appname, const
 QPixmap* KIconLoader_LoadIcon3(const KIconLoader* self, const libqt_string name, int group, int size);
 QPixmap* KIconLoader_LoadIcon4(const KIconLoader* self, const libqt_string name, int group, int size, int state);
 QPixmap* KIconLoader_LoadIcon5(const KIconLoader* self, const libqt_string name, int group, int size, int state, const libqt_list /* of libqt_string */ overlays);
+QPixmap* KIconLoader_LoadScaledIcon4(const KIconLoader* self, const libqt_string name, int group, double scale, int size);
+QPixmap* KIconLoader_LoadScaledIcon5(const KIconLoader* self, const libqt_string name, int group, double scale, int size, int state);
+QPixmap* KIconLoader_LoadScaledIcon6(const KIconLoader* self, const libqt_string name, int group, double scale, int size, int state, const libqt_list /* of libqt_string */ overlays);
+QPixmap* KIconLoader_LoadScaledIcon42(const KIconLoader* self, const libqt_string name, int group, double scale, const QSize* size);
+QPixmap* KIconLoader_LoadScaledIcon52(const KIconLoader* self, const libqt_string name, int group, double scale, const QSize* size, int state);
+QPixmap* KIconLoader_LoadScaledIcon62(const KIconLoader* self, const libqt_string name, int group, double scale, const QSize* size, int state, const libqt_list /* of libqt_string */ overlays);
 QPixmap* KIconLoader_LoadMimeTypeIcon3(const KIconLoader* self, const libqt_string iconName, int group, int size);
 QPixmap* KIconLoader_LoadMimeTypeIcon4(const KIconLoader* self, const libqt_string iconName, int group, int size, int state);
 QPixmap* KIconLoader_LoadMimeTypeIcon5(const KIconLoader* self, const libqt_string iconName, int group, int size, int state, const libqt_list /* of libqt_string */ overlays);

@@ -390,6 +390,10 @@ void QCborMap_Delete(QCborMap* self) {
     delete self;
 }
 
+size_t qcbormap_QHash(const QCborMap* map, size_t seed) {
+    return qHash(*map, static_cast<size_t>(seed));
+}
+
 QCborMap__Iterator* QCborMap__Iterator_new(const QCborMap__Iterator* other) {
     return new QCborMap::Iterator(*other);
 }

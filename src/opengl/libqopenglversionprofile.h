@@ -44,6 +44,8 @@ bool QOpenGLVersionProfile_IsLegacyVersion(const QOpenGLVersionProfile* self);
 bool QOpenGLVersionProfile_IsValid(const QOpenGLVersionProfile* self);
 void QOpenGLVersionProfile_Delete(QOpenGLVersionProfile* self);
 
+size_t qopenglversionprofile_h_QHash(const QOpenGLVersionProfile* v, size_t seed);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

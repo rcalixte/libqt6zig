@@ -150,7 +150,7 @@ pub const QDBusObjectPath = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusobjectpath.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusobjectpath.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///
@@ -174,6 +174,43 @@ pub const QDBusObjectPath = extern struct {
     ///
     pub fn delete(self: QDBusObjectPath) void {
         qtc.QDBusObjectPath_Delete(@ptrCast(self.ptr));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusextratypes-h.html)
+pub const qdbusextratypes_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusextratypes-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` objectPath: QDBusObjectPath `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(objectPath: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(objectPath)._is_QDBusObjectPath;
+        return qtc.qdbusextratypes_h_QHash(@ptrCast(objectPath.ptr), @bitCast(seed));
+    }
+
+    /// ### DEPRECATED: Use `qHash2` instead
+    ///
+    pub const QHash2 = qHash2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusextratypes-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` signature: QDBusSignature `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash2(signature: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(signature)._is_QDBusSignature;
+        return qtc.qdbusextratypes_h_QHash2(@ptrCast(signature.ptr), @bitCast(seed));
     }
 };
 

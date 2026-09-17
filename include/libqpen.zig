@@ -591,7 +591,7 @@ pub const QPen = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpen.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpen.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///

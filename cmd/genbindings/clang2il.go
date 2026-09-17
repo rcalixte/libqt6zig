@@ -8,7 +8,6 @@ import (
 	"slices"
 	"strconv"
 	"strings"
-	"unicode"
 )
 
 var (
@@ -43,6 +42,7 @@ var (
 	}
 
 	skipFreeFunctions = []string{
+		"qRegisterNormalizedMetaType",
 		"qbswap",
 		"qdbus_cast",
 		"qjsvalue_cast",
@@ -152,12 +152,16 @@ nextTopLevel:
 			if fn == nil {
 				continue nextTopLevel
 			}
+			if _, ok := node["explicitlyDeleted"].(bool); ok {
+				continue nextTopLevel
+			}
 
 			// Handle class method
 			className := getClassFromMangledName(fn.mangledName, fn.name)
 			var isFreeFunction bool
 			if className == "" {
-				className = strings.TrimSuffix(filepath.Base(inputHeader), ".h") + "_h"
+				className = strings.TrimSuffix(filepath.Base(inputHeader), ".h") +
+					ifv(strings.HasSuffix(filepath.Dir(inputHeader), "QtCore"), "", "_h")
 				isFreeFunction = true
 			}
 			if shouldSkipClass(className) {
@@ -165,8 +169,7 @@ nextTopLevel:
 			}
 
 			method := fn.createMethod(node["inner"].([]any))
-			if slices.Contains(skipFreeFunctions, method.MethodName) ||
-				(method.MethodName[0] == 'q' && unicode.IsUpper(rune(method.MethodName[1]))) {
+			if slices.Contains(skipFreeFunctions, method.MethodName) {
 				continue nextTopLevel
 			}
 			method.IsFreeFunction = isFreeFunction
@@ -718,7 +721,7 @@ nextMethod:
 			}
 
 			if visibility != VsPublic {
-				// TODO Is there any use case for allowing MIQT to overload a virtual destructor?
+				// TODO Is there any use case for allowing to overload a virtual destructor?
 				ret.CanDelete = false
 				continue
 			}

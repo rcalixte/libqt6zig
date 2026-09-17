@@ -60,3 +60,7 @@ QSslCertificate* QSslError_Certificate(const QSslError* self) {
 void QSslError_Delete(QSslError* self) {
     delete self;
 }
+
+size_t qsslerror_h_QHash(const QSslError* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}

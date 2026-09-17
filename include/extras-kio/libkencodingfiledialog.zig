@@ -106,6 +106,29 @@ pub const KEncodingFileDialog = extern struct {
         return qtc.KEncodingFileDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+        const s_Cstring = s.ptr;
+        var _str = qtc.KEncodingFileDialog_Tr(s_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.tr: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
     /// ### DEPRECATED: Use `getOpenFileNameAndEncoding` instead
     ///
     pub const GetOpenFileNameAndEncoding = getOpenFileNameAndEncoding;
@@ -178,6 +201,60 @@ pub const KEncodingFileDialog = extern struct {
     ///
     pub fn sizeHint(self: KEncodingFileDialog) QSize {
         return .{ .ptr = qtc.KEncodingFileDialog_SizeHint(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` s: [:0]const u8 `
+    ///
+    /// ` c: [:0]const u8 `
+    ///
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
+        var _str = qtc.KEncodingFileDialog_Tr2(s_Cstring, c_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.tr2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` s: [:0]const u8 `
+    ///
+    /// ` c: [:0]const u8 `
+    ///
+    /// ` n: i32 `
+    ///
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
+        var _str = qtc.KEncodingFileDialog_Tr3(s_Cstring, c_Cstring, @bitCast(n));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.tr3: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
     }
 
     /// ### DEPRECATED: Use `getOpenFileNameAndEncoding1` instead

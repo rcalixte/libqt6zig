@@ -4,6 +4,10 @@
 #include "libqocspresponse.h"
 #include "libqocspresponse.hxx"
 
+size_t qocspresponse_h_QHash(const QOcspResponse* response, size_t seed) {
+    return qHash(*response, static_cast<size_t>(seed));
+}
+
 QOcspResponse* QOcspResponse_new() {
     return new QOcspResponse();
 }

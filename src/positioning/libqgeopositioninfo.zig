@@ -4,6 +4,26 @@ const QDateTime = @import("libqt6").QDateTime;
 const QGeoCoordinate = @import("libqt6").QGeoCoordinate;
 const qgeopositioninfo_enums = enums;
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo-h.html)
+pub const qgeopositioninfo_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QGeoPositionInfo `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QGeoPositionInfo;
+        return qtc.qgeopositioninfo_h_QHash(@ptrCast(key.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html)
 pub const QGeoPositionInfo = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfo.html)

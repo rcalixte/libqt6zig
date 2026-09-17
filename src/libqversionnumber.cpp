@@ -6,6 +6,10 @@
 #include "libqversionnumber.h"
 #include "libqversionnumber.hxx"
 
+size_t qversionnumber_QHash(const QVersionNumber* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}
+
 QVersionNumber* QVersionNumber_new() {
     return new QVersionNumber();
 }

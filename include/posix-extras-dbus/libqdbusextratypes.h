@@ -32,6 +32,9 @@ libqt_string QDBusObjectPath_Path(const QDBusObjectPath* self);
 QVariant* QDBusObjectPath_ToQVariant(const QDBusObjectPath* self);
 void QDBusObjectPath_Delete(QDBusObjectPath* self);
 
+size_t qdbusextratypes_h_QHash(const QDBusObjectPath* objectPath, size_t seed);
+size_t qdbusextratypes_h_QHash2(const QDBusSignature* signature, size_t seed);
+
 QDBusSignature* QDBusSignature_new();
 QDBusSignature* QDBusSignature_new2(const char* signature);
 QDBusSignature* QDBusSignature_new3(libqt_string signature);

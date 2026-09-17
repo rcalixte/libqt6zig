@@ -274,3 +274,23 @@ pub const QGeoLocation = extern struct {
         qtc.QGeoLocation_Delete(@ptrCast(self.ptr));
     }
 };
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qgeolocation-h.html)
+pub const qgeolocation_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeolocation-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` location: QGeoLocation `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(location: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(location)._is_QGeoLocation;
+        return qtc.qgeolocation_h_QHash(@ptrCast(location.ptr), @bitCast(seed));
+    }
+};

@@ -142,6 +142,10 @@ void QSize_Delete(QSize* self) {
     delete self;
 }
 
+size_t qsize_QHash(const QSize* s, size_t seed) {
+    return qHash(*s, static_cast<size_t>(seed));
+}
+
 QSizeF* QSizeF_new(const QSizeF* other) {
     return new QSizeF(*other);
 }

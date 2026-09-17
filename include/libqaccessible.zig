@@ -5169,6 +5169,63 @@ pub const QAccessibleAnnouncementEvent = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-h.html)
+pub const qaccessible_h = extern struct {
+    /// ### DEPRECATED: Use `qAccessibleRoleString` instead
+    ///
+    pub const QAccessibleRoleString = qAccessibleRoleString;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-h.html#qAccessibleRoleString)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _role: qaccessible_base_enums.Role `
+    ///
+    pub fn qAccessibleRoleString(_role: i32) [:0]const u8 {
+        const _ret = qtc.qaccessible_h_QAccessibleRoleString(@bitCast(_role));
+        return std.mem.span(_ret);
+    }
+
+    /// ### DEPRECATED: Use `qAccessibleEventString` instead
+    ///
+    pub const QAccessibleEventString = qAccessibleEventString;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-h.html#qAccessibleEventString)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` event: qaccessible_base_enums.Event `
+    ///
+    pub fn qAccessibleEventString(event: i32) [:0]const u8 {
+        const _ret = qtc.qaccessible_h_QAccessibleEventString(@bitCast(event));
+        return std.mem.span(_ret);
+    }
+
+    /// ### DEPRECATED: Use `qAccessibleLocalizedActionDescription` instead
+    ///
+    pub const QAccessibleLocalizedActionDescription = qAccessibleLocalizedActionDescription;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-h.html#qAccessibleLocalizedActionDescription)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` actionName: []const u8 `
+    ///
+    pub fn qAccessibleLocalizedActionDescription(allocator: std.mem.Allocator, actionName: []const u8) []const u8 {
+        const actionName_str = qtc.libqt_string{
+            .len = actionName.len,
+            .data = actionName.ptr,
+        };
+        var _str = qtc.qaccessible_h_QAccessibleLocalizedActionDescription(actionName_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessible_h.qAccessibleLocalizedActionDescription: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible.html#public-types)
 pub const enums = struct {
     pub const ModelChangeType = enum {

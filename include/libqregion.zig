@@ -2,8 +2,10 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const QBitmap = @import("libqt6").QBitmap;
 const QPoint = @import("libqt6").QPoint;
+const QPolygon = @import("libqt6").QPolygon;
 const QRect = @import("libqt6").QRect;
 const QVariant = @import("libqt6").QVariant;
+const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qregion_enums = enums;
 const std = @import("std");
 
@@ -70,11 +72,11 @@ pub const QRegion = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` region: QRegion `
+    /// ` pa: QPolygon `
     ///
-    pub fn new4(region: anytype) QRegion {
-        comptime _ = @TypeOf(region)._is_QRegion;
-        return .{ .ptr = qtc.QRegion_new4(@ptrCast(region.ptr)) };
+    pub fn new4(pa: anytype) QRegion {
+        comptime _ = @TypeOf(pa)._is_QPolygon;
+        return .{ .ptr = qtc.QRegion_new4(@ptrCast(pa.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new5` instead
@@ -85,16 +87,31 @@ pub const QRegion = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` bitmap: QBitmap `
+    /// ` region: QRegion `
     ///
-    pub fn new5(bitmap: anytype) QRegion {
-        comptime _ = @TypeOf(bitmap)._is_QBitmap;
-        return .{ .ptr = qtc.QRegion_new5(@ptrCast(bitmap.ptr)) };
+    pub fn new5(region: anytype) QRegion {
+        comptime _ = @TypeOf(region)._is_QRegion;
+        return .{ .ptr = qtc.QRegion_new5(@ptrCast(region.ptr)) };
     }
 
     /// ### DEPRECATED: Use `new6` instead
     ///
     pub const New6 = new6;
+
+    /// Allocate a new QRegion object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` bitmap: QBitmap `
+    ///
+    pub fn new6(bitmap: anytype) QRegion {
+        comptime _ = @TypeOf(bitmap)._is_QBitmap;
+        return .{ .ptr = qtc.QRegion_new6(@ptrCast(bitmap.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
 
     /// Allocate a new QRegion object in C++ memory
     ///
@@ -110,13 +127,13 @@ pub const QRegion = extern struct {
     ///
     /// ` t: qregion_enums.RegionType `
     ///
-    pub fn new6(x: i32, y: i32, w: i32, h: i32, t: i32) QRegion {
-        return .{ .ptr = qtc.QRegion_new6(@bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(t)) };
+    pub fn new7(x: i32, y: i32, w: i32, h: i32, t: i32) QRegion {
+        return .{ .ptr = qtc.QRegion_new7(@bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(t)) };
     }
 
-    /// ### DEPRECATED: Use `new7` instead
+    /// ### DEPRECATED: Use `new8` instead
     ///
-    pub const New7 = new7;
+    pub const New8 = new8;
 
     /// Allocate a new QRegion object in C++ memory
     ///
@@ -126,9 +143,26 @@ pub const QRegion = extern struct {
     ///
     /// ` t: qregion_enums.RegionType `
     ///
-    pub fn new7(r: anytype, t: i32) QRegion {
+    pub fn new8(r: anytype, t: i32) QRegion {
         comptime _ = @TypeOf(r)._is_QRect;
-        return .{ .ptr = qtc.QRegion_new7(@ptrCast(r.ptr), @bitCast(t)) };
+        return .{ .ptr = qtc.QRegion_new8(@ptrCast(r.ptr), @bitCast(t)) };
+    }
+
+    /// ### DEPRECATED: Use `new9` instead
+    ///
+    pub const New9 = new9;
+
+    /// Allocate a new QRegion object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` pa: QPolygon `
+    ///
+    /// ` fillRule: qnamespace_enums.FillRule `
+    ///
+    pub fn new9(pa: anytype, fillRule: i32) QRegion {
+        comptime _ = @TypeOf(pa)._is_QPolygon;
+        return .{ .ptr = qtc.QRegion_new9(@ptrCast(pa.ptr), @bitCast(fillRule)) };
     }
 
     /// ### DEPRECATED: Use `operatorAssign` instead
@@ -854,7 +888,7 @@ pub const QRegion = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qregion.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qregion.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///

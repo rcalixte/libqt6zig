@@ -354,6 +354,25 @@ pub const KProtocolManager = extern struct {
         return qtc.KProtocolManager_CanDeleteRecursive(@ptrCast(url.ptr));
     }
 
+    /// ### DEPRECATED: Use `fileNameUsedForCopying` instead
+    ///
+    pub const FileNameUsedForCopying = fileNameUsedForCopying;
+
+    /// ### [Upstream resources](https://api.kde.org/kprotocolmanager.html#fileNameUsedForCopying)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` url: QUrl `
+    ///
+    /// ## Returns:
+    ///
+    /// ` kprotocolinfo_enums.FileNameUsedForCopying `
+    ///
+    pub fn fileNameUsedForCopying(url: anytype) i32 {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return qtc.KProtocolManager_FileNameUsedForCopying(@ptrCast(url.ptr));
+    }
+
     /// ### DEPRECATED: Use `defaultMimetype` instead
     ///
     pub const DefaultMimetype = defaultMimetype;

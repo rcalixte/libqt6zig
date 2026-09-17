@@ -57,6 +57,8 @@ QUuid__Id128Bytes* QUuid_ToBytes1(const QUuid* self, int order);
 QUuid* QUuid_FromBytes2(const void* bytes, int order);
 void QUuid_Delete(QUuid* self);
 
+size_t quuid_QHash(const QUuid* uuid, size_t seed);
+
 QUuid__Id128Bytes* QUuid__Id128Bytes_new();
 QUuid__Id128Bytes* QUuid__Id128Bytes_new2(const QUuid__Id128Bytes* param1);
 libqt_string QUuid__Id128Bytes_ToQByteArrayView(const QUuid__Id128Bytes* self);

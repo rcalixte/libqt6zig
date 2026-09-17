@@ -314,6 +314,20 @@ pub const KTextEditor__MovingCursor = extern struct {
         return .{ .ptr = qtc.KTextEditor__MovingCursor_ToCursor(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `toCursor2` instead
+    ///
+    pub const ToCursor2 = toCursor2;
+
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingcursor.html#operator-KTextEditor-3a-3aCursor)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTextEditor__MovingCursor `
+    ///
+    pub fn toCursor2(self: KTextEditor__MovingCursor) KTextEditor__Cursor {
+        return .{ .ptr = qtc.KTextEditor__MovingCursor_ToCursor2(@ptrCast(self.ptr)) };
+    }
+
     /// ### DEPRECATED: Use `move2` instead
     ///
     pub const Move2 = move2;

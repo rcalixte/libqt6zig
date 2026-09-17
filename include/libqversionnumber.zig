@@ -4,6 +4,26 @@ const builtin = @import("builtin");
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html)
+pub const qversionnumber = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QVersionNumber `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QVersionNumber;
+        return qtc.qversionnumber_QHash(@ptrCast(key.ptr), @bitCast(seed));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html)
 pub const QVersionNumber = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html)
     ///

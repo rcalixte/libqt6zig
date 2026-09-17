@@ -75,6 +75,8 @@ QQuaternion* QQuaternion_Slerp(const QQuaternion* q1, const QQuaternion* q2, flo
 QQuaternion* QQuaternion_Nlerp(const QQuaternion* q1, const QQuaternion* q2, float t);
 void QQuaternion_Delete(QQuaternion* self);
 
+bool qquaternion_h_QFuzzyCompare(const QQuaternion* q1, const QQuaternion* q2);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

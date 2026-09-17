@@ -199,3 +199,23 @@ pub const QOpenGLVersionProfile = extern struct {
         qtc.QOpenGLVersionProfile_Delete(@ptrCast(self.ptr));
     }
 };
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile-h.html)
+pub const qopenglversionprofile_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` v: QOpenGLVersionProfile `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(v: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(v)._is_QOpenGLVersionProfile;
+        return qtc.qopenglversionprofile_h_QHash(@ptrCast(v.ptr), @bitCast(seed));
+    }
+};

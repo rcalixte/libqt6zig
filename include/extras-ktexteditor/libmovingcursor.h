@@ -45,6 +45,7 @@ bool KTextEditor__MovingCursor_GotoNextLine(KTextEditor__MovingCursor* self);
 bool KTextEditor__MovingCursor_GotoPreviousLine(KTextEditor__MovingCursor* self);
 bool KTextEditor__MovingCursor_Move(KTextEditor__MovingCursor* self, int chars);
 KTextEditor__Cursor* KTextEditor__MovingCursor_ToCursor(const KTextEditor__MovingCursor* self);
+KTextEditor__Cursor* KTextEditor__MovingCursor_ToCursor2(const KTextEditor__MovingCursor* self);
 bool KTextEditor__MovingCursor_Move2(KTextEditor__MovingCursor* self, int chars, int wrapBehavior);
 void KTextEditor__MovingCursor_Delete(KTextEditor__MovingCursor* self);
 

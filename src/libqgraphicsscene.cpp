@@ -9,6 +9,7 @@
 #include <QGraphicsLineItem>
 #include <QGraphicsPathItem>
 #include <QGraphicsPixmapItem>
+#include <QGraphicsPolygonItem>
 #include <QGraphicsProxyWidget>
 #include <QGraphicsRectItem>
 #include <QGraphicsScene>
@@ -34,6 +35,7 @@
 #include <QPen>
 #include <QPixmap>
 #include <QPointF>
+#include <QPolygonF>
 #include <QRectF>
 #include <QString>
 #include <QStyle>
@@ -177,6 +179,19 @@ libqt_list /* of QGraphicsItem* */ QGraphicsScene_Items3(const QGraphicsScene* s
     return _out;
 }
 
+libqt_list /* of QGraphicsItem* */ QGraphicsScene_Items4(const QGraphicsScene* self, const QPolygonF* polygon) {
+    QList<QGraphicsItem*> _ret = self->items(*polygon);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
 libqt_list /* of QGraphicsItem* */ QGraphicsScene_Items5(const QGraphicsScene* self, const QPainterPath* path) {
     QList<QGraphicsItem*> _ret = self->items(*path);
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -281,6 +296,10 @@ QGraphicsPathItem* QGraphicsScene_AddPath(QGraphicsScene* self, const QPainterPa
 
 QGraphicsPixmapItem* QGraphicsScene_AddPixmap(QGraphicsScene* self, const QPixmap* pixmap) {
     return self->addPixmap(*pixmap);
+}
+
+QGraphicsPolygonItem* QGraphicsScene_AddPolygon(QGraphicsScene* self, const QPolygonF* polygon) {
+    return self->addPolygon(*polygon);
 }
 
 QGraphicsRectItem* QGraphicsScene_AddRect(QGraphicsScene* self, const QRectF* rect) {
@@ -825,6 +844,45 @@ libqt_list /* of QGraphicsItem* */ QGraphicsScene_Items43(const QGraphicsScene* 
     return _out;
 }
 
+libqt_list /* of QGraphicsItem* */ QGraphicsScene_Items24(const QGraphicsScene* self, const QPolygonF* polygon, int mode) {
+    QList<QGraphicsItem*> _ret = self->items(*polygon, static_cast<Qt::ItemSelectionMode>(mode));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
+libqt_list /* of QGraphicsItem* */ QGraphicsScene_Items34(const QGraphicsScene* self, const QPolygonF* polygon, int mode, int order) {
+    QList<QGraphicsItem*> _ret = self->items(*polygon, static_cast<Qt::ItemSelectionMode>(mode), static_cast<Qt::SortOrder>(order));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
+libqt_list /* of QGraphicsItem* */ QGraphicsScene_Items44(const QGraphicsScene* self, const QPolygonF* polygon, int mode, int order, const QTransform* deviceTransform) {
+    QList<QGraphicsItem*> _ret = self->items(*polygon, static_cast<Qt::ItemSelectionMode>(mode), static_cast<Qt::SortOrder>(order), *deviceTransform);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
 libqt_list /* of QGraphicsItem* */ QGraphicsScene_Items25(const QGraphicsScene* self, const QPainterPath* path, int mode) {
     QList<QGraphicsItem*> _ret = self->items(*path, static_cast<Qt::ItemSelectionMode>(mode));
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -920,6 +978,14 @@ QGraphicsPathItem* QGraphicsScene_AddPath2(QGraphicsScene* self, const QPainterP
 
 QGraphicsPathItem* QGraphicsScene_AddPath3(QGraphicsScene* self, const QPainterPath* path, const QPen* pen, const QBrush* brush) {
     return self->addPath(*path, *pen, *brush);
+}
+
+QGraphicsPolygonItem* QGraphicsScene_AddPolygon2(QGraphicsScene* self, const QPolygonF* polygon, const QPen* pen) {
+    return self->addPolygon(*polygon, *pen);
+}
+
+QGraphicsPolygonItem* QGraphicsScene_AddPolygon3(QGraphicsScene* self, const QPolygonF* polygon, const QPen* pen, const QBrush* brush) {
+    return self->addPolygon(*polygon, *pen, *brush);
 }
 
 QGraphicsRectItem* QGraphicsScene_AddRect22(QGraphicsScene* self, const QRectF* rect, const QPen* pen) {

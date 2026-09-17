@@ -129,6 +129,8 @@ double QJsonValueRef_ToDouble1(const QJsonValueRef* self, double defaultValue);
 libqt_string QJsonValueRef_ToString1(const QJsonValueRef* self, const libqt_string defaultValue);
 void QJsonValueRef_Delete(QJsonValueRef* self);
 
+size_t qjsonvalue_QHash(const QJsonValue* value, size_t seed);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

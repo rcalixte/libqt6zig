@@ -77,6 +77,7 @@ func Widgets_AllowHeader(fullpath string) bool {
 		"q20functional.h",                 // Qt 6 unstable header
 		"q20iterator.h",                   // Qt 6 unstable header
 		"q23functional.h",                 // Qt 6 unstable header
+		"qendian.h",                       // Qt 6 broken type casts, void pointers to numeric types
 		"qguiapplication_platform.h",      // Qt 6 - can be built for X11 but then platform-specific code fails to build on Windows
 		"qcomparehelpers.h",               // Qt 6 - not meant to be included directly
 		"bus_interface.h",                 // Qt 6 - includes QtGui/private
@@ -181,8 +182,10 @@ func ImportHeaderForClass(className string) bool {
 		"KUriFilterSearchProvider",       // Qt 6 kurifilter.h
 		"KUrlComboRequester",             // Qt 6 kurlrequester.h
 		"KNSCore",                        // Qt 6 searchrequest.h
+		"KSyntaxHighlighting",            // Qt 6 state.h
 		"KParts",                         // Qt 6 partloader.h
 		"TerminalInterface",              // Qt 6 kde_terminal_interface.h
+		"KTextEditor",                    // Qt 6 KTextEditor
 		"QKeychain",                      // Qt 6 QKeychain
 		"kImageAnnotator",                // Qt 6 kImageAnnotator
 		"Poppler",                        // Qt 6 Poppler
@@ -237,8 +240,6 @@ func AllowClass(className string) bool {
 		"QException",                     // Extends std::exception, too hard
 		"QGenericRunnable",               // Qt 6, Unavailable class header in Qt 6.8
 		"QUnhandledException",            // As above (child class)
-		"QPolygon",                       // Extends a QVector<QPoint> template class, too hard
-		"QPolygonF",                      // Extends a QVector<QPoint> template class, too hard
 		"QAssociativeIterator",           // Qt 6. Extends a QIterator<>, too hard
 		"QAssociativeConstIterator",      // Qt 6. Extends a QIterator<>, too hard
 		"QAssociativeIterable",           // Qt 6. Extends a QIterator<>, too hard
@@ -412,18 +413,6 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex
 	}
 
-	// Qt 6 KIconThemes
-	if className == "KIconLoader" && (mm.SafeMethodName() == "LoadScaledIcon" || mm.SafeMethodName() == "LoadScaledIcon2") {
-		// Qt 6 kiconloader.h: there are multiple definitions and two broken overload combinations
-		return ErrTooComplex
-	}
-
-	// Qt 6 Solid
-	if className == "Solid::StorageVolume" && mm.MethodName == "encryptedContainer" {
-		// Qt 6 storagevolume.h: incomplete return type
-		return ErrTooComplex
-	}
-
 	// Qt 6 KWindowSystem
 	if className == "KKeyServer" && mm.MethodName == "xEventToQt" {
 		// Qt 6 kkeyserver.h: incomplete external parameter type
@@ -437,10 +426,6 @@ func AllowMethod(className string, mm CppMethod) error {
 	}
 	if className == "KCoreDirLister" && mm.MethodName == "refreshItems" {
 		// Qt 6 kcoredirlister.h: undefined symbol error during compilation
-		return ErrTooComplex
-	}
-	if className == "KProtocolManager" && mm.MethodName == "fileNameUsedForCopying" {
-		// Qt 6 kprotocolmanager.h: this hits an unresolved bug
 		return ErrTooComplex
 	}
 	if className == "KRecentDocument" && mm.MethodName == "clearEntriesOldestEntries" {
@@ -756,7 +741,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 
 	switch p.ParameterType {
 	case
-		"QPolygon", "QPolygonF", // QPolygon extends a template type
+		"long double",                  // non-standard and platform-dependent, currently only used for some qHash-based methods
 		"QGenericMatrix", "QMatrix3x3", // extends a template type
 		"QUtf8StringView",                 // Qt 6 - used in qdebug
 		"QStringRef",                      // e.g. QLocale::toLongLong and similar overloads. As above
@@ -767,7 +752,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"FILE",                            // e.g. qfile.h constructors
 		"NSMenu",                          // e.g. OS-specific forward declaration, QMenu::toNSMenu
 		"sockaddr",                        // Qt network Qhostaddress. Should be possible to make this work but may be platform-specific
-		"qInternalCallback",               // e.g. qnamespace.h
 		"QGraphicsEffectSource",           // e.g. used by qgraphicseffect.h, but the definition is in ????
 		"QXmlStreamEntityDeclarations",    // e.g. qxmlstream.h. The class definition was blacklisted for ???? reason so don't allow it as a parameter either
 		"QXmlStreamNamespaceDeclarations", // e.g. qxmlstream.h. As above
@@ -838,9 +822,10 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"PageTransitionParams",            // Qt 6 poppler-page-transition.h
 		"Ref",                             // Qt 6 poppler-link.h
 		"Sound",                           // Qt 6 poppler-qt6.h
-		"LanguageInfo",                    // Qt 6 KTextAddons, languagetoolcombobox.h, an incomplete forward declaration
-		"TextToSpeechConfigInterface",     // Qt 6 KTextAddons, texttospeechconfigwidget.h, an incomplete forward declaration
-		"SignOn::AuthService::IdentityFilterCriteria", // Qt 6 authservice.h, this results in an infinite loop for some reason
+		// safe to remove on rebase
+		// @ref https://invent.kde.org/libraries/ktextaddons/-/merge_requests/59
+		"LanguageInfo",                // Qt 6 KTextAddons, languagetoolcombobox.h, an incomplete forward declaration
+		"TextToSpeechConfigInterface", // Qt 6 KTextAddons, texttospeechconfigwidget.h, an incomplete forward declaration
 		"____last____":
 		return ErrTooComplex
 	}
@@ -922,6 +907,7 @@ func AllowInnerClassDef(className string) bool {
 		"PackageKit::Details",                // Qt 6 PackageKit-Qt, transaction.h
 		"PackageKit::Offline",                // Qt 6 PackageKit-Qt, daemon.h
 		"PackageKit::Transaction",            // Qt 6 PackageKit-Qt, transaction.h
+		"Solid::Device",                      // Qt 6 Solid, storagevolume.h
 		"Sonnet::BackgroundChecker",          // Qt 6 Sonnet, dialog.h
 		"Sonnet::Dialog",                     // Qt 6 Sonnet, dialog.h
 		"____last____":
@@ -937,6 +923,8 @@ func AllowInnerClassDef(className string) bool {
 func AllowInheritedClass(className string) ([]string, bool) {
 	switch className {
 	case
+		"QPolygon",           // Qt 6 qpolygon.h, inherits from QList<QPoint>
+		"QPolygonF",          // Qt 6 qpolygon.h, inherits from QList<QPointF>
 		"KCompletionMatches": // Qt 6 kcompletionmatches.h, inherits from KSortableList<QString>
 		return nil, true
 

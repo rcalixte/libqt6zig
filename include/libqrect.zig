@@ -1369,6 +1369,26 @@ pub const QRect = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html)
+pub const qrect = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrect.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` r: QRect `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(r: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(r)._is_QRect;
+        return qtc.qrect_QHash(@ptrCast(r.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html)
 pub const QRectF = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrectf.html)

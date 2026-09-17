@@ -302,6 +302,20 @@ pub const KTextEditor__MovingRange = extern struct {
         return .{ .ptr = qtc.KTextEditor__MovingRange_ToRange(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `toRange2` instead
+    ///
+    pub const ToRange2 = toRange2;
+
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-movingrange.html#operator-KTextEditor-3a-3aRange)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTextEditor__MovingRange `
+    ///
+    pub fn toRange2(self: KTextEditor__MovingRange) KTextEditor__Range {
+        return .{ .ptr = qtc.KTextEditor__MovingRange_ToRange2(@ptrCast(self.ptr)) };
+    }
+
     /// ### DEPRECATED: Use `toLineRange` instead
     ///
     pub const ToLineRange = toLineRange;

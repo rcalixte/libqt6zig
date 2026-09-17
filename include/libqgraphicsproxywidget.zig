@@ -37,6 +37,7 @@ const QPainter = @import("libqt6").QPainter;
 const QPainterPath = @import("libqt6").QPainterPath;
 const QPalette = @import("libqt6").QPalette;
 const QPointF = @import("libqt6").QPointF;
+const QPolygonF = @import("libqt6").QPolygonF;
 const QRectF = @import("libqt6").QRectF;
 const QRegion = @import("libqt6").QRegion;
 const QShowEvent = @import("libqt6").QShowEvent;
@@ -6826,6 +6827,67 @@ pub const QGraphicsProxyWidget = extern struct {
         return .{ .ptr = qtc.QGraphicsItem_MapToScene(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(point.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToItem2` instead
+    ///
+    pub const MapToItem2 = mapToItem2;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` item: QGraphicsItem `
+    ///
+    /// ` _rect: QRectF `
+    ///
+    pub fn mapToItem2(self: QGraphicsProxyWidget, item: anytype, _rect: anytype) QPolygonF {
+        comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` _rect: QRectF `
+    ///
+    pub fn mapToParent2(self: QGraphicsProxyWidget, _rect: anytype) QPolygonF {
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        return .{ .ptr = qtc.QGraphicsItem_MapToParent2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_rect.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `mapToScene2` instead
+    ///
+    pub const MapToScene2 = mapToScene2;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` _rect: QRectF `
+    ///
+    pub fn mapToScene2(self: QGraphicsProxyWidget, _rect: anytype) QPolygonF {
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        return .{ .ptr = qtc.QGraphicsItem_MapToScene2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_rect.ptr)) };
+    }
+
     /// ### DEPRECATED: Use `mapRectToItem` instead
     ///
     pub const MapRectToItem = mapRectToItem;
@@ -6885,6 +6947,67 @@ pub const QGraphicsProxyWidget = extern struct {
     pub fn mapRectToScene(self: QGraphicsProxyWidget, _rect: anytype) QRectF {
         comptime _ = @TypeOf(_rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsItem_MapRectToScene(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_rect.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `mapToItem3` instead
+    ///
+    pub const MapToItem3 = mapToItem3;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` item: QGraphicsItem `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    pub fn mapToItem3(self: QGraphicsProxyWidget, item: anytype, polygon: anytype) QPolygonF {
+        comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem3(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @ptrCast(polygon.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `mapToParent3` instead
+    ///
+    pub const MapToParent3 = mapToParent3;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    pub fn mapToParent3(self: QGraphicsProxyWidget, polygon: anytype) QPolygonF {
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        return .{ .ptr = qtc.QGraphicsItem_MapToParent3(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(polygon.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `mapToScene3` instead
+    ///
+    pub const MapToScene3 = mapToScene3;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    pub fn mapToScene3(self: QGraphicsProxyWidget, polygon: anytype) QPolygonF {
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        return .{ .ptr = qtc.QGraphicsItem_MapToScene3(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(polygon.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapToItem4` instead
@@ -7009,6 +7132,67 @@ pub const QGraphicsProxyWidget = extern struct {
         return .{ .ptr = qtc.QGraphicsItem_MapFromScene(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(point.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromItem2` instead
+    ///
+    pub const MapFromItem2 = mapFromItem2;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` item: QGraphicsItem `
+    ///
+    /// ` _rect: QRectF `
+    ///
+    pub fn mapFromItem2(self: QGraphicsProxyWidget, item: anytype, _rect: anytype) QPolygonF {
+        comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @ptrCast(_rect.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` _rect: QRectF `
+    ///
+    pub fn mapFromParent2(self: QGraphicsProxyWidget, _rect: anytype) QPolygonF {
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromParent2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_rect.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `mapFromScene2` instead
+    ///
+    pub const MapFromScene2 = mapFromScene2;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` _rect: QRectF `
+    ///
+    pub fn mapFromScene2(self: QGraphicsProxyWidget, _rect: anytype) QPolygonF {
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromScene2(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_rect.ptr)) };
+    }
+
     /// ### DEPRECATED: Use `mapRectFromItem` instead
     ///
     pub const MapRectFromItem = mapRectFromItem;
@@ -7068,6 +7252,67 @@ pub const QGraphicsProxyWidget = extern struct {
     pub fn mapRectFromScene(self: QGraphicsProxyWidget, _rect: anytype) QRectF {
         comptime _ = @TypeOf(_rect)._is_QRectF;
         return .{ .ptr = qtc.QGraphicsItem_MapRectFromScene(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(_rect.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `mapFromItem3` instead
+    ///
+    pub const MapFromItem3 = mapFromItem3;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` item: QGraphicsItem `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    pub fn mapFromItem3(self: QGraphicsProxyWidget, item: anytype, polygon: anytype) QPolygonF {
+        comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem3(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @ptrCast(polygon.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `mapFromParent3` instead
+    ///
+    pub const MapFromParent3 = mapFromParent3;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    pub fn mapFromParent3(self: QGraphicsProxyWidget, polygon: anytype) QPolygonF {
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromParent3(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(polygon.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `mapFromScene3` instead
+    ///
+    pub const MapFromScene3 = mapFromScene3;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    pub fn mapFromScene3(self: QGraphicsProxyWidget, polygon: anytype) QPolygonF {
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromScene3(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(polygon.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromItem4` instead
@@ -7193,6 +7438,82 @@ pub const QGraphicsProxyWidget = extern struct {
     ///
     pub fn mapToScene5(self: QGraphicsProxyWidget, _x: f64, _y: f64) QPointF {
         return .{ .ptr = qtc.QGraphicsItem_MapToScene5(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y)) };
+    }
+
+    /// ### DEPRECATED: Use `mapToItem6` instead
+    ///
+    pub const MapToItem6 = mapToItem6;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` item: QGraphicsItem `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
+    ///
+    /// ` w: f64 `
+    ///
+    /// ` h: f64 `
+    ///
+    pub fn mapToItem6(self: QGraphicsProxyWidget, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QPolygonF {
+        comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapToItem6(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+    }
+
+    /// ### DEPRECATED: Use `mapToParent6` instead
+    ///
+    pub const MapToParent6 = mapToParent6;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
+    ///
+    /// ` w: f64 `
+    ///
+    /// ` h: f64 `
+    ///
+    pub fn mapToParent6(self: QGraphicsProxyWidget, _x: f64, _y: f64, w: f64, h: f64) QPolygonF {
+        return .{ .ptr = qtc.QGraphicsItem_MapToParent6(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+    }
+
+    /// ### DEPRECATED: Use `mapToScene6` instead
+    ///
+    pub const MapToScene6 = mapToScene6;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
+    ///
+    /// ` w: f64 `
+    ///
+    /// ` h: f64 `
+    ///
+    pub fn mapToScene6(self: QGraphicsProxyWidget, _x: f64, _y: f64, w: f64, h: f64) QPolygonF {
+        return .{ .ptr = qtc.QGraphicsItem_MapToScene6(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectToItem2` instead
@@ -7333,6 +7654,82 @@ pub const QGraphicsProxyWidget = extern struct {
     ///
     pub fn mapFromScene5(self: QGraphicsProxyWidget, _x: f64, _y: f64) QPointF {
         return .{ .ptr = qtc.QGraphicsItem_MapFromScene5(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y)) };
+    }
+
+    /// ### DEPRECATED: Use `mapFromItem6` instead
+    ///
+    pub const MapFromItem6 = mapFromItem6;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` item: QGraphicsItem `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
+    ///
+    /// ` w: f64 `
+    ///
+    /// ` h: f64 `
+    ///
+    pub fn mapFromItem6(self: QGraphicsProxyWidget, item: anytype, _x: f64, _y: f64, w: f64, h: f64) QPolygonF {
+        comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        const item_ = if (@hasDecl(@TypeOf(item), "asQGraphicsItem")) item.asQGraphicsItem() else item;
+        return .{ .ptr = qtc.QGraphicsItem_MapFromItem6(@ptrCast(self.asQGraphicsItem().ptr), @ptrCast(item_.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+    }
+
+    /// ### DEPRECATED: Use `mapFromParent6` instead
+    ///
+    pub const MapFromParent6 = mapFromParent6;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
+    ///
+    /// ` w: f64 `
+    ///
+    /// ` h: f64 `
+    ///
+    pub fn mapFromParent6(self: QGraphicsProxyWidget, _x: f64, _y: f64, w: f64, h: f64) QPolygonF {
+        return .{ .ptr = qtc.QGraphicsItem_MapFromParent6(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+    }
+
+    /// ### DEPRECATED: Use `mapFromScene6` instead
+    ///
+    pub const MapFromScene6 = mapFromScene6;
+
+    /// Inherited from QGraphicsItem
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGraphicsProxyWidget `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
+    ///
+    /// ` w: f64 `
+    ///
+    /// ` h: f64 `
+    ///
+    pub fn mapFromScene6(self: QGraphicsProxyWidget, _x: f64, _y: f64, w: f64, h: f64) QPolygonF {
+        return .{ .ptr = qtc.QGraphicsItem_MapFromScene6(@ptrCast(self.asQGraphicsItem().ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `mapRectFromItem2` instead

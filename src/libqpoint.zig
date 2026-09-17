@@ -389,6 +389,26 @@ pub const QPoint = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html)
+pub const qpoint = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QPoint `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QPoint;
+        return qtc.qpoint_QHash(@ptrCast(key.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html)
 pub const QPointF = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html)

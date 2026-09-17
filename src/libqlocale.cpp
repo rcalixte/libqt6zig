@@ -9,6 +9,10 @@
 #include "libqlocale.h"
 #include "libqlocale.hxx"
 
+size_t qlocale_QHash(const QLocale* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}
+
 QLocale* QLocale_new() {
     return new QLocale();
 }

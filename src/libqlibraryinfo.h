@@ -33,6 +33,8 @@ libqt_string QLibraryInfo_Location(int location);
 libqt_list /* of libqt_string */ QLibraryInfo_PlatformPluginArguments(const libqt_string platformName);
 void QLibraryInfo_Delete(QLibraryInfo* self);
 
+bool qlibraryinfo_QSharedBuild();
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

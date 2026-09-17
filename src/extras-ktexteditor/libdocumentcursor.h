@@ -47,6 +47,7 @@ bool KTextEditor__DocumentCursor_GotoNextLine(KTextEditor__DocumentCursor* self)
 bool KTextEditor__DocumentCursor_GotoPreviousLine(KTextEditor__DocumentCursor* self);
 bool KTextEditor__DocumentCursor_Move(KTextEditor__DocumentCursor* self, int chars);
 KTextEditor__Cursor* KTextEditor__DocumentCursor_ToCursor(const KTextEditor__DocumentCursor* self);
+KTextEditor__Cursor* KTextEditor__DocumentCursor_ToCursor2(const KTextEditor__DocumentCursor* self);
 void KTextEditor__DocumentCursor_OperatorAssign(KTextEditor__DocumentCursor* self, const KTextEditor__DocumentCursor* other);
 bool KTextEditor__DocumentCursor_Move2(KTextEditor__DocumentCursor* self, int chars, int wrapBehavior);
 void KTextEditor__DocumentCursor_Delete(KTextEditor__DocumentCursor* self);

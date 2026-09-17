@@ -72,6 +72,8 @@ libqt_string KPluginMetaData_Value22(const KPluginMetaData* self, libqt_string k
 libqt_string KPluginMetaData_Value23(const KPluginMetaData* self, const libqt_string key, const libqt_string defaultValue);
 void KPluginMetaData_Delete(KPluginMetaData* self);
 
+size_t kpluginmetadata_h_QHash(const KPluginMetaData* md, size_t seed);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

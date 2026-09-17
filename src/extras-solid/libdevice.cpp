@@ -1,6 +1,6 @@
 #include <QList>
 #include <QString>
-#define WORKAROUND_INNER_CLASS_DEFINITION_Solid__Device
+#include <Solid/Device>
 #define WORKAROUND_INNER_CLASS_DEFINITION_Solid__DeviceInterface
 #define WORKAROUND_INNER_CLASS_DEFINITION_Solid__Predicate
 #include <device.h>

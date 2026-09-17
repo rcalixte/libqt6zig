@@ -1872,7 +1872,7 @@ pub const QCborValueConstRef = extern struct {
     ///
     pub const ToQCborValue = toQCborValue;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator-QCborValue)
     ///
     /// ## Parameter(s):
     ///
@@ -3047,7 +3047,7 @@ pub const QCborValueRef = extern struct {
     ///
     pub const ToQCborValue = toQCborValue;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-QCborValue)
     ///
     /// ## Parameter(s):
     ///
@@ -4069,6 +4069,26 @@ pub const QCborValueRef = extern struct {
     ///
     pub fn delete(self: QCborValueRef) void {
         qtc.QCborValueRef_Delete(@ptrCast(self.ptr));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html)
+pub const qcborvalue = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` value: QCborValue `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(value: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(value)._is_QCborValue;
+        return qtc.qcborvalue_QHash(@ptrCast(value.ptr), @bitCast(seed));
     }
 };
 

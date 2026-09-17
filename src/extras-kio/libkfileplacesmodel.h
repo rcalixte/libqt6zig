@@ -14,9 +14,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Solid__Device)
 typedef Solid::Device Solid__Device;
-#endif
 #else
 typedef struct KBookmark KBookmark;
 typedef struct KFilePlacesModel KFilePlacesModel;

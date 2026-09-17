@@ -21,7 +21,7 @@
 #include <QTimerEvent>
 #include <QUrl>
 #include <QVariant>
-#define WORKAROUND_INNER_CLASS_DEFINITION_Solid__Device
+#include <Solid/Device>
 #include <kfileplacesmodel.h>
 #include "libkfileplacesmodel.h"
 #include "libkfileplacesmodel.hxx"

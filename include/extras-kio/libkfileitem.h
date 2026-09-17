@@ -104,6 +104,8 @@ libqt_string KFileItem_Name1(const KFileItem* self, bool lowerCase);
 QUrl* KFileItem_MostLocalUrl1(const KFileItem* self, bool* local);
 void KFileItem_Delete(KFileItem* self);
 
+size_t kfileitem_h_QHash(const KFileItem* item, size_t seed);
+
 KFileItemList* KFileItemList_new();
 KFileItemList* KFileItemList_new2(const libqt_list /* of KFileItem* */ items);
 KFileItem* KFileItemList_FindByName(const KFileItemList* self, const libqt_string fileName);

@@ -40,6 +40,8 @@ QGeoCoordinate* QGeoCoordinate_AtDistanceAndAzimuth3(const QGeoCoordinate* self,
 libqt_string QGeoCoordinate_ToString1(const QGeoCoordinate* self, int format);
 void QGeoCoordinate_Delete(QGeoCoordinate* self);
 
+size_t qgeocoordinate_h_QHash(const QGeoCoordinate* coordinate, size_t seed);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

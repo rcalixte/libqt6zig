@@ -324,14 +324,14 @@ void QNoDebug_Delete(QNoDebug* self) {
     delete self;
 }
 
-void qdebug_h_QMetaEnumFlagDebugOperator(QDebug* debug, size_t sizeofT, unsigned int value) {
+void qdebug_QMetaEnumFlagDebugOperator(QDebug* debug, size_t sizeofT, unsigned int value) {
     qt_QMetaEnum_flagDebugOperator(*debug, static_cast<size_t>(sizeofT), static_cast<uint>(value));
 }
 
-QDebug* qdebug_h_QMetaEnumDebugOperator(QDebug* param1, long long value, const QMetaObject* meta, const char* name) {
+QDebug* qdebug_QMetaEnumDebugOperator(QDebug* param1, long long value, const QMetaObject* meta, const char* name) {
     return new QDebug(qt_QMetaEnum_debugOperator(*param1, static_cast<qint64>(value), meta, name));
 }
 
-QDebug* qdebug_h_QMetaEnumFlagDebugOperator2(QDebug* dbg, unsigned long long value, const QMetaObject* meta, const char* name) {
+QDebug* qdebug_QMetaEnumFlagDebugOperator2(QDebug* dbg, unsigned long long value, const QMetaObject* meta, const char* name) {
     return new QDebug(qt_QMetaEnum_flagDebugOperator(*dbg, static_cast<quint64>(value), meta, name));
 }

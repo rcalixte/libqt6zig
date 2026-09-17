@@ -529,3 +529,23 @@ pub const QGeoAddress = extern struct {
         qtc.QGeoAddress_Delete(@ptrCast(self.ptr));
     }
 };
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress-h.html)
+pub const qgeoaddress_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` address: QGeoAddress `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(address: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(address)._is_QGeoAddress;
+        return qtc.qgeoaddress_h_QHash(@ptrCast(address.ptr), @bitCast(seed));
+    }
+};

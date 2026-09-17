@@ -93,6 +93,9 @@ void* QMetaType_Create1(const QMetaType* self, const void* copy);
 void* QMetaType_Construct22(const QMetaType* self, void* where, const void* copy);
 void QMetaType_Delete(QMetaType* self);
 
+int qmetatype_QRegisterMetaType(QMetaType* meta);
+size_t qmetatype_QHash(QMetaType* type, size_t seed);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

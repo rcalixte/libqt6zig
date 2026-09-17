@@ -871,6 +871,26 @@ pub const QCborArray = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qcborarray.html)
+pub const qcborarray = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborarray.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` array: QCborArray `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(array: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(array)._is_QCborArray;
+        return qtc.qcborarray_QHash(@ptrCast(array.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborarray-iterator.html)
 pub const QCborArray__Iterator = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborarray-iterator.html)

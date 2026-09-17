@@ -565,6 +565,10 @@ void QFont_Delete(QFont* self) {
     delete self;
 }
 
+size_t qfont_h_QHash(const QFont* font, size_t seed) {
+    return qHash(*font, static_cast<size_t>(seed));
+}
+
 QFont__Tag* QFont__Tag_new() {
     return new QFont::Tag();
 }

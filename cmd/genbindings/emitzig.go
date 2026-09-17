@@ -50,6 +50,7 @@ const (
 )
 
 var operatorLookup = map[rune]string{
+	' ': "-",
 	'!': "-not",
 	'"': "-22",
 	'&': "-and",
@@ -59,6 +60,7 @@ var operatorLookup = map[rune]string{
 	'+': "-2b",
 	'-': "-",
 	'/': "-2f",
+	':': "-3a",
 	'<': "-lt",
 	'=': "-eq",
 	'>': "-gt",
@@ -71,15 +73,18 @@ var operatorLookup = map[rune]string{
 
 func operatorToUrl(cmdUrl string) string {
 	suffix := strings.TrimPrefix(cmdUrl, "operator")
-	ret := "operator"
+	url := "operator"
 
 	for _, op := range suffix {
 		if ch, ok := operatorLookup[op]; ok {
-			ret += ch
+			url += ch
+		}
+		if unicode.IsLetter(op) {
+			url += string(op)
 		}
 	}
 
-	return ret
+	return url
 }
 
 const (
@@ -1445,7 +1450,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			// the entire lifetime of Q*Application, so we allocate and never free
 			// the memory unless an error occurs.
 			preamble += "const " + nameprefix + "_chararr = allocator.alloc([*:0]" + ifv(p.Const, "const ", "") + "u8, " + p.ParameterName + `.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
-			preamble += ifv(p.ParameterName == "argv",
+			preamble += ifv(p.ParameterName == "argv" && strings.Contains(zfs.currentClassName, "Application"),
 				"// Qt takes ownership of the memory.\n// The memory must outlive the application.\n// Do not free this allocation.\n",
 				"defer allocator.free("+nameprefix+"_chararr);\n")
 			preamble += "for (" + p.ParameterName + ", 0.." + p.ParameterName + ".len) |str, i|\n"
@@ -2397,6 +2402,7 @@ const qtc = @import("qt6c");`)
 			maybeDedupe = ifv(zigStruct == "knscore" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			maybeDedupe = ifv(zigStruct == "kstandardactions" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			maybeDedupe = ifv(zigStruct == "kstandardshortcut" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
+			maybeDedupe = ifv(zigStruct == "ktexteditor" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			maybeDedupe = ifv(zigStruct == "ktimezone" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 
 			if zigStruct == "poppler" {
@@ -2408,7 +2414,7 @@ const qtc = @import("qt6c");`)
 			if zigStructName == "QProcess__UnixProcessParameters" {
 				maybeNonWin = `if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system") else `
 			}
-			zigIncs[zigStruct+maybeDedupe] = "pub const " + zigStructName + maybeDedupe + " = " + maybeNonWin + `@import("` + filepath.Join(dirRoot, "lib"+zfs.currentHeaderName) + `.zig").` + zigStructName + ";"
+			zigIncs[zigStructName+maybeDedupe] = "pub const " + zigStructName + maybeDedupe + " = " + maybeNonWin + `@import("` + filepath.Join(dirRoot, "lib"+zfs.currentHeaderName) + `.zig").` + zigStructName + ";"
 			pageUrl := zfs.getPageUrl(QtPage, pageName, "", zigStructName)
 			ret.WriteString(pageUrl + "\n" +
 				"pub const " + zigStructName + " = extern struct {\n")
@@ -2652,7 +2658,8 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 			zfs.currentMethodName = methodName
 			cSafeMethodName := mSafeMethodName
 
-			if methodName != mSafeMethodName && !m.IsAsMethod && !m.IsFromMethod {
+			if methodName != mSafeMethodName && !m.IsAsMethod && !m.IsFromMethod &&
+				(!IsKnownClass(mSafeMethodName) || !(mSafeMethodName[0] == 'Q' && unicode.IsUpper(rune(mSafeMethodName[1])))) {
 				ret.WriteString("\n/// ### DEPRECATED: Use `" + methodName + "` instead\n///\n" +
 					"\n    pub const " + mSafeMethodName + " = " + methodName + ";\n")
 			}

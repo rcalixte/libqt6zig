@@ -37,6 +37,8 @@ void QGeoLocation_SetExtendedAttributes(QGeoLocation* self, const libqt_map /* o
 bool QGeoLocation_IsEmpty(const QGeoLocation* self);
 void QGeoLocation_Delete(QGeoLocation* self);
 
+size_t qgeolocation_h_QHash(const QGeoLocation* location, size_t seed);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

@@ -1,13 +1,13 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// ### [Upstream resources](https://doc.qt.io/qt-6/qassert-h.html)
-pub const qassert_h = extern struct {
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qassert.html)
+pub const qassert = extern struct {
     /// ### DEPRECATED: Use `assert` instead
     ///
     pub const Assert = assert;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qassert-h.html#qt_assert)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qassert.html#qt_assert)
     ///
     /// ## Parameter(s):
     ///
@@ -20,14 +20,14 @@ pub const qassert_h = extern struct {
     pub fn assert(assertion: [:0]const u8, file: [:0]const u8, line: i32) void {
         const assertion_Cstring = assertion.ptr;
         const file_Cstring = file.ptr;
-        qtc.qassert_h_Assert(assertion_Cstring, file_Cstring, @bitCast(line));
+        qtc.qassert_Assert(assertion_Cstring, file_Cstring, @bitCast(line));
     }
 
     /// ### DEPRECATED: Use `assertX` instead
     ///
     pub const AssertX = assertX;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qassert-h.html#qt_assert_x)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qassert.html#qt_assert_x)
     ///
     /// ## Parameter(s):
     ///
@@ -43,14 +43,14 @@ pub const qassert_h = extern struct {
         const where_Cstring = where.ptr;
         const what_Cstring = what.ptr;
         const file_Cstring = file.ptr;
-        qtc.qassert_h_AssertX(where_Cstring, what_Cstring, file_Cstring, @bitCast(line));
+        qtc.qassert_AssertX(where_Cstring, what_Cstring, file_Cstring, @bitCast(line));
     }
 
     /// ### DEPRECATED: Use `checkPointer` instead
     ///
     pub const CheckPointer = checkPointer;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qassert-h.html#qt_check_pointer)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qassert.html#qt_check_pointer)
     ///
     /// ## Parameter(s):
     ///
@@ -60,20 +60,30 @@ pub const qassert_h = extern struct {
     ///
     pub fn checkPointer(param1: [:0]const u8, param2: i32) void {
         const param1_Cstring = param1.ptr;
-        qtc.qassert_h_CheckPointer(param1_Cstring, @bitCast(param2));
+        qtc.qassert_CheckPointer(param1_Cstring, @bitCast(param2));
+    }
+
+    /// ### DEPRECATED: Use `qBadAlloc` instead
+    ///
+    pub const QBadAlloc = qBadAlloc;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qassert.html#qBadAlloc)
+    ///
+    pub fn qBadAlloc() void {
+        qtc.qassert_QBadAlloc();
     }
 
     /// ### DEPRECATED: Use `assumeIsDeprecated` instead
     ///
     pub const AssumeIsDeprecated = assumeIsDeprecated;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qassert-h.html#qt_assume_is_deprecated)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qassert.html#qt_assume_is_deprecated)
     ///
     /// ## Parameter(s):
     ///
     /// ` cond: bool `
     ///
     pub fn assumeIsDeprecated(cond: bool) bool {
-        return qtc.qassert_h_AssumeIsDeprecated(cond);
+        return qtc.qassert_AssumeIsDeprecated(cond);
     }
 };

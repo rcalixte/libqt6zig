@@ -20,6 +20,8 @@ typedef struct QLineF QLineF;
 typedef struct QPainterPath QPainterPath;
 typedef struct QPoint QPoint;
 typedef struct QPointF QPointF;
+typedef struct QPolygon QPolygon;
+typedef struct QPolygonF QPolygonF;
 typedef struct QRect QRect;
 typedef struct QRectF QRectF;
 typedef struct QRegion QRegion;
@@ -67,6 +69,9 @@ QTransform* QTransform_Rotate(QTransform* self, double a, int axis, double dista
 QTransform* QTransform_Rotate2(QTransform* self, double a);
 QTransform* QTransform_RotateRadians(QTransform* self, double a, int axis, double distanceToPlane);
 QTransform* QTransform_RotateRadians2(QTransform* self, double a);
+bool QTransform_SquareToQuad(const QPolygonF* square, QTransform* result);
+bool QTransform_QuadToSquare(const QPolygonF* quad, QTransform* result);
+bool QTransform_QuadToQuad(const QPolygonF* one, const QPolygonF* two, QTransform* result);
 bool QTransform_OperatorEqual(const QTransform* self, const QTransform* param1);
 bool QTransform_OperatorNotEqual(const QTransform* self, const QTransform* param1);
 QTransform* QTransform_OperatorMultiplyAssign(QTransform* self, const QTransform* param1);
@@ -77,8 +82,11 @@ QPoint* QTransform_Map(const QTransform* self, const QPoint* p);
 QPointF* QTransform_Map2(const QTransform* self, const QPointF* p);
 QLine* QTransform_Map3(const QTransform* self, const QLine* l);
 QLineF* QTransform_Map4(const QTransform* self, const QLineF* l);
+QPolygonF* QTransform_Map5(const QTransform* self, const QPolygonF* a);
+QPolygon* QTransform_Map6(const QTransform* self, const QPolygon* a);
 QRegion* QTransform_Map7(const QTransform* self, const QRegion* r);
 QPainterPath* QTransform_Map8(const QTransform* self, const QPainterPath* p);
+QPolygon* QTransform_MapToPolygon(const QTransform* self, const QRect* r);
 QRect* QTransform_MapRect(const QTransform* self, const QRect* param1);
 QRectF* QTransform_MapRect2(const QTransform* self, const QRectF* param1);
 void QTransform_Map9(const QTransform* self, int x, int y, int* tx, int* ty);
@@ -93,6 +101,9 @@ QTransform* QTransform_Inverted1(const QTransform* self, bool* invertible);
 QTransform* QTransform_Rotate22(QTransform* self, double a, int axis);
 QTransform* QTransform_RotateRadians22(QTransform* self, double a, int axis);
 void QTransform_Delete(QTransform* self);
+
+size_t qtransform_h_QHash(const QTransform* key, size_t seed);
+bool qtransform_h_QFuzzyCompare(const QTransform* t1, const QTransform* t2);
 
 #ifdef __cplusplus
 } /* extern C */

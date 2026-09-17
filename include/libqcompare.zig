@@ -192,7 +192,7 @@ pub const weak_ordering = extern struct {
     ///
     pub const ToPartialOrdering = toPartialOrdering;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/weak-ordering.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/weak-ordering.html#operator-partialordering)
     ///
     /// ## Parameter(s):
     ///
@@ -308,7 +308,7 @@ pub const strong_ordering = extern struct {
     ///
     pub const ToPartialOrdering = toPartialOrdering;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/strong-ordering.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/strong-ordering.html#operator-partialordering)
     ///
     /// ## Parameter(s):
     ///
@@ -322,7 +322,7 @@ pub const strong_ordering = extern struct {
     ///
     pub const ToWeakOrdering = toWeakOrdering;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/strong-ordering.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/strong-ordering.html#operator-weakordering)
     ///
     /// ## Parameter(s):
     ///
@@ -483,7 +483,7 @@ pub const QPartialOrdering = extern struct {
     ///
     pub const ToPartialOrdering = toPartialOrdering;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpartialordering.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpartialordering.html#operator-partialordering)
     ///
     /// ## Parameter(s):
     ///

@@ -37,6 +37,8 @@ unsigned char* QIPv6Address_OperatorSubscript(QIPv6Address* self, int index);
 unsigned char QIPv6Address_OperatorSubscript2(const QIPv6Address* self, int index);
 void QIPv6Address_Delete(QIPv6Address* self);
 
+size_t qhostaddress_h_QHash(const QHostAddress* key, size_t seed);
+
 QHostAddress* QHostAddress_new();
 QHostAddress* QHostAddress_new2(unsigned int ip4Addr);
 QHostAddress* QHostAddress_new3(const unsigned char* ip6Addr);

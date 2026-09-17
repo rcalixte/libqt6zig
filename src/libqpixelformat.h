@@ -51,6 +51,14 @@ int QPixelFormat_YuvLayout(const QPixelFormat* self);
 unsigned char QPixelFormat_SubEnum(const QPixelFormat* self);
 void QPixelFormat_Delete(QPixelFormat* self);
 
+QPixelFormat* qpixelformat_h_QPixelFormatRgba(unsigned char red, unsigned char green, unsigned char blue, unsigned char alfa, int usage, int position, int pmul, int typeInt);
+QPixelFormat* qpixelformat_h_QPixelFormatGrayscale(unsigned char channelSize, int typeInt);
+QPixelFormat* qpixelformat_h_QPixelFormatAlpha(unsigned char channelSize, int typeInt);
+QPixelFormat* qpixelformat_h_QPixelFormatCmyk(unsigned char channelSize, unsigned char alfa, int usage, int position, int typeInt);
+QPixelFormat* qpixelformat_h_QPixelFormatHsl(unsigned char channelSize, unsigned char alfa, int usage, int position, int typeInt);
+QPixelFormat* qpixelformat_h_QPixelFormatHsv(unsigned char channelSize, unsigned char alfa, int usage, int position, int typeInt);
+QPixelFormat* qpixelformat_h_QPixelFormatYuv(int layout, unsigned char alfa, int usage, int position, int p_mul, int typeInt, int b_order);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

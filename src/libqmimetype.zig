@@ -3,6 +3,26 @@ const qtc = @import("qt6c");
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html)
+pub const qmimetype = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QMimeType `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QMimeType;
+        return qtc.qmimetype_QHash(@ptrCast(key.ptr), @bitCast(seed));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html)
 pub const QMimeType = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimetype.html)
     ///

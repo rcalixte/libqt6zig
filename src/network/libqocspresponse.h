@@ -19,6 +19,8 @@ typedef struct QOcspResponse QOcspResponse;
 typedef struct QSslCertificate QSslCertificate;
 #endif
 
+size_t qocspresponse_h_QHash(const QOcspResponse* response, size_t seed);
+
 QOcspResponse* QOcspResponse_new();
 QOcspResponse* QOcspResponse_new2(const QOcspResponse* other);
 void QOcspResponse_OperatorAssign(QOcspResponse* self, const QOcspResponse* other);

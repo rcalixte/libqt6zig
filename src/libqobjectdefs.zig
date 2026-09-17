@@ -10,6 +10,25 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = enums;
 const std = @import("std");
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdefs.html)
+pub const qobjectdefs = extern struct {
+    /// ### DEPRECATED: Use `qFlagLocation` instead
+    ///
+    pub const QFlagLocation = qFlagLocation;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobjectdefs.html#qFlagLocation)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` method: [:0]const u8 `
+    ///
+    pub fn qFlagLocation(method: [:0]const u8) [:0]const u8 {
+        const method_Cstring = method.ptr;
+        const _ret = qtc.qobjectdefs_QFlagLocation(method_Cstring);
+        return std.mem.span(_ret);
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgenericargument.html)
 pub const QGenericArgument = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgenericargument.html)
@@ -3387,7 +3406,7 @@ pub const QMetaObject__SuperData = extern struct {
     ///
     pub const ToConstQMetaObjectMultiply = toConstQMetaObjectMultiply;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-superdata.html#operator-2a)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetaobject-superdata.html#operator-const-QMetaObject--2a)
     ///
     /// ## Parameter(s):
     ///

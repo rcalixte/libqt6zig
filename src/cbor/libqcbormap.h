@@ -115,6 +115,8 @@ libqt_map /* of libqt_string to QVariant* */ QCborMap_ToVariantHash(const QCborM
 QJsonObject* QCborMap_ToJsonObject(const QCborMap* self);
 void QCborMap_Delete(QCborMap* self);
 
+size_t qcbormap_QHash(const QCborMap* map, size_t seed);
+
 QCborMap__Iterator* QCborMap__Iterator_new(const QCborMap__Iterator* other);
 QCborMap__Iterator* QCborMap__Iterator_new2();
 QCborMap__Iterator* QCborMap__Iterator_new3(const QCborMap__Iterator* param1);

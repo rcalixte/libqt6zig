@@ -738,7 +738,7 @@ pub const QJsonValueConstRef = extern struct {
     ///
     pub const ToQJsonValue = toQJsonValue;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator-QJsonValue)
     ///
     /// ## Parameter(s):
     ///
@@ -1260,7 +1260,7 @@ pub const QJsonValueRef = extern struct {
     ///
     pub const ToQJsonValue = toQJsonValue;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-QJsonValue)
     ///
     /// ## Parameter(s):
     ///
@@ -1666,6 +1666,26 @@ pub const QJsonValueRef = extern struct {
     ///
     pub fn delete(self: QJsonValueRef) void {
         qtc.QJsonValueRef_Delete(@ptrCast(self.ptr));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html)
+pub const qjsonvalue = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` value: QJsonValue `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(value: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(value)._is_QJsonValue;
+        return qtc.qjsonvalue_QHash(@ptrCast(value.ptr), @bitCast(seed));
     }
 };
 

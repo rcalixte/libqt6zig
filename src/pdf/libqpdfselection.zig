@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QPolygonF = @import("libqt6").QPolygonF;
 const QRectF = @import("libqt6").QRectF;
 const qclipboard_enums = @import("../libqclipboard.zig").enums;
 const std = @import("std");
@@ -75,6 +76,28 @@ pub const QPdfSelection = extern struct {
     ///
     pub fn isValid(self: QPdfSelection) bool {
         return qtc.QPdfSelection_IsValid(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `bounds` instead
+    ///
+    pub const Bounds = bounds;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfselection.html#bounds)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPdfSelection `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn bounds(self: QPdfSelection, allocator: std.mem.Allocator) []QPolygonF {
+        const _arr: qtc.libqt_list = qtc.QPdfSelection_Bounds(@ptrCast(self.ptr));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QPolygonF, _arr.len) catch @panic("QPdfSelection.bounds: Memory allocation failed");
+        const _data_val: [*]QtC.QPolygonF = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
+        return _ret;
     }
 
     /// ### DEPRECATED: Use `text` instead

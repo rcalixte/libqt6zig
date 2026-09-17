@@ -254,6 +254,10 @@ void QCborArray_Delete(QCborArray* self) {
     delete self;
 }
 
+size_t qcborarray_QHash(const QCborArray* array, size_t seed) {
+    return qHash(*array, static_cast<size_t>(seed));
+}
+
 QCborArray__Iterator* QCborArray__Iterator_new() {
     return new QCborArray::Iterator();
 }

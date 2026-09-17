@@ -181,6 +181,8 @@ void QOpenGLVersionStatus_SetStatus(QOpenGLVersionStatus* self, int status);
 void QOpenGLVersionStatus_OperatorAssign(QOpenGLVersionStatus* self, const QOpenGLVersionStatus* param1);
 void QOpenGLVersionStatus_Delete(QOpenGLVersionStatus* self);
 
+size_t qopenglversionfunctions_h_QHash(const QOpenGLVersionStatus* v, size_t seed);
+
 QOpenGLContext* QOpenGLVersionFunctionsBackend_Context(const QOpenGLVersionFunctionsBackend* self);
 void QOpenGLVersionFunctionsBackend_SetContext(QOpenGLVersionFunctionsBackend* self, QOpenGLContext* context);
 void QOpenGLVersionFunctionsBackend_Delete(QOpenGLVersionFunctionsBackend* self);

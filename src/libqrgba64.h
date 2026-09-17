@@ -46,6 +46,15 @@ unsigned long long QRgba64_ToUnsignedLongLong(const QRgba64* self);
 void QRgba64_OperatorAssign(QRgba64* self, unsigned long long _rgba);
 void QRgba64_Delete(QRgba64* self);
 
+QRgba64* qrgba64_h_QRgba64(uint16_t r, uint16_t g, uint16_t b, uint16_t a);
+QRgba64* qrgba64_h_QRgba642(unsigned long long c);
+QRgba64* qrgba64_h_QPremultiply(QRgba64* c);
+QRgba64* qrgba64_h_QUnpremultiply(QRgba64* c);
+unsigned int qrgba64_h_QRed(QRgba64* rgb);
+unsigned int qrgba64_h_QGreen(QRgba64* rgb);
+unsigned int qrgba64_h_QBlue(QRgba64* rgb);
+unsigned int qrgba64_h_QAlpha(QRgba64* rgb);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

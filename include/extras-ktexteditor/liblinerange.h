@@ -18,6 +18,7 @@ extern "C" {
 typedef KTextEditor::LineRange KTextEditor__LineRange;
 #endif
 #else
+typedef struct KTextEditor KTextEditor;
 typedef struct KTextEditor__LineRange KTextEditor__LineRange;
 #endif
 

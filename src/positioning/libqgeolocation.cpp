@@ -93,3 +93,7 @@ bool QGeoLocation_IsEmpty(const QGeoLocation* self) {
 void QGeoLocation_Delete(QGeoLocation* self) {
     delete self;
 }
+
+size_t qgeolocation_h_QHash(const QGeoLocation* location, size_t seed) {
+    return qHash(*location, static_cast<size_t>(seed));
+}

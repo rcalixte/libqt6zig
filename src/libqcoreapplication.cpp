@@ -879,3 +879,30 @@ void QCoreApplication_Connect_AboutToQuit(QCoreApplication* self, intptr_t slot)
 void QCoreApplication_Delete(QCoreApplication* self) {
     delete self;
 }
+
+void qcoreapplication_QAddPreRoutine(intptr_t param1) {
+    auto param1_func = reinterpret_cast<QtStartUpFunction>(param1);
+    qAddPreRoutine(param1_func);
+}
+
+void qcoreapplication_QAddPostRoutine(intptr_t param1) {
+    auto param1_func = reinterpret_cast<QtCleanUpFunction>(param1);
+    qAddPostRoutine(param1_func);
+}
+
+void qcoreapplication_QRemovePostRoutine(intptr_t param1) {
+    auto param1_func = reinterpret_cast<QtCleanUpFunction>(param1);
+    qRemovePostRoutine(param1_func);
+}
+
+libqt_string qcoreapplication_QAppName() {
+    auto _ret = qAppName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}

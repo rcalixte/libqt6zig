@@ -3,6 +3,10 @@
 #include "libqgeosatelliteinfo.h"
 #include "libqgeosatelliteinfo.hxx"
 
+size_t qgeosatelliteinfo_h_QHash(const QGeoSatelliteInfo* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}
+
 QGeoSatelliteInfo* QGeoSatelliteInfo_new() {
     return new QGeoSatelliteInfo();
 }

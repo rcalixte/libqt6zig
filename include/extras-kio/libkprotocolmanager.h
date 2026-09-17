@@ -44,6 +44,7 @@ bool KProtocolManager_CanCopyToFile(const QUrl* url);
 bool KProtocolManager_CanRenameFromFile(const QUrl* url);
 bool KProtocolManager_CanRenameToFile(const QUrl* url);
 bool KProtocolManager_CanDeleteRecursive(const QUrl* url);
+int KProtocolManager_FileNameUsedForCopying(const QUrl* url);
 libqt_string KProtocolManager_DefaultMimetype(const QUrl* url);
 int KProtocolManager_InputType(const QUrl* url);
 int KProtocolManager_OutputType(const QUrl* url);

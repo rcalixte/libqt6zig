@@ -18,7 +18,7 @@ extern "C" {
 
 #endif
 
-libqt_string qttranslation_h_QtTrId(const char* id, int n);
+libqt_string qttranslation_QtTrId(const char* id, int n);
 
 #ifdef __cplusplus
 } /* extern C */

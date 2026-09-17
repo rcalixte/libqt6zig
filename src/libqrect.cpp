@@ -342,6 +342,10 @@ void QRect_Delete(QRect* self) {
     delete self;
 }
 
+size_t qrect_QHash(const QRect* r, size_t seed) {
+    return qHash(*r, static_cast<size_t>(seed));
+}
+
 QRectF* QRectF_new(const QRectF* other) {
     return new QRectF(*other);
 }

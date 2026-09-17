@@ -550,13 +550,31 @@ pub const QMessageLogger = extern struct {
     }
 };
 
-/// ### [Upstream resources](https://doc.qt.io/qt-6/qlogging-h.html)
-pub const qlogging_h = extern struct {
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qlogging.html)
+pub const qlogging = extern struct {
+    /// ### DEPRECATED: Use `qSetMessagePattern` instead
+    ///
+    pub const QSetMessagePattern = qSetMessagePattern;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlogging.html#qSetMessagePattern)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` messagePattern: []const u8 `
+    ///
+    pub fn qSetMessagePattern(messagePattern: []const u8) void {
+        const messagePattern_str = qtc.libqt_string{
+            .len = messagePattern.len,
+            .data = messagePattern.ptr,
+        };
+        qtc.qlogging_QSetMessagePattern(messagePattern_str);
+    }
+
     /// ### DEPRECATED: Use `errorString` instead
     ///
     pub const ErrorString = errorString;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlogging-h.html#qt_error_string)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlogging.html#qt_error_string)
     ///
     /// ## Parameter(s):
     ///
@@ -565,9 +583,9 @@ pub const qlogging_h = extern struct {
     /// ` errorCode: i32 `
     ///
     pub fn errorString(allocator: std.mem.Allocator, errorCode: i32) []const u8 {
-        var _str = qtc.qlogging_h_ErrorString(@bitCast(errorCode));
+        var _str = qtc.qlogging_ErrorString(@bitCast(errorCode));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlogging_h.errorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlogging.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

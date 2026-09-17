@@ -3567,6 +3567,60 @@ pub const QDateTime = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html)
+pub const qdatetime = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QDateTime `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QDateTime;
+        return qtc.qdatetime_QHash(@ptrCast(key.ptr), @bitCast(seed));
+    }
+
+    /// ### DEPRECATED: Use `qHash2` instead
+    ///
+    pub const QHash2 = qHash2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QDate `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash2(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QDate;
+        return qtc.qdatetime_QHash2(@ptrCast(key.ptr), @bitCast(seed));
+    }
+
+    /// ### DEPRECATED: Use `qHash3` instead
+    ///
+    pub const QHash3 = qHash3;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QTime `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash3(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QTime;
+        return qtc.qdatetime_QHash3(@ptrCast(key.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatetime.html#public-types)
 pub const enums = struct {
     pub const TransitionResolution = enum {

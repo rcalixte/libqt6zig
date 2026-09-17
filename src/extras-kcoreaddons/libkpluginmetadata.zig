@@ -1110,6 +1110,26 @@ pub const KPluginMetaData = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://api.kde.org/kpluginmetadata-h.html)
+pub const kpluginmetadata_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://api.kde.org/kpluginmetadata-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` md: KPluginMetaData `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(md: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(md)._is_KPluginMetaData;
+        return qtc.kpluginmetadata_h_QHash(@ptrCast(md.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#public-types)
 pub const enums = struct {
     pub const KPluginMetaDataOption = enum {

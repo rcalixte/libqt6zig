@@ -121,6 +121,8 @@ int QFont_LegacyWeight(const QFont* self);
 void QFont_SetStyleHint2(QFont* self, int param1, int param2);
 void QFont_Delete(QFont* self);
 
+size_t qfont_h_QHash(const QFont* font, size_t seed);
+
 QFont__Tag* QFont__Tag_new();
 QFont__Tag* QFont__Tag_new2(const QFont__Tag* other);
 QFont__Tag* QFont__Tag_new3(QFont__Tag* other);

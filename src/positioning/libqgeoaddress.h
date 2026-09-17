@@ -47,6 +47,8 @@ void QGeoAddress_Clear(QGeoAddress* self);
 bool QGeoAddress_IsTextGenerated(const QGeoAddress* self);
 void QGeoAddress_Delete(QGeoAddress* self);
 
+size_t qgeoaddress_h_QHash(const QGeoAddress* address, size_t seed);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

@@ -20,6 +20,8 @@ typedef struct QKeySequence QKeySequence;
 typedef struct QVariant QVariant;
 #endif
 
+size_t qkeysequence_h_QHash(const QKeySequence* key, size_t seed);
+
 QKeySequence* QKeySequence_new();
 QKeySequence* QKeySequence_new2(const libqt_string key);
 QKeySequence* QKeySequence_new3(int k1);

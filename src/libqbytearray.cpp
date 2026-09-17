@@ -213,6 +213,48 @@ libqt_string QByteArray_FromPercentEncoding2(const libqt_string pctEncoded, char
     return _str;
 }
 
+libqt_string qbytearray_QCompress(const unsigned char* data, ptrdiff_t nbytes, int compressionLevel) {
+    QByteArray _qb = qCompress(static_cast<const uchar*>(data), (qsizetype)(nbytes), static_cast<int>(compressionLevel));
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<char*>(malloc(_str.len));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    return _str;
+}
+
+libqt_string qbytearray_QUncompress(const unsigned char* data, ptrdiff_t nbytes) {
+    QByteArray _qb = qUncompress(static_cast<const uchar*>(data), (qsizetype)(nbytes));
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<char*>(malloc(_str.len));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    return _str;
+}
+
+libqt_string qbytearray_QCompress2(const libqt_string data, int compressionLevel) {
+    QByteArray data_QByteArray(data.data, data.len);
+    QByteArray _qb = qCompress(data_QByteArray, static_cast<int>(compressionLevel));
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<char*>(malloc(_str.len));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    return _str;
+}
+
+libqt_string qbytearray_QUncompress2(const libqt_string data) {
+    QByteArray data_QByteArray(data.data, data.len);
+    QByteArray _qb = qUncompress(data_QByteArray);
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<char*>(malloc(_str.len));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    return _str;
+}
+
+size_t qbytearray_QHash(const QByteArray__FromBase64Result* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}
+
 QByteArray__FromBase64Result* QByteArray__FromBase64Result_new() {
     return new QByteArray::FromBase64Result();
 }

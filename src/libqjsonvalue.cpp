@@ -480,3 +480,7 @@ libqt_string QJsonValueRef_ToString1(const QJsonValueRef* self, const libqt_stri
 void QJsonValueRef_Delete(QJsonValueRef* self) {
     delete self;
 }
+
+size_t qjsonvalue_QHash(const QJsonValue* value, size_t seed) {
+    return qHash(*value, static_cast<size_t>(seed));
+}
