@@ -410,7 +410,11 @@ func (m CppMethod) CppCallTarget() string {
 
 func (m *CppMethod) Rename(newName string) {
 	if m.OverrideMethodName == "" {
-		m.OverrideMethodName = m.MethodName
+		if strings.HasPrefix(m.MethodName, "operator ") {
+			m.OverrideMethodName = "operator " + m.ReturnType.ParameterType
+		} else {
+			m.OverrideMethodName = m.MethodName
+		}
 	} else {
 		// If it was already set, we're already a level of overload resolution deep - preserve it
 	}
@@ -848,7 +852,7 @@ type CppParsedHeader struct {
 
 func (c CppParsedHeader) Empty() bool {
 	// If there are only typedefs, that still counts as empty since typedefs
-	// are fully resolved inside genbindings, not exposed in MIQT classes
+	// are fully resolved inside genbindings, not exposed in generated classes
 
 	return len(c.Enums) == 0 && len(c.Classes) == 0
 }
