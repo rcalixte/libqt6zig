@@ -8,6 +8,10 @@
 #include "libqurlquery.h"
 #include "libqurlquery.hxx"
 
+size_t qurlquery_QHash(const QUrlQuery* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}
+
 QUrlQuery* QUrlQuery_new() {
     return new QUrlQuery();
 }

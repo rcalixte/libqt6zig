@@ -187,6 +187,26 @@ pub const QGeoShape = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoshape-h.html)
+pub const qgeoshape_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoshape-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` shape: QGeoShape `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(shape: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(shape)._is_QGeoShape;
+        return qtc.qgeoshape_h_QHash(@ptrCast(shape.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoshape.html#public-types)
 pub const enums = struct {
     pub const ShapeType = enum {

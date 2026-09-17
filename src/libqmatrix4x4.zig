@@ -1126,7 +1126,7 @@ pub const QMatrix4x4 = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///

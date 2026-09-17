@@ -5,6 +5,26 @@ const qregularexpression_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpression.html)
+pub const qregularexpression = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpression.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QRegularExpression `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QRegularExpression;
+        return qtc.qregularexpression_QHash(@ptrCast(key.ptr), @bitCast(seed));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpression.html)
 pub const QRegularExpression = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qregularexpression.html)
     ///

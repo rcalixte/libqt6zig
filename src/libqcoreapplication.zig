@@ -3118,6 +3118,69 @@ pub const QCoreApplication = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html)
+pub const qcoreapplication = extern struct {
+    /// ### DEPRECATED: Use `qAddPreRoutine` instead
+    ///
+    pub const QAddPreRoutine = qAddPreRoutine;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#qAddPreRoutine)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: *const fn () callconv(.c) void `
+    ///
+    pub fn qAddPreRoutine(param1: *const fn () callconv(.c) void) void {
+        qtc.qcoreapplication_QAddPreRoutine(@bitCast(@intFromPtr(param1)));
+    }
+
+    /// ### DEPRECATED: Use `qAddPostRoutine` instead
+    ///
+    pub const QAddPostRoutine = qAddPostRoutine;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#qAddPostRoutine)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: *const fn () callconv(.c) void `
+    ///
+    pub fn qAddPostRoutine(param1: *const fn () callconv(.c) void) void {
+        qtc.qcoreapplication_QAddPostRoutine(@bitCast(@intFromPtr(param1)));
+    }
+
+    /// ### DEPRECATED: Use `qRemovePostRoutine` instead
+    ///
+    pub const QRemovePostRoutine = qRemovePostRoutine;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#qRemovePostRoutine)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: *const fn () callconv(.c) void `
+    ///
+    pub fn qRemovePostRoutine(param1: *const fn () callconv(.c) void) void {
+        qtc.qcoreapplication_QRemovePostRoutine(@bitCast(@intFromPtr(param1)));
+    }
+
+    /// ### DEPRECATED: Use `qAppName` instead
+    ///
+    pub const QAppName = qAppName;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#qAppName)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn qAppName(allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.qcoreapplication_QAppName();
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcoreapplication.qAppName: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#public-types)
 pub const enums = struct {
     pub const QCoreApplication = enum {

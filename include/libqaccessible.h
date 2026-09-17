@@ -313,6 +313,10 @@ void QAccessibleAnnouncementEvent_OnAccessibleInterface(const QAccessibleAnnounc
 QAccessibleInterface* QAccessibleAnnouncementEvent_SuperAccessibleInterface(const QAccessibleAnnouncementEvent* self);
 void QAccessibleAnnouncementEvent_Delete(QAccessibleAnnouncementEvent* self);
 
+const char* qaccessible_h_QAccessibleRoleString(int role);
+const char* qaccessible_h_QAccessibleEventString(int event);
+libqt_string qaccessible_h_QAccessibleLocalizedActionDescription(const libqt_string actionName);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

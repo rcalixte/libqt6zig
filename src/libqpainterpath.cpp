@@ -5,9 +5,11 @@
 #include <QPainterPathStroker>
 #include <QPen>
 #include <QPointF>
+#include <QPolygonF>
 #include <QRectF>
 #include <QRegion>
 #include <QString>
+#include <QTransform>
 #include <qpainterpath.h>
 #include "libqpainterpath.h"
 #include "libqpainterpath.hxx"
@@ -120,6 +122,10 @@ void QPainterPath_AddEllipse3(QPainterPath* self, const QPointF* center, double 
     self->addEllipse(*center, static_cast<qreal>(rx), static_cast<qreal>(ry));
 }
 
+void QPainterPath_AddPolygon(QPainterPath* self, const QPolygonF* polygon) {
+    self->addPolygon(*polygon);
+}
+
 void QPainterPath_AddText(QPainterPath* self, const QPointF* point, const QFont* f, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->addText(*point, *f, text_QString);
@@ -200,6 +206,36 @@ bool QPainterPath_IsEmpty(const QPainterPath* self) {
 
 QPainterPath* QPainterPath_ToReversed(const QPainterPath* self) {
     return new QPainterPath(self->toReversed());
+}
+
+libqt_list /* of QPolygonF* */ QPainterPath_ToSubpathPolygons(const QPainterPath* self) {
+    QList<QPolygonF> _ret = self->toSubpathPolygons();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QPolygonF** _arr = static_cast<QPolygonF**>(malloc(sizeof(QPolygonF*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QPolygonF(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
+libqt_list /* of QPolygonF* */ QPainterPath_ToFillPolygons(const QPainterPath* self) {
+    QList<QPolygonF> _ret = self->toFillPolygons();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QPolygonF** _arr = static_cast<QPolygonF**>(malloc(sizeof(QPolygonF*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QPolygonF(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
+QPolygonF* QPainterPath_ToFillPolygon(const QPainterPath* self) {
+    return new QPolygonF(self->toFillPolygon());
 }
 
 int QPainterPath_ElementCount(const QPainterPath* self) {
@@ -308,6 +344,36 @@ void QPainterPath_AddRoundedRect4(QPainterPath* self, const QRectF* rect, double
 
 void QPainterPath_AddRoundedRect7(QPainterPath* self, double x, double y, double w, double h, double xRadius, double yRadius, int mode) {
     self->addRoundedRect(static_cast<qreal>(x), static_cast<qreal>(y), static_cast<qreal>(w), static_cast<qreal>(h), static_cast<qreal>(xRadius), static_cast<qreal>(yRadius), static_cast<Qt::SizeMode>(mode));
+}
+
+libqt_list /* of QPolygonF* */ QPainterPath_ToSubpathPolygons1(const QPainterPath* self, const QTransform* matrix) {
+    QList<QPolygonF> _ret = self->toSubpathPolygons(*matrix);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QPolygonF** _arr = static_cast<QPolygonF**>(malloc(sizeof(QPolygonF*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QPolygonF(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
+libqt_list /* of QPolygonF* */ QPainterPath_ToFillPolygons1(const QPainterPath* self, const QTransform* matrix) {
+    QList<QPolygonF> _ret = self->toFillPolygons(*matrix);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QPolygonF** _arr = static_cast<QPolygonF**>(malloc(sizeof(QPolygonF*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QPolygonF(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
+QPolygonF* QPainterPath_ToFillPolygon1(const QPainterPath* self, const QTransform* matrix) {
+    return new QPolygonF(self->toFillPolygon(*matrix));
 }
 
 void QPainterPath_Delete(QPainterPath* self) {

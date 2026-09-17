@@ -13300,6 +13300,37 @@ pub const QMessageBox = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagebox-h.html)
+pub const qmessagebox_h = extern struct {
+    /// ### DEPRECATED: Use `qRequireVersion` instead
+    ///
+    pub const QRequireVersion = qRequireVersion;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagebox-h.html#qRequireVersion)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` argc: i32 `
+    ///
+    /// ` argv: [][:0]u8 `
+    ///
+    /// ` req: []const u8 `
+    ///
+    pub fn qRequireVersion(allocator: std.mem.Allocator, argc: i32, argv: [][:0]u8, req: []const u8) void {
+        const argv_chararr = allocator.alloc([*:0]u8, argv.len) catch @panic("qmessagebox_h.qRequireVersion: Memory allocation failed");
+        defer allocator.free(argv_chararr);
+        for (argv, 0..argv.len) |str, i|
+            argv_chararr[i] = @ptrCast(str.ptr);
+        const req_str = qtc.libqt_string{
+            .len = req.len,
+            .data = req.ptr,
+        };
+        qtc.qmessagebox_h_QRequireVersion(@bitCast(argc), @ptrCast(argv_chararr), req_str);
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qmessagebox.html#public-types)
 pub const enums = struct {
     pub const Option = enum {

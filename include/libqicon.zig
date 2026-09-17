@@ -132,7 +132,7 @@ pub const QIcon = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qicon.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///

@@ -18,6 +18,9 @@ extern "C" {
 typedef struct QSslEllipticCurve QSslEllipticCurve;
 #endif
 
+size_t qsslellipticcurve_h_QHash(QSslEllipticCurve* curve, size_t seed);
+size_t qsslellipticcurve_h_QHash2(QSslEllipticCurve* curve, size_t seed);
+
 QSslEllipticCurve* QSslEllipticCurve_new(const QSslEllipticCurve* other);
 QSslEllipticCurve* QSslEllipticCurve_new2(QSslEllipticCurve* other);
 QSslEllipticCurve* QSslEllipticCurve_new3();

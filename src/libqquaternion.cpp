@@ -227,3 +227,7 @@ QQuaternion* QQuaternion_Nlerp(const QQuaternion* q1, const QQuaternion* q2, flo
 void QQuaternion_Delete(QQuaternion* self) {
     delete self;
 }
+
+bool qquaternion_h_QFuzzyCompare(const QQuaternion* q1, const QQuaternion* q2) {
+    return qFuzzyCompare(*q1, *q2);
+}

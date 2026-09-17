@@ -702,6 +702,26 @@ pub const QJsonArray = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html)
+pub const qjsonarray = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` array: QJsonArray `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(array: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(array)._is_QJsonArray;
+        return qtc.qjsonarray_QHash(@ptrCast(array.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html)
 pub const QJsonArray__iterator = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonarray-iterator.html)

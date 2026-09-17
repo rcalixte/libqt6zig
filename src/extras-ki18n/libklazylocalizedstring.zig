@@ -89,7 +89,7 @@ pub const KLazyLocalizedString = extern struct {
     ///
     pub const ToKLocalizedString = toKLocalizedString;
 
-    /// ### [Upstream resources](https://api.kde.org/klazylocalizedstring.html#operator)
+    /// ### [Upstream resources](https://api.kde.org/klazylocalizedstring.html#operator-KLocalizedString)
     ///
     /// ## Parameter(s):
     ///

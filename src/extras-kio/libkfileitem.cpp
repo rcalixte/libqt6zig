@@ -453,6 +453,10 @@ void KFileItem_Delete(KFileItem* self) {
     delete self;
 }
 
+size_t kfileitem_h_QHash(const KFileItem* item, size_t seed) {
+    return qHash(*item, static_cast<size_t>(seed));
+}
+
 KFileItemList* KFileItemList_new() {
     return new KFileItemList();
 }

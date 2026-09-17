@@ -516,6 +516,26 @@ pub const QSize = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html)
+pub const qsize = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsize.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` s: QSize `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(s: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(s)._is_QSize;
+        return qtc.qsize_QHash(@ptrCast(s.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html)
 pub const QSizeF = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsizef.html)

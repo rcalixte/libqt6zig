@@ -205,7 +205,7 @@ pub const QCursor = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcursor.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///

@@ -51,7 +51,7 @@ pub const QCborError = extern struct {
     ///
     pub const ToQCborError__Code = toQCborError__Code;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#operator-QCborError-3a-3aCode)
     ///
     /// ## Parameter(s):
     ///
@@ -99,6 +99,41 @@ pub const QCborError = extern struct {
     ///
     pub fn delete(self: QCborError) void {
         qtc.QCborError_Delete(@ptrCast(self.ptr));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qcborcommon.html)
+pub const qcborcommon = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborcommon.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` tag: qcborcommon_enums.QCborSimpleType `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(tag: u8, seed: usize) usize {
+        return qtc.qcborcommon_QHash(@bitCast(tag), @bitCast(seed));
+    }
+
+    /// ### DEPRECATED: Use `qHash2` instead
+    ///
+    pub const QHash2 = qHash2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborcommon.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` tag: qcborcommon_enums.QCborTag `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash2(tag: u64, seed: usize) usize {
+        return qtc.qcborcommon_QHash2(@bitCast(tag), @bitCast(seed));
     }
 };
 

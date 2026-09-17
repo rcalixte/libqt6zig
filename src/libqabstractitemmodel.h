@@ -83,6 +83,10 @@ bool QModelIndex_IsValid(const QModelIndex* self);
 QVariant* QModelIndex_Data1(const QModelIndex* self, int role);
 void QModelIndex_Delete(QModelIndex* self);
 
+size_t qabstractitemmodel_QHash(const QPersistentModelIndex* index, size_t seed);
+size_t qabstractitemmodel_QHash2(const QPersistentModelIndex* index, size_t seed);
+size_t qabstractitemmodel_QHash3(const QModelIndex* index, size_t seed);
+
 QPersistentModelIndex* QPersistentModelIndex_new();
 QPersistentModelIndex* QPersistentModelIndex_new2(const QModelIndex* index);
 QPersistentModelIndex* QPersistentModelIndex_new3(const QPersistentModelIndex* other);

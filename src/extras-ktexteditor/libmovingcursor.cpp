@@ -86,6 +86,10 @@ KTextEditor__Cursor* KTextEditor__MovingCursor_ToCursor(const KTextEditor__Movin
     return new KTextEditor::Cursor(self->toCursor());
 }
 
+KTextEditor__Cursor* KTextEditor__MovingCursor_ToCursor2(const KTextEditor__MovingCursor* self) {
+    return new KTextEditor::Cursor(self->operator KTextEditor::Cursor());
+}
+
 bool KTextEditor__MovingCursor_Move2(KTextEditor__MovingCursor* self, int chars, int wrapBehavior) {
     return self->move(static_cast<int>(chars), static_cast<KTextEditor::MovingCursor::WrapBehavior>(wrapBehavior));
 }

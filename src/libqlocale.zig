@@ -9,6 +9,26 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html)
+pub const qlocale = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QLocale `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QLocale;
+        return qtc.qlocale_QHash(@ptrCast(key.ptr), @bitCast(seed));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html)
 pub const QLocale = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html)
     ///

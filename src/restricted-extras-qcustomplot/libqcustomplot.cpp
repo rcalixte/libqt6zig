@@ -41,6 +41,7 @@
 #include <QPixmap>
 #include <QPoint>
 #include <QPointF>
+#include <QPolygonF>
 #include <QRect>
 #include <QRectF>
 #include <QRegion>
@@ -33646,6 +33647,94 @@ void QCPGraph_OnGetFillBasePoint(const QCPGraph* self, intptr_t slot) {
     auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph)
         vqcpgraph->setQCPGraph_GetFillBasePoint_Callback(reinterpret_cast<VirtualQCPGraph::QCPGraph_GetFillBasePoint_Callback>(slot));
+}
+
+// Derived class handler implementation
+QPolygonF* QCPGraph_GetFillPolygon(const QCPGraph* self, const libqt_list /* of QPointF* */ lineData, QCPDataRange* segment) {
+    auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
+    QVector<QPointF> lineData_QVector;
+    lineData_QVector.reserve(lineData.len);
+    QPointF** lineData_arr = static_cast<QPointF**>(lineData.data);
+    for (size_t i = 0; i < lineData.len; ++i) {
+        lineData_QVector.push_back(*(lineData_arr[i]));
+    }
+    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
+        return new QPolygonF(vqcpgraph->getFillPolygon(&lineData_QVector, *segment));
+    }
+    return {};
+}
+
+// Base class handler implementation
+QPolygonF* QCPGraph_SuperGetFillPolygon(const QCPGraph* self, const libqt_list /* of QPointF* */ lineData, QCPDataRange* segment) {
+    auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
+    QVector<QPointF> lineData_QVector;
+    lineData_QVector.reserve(lineData.len);
+    QPointF** lineData_arr = static_cast<QPointF**>(lineData.data);
+    for (size_t i = 0; i < lineData.len; ++i) {
+        lineData_QVector.push_back(*(lineData_arr[i]));
+    }
+    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
+        vqcpgraph->setQCPGraph_GetFillPolygon_IsBase(true);
+        return new QPolygonF(vqcpgraph->getFillPolygon(&lineData_QVector, *segment));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPGraph_OnGetFillPolygon(const QCPGraph* self, intptr_t slot) {
+    auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
+    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph)
+        vqcpgraph->setQCPGraph_GetFillPolygon_Callback(reinterpret_cast<VirtualQCPGraph::QCPGraph_GetFillPolygon_Callback>(slot));
+}
+
+// Derived class handler implementation
+QPolygonF* QCPGraph_GetChannelFillPolygon(const QCPGraph* self, const libqt_list /* of QPointF* */ thisData, QCPDataRange* thisSegment, const libqt_list /* of QPointF* */ otherData, QCPDataRange* otherSegment) {
+    auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
+    QVector<QPointF> thisData_QVector;
+    thisData_QVector.reserve(thisData.len);
+    QPointF** thisData_arr = static_cast<QPointF**>(thisData.data);
+    for (size_t i = 0; i < thisData.len; ++i) {
+        thisData_QVector.push_back(*(thisData_arr[i]));
+    }
+    QVector<QPointF> otherData_QVector;
+    otherData_QVector.reserve(otherData.len);
+    QPointF** otherData_arr = static_cast<QPointF**>(otherData.data);
+    for (size_t i = 0; i < otherData.len; ++i) {
+        otherData_QVector.push_back(*(otherData_arr[i]));
+    }
+    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
+        return new QPolygonF(vqcpgraph->getChannelFillPolygon(&thisData_QVector, *thisSegment, &otherData_QVector, *otherSegment));
+    }
+    return {};
+}
+
+// Base class handler implementation
+QPolygonF* QCPGraph_SuperGetChannelFillPolygon(const QCPGraph* self, const libqt_list /* of QPointF* */ thisData, QCPDataRange* thisSegment, const libqt_list /* of QPointF* */ otherData, QCPDataRange* otherSegment) {
+    auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
+    QVector<QPointF> thisData_QVector;
+    thisData_QVector.reserve(thisData.len);
+    QPointF** thisData_arr = static_cast<QPointF**>(thisData.data);
+    for (size_t i = 0; i < thisData.len; ++i) {
+        thisData_QVector.push_back(*(thisData_arr[i]));
+    }
+    QVector<QPointF> otherData_QVector;
+    otherData_QVector.reserve(otherData.len);
+    QPointF** otherData_arr = static_cast<QPointF**>(otherData.data);
+    for (size_t i = 0; i < otherData.len; ++i) {
+        otherData_QVector.push_back(*(otherData_arr[i]));
+    }
+    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
+        vqcpgraph->setQCPGraph_GetChannelFillPolygon_IsBase(true);
+        return new QPolygonF(vqcpgraph->getChannelFillPolygon(&thisData_QVector, *thisSegment, &otherData_QVector, *otherSegment));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCPGraph_OnGetChannelFillPolygon(const QCPGraph* self, intptr_t slot) {
+    auto* vqcpgraph = const_cast<VirtualQCPGraph*>(dynamic_cast<const VirtualQCPGraph*>(self));
+    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph)
+        vqcpgraph->setQCPGraph_GetChannelFillPolygon_Callback(reinterpret_cast<VirtualQCPGraph::QCPGraph_GetChannelFillPolygon_Callback>(slot));
 }
 
 // Derived class handler implementation

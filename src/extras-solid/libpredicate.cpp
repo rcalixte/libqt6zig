@@ -1,7 +1,7 @@
 #include <QSet>
 #include <QString>
 #include <QVariant>
-#define WORKAROUND_INNER_CLASS_DEFINITION_Solid__Device
+#include <Solid/Device>
 #define WORKAROUND_INNER_CLASS_DEFINITION_Solid__Predicate
 #include <predicate.h>
 #include "libpredicate.h"

@@ -14,9 +14,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Solid__Device)
 typedef Solid::Device Solid__Device;
-#endif
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_Solid__Predicate)
 typedef Solid::Predicate Solid__Predicate;
 #endif

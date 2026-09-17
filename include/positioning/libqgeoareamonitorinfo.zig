@@ -6,6 +6,26 @@ const QVariant = @import("libqt6").QVariant;
 const std = @import("std");
 const ArrayMap_constu8_QVariant = std.array_hash_map.String(QVariant);
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo-h.html)
+pub const qgeoareamonitorinfo_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QGeoAreaMonitorInfo `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QGeoAreaMonitorInfo;
+        return qtc.qgeoareamonitorinfo_h_QHash(@ptrCast(key.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html)
 pub const QGeoAreaMonitorInfo = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html)

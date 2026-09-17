@@ -205,3 +205,7 @@ bool QGeoAddress_IsTextGenerated(const QGeoAddress* self) {
 void QGeoAddress_Delete(QGeoAddress* self) {
     delete self;
 }
+
+size_t qgeoaddress_h_QHash(const QGeoAddress* address, size_t seed) {
+    return qHash(*address, static_cast<size_t>(seed));
+}

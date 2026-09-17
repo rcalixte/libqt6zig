@@ -239,7 +239,7 @@ pub const QKeyCombination = extern struct {
     ///
     pub const ToInt = toInt;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#operator-int)
     ///
     /// ## Parameter(s):
     ///

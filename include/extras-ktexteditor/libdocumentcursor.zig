@@ -346,6 +346,20 @@ pub const KTextEditor__DocumentCursor = extern struct {
         return .{ .ptr = qtc.KTextEditor__DocumentCursor_ToCursor(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `toCursor2` instead
+    ///
+    pub const ToCursor2 = toCursor2;
+
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-documentcursor.html#operator-KTextEditor-3a-3aCursor)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTextEditor__DocumentCursor `
+    ///
+    pub fn toCursor2(self: KTextEditor__DocumentCursor) KTextEditor__Cursor {
+        return .{ .ptr = qtc.KTextEditor__DocumentCursor_ToCursor2(@ptrCast(self.ptr)) };
+    }
+
     /// ### DEPRECATED: Use `operatorAssign` instead
     ///
     pub const OperatorAssign = operatorAssign;

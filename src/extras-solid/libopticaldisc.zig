@@ -8,6 +8,7 @@ const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
 const QObject = @import("libqt6").QObject;
 const QThread = @import("libqt6").QThread;
 const QVariant = @import("libqt6").QVariant;
+const Solid__Device = @import("libqt6").Solid__Device;
 const deviceinterface_enums = @import("libdeviceinterface.zig").enums;
 const opticaldisc_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
@@ -374,6 +375,22 @@ pub const Solid__OpticalDisc = extern struct {
     ///
     pub fn size(self: Solid__OpticalDisc) usize {
         return qtc.Solid__StorageVolume_Size(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `encryptedContainer` instead
+    ///
+    pub const EncryptedContainer = encryptedContainer;
+
+    /// Inherited from Solid::StorageVolume
+    ///
+    /// ### [Upstream resources](https://api.kde.org/solid-storagevolume.html#encryptedContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__OpticalDisc `
+    ///
+    pub fn encryptedContainer(self: Solid__OpticalDisc) Solid__Device {
+        return .{ .ptr = qtc.Solid__StorageVolume_EncryptedContainer(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `isValid` instead

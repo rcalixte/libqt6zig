@@ -1321,6 +1321,26 @@ pub const QCborMap = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html)
+pub const qcbormap = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` map: QCborMap `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(map: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(map)._is_QCborMap;
+        return qtc.qcbormap_QHash(@ptrCast(map.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-iterator.html)
 pub const QCborMap__Iterator = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-iterator.html)

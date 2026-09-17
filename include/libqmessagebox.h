@@ -362,6 +362,8 @@ void QMessageBox_OnGetDecodedMetricF(const QMessageBox* self, intptr_t slot);
 double QMessageBox_SuperGetDecodedMetricF(const QMessageBox* self, int metricA, int metricB);
 void QMessageBox_Delete(QMessageBox* self);
 
+void qmessagebox_h_QRequireVersion(int argc, char** argv, libqt_string req);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

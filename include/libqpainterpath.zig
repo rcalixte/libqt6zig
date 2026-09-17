@@ -3,8 +3,10 @@ const qtc = @import("qt6c");
 const QFont = @import("libqt6").QFont;
 const QPen = @import("libqt6").QPen;
 const QPointF = @import("libqt6").QPointF;
+const QPolygonF = @import("libqt6").QPolygonF;
 const QRectF = @import("libqt6").QRectF;
 const QRegion = @import("libqt6").QRegion;
+const QTransform = @import("libqt6").QTransform;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qpainterpath_enums = enums;
 const std = @import("std");
@@ -515,6 +517,23 @@ pub const QPainterPath = extern struct {
         qtc.QPainterPath_AddEllipse3(@ptrCast(self.ptr), @ptrCast(center.ptr), @bitCast(rx), @bitCast(ry));
     }
 
+    /// ### DEPRECATED: Use `addPolygon` instead
+    ///
+    pub const AddPolygon = addPolygon;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#addPolygon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPainterPath `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    pub fn addPolygon(self: QPainterPath, polygon: anytype) void {
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        qtc.QPainterPath_AddPolygon(@ptrCast(self.ptr), @ptrCast(polygon.ptr));
+    }
+
     /// ### DEPRECATED: Use `addText` instead
     ///
     pub const AddText = addText;
@@ -875,6 +894,64 @@ pub const QPainterPath = extern struct {
     ///
     pub fn toReversed(self: QPainterPath) QPainterPath {
         return .{ .ptr = qtc.QPainterPath_ToReversed(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `toSubpathPolygons` instead
+    ///
+    pub const ToSubpathPolygons = toSubpathPolygons;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#toSubpathPolygons)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPainterPath `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn toSubpathPolygons(self: QPainterPath, allocator: std.mem.Allocator) []QPolygonF {
+        const _arr: qtc.libqt_list = qtc.QPainterPath_ToSubpathPolygons(@ptrCast(self.ptr));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QPolygonF, _arr.len) catch @panic("QPainterPath.toSubpathPolygons: Memory allocation failed");
+        const _data_val: [*]QtC.QPolygonF = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `toFillPolygons` instead
+    ///
+    pub const ToFillPolygons = toFillPolygons;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#toFillPolygons)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPainterPath `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn toFillPolygons(self: QPainterPath, allocator: std.mem.Allocator) []QPolygonF {
+        const _arr: qtc.libqt_list = qtc.QPainterPath_ToFillPolygons(@ptrCast(self.ptr));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QPolygonF, _arr.len) catch @panic("QPainterPath.toFillPolygons: Memory allocation failed");
+        const _data_val: [*]QtC.QPolygonF = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `toFillPolygon` instead
+    ///
+    pub const ToFillPolygon = toFillPolygon;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#toFillPolygon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPainterPath `
+    ///
+    pub fn toFillPolygon(self: QPainterPath) QPolygonF {
+        return .{ .ptr = qtc.QPainterPath_ToFillPolygon(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `elementCount` instead
@@ -1323,6 +1400,73 @@ pub const QPainterPath = extern struct {
     ///
     pub fn addRoundedRect7(self: QPainterPath, x: f64, y: f64, w: f64, h: f64, xRadius: f64, yRadius: f64, mode: i32) void {
         qtc.QPainterPath_AddRoundedRect7(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xRadius), @bitCast(yRadius), @bitCast(mode));
+    }
+
+    /// ### DEPRECATED: Use `toSubpathPolygons1` instead
+    ///
+    pub const ToSubpathPolygons1 = toSubpathPolygons1;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#toSubpathPolygons)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPainterPath `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` matrix: QTransform `
+    ///
+    pub fn toSubpathPolygons1(self: QPainterPath, allocator: std.mem.Allocator, matrix: anytype) []QPolygonF {
+        comptime _ = @TypeOf(matrix)._is_QTransform;
+        const _arr: qtc.libqt_list = qtc.QPainterPath_ToSubpathPolygons1(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QPolygonF, _arr.len) catch @panic("QPainterPath.toSubpathPolygons1: Memory allocation failed");
+        const _data_val: [*]QtC.QPolygonF = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `toFillPolygons1` instead
+    ///
+    pub const ToFillPolygons1 = toFillPolygons1;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#toFillPolygons)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPainterPath `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` matrix: QTransform `
+    ///
+    pub fn toFillPolygons1(self: QPainterPath, allocator: std.mem.Allocator, matrix: anytype) []QPolygonF {
+        comptime _ = @TypeOf(matrix)._is_QTransform;
+        const _arr: qtc.libqt_list = qtc.QPainterPath_ToFillPolygons1(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QPolygonF, _arr.len) catch @panic("QPainterPath.toFillPolygons1: Memory allocation failed");
+        const _data_val: [*]QtC.QPolygonF = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `toFillPolygon1` instead
+    ///
+    pub const ToFillPolygon1 = toFillPolygon1;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath.html#toFillPolygon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPainterPath `
+    ///
+    /// ` matrix: QTransform `
+    ///
+    pub fn toFillPolygon1(self: QPainterPath, matrix: anytype) QPolygonF {
+        comptime _ = @TypeOf(matrix)._is_QTransform;
+        return .{ .ptr = qtc.QPainterPath_ToFillPolygon1(@ptrCast(self.ptr), @ptrCast(matrix.ptr)) };
     }
 
     /// ### DEPRECATED: Use `delete` instead
@@ -1833,7 +1977,7 @@ pub const QPainterPath__Element = extern struct {
     ///
     pub const ToQPointF = toQPointF;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainterpath-element.html#operator-QPointF)
     ///
     /// ## Parameter(s):
     ///

@@ -11,6 +11,26 @@ const qsslcertificate_enums = enums;
 const std = @import("std");
 const ArrayMap_i32_constconstu8 = std.array_hash_map.Auto(i32, []const []const u8);
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate-h.html)
+pub const qsslcertificate_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QSslCertificate `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QSslCertificate;
+        return qtc.qsslcertificate_h_QHash(@ptrCast(key.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html)
 pub const QSslCertificate = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcertificate.html)

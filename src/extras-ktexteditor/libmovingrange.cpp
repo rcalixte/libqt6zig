@@ -86,6 +86,10 @@ KTextEditor__Range* KTextEditor__MovingRange_ToRange(const KTextEditor__MovingRa
     return new KTextEditor::Range(self->toRange());
 }
 
+KTextEditor__Range* KTextEditor__MovingRange_ToRange2(const KTextEditor__MovingRange* self) {
+    return new KTextEditor::Range(self->operator KTextEditor::Range());
+}
+
 KTextEditor__LineRange* KTextEditor__MovingRange_ToLineRange(const KTextEditor__MovingRange* self) {
     return new KTextEditor::LineRange(self->toLineRange());
 }

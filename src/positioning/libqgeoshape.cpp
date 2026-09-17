@@ -57,3 +57,7 @@ libqt_string QGeoShape_ToString(const QGeoShape* self) {
 void QGeoShape_Delete(QGeoShape* self) {
     delete self;
 }
+
+size_t qgeoshape_h_QHash(const QGeoShape* shape, size_t seed) {
+    return qHash(*shape, static_cast<size_t>(seed));
+}

@@ -5,6 +5,8 @@ const QLineF = @import("libqt6").QLineF;
 const QPainterPath = @import("libqt6").QPainterPath;
 const QPoint = @import("libqt6").QPoint;
 const QPointF = @import("libqt6").QPointF;
+const QPolygon = @import("libqt6").QPolygon;
+const QPolygonF = @import("libqt6").QPolygonF;
 const QRect = @import("libqt6").QRect;
 const QRectF = @import("libqt6").QRectF;
 const QRegion = @import("libqt6").QRegion;
@@ -664,6 +666,63 @@ pub const QTransform = extern struct {
         return .{ .ptr = qtc.QTransform_RotateRadians2(@ptrCast(self.ptr), @bitCast(a)) };
     }
 
+    /// ### DEPRECATED: Use `squareToQuad` instead
+    ///
+    pub const SquareToQuad = squareToQuad;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#squareToQuad)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` square: QPolygonF `
+    ///
+    /// ` result: QTransform `
+    ///
+    pub fn squareToQuad(square: anytype, result: anytype) bool {
+        comptime _ = @TypeOf(square)._is_QPolygonF;
+        comptime _ = @TypeOf(result)._is_QTransform;
+        return qtc.QTransform_SquareToQuad(@ptrCast(square.ptr), @ptrCast(result.ptr));
+    }
+
+    /// ### DEPRECATED: Use `quadToSquare` instead
+    ///
+    pub const QuadToSquare = quadToSquare;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#quadToSquare)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` quad: QPolygonF `
+    ///
+    /// ` result: QTransform `
+    ///
+    pub fn quadToSquare(quad: anytype, result: anytype) bool {
+        comptime _ = @TypeOf(quad)._is_QPolygonF;
+        comptime _ = @TypeOf(result)._is_QTransform;
+        return qtc.QTransform_QuadToSquare(@ptrCast(quad.ptr), @ptrCast(result.ptr));
+    }
+
+    /// ### DEPRECATED: Use `quadToQuad` instead
+    ///
+    pub const QuadToQuad = quadToQuad;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#quadToQuad)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` one: QPolygonF `
+    ///
+    /// ` two: QPolygonF `
+    ///
+    /// ` result: QTransform `
+    ///
+    pub fn quadToQuad(one: anytype, two: anytype, result: anytype) bool {
+        comptime _ = @TypeOf(one)._is_QPolygonF;
+        comptime _ = @TypeOf(two)._is_QPolygonF;
+        comptime _ = @TypeOf(result)._is_QTransform;
+        return qtc.QTransform_QuadToQuad(@ptrCast(one.ptr), @ptrCast(two.ptr), @ptrCast(result.ptr));
+    }
+
     /// ### DEPRECATED: Use `operatorEqual` instead
     ///
     pub const OperatorEqual = operatorEqual;
@@ -736,7 +795,7 @@ pub const QTransform = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///
@@ -828,6 +887,40 @@ pub const QTransform = extern struct {
         return .{ .ptr = qtc.QTransform_Map4(@ptrCast(self.ptr), @ptrCast(l.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `map5` instead
+    ///
+    pub const Map5 = map5;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#map)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTransform `
+    ///
+    /// ` a: QPolygonF `
+    ///
+    pub fn map5(self: QTransform, a: anytype) QPolygonF {
+        comptime _ = @TypeOf(a)._is_QPolygonF;
+        return .{ .ptr = qtc.QTransform_Map5(@ptrCast(self.ptr), @ptrCast(a.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `map6` instead
+    ///
+    pub const Map6 = map6;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#map)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTransform `
+    ///
+    /// ` a: QPolygon `
+    ///
+    pub fn map6(self: QTransform, a: anytype) QPolygon {
+        comptime _ = @TypeOf(a)._is_QPolygon;
+        return .{ .ptr = qtc.QTransform_Map6(@ptrCast(self.ptr), @ptrCast(a.ptr)) };
+    }
+
     /// ### DEPRECATED: Use `map7` instead
     ///
     pub const Map7 = map7;
@@ -860,6 +953,23 @@ pub const QTransform = extern struct {
     pub fn map8(self: QTransform, p: anytype) QPainterPath {
         comptime _ = @TypeOf(p)._is_QPainterPath;
         return .{ .ptr = qtc.QTransform_Map8(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `mapToPolygon` instead
+    ///
+    pub const MapToPolygon = mapToPolygon;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform.html#mapToPolygon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTransform `
+    ///
+    /// ` r: QRect `
+    ///
+    pub fn mapToPolygon(self: QTransform, r: anytype) QPolygon {
+        comptime _ = @TypeOf(r)._is_QRect;
+        return .{ .ptr = qtc.QTransform_MapToPolygon(@ptrCast(self.ptr), @ptrCast(r.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapRect` instead
@@ -1102,6 +1212,44 @@ pub const QTransform = extern struct {
     ///
     pub fn delete(self: QTransform) void {
         qtc.QTransform_Delete(@ptrCast(self.ptr));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform-h.html)
+pub const qtransform_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QTransform `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QTransform;
+        return qtc.qtransform_h_QHash(@ptrCast(key.ptr), @bitCast(seed));
+    }
+
+    /// ### DEPRECATED: Use `qFuzzyCompare` instead
+    ///
+    pub const QFuzzyCompare = qFuzzyCompare;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtransform-h.html#qFuzzyCompare)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` t1: QTransform `
+    ///
+    /// ` t2: QTransform `
+    ///
+    pub fn qFuzzyCompare(t1: anytype, t2: anytype) bool {
+        comptime _ = @TypeOf(t1)._is_QTransform;
+        comptime _ = @TypeOf(t2)._is_QTransform;
+        return qtc.qtransform_h_QFuzzyCompare(@ptrCast(t1.ptr), @ptrCast(t2.ptr));
     }
 };
 

@@ -2441,7 +2441,7 @@ pub const KTextEditor__Attribute = extern struct {
 
     /// Inherited from QTextFormat
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///

@@ -211,7 +211,7 @@ pub const QTextLength = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlength.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlength.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///
@@ -968,7 +968,7 @@ pub const QTextFormat = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///
@@ -3054,7 +3054,7 @@ pub const QTextCharFormat = extern struct {
 
     /// Inherited from QTextFormat
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///
@@ -4470,7 +4470,7 @@ pub const QTextBlockFormat = extern struct {
 
     /// Inherited from QTextFormat
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///
@@ -5612,7 +5612,7 @@ pub const QTextListFormat = extern struct {
 
     /// Inherited from QTextFormat
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///
@@ -8026,7 +8026,7 @@ pub const QTextImageFormat = extern struct {
 
     /// Inherited from QTextFormat
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///
@@ -9431,7 +9431,7 @@ pub const QTextFrameFormat = extern struct {
 
     /// Inherited from QTextFormat
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///
@@ -11133,7 +11133,7 @@ pub const QTextTableFormat = extern struct {
 
     /// Inherited from QTextFormat
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///
@@ -13937,7 +13937,7 @@ pub const QTextTableCellFormat = extern struct {
 
     /// Inherited from QTextFormat
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextformat.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///

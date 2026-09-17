@@ -5,6 +5,10 @@
 #include "libqgeopositioninfo.h"
 #include "libqgeopositioninfo.hxx"
 
+size_t qgeopositioninfo_h_QHash(const QGeoPositionInfo* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}
+
 QGeoPositionInfo* QGeoPositionInfo_new() {
     return new QGeoPositionInfo();
 }

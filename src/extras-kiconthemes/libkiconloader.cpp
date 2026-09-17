@@ -12,6 +12,7 @@
 #include <QObject>
 #include <QPalette>
 #include <QPixmap>
+#include <QSize>
 #include <QString>
 #include <QTimerEvent>
 #include <kiconloader.h>
@@ -87,6 +88,16 @@ void KIconLoader_AddAppDir(KIconLoader* self, const libqt_string appname) {
 QPixmap* KIconLoader_LoadIcon(const KIconLoader* self, const libqt_string name, int group) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     return new QPixmap(self->loadIcon(name_QString, static_cast<KIconLoader::Group>(group)));
+}
+
+QPixmap* KIconLoader_LoadScaledIcon(const KIconLoader* self, const libqt_string name, int group, double scale) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return new QPixmap(self->loadScaledIcon(name_QString, static_cast<KIconLoader::Group>(group), static_cast<qreal>(scale), 0));
+}
+
+QPixmap* KIconLoader_LoadScaledIcon2(const KIconLoader* self, const libqt_string name, int group, double scale) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return new QPixmap(self->loadScaledIcon(name_QString, static_cast<KIconLoader::Group>(group), static_cast<qreal>(scale), QSize()));
 }
 
 QPixmap* KIconLoader_LoadMimeTypeIcon(const KIconLoader* self, const libqt_string iconName, int group) {
@@ -404,6 +415,50 @@ QPixmap* KIconLoader_LoadIcon5(const KIconLoader* self, const libqt_string name,
         overlays_QList.push_back(overlays_arr_i_QString);
     }
     return new QPixmap(self->loadIcon(name_QString, static_cast<KIconLoader::Group>(group), static_cast<int>(size), static_cast<int>(state), overlays_QList));
+}
+
+QPixmap* KIconLoader_LoadScaledIcon4(const KIconLoader* self, const libqt_string name, int group, double scale, int size) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return new QPixmap(self->loadScaledIcon(name_QString, static_cast<KIconLoader::Group>(group), static_cast<qreal>(scale), static_cast<int>(size)));
+}
+
+QPixmap* KIconLoader_LoadScaledIcon5(const KIconLoader* self, const libqt_string name, int group, double scale, int size, int state) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return new QPixmap(self->loadScaledIcon(name_QString, static_cast<KIconLoader::Group>(group), static_cast<qreal>(scale), static_cast<int>(size), static_cast<int>(state)));
+}
+
+QPixmap* KIconLoader_LoadScaledIcon6(const KIconLoader* self, const libqt_string name, int group, double scale, int size, int state, const libqt_list /* of libqt_string */ overlays) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QList<QString> overlays_QList;
+    overlays_QList.reserve(overlays.len);
+    libqt_string* overlays_arr = static_cast<libqt_string*>(overlays.data);
+    for (size_t i = 0; i < overlays.len; ++i) {
+        QString overlays_arr_i_QString = QString::fromUtf8(overlays_arr[i].data, overlays_arr[i].len);
+        overlays_QList.push_back(overlays_arr_i_QString);
+    }
+    return new QPixmap(self->loadScaledIcon(name_QString, static_cast<KIconLoader::Group>(group), static_cast<qreal>(scale), static_cast<int>(size), static_cast<int>(state), overlays_QList));
+}
+
+QPixmap* KIconLoader_LoadScaledIcon42(const KIconLoader* self, const libqt_string name, int group, double scale, const QSize* size) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return new QPixmap(self->loadScaledIcon(name_QString, static_cast<KIconLoader::Group>(group), static_cast<qreal>(scale), *size));
+}
+
+QPixmap* KIconLoader_LoadScaledIcon52(const KIconLoader* self, const libqt_string name, int group, double scale, const QSize* size, int state) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return new QPixmap(self->loadScaledIcon(name_QString, static_cast<KIconLoader::Group>(group), static_cast<qreal>(scale), *size, static_cast<int>(state)));
+}
+
+QPixmap* KIconLoader_LoadScaledIcon62(const KIconLoader* self, const libqt_string name, int group, double scale, const QSize* size, int state, const libqt_list /* of libqt_string */ overlays) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QList<QString> overlays_QList;
+    overlays_QList.reserve(overlays.len);
+    libqt_string* overlays_arr = static_cast<libqt_string*>(overlays.data);
+    for (size_t i = 0; i < overlays.len; ++i) {
+        QString overlays_arr_i_QString = QString::fromUtf8(overlays_arr[i].data, overlays_arr[i].len);
+        overlays_QList.push_back(overlays_arr_i_QString);
+    }
+    return new QPixmap(self->loadScaledIcon(name_QString, static_cast<KIconLoader::Group>(group), static_cast<qreal>(scale), *size, static_cast<int>(state), overlays_QList));
 }
 
 QPixmap* KIconLoader_LoadMimeTypeIcon3(const KIconLoader* self, const libqt_string iconName, int group, int size) {

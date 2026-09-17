@@ -361,6 +361,26 @@ pub const QGeoCoordinate = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate-h.html)
+pub const qgeocoordinate_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` coordinate: QGeoCoordinate `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(coordinate: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
+        return qtc.qgeocoordinate_h_QHash(@ptrCast(coordinate.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocoordinate.html#public-types)
 pub const enums = struct {
     pub const CoordinateType = enum {

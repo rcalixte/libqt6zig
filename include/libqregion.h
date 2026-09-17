@@ -17,6 +17,7 @@ extern "C" {
 #else
 typedef struct QBitmap QBitmap;
 typedef struct QPoint QPoint;
+typedef struct QPolygon QPolygon;
 typedef struct QRect QRect;
 typedef struct QRegion QRegion;
 typedef struct QVariant QVariant;
@@ -25,10 +26,12 @@ typedef struct QVariant QVariant;
 QRegion* QRegion_new();
 QRegion* QRegion_new2(int x, int y, int w, int h);
 QRegion* QRegion_new3(const QRect* r);
-QRegion* QRegion_new4(const QRegion* region);
-QRegion* QRegion_new5(const QBitmap* bitmap);
-QRegion* QRegion_new6(int x, int y, int w, int h, int t);
-QRegion* QRegion_new7(const QRect* r, int t);
+QRegion* QRegion_new4(const QPolygon* pa);
+QRegion* QRegion_new5(const QRegion* region);
+QRegion* QRegion_new6(const QBitmap* bitmap);
+QRegion* QRegion_new7(int x, int y, int w, int h, int t);
+QRegion* QRegion_new8(const QRect* r, int t);
+QRegion* QRegion_new9(const QPolygon* pa, int fillRule);
 void QRegion_OperatorAssign(QRegion* self, const QRegion* param1);
 void QRegion_Swap(QRegion* self, QRegion* other);
 bool QRegion_IsEmpty(const QRegion* self);

@@ -103,3 +103,7 @@ libqt_string QGeoCoordinate_ToString1(const QGeoCoordinate* self, int format) {
 void QGeoCoordinate_Delete(QGeoCoordinate* self) {
     delete self;
 }
+
+size_t qgeocoordinate_h_QHash(const QGeoCoordinate* coordinate, size_t seed) {
+    return qHash(*coordinate, static_cast<size_t>(seed));
+}

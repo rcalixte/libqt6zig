@@ -21,6 +21,8 @@ typedef struct QGeoShape QGeoShape;
 typedef struct QVariant QVariant;
 #endif
 
+size_t qgeoareamonitorinfo_h_QHash(const QGeoAreaMonitorInfo* key, size_t seed);
+
 QGeoAreaMonitorInfo* QGeoAreaMonitorInfo_new();
 QGeoAreaMonitorInfo* QGeoAreaMonitorInfo_new2(const QGeoAreaMonitorInfo* other);
 QGeoAreaMonitorInfo* QGeoAreaMonitorInfo_new3(const libqt_string name);

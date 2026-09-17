@@ -214,6 +214,18 @@ void QModelIndex_Delete(QModelIndex* self) {
     delete self;
 }
 
+size_t qabstractitemmodel_QHash(const QPersistentModelIndex* index, size_t seed) {
+    return qHash(*index, static_cast<size_t>(seed));
+}
+
+size_t qabstractitemmodel_QHash2(const QPersistentModelIndex* index, size_t seed) {
+    return qHash(*index, static_cast<size_t>(seed));
+}
+
+size_t qabstractitemmodel_QHash3(const QModelIndex* index, size_t seed) {
+    return qHash(*index, static_cast<size_t>(seed));
+}
+
 QPersistentModelIndex* QPersistentModelIndex_new() {
     return new QPersistentModelIndex();
 }

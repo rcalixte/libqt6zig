@@ -240,7 +240,7 @@ pub const QBrush = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///

@@ -59,6 +59,7 @@ double KTextEditor__MovingRange_ZDepth(const KTextEditor__MovingRange* self);
 void KTextEditor__MovingRange_SetZDepth(KTextEditor__MovingRange* self, double zDepth);
 void KTextEditor__MovingRange_SetRange4(KTextEditor__MovingRange* self, KTextEditor__Cursor* start, KTextEditor__Cursor* end);
 KTextEditor__Range* KTextEditor__MovingRange_ToRange(const KTextEditor__MovingRange* self);
+KTextEditor__Range* KTextEditor__MovingRange_ToRange2(const KTextEditor__MovingRange* self);
 KTextEditor__LineRange* KTextEditor__MovingRange_ToLineRange(const KTextEditor__MovingRange* self);
 bool KTextEditor__MovingRange_IsEmpty(const KTextEditor__MovingRange* self);
 bool KTextEditor__MovingRange_Contains(const KTextEditor__MovingRange* self, const KTextEditor__Range* range);

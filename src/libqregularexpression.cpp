@@ -7,6 +7,10 @@
 #include "libqregularexpression.h"
 #include "libqregularexpression.hxx"
 
+size_t qregularexpression_QHash(const QRegularExpression* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}
+
 QRegularExpression* QRegularExpression_new() {
     return new QRegularExpression();
 }

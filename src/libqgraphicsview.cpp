@@ -33,6 +33,8 @@
 #include <QPainterPath>
 #include <QPoint>
 #include <QPointF>
+#include <QPolygon>
+#include <QPolygonF>
 #include <QRect>
 #include <QRectF>
 #include <QResizeEvent>
@@ -352,6 +354,19 @@ libqt_list /* of QGraphicsItem* */ QGraphicsView_Items5(const QGraphicsView* sel
     return _out;
 }
 
+libqt_list /* of QGraphicsItem* */ QGraphicsView_Items6(const QGraphicsView* self, const QPolygon* polygon) {
+    QList<QGraphicsItem*> _ret = self->items(*polygon);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
 libqt_list /* of QGraphicsItem* */ QGraphicsView_Items7(const QGraphicsView* self, const QPainterPath* path) {
     QList<QGraphicsItem*> _ret = self->items(*path);
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -377,12 +392,28 @@ QPointF* QGraphicsView_MapToScene(const QGraphicsView* self, const QPoint* point
     return new QPointF(self->mapToScene(*point));
 }
 
+QPolygonF* QGraphicsView_MapToScene2(const QGraphicsView* self, const QRect* rect) {
+    return new QPolygonF(self->mapToScene(*rect));
+}
+
+QPolygonF* QGraphicsView_MapToScene3(const QGraphicsView* self, const QPolygon* polygon) {
+    return new QPolygonF(self->mapToScene(*polygon));
+}
+
 QPainterPath* QGraphicsView_MapToScene4(const QGraphicsView* self, const QPainterPath* path) {
     return new QPainterPath(self->mapToScene(*path));
 }
 
 QPoint* QGraphicsView_MapFromScene(const QGraphicsView* self, const QPointF* point) {
     return new QPoint(self->mapFromScene(*point));
+}
+
+QPolygon* QGraphicsView_MapFromScene2(const QGraphicsView* self, const QRectF* rect) {
+    return new QPolygon(self->mapFromScene(*rect));
+}
+
+QPolygon* QGraphicsView_MapFromScene3(const QGraphicsView* self, const QPolygonF* polygon) {
+    return new QPolygon(self->mapFromScene(*polygon));
 }
 
 QPainterPath* QGraphicsView_MapFromScene4(const QGraphicsView* self, const QPainterPath* path) {
@@ -393,8 +424,16 @@ QPointF* QGraphicsView_MapToScene5(const QGraphicsView* self, int x, int y) {
     return new QPointF(self->mapToScene(static_cast<int>(x), static_cast<int>(y)));
 }
 
+QPolygonF* QGraphicsView_MapToScene6(const QGraphicsView* self, int x, int y, int w, int h) {
+    return new QPolygonF(self->mapToScene(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h)));
+}
+
 QPoint* QGraphicsView_MapFromScene5(const QGraphicsView* self, double x, double y) {
     return new QPoint(self->mapFromScene(static_cast<qreal>(x), static_cast<qreal>(y)));
+}
+
+QPolygon* QGraphicsView_MapFromScene6(const QGraphicsView* self, double x, double y, double w, double h) {
+    return new QPolygon(self->mapFromScene(static_cast<qreal>(x), static_cast<qreal>(y), static_cast<qreal>(w), static_cast<qreal>(h)));
 }
 
 QVariant* QGraphicsView_InputMethodQuery(const QGraphicsView* self, int query) {
@@ -733,6 +772,19 @@ libqt_list /* of QGraphicsItem* */ QGraphicsView_Items22(const QGraphicsView* se
 
 libqt_list /* of QGraphicsItem* */ QGraphicsView_Items52(const QGraphicsView* self, int x, int y, int w, int h, int mode) {
     QList<QGraphicsItem*> _ret = self->items(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<Qt::ItemSelectionMode>(mode));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
+libqt_list /* of QGraphicsItem* */ QGraphicsView_Items23(const QGraphicsView* self, const QPolygon* polygon, int mode) {
+    QList<QGraphicsItem*> _ret = self->items(*polygon, static_cast<Qt::ItemSelectionMode>(mode));
     // Convert QList<> from C++ memory to manually-managed C memory
     QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {

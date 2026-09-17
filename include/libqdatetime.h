@@ -218,6 +218,10 @@ QDateTime* QDateTime_FromMSecsSinceEpoch32(long long msecs, int spec, int offset
 QDateTime* QDateTime_FromSecsSinceEpoch32(long long secs, int spec, int offsetFromUtc);
 void QDateTime_Delete(QDateTime* self);
 
+size_t qdatetime_QHash(const QDateTime* key, size_t seed);
+size_t qdatetime_QHash2(QDate* key, size_t seed);
+size_t qdatetime_QHash3(QTime* key, size_t seed);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

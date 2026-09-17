@@ -509,3 +509,7 @@ libqt_string KPluginMetaData_Value23(const KPluginMetaData* self, const libqt_st
 void KPluginMetaData_Delete(KPluginMetaData* self) {
     delete self;
 }
+
+size_t kpluginmetadata_h_QHash(const KPluginMetaData* md, size_t seed) {
+    return qHash(*md, static_cast<size_t>(seed));
+}

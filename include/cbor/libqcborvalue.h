@@ -283,6 +283,8 @@ void QCborValueRef_ToCbor22(QCborValueRef* self, QCborStreamWriter* writer, int 
 libqt_string QCborValueRef_ToDiagnosticNotation1(QCborValueRef* self, int opt);
 void QCborValueRef_Delete(QCborValueRef* self);
 
+size_t qcborvalue_QHash(const QCborValue* value, size_t seed);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

@@ -236,6 +236,19 @@ pub const QLibraryInfo = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html)
+pub const qlibraryinfo = extern struct {
+    /// ### DEPRECATED: Use `qSharedBuild` instead
+    ///
+    pub const QSharedBuild = qSharedBuild;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#qSharedBuild)
+    ///
+    pub fn qSharedBuild() bool {
+        return qtc.qlibraryinfo_QSharedBuild();
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlibraryinfo.html#public-types)
 pub const enums = struct {
     pub const LibraryPath = enum {

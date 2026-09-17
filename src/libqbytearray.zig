@@ -519,6 +519,122 @@ pub const QByteArray = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearray.html)
+pub const qbytearray = extern struct {
+    /// ### DEPRECATED: Use `qCompress` instead
+    ///
+    pub const QCompress = qCompress;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearray.html#qCompress)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` _data: *const u8 `
+    ///
+    /// ` nbytes: isize `
+    ///
+    /// ` compressionLevel: i32 `
+    ///
+    pub fn qCompress(allocator: std.mem.Allocator, _data: *const u8, nbytes: isize, compressionLevel: i32) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.qbytearray_QCompress(@ptrCast(_data), @bitCast(nbytes), @bitCast(compressionLevel));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearray.qCompress: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `qUncompress` instead
+    ///
+    pub const QUncompress = qUncompress;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearray.html#qUncompress)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` _data: *const u8 `
+    ///
+    /// ` nbytes: isize `
+    ///
+    pub fn qUncompress(allocator: std.mem.Allocator, _data: *const u8, nbytes: isize) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.qbytearray_QUncompress(@ptrCast(_data), @bitCast(nbytes));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearray.qUncompress: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `qCompress2` instead
+    ///
+    pub const QCompress2 = qCompress2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearray.html#qCompress)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` _data: []u8 `
+    ///
+    /// ` compressionLevel: i32 `
+    ///
+    pub fn qCompress2(allocator: std.mem.Allocator, _data: []u8, compressionLevel: i32) []u8 {
+        const data_str = qtc.libqt_string{
+            .len = _data.len,
+            .data = _data.ptr,
+        };
+        var _bytearray: qtc.libqt_string = qtc.qbytearray_QCompress2(data_str, @bitCast(compressionLevel));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearray.qCompress2: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `qUncompress2` instead
+    ///
+    pub const QUncompress2 = qUncompress2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearray.html#qUncompress)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` _data: []u8 `
+    ///
+    pub fn qUncompress2(allocator: std.mem.Allocator, _data: []u8) []u8 {
+        const data_str = qtc.libqt_string{
+            .len = _data.len,
+            .data = _data.ptr,
+        };
+        var _bytearray: qtc.libqt_string = qtc.qbytearray_QUncompress2(data_str);
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearray.qUncompress2: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearray.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QByteArray__FromBase64Result `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QByteArray__FromBase64Result;
+        return qtc.qbytearray_QHash(@ptrCast(key.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearray-frombase64result.html)
 pub const QByteArray__FromBase64Result = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearray-frombase64result.html)
@@ -649,7 +765,7 @@ pub const QByteArray__FromBase64Result = extern struct {
     ///
     pub const ToBool = toBool;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearray-frombase64result.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearray-frombase64result.html#operator-bool)
     ///
     /// ## Parameter(s):
     ///

@@ -592,6 +592,26 @@ pub const QUuid = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/quuid.html)
+pub const quuid = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` uuid: QUuid `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(uuid: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(uuid)._is_QUuid;
+        return qtc.quuid_QHash(@ptrCast(uuid.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid-id128bytes.html)
 pub const QUuid__Id128Bytes = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid-id128bytes.html)
@@ -631,7 +651,7 @@ pub const QUuid__Id128Bytes = extern struct {
     ///
     pub const ToQByteArrayView = toQByteArrayView;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid-id128bytes.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid-id128bytes.html#operator-QByteArrayView)
     ///
     /// ## Parameter(s):
     ///

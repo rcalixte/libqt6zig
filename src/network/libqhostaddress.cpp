@@ -26,6 +26,10 @@ void QIPv6Address_Delete(QIPv6Address* self) {
     delete self;
 }
 
+size_t qhostaddress_h_QHash(const QHostAddress* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}
+
 QHostAddress* QHostAddress_new() {
     return new QHostAddress();
 }

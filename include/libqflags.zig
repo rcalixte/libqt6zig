@@ -146,7 +146,7 @@ pub const QFlag = extern struct {
     ///
     pub const ToInt = toInt;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qflag.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qflag.html#operator-int)
     ///
     /// ## Parameter(s):
     ///
@@ -160,7 +160,7 @@ pub const QFlag = extern struct {
     ///
     pub const ToUnsignedInt = toUnsignedInt;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qflag.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qflag.html#operator-unsigned-int)
     ///
     /// ## Parameter(s):
     ///
@@ -290,7 +290,7 @@ pub const QIncompatibleFlag = extern struct {
     ///
     pub const ToInt = toInt;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qincompatibleflag.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qincompatibleflag.html#operator-int)
     ///
     /// ## Parameter(s):
     ///

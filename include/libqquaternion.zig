@@ -585,7 +585,7 @@ pub const QQuaternion = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///
@@ -874,5 +874,26 @@ pub const QQuaternion = extern struct {
     ///
     pub fn delete(self: QQuaternion) void {
         qtc.QQuaternion_Delete(@ptrCast(self.ptr));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion-h.html)
+pub const qquaternion_h = extern struct {
+    /// ### DEPRECATED: Use `qFuzzyCompare` instead
+    ///
+    pub const QFuzzyCompare = qFuzzyCompare;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qquaternion-h.html#qFuzzyCompare)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` q1: QQuaternion `
+    ///
+    /// ` q2: QQuaternion `
+    ///
+    pub fn qFuzzyCompare(q1: anytype, q2: anytype) bool {
+        comptime _ = @TypeOf(q1)._is_QQuaternion;
+        comptime _ = @TypeOf(q2)._is_QQuaternion;
+        return qtc.qquaternion_h_QFuzzyCompare(@ptrCast(q1.ptr), @ptrCast(q2.ptr));
     }
 };

@@ -83,6 +83,8 @@ QJsonObject__iterator* QJsonObject_Insert3(QJsonObject* self, libqt_string key, 
 bool QJsonObject_Empty(const QJsonObject* self);
 void QJsonObject_Delete(QJsonObject* self);
 
+size_t qjsonobject_QHash(const QJsonObject* object, size_t seed);
+
 QJsonObject__iterator* QJsonObject__iterator_new(const QJsonObject__iterator* other);
 QJsonObject__iterator* QJsonObject__iterator_new2();
 QJsonObject__iterator* QJsonObject__iterator_new3(QJsonObject* obj, ptrdiff_t index);

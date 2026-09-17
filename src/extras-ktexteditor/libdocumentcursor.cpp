@@ -93,6 +93,10 @@ KTextEditor__Cursor* KTextEditor__DocumentCursor_ToCursor(const KTextEditor__Doc
     return new KTextEditor::Cursor(self->toCursor());
 }
 
+KTextEditor__Cursor* KTextEditor__DocumentCursor_ToCursor2(const KTextEditor__DocumentCursor* self) {
+    return new KTextEditor::Cursor(self->operator KTextEditor::Cursor());
+}
+
 void KTextEditor__DocumentCursor_OperatorAssign(KTextEditor__DocumentCursor* self, const KTextEditor__DocumentCursor* other) {
     self->operator=(*other);
 }

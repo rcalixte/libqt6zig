@@ -106,6 +106,10 @@ bool KProtocolManager_CanDeleteRecursive(const QUrl* url) {
     return KProtocolManager::canDeleteRecursive(*url);
 }
 
+int KProtocolManager_FileNameUsedForCopying(const QUrl* url) {
+    return static_cast<int>(KProtocolManager::fileNameUsedForCopying(*url));
+}
+
 libqt_string KProtocolManager_DefaultMimetype(const QUrl* url) {
     auto _ret = KProtocolManager::defaultMimetype(*url);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

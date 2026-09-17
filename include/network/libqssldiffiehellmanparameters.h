@@ -19,6 +19,8 @@ typedef struct QIODevice QIODevice;
 typedef struct QSslDiffieHellmanParameters QSslDiffieHellmanParameters;
 #endif
 
+size_t qssldiffiehellmanparameters_h_QHash(const QSslDiffieHellmanParameters* dhparam, size_t seed);
+
 QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_new();
 QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_new2(const QSslDiffieHellmanParameters* other);
 QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_DefaultParameters();

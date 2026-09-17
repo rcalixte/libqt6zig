@@ -3,7 +3,7 @@
 #include "libqttranslation.h"
 #include "libqttranslation.hxx"
 
-libqt_string qttranslation_h_QtTrId(const char* id, int n) {
+libqt_string qttranslation_QtTrId(const char* id, int n) {
     auto _ret = qtTrId(id, static_cast<int>(n));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();

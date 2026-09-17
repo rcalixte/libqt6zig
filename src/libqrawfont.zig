@@ -914,6 +914,26 @@ pub const QRawFont = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont-h.html)
+pub const qrawfont_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` font: QRawFont `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(font: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(font)._is_QRawFont;
+        return qtc.qrawfont_h_QHash(@ptrCast(font.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qrawfont.html#public-types)
 pub const enums = struct {
     pub const AntialiasingType = enum {

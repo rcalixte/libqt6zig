@@ -23283,7 +23283,7 @@ pub const QDomDocument__ParseResult = extern struct {
     ///
     pub const ToBool = toBool;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument-parseresult.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument-parseresult.html#operator-bool)
     ///
     /// ## Parameter(s):
     ///

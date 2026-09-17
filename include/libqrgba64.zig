@@ -368,7 +368,7 @@ pub const QRgba64 = extern struct {
     ///
     pub const ToUnsignedLongLong = toUnsignedLongLong;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64.html#operator-unsigned-long-long)
     ///
     /// ## Parameter(s):
     ///
@@ -408,5 +408,128 @@ pub const QRgba64 = extern struct {
     ///
     pub fn delete(self: QRgba64) void {
         qtc.QRgba64_Delete(@ptrCast(self.ptr));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64-h.html)
+pub const qrgba64_h = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64-h.html#qRgba64)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` r: u16 `
+    ///
+    /// ` g: u16 `
+    ///
+    /// ` b: u16 `
+    ///
+    /// ` a: u16 `
+    ///
+    pub fn qRgba64(r: u16, g: u16, b: u16, a: u16) QRgba64 {
+        return .{ .ptr = qtc.qrgba64_h_QRgba64(@bitCast(r), @bitCast(g), @bitCast(b), @bitCast(a)) };
+    }
+
+    /// ### DEPRECATED: Use `qRgba642` instead
+    ///
+    pub const QRgba642 = qRgba642;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64-h.html#qRgba64)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` c: u64 `
+    ///
+    pub fn qRgba642(c: u64) QRgba64 {
+        return .{ .ptr = qtc.qrgba64_h_QRgba642(@bitCast(c)) };
+    }
+
+    /// ### DEPRECATED: Use `qPremultiply` instead
+    ///
+    pub const QPremultiply = qPremultiply;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64-h.html#qPremultiply)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` c: QRgba64 `
+    ///
+    pub fn qPremultiply(c: anytype) QRgba64 {
+        comptime _ = @TypeOf(c)._is_QRgba64;
+        return .{ .ptr = qtc.qrgba64_h_QPremultiply(@ptrCast(c.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `qUnpremultiply` instead
+    ///
+    pub const QUnpremultiply = qUnpremultiply;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64-h.html#qUnpremultiply)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` c: QRgba64 `
+    ///
+    pub fn qUnpremultiply(c: anytype) QRgba64 {
+        comptime _ = @TypeOf(c)._is_QRgba64;
+        return .{ .ptr = qtc.qrgba64_h_QUnpremultiply(@ptrCast(c.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `qRed` instead
+    ///
+    pub const QRed = qRed;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64-h.html#qRed)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` rgb: QRgba64 `
+    ///
+    pub fn qRed(rgb: anytype) u32 {
+        comptime _ = @TypeOf(rgb)._is_QRgba64;
+        return qtc.qrgba64_h_QRed(@ptrCast(rgb.ptr));
+    }
+
+    /// ### DEPRECATED: Use `qGreen` instead
+    ///
+    pub const QGreen = qGreen;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64-h.html#qGreen)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` rgb: QRgba64 `
+    ///
+    pub fn qGreen(rgb: anytype) u32 {
+        comptime _ = @TypeOf(rgb)._is_QRgba64;
+        return qtc.qrgba64_h_QGreen(@ptrCast(rgb.ptr));
+    }
+
+    /// ### DEPRECATED: Use `qBlue` instead
+    ///
+    pub const QBlue = qBlue;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64-h.html#qBlue)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` rgb: QRgba64 `
+    ///
+    pub fn qBlue(rgb: anytype) u32 {
+        comptime _ = @TypeOf(rgb)._is_QRgba64;
+        return qtc.qrgba64_h_QBlue(@ptrCast(rgb.ptr));
+    }
+
+    /// ### DEPRECATED: Use `qAlpha` instead
+    ///
+    pub const QAlpha = qAlpha;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrgba64-h.html#qAlpha)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` rgb: QRgba64 `
+    ///
+    pub fn qAlpha(rgb: anytype) u32 {
+        comptime _ = @TypeOf(rgb)._is_QRgba64;
+        return qtc.qrgba64_h_QAlpha(@ptrCast(rgb.ptr));
     }
 };

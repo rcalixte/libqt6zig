@@ -18,10 +18,11 @@ extern "C" {
 
 #endif
 
-void qassert_h_Assert(const char* assertion, const char* file, int line);
-void qassert_h_AssertX(const char* where, const char* what, const char* file, int line);
-void qassert_h_CheckPointer(const char* param1, int param2);
-bool qassert_h_AssumeIsDeprecated(bool cond);
+void qassert_Assert(const char* assertion, const char* file, int line);
+void qassert_AssertX(const char* where, const char* what, const char* file, int line);
+void qassert_CheckPointer(const char* param1, int param2);
+void qassert_QBadAlloc();
+bool qassert_AssumeIsDeprecated(bool cond);
 
 #ifdef __cplusplus
 } /* extern C */

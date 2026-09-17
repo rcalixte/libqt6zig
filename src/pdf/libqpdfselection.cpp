@@ -1,4 +1,6 @@
+#include <QList>
 #include <QPdfSelection>
+#include <QPolygonF>
 #include <QRectF>
 #include <QString>
 #include <qpdfselection.h>
@@ -19,6 +21,19 @@ void QPdfSelection_Swap(QPdfSelection* self, QPdfSelection* other) {
 
 bool QPdfSelection_IsValid(const QPdfSelection* self) {
     return self->isValid();
+}
+
+libqt_list /* of QPolygonF* */ QPdfSelection_Bounds(const QPdfSelection* self) {
+    QList<QPolygonF> _ret = self->bounds();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QPolygonF** _arr = static_cast<QPolygonF**>(malloc(sizeof(QPolygonF*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QPolygonF(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 libqt_string QPdfSelection_Text(const QPdfSelection* self) {

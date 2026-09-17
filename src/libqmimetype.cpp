@@ -5,6 +5,10 @@
 #include "libqmimetype.h"
 #include "libqmimetype.hxx"
 
+size_t qmimetype_QHash(const QMimeType* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}
+
 QMimeType* QMimeType_new() {
     return new QMimeType();
 }

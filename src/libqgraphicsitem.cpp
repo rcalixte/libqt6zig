@@ -38,6 +38,7 @@
 #include <QPen>
 #include <QPixmap>
 #include <QPointF>
+#include <QPolygonF>
 #include <QRectF>
 #include <QRegion>
 #include <QSize>
@@ -599,6 +600,18 @@ QPointF* QGraphicsItem_MapToScene(const QGraphicsItem* self, const QPointF* poin
     return new QPointF(self->mapToScene(*point));
 }
 
+QPolygonF* QGraphicsItem_MapToItem2(const QGraphicsItem* self, const QGraphicsItem* item, const QRectF* rect) {
+    return new QPolygonF(self->mapToItem(item, *rect));
+}
+
+QPolygonF* QGraphicsItem_MapToParent2(const QGraphicsItem* self, const QRectF* rect) {
+    return new QPolygonF(self->mapToParent(*rect));
+}
+
+QPolygonF* QGraphicsItem_MapToScene2(const QGraphicsItem* self, const QRectF* rect) {
+    return new QPolygonF(self->mapToScene(*rect));
+}
+
 QRectF* QGraphicsItem_MapRectToItem(const QGraphicsItem* self, const QGraphicsItem* item, const QRectF* rect) {
     return new QRectF(self->mapRectToItem(item, *rect));
 }
@@ -609,6 +622,18 @@ QRectF* QGraphicsItem_MapRectToParent(const QGraphicsItem* self, const QRectF* r
 
 QRectF* QGraphicsItem_MapRectToScene(const QGraphicsItem* self, const QRectF* rect) {
     return new QRectF(self->mapRectToScene(*rect));
+}
+
+QPolygonF* QGraphicsItem_MapToItem3(const QGraphicsItem* self, const QGraphicsItem* item, const QPolygonF* polygon) {
+    return new QPolygonF(self->mapToItem(item, *polygon));
+}
+
+QPolygonF* QGraphicsItem_MapToParent3(const QGraphicsItem* self, const QPolygonF* polygon) {
+    return new QPolygonF(self->mapToParent(*polygon));
+}
+
+QPolygonF* QGraphicsItem_MapToScene3(const QGraphicsItem* self, const QPolygonF* polygon) {
+    return new QPolygonF(self->mapToScene(*polygon));
 }
 
 QPainterPath* QGraphicsItem_MapToItem4(const QGraphicsItem* self, const QGraphicsItem* item, const QPainterPath* path) {
@@ -635,6 +660,18 @@ QPointF* QGraphicsItem_MapFromScene(const QGraphicsItem* self, const QPointF* po
     return new QPointF(self->mapFromScene(*point));
 }
 
+QPolygonF* QGraphicsItem_MapFromItem2(const QGraphicsItem* self, const QGraphicsItem* item, const QRectF* rect) {
+    return new QPolygonF(self->mapFromItem(item, *rect));
+}
+
+QPolygonF* QGraphicsItem_MapFromParent2(const QGraphicsItem* self, const QRectF* rect) {
+    return new QPolygonF(self->mapFromParent(*rect));
+}
+
+QPolygonF* QGraphicsItem_MapFromScene2(const QGraphicsItem* self, const QRectF* rect) {
+    return new QPolygonF(self->mapFromScene(*rect));
+}
+
 QRectF* QGraphicsItem_MapRectFromItem(const QGraphicsItem* self, const QGraphicsItem* item, const QRectF* rect) {
     return new QRectF(self->mapRectFromItem(item, *rect));
 }
@@ -645,6 +682,18 @@ QRectF* QGraphicsItem_MapRectFromParent(const QGraphicsItem* self, const QRectF*
 
 QRectF* QGraphicsItem_MapRectFromScene(const QGraphicsItem* self, const QRectF* rect) {
     return new QRectF(self->mapRectFromScene(*rect));
+}
+
+QPolygonF* QGraphicsItem_MapFromItem3(const QGraphicsItem* self, const QGraphicsItem* item, const QPolygonF* polygon) {
+    return new QPolygonF(self->mapFromItem(item, *polygon));
+}
+
+QPolygonF* QGraphicsItem_MapFromParent3(const QGraphicsItem* self, const QPolygonF* polygon) {
+    return new QPolygonF(self->mapFromParent(*polygon));
+}
+
+QPolygonF* QGraphicsItem_MapFromScene3(const QGraphicsItem* self, const QPolygonF* polygon) {
+    return new QPolygonF(self->mapFromScene(*polygon));
 }
 
 QPainterPath* QGraphicsItem_MapFromItem4(const QGraphicsItem* self, const QGraphicsItem* item, const QPainterPath* path) {
@@ -671,6 +720,18 @@ QPointF* QGraphicsItem_MapToScene5(const QGraphicsItem* self, double x, double y
     return new QPointF(self->mapToScene(static_cast<qreal>(x), static_cast<qreal>(y)));
 }
 
+QPolygonF* QGraphicsItem_MapToItem6(const QGraphicsItem* self, const QGraphicsItem* item, double x, double y, double w, double h) {
+    return new QPolygonF(self->mapToItem(item, static_cast<qreal>(x), static_cast<qreal>(y), static_cast<qreal>(w), static_cast<qreal>(h)));
+}
+
+QPolygonF* QGraphicsItem_MapToParent6(const QGraphicsItem* self, double x, double y, double w, double h) {
+    return new QPolygonF(self->mapToParent(static_cast<qreal>(x), static_cast<qreal>(y), static_cast<qreal>(w), static_cast<qreal>(h)));
+}
+
+QPolygonF* QGraphicsItem_MapToScene6(const QGraphicsItem* self, double x, double y, double w, double h) {
+    return new QPolygonF(self->mapToScene(static_cast<qreal>(x), static_cast<qreal>(y), static_cast<qreal>(w), static_cast<qreal>(h)));
+}
+
 QRectF* QGraphicsItem_MapRectToItem2(const QGraphicsItem* self, const QGraphicsItem* item, double x, double y, double w, double h) {
     return new QRectF(self->mapRectToItem(item, static_cast<qreal>(x), static_cast<qreal>(y), static_cast<qreal>(w), static_cast<qreal>(h)));
 }
@@ -693,6 +754,18 @@ QPointF* QGraphicsItem_MapFromParent5(const QGraphicsItem* self, double x, doubl
 
 QPointF* QGraphicsItem_MapFromScene5(const QGraphicsItem* self, double x, double y) {
     return new QPointF(self->mapFromScene(static_cast<qreal>(x), static_cast<qreal>(y)));
+}
+
+QPolygonF* QGraphicsItem_MapFromItem6(const QGraphicsItem* self, const QGraphicsItem* item, double x, double y, double w, double h) {
+    return new QPolygonF(self->mapFromItem(item, static_cast<qreal>(x), static_cast<qreal>(y), static_cast<qreal>(w), static_cast<qreal>(h)));
+}
+
+QPolygonF* QGraphicsItem_MapFromParent6(const QGraphicsItem* self, double x, double y, double w, double h) {
+    return new QPolygonF(self->mapFromParent(static_cast<qreal>(x), static_cast<qreal>(y), static_cast<qreal>(w), static_cast<qreal>(h)));
+}
+
+QPolygonF* QGraphicsItem_MapFromScene6(const QGraphicsItem* self, double x, double y, double w, double h) {
+    return new QPolygonF(self->mapFromScene(static_cast<qreal>(x), static_cast<qreal>(y), static_cast<qreal>(w), static_cast<qreal>(h)));
 }
 
 QRectF* QGraphicsItem_MapRectFromItem2(const QGraphicsItem* self, const QGraphicsItem* item, double x, double y, double w, double h) {
@@ -7742,8 +7815,24 @@ QGraphicsPolygonItem* QGraphicsPolygonItem_new() {
     return new VirtualQGraphicsPolygonItem();
 }
 
-QGraphicsPolygonItem* QGraphicsPolygonItem_new2(QGraphicsItem* parent) {
+QGraphicsPolygonItem* QGraphicsPolygonItem_new2(const QPolygonF* polygon) {
+    return new VirtualQGraphicsPolygonItem(*polygon);
+}
+
+QGraphicsPolygonItem* QGraphicsPolygonItem_new3(QGraphicsItem* parent) {
     return new VirtualQGraphicsPolygonItem(parent);
+}
+
+QGraphicsPolygonItem* QGraphicsPolygonItem_new4(const QPolygonF* polygon, QGraphicsItem* parent) {
+    return new VirtualQGraphicsPolygonItem(*polygon, parent);
+}
+
+QPolygonF* QGraphicsPolygonItem_Polygon(const QGraphicsPolygonItem* self) {
+    return new QPolygonF(self->polygon());
+}
+
+void QGraphicsPolygonItem_SetPolygon(QGraphicsPolygonItem* self, const QPolygonF* polygon) {
+    self->setPolygon(*polygon);
 }
 
 int QGraphicsPolygonItem_FillRule(const QGraphicsPolygonItem* self) {

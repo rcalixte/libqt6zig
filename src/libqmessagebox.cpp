@@ -2523,3 +2523,7 @@ void QMessageBox_OnGetDecodedMetricF(const QMessageBox* self, intptr_t slot) {
 void QMessageBox_Delete(QMessageBox* self) {
     delete self;
 }
+
+void qmessagebox_h_QRequireVersion(int argc, char** argv, libqt_string req) {
+    qRequireVersion(static_cast<int>(argc), argv, QAnyStringView(req.data, req.len));
+}

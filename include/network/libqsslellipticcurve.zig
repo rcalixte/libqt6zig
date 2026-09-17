@@ -2,6 +2,43 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve-h.html)
+pub const qsslellipticcurve_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` curve: QSslEllipticCurve `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(curve: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(curve)._is_QSslEllipticCurve;
+        return qtc.qsslellipticcurve_h_QHash(@ptrCast(curve.ptr), @bitCast(seed));
+    }
+
+    /// ### DEPRECATED: Use `qHash2` instead
+    ///
+    pub const QHash2 = qHash2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` curve: QSslEllipticCurve `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash2(curve: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(curve)._is_QSslEllipticCurve;
+        return qtc.qsslellipticcurve_h_QHash2(@ptrCast(curve.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html)
 pub const QSslEllipticCurve = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslellipticcurve.html)

@@ -5891,7 +5891,9 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
 
   public:
     VirtualQGraphicsPolygonItem() : QGraphicsPolygonItem() {};
+    VirtualQGraphicsPolygonItem(const QPolygonF& polygon) : QGraphicsPolygonItem(polygon) {};
     VirtualQGraphicsPolygonItem(QGraphicsItem* parent) : QGraphicsPolygonItem(parent) {};
+    VirtualQGraphicsPolygonItem(const QPolygonF& polygon, QGraphicsItem* parent) : QGraphicsPolygonItem(polygon, parent) {};
 
     // Callback setters
     inline void setQGraphicsPolygonItem_BoundingRect_Callback(QGraphicsPolygonItem_BoundingRect_Callback cb) { qgraphicspolygonitem_boundingrect_callback = cb; }

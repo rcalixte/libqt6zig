@@ -41,6 +41,23 @@ pub const KNSCore = extern struct {
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://api.kde.org/knscore.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` entry: KNSCore__Entry `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(entry: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(entry)._is_KNSCore__Entry;
+        return qtc.KNSCore_QHash(@ptrCast(entry.ptr), @bitCast(seed));
+    }
 };
 
 /// ### [Upstream resources](https://api.kde.org/knscore-entry.html)

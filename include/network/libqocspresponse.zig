@@ -3,6 +3,26 @@ const qtc = @import("qt6c");
 const QSslCertificate = @import("libqt6").QSslCertificate;
 const qocspresponse_enums = enums;
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse-h.html)
+pub const qocspresponse_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` response: QOcspResponse `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(response: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(response)._is_QOcspResponse;
+        return qtc.qocspresponse_h_QHash(@ptrCast(response.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html)
 pub const QOcspResponse = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html)

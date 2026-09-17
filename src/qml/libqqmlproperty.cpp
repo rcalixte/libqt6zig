@@ -195,3 +195,7 @@ QMetaMethod* QQmlProperty_Method(const QQmlProperty* self) {
 void QQmlProperty_Delete(QQmlProperty* self) {
     delete self;
 }
+
+size_t qqmlproperty_h_QHash(const QQmlProperty* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}

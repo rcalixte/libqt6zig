@@ -209,6 +209,10 @@ void QJsonArray_Delete(QJsonArray* self) {
     delete self;
 }
 
+size_t qjsonarray_QHash(const QJsonArray* array, size_t seed) {
+    return qHash(*array, static_cast<size_t>(seed));
+}
+
 QJsonArray__iterator* QJsonArray__iterator_new(const QJsonArray__iterator* other) {
     return new QJsonArray::iterator(*other);
 }

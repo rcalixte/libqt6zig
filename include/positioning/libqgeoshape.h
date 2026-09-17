@@ -32,6 +32,8 @@ void QGeoShape_OperatorAssign(QGeoShape* self, const QGeoShape* other);
 libqt_string QGeoShape_ToString(const QGeoShape* self);
 void QGeoShape_Delete(QGeoShape* self);
 
+size_t qgeoshape_h_QHash(const QGeoShape* shape, size_t seed);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

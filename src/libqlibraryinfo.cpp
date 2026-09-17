@@ -108,3 +108,7 @@ libqt_list /* of libqt_string */ QLibraryInfo_PlatformPluginArguments(const libq
 void QLibraryInfo_Delete(QLibraryInfo* self) {
     delete self;
 }
+
+bool qlibraryinfo_QSharedBuild() {
+    return qSharedBuild();
+}

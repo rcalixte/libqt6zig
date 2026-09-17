@@ -147,6 +147,11 @@ bool QCoreApplication_SuperIsSignalConnected(const QCoreApplication* self, const
 void QCoreApplication_Connect_AboutToQuit(QCoreApplication* self, intptr_t slot);
 void QCoreApplication_Delete(QCoreApplication* self);
 
+void qcoreapplication_QAddPreRoutine(intptr_t param1);
+void qcoreapplication_QAddPostRoutine(intptr_t param1);
+void qcoreapplication_QRemovePostRoutine(intptr_t param1);
+libqt_string qcoreapplication_QAppName();
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

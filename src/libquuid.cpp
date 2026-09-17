@@ -176,6 +176,10 @@ void QUuid_Delete(QUuid* self) {
     delete self;
 }
 
+size_t quuid_QHash(const QUuid* uuid, size_t seed) {
+    return qHash(*uuid, static_cast<size_t>(seed));
+}
+
 QUuid__Id128Bytes* QUuid__Id128Bytes_new() {
     return new QUuid::Id128Bytes();
 }

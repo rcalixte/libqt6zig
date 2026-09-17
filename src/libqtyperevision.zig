@@ -2,6 +2,26 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html)
+pub const qtyperevision = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QTypeRevision `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QTypeRevision;
+        return qtc.qtyperevision_QHash(@ptrCast(key.ptr), @bitCast(seed));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html)
 pub const QTypeRevision = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtyperevision.html)
     ///

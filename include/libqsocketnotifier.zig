@@ -2220,7 +2220,7 @@ pub const QSocketDescriptor = extern struct {
     ///
     pub const ToInt = toInt;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsocketdescriptor.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsocketdescriptor.html#operator-int)
     ///
     /// ## Parameter(s):
     ///

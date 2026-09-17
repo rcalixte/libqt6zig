@@ -24,6 +24,9 @@ int QCborError_ToQCborError__Code(const QCborError* self);
 libqt_string QCborError_ToString(const QCborError* self);
 void QCborError_Delete(QCborError* self);
 
+size_t qcborcommon_QHash(uint8_t tag, size_t seed);
+size_t qcborcommon_QHash2(uint64_t tag, size_t seed);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

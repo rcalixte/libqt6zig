@@ -58,6 +58,14 @@ void QDBusObjectPath_Delete(QDBusObjectPath* self) {
     delete self;
 }
 
+size_t qdbusextratypes_h_QHash(const QDBusObjectPath* objectPath, size_t seed) {
+    return qHash(*objectPath, static_cast<size_t>(seed));
+}
+
+size_t qdbusextratypes_h_QHash2(const QDBusSignature* signature, size_t seed) {
+    return qHash(*signature, static_cast<size_t>(seed));
+}
+
 QDBusSignature* QDBusSignature_new() {
     return new QDBusSignature();
 }

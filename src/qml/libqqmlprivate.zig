@@ -1,3 +1,26 @@
+const QtC = @import("qt6zig");
+const qtc = @import("qt6c");
+const QObject = @import("libqt6").QObject;
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlprivate-h.html)
+pub const qqmlprivate_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlprivate-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` func: *const fn (funcparam1: QObject) callconv(.c) QObject `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(func: *const fn (QObject) callconv(.c) QObject, seed: usize) usize {
+        return qtc.qqmlprivate_h_QHash(@bitCast(@intFromPtr(func)), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlprivate.html#public-types)
 pub const enums = struct {
     pub const SingletonConstructionMode = enum {

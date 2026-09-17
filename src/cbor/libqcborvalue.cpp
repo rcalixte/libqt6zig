@@ -1192,3 +1192,7 @@ libqt_string QCborValueRef_ToDiagnosticNotation1(QCborValueRef* self, int opt) {
 void QCborValueRef_Delete(QCborValueRef* self) {
     delete self;
 }
+
+size_t qcborvalue_QHash(const QCborValue* value, size_t seed) {
+    return qHash(*value, static_cast<size_t>(seed));
+}

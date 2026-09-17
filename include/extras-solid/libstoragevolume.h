@@ -14,6 +14,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
+typedef Solid::Device Solid__Device;
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_Solid__DeviceInterface)
 typedef Solid::DeviceInterface Solid__DeviceInterface;
 #endif
@@ -24,6 +25,7 @@ typedef Solid::StorageVolume Solid__StorageVolume;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
 typedef struct QObject QObject;
+typedef struct Solid__Device Solid__Device;
 typedef struct Solid__DeviceInterface Solid__DeviceInterface;
 typedef struct Solid__StorageVolume Solid__StorageVolume;
 #endif
@@ -39,6 +41,7 @@ libqt_string Solid__StorageVolume_FsType(const Solid__StorageVolume* self);
 libqt_string Solid__StorageVolume_Label(const Solid__StorageVolume* self);
 libqt_string Solid__StorageVolume_Uuid(const Solid__StorageVolume* self);
 unsigned long long Solid__StorageVolume_Size(const Solid__StorageVolume* self);
+Solid__Device* Solid__StorageVolume_EncryptedContainer(const Solid__StorageVolume* self);
 libqt_string Solid__StorageVolume_Tr2(const char* s, const char* c);
 libqt_string Solid__StorageVolume_Tr3(const char* s, const char* c, int n);
 void Solid__StorageVolume_Delete(Solid__StorageVolume* self);

@@ -3,6 +3,34 @@ const qtc = @import("qt6c");
 const QJsonObject = @import("libqt6").QJsonObject;
 const QObject = @import("libqt6").QObject;
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qplugin.html)
+pub const qplugin = extern struct {
+    /// ### DEPRECATED: Use `qPluginArchRequirements` instead
+    ///
+    pub const QPluginArchRequirements = qPluginArchRequirements;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplugin.html#qPluginArchRequirements)
+    ///
+    pub fn qPluginArchRequirements() u8 {
+        return qtc.qplugin_QPluginArchRequirements();
+    }
+
+    /// ### DEPRECATED: Use `qRegisterStaticPluginFunction` instead
+    ///
+    pub const QRegisterStaticPluginFunction = qRegisterStaticPluginFunction;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplugin.html#qRegisterStaticPluginFunction)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` staticPlugin: QStaticPlugin `
+    ///
+    pub fn qRegisterStaticPluginFunction(staticPlugin: anytype) void {
+        comptime _ = @TypeOf(staticPlugin)._is_QStaticPlugin;
+        qtc.qplugin_QRegisterStaticPluginFunction(@ptrCast(staticPlugin.ptr));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qstaticplugin.html)
 pub const QStaticPlugin = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstaticplugin.html)

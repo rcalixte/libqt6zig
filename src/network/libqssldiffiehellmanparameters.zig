@@ -5,6 +5,26 @@ const qssl_enums = @import("libqssl.zig").enums;
 const qssldiffiehellmanparameters_enums = enums;
 const std = @import("std");
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qssldiffiehellmanparameters-h.html)
+pub const qssldiffiehellmanparameters_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qssldiffiehellmanparameters-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` dhparam: QSslDiffieHellmanParameters `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(dhparam: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(dhparam)._is_QSslDiffieHellmanParameters;
+        return qtc.qssldiffiehellmanparameters_h_QHash(@ptrCast(dhparam.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html)
 pub const QSslDiffieHellmanParameters = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html)

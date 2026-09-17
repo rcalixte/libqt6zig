@@ -340,3 +340,14 @@ pub const KTextEditor__Cursor = extern struct {
         qtc.KTextEditor__Cursor_Delete(@ptrCast(self.ptr));
     }
 };
+
+/// ### [Upstream resources](https://api.kde.org/ktexteditor.html)
+pub const KTextEditor = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KTextEditor,
+
+    pub const _is_KTextEditor = {};
+};

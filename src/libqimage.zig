@@ -559,7 +559,7 @@ pub const QImage = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#operator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///

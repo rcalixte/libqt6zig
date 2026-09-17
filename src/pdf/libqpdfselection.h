@@ -16,6 +16,7 @@ extern "C" {
 #ifdef __cplusplus
 #else
 typedef struct QPdfSelection QPdfSelection;
+typedef struct QPolygonF QPolygonF;
 typedef struct QRectF QRectF;
 #endif
 
@@ -23,6 +24,7 @@ QPdfSelection* QPdfSelection_new(const QPdfSelection* other);
 void QPdfSelection_OperatorAssign(QPdfSelection* self, const QPdfSelection* other);
 void QPdfSelection_Swap(QPdfSelection* self, QPdfSelection* other);
 bool QPdfSelection_IsValid(const QPdfSelection* self);
+libqt_list /* of QPolygonF* */ QPdfSelection_Bounds(const QPdfSelection* self);
 libqt_string QPdfSelection_Text(const QPdfSelection* self);
 QRectF* QPdfSelection_BoundingRectangle(const QPdfSelection* self);
 int QPdfSelection_StartIndex(const QPdfSelection* self);

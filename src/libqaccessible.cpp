@@ -1503,3 +1503,24 @@ void QAccessibleAnnouncementEvent_OnAccessibleInterface(const QAccessibleAnnounc
 void QAccessibleAnnouncementEvent_Delete(QAccessibleAnnouncementEvent* self) {
     delete self;
 }
+
+const char* qaccessible_h_QAccessibleRoleString(int role) {
+    return (const char*)qAccessibleRoleString(static_cast<QAccessible::Role>(role));
+}
+
+const char* qaccessible_h_QAccessibleEventString(int event) {
+    return (const char*)qAccessibleEventString(static_cast<QAccessible::Event>(event));
+}
+
+libqt_string qaccessible_h_QAccessibleLocalizedActionDescription(const libqt_string actionName) {
+    QString actionName_QString = QString::fromUtf8(actionName.data, actionName.len);
+    auto _ret = qAccessibleLocalizedActionDescription(actionName_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}

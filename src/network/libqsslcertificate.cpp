@@ -12,6 +12,10 @@
 #include "libqsslcertificate.h"
 #include "libqsslcertificate.hxx"
 
+size_t qsslcertificate_h_QHash(const QSslCertificate* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}
+
 QSslCertificate* QSslCertificate_new(QIODevice* device) {
     return new QSslCertificate(device);
 }

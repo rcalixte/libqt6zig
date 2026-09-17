@@ -57,3 +57,7 @@ bool QOpenGLVersionProfile_IsValid(const QOpenGLVersionProfile* self) {
 void QOpenGLVersionProfile_Delete(QOpenGLVersionProfile* self) {
     delete self;
 }
+
+size_t qopenglversionprofile_h_QHash(const QOpenGLVersionProfile* v, size_t seed) {
+    return qHash(*v, static_cast<size_t>(seed));
+}

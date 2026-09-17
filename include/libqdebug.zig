@@ -936,9 +936,9 @@ pub const QNoDebug = extern struct {
     }
 };
 
-/// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug-h.html)
-pub const qdebug_h = extern struct {
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug-h.html#qt_QMetaEnum_flagDebugOperator)
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html)
+pub const qdebug = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#qt_QMetaEnum_flagDebugOperator)
     ///
     /// ## Parameter(s):
     ///
@@ -950,10 +950,10 @@ pub const qdebug_h = extern struct {
     ///
     pub fn QMetaEnumFlagDebugOperator(debug: anytype, sizeofT: usize, value: u32) void {
         comptime _ = @TypeOf(debug)._is_QDebug;
-        qtc.qdebug_h_QMetaEnumFlagDebugOperator(@ptrCast(debug.ptr), @bitCast(sizeofT), @bitCast(value));
+        qtc.qdebug_QMetaEnumFlagDebugOperator(@ptrCast(debug.ptr), @bitCast(sizeofT), @bitCast(value));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug-h.html#qt_QMetaEnum_debugOperator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#qt_QMetaEnum_debugOperator)
     ///
     /// ## Parameter(s):
     ///
@@ -969,10 +969,10 @@ pub const qdebug_h = extern struct {
         comptime _ = @TypeOf(param1)._is_QDebug;
         comptime _ = @TypeOf(meta)._is_QMetaObject;
         const name_Cstring = name.ptr;
-        return .{ .ptr = qtc.qdebug_h_QMetaEnumDebugOperator(@ptrCast(param1.ptr), @bitCast(value), @ptrCast(meta.ptr), name_Cstring) };
+        return .{ .ptr = qtc.qdebug_QMetaEnumDebugOperator(@ptrCast(param1.ptr), @bitCast(value), @ptrCast(meta.ptr), name_Cstring) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug-h.html#qt_QMetaEnum_flagDebugOperator)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#qt_QMetaEnum_flagDebugOperator)
     ///
     /// ## Parameter(s):
     ///
@@ -988,7 +988,7 @@ pub const qdebug_h = extern struct {
         comptime _ = @TypeOf(dbg)._is_QDebug;
         comptime _ = @TypeOf(meta)._is_QMetaObject;
         const name_Cstring = name.ptr;
-        return .{ .ptr = qtc.qdebug_h_QMetaEnumFlagDebugOperator2(@ptrCast(dbg.ptr), @bitCast(value), @ptrCast(meta.ptr), name_Cstring) };
+        return .{ .ptr = qtc.qdebug_QMetaEnumFlagDebugOperator2(@ptrCast(dbg.ptr), @bitCast(value), @ptrCast(meta.ptr), name_Cstring) };
     }
 };
 

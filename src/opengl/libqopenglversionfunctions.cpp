@@ -83,6 +83,10 @@ void QOpenGLVersionStatus_Delete(QOpenGLVersionStatus* self) {
     delete self;
 }
 
+size_t qopenglversionfunctions_h_QHash(const QOpenGLVersionStatus* v, size_t seed) {
+    return qHash(*v, static_cast<size_t>(seed));
+}
+
 QOpenGLContext* QOpenGLVersionFunctionsBackend_Context(const QOpenGLVersionFunctionsBackend* self) {
     return self->context;
 }

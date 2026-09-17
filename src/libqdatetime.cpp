@@ -995,3 +995,15 @@ QDateTime* QDateTime_FromSecsSinceEpoch32(long long secs, int spec, int offsetFr
 void QDateTime_Delete(QDateTime* self) {
     delete self;
 }
+
+size_t qdatetime_QHash(const QDateTime* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}
+
+size_t qdatetime_QHash2(QDate* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}
+
+size_t qdatetime_QHash3(QTime* key, size_t seed) {
+    return qHash(*key, static_cast<size_t>(seed));
+}

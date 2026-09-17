@@ -89,6 +89,26 @@ pub const QIPv6Address = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress-h.html)
+pub const qhostaddress_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QHostAddress `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QHostAddress;
+        return qtc.qhostaddress_h_QHash(@ptrCast(key.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html)
 pub const QHostAddress = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html)

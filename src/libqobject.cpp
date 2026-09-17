@@ -17,7 +17,7 @@
 #include "libqobject.h"
 #include "libqobject.hxx"
 
-void qobject_h_QFindChildrenHelper(const QObject* parent, libqt_string name, const QMetaObject* mo, libqt_list /* of void* */ list, int options) {
+void qobject_QFindChildrenHelper(const QObject* parent, libqt_string name, const QMetaObject* mo, libqt_list /* of void* */ list, int options) {
     QList<void*> list_QList;
     list_QList.reserve(list.len);
     void** list_arr = static_cast<void**>(list.data);
@@ -27,7 +27,7 @@ void qobject_h_QFindChildrenHelper(const QObject* parent, libqt_string name, con
     qt_qFindChildren_helper(parent, QAnyStringView(name.data, name.len), *mo, &list_QList, static_cast<Qt::FindChildOptions>(options));
 }
 
-void qobject_h_QFindChildrenHelper2(const QObject* parent, const QRegularExpression* re, const QMetaObject* mo, libqt_list /* of void* */ list, int options) {
+void qobject_QFindChildrenHelper2(const QObject* parent, const QRegularExpression* re, const QMetaObject* mo, libqt_list /* of void* */ list, int options) {
     QList<void*> list_QList;
     list_QList.reserve(list.len);
     void** list_arr = static_cast<void**>(list.data);
@@ -37,8 +37,16 @@ void qobject_h_QFindChildrenHelper2(const QObject* parent, const QRegularExpress
     qt_qFindChildren_helper(parent, *re, *mo, &list_QList, static_cast<Qt::FindChildOptions>(options));
 }
 
-QObject* qobject_h_QFindChildHelper(const QObject* parent, libqt_string name, const QMetaObject* mo, int options) {
+QObject* qobject_QFindChildHelper(const QObject* parent, libqt_string name, const QMetaObject* mo, int options) {
     return qt_qFindChild_helper(parent, QAnyStringView(name.data, name.len), *mo, static_cast<Qt::FindChildOptions>(options));
+}
+
+QBindingStorage* qobject_QGetBindingStorage(const QObject* o) {
+    return (QBindingStorage*)qGetBindingStorage(o);
+}
+
+QBindingStorage* qobject_QGetBindingStorage2(QObject* o) {
+    return qGetBindingStorage(o);
 }
 
 QObject* QObject_new() {

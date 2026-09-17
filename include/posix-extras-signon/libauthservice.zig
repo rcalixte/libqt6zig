@@ -12,9 +12,11 @@ const QTimerEvent = @import("libqt6").QTimerEvent;
 const QVariant = @import("libqt6").QVariant;
 const SignOn__Error = @import("libqt6").SignOn__Error;
 const SignOn__IdentityInfo = @import("libqt6").SignOn__IdentityInfo;
+const authservice_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
+const ArrayMap_i32_SignOnAuthServiceIdentityRegExp = std.array_hash_map.Auto(i32, SignOn__AuthService__IdentityRegExp);
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthService.html)
 pub const SignOn__AuthService = extern struct {
@@ -536,6 +538,41 @@ pub const SignOn__AuthService = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("SignOn__AuthService.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// ### DEPRECATED: Use `queryIdentities1` instead
+    ///
+    pub const QueryIdentities1 = queryIdentities1;
+
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1AuthService.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: SignOn__AuthService `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` filter: ArrayMap_i32_SignOnAuthServiceIdentityRegExp (key: authservice_enums.IdentityFilterCriteria) `
+    ///
+    pub fn queryIdentities1(self: SignOn__AuthService, allocator: std.mem.Allocator, filter: ArrayMap_i32_SignOnAuthServiceIdentityRegExp) void {
+        const filter_count = filter.count();
+        const filter_keys = allocator.alloc(i32, filter_count) catch @panic("SignOn__AuthService.queryIdentities1: Memory allocation failed");
+        defer allocator.free(filter_keys);
+        const filter_values = allocator.alloc(QtC.SignOn__AuthService__IdentityRegExp, filter_count) catch @panic("SignOn__AuthService.queryIdentities1: Memory allocation failed");
+        defer allocator.free(filter_values);
+        var filter_i: usize = 0;
+        var filter_it = filter.iterator();
+        while (filter_it.next()) |it_entry| : (filter_i += 1) {
+            const filter_key = it_entry.key_ptr.*;
+            filter_keys[filter_i] = @bitCast(filter_key);
+            filter_values[filter_i] = @ptrCast(it_entry.value_ptr.*.ptr);
+        }
+        const filter_map = qtc.libqt_map{
+            .len = filter_count,
+            .keys = @ptrCast(filter_keys.ptr),
+            .values = @ptrCast(filter_values.ptr),
+        };
+        qtc.SignOn__AuthService_QueryIdentities1(@ptrCast(self.ptr), filter_map);
     }
 
     /// ### DEPRECATED: Use `objectName` instead

@@ -110,3 +110,35 @@ void QRgba64_OperatorAssign(QRgba64* self, unsigned long long _rgba) {
 void QRgba64_Delete(QRgba64* self) {
     delete self;
 }
+
+QRgba64* qrgba64_h_QRgba64(uint16_t r, uint16_t g, uint16_t b, uint16_t a) {
+    return new QRgba64(qRgba64(static_cast<quint16>(r), static_cast<quint16>(g), static_cast<quint16>(b), static_cast<quint16>(a)));
+}
+
+QRgba64* qrgba64_h_QRgba642(unsigned long long c) {
+    return new QRgba64(qRgba64(static_cast<quint64>(c)));
+}
+
+QRgba64* qrgba64_h_QPremultiply(QRgba64* c) {
+    return new QRgba64(qPremultiply(*c));
+}
+
+QRgba64* qrgba64_h_QUnpremultiply(QRgba64* c) {
+    return new QRgba64(qUnpremultiply(*c));
+}
+
+unsigned int qrgba64_h_QRed(QRgba64* rgb) {
+    return static_cast<unsigned int>(qRed(*rgb));
+}
+
+unsigned int qrgba64_h_QGreen(QRgba64* rgb) {
+    return static_cast<unsigned int>(qGreen(*rgb));
+}
+
+unsigned int qrgba64_h_QBlue(QRgba64* rgb) {
+    return static_cast<unsigned int>(qBlue(*rgb));
+}
+
+unsigned int qrgba64_h_QAlpha(QRgba64* rgb) {
+    return static_cast<unsigned int>(qAlpha(*rgb));
+}

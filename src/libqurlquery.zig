@@ -7,6 +7,26 @@ const std = @import("std");
 const Struct_constu8_constu8 = @import("libqt6").types.Struct_constu8_constu8; // struct { first: []const u8, second: []const u8 }
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html)
+pub const qurlquery = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QUrlQuery `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QUrlQuery;
+        return qtc.qurlquery_QHash(@ptrCast(key.ptr), @bitCast(seed));
+    }
+};
+
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html)
 pub const QUrlQuery = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qurlquery.html)
     ///

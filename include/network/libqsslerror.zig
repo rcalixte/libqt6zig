@@ -209,6 +209,26 @@ pub const QSslError = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qsslerror-h.html)
+pub const qsslerror_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslerror-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: QSslError `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(key: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(key)._is_QSslError;
+        return qtc.qsslerror_h_QHash(@ptrCast(key.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslerror.html#public-types)
 pub const enums = struct {
     pub const SslError = enum {

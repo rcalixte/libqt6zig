@@ -2,6 +2,7 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
+#include <Solid/Device>
 #define WORKAROUND_INNER_CLASS_DEFINITION_Solid__DeviceInterface
 #define WORKAROUND_INNER_CLASS_DEFINITION_Solid__StorageVolume
 #include <storagevolume.h>
@@ -82,6 +83,10 @@ libqt_string Solid__StorageVolume_Uuid(const Solid__StorageVolume* self) {
 
 unsigned long long Solid__StorageVolume_Size(const Solid__StorageVolume* self) {
     return static_cast<unsigned long long>(self->size());
+}
+
+Solid__Device* Solid__StorageVolume_EncryptedContainer(const Solid__StorageVolume* self) {
+    return new Solid::Device(self->encryptedContainer());
 }
 
 libqt_string Solid__StorageVolume_Tr2(const char* s, const char* c) {

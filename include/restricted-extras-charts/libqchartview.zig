@@ -48,6 +48,8 @@ const QPalette = @import("libqt6").QPalette;
 const QPixmap = @import("libqt6").QPixmap;
 const QPoint = @import("libqt6").QPoint;
 const QPointF = @import("libqt6").QPointF;
+const QPolygon = @import("libqt6").QPolygon;
+const QPolygonF = @import("libqt6").QPolygonF;
 const QRect = @import("libqt6").QRect;
 const QRectF = @import("libqt6").QRectF;
 const QRegion = @import("libqt6").QRegion;
@@ -1705,6 +1707,33 @@ pub const QChartView = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `items6` instead
+    ///
+    pub const Items6 = items6;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#items)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` polygon: QPolygon `
+    ///
+    pub fn items6(self: QChartView, allocator: std.mem.Allocator, polygon: anytype) []QGraphicsItem {
+        comptime _ = @TypeOf(polygon)._is_QPolygon;
+        const _arr: qtc.libqt_list = qtc.QGraphicsView_Items6(@ptrCast(self.ptr), @ptrCast(polygon.ptr));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.items6: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
+        return _ret;
+    }
+
     /// ### DEPRECATED: Use `items7` instead
     ///
     pub const Items7 = items7;
@@ -1790,6 +1819,44 @@ pub const QChartView = extern struct {
         return .{ .ptr = qtc.QGraphicsView_MapToScene(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToScene2` instead
+    ///
+    pub const MapToScene2 = mapToScene2;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#mapToScene)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` _rect: QRect `
+    ///
+    pub fn mapToScene2(self: QChartView, _rect: anytype) QPolygonF {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        return .{ .ptr = qtc.QGraphicsView_MapToScene2(@ptrCast(self.ptr), @ptrCast(_rect.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `mapToScene3` instead
+    ///
+    pub const MapToScene3 = mapToScene3;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#mapToScene)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` polygon: QPolygon `
+    ///
+    pub fn mapToScene3(self: QChartView, polygon: anytype) QPolygonF {
+        comptime _ = @TypeOf(polygon)._is_QPolygon;
+        return .{ .ptr = qtc.QGraphicsView_MapToScene3(@ptrCast(self.ptr), @ptrCast(polygon.ptr)) };
+    }
+
     /// ### DEPRECATED: Use `mapToScene4` instead
     ///
     pub const MapToScene4 = mapToScene4;
@@ -1826,6 +1893,44 @@ pub const QChartView = extern struct {
     pub fn mapFromScene(self: QChartView, point: anytype) QPoint {
         comptime _ = @TypeOf(point)._is_QPointF;
         return .{ .ptr = qtc.QGraphicsView_MapFromScene(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `mapFromScene2` instead
+    ///
+    pub const MapFromScene2 = mapFromScene2;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#mapFromScene)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` _rect: QRectF `
+    ///
+    pub fn mapFromScene2(self: QChartView, _rect: anytype) QPolygon {
+        comptime _ = @TypeOf(_rect)._is_QRectF;
+        return .{ .ptr = qtc.QGraphicsView_MapFromScene2(@ptrCast(self.ptr), @ptrCast(_rect.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `mapFromScene3` instead
+    ///
+    pub const MapFromScene3 = mapFromScene3;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#mapFromScene)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    pub fn mapFromScene3(self: QChartView, polygon: anytype) QPolygon {
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        return .{ .ptr = qtc.QGraphicsView_MapFromScene3(@ptrCast(self.ptr), @ptrCast(polygon.ptr)) };
     }
 
     /// ### DEPRECATED: Use `mapFromScene4` instead
@@ -1867,6 +1972,30 @@ pub const QChartView = extern struct {
         return .{ .ptr = qtc.QGraphicsView_MapToScene5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
 
+    /// ### DEPRECATED: Use `mapToScene6` instead
+    ///
+    pub const MapToScene6 = mapToScene6;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#mapToScene)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` _x: i32 `
+    ///
+    /// ` _y: i32 `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
+    pub fn mapToScene6(self: QChartView, _x: i32, _y: i32, w: i32, h: i32) QPolygonF {
+        return .{ .ptr = qtc.QGraphicsView_MapToScene6(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
+    }
+
     /// ### DEPRECATED: Use `mapFromScene5` instead
     ///
     pub const MapFromScene5 = mapFromScene5;
@@ -1885,6 +2014,30 @@ pub const QChartView = extern struct {
     ///
     pub fn mapFromScene5(self: QChartView, _x: f64, _y: f64) QPoint {
         return .{ .ptr = qtc.QGraphicsView_MapFromScene5(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
+    }
+
+    /// ### DEPRECATED: Use `mapFromScene6` instead
+    ///
+    pub const MapFromScene6 = mapFromScene6;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#mapFromScene)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` _x: f64 `
+    ///
+    /// ` _y: f64 `
+    ///
+    /// ` w: f64 `
+    ///
+    /// ` h: f64 `
+    ///
+    pub fn mapFromScene6(self: QChartView, _x: f64, _y: f64, w: f64, h: f64) QPolygon {
+        return .{ .ptr = qtc.QGraphicsView_MapFromScene6(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### DEPRECATED: Use `backgroundBrush` instead
@@ -2462,6 +2615,35 @@ pub const QChartView = extern struct {
         const _arr: qtc.libqt_list = qtc.QGraphicsView_Items52(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.items52: Memory allocation failed");
+        const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `items23` instead
+    ///
+    pub const Items23 = items23;
+
+    /// Inherited from QGraphicsView
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsview.html#items)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QChartView `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` polygon: QPolygon `
+    ///
+    /// ` mode: qnamespace_enums.ItemSelectionMode `
+    ///
+    pub fn items23(self: QChartView, allocator: std.mem.Allocator, polygon: anytype, mode: i32) []QGraphicsItem {
+        comptime _ = @TypeOf(polygon)._is_QPolygon;
+        const _arr: qtc.libqt_list = qtc.QGraphicsView_Items23(@ptrCast(self.ptr), @ptrCast(polygon.ptr), @bitCast(mode));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QChartView.items23: Memory allocation failed");
         const _data_val: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |j|
             _ret[j] = .{ .ptr = _data_val[j] };

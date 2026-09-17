@@ -192,6 +192,26 @@ pub const QOpenGLVersionStatus = extern struct {
     }
 };
 
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctions-h.html)
+pub const qopenglversionfunctions_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctions-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` v: QOpenGLVersionStatus `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(v: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(v)._is_QOpenGLVersionStatus;
+        return qtc.qopenglversionfunctions_h_QHash(@ptrCast(v.ptr), @bitCast(seed));
+    }
+};
+
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html)
 pub const QOpenGLVersionFunctionsBackend = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsbackend.html)

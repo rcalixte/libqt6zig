@@ -57,6 +57,8 @@ const QPicture = @import("libqt6").QPicture;
 const QPixmap = @import("libqt6").QPixmap;
 const QPoint = @import("libqt6").QPoint;
 const QPointF = @import("libqt6").QPointF;
+const QPolygon = @import("libqt6").QPolygon;
+const QPolygonF = @import("libqt6").QPolygonF;
 const QRect = @import("libqt6").QRect;
 const QRectF = @import("libqt6").QRectF;
 const QRegion = @import("libqt6").QRegion;
@@ -2489,6 +2491,25 @@ pub const QCPPainter = extern struct {
         qtc.QPainter_DrawPoints(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
 
+    /// ### DEPRECATED: Use `drawPoints2` instead
+    ///
+    pub const DrawPoints2 = drawPoints2;
+
+    /// Inherited from QPainter
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPoints)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPPainter `
+    ///
+    /// ` points: QPolygonF `
+    ///
+    pub fn drawPoints2(self: QCPPainter, points: anytype) void {
+        comptime _ = @TypeOf(points)._is_QPolygonF;
+        qtc.QPainter_DrawPoints2(@ptrCast(self.ptr), @ptrCast(points.ptr));
+    }
+
     /// ### DEPRECATED: Use `drawPoints3` instead
     ///
     pub const DrawPoints3 = drawPoints3;
@@ -2508,6 +2529,25 @@ pub const QCPPainter = extern struct {
     pub fn drawPoints3(self: QCPPainter, points: anytype, pointCount: i32) void {
         comptime _ = @TypeOf(points)._is_QPoint;
         qtc.QPainter_DrawPoints3(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
+    }
+
+    /// ### DEPRECATED: Use `drawPoints4` instead
+    ///
+    pub const DrawPoints4 = drawPoints4;
+
+    /// Inherited from QPainter
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPoints)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPPainter `
+    ///
+    /// ` points: QPolygon `
+    ///
+    pub fn drawPoints4(self: QCPPainter, points: anytype) void {
+        comptime _ = @TypeOf(points)._is_QPolygon;
+        qtc.QPainter_DrawPoints4(@ptrCast(self.ptr), @ptrCast(points.ptr));
     }
 
     /// ### DEPRECATED: Use `drawLine3` instead
@@ -3027,6 +3067,25 @@ pub const QCPPainter = extern struct {
         qtc.QPainter_DrawPolyline(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
 
+    /// ### DEPRECATED: Use `drawPolyline2` instead
+    ///
+    pub const DrawPolyline2 = drawPolyline2;
+
+    /// Inherited from QPainter
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolyline)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPPainter `
+    ///
+    /// ` polyline: QPolygonF `
+    ///
+    pub fn drawPolyline2(self: QCPPainter, polyline: anytype) void {
+        comptime _ = @TypeOf(polyline)._is_QPolygonF;
+        qtc.QPainter_DrawPolyline2(@ptrCast(self.ptr), @ptrCast(polyline.ptr));
+    }
+
     /// ### DEPRECATED: Use `drawPolyline3` instead
     ///
     pub const DrawPolyline3 = drawPolyline3;
@@ -3046,6 +3105,25 @@ pub const QCPPainter = extern struct {
     pub fn drawPolyline3(self: QCPPainter, points: anytype, pointCount: i32) void {
         comptime _ = @TypeOf(points)._is_QPoint;
         qtc.QPainter_DrawPolyline3(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
+    }
+
+    /// ### DEPRECATED: Use `drawPolyline4` instead
+    ///
+    pub const DrawPolyline4 = drawPolyline4;
+
+    /// Inherited from QPainter
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolyline)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPPainter `
+    ///
+    /// ` polygon: QPolygon `
+    ///
+    pub fn drawPolyline4(self: QCPPainter, polygon: anytype) void {
+        comptime _ = @TypeOf(polygon)._is_QPolygon;
+        qtc.QPainter_DrawPolyline4(@ptrCast(self.ptr), @ptrCast(polygon.ptr));
     }
 
     /// ### DEPRECATED: Use `drawPolygon` instead
@@ -3069,6 +3147,25 @@ pub const QCPPainter = extern struct {
         qtc.QPainter_DrawPolygon(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
 
+    /// ### DEPRECATED: Use `drawPolygon2` instead
+    ///
+    pub const DrawPolygon2 = drawPolygon2;
+
+    /// Inherited from QPainter
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPPainter `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    pub fn drawPolygon2(self: QCPPainter, polygon: anytype) void {
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        qtc.QPainter_DrawPolygon2(@ptrCast(self.ptr), @ptrCast(polygon.ptr));
+    }
+
     /// ### DEPRECATED: Use `drawPolygon3` instead
     ///
     pub const DrawPolygon3 = drawPolygon3;
@@ -3088,6 +3185,25 @@ pub const QCPPainter = extern struct {
     pub fn drawPolygon3(self: QCPPainter, points: anytype, pointCount: i32) void {
         comptime _ = @TypeOf(points)._is_QPoint;
         qtc.QPainter_DrawPolygon3(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
+    }
+
+    /// ### DEPRECATED: Use `drawPolygon4` instead
+    ///
+    pub const DrawPolygon4 = drawPolygon4;
+
+    /// Inherited from QPainter
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPPainter `
+    ///
+    /// ` polygon: QPolygon `
+    ///
+    pub fn drawPolygon4(self: QCPPainter, polygon: anytype) void {
+        comptime _ = @TypeOf(polygon)._is_QPolygon;
+        qtc.QPainter_DrawPolygon4(@ptrCast(self.ptr), @ptrCast(polygon.ptr));
     }
 
     /// ### DEPRECATED: Use `drawConvexPolygon` instead
@@ -3111,6 +3227,25 @@ pub const QCPPainter = extern struct {
         qtc.QPainter_DrawConvexPolygon(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
 
+    /// ### DEPRECATED: Use `drawConvexPolygon2` instead
+    ///
+    pub const DrawConvexPolygon2 = drawConvexPolygon2;
+
+    /// Inherited from QPainter
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawConvexPolygon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPPainter `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    pub fn drawConvexPolygon2(self: QCPPainter, polygon: anytype) void {
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        qtc.QPainter_DrawConvexPolygon2(@ptrCast(self.ptr), @ptrCast(polygon.ptr));
+    }
+
     /// ### DEPRECATED: Use `drawConvexPolygon3` instead
     ///
     pub const DrawConvexPolygon3 = drawConvexPolygon3;
@@ -3130,6 +3265,25 @@ pub const QCPPainter = extern struct {
     pub fn drawConvexPolygon3(self: QCPPainter, points: anytype, pointCount: i32) void {
         comptime _ = @TypeOf(points)._is_QPoint;
         qtc.QPainter_DrawConvexPolygon3(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
+    }
+
+    /// ### DEPRECATED: Use `drawConvexPolygon4` instead
+    ///
+    pub const DrawConvexPolygon4 = drawConvexPolygon4;
+
+    /// Inherited from QPainter
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawConvexPolygon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPPainter `
+    ///
+    /// ` polygon: QPolygon `
+    ///
+    pub fn drawConvexPolygon4(self: QCPPainter, polygon: anytype) void {
+        comptime _ = @TypeOf(polygon)._is_QPolygon;
+        qtc.QPainter_DrawConvexPolygon4(@ptrCast(self.ptr), @ptrCast(polygon.ptr));
     }
 
     /// ### DEPRECATED: Use `drawArc` instead
@@ -5309,6 +5463,27 @@ pub const QCPPainter = extern struct {
         qtc.QPainter_DrawPolygon32(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount), @bitCast(fillRule));
     }
 
+    /// ### DEPRECATED: Use `drawPolygon22` instead
+    ///
+    pub const DrawPolygon22 = drawPolygon22;
+
+    /// Inherited from QPainter
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPPainter `
+    ///
+    /// ` polygon: QPolygonF `
+    ///
+    /// ` fillRule: qnamespace_enums.FillRule `
+    ///
+    pub fn drawPolygon22(self: QCPPainter, polygon: anytype, fillRule: i32) void {
+        comptime _ = @TypeOf(polygon)._is_QPolygonF;
+        qtc.QPainter_DrawPolygon22(@ptrCast(self.ptr), @ptrCast(polygon.ptr), @bitCast(fillRule));
+    }
+
     /// ### DEPRECATED: Use `drawPolygon33` instead
     ///
     pub const DrawPolygon33 = drawPolygon33;
@@ -5330,6 +5505,27 @@ pub const QCPPainter = extern struct {
     pub fn drawPolygon33(self: QCPPainter, points: anytype, pointCount: i32, fillRule: i32) void {
         comptime _ = @TypeOf(points)._is_QPoint;
         qtc.QPainter_DrawPolygon33(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount), @bitCast(fillRule));
+    }
+
+    /// ### DEPRECATED: Use `drawPolygon23` instead
+    ///
+    pub const DrawPolygon23 = drawPolygon23;
+
+    /// Inherited from QPainter
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPPainter `
+    ///
+    /// ` polygon: QPolygon `
+    ///
+    /// ` fillRule: qnamespace_enums.FillRule `
+    ///
+    pub fn drawPolygon23(self: QCPPainter, polygon: anytype, fillRule: i32) void {
+        comptime _ = @TypeOf(polygon)._is_QPolygon;
+        qtc.QPainter_DrawPolygon23(@ptrCast(self.ptr), @ptrCast(polygon.ptr), @bitCast(fillRule));
     }
 
     /// ### DEPRECATED: Use `drawRoundedRect4` instead
@@ -112945,6 +113141,160 @@ pub const QCPGraph = extern struct {
     pub fn superGetFillBasePoint(self: QCPGraph, matchingDataPoint: anytype) QPointF {
         comptime _ = @TypeOf(matchingDataPoint)._is_QPointF;
         return .{ .ptr = qtc.QCPGraph_SuperGetFillBasePoint(@ptrCast(self.ptr), @ptrCast(matchingDataPoint.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `getFillPolygon` instead
+    ///
+    pub const GetFillPolygon = getFillPolygon;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPGraph.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPGraph `
+    ///
+    /// ` lineData: []QPointF `
+    ///
+    /// ` segment: QCPDataRange `
+    ///
+    pub fn getFillPolygon(self: QCPGraph, lineData: []QPointF, segment: anytype) QPolygonF {
+        const lineData_list = qtc.libqt_list{
+            .len = lineData.len,
+            .data = @ptrCast(lineData.ptr),
+        };
+        comptime _ = @TypeOf(segment)._is_QCPDataRange;
+        return .{ .ptr = qtc.QCPGraph_GetFillPolygon(@ptrCast(self.ptr), lineData_list, @ptrCast(segment.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `onGetFillPolygon` instead
+    ///
+    pub const OnGetFillPolygon = onGetFillPolygon;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPGraph.html)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPGraph `
+    ///
+    /// ` callback: *const fn (self: QCPGraph, lineData: qtc.libqt_list ([]QPointF), segment: QCPDataRange) callconv(.c) QPolygonF `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
+    pub fn onGetFillPolygon(self: QCPGraph, callback: *const fn (QCPGraph, qtc.libqt_list, QCPDataRange) callconv(.c) QPolygonF) void {
+        qtc.QCPGraph_OnGetFillPolygon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### DEPRECATED: Use `superGetFillPolygon` instead
+    ///
+    pub const SuperGetFillPolygon = superGetFillPolygon;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPGraph.html)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPGraph `
+    ///
+    /// ` lineData: []QPointF `
+    ///
+    /// ` segment: QCPDataRange `
+    ///
+    pub fn superGetFillPolygon(self: QCPGraph, lineData: []QPointF, segment: anytype) QPolygonF {
+        const lineData_list = qtc.libqt_list{
+            .len = lineData.len,
+            .data = @ptrCast(lineData.ptr),
+        };
+        comptime _ = @TypeOf(segment)._is_QCPDataRange;
+        return .{ .ptr = qtc.QCPGraph_SuperGetFillPolygon(@ptrCast(self.ptr), lineData_list, @ptrCast(segment.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `getChannelFillPolygon` instead
+    ///
+    pub const GetChannelFillPolygon = getChannelFillPolygon;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPGraph.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPGraph `
+    ///
+    /// ` thisData: []QPointF `
+    ///
+    /// ` thisSegment: QCPDataRange `
+    ///
+    /// ` otherData: []QPointF `
+    ///
+    /// ` otherSegment: QCPDataRange `
+    ///
+    pub fn getChannelFillPolygon(self: QCPGraph, thisData: []QPointF, thisSegment: anytype, otherData: []QPointF, otherSegment: anytype) QPolygonF {
+        const thisData_list = qtc.libqt_list{
+            .len = thisData.len,
+            .data = @ptrCast(thisData.ptr),
+        };
+        comptime _ = @TypeOf(thisSegment)._is_QCPDataRange;
+        const otherData_list = qtc.libqt_list{
+            .len = otherData.len,
+            .data = @ptrCast(otherData.ptr),
+        };
+        comptime _ = @TypeOf(otherSegment)._is_QCPDataRange;
+        return .{ .ptr = qtc.QCPGraph_GetChannelFillPolygon(@ptrCast(self.ptr), thisData_list, @ptrCast(thisSegment.ptr), otherData_list, @ptrCast(otherSegment.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `onGetChannelFillPolygon` instead
+    ///
+    pub const OnGetChannelFillPolygon = onGetChannelFillPolygon;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPGraph.html)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QCPGraph `
+    ///
+    /// ` callback: *const fn (self: QCPGraph, thisData: qtc.libqt_list ([]QPointF), thisSegment: QCPDataRange, otherData: qtc.libqt_list ([]QPointF), otherSegment: QCPDataRange) callconv(.c) QPolygonF `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
+    pub fn onGetChannelFillPolygon(self: QCPGraph, callback: *const fn (QCPGraph, qtc.libqt_list, QCPDataRange, qtc.libqt_list, QCPDataRange) callconv(.c) QPolygonF) void {
+        qtc.QCPGraph_OnGetChannelFillPolygon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### DEPRECATED: Use `superGetChannelFillPolygon` instead
+    ///
+    pub const SuperGetChannelFillPolygon = superGetChannelFillPolygon;
+
+    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPGraph.html)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCPGraph `
+    ///
+    /// ` thisData: []QPointF `
+    ///
+    /// ` thisSegment: QCPDataRange `
+    ///
+    /// ` otherData: []QPointF `
+    ///
+    /// ` otherSegment: QCPDataRange `
+    ///
+    pub fn superGetChannelFillPolygon(self: QCPGraph, thisData: []QPointF, thisSegment: anytype, otherData: []QPointF, otherSegment: anytype) QPolygonF {
+        const thisData_list = qtc.libqt_list{
+            .len = thisData.len,
+            .data = @ptrCast(thisData.ptr),
+        };
+        comptime _ = @TypeOf(thisSegment)._is_QCPDataRange;
+        const otherData_list = qtc.libqt_list{
+            .len = otherData.len,
+            .data = @ptrCast(otherData.ptr),
+        };
+        comptime _ = @TypeOf(otherSegment)._is_QCPDataRange;
+        return .{ .ptr = qtc.QCPGraph_SuperGetChannelFillPolygon(@ptrCast(self.ptr), thisData_list, @ptrCast(thisSegment.ptr), otherData_list, @ptrCast(otherSegment.ptr)) };
     }
 
     /// ### DEPRECATED: Use `findIndexBelowX` instead

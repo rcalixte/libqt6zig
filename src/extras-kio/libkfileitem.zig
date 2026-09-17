@@ -1073,7 +1073,7 @@ pub const KFileItem = extern struct {
     ///
     pub const ToQVariant = toQVariant;
 
-    /// ### [Upstream resources](https://api.kde.org/kfileitem.html#operator)
+    /// ### [Upstream resources](https://api.kde.org/kfileitem.html#operator-QVariant)
     ///
     /// ## Parameter(s):
     ///
@@ -1227,6 +1227,26 @@ pub const KFileItem = extern struct {
     ///
     pub fn delete(self: KFileItem) void {
         qtc.KFileItem_Delete(@ptrCast(self.ptr));
+    }
+};
+
+/// ### [Upstream resources](https://api.kde.org/kfileitem-h.html)
+pub const kfileitem_h = extern struct {
+    /// ### DEPRECATED: Use `qHash` instead
+    ///
+    pub const QHash = qHash;
+
+    /// ### [Upstream resources](https://api.kde.org/kfileitem-h.html#qHash)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` item: KFileItem `
+    ///
+    /// ` seed: usize `
+    ///
+    pub fn qHash(item: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(item)._is_KFileItem;
+        return qtc.kfileitem_h_QHash(@ptrCast(item.ptr), @bitCast(seed));
     }
 };
 

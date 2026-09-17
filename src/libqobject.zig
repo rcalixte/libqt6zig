@@ -14,13 +14,13 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
-/// ### [Upstream resources](https://doc.qt.io/qt-6/qobject-h.html)
-pub const qobject_h = extern struct {
+/// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html)
+pub const qobject = extern struct {
     /// ### DEPRECATED: Use `qFindChildrenHelper` instead
     ///
     pub const QFindChildrenHelper = qFindChildrenHelper;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject-h.html#qt_qFindChildren_helper)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_qFindChildren_helper)
     ///
     /// ## Parameter(s):
     ///
@@ -45,14 +45,14 @@ pub const qobject_h = extern struct {
             .len = list.len,
             .data = list.ptr,
         };
-        qtc.qobject_h_QFindChildrenHelper(@ptrCast(parent.ptr), name_str, @ptrCast(mo.ptr), list_list, @bitCast(options));
+        qtc.qobject_QFindChildrenHelper(@ptrCast(parent.ptr), name_str, @ptrCast(mo.ptr), list_list, @bitCast(options));
     }
 
     /// ### DEPRECATED: Use `qFindChildrenHelper2` instead
     ///
     pub const QFindChildrenHelper2 = qFindChildrenHelper2;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject-h.html#qt_qFindChildren_helper)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_qFindChildren_helper)
     ///
     /// ## Parameter(s):
     ///
@@ -74,14 +74,14 @@ pub const qobject_h = extern struct {
             .len = list.len,
             .data = list.ptr,
         };
-        qtc.qobject_h_QFindChildrenHelper2(@ptrCast(parent.ptr), @ptrCast(re.ptr), @ptrCast(mo.ptr), list_list, @bitCast(options));
+        qtc.qobject_QFindChildrenHelper2(@ptrCast(parent.ptr), @ptrCast(re.ptr), @ptrCast(mo.ptr), list_list, @bitCast(options));
     }
 
     /// ### DEPRECATED: Use `qFindChildHelper` instead
     ///
     pub const QFindChildHelper = qFindChildHelper;
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject-h.html#qt_qFindChild_helper)
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qt_qFindChild_helper)
     ///
     /// ## Parameter(s):
     ///
@@ -100,7 +100,37 @@ pub const qobject_h = extern struct {
             .data = name.ptr,
         };
         comptime _ = @TypeOf(mo)._is_QMetaObject;
-        return .{ .ptr = qtc.qobject_h_QFindChildHelper(@ptrCast(parent.ptr), name_str, @ptrCast(mo.ptr), @bitCast(options)) };
+        return .{ .ptr = qtc.qobject_QFindChildHelper(@ptrCast(parent.ptr), name_str, @ptrCast(mo.ptr), @bitCast(options)) };
+    }
+
+    /// ### DEPRECATED: Use `qGetBindingStorage` instead
+    ///
+    pub const QGetBindingStorage = qGetBindingStorage;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qGetBindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` o: QObject `
+    ///
+    pub fn qGetBindingStorage(o: anytype) QBindingStorage {
+        comptime _ = @TypeOf(o)._is_QObject;
+        return .{ .ptr = qtc.qobject_QGetBindingStorage(@ptrCast(o.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `qGetBindingStorage2` instead
+    ///
+    pub const QGetBindingStorage2 = qGetBindingStorage2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#qGetBindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` o: QObject `
+    ///
+    pub fn qGetBindingStorage2(o: anytype) QBindingStorage {
+        comptime _ = @TypeOf(o)._is_QObject;
+        return .{ .ptr = qtc.qobject_QGetBindingStorage2(@ptrCast(o.ptr)) };
     }
 };
 

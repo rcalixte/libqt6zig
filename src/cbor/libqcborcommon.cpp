@@ -31,3 +31,11 @@ libqt_string QCborError_ToString(const QCborError* self) {
 void QCborError_Delete(QCborError* self) {
     delete self;
 }
+
+size_t qcborcommon_QHash(uint8_t tag, size_t seed) {
+    return qHash(static_cast<QCborSimpleType>(tag), static_cast<size_t>(seed));
+}
+
+size_t qcborcommon_QHash2(uint64_t tag, size_t seed) {
+    return qHash(static_cast<QCborTag>(tag), static_cast<size_t>(seed));
+}
