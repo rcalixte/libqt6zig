@@ -1,0 +1,94 @@
+#pragma once
+#ifndef EXTRAS_KIRIGAMI_LIBVIRTUALKEYBOARDWATCHER_H
+#define EXTRAS_KIRIGAMI_LIBVIRTUALKEYBOARDWATCHER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Kirigami__Platform__VirtualKeyboardWatcher)
+typedef Kirigami::Platform::VirtualKeyboardWatcher Kirigami__Platform__VirtualKeyboardWatcher;
+#endif
+#else
+typedef struct Kirigami__Platform__VirtualKeyboardWatcher Kirigami__Platform__VirtualKeyboardWatcher;
+typedef struct QChildEvent QChildEvent;
+typedef struct QEvent QEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct QTimerEvent QTimerEvent;
+#endif
+
+Kirigami__Platform__VirtualKeyboardWatcher* Kirigami__Platform__VirtualKeyboardWatcher_new();
+Kirigami__Platform__VirtualKeyboardWatcher* Kirigami__Platform__VirtualKeyboardWatcher_new2(QObject* parent);
+QMetaObject* Kirigami__Platform__VirtualKeyboardWatcher_MetaObject(const Kirigami__Platform__VirtualKeyboardWatcher* self);
+void* Kirigami__Platform__VirtualKeyboardWatcher_Metacast(Kirigami__Platform__VirtualKeyboardWatcher* self, const char* param1);
+int Kirigami__Platform__VirtualKeyboardWatcher_Metacall(Kirigami__Platform__VirtualKeyboardWatcher* self, int param1, int param2, void** param3);
+libqt_string Kirigami__Platform__VirtualKeyboardWatcher_Tr(const char* s);
+bool Kirigami__Platform__VirtualKeyboardWatcher_Available(const Kirigami__Platform__VirtualKeyboardWatcher* self);
+void Kirigami__Platform__VirtualKeyboardWatcher_AvailableChanged(Kirigami__Platform__VirtualKeyboardWatcher* self);
+bool Kirigami__Platform__VirtualKeyboardWatcher_Enabled(const Kirigami__Platform__VirtualKeyboardWatcher* self);
+void Kirigami__Platform__VirtualKeyboardWatcher_EnabledChanged(Kirigami__Platform__VirtualKeyboardWatcher* self);
+bool Kirigami__Platform__VirtualKeyboardWatcher_Active(const Kirigami__Platform__VirtualKeyboardWatcher* self);
+void Kirigami__Platform__VirtualKeyboardWatcher_ActiveChanged(Kirigami__Platform__VirtualKeyboardWatcher* self);
+bool Kirigami__Platform__VirtualKeyboardWatcher_Visible(const Kirigami__Platform__VirtualKeyboardWatcher* self);
+void Kirigami__Platform__VirtualKeyboardWatcher_VisibleChanged(Kirigami__Platform__VirtualKeyboardWatcher* self);
+bool Kirigami__Platform__VirtualKeyboardWatcher_WillShowOnActive(const Kirigami__Platform__VirtualKeyboardWatcher* self);
+void Kirigami__Platform__VirtualKeyboardWatcher_WillShowOnActiveChanged(Kirigami__Platform__VirtualKeyboardWatcher* self);
+Kirigami__Platform__VirtualKeyboardWatcher* Kirigami__Platform__VirtualKeyboardWatcher_Self();
+libqt_string Kirigami__Platform__VirtualKeyboardWatcher_Tr2(const char* s, const char* c);
+libqt_string Kirigami__Platform__VirtualKeyboardWatcher_Tr3(const char* s, const char* c, int n);
+void Kirigami__Platform__VirtualKeyboardWatcher_OnMetaObject(const Kirigami__Platform__VirtualKeyboardWatcher* self, intptr_t slot);
+QMetaObject* Kirigami__Platform__VirtualKeyboardWatcher_SuperMetaObject(const Kirigami__Platform__VirtualKeyboardWatcher* self);
+void Kirigami__Platform__VirtualKeyboardWatcher_OnMetacast(Kirigami__Platform__VirtualKeyboardWatcher* self, intptr_t slot);
+void* Kirigami__Platform__VirtualKeyboardWatcher_SuperMetacast(Kirigami__Platform__VirtualKeyboardWatcher* self, const char* param1);
+void Kirigami__Platform__VirtualKeyboardWatcher_OnMetacall(Kirigami__Platform__VirtualKeyboardWatcher* self, intptr_t slot);
+int Kirigami__Platform__VirtualKeyboardWatcher_SuperMetacall(Kirigami__Platform__VirtualKeyboardWatcher* self, int param1, int param2, void** param3);
+bool Kirigami__Platform__VirtualKeyboardWatcher_Event(Kirigami__Platform__VirtualKeyboardWatcher* self, QEvent* event);
+void Kirigami__Platform__VirtualKeyboardWatcher_OnEvent(Kirigami__Platform__VirtualKeyboardWatcher* self, intptr_t slot);
+bool Kirigami__Platform__VirtualKeyboardWatcher_SuperEvent(Kirigami__Platform__VirtualKeyboardWatcher* self, QEvent* event);
+bool Kirigami__Platform__VirtualKeyboardWatcher_EventFilter(Kirigami__Platform__VirtualKeyboardWatcher* self, QObject* watched, QEvent* event);
+void Kirigami__Platform__VirtualKeyboardWatcher_OnEventFilter(Kirigami__Platform__VirtualKeyboardWatcher* self, intptr_t slot);
+bool Kirigami__Platform__VirtualKeyboardWatcher_SuperEventFilter(Kirigami__Platform__VirtualKeyboardWatcher* self, QObject* watched, QEvent* event);
+void Kirigami__Platform__VirtualKeyboardWatcher_TimerEvent(Kirigami__Platform__VirtualKeyboardWatcher* self, QTimerEvent* event);
+void Kirigami__Platform__VirtualKeyboardWatcher_OnTimerEvent(Kirigami__Platform__VirtualKeyboardWatcher* self, intptr_t slot);
+void Kirigami__Platform__VirtualKeyboardWatcher_SuperTimerEvent(Kirigami__Platform__VirtualKeyboardWatcher* self, QTimerEvent* event);
+void Kirigami__Platform__VirtualKeyboardWatcher_ChildEvent(Kirigami__Platform__VirtualKeyboardWatcher* self, QChildEvent* event);
+void Kirigami__Platform__VirtualKeyboardWatcher_OnChildEvent(Kirigami__Platform__VirtualKeyboardWatcher* self, intptr_t slot);
+void Kirigami__Platform__VirtualKeyboardWatcher_SuperChildEvent(Kirigami__Platform__VirtualKeyboardWatcher* self, QChildEvent* event);
+void Kirigami__Platform__VirtualKeyboardWatcher_CustomEvent(Kirigami__Platform__VirtualKeyboardWatcher* self, QEvent* event);
+void Kirigami__Platform__VirtualKeyboardWatcher_OnCustomEvent(Kirigami__Platform__VirtualKeyboardWatcher* self, intptr_t slot);
+void Kirigami__Platform__VirtualKeyboardWatcher_SuperCustomEvent(Kirigami__Platform__VirtualKeyboardWatcher* self, QEvent* event);
+void Kirigami__Platform__VirtualKeyboardWatcher_ConnectNotify(Kirigami__Platform__VirtualKeyboardWatcher* self, const QMetaMethod* signal);
+void Kirigami__Platform__VirtualKeyboardWatcher_OnConnectNotify(Kirigami__Platform__VirtualKeyboardWatcher* self, intptr_t slot);
+void Kirigami__Platform__VirtualKeyboardWatcher_SuperConnectNotify(Kirigami__Platform__VirtualKeyboardWatcher* self, const QMetaMethod* signal);
+void Kirigami__Platform__VirtualKeyboardWatcher_DisconnectNotify(Kirigami__Platform__VirtualKeyboardWatcher* self, const QMetaMethod* signal);
+void Kirigami__Platform__VirtualKeyboardWatcher_OnDisconnectNotify(Kirigami__Platform__VirtualKeyboardWatcher* self, intptr_t slot);
+void Kirigami__Platform__VirtualKeyboardWatcher_SuperDisconnectNotify(Kirigami__Platform__VirtualKeyboardWatcher* self, const QMetaMethod* signal);
+QObject* Kirigami__Platform__VirtualKeyboardWatcher_Sender(const Kirigami__Platform__VirtualKeyboardWatcher* self);
+void Kirigami__Platform__VirtualKeyboardWatcher_OnSender(const Kirigami__Platform__VirtualKeyboardWatcher* self, intptr_t slot);
+QObject* Kirigami__Platform__VirtualKeyboardWatcher_SuperSender(const Kirigami__Platform__VirtualKeyboardWatcher* self);
+int Kirigami__Platform__VirtualKeyboardWatcher_SenderSignalIndex(const Kirigami__Platform__VirtualKeyboardWatcher* self);
+void Kirigami__Platform__VirtualKeyboardWatcher_OnSenderSignalIndex(const Kirigami__Platform__VirtualKeyboardWatcher* self, intptr_t slot);
+int Kirigami__Platform__VirtualKeyboardWatcher_SuperSenderSignalIndex(const Kirigami__Platform__VirtualKeyboardWatcher* self);
+int Kirigami__Platform__VirtualKeyboardWatcher_Receivers(const Kirigami__Platform__VirtualKeyboardWatcher* self, const char* signal);
+void Kirigami__Platform__VirtualKeyboardWatcher_OnReceivers(const Kirigami__Platform__VirtualKeyboardWatcher* self, intptr_t slot);
+int Kirigami__Platform__VirtualKeyboardWatcher_SuperReceivers(const Kirigami__Platform__VirtualKeyboardWatcher* self, const char* signal);
+bool Kirigami__Platform__VirtualKeyboardWatcher_IsSignalConnected(const Kirigami__Platform__VirtualKeyboardWatcher* self, const QMetaMethod* signal);
+void Kirigami__Platform__VirtualKeyboardWatcher_OnIsSignalConnected(const Kirigami__Platform__VirtualKeyboardWatcher* self, intptr_t slot);
+bool Kirigami__Platform__VirtualKeyboardWatcher_SuperIsSignalConnected(const Kirigami__Platform__VirtualKeyboardWatcher* self, const QMetaMethod* signal);
+void Kirigami__Platform__VirtualKeyboardWatcher_Delete(Kirigami__Platform__VirtualKeyboardWatcher* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

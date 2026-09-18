@@ -11,6 +11,7 @@ pub const libqt_pair = C.libqt_pair;
 /// This data structure correlates to QString, QByteArray, and similar types
 pub const libqt_string = C.libqt_string;
 
+pub const AbstractKirigamiApplication = ?*C.AbstractKirigamiApplication;
 pub const Accounts__Account = ?*C.Accounts__Account;
 pub const Accounts__AccountService = ?*C.Accounts__AccountService;
 pub const Accounts__Application = ?*C.Accounts__Application;
@@ -659,6 +660,16 @@ pub const KXYSelector = ?*C.KXYSelector;
 pub const KXmlGuiWindow = ?*C.KXmlGuiWindow;
 pub const KZip = ?*C.KZip;
 pub const KZipFileEntry = ?*C.KZipFileEntry;
+pub const KirigamiActionCollection = ?*C.KirigamiActionCollection;
+pub const Kirigami__Platform__IconSizes = ?*C.Kirigami__Platform__IconSizes;
+pub const Kirigami__Platform__PlatformPluginFactory = ?*C.Kirigami__Platform__PlatformPluginFactory;
+pub const Kirigami__Platform__PlatformTheme = ?*C.Kirigami__Platform__PlatformTheme;
+pub const Kirigami__Platform__PlatformThemeChangeTracker = ?*C.Kirigami__Platform__PlatformThemeChangeTracker;
+pub const Kirigami__Platform__StyleSelector = ?*C.Kirigami__Platform__StyleSelector;
+pub const Kirigami__Platform__TabletModeChangedEvent = ?*C.Kirigami__Platform__TabletModeChangedEvent;
+pub const Kirigami__Platform__TabletModeWatcher = ?*C.Kirigami__Platform__TabletModeWatcher;
+pub const Kirigami__Platform__Units = ?*C.Kirigami__Platform__Units;
+pub const Kirigami__Platform__VirtualKeyboardWatcher = ?*C.Kirigami__Platform__VirtualKeyboardWatcher;
 pub const Konsole = ?*C.Konsole;
 pub const Konsole__Emulation = ?*C.Konsole__Emulation;
 pub const Konsole__Filter = ?*C.Konsole__Filter;

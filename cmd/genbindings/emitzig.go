@@ -188,6 +188,8 @@ func (zfs *zigFileState) getPageUrl(pageType PageType, pageName, cmdURL, classNa
 				if pageType == EnumPage && !strings.HasPrefix(pageName, "k") {
 					pageName = "kio-" + pageName
 				}
+			case "extras-kirigami":
+				pageName = "kirigami-platform-" + pageName
 			case "extras-knewstuff":
 				pageName = "knscore-" + pageName
 			case "extras-kparts":

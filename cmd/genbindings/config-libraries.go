@@ -478,6 +478,19 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/kImageAnnotator-Qt6 -I/usr/include/kImageAnnotator-Qt6/kImageAnnotator " + pkgConfigCflags("Qt6Widgets"),
 		},
 
+		// Kirigami & Kirigami Addons
+		// Depends on Qt Core, GUI, QML, Quick, KConfigGui
+		{
+			path: "extras-kirigami",
+			dirs: []string{
+				"/usr/include/KF6/Kirigami/Platform",
+				"/usr/include/KirigamiAddonsStatefulApp",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags: "--std=c++17 -I/usr/include/KF6/Kirigami/Platform -I/usr/include/KirigamiAddonsStatefulApp" +
+				" -I/usr/include/KF6/KConfig -I/usr/include/KF6/KConfigGui " + pkgConfigCflags("Qt6Quick"),
+		},
+
 		// KItemModels
 		// Depends on Qt Core
 		{

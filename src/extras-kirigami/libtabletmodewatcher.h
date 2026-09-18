@@ -1,0 +1,66 @@
+#pragma once
+#ifndef EXTRAS_KIRIGAMI_LIBTABLETMODEWATCHER_H
+#define EXTRAS_KIRIGAMI_LIBTABLETMODEWATCHER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Kirigami__Platform__TabletModeChangedEvent)
+typedef Kirigami::Platform::TabletModeChangedEvent Kirigami__Platform__TabletModeChangedEvent;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Kirigami__Platform__TabletModeWatcher)
+typedef Kirigami::Platform::TabletModeWatcher Kirigami__Platform__TabletModeWatcher;
+#endif
+#else
+typedef struct Kirigami__Platform__TabletModeChangedEvent Kirigami__Platform__TabletModeChangedEvent;
+typedef struct Kirigami__Platform__TabletModeWatcher Kirigami__Platform__TabletModeWatcher;
+typedef struct QEvent QEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+#endif
+
+Kirigami__Platform__TabletModeChangedEvent* Kirigami__Platform__TabletModeChangedEvent_new(bool tablet);
+Kirigami__Platform__TabletModeChangedEvent* Kirigami__Platform__TabletModeChangedEvent_new2(const Kirigami__Platform__TabletModeChangedEvent* param1);
+bool Kirigami__Platform__TabletModeChangedEvent_TabletMode(const Kirigami__Platform__TabletModeChangedEvent* self);
+void Kirigami__Platform__TabletModeChangedEvent_SetTabletMode(Kirigami__Platform__TabletModeChangedEvent* self, bool tabletMode);
+void Kirigami__Platform__TabletModeChangedEvent_OperatorAssign(Kirigami__Platform__TabletModeChangedEvent* self, const Kirigami__Platform__TabletModeChangedEvent* param1);
+void Kirigami__Platform__TabletModeChangedEvent_SetAccepted(Kirigami__Platform__TabletModeChangedEvent* self, bool accepted);
+void Kirigami__Platform__TabletModeChangedEvent_OnSetAccepted(Kirigami__Platform__TabletModeChangedEvent* self, intptr_t slot);
+void Kirigami__Platform__TabletModeChangedEvent_SuperSetAccepted(Kirigami__Platform__TabletModeChangedEvent* self, bool accepted);
+QEvent* Kirigami__Platform__TabletModeChangedEvent_Clone(const Kirigami__Platform__TabletModeChangedEvent* self);
+void Kirigami__Platform__TabletModeChangedEvent_OnClone(const Kirigami__Platform__TabletModeChangedEvent* self, intptr_t slot);
+QEvent* Kirigami__Platform__TabletModeChangedEvent_SuperClone(const Kirigami__Platform__TabletModeChangedEvent* self);
+void Kirigami__Platform__TabletModeChangedEvent_Delete(Kirigami__Platform__TabletModeChangedEvent* self);
+
+QMetaObject* Kirigami__Platform__TabletModeWatcher_MetaObject(const Kirigami__Platform__TabletModeWatcher* self);
+void* Kirigami__Platform__TabletModeWatcher_Metacast(Kirigami__Platform__TabletModeWatcher* self, const char* param1);
+int Kirigami__Platform__TabletModeWatcher_Metacall(Kirigami__Platform__TabletModeWatcher* self, int param1, int param2, void** param3);
+libqt_string Kirigami__Platform__TabletModeWatcher_Tr(const char* s);
+Kirigami__Platform__TabletModeWatcher* Kirigami__Platform__TabletModeWatcher_Self();
+bool Kirigami__Platform__TabletModeWatcher_IsTabletModeAvailable(const Kirigami__Platform__TabletModeWatcher* self);
+bool Kirigami__Platform__TabletModeWatcher_IsTabletMode(const Kirigami__Platform__TabletModeWatcher* self);
+void Kirigami__Platform__TabletModeWatcher_AddWatcher(Kirigami__Platform__TabletModeWatcher* self, QObject* watcher);
+void Kirigami__Platform__TabletModeWatcher_RemoveWatcher(Kirigami__Platform__TabletModeWatcher* self, QObject* watcher);
+void Kirigami__Platform__TabletModeWatcher_TabletModeAvailableChanged(Kirigami__Platform__TabletModeWatcher* self, bool tabletModeAvailable);
+void Kirigami__Platform__TabletModeWatcher_Connect_TabletModeAvailableChanged(Kirigami__Platform__TabletModeWatcher* self, intptr_t slot);
+void Kirigami__Platform__TabletModeWatcher_TabletModeChanged(Kirigami__Platform__TabletModeWatcher* self, bool tabletMode);
+void Kirigami__Platform__TabletModeWatcher_Connect_TabletModeChanged(Kirigami__Platform__TabletModeWatcher* self, intptr_t slot);
+libqt_string Kirigami__Platform__TabletModeWatcher_Tr2(const char* s, const char* c);
+libqt_string Kirigami__Platform__TabletModeWatcher_Tr3(const char* s, const char* c, int n);
+void Kirigami__Platform__TabletModeWatcher_Delete(Kirigami__Platform__TabletModeWatcher* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif
