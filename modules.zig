@@ -93,6 +93,9 @@ pub const modules = &.{
     // Qt 6 kImageAnnotator
     "kImageAnnotator-Qt6",
     "kImageAnnotator-Qt6/kImageAnnotator",
+    // Qt 6 Kirigami & Kirigami Addons
+    "Kirigami/Platform",
+    "KirigamiAddonsStatefulApp",
     // Qt 6 KItemModels
     "KItemModels",
     // Qt 6 KItemViews
