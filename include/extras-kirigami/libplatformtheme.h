@@ -1,0 +1,260 @@
+#pragma once
+#ifndef EXTRAS_KIRIGAMI_LIBPLATFORMTHEME_H
+#define EXTRAS_KIRIGAMI_LIBPLATFORMTHEME_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Kirigami__Platform__PlatformTheme)
+typedef Kirigami::Platform::PlatformTheme Kirigami__Platform__PlatformTheme;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Kirigami__Platform__PlatformThemeChangeTracker)
+typedef Kirigami::Platform::PlatformThemeChangeTracker Kirigami__Platform__PlatformThemeChangeTracker;
+#endif
+#else
+typedef struct Kirigami__Platform__PlatformTheme Kirigami__Platform__PlatformTheme;
+typedef struct Kirigami__Platform__PlatformThemeChangeTracker Kirigami__Platform__PlatformThemeChangeTracker;
+typedef struct QChildEvent QChildEvent;
+typedef struct QColor QColor;
+typedef struct QEvent QEvent;
+typedef struct QFont QFont;
+typedef struct QIcon QIcon;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct QPalette QPalette;
+typedef struct QTimerEvent QTimerEvent;
+#endif
+
+Kirigami__Platform__PlatformTheme* Kirigami__Platform__PlatformTheme_new();
+Kirigami__Platform__PlatformTheme* Kirigami__Platform__PlatformTheme_new2(QObject* parent);
+QMetaObject* Kirigami__Platform__PlatformTheme_MetaObject(const Kirigami__Platform__PlatformTheme* self);
+void* Kirigami__Platform__PlatformTheme_Metacast(Kirigami__Platform__PlatformTheme* self, const char* param1);
+int Kirigami__Platform__PlatformTheme_Metacall(Kirigami__Platform__PlatformTheme* self, int param1, int param2, void** param3);
+libqt_string Kirigami__Platform__PlatformTheme_Tr(const char* s);
+void Kirigami__Platform__PlatformTheme_SetColorSet(Kirigami__Platform__PlatformTheme* self, int colorSet);
+int Kirigami__Platform__PlatformTheme_ColorSet(const Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetColorGroup(Kirigami__Platform__PlatformTheme* self, int colorGroup);
+int Kirigami__Platform__PlatformTheme_ColorGroup(const Kirigami__Platform__PlatformTheme* self);
+bool Kirigami__Platform__PlatformTheme_Inherit(const Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetInherit(Kirigami__Platform__PlatformTheme* self, bool inherit);
+QColor* Kirigami__Platform__PlatformTheme_TextColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_DisabledTextColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_HighlightedTextColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_ActiveTextColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_LinkColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_VisitedLinkColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_NegativeTextColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_NeutralTextColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_PositiveTextColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_BackgroundColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_AlternateBackgroundColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_HighlightColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_ActiveBackgroundColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_LinkBackgroundColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_VisitedLinkBackgroundColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_NegativeBackgroundColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_NeutralBackgroundColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_PositiveBackgroundColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_FocusColor(const Kirigami__Platform__PlatformTheme* self);
+QColor* Kirigami__Platform__PlatformTheme_HoverColor(const Kirigami__Platform__PlatformTheme* self);
+QFont* Kirigami__Platform__PlatformTheme_DefaultFont(const Kirigami__Platform__PlatformTheme* self);
+QFont* Kirigami__Platform__PlatformTheme_SmallFont(const Kirigami__Platform__PlatformTheme* self);
+QPalette* Kirigami__Platform__PlatformTheme_Palette(const Kirigami__Platform__PlatformTheme* self);
+double Kirigami__Platform__PlatformTheme_FrameContrast(const Kirigami__Platform__PlatformTheme* self);
+double Kirigami__Platform__PlatformTheme_LightFrameContrast(const Kirigami__Platform__PlatformTheme* self);
+QIcon* Kirigami__Platform__PlatformTheme_IconFromTheme(Kirigami__Platform__PlatformTheme* self, const libqt_string name, const QColor* customColor);
+bool Kirigami__Platform__PlatformTheme_SupportsIconColoring(const Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomTextColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomDisabledTextColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomHighlightedTextColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomActiveTextColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomLinkColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomVisitedLinkColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomNegativeTextColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomNeutralTextColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomPositiveTextColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomBackgroundColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomAlternateBackgroundColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomHighlightColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomActiveBackgroundColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomLinkBackgroundColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomVisitedLinkBackgroundColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomNegativeBackgroundColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomNeutralBackgroundColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomPositiveBackgroundColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomFocusColor(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetCustomHoverColor(Kirigami__Platform__PlatformTheme* self);
+bool Kirigami__Platform__PlatformTheme_UseAlternateBackgroundColor(const Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_SetUseAlternateBackgroundColor(Kirigami__Platform__PlatformTheme* self, bool alternate);
+Kirigami__Platform__PlatformTheme* Kirigami__Platform__PlatformTheme_QmlAttachedProperties(QObject* object);
+void Kirigami__Platform__PlatformTheme_ColorsChanged(Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_Connect_ColorsChanged(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_DefaultFontChanged(Kirigami__Platform__PlatformTheme* self, const QFont* font);
+void Kirigami__Platform__PlatformTheme_Connect_DefaultFontChanged(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SmallFontChanged(Kirigami__Platform__PlatformTheme* self, const QFont* font);
+void Kirigami__Platform__PlatformTheme_Connect_SmallFontChanged(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_ColorSetChanged(Kirigami__Platform__PlatformTheme* self, int colorSet);
+void Kirigami__Platform__PlatformTheme_Connect_ColorSetChanged(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_ColorGroupChanged(Kirigami__Platform__PlatformTheme* self, int colorGroup);
+void Kirigami__Platform__PlatformTheme_Connect_ColorGroupChanged(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_PaletteChanged(Kirigami__Platform__PlatformTheme* self, const QPalette* pal);
+void Kirigami__Platform__PlatformTheme_Connect_PaletteChanged(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_InheritChanged(Kirigami__Platform__PlatformTheme* self, bool inherit);
+void Kirigami__Platform__PlatformTheme_Connect_InheritChanged(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_UseAlternateBackgroundColorChanged(Kirigami__Platform__PlatformTheme* self, bool alternate);
+void Kirigami__Platform__PlatformTheme_Connect_UseAlternateBackgroundColorChanged(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+bool Kirigami__Platform__PlatformTheme_Event(Kirigami__Platform__PlatformTheme* self, QEvent* event);
+libqt_string Kirigami__Platform__PlatformTheme_Tr2(const char* s, const char* c);
+libqt_string Kirigami__Platform__PlatformTheme_Tr3(const char* s, const char* c, int n);
+void Kirigami__Platform__PlatformTheme_SetCustomTextColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomDisabledTextColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomHighlightedTextColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomActiveTextColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomLinkColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomVisitedLinkColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomNegativeTextColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomNeutralTextColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomPositiveTextColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomBackgroundColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomAlternateBackgroundColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomHighlightColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomActiveBackgroundColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomLinkBackgroundColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomVisitedLinkBackgroundColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomNegativeBackgroundColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomNeutralBackgroundColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomPositiveBackgroundColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomFocusColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetCustomHoverColor1(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnMetaObject(const Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+QMetaObject* Kirigami__Platform__PlatformTheme_SuperMetaObject(const Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_OnMetacast(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void* Kirigami__Platform__PlatformTheme_SuperMetacast(Kirigami__Platform__PlatformTheme* self, const char* param1);
+void Kirigami__Platform__PlatformTheme_OnMetacall(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+int Kirigami__Platform__PlatformTheme_SuperMetacall(Kirigami__Platform__PlatformTheme* self, int param1, int param2, void** param3);
+void Kirigami__Platform__PlatformTheme_OnIconFromTheme(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+QIcon* Kirigami__Platform__PlatformTheme_SuperIconFromTheme(Kirigami__Platform__PlatformTheme* self, const libqt_string name, const QColor* customColor);
+void Kirigami__Platform__PlatformTheme_OnEvent(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+bool Kirigami__Platform__PlatformTheme_SuperEvent(Kirigami__Platform__PlatformTheme* self, QEvent* event);
+bool Kirigami__Platform__PlatformTheme_EventFilter(Kirigami__Platform__PlatformTheme* self, QObject* watched, QEvent* event);
+void Kirigami__Platform__PlatformTheme_OnEventFilter(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+bool Kirigami__Platform__PlatformTheme_SuperEventFilter(Kirigami__Platform__PlatformTheme* self, QObject* watched, QEvent* event);
+void Kirigami__Platform__PlatformTheme_TimerEvent(Kirigami__Platform__PlatformTheme* self, QTimerEvent* event);
+void Kirigami__Platform__PlatformTheme_OnTimerEvent(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperTimerEvent(Kirigami__Platform__PlatformTheme* self, QTimerEvent* event);
+void Kirigami__Platform__PlatformTheme_ChildEvent(Kirigami__Platform__PlatformTheme* self, QChildEvent* event);
+void Kirigami__Platform__PlatformTheme_OnChildEvent(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperChildEvent(Kirigami__Platform__PlatformTheme* self, QChildEvent* event);
+void Kirigami__Platform__PlatformTheme_CustomEvent(Kirigami__Platform__PlatformTheme* self, QEvent* event);
+void Kirigami__Platform__PlatformTheme_OnCustomEvent(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperCustomEvent(Kirigami__Platform__PlatformTheme* self, QEvent* event);
+void Kirigami__Platform__PlatformTheme_ConnectNotify(Kirigami__Platform__PlatformTheme* self, const QMetaMethod* signal);
+void Kirigami__Platform__PlatformTheme_OnConnectNotify(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperConnectNotify(Kirigami__Platform__PlatformTheme* self, const QMetaMethod* signal);
+void Kirigami__Platform__PlatformTheme_DisconnectNotify(Kirigami__Platform__PlatformTheme* self, const QMetaMethod* signal);
+void Kirigami__Platform__PlatformTheme_OnDisconnectNotify(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperDisconnectNotify(Kirigami__Platform__PlatformTheme* self, const QMetaMethod* signal);
+void Kirigami__Platform__PlatformTheme_SetSupportsIconColoring(Kirigami__Platform__PlatformTheme* self, bool support);
+void Kirigami__Platform__PlatformTheme_OnSetSupportsIconColoring(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetSupportsIconColoring(Kirigami__Platform__PlatformTheme* self, bool support);
+void Kirigami__Platform__PlatformTheme_SetTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetTextColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetDisabledTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetDisabledTextColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetDisabledTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetHighlightedTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetHighlightedTextColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetHighlightedTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetActiveTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetActiveTextColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetActiveTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetLinkColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetLinkColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetLinkColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetVisitedLinkColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetVisitedLinkColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetVisitedLinkColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetNegativeTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetNegativeTextColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetNegativeTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetNeutralTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetNeutralTextColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetNeutralTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetPositiveTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetPositiveTextColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetPositiveTextColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetBackgroundColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetAlternateBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetAlternateBackgroundColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetAlternateBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetHighlightColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetHighlightColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetHighlightColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetActiveBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetActiveBackgroundColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetActiveBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetLinkBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetLinkBackgroundColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetLinkBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetVisitedLinkBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetVisitedLinkBackgroundColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetVisitedLinkBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetNegativeBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetNegativeBackgroundColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetNegativeBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetNeutralBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetNeutralBackgroundColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetNeutralBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetPositiveBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetPositiveBackgroundColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetPositiveBackgroundColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetFocusColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetFocusColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetFocusColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetHoverColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_OnSetHoverColor(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetHoverColor(Kirigami__Platform__PlatformTheme* self, const QColor* color);
+void Kirigami__Platform__PlatformTheme_SetDefaultFont(Kirigami__Platform__PlatformTheme* self, const QFont* defaultFont);
+void Kirigami__Platform__PlatformTheme_OnSetDefaultFont(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetDefaultFont(Kirigami__Platform__PlatformTheme* self, const QFont* defaultFont);
+void Kirigami__Platform__PlatformTheme_SetSmallFont(Kirigami__Platform__PlatformTheme* self, const QFont* smallFont);
+void Kirigami__Platform__PlatformTheme_OnSetSmallFont(Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+void Kirigami__Platform__PlatformTheme_SuperSetSmallFont(Kirigami__Platform__PlatformTheme* self, const QFont* smallFont);
+QObject* Kirigami__Platform__PlatformTheme_Sender(const Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_OnSender(const Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+QObject* Kirigami__Platform__PlatformTheme_SuperSender(const Kirigami__Platform__PlatformTheme* self);
+int Kirigami__Platform__PlatformTheme_SenderSignalIndex(const Kirigami__Platform__PlatformTheme* self);
+void Kirigami__Platform__PlatformTheme_OnSenderSignalIndex(const Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+int Kirigami__Platform__PlatformTheme_SuperSenderSignalIndex(const Kirigami__Platform__PlatformTheme* self);
+int Kirigami__Platform__PlatformTheme_Receivers(const Kirigami__Platform__PlatformTheme* self, const char* signal);
+void Kirigami__Platform__PlatformTheme_OnReceivers(const Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+int Kirigami__Platform__PlatformTheme_SuperReceivers(const Kirigami__Platform__PlatformTheme* self, const char* signal);
+bool Kirigami__Platform__PlatformTheme_IsSignalConnected(const Kirigami__Platform__PlatformTheme* self, const QMetaMethod* signal);
+void Kirigami__Platform__PlatformTheme_OnIsSignalConnected(const Kirigami__Platform__PlatformTheme* self, intptr_t slot);
+bool Kirigami__Platform__PlatformTheme_SuperIsSignalConnected(const Kirigami__Platform__PlatformTheme* self, const QMetaMethod* signal);
+void Kirigami__Platform__PlatformTheme_Delete(Kirigami__Platform__PlatformTheme* self);
+
+Kirigami__Platform__PlatformThemeChangeTracker* Kirigami__Platform__PlatformThemeChangeTracker_new(Kirigami__Platform__PlatformTheme* theme);
+Kirigami__Platform__PlatformThemeChangeTracker* Kirigami__Platform__PlatformThemeChangeTracker_new2(const Kirigami__Platform__PlatformThemeChangeTracker* param1);
+Kirigami__Platform__PlatformThemeChangeTracker* Kirigami__Platform__PlatformThemeChangeTracker_new3(Kirigami__Platform__PlatformTheme* theme, uint8_t changes);
+void Kirigami__Platform__PlatformThemeChangeTracker_MarkDirty(Kirigami__Platform__PlatformThemeChangeTracker* self, uint8_t changes);
+void Kirigami__Platform__PlatformThemeChangeTracker_Delete(Kirigami__Platform__PlatformThemeChangeTracker* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

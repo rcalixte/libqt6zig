@@ -1,0 +1,99 @@
+#pragma once
+#ifndef EXTRAS_KIRIGAMI_LIBPLATFORMPLUGINFACTORY_H
+#define EXTRAS_KIRIGAMI_LIBPLATFORMPLUGINFACTORY_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Kirigami__Platform__PlatformPluginFactory)
+typedef Kirigami::Platform::PlatformPluginFactory Kirigami__Platform__PlatformPluginFactory;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Kirigami__Platform__PlatformTheme)
+typedef Kirigami::Platform::PlatformTheme Kirigami__Platform__PlatformTheme;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Kirigami__Platform__Units)
+typedef Kirigami::Platform::Units Kirigami__Platform__Units;
+#endif
+#else
+typedef struct Kirigami__Platform__PlatformPluginFactory Kirigami__Platform__PlatformPluginFactory;
+typedef struct Kirigami__Platform__PlatformTheme Kirigami__Platform__PlatformTheme;
+typedef struct Kirigami__Platform__Units Kirigami__Platform__Units;
+typedef struct QChildEvent QChildEvent;
+typedef struct QEvent QEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct QTimerEvent QTimerEvent;
+#endif
+
+Kirigami__Platform__PlatformPluginFactory* Kirigami__Platform__PlatformPluginFactory_new();
+Kirigami__Platform__PlatformPluginFactory* Kirigami__Platform__PlatformPluginFactory_new2(QObject* parent);
+QMetaObject* Kirigami__Platform__PlatformPluginFactory_MetaObject(const Kirigami__Platform__PlatformPluginFactory* self);
+void* Kirigami__Platform__PlatformPluginFactory_Metacast(Kirigami__Platform__PlatformPluginFactory* self, const char* param1);
+int Kirigami__Platform__PlatformPluginFactory_Metacall(Kirigami__Platform__PlatformPluginFactory* self, int param1, int param2, void** param3);
+libqt_string Kirigami__Platform__PlatformPluginFactory_Tr(const char* s);
+Kirigami__Platform__PlatformTheme* Kirigami__Platform__PlatformPluginFactory_CreatePlatformTheme(Kirigami__Platform__PlatformPluginFactory* self, QObject* parent);
+Kirigami__Platform__Units* Kirigami__Platform__PlatformPluginFactory_CreateUnits(Kirigami__Platform__PlatformPluginFactory* self, QObject* parent);
+Kirigami__Platform__PlatformPluginFactory* Kirigami__Platform__PlatformPluginFactory_FindPlugin();
+libqt_string Kirigami__Platform__PlatformPluginFactory_Tr2(const char* s, const char* c);
+libqt_string Kirigami__Platform__PlatformPluginFactory_Tr3(const char* s, const char* c, int n);
+Kirigami__Platform__PlatformPluginFactory* Kirigami__Platform__PlatformPluginFactory_FindPlugin1(const libqt_string pluginName);
+void Kirigami__Platform__PlatformPluginFactory_OnMetaObject(const Kirigami__Platform__PlatformPluginFactory* self, intptr_t slot);
+QMetaObject* Kirigami__Platform__PlatformPluginFactory_SuperMetaObject(const Kirigami__Platform__PlatformPluginFactory* self);
+void Kirigami__Platform__PlatformPluginFactory_OnMetacast(Kirigami__Platform__PlatformPluginFactory* self, intptr_t slot);
+void* Kirigami__Platform__PlatformPluginFactory_SuperMetacast(Kirigami__Platform__PlatformPluginFactory* self, const char* param1);
+void Kirigami__Platform__PlatformPluginFactory_OnMetacall(Kirigami__Platform__PlatformPluginFactory* self, intptr_t slot);
+int Kirigami__Platform__PlatformPluginFactory_SuperMetacall(Kirigami__Platform__PlatformPluginFactory* self, int param1, int param2, void** param3);
+void Kirigami__Platform__PlatformPluginFactory_OnCreatePlatformTheme(Kirigami__Platform__PlatformPluginFactory* self, intptr_t slot);
+Kirigami__Platform__PlatformTheme* Kirigami__Platform__PlatformPluginFactory_SuperCreatePlatformTheme(Kirigami__Platform__PlatformPluginFactory* self, QObject* parent);
+void Kirigami__Platform__PlatformPluginFactory_OnCreateUnits(Kirigami__Platform__PlatformPluginFactory* self, intptr_t slot);
+Kirigami__Platform__Units* Kirigami__Platform__PlatformPluginFactory_SuperCreateUnits(Kirigami__Platform__PlatformPluginFactory* self, QObject* parent);
+bool Kirigami__Platform__PlatformPluginFactory_Event(Kirigami__Platform__PlatformPluginFactory* self, QEvent* event);
+void Kirigami__Platform__PlatformPluginFactory_OnEvent(Kirigami__Platform__PlatformPluginFactory* self, intptr_t slot);
+bool Kirigami__Platform__PlatformPluginFactory_SuperEvent(Kirigami__Platform__PlatformPluginFactory* self, QEvent* event);
+bool Kirigami__Platform__PlatformPluginFactory_EventFilter(Kirigami__Platform__PlatformPluginFactory* self, QObject* watched, QEvent* event);
+void Kirigami__Platform__PlatformPluginFactory_OnEventFilter(Kirigami__Platform__PlatformPluginFactory* self, intptr_t slot);
+bool Kirigami__Platform__PlatformPluginFactory_SuperEventFilter(Kirigami__Platform__PlatformPluginFactory* self, QObject* watched, QEvent* event);
+void Kirigami__Platform__PlatformPluginFactory_TimerEvent(Kirigami__Platform__PlatformPluginFactory* self, QTimerEvent* event);
+void Kirigami__Platform__PlatformPluginFactory_OnTimerEvent(Kirigami__Platform__PlatformPluginFactory* self, intptr_t slot);
+void Kirigami__Platform__PlatformPluginFactory_SuperTimerEvent(Kirigami__Platform__PlatformPluginFactory* self, QTimerEvent* event);
+void Kirigami__Platform__PlatformPluginFactory_ChildEvent(Kirigami__Platform__PlatformPluginFactory* self, QChildEvent* event);
+void Kirigami__Platform__PlatformPluginFactory_OnChildEvent(Kirigami__Platform__PlatformPluginFactory* self, intptr_t slot);
+void Kirigami__Platform__PlatformPluginFactory_SuperChildEvent(Kirigami__Platform__PlatformPluginFactory* self, QChildEvent* event);
+void Kirigami__Platform__PlatformPluginFactory_CustomEvent(Kirigami__Platform__PlatformPluginFactory* self, QEvent* event);
+void Kirigami__Platform__PlatformPluginFactory_OnCustomEvent(Kirigami__Platform__PlatformPluginFactory* self, intptr_t slot);
+void Kirigami__Platform__PlatformPluginFactory_SuperCustomEvent(Kirigami__Platform__PlatformPluginFactory* self, QEvent* event);
+void Kirigami__Platform__PlatformPluginFactory_ConnectNotify(Kirigami__Platform__PlatformPluginFactory* self, const QMetaMethod* signal);
+void Kirigami__Platform__PlatformPluginFactory_OnConnectNotify(Kirigami__Platform__PlatformPluginFactory* self, intptr_t slot);
+void Kirigami__Platform__PlatformPluginFactory_SuperConnectNotify(Kirigami__Platform__PlatformPluginFactory* self, const QMetaMethod* signal);
+void Kirigami__Platform__PlatformPluginFactory_DisconnectNotify(Kirigami__Platform__PlatformPluginFactory* self, const QMetaMethod* signal);
+void Kirigami__Platform__PlatformPluginFactory_OnDisconnectNotify(Kirigami__Platform__PlatformPluginFactory* self, intptr_t slot);
+void Kirigami__Platform__PlatformPluginFactory_SuperDisconnectNotify(Kirigami__Platform__PlatformPluginFactory* self, const QMetaMethod* signal);
+QObject* Kirigami__Platform__PlatformPluginFactory_Sender(const Kirigami__Platform__PlatformPluginFactory* self);
+void Kirigami__Platform__PlatformPluginFactory_OnSender(const Kirigami__Platform__PlatformPluginFactory* self, intptr_t slot);
+QObject* Kirigami__Platform__PlatformPluginFactory_SuperSender(const Kirigami__Platform__PlatformPluginFactory* self);
+int Kirigami__Platform__PlatformPluginFactory_SenderSignalIndex(const Kirigami__Platform__PlatformPluginFactory* self);
+void Kirigami__Platform__PlatformPluginFactory_OnSenderSignalIndex(const Kirigami__Platform__PlatformPluginFactory* self, intptr_t slot);
+int Kirigami__Platform__PlatformPluginFactory_SuperSenderSignalIndex(const Kirigami__Platform__PlatformPluginFactory* self);
+int Kirigami__Platform__PlatformPluginFactory_Receivers(const Kirigami__Platform__PlatformPluginFactory* self, const char* signal);
+void Kirigami__Platform__PlatformPluginFactory_OnReceivers(const Kirigami__Platform__PlatformPluginFactory* self, intptr_t slot);
+int Kirigami__Platform__PlatformPluginFactory_SuperReceivers(const Kirigami__Platform__PlatformPluginFactory* self, const char* signal);
+bool Kirigami__Platform__PlatformPluginFactory_IsSignalConnected(const Kirigami__Platform__PlatformPluginFactory* self, const QMetaMethod* signal);
+void Kirigami__Platform__PlatformPluginFactory_OnIsSignalConnected(const Kirigami__Platform__PlatformPluginFactory* self, intptr_t slot);
+bool Kirigami__Platform__PlatformPluginFactory_SuperIsSignalConnected(const Kirigami__Platform__PlatformPluginFactory* self, const QMetaMethod* signal);
+void Kirigami__Platform__PlatformPluginFactory_Delete(Kirigami__Platform__PlatformPluginFactory* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif
