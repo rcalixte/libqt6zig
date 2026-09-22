@@ -49,6 +49,8 @@ pub const modules = &.{
     "QtUiTools",
     // Qt 6 Designer
     "QtDesigner",
+    // Qt 6 Virtual Keyboard
+    "QtVirtualKeyboard",
     // Qt 6 WebChannel
     "QtWebChannel",
     "QtWebChannelQuick",
