@@ -891,6 +891,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Charts"),
 		},
 
+		// Qt 6 Virtual Keyboard
+		// Depends on Qt Core, GUI, QML
+		{
+			path: "restricted-extras-virtualkeyboard",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtVirtualKeyboard",
+			},
+			allowHeader: ExceptHeaders("qvirtualkeyboard_namespace.h"),
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6VirtualKeyboard"),
+		},
+
 		// QCustomPlot
 		// Depends on Qt Core, GUI, Widgets
 		{
