@@ -87,6 +87,8 @@ nextTopLevel:
 				panic(err)
 			}
 
+			obj.HasQObjectMacro = hasQ_OBJECTMacro(node)
+
 			ret.Classes = append(ret.Classes, obj)
 
 		case "StaticAssertDecl":
@@ -1598,4 +1600,52 @@ func addMethodToClass(classes *[]CppClass, className string, method CppMethod) e
 		IsFreeFunctions: method.IsFreeFunction,
 	})
 	return nil
+}
+
+func hasQ_OBJECTMacro(node map[string]any) bool {
+	inner, ok := node["inner"].([]any)
+	if !ok {
+		return false
+	}
+
+	var haveMetacast, haveMetacall bool
+
+	for i := range inner {
+		c, ok := inner[i].(map[string]any)
+		if !ok {
+			continue
+		}
+
+		if kind, _ := c["kind"].(string); kind != "CXXMethodDecl" {
+			continue
+		}
+		if virt, _ := c["virtual"].(bool); !virt {
+			continue
+		}
+		if !isMacroExpanded(c) {
+			continue
+		}
+
+		switch name, _ := c["name"].(string); name {
+		case "qt_metacast":
+			haveMetacast = true
+		case "qt_metacall":
+			haveMetacall = true
+		}
+
+		if haveMetacast && haveMetacall {
+			return true
+		}
+	}
+
+	return false
+}
+
+func isMacroExpanded(node map[string]any) bool {
+	loc, ok := node["loc"].(map[string]any)
+	if !ok {
+		return false
+	}
+	_, ok = loc["expansionLoc"]
+	return ok
 }
