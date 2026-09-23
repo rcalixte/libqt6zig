@@ -2626,15 +2626,17 @@ const qtc = @import("qt6c");`)
 			}
 			overrideTr := (m.MethodName == "tr" || m.OverrideMethodName == "tr") && zigStructName != "QMetaObject"
 			cmdStructName := zigStructName
-			var inheritedFrom string
+			var inheritedFrom, inheritedParentClass string
 			switch {
 			case overrideTr:
 				inheritedFrom = "\n/// Inherited from QObject\n///"
 			case m.InheritedFrom != "":
 				cmdStructName = cabiClassName(m.InheritedFrom)
 				inheritedFrom = "\n/// Inherited from " + m.InheritedFrom + "\n///"
+				inheritedParentClass = m.InheritedFrom
 			case m.InheritedInClass != "" && m.InheritedInClass != c.ClassName:
 				inheritedFrom = "\n/// Inherited from " + m.InheritedInClass + "\n///"
+				inheritedParentClass = m.InheritedInClass
 			}
 
 			maybePlatformCompileError := ""
@@ -2771,12 +2773,10 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 
 			// Add Connect() wrappers for signal functions
 			if m.IsSignal && !m.IsProtected {
-				addConnect := true
-				if _, ok := noQtConnect[cmdStructName]; ok {
-					addConnect = false
-				}
-				if slices.Contains(unmatchedQtConnect, cmdStructName+"_"+mSafeMethodName) {
-					addConnect = false
+				addConnect := c.HasQObjectMacro
+				if inheritedFrom != "" {
+					parentInfo := KnownClassnames[inheritedParentClass]
+					addConnect = parentInfo.Class.HasQObjectMacro
 				}
 
 				maybeComma = ifv(len(m.Parameters) != 0, ", ", "")
